@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "Smoke.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.5708691319999843,
+  "user_seconds": 1.135702,
+  "system_seconds": 0.42309399999999997,
+  "max_rss_kib": 1022016
+}
