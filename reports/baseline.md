@@ -104,22 +104,32 @@ record it before editing any proof. Save the successful KL logs and axiom closur
 in a follow-up commit. No saved environment UI configuration was changed or
 verified by this task; the tested setup/maintenance commands are in the README.
 
-## Publication blocker
+## Authorization and cache retest — 2026-10-19 07:30 UTC
 
-The deliverable is committed locally on `codex/kl-baseline`. The working tree is
-clean. `git push -u origin codex/kl-baseline` failed with HTTP 403, permission
-denied. The connected GitHub app could read repository metadata (which reported
-`push: true`), but its attempt to initialize `LICENSE` failed with HTTP 403,
-`Resource not accessible by integration`. No remote file, branch or PR was
-created. These were GitHub authorization failures, not auto-review rejections.
-Repository Contents write permission must be granted to the task's GitHub
-integration/credential before publication. Then run:
+After the user added both cache hosts and approved repository publication, each
+cache URL was tested once again in this existing task. Both returned HTTP 403,
+`server: envoy`, `connection: close`, and a 16-byte text response. The exact
+URLs were:
 
-```bash
-git push -u origin codex/kl-baseline
-```
+- `https://cache.mathlib.org/mathlib4-master/f/35d01d0e1a918f6e.ltar`
+- `https://lakecache.blob.core.windows.net/mathlib4-master/f/35d01d0e1a918f6e.ltar`
 
-The repository was empty, so there is no existing default-branch history for a
-PR base. Publishing this focused initial branch is sufficient; no merge was
-performed. A self-contained local Git bundle is saved under
-`results/lean-lab-baseline.bundle` for transferring the commit if needed.
+Response headers are preserved in `reports/evidence/cache-retest.headers` and
+`cache-fallback-retest.headers`. The new allowlist is not effective in this
+running task. This may require a fresh task to receive the saved environment
+changes; the cause cannot be confirmed from this worker. No alternate route or
+full source build was attempted. KL compilation and the axiom audit remain
+blocked at the unchanged dependency-readiness stage.
+
+GitHub app write authorization now works: the minimal default-branch README
+bootstrap is commit `58685d7d8fd726401a084039a7104bd5f965cb6d`. The prepared local
+baseline was applied on top of it to branch `codex/kl-baseline-review`, resolving
+the expected README add/add conflict by retaining the complete lab README.
+This gives the review branch a valid PR base without merging the deliverable.
+
+The original complete recovery bundle remains unchanged at
+`results/lean-lab-baseline.bundle`, containing commit
+`ef2fb63a31c610751e2bd5653f1269b247ea0ec5`. Its SHA-256 is
+`4ce8764d562b7e02a31bedc122e5db86cc1666900d78aedf895c5375d6489105`.
+The earlier HTTP 403 Git push/app failures were authorization errors, not
+approval-review rejections. Current publication results are recorded in the PR.
