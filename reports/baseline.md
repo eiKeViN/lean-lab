@@ -10,8 +10,9 @@ passed in **4.398 s** while skipping cache network access.
 
 See [fresh-task commands, versions, timings, script fixes and evidence](fresh-task.md).
 The earlier 403 blocker below is historical and no longer applies in this worker.
-PR #1 was already merged before this follow-up; new work is retained locally for
-parent-coordinated publication. This task did not merge or update the closed PR.
+PR #1 was already merged before this follow-up. The user subsequently authorized
+direct publication of these baseline fixes and records to `main`, without a new PR.
+This task did not merge or update the closed PR.
 
 ## Historical blocked-worker record
 

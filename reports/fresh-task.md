@@ -93,9 +93,12 @@ Read-only GitHub and Git transport checks found PR #1 already merged at
 2026-10-19 07:32:21 UTC, merge commit `2e4ef72407451f47da1b3bf1d4ad2344b2840aab`.
 Fetched current main has the same tree as the reviewed head
 `a3ffb84dff9f5e5c84a723b6fd0cf5225f5e684d`. This task did not merge it.
-Following the updated instruction, follow-up work is local on
-`codex/kl-cache-verification`, based on that main commit. No closed-PR update,
-new PR, or push has been performed. Parent coordination is required for publication.
+The verified follow-up was saved as commit
+`1d3e57e256c8a8698b0f6dcf42b397d0d0ba5a96` on
+`codex/kl-cache-verification`, based on that main commit. The user then explicitly
+authorized direct publication to `main` on 2026-10-19 at 08:07 UTC. Publication
+uses a normal fast-forward push after checking current remote main; no new PR
+or update to the closed PR is involved.
 Only lean-lab was modified; no preserved upstream lakefile was executed.
 
 Tested setup/maintenance command for the saved environment UI:
@@ -114,4 +117,6 @@ this fresh checkout; same-worker reuse works. Final footprint: about 4.0 GiB in
 Comparator equivalence and an independent kernel checker remain outside these checks.
 
 There are no remaining network, KL compilation, or axiom-audit blockers in this worker.
-Publication is intentionally pending parent coordination after the PR merge.
+The approved publication destination is `eiKeViN/lean-lab` main. Saved environment
+UI setup/maintenance values still require the command above to be pasted if not
+already configured; this task cannot inspect or change those saved UI values.
