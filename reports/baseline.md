@@ -1,13 +1,28 @@
 # Baseline evidence — 2026-10-19
 
-## Outcome
+## Current verified result — fresh worker
+
+The documented cache GET now returns **HTTP 200**. Full pinned setup restored
+8908 artifacts; all **34 unchanged KL modules compile successfully** (1210.827 s).
+The main theorem's axiom closure is exactly **propext, Classical.choice, Quot.sound**;
+the explicit allowlist passed. Warm KL build passed in **3.398 s**, and warm setup
+passed in **4.398 s** while skipping cache network access.
+
+See [fresh-task commands, versions, timings, script fixes and evidence](fresh-task.md).
+The earlier 403 blocker below is historical and no longer applies in this worker.
+PR #1 was already merged before this follow-up; new work is retained locally for
+parent-coordinated publication. This task did not merge or update the closed PR.
+
+## Historical blocked-worker record
+
+### Outcome
 
 Environment and small mathlib smoke check succeeded. **Compilation of all 34 KL
 modules and the main theorem, and its recursive axiom audit, remain unverified.**
 The blocker is official mathlib binary-cache access, not a demonstrated source
 failure. No proof bodies or mathematical statements were changed.
 
-## Executed checks
+### Executed checks
 
 | Check | Observed result |
 | --- | --- |
@@ -35,7 +50,7 @@ elaboration timings are both after dependency compilation; neither is a claimed
 cold-install timing. Peak RSS is OS child-process maximum, not aggregate memory
 across parallel workers. Raw selected logs/JSON are in [evidence/](evidence/).
 
-## Download and integration details
+### Download and integration details
 
 1. Cloned combkl into ignored `.cache/combkl` and checked out
    `70211c3350c1f203aa8f52f1809e57d7ae93ba78`. Inspected its instructions and source
@@ -70,7 +85,7 @@ pre-existing Lean installations or dependency caches in the inspected locations.
 The worker had a 4-CPU cgroup quota (`400000 100000`), 16 GiB memory limit
 (`17179869184`), and roughly 30 GiB initially available filesystem space.
 
-## Theorem and assumptions
+### Theorem and assumptions
 
 The exact implementation theorem is
 `OAI.KLInvariance.combinatorial_invariance`, in `Invariance.lean`, line 547.
@@ -86,7 +101,7 @@ is still unknown from this run.** `Audit.lean` and the allowlist check are ready
 but neither compilation nor `#print axioms` has succeeded for the theorem yet.
 No independent checker or comparator equivalence run was performed.
 
-## Remaining steps
+### Remaining steps
 
 Enable official mathlib-cache access in the saved cloud environment's network
 policy, then run from the lab root:
@@ -104,7 +119,7 @@ record it before editing any proof. Save the successful KL logs and axiom closur
 in a follow-up commit. No saved environment UI configuration was changed or
 verified by this task; the tested setup/maintenance commands are in the README.
 
-## Authorization and cache retest — 2026-10-19 07:30 UTC
+### Authorization and cache retest — 2026-10-19 07:30 UTC
 
 After the user added both cache hosts and approved repository publication, each
 cache URL was tested once again in this existing task. Both returned HTTP 403,

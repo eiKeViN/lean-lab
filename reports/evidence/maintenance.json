@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/setup.sh && bash scripts/check.sh smoke smoke-maintenance"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 5.272705288999987,
+  "user_seconds": 4.865541,
+  "system_seconds": 2.6869870000000002,
+  "max_rss_kib": 991012
+}

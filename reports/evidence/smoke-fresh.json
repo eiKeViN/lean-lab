@@ -1,0 +1,12 @@
+{
+  "command": [
+    "lake",
+    "build",
+    "Smoke"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.4441201690000298,
+  "user_seconds": 0.942596,
+  "system_seconds": 0.42621499999999996,
+  "max_rss_kib": 1030012
+}

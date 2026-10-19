@@ -1,0 +1,11 @@
+{
+  "command": [
+    "bash",
+    "scripts/setup.sh"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 528.803675726,
+  "user_seconds": 113.469304,
+  "system_seconds": 110.669668,
+  "max_rss_kib": 994676
+}

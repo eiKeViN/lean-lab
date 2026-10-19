@@ -1,0 +1,33 @@
+theorem OAI.KLInvariance.combinatorial_invariance.{u, v, u', v'} : ∀ {B : Type u} {W : Type v} [inst : Group W]
+  {M : CoxeterMatrix B} {B' : Type u'} {W' : Type v'} [inst_1 : Group W'] {M' : CoxeterMatrix B'}
+  (cs : CoxeterSystem M W) (cs' : CoxeterSystem M' W') {u b : W} {u' b' : W'},
+  OAI.KLInvariance.BruhatLE cs u b →
+    OAI.KLInvariance.BruhatLE cs' u' b' →
+      ∀ (ι : OAI.KLInvariance.Interval cs u b ≃o OAI.KLInvariance.Interval cs' u' b'),
+        OAI.KLInvariance.klPolynomial cs u b = OAI.KLInvariance.klPolynomial cs' u' b' :=
+fun {B} {W} [Group W] {M} {B'} {W'} [Group W'] {M'} cs cs' {u b} {u' b'} hub hub' ι =>
+  Nonempty.casesOn (OAI.KLInvariance.exists_finiteIntervalModel cs u b hub) fun F =>
+    Nonempty.casesOn (OAI.KLInvariance.exists_finiteIntervalModel cs' u' b' hub') fun F' =>
+      let this := F.finite.fintype;
+      let this_1 := F'.finite.fintype;
+      let basis :=
+        Module.Free.chooseBasis ℝ
+          (OAI.KLInvariance.TitsSpace.Extended (OAI.KLInvariance.StandardParabolic.matrix F.indices));
+      let basis' :=
+        Module.Free.chooseBasis ℝ
+          (OAI.KLInvariance.TitsSpace.Extended (OAI.KLInvariance.StandardParabolic.matrix F'.indices));
+      Eq.mpr
+        (id
+          (congrArg (fun _a => _a = OAI.KLInvariance.klPolynomial cs' u' b')
+            (Eq.symm (OAI.KLInvariance.FiniteIntervalModel.kl_eq F))))
+        (Eq.mpr
+          (id
+            (congrArg
+              (fun _a =>
+                OAI.KLInvariance.klPolynomial (OAI.KLInvariance.StandardParabolic.system F.indices) F.lower F.upper =
+                  _a)
+              (Eq.symm (OAI.KLInvariance.FiniteIntervalModel.kl_eq F'))))
+          (OAI.KLInvariance.BruhatGraph.klPolynomial_invariance_finite basis basis' F.lower F.upper F'.lower F'.upper
+            (OAI.KLInvariance.FiniteIntervalModel.bruhat F hub) (OAI.KLInvariance.FiniteIntervalModel.bruhat F' hub')
+            ((F.orderIso.trans ι).trans F'.orderIso.symm)))
+'OAI.KLInvariance.combinatorial_invariance' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "curl",
+    "--fail",
+    "--silent",
+    "--show-error",
+    "--location",
+    "--max-time",
+    "20",
+    "--dump-header",
+    "reports/evidence/cache-fresh-task-probe.headers",
+    "https://cache.mathlib.org/mathlib4-master/f/35d01d0e1a918f6e.ltar",
+    "-o",
+    "/dev/null"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.39319173500000204,
+  "user_seconds": 0.0059889999999999995,
+  "system_seconds": 0.016063,
+  "max_rss_kib": 10112
+}

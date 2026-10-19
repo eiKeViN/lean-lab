@@ -37,8 +37,5 @@ lake --version
 lake env lean --version
 if [[ "$project" == experiments/kl ]]; then python3 "$LAB_ROOT/scripts/verify.py"; fi
 if [[ "${SKIP_CACHE:-0}" != 1 ]]; then
-  # Fail promptly on network policy blocks rather than retrying thousands of files.
-  curl --fail --silent --show-error --location --max-time 20 \
-    https://cache.mathlib.org/mathlib4-master/f/35d01d0e1a918f6e.ltar -o /dev/null
-  lake exe cache get Mathlib
+  bash "$LAB_ROOT/scripts/cache.sh"
 fi

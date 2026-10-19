@@ -20,10 +20,13 @@ if [[ "$mode" == audit ]]; then
   python3 - "$LAB_ROOT/results/$label.log" <<'PY'
 import re,sys
 text=open(sys.argv[1]).read()
-m=re.search(r"depends on axioms:\s*\[([^]]*)\]", text)
-assert m, 'No axiom output found'
-actual={a.strip() for a in m[1].split(',') if a.strip()}
-assert actual <= {'propext', 'Quot.sound', 'Classical.choice'}, actual
+matches=re.findall(r"'OAI\.KLInvariance\.combinatorial_invariance' depends on axioms:\s*\[([^]]*)\]", text)
+if len(matches) != 1:
+    sys.exit('Expected exactly one axiom closure for the main theorem')
+actual={a.strip() for a in matches[0].split(',') if a.strip()}
+unexpected=actual - {'propext', 'Quot.sound', 'Classical.choice'}
+if unexpected:
+    sys.exit('Disallowed axioms: '+', '.join(sorted(unexpected)))
 print('Axiom allowlist passed:', sorted(actual))
 PY
 fi

@@ -1,0 +1,1 @@
+Passed: axiom/source rejection with PYTHONOPTIMIZE=0/1; warm cache skips network; failed or incomplete cache fails closed.

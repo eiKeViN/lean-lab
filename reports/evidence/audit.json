@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "Audit.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.2993950439999935,
+  "user_seconds": 2.811215,
+  "system_seconds": 1.491879,
+  "max_rss_kib": 7400332
+}
