@@ -7584,5 +7584,6 @@
       "new": "local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidableEq_oAI_1 (a : Type*) : DecidableEq a := Classical.decEq a\n",
       "name": "OAI.KLInvariance.BruhatGraph.instDecidableEq_oAI_1"
     }
-  ]
+  ],
+  "expected_public_count": 3902
 }

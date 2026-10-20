@@ -1,8 +1,10 @@
 {
-  "exporter_sha256": "67fc53884ff2f77eb820e6ce0cb1265c6fa420a5a4833dfd4d752c98b646bda6",
+  "exporter_sha256": "c00f1e4da2861807282bf74b2d9cef900d09659238a9223b141812a2f2eddb0c",
   "normalization": "alpha binder display names, private OAI owner prefixes (injective), kernel proof propositions for local internal theorem auxiliaries; binder implicitness ignored only inside these proof propositions; unique global environment projection with identical serialization copies checked",
+  "private_canonical_rewrites": [],
+  "public_count": 3902,
   "reference_commit": "7ddc53ba8a09ed902fefff86e67a87217518c1d4",
-  "schema": 2,
+  "schema": 3,
   "types": {
     "CoxeterMatrix.mk.congr_simp": {
       "kind": "theorem",

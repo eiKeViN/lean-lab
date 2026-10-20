@@ -9,6 +9,7 @@ structure TypeDumpState where
   next : Nat := 0
   privateOwners : Std.HashMap Name Name := {}
   proofAliases : NameHashSet := {}
+  unrenamed : NameHashSet := {}
 
 -- Alpha equivalence ignores binder display names. Only compiler-private OAI
 -- owner prefixes are erased from constant names; their user names stay exact.
@@ -48,6 +49,8 @@ partial def dumpType (env : Environment) (out : IO.FS.Handle) (e : Expr)
       else
         let canonical := canonicalConstant n
         if canonical != n then
+          if env.contains canonical then
+            throw <| IO.userError "Private canonical name collides with an unrenamed global constant"
           if let some previous := (← get).privateOwners[canonical]? then
             if previous != n then throw <| IO.userError "Ambiguous private type constant"
           modify fun st => { st with privateOwners := st.privateOwners.insert canonical n }
@@ -67,6 +70,12 @@ partial def dumpType (env : Environment) (out : IO.FS.Handle) (e : Expr)
       pure ["proj", reprStr n, toString i, toString b]
     | .fvar _ | .mvar _ => throw <| IO.userError "Non-closed declaration type"
     | .mdata _ _ => unreachable!
+  match e with
+  | .const n _ =>
+    if fields.head! == "const" && canonicalConstant n == n then
+      modify fun st => { st with unrenamed := st.unrenamed.insert n }
+  | .proj n _ _ => modify fun st => { st with unrenamed := st.unrenamed.insert n }
+  | _ => pure ()
   let state : TypeDumpState ← get
   if proofContext then
     set { state with proofIds := state.proofIds.insert (ExprStructEq.mk e) state.next, next := state.next+1 }
@@ -81,11 +90,65 @@ private def declarationKind : ConstantInfo → String
   | .quotInfo _ => "quotient" | .inductInfo _ => "inductive"
   | .ctorInfo _ => "constructor" | .recInfo _ => "recursor"
 
+-- This experiment accepts duplicate serialized theorem records only.
+-- Other ConstantInfo variants fail closed; their safety/hints are not omitted
+-- from a purported full-record comparison. ExprStructEq retains binder names
+-- and annotations, unlike BEq Expr (Expr.eqv).
+private def sameSerializedTheorem (a b : ConstantInfo) : Bool :=
+  match a, b with
+  | .thmInfo a, .thmInfo b =>
+    a.name == b.name && a.levelParams == b.levelParams &&
+      ExprStructEq.mk a.type == ExprStructEq.mk b.type &&
+      ExprStructEq.mk a.value == ExprStructEq.mk b.value && a.all == b.all
+  | _, _ => false
+
+run_elab do
+  let ty := Expr.forallE `p (.sort .zero)
+    (.forallE `h (.bvar 0) (.bvar 1) .default) .default
+  let value := Expr.lam `p (.sort .zero)
+    (.lam `h (.bvar 0) (.bvar 0) .default) .default
+  let base : TheoremVal := { name := `SerializationProbe, levelParams := [], type := ty, value := value }
+  let renamedTy := Expr.forallE `q (.sort .zero)
+    (.forallE `h (.bvar 0) (.bvar 1) .default) .default
+  let renamedValue := Expr.lam `q (.sort .zero)
+    (.lam `h (.bvar 0) (.bvar 0) .default) .default
+  unless ty == renamedTy && value == renamedValue do
+    throwError "Expected alpha-equivalent controls for the previous BEq Expr guard"
+  unless sameSerializedTheorem (.thmInfo base) (.thmInfo base) do
+    throwError "Identical theorem record rejected"
+  let cases : Array ConstantInfo := #[
+    .thmInfo { base with type := renamedTy },
+    .thmInfo { base with value := renamedValue },
+    .thmInfo { base with type := .mdata {} ty },
+    .thmInfo { base with value := .mdata {} value },
+    .thmInfo { base with name := `Other },
+    .thmInfo { base with levelParams := [`u] },
+    .thmInfo { base with all := [`Other] },
+    .thmInfo { base with type := (.forallE `p (.sort .zero)
+      (.forallE `h (.bvar 0) (.bvar 1) .default) .implicit) }]
+  for candidate in cases do
+    if sameSerializedTheorem (.thmInfo base) candidate then
+      throwError "Changed serialized theorem record accepted"
+  let safeDef : DefinitionVal := {
+    name := base.name
+    levelParams := []
+    type := ty
+    value := value
+    hints := .opaque
+    safety := .safe }
+  let unsafeDef := { safeDef with safety := DefinitionSafety.«unsafe» }
+  let abbrevDef := { safeDef with hints := ReducibilityHints.abbrev }
+  for candidate in #[safeDef, unsafeDef, abbrevDef] do
+    if sameSerializedTheorem (.defnInfo safeDef) (.defnInfo candidate) then
+      throwError "Unsupported definition duplicate accepted"
+  IO.println "Serialization guard: identical record and alpha controls accepted; 8 theorem mutations and 3 unsupported definition cases rejected."
+
 run_elab do
   let env ← getEnv
   let some path ← IO.getEnv "LEAN_TYPES_OUT" | throwError "Set LEAN_TYPES_OUT"
   let out ← IO.FS.Handle.mk (System.FilePath.mk path) .write
   let action : StateT TypeDumpState IO Unit := do
+    out.putStrLn "FORMAT\tkl-public-types-v3"
     let mut seen : Std.HashMap Name ConstantInfo := {}
     let mut duplicates := 0
     for idx in [:env.header.moduleData.size] do
@@ -94,10 +157,8 @@ run_elab do
         for info in env.header.moduleData[idx]!.constants do
           if !isPrivateName info.name && !info.name.isInternal then
             if let some previous := seen[info.name]? then
-              -- A lazy equation can be serialized by two import branches.
-              -- Check the complete duplicate record; never silently discard it.
-              unless info.type == previous.type && info.levelParams == previous.levelParams &&
-                  declarationKind info == declarationKind previous && info.value? true == previous.value? true do
+              -- Only complete, structurally identical theorem records are accepted.
+              unless sameSerializedTheorem info previous do
                 throw <| IO.userError s!"Conflicting serialized declaration: {info.name}"
               duplicates := duplicates + 1
               out.putStrLn s!"SERIALIZED_COPY\t{info.name}\t{moduleName}"
@@ -109,7 +170,13 @@ run_elab do
             let id ← dumpType env out actual.type
             out.putStrLn s!"TYPE\t{actual.name}\t{(toJson (reprStr actual.levelParams)).compress}\t{id}\t{declarationKind actual}"
     for n in (← get).proofAliases.toArray do out.putStrLn s!"PROOF_ALIAS\t{n}"
-    out.putStrLn s!"SUMMARY\t{seen.size}\t{duplicates}\t{(← get).proofAliases.size}"
+    let state ← get
+    for (canonical, original) in state.privateOwners.toList do
+      if state.unrenamed.contains canonical || env.contains canonical then
+        throw <| IO.userError "Private/public canonical-name collision"
+      out.putStrLn s!"PRIVATE_CANONICAL\t{original}\t{canonical}"
+    out.putStrLn s!"PRIVATE_SUMMARY\t{state.privateOwners.size}\t{state.unrenamed.size}\t0\t0"
+    out.putStrLn s!"SUMMARY\t{seen.size}\t{duplicates}\t{state.proofAliases.size}"
   discard <| action.run {}
   out.flush
   IO.println "Unique global public types exported with checked serialization copies and compiler-proof propositions."

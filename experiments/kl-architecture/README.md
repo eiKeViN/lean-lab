@@ -51,14 +51,15 @@ source commit and exporter hash, so future workers need not build two libraries.
 This round also checks that snapshot against the live warm reference. Type
 comparison preserves public names, kinds, universes, binder implicitness,
 expression constructors and de Bruijn indices. It ignores binder display names,
-expression metadata and injectively mapped compiler-private OAI owner prefixes.
+expression metadata. Candidate compiler-private OAI owner rewriting is injective,
+but this experiment requires both actual rewrite maps to be empty.
 For a local internal `_proof_` auxiliary whose ConstantInfo is a kernel theorem,
 it retains the full proposition and uses proof irrelevance; binder metadata is
 ignored only inside that proposition. Ordinary definitions, data instances and
 user theorems are never unfolded or collapsed. Separate expression caches and a
-DAG scope check prevent this rule from leaking into public binders. Identical
+DAG scope check prevent this rule from leaking into public binders. Only structurally identical theorem
 lazy-equation serialization copies are checked before projecting the unique
-global environment. The prior strict comparator remains untouched. Fourteen
+global environment. The prior strict comparator remains untouched. Thirty-one
 adversarial tests reject changed mathematical expressions and scope leaks.
 
 Full-library compilation, independent import checks, inherited checks, sixteen
@@ -81,3 +82,19 @@ The core graph is in [DEPENDENCIES.svg](DEPENDENCIES.svg) (195 nodes, imported
 module → consumer) and [DEPENDENCIES.dot](DEPENDENCIES.dot). Reproduce size and
 closure evidence with `python3 experiments/kl-architecture/analyze.py` from the
 lab root; Graphviz is optional and is not required for Lean validation.
+
+Reviewed fail-closed export format: a versioned FORMAT header and terminal SUMMARY
+are mandatory; the loader checks nonempty exports and all footer counts. CLI,
+runner and reference snapshot independently require 3902 public declarations.
+Only duplicate theorem records are supported, comparing all TheoremVal fields
+with structural Expr equality. Other duplicate ConstantInfo kinds are rejected.
+Actual private-to-canonical rewrite maps were empty in both environments; the
+exporter also rejects collisions with unrenamed global constants.
+
+The reader rejects nonempty private rewrite maps, including in the reference
+snapshot. The cross-environment union of actual private canonical names is empty;
+the union of unrenamed constant names contains 1899 names, so their intersection
+is empty. This does not claim that the entire Lean environment has no private
+declarations. The report records the `Data/Polynomial` directory naming debt
+relative to pinned Mathlib’s `Algebra/Polynomial`; no path change is included
+in this verification-only revision.

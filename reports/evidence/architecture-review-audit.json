@@ -1,0 +1,34 @@
+{
+  "scope": "Actual mappings and unrenamed names visited by the final public-type exporter, including compiler-proof proposition traversal; not a list of all private declarations in the environment.",
+  "reference": {
+    "private_to_canonical": [],
+    "unrenamed_constant_name_count": 1899,
+    "intersection_with_emitted_unrenamed": [],
+    "intersection_with_all_global_unrenamed": []
+  },
+  "migrated": {
+    "private_to_canonical": [],
+    "unrenamed_constant_name_count": 1899,
+    "intersection_with_emitted_unrenamed": [],
+    "intersection_with_all_global_unrenamed": []
+  },
+  "duplicate": {
+    "name": "OAI.KLInvariance.rankDifference.eq_1",
+    "kind": "theorem",
+    "type_expr_eqv": true,
+    "type_expr_structural_equal": true,
+    "value_expr_eqv": true,
+    "value_expr_structural_equal": true,
+    "all_field_equal": true,
+    "safety_and_reducibility": "No such fields on TheoremVal; final guard rejects every non-theorem duplicate."
+  },
+  "cross_environment": {
+    "private_canonical_union": [],
+    "reference_unrenamed_count": 1899,
+    "migrated_unrenamed_count": 1899,
+    "unrenamed_union_count": 1899,
+    "unrenamed_sets_equal": true,
+    "intersection": [],
+    "accepted_policy": "Both reference snapshot and migrated dump must have empty private rewrite maps; nonempty rewriting fails closed."
+  }
+}

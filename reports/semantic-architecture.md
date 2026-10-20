@@ -41,6 +41,8 @@
 | `M/Algebra/Module/Submodule/Ker.lean:85,329` 的 `LinearMap.ker_comp`、`LinearEquiv.ker_comp` | 已有 `E/LinearAlgebra/KernelTransport.lean` | 前一轮独立 kernel API 原样保留；本轮不重复设计。 |
 | `M/Algebra/Polynomial/Reverse.lean:88` 的 `Polynomial.reflect` | `E/Data/Polynomial/{LowPart,ReflectEvaluation,ReciprocalRigidity}.lean` | 多项式操作/刚性本身不需 Coxeter 数据；具体 KL 递归和规范留在表示论层。 |
 
+**Polynomial 路径差异：** 固定 Mathlib 的多项式锚点确实在 `Algebra/Polynomial`，不是 `Data/Polynomial`；这不是版本差异。OAI 初稿把这些低层多项式/数值工具放在 `Data`，但没有不同的数学对象足以支持与 Mathlib 的这一命名分歧。它是目录一致性债，不能据此声称逐路径遵循 Mathlib。当前复核不搬动已验收实现或使长证明缓存失效；若架构审阅要求严格目录对齐，应把这五个文件作为一次纯路径迁移归入 `Algebra/Polynomial`，目前尚未执行。职责独立与依赖闭包的实证不依赖这个顶层目录名字。
+
 Moment-graph sheaf 仍是有序图上的顶点/边模与线性映射；它没有 Mathlib 拓扑/站点 sheaf 所需的数据，所以没有把它强行搬成 `SheafOfModules`。
 
 ## 3. combkl 知识结构提供阅读责任，不提供 import 权威
@@ -87,6 +89,8 @@ Moment-graph sheaf 仍是有序图上的顶点/边模与线性映射；它没有
 - `Invariance/Main.lean` 38 行是稳定的主定理入口，单独保留合理。
 - `Data/Polynomial/ReflectEvaluation.lean` 27 行、`LinearAlgebra/Descent.lean` 37 行等只有一个直接实现消费者，保留单文件的收益较弱；可在独立架构审阅时评估与相同对象文件合并。
 - `Algebra/Module/Submodule/ScaledImage.lean` 37 行，没有生产实现消费者，保留是为了不删除既有公开 API，不能宣传成新增的跨模块复用成果。
+
+小文件不按行数阈值强制合并；是否合并取决独立数学责任、真实消费者和导入边界。
 
 文件数增加也有成本：导航项、imports 和冷编译进程更多。各实现仍宽导入 Mathlib；本轮没有优化 Mathlib 导入、证明复杂度或证明长度。不能宣称文件数越多越好，也不能由 warm build 推断冷编译或交互体验加速。暂不为减少目录项再次移动已缓存的长证明；193 个文件作为这一独立实验的可审阅方案保留，后续合并同对象叶文件无需设计新引理。
 
@@ -154,9 +158,9 @@ flowchart LR
 | 继承的行为检查 | KernelChecks、CompatChecks、signed BoundaryChecks 均通过，旧测试未删改 |
 | 公理闭包 | 16 个目标全部在允许集合内；主定理 `OAI.KLInvariance.combinatorial_invariance` 恰为 `propext`、`Classical.choice`、`Quot.sound` |
 | 公开接口 | 3902 → 3902；无缺失、新增或规范化数学类型/种类/宇宙/公开 binder 隐显性差异；3896 个声明改变模块归属 |
-| 比较器反例测试 | 14 项通过，含 proof-proposition 变化和共享 DAG 的作用域泄漏反例 |
+| 比较器反例测试 | 31 项通过，含 proof-proposition 变化和共享 DAG 的作用域泄漏反例 |
 | 参考类型快照 | 用最终同一导出器在 warm 参考环境重新导出，核对通过，不凭旧快照直接判新代码通过 |
-| warm repeat | `lake build OAI` 成功，3.565 秒 |
+| warm repeat | `lake build OAI` 成功，3.353 秒 |
 
 ### 类型比较的精确定义与实际发现
 
@@ -164,39 +168,42 @@ flowchart LR
 
 最终规则不维护声明/字段例外清单：
 
-1. 导出 Lean 全局环境中的唯一公开声明。遇到模块序列化副本，要求类型、宇宙参数、种类和 value 全部相同，记录副本后只导出全局声明；冲突仍失败。实际仅发现一个相同副本。
-2. 所有数学表达式构造、常量、宇宙、de Bruijn 索引及公开 binder 的隐显性保持比较；binder 显示名和 mdata 不参与数学类型比较。私有 OAI owner 前缀只做单射映射，重名冲突会失败。
+1. 导出 Lean 全局环境中的唯一公开声明。仅接受 theorem 的序列化副本：逐项比较 `name`、`levelParams`、`type`、`value`、`all`，其中表达式用 `ExprStructEq`（`Expr.equal`）保留 binder 名和 annotations。其它 ConstantInfo 构造器的重复记录一律拒绝，故不会漏过 definition 的 safety/hints 而仍称其完整一致。实际仅有 `rankDifference.eq_1` 一个 theorem 副本，独立探针确认类型/值的结构相等及 `all` 相等。旧守卫用 `BEq Expr = Expr.eqv`，只保证 alpha 等价，先前“完整记录一致”的措辞过强；现已修正代码和断言。
+2. 所有数学表达式构造、常量、宇宙、de Bruijn 索引及公开 binder 的隐显性保持比较；binder 显示名和 mdata 不参与数学类型比较。私有 OAI owner 前缀的候选规范化仍做单射及全局名字碰撞检查，但本轮接受政策更严格：参考快照与新导出必须明确具有空 private 改写清单，否则拒绝。
 3. 仅当名字是 OAI 内部 `_proof_` 辅助、且其 `ConstantInfo` 是经过 Lean 内核导入的 theorem，才用其完整命题表示该 proof 引用。依据是内核 proof irrelevance；不是展开证明正文或任意定义。命题内部的 binder 显示/隐显性是该内部证明的 elaboration 元数据，可忽略；公开类型其余 binder 信息不忽略。
 4. 普通用户定理、定义、数据实例都不折叠。proof 命题中的常量、参数和表达式结构仍比较，所以换命题不会被放过。两个独立 Expr 缓存按“公开类型 / 编译器 proof 命题”区分；Python DAG 检查也以 `(node, context)` 检查共享节点，禁止 `kernel` binder 标记流出 proof 作用域。
 
-最终参考/新环境分别使用 141/153 个这种内部 proof 辅助；不要求编译器的共享方式相同。最终类型对照在上述一般规则下完全通过。旧实验的严格 31-field 比较器没有修改。该验收仍依赖本轮导出器/比较器的正确性，完整代码与反例测试随审阅包提供；本轮尚未获得独立审查，也不对 upstream 原数学论证作独立认证。
+5. TSV 现在要求 `FORMAT` 头及唯一、末尾的 `SUMMARY`；校验非空 TYPE 集合、TYPE/重复副本/proof-alias 的实际计数、private summary、已定义子节点和记录格式，拒绝缺失/截断/重复 footer、footer 后数据、空导出、未知记录。比较函数本身也拒绝两个空字典。runner、参考快照和 CLI 另外固定要求 3902 项覆盖，不仅相信 footer。
+6. 实际访问到的 private→canonical 清单：旧环境 `[]`，新环境 `[]`；未改名常量各 1899 个，两边集合相同，并集仍为 1899 个；两边 private 规范名并集 `[]` 与两边未改名常量名并集的交集为 `[]`，不是仅分别检查单份 dump。全局名字守卫的交集也为 `[]`。因此本轮没有实际发生 private 常量改名，不存在此次编码的 private/public 同名碰撞；这不等于全环境没有 private 声明。代码另增加全局名字碰撞的 fail-closed 守卫。完整探针和清单见 `architecture-review-audit.json`。
+
+最终参考/新环境分别使用 141/153 个这种内部 proof 辅助；不要求编译器的共享方式相同。最终类型对照在上述一般规则下完全通过。旧实验的严格 31-field 比较器没有修改。该验收仍依赖本轮导出器/比较器的正确性，完整代码与反例测试随审阅包提供；独立审阅正在进行，以上是已落实的反馈，也不对 upstream 原数学论证作独立认证。
 
 ### 耗时和缓存边界
 
-全库完成调用耗时 **142.128 秒**，复用了先前探索和长证明构建产物，不能称为从零冷编译时间。以下为随后最终完整验收的各阶段 wall time（秒）；完整命令、CPU 时间和累计子进程 RSS high-water 在 evidence JSON 中。
+全库完成调用耗时 **142.128 秒**，复用了先前探索和长证明构建产物，不能称为从零冷编译时间。以下为随后落实独立审阅反馈后的最终缓存验收各阶段 wall time（秒）；完整命令、CPU 时间和累计子进程 RSS high-water 在 evidence JSON 中。
 
 | 阶段 | Wall 秒 | 退出状态 |
 | --- | ---: | ---: |
 | `frozen-tree` | 0.002 | 0 |
-| `baseline-identity` | 0.335 | 0 |
-| `source-transport` | 0.198 | 0 |
-| `source-coverage` | 0.359 | 0 |
-| `lean-version` | 0.752 | 0 |
-| `mathlib-ready` | 2.966 | 0 |
+| `baseline-identity` | 0.344 | 0 |
+| `source-transport` | 0.179 | 0 |
+| `source-coverage` | 0.373 | 0 |
+| `lean-version` | 0.787 | 0 |
+| `mathlib-ready` | 2.893 | 0 |
 | `oai-ready` | 3.474 | 0 |
-| `ImportChecks` | 4.402 | 0 |
-| `DomainImportChecks` | 4.520 | 0 |
-| `KernelChecks` | 5.103 | 0 |
-| `CompatChecks` | 4.879 | 0 |
-| `BoundaryChecks` | 5.228 | 0 |
-| `Audit` | 4.007 | 0 |
-| `reference-ready` | 3.232 | 0 |
-| `reference-types` | 9.185 | 0 |
-| `reference-snapshot-check` | 2.499 | 0 |
-| `migrated-types` | 9.013 | 0 |
-| `type-comparison` | 2.432 | 0 |
-| `comparator-tests` | 0.060 | 0 |
-| `warm-build` | 3.565 | 0 |
+| `ImportChecks` | 4.514 | 0 |
+| `DomainImportChecks` | 4.370 | 0 |
+| `KernelChecks` | 5.089 | 0 |
+| `CompatChecks` | 4.698 | 0 |
+| `BoundaryChecks` | 5.402 | 0 |
+| `Audit` | 4.227 | 0 |
+| `reference-ready` | 3.315 | 0 |
+| `reference-types` | 9.552 | 0 |
+| `reference-snapshot-check` | 2.488 | 0 |
+| `migrated-types` | 9.528 | 0 |
+| `type-comparison` | 2.500 | 0 |
+| `comparator-tests` | 0.065 | 0 |
+| `warm-build` | 3.353 | 0 |
 
 - 新实验 Mathlib cache preflight 在编译前通过；没有全量 Mathlib 源码构建。新实验共享精确依赖 checkout，OAI 编译产物独立。
 - 原有长证明本轮确实重新编译：Bott stalk 约 150 秒，pairing 约 720 秒，均为 Lake 显示值并包含 compiler-lock 排队时间；不当作直接 elaboration benchmark。最终验收复用了这些产物，没有再次冷编译它们。
@@ -223,3 +230,11 @@ bash experiments/kl-architecture/check.sh --checks-only --refresh-reference
 轻量结构检查为 `bash experiments/kl-architecture/check.sh --static`。常规使用不需要 Graphviz；只有重绘 SVG 才需要它。
 
 提交中的 `reports/evidence/architecture-*` 保存最终阶段结果、公理日志、公开类型对照、比较器测试、构建历史和原始失败诊断。逐文件迁移索引、精确重放清单及完整 core 图随实验保存。历史 checkpoint 文档只记录当时状态，最终状态以本报告和 acceptance evidence 为准。
+
+### 独立审阅反馈后的验证修订
+
+此前正常执行的导出确有 3902 项，未出现空导出；但旧 `load` 不要求 footer、两个空字典也能比较通过，是实际的 fail-open 风险，已补检查与反例。新 Python 测试共 31 项，新增空输入、空快照、截断/缺失/伪计数 SUMMARY、末尾追加、缺失 TYPE/FORMAT、orphan MODULE、未知记录、固定覆盖不符及非空 private 改写政策等检查。
+
+Lean 导出器另直接测试 strict theorem-record 守卫：相同记录接受，alpha-equivalent 控制成立；8 个 theorem 字段/表达式元数据变体及 3 个 definition（含不同 safety/hints）案例被拒绝。实际唯一副本也通过严格检查。复核只重跑已建缓存上的验证，不改任何 `OAI/` 数学文件，不重编长证明。报告原版已保存为 Library 历史版本，后续应阅读更新版。
+
+最新验收的 20 个阶段退出码均为 0；参考/新环境导出分别 9.552/9.528 秒，最终 warm repeat 3.353 秒。此前全库构建的数学产品保持不变；本轮只重新编译轻量导出/检查入口。private 碰撞审计使用两环境实际 dump 的跨环境并集，完整未改名常量清单见 `reports/evidence/architecture-unrenamed-constants.txt`。尚未宣称整体架构粒度已获独立批准；已知目录一致性债和单消费者叶文件的取舍保留给架构审阅。

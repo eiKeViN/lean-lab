@@ -43,6 +43,7 @@ def static_checks():
  run('baseline-identity',[sys.executable,'scripts/verify.py'],ROOT)
  run('source-transport',[sys.executable,'migrate.py','--check'])
  run('source-coverage',[sys.executable,'source_check.py'])
+ if M.get('expected_public_count')!=3902:raise RuntimeError('Expected fixed coverage of 3902 public declarations')
  modules=M['modules'];legacy=set(M['legacy_shims'])
  for n,x in modules.items():
   for dep in x['imports']:
@@ -87,6 +88,7 @@ def main():
  # The reference snapshot avoids a second full library build on fresh workers.
  # --refresh-reference checks it using the identical exporter in the warm old environment.
  snapshot=json.loads((HERE/'reference-public-types.json').read_text())
+ if snapshot.get('schema')!=3 or snapshot.get('public_count')!=3902 or len(snapshot.get('types',{}))!=3902:raise RuntimeError('Incomplete reference public-type coverage')
  if snapshot['reference_commit']!=M['reference_commit'] or snapshot['exporter_sha256']!=hashlib.sha256((HERE/'PublicTypes.lean').read_bytes()).hexdigest():
   raise RuntimeError('Reference type snapshot provenance mismatch')
  if args.refresh_reference:
