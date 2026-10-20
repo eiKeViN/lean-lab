@@ -1,0 +1,12 @@
+{
+  "command": [
+    "lake",
+    "build",
+    "OAI"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.164691746999999,
+  "user_seconds": 4.11704,
+  "system_seconds": 1.5462150000000001,
+  "max_rss_kib": 998036
+}
