@@ -48,6 +48,20 @@ partial def dumpType (out : IO.FS.Handle) (e : Expr) : StateT TypeDumpState IO N
 
 run_elab do
   let env ← getEnv
+  -- Owner-prefix erasure is injective on the private constants actually
+  -- referenced by exported types. Refuse an ambiguous canonical name.
+  let mut privateOwners : Std.HashMap Name Name := {}
+  for idx in [:env.header.moduleData.size] do
+    if env.header.moduleNames[idx]!.toString.startsWith "OAI." then
+      for info in env.header.moduleData[idx]!.constants do
+        if !isPrivateName info.name && !info.name.isInternal then
+          for n in info.type.getUsedConstants do
+            if n.toString.startsWith "_private.OAI." then
+              let canonical := canonicalConstant n
+              if let some previous := privateOwners[canonical]? then
+                unless previous == n do
+                  throwError "Ambiguous private type constant: {previous}, {n}"
+              privateOwners := privateOwners.insert canonical n
   let some path ← IO.getEnv "LEAN_TYPES_OUT" | throwError "Set LEAN_TYPES_OUT"
   let out ← IO.FS.Handle.mk (System.FilePath.mk path) .write
   let action : StateT TypeDumpState IO Unit := do

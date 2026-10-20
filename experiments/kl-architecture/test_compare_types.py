@@ -21,7 +21,8 @@ class ComparatorTests(unittest.TestCase):
  def test_explicit_implicit_change_fails(self):self.assertFalse(self.accepted(binder='BinderInfo.default'))
  def test_universe_change_fails(self):self.assertFalse(self.accepted(sort='Level.succ Level.zero'))
  def test_bound_variable_change_fails(self):self.assertFalse(self.accepted(body=1))
- def test_constant_change_fails(self):self.assertFalse(self.accepted(constant='Other'))
+ def test_constant_change_fails(self):
+  dump(self.a,constant='Original');self.assertFalse(self.accepted(constant='Other'))
  def test_kind_change_fails(self):self.assertFalse(self.accepted(kind='axiom'))
  def test_missing_and_added_names_fail(self):self.assertFalse(self.accepted(name='Other'))
  def test_duplicate_name_fails(self):

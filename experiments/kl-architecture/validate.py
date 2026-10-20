@@ -12,7 +12,7 @@ def run(label,cmd,cwd=HERE,env=None):
  with (OUT/(label+'.log')).open('w') as log:
   result=subprocess.run(cmd,cwd=cwd,env=env,stdout=log,stderr=subprocess.STDOUT)
  after=resource.getrusage(resource.RUSAGE_CHILDREN)
- record=dict(label=label,command=cmd,cwd=str(cwd.relative_to(ROOT)),exit_code=result.returncode,wall_seconds=time.monotonic()-start,user_seconds=after.ru_utime-before.ru_utime,system_seconds=after.ru_stime-before.ru_stime,max_rss_kib=after.ru_maxrss)
+ record=dict(label=label,command=cmd,cwd=str(cwd.relative_to(ROOT)),exit_code=result.returncode,wall_seconds=time.monotonic()-start,user_seconds=after.ru_utime-before.ru_utime,system_seconds=after.ru_stime-before.ru_stime,children_max_rss_kib_so_far=after.ru_maxrss)
  METRICS.append(record);(OUT/'stages.json').write_text(json.dumps(METRICS,indent=2)+'\n');print(json.dumps(record),flush=True)
  if result.returncode:
   print((OUT/(label+'.log')).read_text()[-6000:]);raise RuntimeError('Failed stage: '+label)
@@ -68,7 +68,7 @@ def main():
  static_checks()
  if args.static:return
  packages=HERE/'.lake/packages';packages.parent.mkdir(exist_ok=True)
- if not packages.exists():packages.symlink_to('../../kl/.lake/packages')
+ if not packages.exists() and not packages.is_symlink():packages.symlink_to('../../kl/.lake/packages')
  if packages.resolve()!=(ROOT/'experiments/kl/.lake/packages').resolve():raise RuntimeError('Unexpected dependency checkout; expected the verified shared baseline')
  env=serial_environment()
  run('lean-version',['lake','env','lean','--version'],env=env)
