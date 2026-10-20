@@ -1,0 +1,691 @@
+{
+  "status": "ACCEPTED under kl-kernel-anonymous-owner-v1",
+  "comparison": {
+    "rule_version": "kl-kernel-anonymous-owner-v1",
+    "exact_old_declarations": 3896,
+    "raw_strict_mismatches": [
+      "OAI.KLInvariance.kernelMixedEquiv",
+      "OAI.KLInvariance.kernelSourceEquiv",
+      "OAI.KLInvariance.kernelTargetEquiv"
+    ],
+    "comparison": "Exact except explicitly permitted anonymous-instance owner relocation markers",
+    "accepted_field_count": 62,
+    "accepted_differences_file": "reports/evidence/kernel-transport-accepted-differences.jsonl",
+    "accepted_differences_sha256": "0dbc1da51dcd542dbc01a26670a0f05ad3a1aa0bd168310f8bbbbedf504c00a6"
+  },
+  "reference_commit": "7225842219ed3844b2fbd9cf3d95f9b65bec862c",
+  "compiled_source_commit": "a9568d548f48febeb2aa99b4ede8130e4eabba68",
+  "compiled_source_and_original_evidence_sha256": {
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/BalancedPairings.lean": "0f8885343b760ab78313b54bae44dca9cfa64785f47e46e249958a51e2547791",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/BottSamelson.lean": "276e98a6eec82c2825f8cbf91103a1b0d322a665eb05c772f5068b6c6734e1f1",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Bruhat.lean": "7c18d143d137ab4ad9cc1d65fe284edcbb0013140c09c3f9cbfa037724962e39",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/CanonicalKL.lean": "ac275fd88996489eaf7dbefc91df09389117785b85f6f537b89972c81a86fa0b",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/CharacterReciprocity.lean": "71d1e8f3ae3cb7f6aacb4c03b47f1781dc1504d2de0d1c58494f470a2bedd44e",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Comparison.lean": "4a50db54df1223887a762ee53890375ff60885bce049a90a9d69dbf9907406fa",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Coxeter.lean": "76a08455a98e1bc1f25aa4736cea260b231b1873e081e611eef99f8f77d5218e",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Decomposition.lean": "6a40b8a0677e97c0730ff821c32113dc1f6f1a03d3cc52e2c9f378ed16ba591e",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Dihedral.lean": "28ef38361a2abf4c71cfcb2e12ae0e21e0b75d055877cfd9022ba16f3ea46eea",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean": "13b82aeb1659381bc916eb34767b78a3cbcf171fa8f8a04a30b64b2ae1f0a1f7",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/DyerPaths.lean": "8d1a09843620ac8d2ab77dbfbc8d1e77c795d89497649afdd962af0c9bcffd97",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/EdgeLocalization.lean": "0ead5f25b13850f07259b98ddc92115522683cc0eed268ea5811284bec58ec66",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean": "b0755cf5fdff661243bc680636601316faa3075c587e9b1e4177ad2daa37857c",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/GradedModules.lean": "d4726517df230c820f49c0d2934e784ad041a407e3ea1fd939992c650abf225f",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/GradedSheaves.lean": "05ec1af8cb7954715ae0eab7636b4d70b27928135c0d1cb6d9df151499af72bc",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Hecke.lean": "8bfc48663a48f465d971b286089c5681f2c422c13212f1104e3a560c7d6ed2c5",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/HilbertSeries.lean": "6b095c4c739cf6ebbbc75c137a9682d517c50ebc4fa4a0c4bd7b78ac7b9fc584",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/IntegralPairings.lean": "067a89e40eef38f62e6b4d1961dc13663cb8fb8fcb664aa71be1029591bf1fb7",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Invariance.lean": "c58fae623974bc2e0d09463dbc78a7b1b37c3341c428e4d8c9e10b706d0c3f0d",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/MinimalExtensions.lean": "3171002a99c0c56810d903753f63b9651b59bf2d6566d65f07ed6601bd84797b",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Model.lean": "1ff35adaedb8fe45b06b6ade96a5631ca792d5f4e61a961c6c3f4a7d985011cb",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/ModuleAlgebra.lean": "91f725bfbd90ee602b6b9326a1688b4f18f30339c88a2f60ed06c1f7935abecc",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/OrdinaryR.lean": "bf9ecde7116ce2ce2cbfad0f2c7c1efa6aef32c60202b449bfa80c8a16043e55",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/PlaneLocalization.lean": "8099c40935e69cd3448e77072264d16aee22de351617d547a8b41550bcfb50f4",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/PositiveTransfer.lean": "79bbb1ac5f933d8990446ae4aeb75c72fc577b214332c0830d752f36a4fc38af",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/ReflectionOrders.lean": "dcfa06c031c806a916ce1f8535c2dcdad2658ceaf13e5aabd9f8e910575a176d",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/ReflectionPlane.lean": "f50f06657f955bcfa415afcbd22d33401e2a316eb958c360401f518da1359a8f",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/ReflectionSchedules.lean": "362f4ef85dbf5927a45e685c60c34c387dc6ebc49569e287d5cb2affcde959f5",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/SheafMorphisms.lean": "42b37403c25f40541146a1d8c61720f7f0f4818e614dca9bb0331c7b76633a03",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Sheaves.lean": "460a4283a8ff40e7f9f660ecd08903050e282a48c26afbd4e8f004472fea4e1a",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/SimultaneousInvariance.lean": "688f3deda54efb69fb2810c4a9807710fb1247b280bd7304ce01c185f1ad69f4",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Support.lean": "77c69e8d8b99c976a8166b15ee094dbf42eae01431dc5f63a88d0ae1103575c5",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/TerminalKernels.lean": "b6e753dab8e772c6d92c6990697a8eeac6ee3207b4954c2a51518c9ebf887e05",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/Tits.lean": "9d0e08667c9ad8a1245469f9b3aa21bac1bdf5fccf4a8d738c25a9a0cb1d5581",
+    "experiments/kl-kernel-transport/OAI/LinearAlgebra/KernelTransport.lean": "62aff252cb500b11ff4f2a62d4bb9f5d73f43d2c615f2be07611af0912aad292",
+    "experiments/kl-kernel-transport/OAI/RepresentationTheory/KazhdanLusztig/KernelTransportCompat.lean": "8dcb6543f9654a79360573764d5657ac9d46d415f89be80adb4ee5ec947b1c8f",
+    "experiments/kl-kernel-transport/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "experiments/kl-kernel-transport/lake-manifest.json": "c4e5502f1da3e2b3a053a967c88bb49a73858ca9bb859d7c4650cbf762ca0bd4",
+    "experiments/kl-kernel-transport/lakefile.toml": "77adfe5df9cb6fbbc6d8657a827100f87cfeafab226a615c71dcf3d140775ae3",
+    "experiments/kl-kernel-transport/KernelChecks.lean": "3890be4788207b129ff381ea8973f128df12234096b057487a5cc63ecc1e59fc",
+    "experiments/kl-kernel-transport/CompatChecks.lean": "95cdb9f247a8c94cc3058abad28bf780ab9f223a7ae013359bfc5f1038dce26f",
+    "experiments/kl-kernel-transport/BoundaryChecks.lean": "adb0c573a60d3775912b64b41ed0c27042487fefa19b8a9d0dd6a1b5310df1d6",
+    "experiments/kl-kernel-transport/Audit.lean": "713a77c28511ece7023ea7ce5080607620b0c41e0ffa0541db56565e4e1805ad",
+    "experiments/kl-kernel-transport/Smoke.lean": "4cc94bd2ba4d472ef5a40a85988b09e441e69434e943c2a56c9c562a6001855f",
+    "experiments/kl-kernel-transport/api-manifest.json": "68133ae9fe968f24a903d65d7d2b8a124ade8a00ceb545b0e919036ff52d751b",
+    "reports/evidence/kernel-transport-results.json": "fdb11c0770fce05c9fcbb61ea3d6f1b63051ff09b6160fccf8eafbd0c90df61d",
+    "reports/evidence/kernel-transport-api-diagnostics.json": "52afbf5dd24b9d0d537dce119b13d311231b70f70923728b4bbddfe2578c8801",
+    "reports/evidence/kernel-transport-focused-types.json": "ae746d126424d4fcfc5369f0f61a473199cf08820a8fae6e6c6edac9be5b75a1",
+    "reports/evidence/kernel-transport-audit.log": "7974ad421cca9129ff0cac16375cdd97e8f47a17b5ed4d70d1bf765f1ec2edc9"
+  },
+  "workflow_sha256": {
+    "PublicTypes.lean": "081c12c833eb0ec3e97fc1e530e62f98b8b7fb9797f937c8bb4bfeac666660c1",
+    "validate.py": "863667fdb34f2fa11c28bf7432410d82c9b4310a7e90e96275f2b3bc5adab607",
+    "type_compare.py": "90c41c81e7754f09176ef8ced06d69fbe081016c6d78d4ce9c870af46165a47e",
+    "test_type_compare.py": "c40575f7a9427b436b923faf88f78e29efe8402ee8becbe09d936406366598b9",
+    "check.sh": "91fb1f86156557b04f263ae0a12fe3bc219b603093d8c78070ea95dbe0ff7d94"
+  },
+  "changed_sources": [
+    "OAI/LinearAlgebra/KernelTransport.lean",
+    "OAI/RepresentationTheory/KazhdanLusztig/BottSamelson.lean",
+    "OAI/RepresentationTheory/KazhdanLusztig/KernelTransportCompat.lean"
+  ],
+  "reference_public_count": 3899,
+  "final_public_count": 3902,
+  "new_declarations": {
+    "OAI.LinearEquiv.kernelSourceEquiv": "OAI.LinearAlgebra.KernelTransport",
+    "OAI.LinearEquiv.kernelTargetEquiv": "OAI.LinearAlgebra.KernelTransport",
+    "OAI.LinearEquiv.kernelMixedEquiv": "OAI.LinearAlgebra.KernelTransport"
+  },
+  "moved_declarations": {
+    "OAI.KLInvariance.kernelSourceEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "OAI.KLInvariance.kernelTargetEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "OAI.KLInvariance.kernelMixedEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat"
+  },
+  "excluded_before": {
+    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra": {
+      "private": 2,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedModules": {
+      "private": 0,
+      "internal": 101
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Model": {
+      "private": 0,
+      "internal": 6
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Coxeter": {
+      "private": 0,
+      "internal": 5
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Bruhat": {
+      "private": 0,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Hecke": {
+      "private": 0,
+      "internal": 46
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR": {
+      "private": 0,
+      "internal": 9
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL": {
+      "private": 0,
+      "internal": 32
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Dihedral": {
+      "private": 0,
+      "internal": 55
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane": {
+      "private": 0,
+      "internal": 0
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Tits": {
+      "private": 8,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules": {
+      "private": 9,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves": {
+      "private": 0,
+      "internal": 93
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries": {
+      "private": 0,
+      "internal": 81
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Comparison": {
+      "private": 0,
+      "internal": 7
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions": {
+      "private": 2,
+      "internal": 124
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms": {
+      "private": 1,
+      "internal": 120
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Decomposition": {
+      "private": 0,
+      "internal": 136
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Frobenius": {
+      "private": 3,
+      "internal": 153
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson": {
+      "private": 3,
+      "internal": 217
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings": {
+      "private": 0,
+      "internal": 96
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings": {
+      "private": 0,
+      "internal": 74
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Support": {
+      "private": 0,
+      "internal": 133
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity": {
+      "private": 3,
+      "internal": 160
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths": {
+      "private": 0,
+      "internal": 192
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders": {
+      "private": 3,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals": {
+      "private": 0,
+      "internal": 242
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization": {
+      "private": 0,
+      "internal": 91
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization": {
+      "private": 0,
+      "internal": 45
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer": {
+      "private": 0,
+      "internal": 59
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels": {
+      "private": 0,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Invariance": {
+      "private": 0,
+      "internal": 9
+    }
+  },
+  "excluded_after": {
+    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra": {
+      "private": 2,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedModules": {
+      "private": 0,
+      "internal": 101
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Model": {
+      "private": 0,
+      "internal": 6
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Coxeter": {
+      "private": 0,
+      "internal": 5
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Bruhat": {
+      "private": 0,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Hecke": {
+      "private": 0,
+      "internal": 46
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR": {
+      "private": 0,
+      "internal": 9
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL": {
+      "private": 0,
+      "internal": 32
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Dihedral": {
+      "private": 0,
+      "internal": 55
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane": {
+      "private": 0,
+      "internal": 0
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Tits": {
+      "private": 8,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules": {
+      "private": 9,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves": {
+      "private": 0,
+      "internal": 93
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries": {
+      "private": 0,
+      "internal": 81
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Comparison": {
+      "private": 0,
+      "internal": 7
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions": {
+      "private": 2,
+      "internal": 124
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms": {
+      "private": 1,
+      "internal": 120
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Decomposition": {
+      "private": 0,
+      "internal": 136
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Frobenius": {
+      "private": 3,
+      "internal": 153
+    },
+    "OAI.LinearAlgebra.KernelTransport": {
+      "private": 0,
+      "internal": 38
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat": {
+      "private": 0,
+      "internal": 3
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson": {
+      "private": 3,
+      "internal": 182
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings": {
+      "private": 0,
+      "internal": 96
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings": {
+      "private": 0,
+      "internal": 74
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Support": {
+      "private": 0,
+      "internal": 133
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity": {
+      "private": 3,
+      "internal": 160
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths": {
+      "private": 0,
+      "internal": 192
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders": {
+      "private": 3,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals": {
+      "private": 0,
+      "internal": 242
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization": {
+      "private": 0,
+      "internal": 91
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization": {
+      "private": 0,
+      "internal": 45
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer": {
+      "private": 0,
+      "internal": 59
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels": {
+      "private": 0,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Invariance": {
+      "private": 0,
+      "internal": 9
+    }
+  },
+  "axioms": {
+    "OAI.KLInvariance.SignedDihedral.arrowAfter_pair": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.SignedDihedral.arrowAfter_pair_below": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_base": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_pos_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_neg_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_difference": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount_difference": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.combinatorial_invariance": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.LinearEquiv.kernelSourceEquiv": [
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.kernelSourceEquiv": [
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.LinearEquiv.kernelTargetEquiv": [
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.kernelTargetEquiv": [
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.LinearEquiv.kernelMixedEquiv": [
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.kernelMixedEquiv": [
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.TitsSpace.bottHeadKernelEquiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "OAI.KLInvariance.TitsSpace.bottHeadRightKernelEquiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "module_counts": {
+    "reference": 34,
+    "experiment": 36
+  },
+  "raw_projection_sha256": {
+    "before": "ed35b3cabb3a3c5fb9740d55a61a8cc0c3cb3e7e6f2355685c57b2d3cb60ed0a",
+    "after": "b5955280fe8857db6dce899c99ab9dfd618fa661c2cb5cf5385d297884d5a688"
+  },
+  "type_dump_sha256": {
+    "types-before": "3d4b17662d52179c1328e12bec3e23d9d65e5195312c45b7330743644e2a9c66",
+    "types-after": "5f4d8461ff4b5cbd1383de2119bfa188158dcc30236a2f18a1a9f0cb9cc73edf"
+  },
+  "run": "results/kernel-transport/20261020T125532453057Z",
+  "stages": {
+    "audit": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Audit.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.357287946000724,
+      "user_seconds": 2.8917859999999997,
+      "system_seconds": 1.4811239999999999,
+      "max_rss_kib": 6950988
+    },
+    "bott-clients": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.557059578000917,
+      "user_seconds": 4.139138,
+      "system_seconds": 1.9355669999999998,
+      "max_rss_kib": 991120
+    },
+    "comparator-tests": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/lean-lab/experiments/kl-kernel-transport/test_type_compare.py",
+        "--before",
+        "/workspace/lean-lab/results/kernel-transport/20261020T125532453057Z/types-before.types",
+        "--after",
+        "/workspace/lean-lab/results/kernel-transport/20261020T125532453057Z/types-after.types"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 13.254033214001538,
+      "user_seconds": 12.991497,
+      "system_seconds": 0.260049,
+      "max_rss_kib": 814384
+    },
+    "compat-import": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "CompatChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.072645340000236,
+      "user_seconds": 3.674622,
+      "system_seconds": 1.486564,
+      "max_rss_kib": 6858676
+    },
+    "compat": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.4062825000000885,
+      "user_seconds": 4.149403,
+      "system_seconds": 1.823734,
+      "max_rss_kib": 993368
+    },
+    "downstream": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.4196411579996493,
+      "user_seconds": 3.926665,
+      "system_seconds": 1.95,
+      "max_rss_kib": 986928
+    },
+    "experiment-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.2454105019987765,
+      "user_seconds": 4.106567,
+      "system_seconds": 1.803433,
+      "max_rss_kib": 984960
+    },
+    "generic": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.LinearAlgebra.KernelTransport"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.3538819030000013,
+      "user_seconds": 4.134527,
+      "system_seconds": 1.839866,
+      "max_rss_kib": 994996
+    },
+    "independent-import": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "KernelChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 6.360722216000795,
+      "user_seconds": 4.270739,
+      "system_seconds": 2.231674,
+      "max_rss_kib": 6866328
+    },
+    "mathlib-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "Mathlib"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.8669624160011153,
+      "user_seconds": 3.092513,
+      "system_seconds": 1.822626,
+      "max_rss_kib": 990348
+    },
+    "reference-mathlib-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "Mathlib"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.154670377000002,
+      "user_seconds": 3.312987,
+      "system_seconds": 2.05204,
+      "max_rss_kib": 986308
+    },
+    "reference-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.435822289000498,
+      "user_seconds": 4.238821,
+      "system_seconds": 1.914177,
+      "max_rss_kib": 982864
+    },
+    "signed-boundaries": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "BoundaryChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.169943614000658,
+      "user_seconds": 3.803924,
+      "system_seconds": 1.43398,
+      "max_rss_kib": 6969492
+    },
+    "types-after": {
+      "command": [
+        "env",
+        "LEAN_TYPES_OUT=/workspace/lean-lab/results/kernel-transport/20261020T125532453057Z/types-after.types",
+        "lake",
+        "env",
+        "lean",
+        "--root=/workspace/lean-lab/experiments/kl-kernel-transport",
+        "/workspace/lean-lab/experiments/kl-kernel-transport/PublicTypes.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 9.036038533000465,
+      "user_seconds": 7.63959,
+      "system_seconds": 1.466424,
+      "max_rss_kib": 7306212
+    },
+    "types-before": {
+      "command": [
+        "env",
+        "LEAN_TYPES_OUT=/workspace/lean-lab/results/kernel-transport/20261020T125532453057Z/types-before.types",
+        "lake",
+        "env",
+        "lean",
+        "--root=/workspace/lean-lab/experiments/kl-kernel-transport",
+        "/workspace/lean-lab/experiments/kl-kernel-transport/PublicTypes.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 9.367070926000451,
+      "user_seconds": 7.877394,
+      "system_seconds": 1.566544,
+      "max_rss_kib": 7303808
+    },
+    "versions": {
+      "command": [
+        "bash",
+        "-c",
+        "set -e; lean --version; lake --version"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.07604449700011173,
+      "user_seconds": 0.045668,
+      "system_seconds": 0.027521,
+      "max_rss_kib": 105788
+    },
+    "warm": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.3102743119998195,
+      "user_seconds": 4.199682,
+      "system_seconds": 1.801445,
+      "max_rss_kib": 990576
+    }
+  }
+}

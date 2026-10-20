@@ -1,0 +1,755 @@
+{
+  "status": "BLOCKED: strict binder-name equality; NOT accepted",
+  "reference_public_count": 3899,
+  "final_public_count": 3902,
+  "exact_old_declarations": 3896,
+  "moved_declarations": {
+    "OAI.KLInvariance.kernelSourceEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "OAI.KLInvariance.kernelTargetEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "OAI.KLInvariance.kernelMixedEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat"
+  },
+  "new_declarations": {
+    "OAI.LinearEquiv.kernelSourceEquiv": "OAI.LinearAlgebra.KernelTransport",
+    "OAI.LinearEquiv.kernelTargetEquiv": "OAI.LinearAlgebra.KernelTransport",
+    "OAI.LinearEquiv.kernelMixedEquiv": "OAI.LinearAlgebra.KernelTransport"
+  },
+  "moved_binder_differences": {
+    "OAI.KLInvariance.kernelMixedEquiv": [
+      {
+        "path": "/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 3",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 3"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 7",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 7"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 10",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 10"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 15",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 15"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 18",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 18"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 22",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 22"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 26",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 26"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 32",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 32"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 35",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 35"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 39",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 39"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 43",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 43"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 49",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 49"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 52",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 52"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 56",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 56"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 60",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 60"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 66",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 66"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 69",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 358217602) \"_hygCtx\") \"_hyg\") 69"
+      }
+    ],
+    "OAI.KLInvariance.kernelTargetEquiv": [
+      {
+        "path": "/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 3",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 730193490) \"_hygCtx\") \"_hyg\") 3"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 7",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 730193490) \"_hygCtx\") \"_hyg\") 7"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 10",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 730193490) \"_hygCtx\") \"_hyg\") 10"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 15",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 730193490) \"_hygCtx\") \"_hyg\") 15"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 18",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 730193490) \"_hygCtx\") \"_hyg\") 18"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 23",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 730193490) \"_hygCtx\") \"_hyg\") 23"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 26",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 730193490) \"_hygCtx\") \"_hyg\") 26"
+      }
+    ],
+    "OAI.KLInvariance.kernelSourceEquiv": [
+      {
+        "path": "/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 3",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 3079144783) \"_hygCtx\") \"_hyg\") 3"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 7",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 3079144783) \"_hygCtx\") \"_hyg\") 7"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 10",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 3079144783) \"_hygCtx\") \"_hyg\") 10"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 15",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 3079144783) \"_hygCtx\") \"_hyg\") 15"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 18",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 3079144783) \"_hygCtx\") \"_hyg\") 18"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 23",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 3079144783) \"_hygCtx\") \"_hyg\") 23"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 26",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat 3079144783) \"_hygCtx\") \"_hyg\") 26"
+      }
+    ]
+  },
+  "new_binder_differences": {
+    "OAI.LinearEquiv.kernelSourceEquiv": [
+      {
+        "path": "/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 3",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 3079144783) \"_hygCtx\") \"_hyg\") 3"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 7",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 3079144783) \"_hygCtx\") \"_hyg\") 7"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 10",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 3079144783) \"_hygCtx\") \"_hyg\") 10"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 15",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 3079144783) \"_hygCtx\") \"_hyg\") 15"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 18",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 3079144783) \"_hygCtx\") \"_hyg\") 18"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 23",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 3079144783) \"_hygCtx\") \"_hyg\") 23"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 3079144783) \"_hygCtx\") \"_hyg\") 26",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 3079144783) \"_hygCtx\") \"_hyg\") 26"
+      }
+    ],
+    "OAI.LinearEquiv.kernelTargetEquiv": [
+      {
+        "path": "/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 3",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 730193490) \"_hygCtx\") \"_hyg\") 3"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 7",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 730193490) \"_hygCtx\") \"_hyg\") 7"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 10",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 730193490) \"_hygCtx\") \"_hyg\") 10"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 15",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 730193490) \"_hygCtx\") \"_hyg\") 15"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 18",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 730193490) \"_hygCtx\") \"_hyg\") 18"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 23",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 730193490) \"_hygCtx\") \"_hyg\") 23"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 730193490) \"_hygCtx\") \"_hyg\") 26",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 730193490) \"_hygCtx\") \"_hyg\") 26"
+      }
+    ],
+    "OAI.LinearEquiv.kernelMixedEquiv": [
+      {
+        "path": "/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 3",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 3"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 7",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 7"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 10",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 10"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 15",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 15"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 18",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 18"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 22",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 22"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 26",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 26"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 32",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 32"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 35",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 35"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 39",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 39"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 43",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 43"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 49",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 49"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 52",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 52"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 56",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 56"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 60",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 60"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 66",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 66"
+      },
+      {
+        "path": "/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.4/forall.1",
+        "constructor": "forall",
+        "field": 1,
+        "before": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.RepresentationTheory.KazhdanLusztig.BottSamelson 358217602) \"_hygCtx\") \"_hyg\") 69",
+        "after": "Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.\u00ab_@\u00bb.OAI.LinearAlgebra.KernelTransport 358217602) \"_hygCtx\") \"_hyg\") 69"
+      }
+    ]
+  },
+  "module_counts": {
+    "reference": 34,
+    "experiment": 36
+  },
+  "excluded_before": {
+    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra": {
+      "private": 2,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedModules": {
+      "private": 0,
+      "internal": 101
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Model": {
+      "private": 0,
+      "internal": 6
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Coxeter": {
+      "private": 0,
+      "internal": 5
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Bruhat": {
+      "private": 0,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Hecke": {
+      "private": 0,
+      "internal": 46
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR": {
+      "private": 0,
+      "internal": 9
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL": {
+      "private": 0,
+      "internal": 32
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Dihedral": {
+      "private": 0,
+      "internal": 55
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane": {
+      "private": 0,
+      "internal": 0
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Tits": {
+      "private": 8,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules": {
+      "private": 9,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves": {
+      "private": 0,
+      "internal": 93
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries": {
+      "private": 0,
+      "internal": 81
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Comparison": {
+      "private": 0,
+      "internal": 7
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions": {
+      "private": 2,
+      "internal": 124
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms": {
+      "private": 1,
+      "internal": 120
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Decomposition": {
+      "private": 0,
+      "internal": 136
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Frobenius": {
+      "private": 3,
+      "internal": 153
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson": {
+      "private": 3,
+      "internal": 217
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings": {
+      "private": 0,
+      "internal": 96
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings": {
+      "private": 0,
+      "internal": 74
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Support": {
+      "private": 0,
+      "internal": 133
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity": {
+      "private": 3,
+      "internal": 160
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths": {
+      "private": 0,
+      "internal": 192
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders": {
+      "private": 3,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals": {
+      "private": 0,
+      "internal": 242
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization": {
+      "private": 0,
+      "internal": 91
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization": {
+      "private": 0,
+      "internal": 45
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer": {
+      "private": 0,
+      "internal": 59
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels": {
+      "private": 0,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Invariance": {
+      "private": 0,
+      "internal": 9
+    }
+  },
+  "excluded_after": {
+    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra": {
+      "private": 2,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedModules": {
+      "private": 0,
+      "internal": 101
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Model": {
+      "private": 0,
+      "internal": 6
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Coxeter": {
+      "private": 0,
+      "internal": 5
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Bruhat": {
+      "private": 0,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Hecke": {
+      "private": 0,
+      "internal": 46
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR": {
+      "private": 0,
+      "internal": 9
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL": {
+      "private": 0,
+      "internal": 32
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Dihedral": {
+      "private": 0,
+      "internal": 55
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane": {
+      "private": 0,
+      "internal": 0
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Tits": {
+      "private": 8,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules": {
+      "private": 9,
+      "internal": 125
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves": {
+      "private": 0,
+      "internal": 93
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries": {
+      "private": 0,
+      "internal": 81
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Comparison": {
+      "private": 0,
+      "internal": 7
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions": {
+      "private": 2,
+      "internal": 124
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms": {
+      "private": 1,
+      "internal": 120
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Decomposition": {
+      "private": 0,
+      "internal": 136
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Frobenius": {
+      "private": 3,
+      "internal": 153
+    },
+    "OAI.LinearAlgebra.KernelTransport": {
+      "private": 0,
+      "internal": 38
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat": {
+      "private": 0,
+      "internal": 3
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson": {
+      "private": 3,
+      "internal": 182
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings": {
+      "private": 0,
+      "internal": 96
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings": {
+      "private": 0,
+      "internal": 74
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Support": {
+      "private": 0,
+      "internal": 133
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity": {
+      "private": 3,
+      "internal": 160
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths": {
+      "private": 0,
+      "internal": 192
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders": {
+      "private": 3,
+      "internal": 25
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals": {
+      "private": 0,
+      "internal": 242
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization": {
+      "private": 0,
+      "internal": 91
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization": {
+      "private": 0,
+      "internal": 45
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer": {
+      "private": 0,
+      "internal": 59
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels": {
+      "private": 0,
+      "internal": 37
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance": {
+      "private": 0,
+      "internal": 22
+    },
+    "OAI.RepresentationTheory.KazhdanLusztig.Invariance": {
+      "private": 0,
+      "internal": 9
+    }
+  },
+  "diagnostic_rule": "Only forall binder-name fields differ: replacing the exact generated inst.\u00ab_@\u00bb. owner-module marker gives the observed name; all numeric hygiene components, other binder names/info, constants, expressions, universes and kinds match. This is diagnostic only and is NOT applied by validate.py."
+}

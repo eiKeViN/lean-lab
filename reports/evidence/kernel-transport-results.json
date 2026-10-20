@@ -1,0 +1,339 @@
+{
+  "status": "BLOCKED: exact generated binder-name equality; no acceptance relaxation",
+  "command": "bash experiments/kl-kernel-transport/check.sh",
+  "exit_code": 1,
+  "failure": "Existing public type/kind changed: ['OAI.KLInvariance.kernelMixedEquiv', 'OAI.KLInvariance.kernelTargetEquiv', 'OAI.KLInvariance.kernelSourceEquiv']",
+  "reference_commit": "7225842219ed3844b2fbd9cf3d95f9b65bec862c",
+  "run": "results/kernel-transport/20261020T120849004389Z",
+  "stages": {
+    "bott-clients": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 146.50724754000112,
+      "user_seconds": 196.874126,
+      "system_seconds": 2.9195409999999997,
+      "max_rss_kib": 7279348
+    },
+    "generic": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.LinearAlgebra.KernelTransport"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.245472669999799,
+      "user_seconds": 3.855239,
+      "system_seconds": 1.746817,
+      "max_rss_kib": 994676
+    },
+    "warm-shell": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.6097428600005514,
+      "user_seconds": 8.416326,
+      "system_seconds": 3.520005,
+      "max_rss_kib": 6868288
+    },
+    "compat-import": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "CompatChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.859477009998955,
+      "user_seconds": 3.480912,
+      "system_seconds": 1.457549,
+      "max_rss_kib": 6853084
+    },
+    "warm": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.450051011001051,
+      "user_seconds": 4.05389,
+      "system_seconds": 1.8331119999999999,
+      "max_rss_kib": 990664
+    },
+    "downstream": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 917.5923597159999,
+      "user_seconds": 1063.108906,
+      "system_seconds": 16.854953,
+      "max_rss_kib": 7318560
+    },
+    "independent-import-final": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "KernelChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.428349003999756,
+      "user_seconds": 4.09486,
+      "system_seconds": 1.492715,
+      "max_rss_kib": 6868288
+    },
+    "compat": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.240194869998959,
+      "user_seconds": 4.016136,
+      "system_seconds": 1.8948800000000001,
+      "max_rss_kib": 987400
+    },
+    "versions": {
+      "command": [
+        "bash",
+        "-c",
+        "set -e; lean --version; lake --version"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.06816670700027316,
+      "user_seconds": 0.054143,
+      "system_seconds": 0.010424,
+      "max_rss_kib": 106304
+    },
+    "signed-boundaries": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "BoundaryChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.219696914000451,
+      "user_seconds": 3.778118,
+      "system_seconds": 1.509083,
+      "max_rss_kib": 6967308
+    },
+    "types-before": {
+      "command": [
+        "env",
+        "LEAN_TYPES_OUT=/workspace/lean-lab/results/kernel-transport/20261020T120849004389Z/types-before.types",
+        "lake",
+        "env",
+        "lean",
+        "--root=/workspace/lean-lab/experiments/kl-kernel-transport",
+        "/workspace/lean-lab/experiments/kl-kernel-transport/PublicTypes.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.91338170400013,
+      "user_seconds": 7.418728,
+      "system_seconds": 1.555124,
+      "max_rss_kib": 7303784
+    },
+    "independent-import": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "KernelChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.114421768999819,
+      "user_seconds": 3.807588,
+      "system_seconds": 1.4199199999999998,
+      "max_rss_kib": 6859832
+    },
+    "reference-mathlib-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "Mathlib"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.906966693999493,
+      "user_seconds": 3.302104,
+      "system_seconds": 1.8033169999999998,
+      "max_rss_kib": 993756
+    },
+    "reference-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.3337215000010474,
+      "user_seconds": 4.317005,
+      "system_seconds": 1.7468979999999998,
+      "max_rss_kib": 986492
+    },
+    "audit": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Audit.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.367300247000458,
+      "user_seconds": 2.906249,
+      "system_seconds": 1.4748890000000001,
+      "max_rss_kib": 6951064
+    },
+    "types-after": {
+      "command": [
+        "env",
+        "LEAN_TYPES_OUT=/workspace/lean-lab/results/kernel-transport/20261020T120849004389Z/types-after.types",
+        "lake",
+        "env",
+        "lean",
+        "--root=/workspace/lean-lab/experiments/kl-kernel-transport",
+        "/workspace/lean-lab/experiments/kl-kernel-transport/PublicTypes.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.853343807999408,
+      "user_seconds": 7.508047,
+      "system_seconds": 1.401853,
+      "max_rss_kib": 7303848
+    },
+    "mathlib-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "Mathlib"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.958302871000342,
+      "user_seconds": 3.2284,
+      "system_seconds": 1.832658,
+      "max_rss_kib": 988600
+    }
+  },
+  "axioms": {
+    "OAI.KLInvariance.SignedDihedral.arrowAfter_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.SignedDihedral.arrowAfter_pair_below": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_pos_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_neg_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.SignedDihedral.countAfter_difference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount_difference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.combinatorial_invariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.LinearEquiv.kernelSourceEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.kernelSourceEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "OAI.LinearEquiv.kernelTargetEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.kernelTargetEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "OAI.LinearEquiv.kernelMixedEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.kernelMixedEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.TitsSpace.bottHeadKernelEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OAI.KLInvariance.TitsSpace.bottHeadRightKernelEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "reference_public_count": 3899,
+  "final_public_count": 3902,
+  "exact_old_public_count": 3896,
+  "module_counts": {
+    "reference": 34,
+    "experiment": 36
+  },
+  "generated_binder_differences": {
+    "OAI.KLInvariance.kernelMixedEquiv": 17,
+    "OAI.KLInvariance.kernelTargetEquiv": 7,
+    "OAI.KLInvariance.kernelSourceEquiv": 7
+  },
+  "moved_declarations": {
+    "OAI.KLInvariance.kernelSourceEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "OAI.KLInvariance.kernelTargetEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "OAI.KLInvariance.kernelMixedEquiv": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat"
+  },
+  "new_declarations": {
+    "OAI.LinearEquiv.kernelSourceEquiv": "OAI.LinearAlgebra.KernelTransport",
+    "OAI.LinearEquiv.kernelTargetEquiv": "OAI.LinearAlgebra.KernelTransport",
+    "OAI.LinearEquiv.kernelMixedEquiv": "OAI.LinearAlgebra.KernelTransport"
+  },
+  "type_dump_sha256": {
+    "types-before": "ed35b3cabb3a3c5fb9740d55a61a8cc0c3cb3e7e6f2355685c57b2d3cb60ed0a",
+    "types-after": "b5955280fe8857db6dce899c99ab9dfd618fa661c2cb5cf5385d297884d5a688"
+  },
+  "final_protected_files_unchanged": 100,
+  "notes": [
+    "All 36 modules built, 16 axiom closures passed; independent import/name-resolution checks and signed boundaries passed.",
+    "warm-shell CPU/RSS inherited earlier shell child accounting; use warm stage collected through a fresh subprocess instead.",
+    "No build is running. The remaining blocker is the agreed exact binder-name predicate, not an execution denial.",
+    "Additional new-type identity check and hash summary code were added while the first run was underway; they remain behind the same failing exact-comparison gate. The diagnostic separately examined new-definition types. No acceptance pass is claimed."
+  ]
+}
