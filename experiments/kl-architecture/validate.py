@@ -56,7 +56,7 @@ def static_checks():
    if any(d.startswith(('OAI.GroupTheory.','OAI.RepresentationTheory.')) for d in x['imports']):raise RuntimeError('General sheaf API imports a concrete model: '+n)
  list(graphlib.TopologicalSorter({n:set(x['imports']) for n,x in modules.items()}).static_order())
  # No new mathematical declaration can hide in a file outside the deterministic products.
- allowed=set(M['fixed'])|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{'OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean'}
+ allowed=set(M['fixed'])|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{'OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean'}
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if '.lake' not in p.parts}
  if actual-allowed:raise RuntimeError('Unlisted Lean source: '+str(actual-allowed))
  for p in (HERE/'OAI').rglob('*.lean'):
@@ -75,7 +75,7 @@ def main():
  run('mathlib-ready',['lake','--no-build','build','Mathlib'],env=env)
  if args.checks_only:run('oai-ready',['lake','--no-build','build','OAI'],env=env)
  else:run('library-build',['lake','build','OAI'],env=env)
- for file in ('ImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
+ for file in ('ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
   run(file,['lake','env','lean',file+'.lean'],env=env)
  audit=(OUT/'Audit.log').read_text();records=re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]",audit,re.S)
  if len(records)!=16:raise RuntimeError('Expected sixteen complete axiom closures, got '+str(len(records)))

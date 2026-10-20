@@ -39,7 +39,7 @@ identified with Mathlib's sheaves of modules on a site.
 
 The combkl reading aid is the documentation-only commit
 `8004f18a6cab3bb1f113b48abb5d2ea4c37bcaaf`:
-`docs/knowledge-base-relationships.md`, `docs/knowledge-base-relations.json`,
+`docs/planning/knowledge-base-relationships.md`, `docs/planning/knowledge-base-relations.json`,
 `docs/knowledge/concept-links.yml`, and source-comparison material. Its own
 metadata anchors combkl code at `108243e05ed46235bf82dc30d4d90c794579776f`
 and upstream at the same `adc7f...` revision. We retain the lab's independently

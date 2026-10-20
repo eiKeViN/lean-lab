@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Replay or verify an exact source-span file migration; never edits the reference."""
 from pathlib import Path
-import argparse,hashlib,json,sys
+import argparse,hashlib,json,sys,re
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 def digest(b):return hashlib.sha256(b).hexdigest()
@@ -9,6 +9,12 @@ def products():
  m=json.loads((HERE/'migration.json').read_text());ref=ROOT/m['reference'];parts={}
  for p,h in {**m['source_hashes'],**m['fixed']}.items():
   if digest((ref/p).read_bytes())!=h:raise RuntimeError('Frozen reference changed: '+p)
+ # Only existing instance-name insertions are permitted as body annotations.
+ public=json.loads((HERE/'reference-public-types.json').read_text())['types']
+ for patch in m.get('instance_annotations',[]):
+  expected=re.sub(r'\binstance(?=\s*[:({\[])','instance _root_.'+patch['name'],patch['old'],count=1)
+  if patch['new']!=expected or patch['old']==expected or patch['name'] not in public:
+   raise RuntimeError('Invalid instance-name-only annotation')
  for u in m['units']:
   body=''.join((ref/u['source']).read_text().splitlines(True)[u['start']-1:u['end']])
   if digest(body.encode())!=u['sha256']:raise RuntimeError('Changed span: '+u['id'])
