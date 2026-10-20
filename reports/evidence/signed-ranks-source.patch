@@ -1,0 +1,110 @@
+diff --git a/experiments/kl/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean b/experiments/kl-signed-ranks/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean
+index baf37f5..5c71461 100644
+--- a/experiments/kl/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean
++++ b/experiments/kl-signed-ranks/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean
+@@ -1454,0 +1455,3 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
++ theorem odd_add_abs (i z : ℤ) : Odd (i+z) ↔ Odd (i.natAbs+z.natAbs) := by
++  rw [Int.odd_add, Nat.odd_add, Int.natAbs_odd, Int.natAbs_even]
++
+@@ -1456,7 +1459 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+-  rw [Int.odd_iff, Nat.odd_iff]
+-  have hi := Int.natCast_natAbs i
+-  obtain h | h := le_total 0 i
+-  · rw [abs_of_nonneg h] at hi
+-    omega
+-  · rw [abs_of_nonpos h] at hi
+-    omega
++  simpa only [Int.natAbs_natCast] using odd_add_abs i (r : ℤ)
+@@ -1465,2 +1462,2 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+-  rw [← odd_add_natAbs, Int.odd_iff, Int.odd_iff]
+-  omega
++  simpa only [sub_eq_add_neg, Int.natAbs_neg, Int.natAbs_natCast] using
++    odd_add_abs i (-(r : ℤ))
+@@ -1515,17 +1511,0 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+-  have ho : Odd (j+z) ↔ Odd (j.natAbs+z.natAbs) := by
+-    have hj := Int.natCast_natAbs j
+-    have hz := Int.natCast_natAbs z
+-    rw [Int.odd_iff,Nat.odd_iff]
+-    rcases le_total 0 j with hj'|hj' <;> rcases le_total 0 z with hz'|hz'
+-    · rw [abs_of_nonneg hj'] at hj
+-      rw [abs_of_nonneg hz'] at hz
+-      omega
+-    · rw [abs_of_nonneg hj'] at hj
+-      rw [abs_of_nonpos hz'] at hz
+-      omega
+-    · rw [abs_of_nonpos hj'] at hj
+-      rw [abs_of_nonneg hz'] at hz
+-      omega
+-    · rw [abs_of_nonpos hj'] at hj
+-      rw [abs_of_nonpos hz'] at hz
+-      omega
+@@ -1533 +1513 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+-  · simp only [arrowAfter, before_next_source hij h, ho, hlt]
++  · simp only [arrowAfter, before_next_source hij h, odd_add_abs, hlt]
+@@ -1536,0 +1517,24 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
++/-- The two signed endpoints at one rank, normalized before summation. -/
++ theorem arrowAfter_pair {i j : ℤ} (hij : |i| < |j|) (r : ℕ) :
++    arrowAfter i (i+j) r + arrowAfter i (i+j) (-r) =
++      if i.natAbs < r ∧ Odd (i.natAbs+r) then
++        if 0 < j then 1 + (if j.natAbs < r then 1 else 0)
++        else (if r < j.natAbs then 1 else 0)
++      else 0 := by
++  rw [arrowAfter_pos hij, arrowAfter_neg hij]
++  by_cases h : i.natAbs < r ∧ Odd (i.natAbs+r)
++  · rcases h with ⟨hl, ho⟩
++    simp only [hl, ho, true_and]
++    split_ifs <;> omega
++  · have hp : ¬(i.natAbs < r ∧ Odd (i.natAbs+r) ∧ 0 < j ∧ j.natAbs < r) := by tauto
++    have hn : ¬(i.natAbs < r ∧ Odd (i.natAbs+r) ∧ (0 < j ∨ r < j.natAbs)) := by tauto
++    simp only [h, hp, hn, ite_false, add_zero]
++
++ theorem arrowAfter_pair_below {i j : ℤ} (hij : |i| < |j|) {r : ℕ}
++    (hr : r < j.natAbs) :
++    arrowAfter i (i+j) r + arrowAfter i (i+j) (-r) =
++      if i.natAbs < r ∧ Odd (i.natAbs+r) then 1 else 0 := by
++  rw [arrowAfter_pair hij]
++  have hn : ¬j.natAbs < r := by omega
++  simp only [hr, hn, ite_true, ite_false, add_zero, ite_self]
++
+@@ -1547,3 +1551 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+-    rw [arrowAfter_pos hij,arrowAfter_neg hij]
+-    have hn : ¬ j.natAbs < r := by omega
+-    simp only [hn,and_false,ite_false,zero_add,hr',or_true,and_true]
++    exact arrowAfter_pair_below hij hr'
+@@ -1610,18 +1611,0 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+- theorem odd_add_abs (i z : ℤ) : Odd (i+z) ↔ Odd (i.natAbs+z.natAbs) := by
+-  have hi := Int.natCast_natAbs i
+-  have hz := Int.natCast_natAbs z
+-  rw [Int.odd_iff,Nat.odd_iff]
+-  rcases le_total 0 i with hi'|hi' <;> rcases le_total 0 z with hz'|hz'
+-  · rw [abs_of_nonneg hi'] at hi
+-    rw [abs_of_nonneg hz'] at hz
+-    omega
+-  · rw [abs_of_nonneg hi'] at hi
+-    rw [abs_of_nonpos hz'] at hz
+-    omega
+-  · rw [abs_of_nonpos hi'] at hi
+-    rw [abs_of_nonneg hz'] at hz
+-    omega
+-  · rw [abs_of_nonpos hi'] at hi
+-    rw [abs_of_nonpos hz'] at hz
+-    omega
+-
+@@ -1702,8 +1686,3 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+-    rw [arrowAfter_pos hij,arrowAfter_neg hij]
+-    simp only [hj,true_or,and_true,true_and]
+-    by_cases h1 : i.natAbs < r ∧ Odd (i.natAbs+r)
+-    · obtain ⟨h1,h2⟩ := h1
+-      simp only [h1,h2,true_and,ite_true]
+-      split_ifs <;> rfl
+-    · have hh : ¬(i.natAbs < r ∧ Odd (i.natAbs+r) ∧ j.natAbs < r) := by tauto
+-      simp only [h1,hh,ite_false,add_zero]
++    rw [arrowAfter_pair hij]
++    simp only [hj, ite_true]
++    split_ifs <;> omega
+@@ -1733,2 +1712,3 @@ local instance (p : Prop) : Decidable p := Classical.propDecidable p
+-    rw [arrowAfter_pos hij,arrowAfter_neg hij]
+-    simp only [hn,hr',false_or,and_false,false_and,ite_false,add_zero]
++    rw [arrowAfter_pair hij]
++    simp only [hn, hr', ite_false]
++    split_ifs <;> rfl

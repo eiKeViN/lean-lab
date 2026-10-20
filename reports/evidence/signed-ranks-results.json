@@ -1,0 +1,307 @@
+{
+  "baseline_commit": "dc7adaa35047517a600a2b80ff5aefcf28eb905a",
+  "final_run": "results/signed-ranks/20261020T093534722065Z",
+  "summary": {
+    "public_types_preserved": 3897,
+    "new_public_declarations": [
+      "OAI.KLInvariance.SignedDihedral.arrowAfter_pair",
+      "OAI.KLInvariance.SignedDihedral.arrowAfter_pair_below"
+    ],
+    "axioms": {
+      "OAI.KLInvariance.SignedDihedral.arrowAfter_pair": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "OAI.KLInvariance.SignedDihedral.arrowAfter_pair_below": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "OAI.KLInvariance.SignedDihedral.countAfter_base": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "OAI.KLInvariance.SignedDihedral.countAfter_pos_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "OAI.KLInvariance.SignedDihedral.countAfter_neg_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "OAI.KLInvariance.SignedDihedral.countAfter_difference": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount_difference": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "OAI.KLInvariance.combinatorial_invariance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "stages": {
+    "warm": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.216152835999992,
+      "user_seconds": 4.177325,
+      "system_seconds": 1.7629,
+      "max_rss_kib": 980640
+    },
+    "module": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.336423461000095,
+      "user_seconds": 4.266137,
+      "system_seconds": 1.844852,
+      "max_rss_kib": 994468
+    },
+    "downstream": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.5994476309999754,
+      "user_seconds": 4.15535,
+      "system_seconds": 1.981021,
+      "max_rss_kib": 997376
+    },
+    "types-before": {
+      "command": [
+        "env",
+        "LEAN_TYPES_OUT=/workspace/lean-lab/results/signed-ranks/20261020T093534722065Z/types-before.types",
+        "lake",
+        "env",
+        "lean",
+        "--root=/workspace/lean-lab/experiments/kl-signed-ranks",
+        "/workspace/lean-lab/experiments/kl-signed-ranks/PublicTypes.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.767573089000052,
+      "user_seconds": 7.447368,
+      "system_seconds": 1.3739379999999999,
+      "max_rss_kib": 7293424
+    },
+    "baseline-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.430037213999867,
+      "user_seconds": 4.193958,
+      "system_seconds": 1.7865820000000001,
+      "max_rss_kib": 989368
+    },
+    "boundaries": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "BoundaryChecks.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.474775172999898,
+      "user_seconds": 3.856994,
+      "system_seconds": 1.674052,
+      "max_rss_kib": 6960856
+    },
+    "audit": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Audit.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.03645484499998,
+      "user_seconds": 2.786799,
+      "system_seconds": 1.262467,
+      "max_rss_kib": 6939584
+    },
+    "types-after": {
+      "command": [
+        "env",
+        "LEAN_TYPES_OUT=/workspace/lean-lab/results/signed-ranks/20261020T093534722065Z/types-after.types",
+        "lake",
+        "env",
+        "lean",
+        "--root=/workspace/lean-lab/experiments/kl-signed-ranks",
+        "/workspace/lean-lab/experiments/kl-signed-ranks/PublicTypes.lean"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.887346285000149,
+      "user_seconds": 7.504553,
+      "system_seconds": 1.431717,
+      "max_rss_kib": 7294492
+    },
+    "mathlib-ready": {
+      "command": [
+        "lake",
+        "--no-build",
+        "build",
+        "Mathlib"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.8519143099999837,
+      "user_seconds": 3.245211,
+      "system_seconds": 1.747012,
+      "max_rss_kib": 985416
+    }
+  },
+  "direct_pairs": [
+    {
+      "before": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean"
+        ],
+        "exit_code": 0,
+        "wall_seconds": 8.813709625000001,
+        "user_seconds": 16.957027,
+        "system_seconds": 1.571788,
+        "max_rss_kib": 7157168
+      },
+      "after": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean"
+        ],
+        "exit_code": 0,
+        "wall_seconds": 8.893867126999908,
+        "user_seconds": 17.416193,
+        "system_seconds": 1.599982,
+        "max_rss_kib": 7143484
+      },
+      "wall_change_percent": 0.9094638399765431
+    },
+    {
+      "before": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean"
+        ],
+        "exit_code": 0,
+        "wall_seconds": 9.274773321999987,
+        "user_seconds": 17.391973,
+        "system_seconds": 1.943263,
+        "max_rss_kib": 7158980
+      },
+      "after": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean"
+        ],
+        "exit_code": 0,
+        "wall_seconds": 8.849651440999992,
+        "user_seconds": 16.767628,
+        "system_seconds": 1.803637,
+        "max_rss_kib": 7151692
+      },
+      "wall_change_percent": -4.58363634603981
+    }
+  ],
+  "proof_body_nonblank_lines": {
+    "arrowAfter_pair": {
+      "before": 0,
+      "after": 8
+    },
+    "arrowAfter_pair_below": {
+      "before": 0,
+      "after": 3
+    },
+    "countAfter_base": {
+      "before": 20,
+      "after": 18
+    },
+    "countAfter_pos_formula": {
+      "before": 25,
+      "after": 20
+    },
+    "countAfter_neg_formula": {
+      "before": 18,
+      "after": 19
+    },
+    "odd_add_abs": {
+      "before": 16,
+      "after": 1
+    },
+    "odd_add_natAbs": {
+      "before": 7,
+      "after": 1
+    },
+    "odd_sub_natAbs": {
+      "before": 2,
+      "after": 2
+    },
+    "arrowAfter_next": {
+      "before": 23,
+      "after": 6
+    }
+  },
+  "earlier_builds": {
+    "first_changed_module": {
+      "command": [
+        "lake",
+        "build",
+        "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 13.821143488999951,
+      "user_seconds": 44.571218,
+      "system_seconds": 6.322781,
+      "max_rss_kib": 7219244
+    },
+    "downstream_recovery": {
+      "command": [
+        "lake",
+        "build",
+        "OAI"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 57.655357367999954,
+      "user_seconds": 85.225132,
+      "system_seconds": 6.894774,
+      "max_rss_kib": 7184796
+    }
+  },
+  "source_sha256": {
+    "experiments/kl/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean": "f0cccb306e8d54baa2a1e0b9d421cf47c42545151e48f3e1fecaf087bc081a2a",
+    "experiments/kl-signed-ranks/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean": "13b82aeb1659381bc916eb34767b78a3cbcf171fa8f8a04a30b64b2ae1f0a1f7"
+  },
+  "type_dump_sha256": {
+    "types-after.types": "721583f77eca3b43924efa7247babf508e0ec7c4c30651b02c3814b9a727c0c6",
+    "types-before.types": "253822747ed2737e45f150bd426752d9d5b2391e959774d9a5e08602d8b7fe14"
+  }
+}
