@@ -120,3 +120,18 @@ failure before changing mathematics. Finish the actual checks, replace the
 in-progress report text with exact results/timings/limits, commit locally, and
 provide an accessible review packet or all essential evidence in the final
 response. No push or merge is authorized for this round.
+
+### Update immediately before returning the checkpoint
+
+The long `BottSamelson.Pairings` module finished successfully (Lake reported
+720 s, including lock queue time). The two Lake drivers are still running;
+targeted `Hecke.Inverse` also passed (23 s including queue time), and the
+revised `Order.Interval.Diamonds` passed in the targeted invocation. The broad
+invocation reached `[9090/9152]`. It additionally recorded a missing
+`OAI/Order/Interval/Diamonds.olean` while compiling the dihedral consumer during
+integration rebuilding. This is an actual failed compilation action, not a
+permission denial; do not mark it resolved until the final sequential runner
+passes after both current invocations have finished. No mathematical source
+change was made for it. At the last probe the active compiler had advanced to
+general sheaf localization. The Pairings artifact should now be reused;
+do not rebuild it cold on resume.
