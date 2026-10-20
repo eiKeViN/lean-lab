@@ -28,4 +28,22 @@ class ComparatorTests(unittest.TestCase):
  def test_duplicate_name_fails(self):
   dump(self.b);self.b.write_text(self.b.read_text()+self.b.read_text().splitlines()[-1]+'\n')
   with self.assertRaises(ValueError):load(self.b)
+ def proof_dump(self,path,proposition='P',binder='kernel',share=False):
+  nodes=[['const',proposition,'[]'],['bvar','0'],['forall','_',binder,'0','1'],['proof','2'],['const','F','[]'],['app','4','3']]
+  if share:nodes.append(['app','5','2'])
+  rows=['MODULE\tOAI.Test']+[f'NODE\t{i}\t'+json.dumps(v) for i,v in enumerate(nodes)]
+  rows.append(f'TYPE\tExample\t"[]"\t{len(nodes)-1}\ttheorem');path.write_text('\n'.join(rows)+'\n')
+ def test_proof_proposition_change_fails(self):
+  self.proof_dump(self.a,'P');self.proof_dump(self.b,'Q');self.assertFalse(compare(load(self.a),load(self.b))['passed'])
+ def test_proof_context_is_accepted(self):
+  self.proof_dump(self.a);self.proof_dump(self.b);self.assertTrue(compare(load(self.a),load(self.b))['passed'])
+ def test_noncanonical_proof_binder_fails(self):
+  self.proof_dump(self.b,binder='BinderInfo.implicit')
+  with self.assertRaises(ValueError):load(self.b)
+ def test_shared_node_context_leak_fails(self):
+  self.proof_dump(self.b,share=True)
+  with self.assertRaises(ValueError):load(self.b)
+ def test_public_kernel_metadata_fails(self):
+  dump(self.b,binder='kernel')
+  with self.assertRaises(ValueError):load(self.b)
 if __name__=='__main__':unittest.main()

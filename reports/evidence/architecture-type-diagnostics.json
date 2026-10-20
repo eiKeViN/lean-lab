@@ -1,0 +1,17 @@
+{
+  "status": "historical diagnostic; not accepted as an exact raw type comparison",
+  "raw_export_rows": 3903,
+  "unique_public_names": 3902,
+  "identical_serialization_copies": [
+    "OAI.KLInvariance.rankDifference.eq_1"
+  ],
+  "types_differing_before_compiler_proof_normalization": 785,
+  "observed_differences": "Internal compiler theorem names, plus binder metadata inside one internal theorem proposition; these are normalized by a general kernel-proof rule, not a list of field exceptions.",
+  "proof_example": {
+    "old": "OAI.KLInvariance.Realization.geometricSimple._proof_1",
+    "new": "OAI.KLInvariance.Realization.Extension._proof_1",
+    "kind": "internal theorem",
+    "proposition": "SMulCommClass ℝ ℝ ℝ"
+  },
+  "intermediate_unfolding_probe": "A discarded exporter probe hit the default elaboration heartbeat limit; later redundant export probes were interrupted. No mathematical proof build was interrupted in this continuation, and no heartbeat limit was raised. Final exporter represents an internal kernel theorem by its full proposition without expanding its proof body."
+}

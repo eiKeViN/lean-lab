@@ -21,7 +21,6 @@ noncomputable local instance _root_.OAI.KLInvariance.instDecidableEq_oAI_2 : Dec
 
 namespace CanonicalP
 
-/-- The strict lower half of a polynomial, used in the KL recursion. -/
 /-- The standard lower-half KL recursion, on the actual Bruhat interval.
 Its reciprocity will be proved from the genuine R-kernel, not stipulated. -/
 noncomputable def polynomial (cs : CoxeterSystem M W) (x y : W) : ℤ[X] := by

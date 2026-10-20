@@ -50,12 +50,23 @@ The normal runner uses a committed reference type snapshot, tied to the frozen
 source commit and exporter hash, so future workers need not build two libraries.
 This round also checks that snapshot against the live warm reference. Type
 comparison preserves public names, kinds, universes, binder implicitness,
-expression constructors and de Bruijn indices. It ignores binder display names
-(alpha equivalence), expression metadata and compiler-private OAI owner prefixes;
-it does not unfold or reduce types. This is mathematical type preservation,
-not the prior experiment's stricter binder-metadata policy. The old strict
-comparator remains untouched. Nine adversarial comparator tests reject changed
-universes, binding, implicitness, constants, kinds and exported names.
+expression constructors and de Bruijn indices. It ignores binder display names,
+expression metadata and injectively mapped compiler-private OAI owner prefixes.
+For a local internal `_proof_` auxiliary whose ConstantInfo is a kernel theorem,
+it retains the full proposition and uses proof irrelevance; binder metadata is
+ignored only inside that proposition. Ordinary definitions, data instances and
+user theorems are never unfolded or collapsed. Separate expression caches and a
+DAG scope check prevent this rule from leaking into public binders. Identical
+lazy-equation serialization copies are checked before projecting the unique
+global environment. The prior strict comparator remains untouched. Fourteen
+adversarial tests reject changed mathematical expressions and scope leaks.
+
+Full-library compilation, independent import checks, inherited checks, sixteen
+axiom closures, 3902 public types and the warm repeat pass locally. The main
+axiom closure is exactly `propext`, `Classical.choice`, `Quot.sound`. This is not
+an independent certification of the upstream mathematics. See the report for
+all measurements, earlier failures and the granularity tradeoff.
+
 
 `migration.json` records exact original spans, hashes, scope context, instance
 name annotations and imports. `migrate.py --check` verifies every generated
@@ -65,3 +76,8 @@ is the generated old-to-new file/line index and direct import map. The rationale
 provenance, executed results and limitations are in
 [the report](../../reports/semantic-architecture.md). Generated logs live under
 ignored `results/architecture/`.
+
+The core graph is in [DEPENDENCIES.svg](DEPENDENCIES.svg) (195 nodes, imported
+module → consumer) and [DEPENDENCIES.dot](DEPENDENCIES.dot). Reproduce size and
+closure evidence with `python3 experiments/kl-architecture/analyze.py` from the
+lab root; Graphviz is optional and is not required for Lean validation.

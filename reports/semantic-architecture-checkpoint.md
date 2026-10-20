@@ -1,5 +1,8 @@
 # Semantic architecture checkpoint (2026-10-20)
 
+Historical checkpoint, superseded by the completed acceptance in
+[semantic-architecture.md](semantic-architecture.md). No build remains running.
+
 This is a resumable checkpoint requested during a normal long compilation, not
 completion. Environment shell/filesystem access is working. Do not terminate or
 restart the live builds merely to resume this task.

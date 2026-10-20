@@ -7,6 +7,7 @@ namespace OAI
 
 namespace KLInvariance.CanonicalP
 open Polynomial
+/-- The strict lower half of a polynomial, used in the KL recursion. -/
 noncomputable def lowPart (d : ℕ) (p : ℤ[X]) : ℤ[X] :=
   ∑ n ∈ Finset.range ((d + 1) / 2), Polynomial.monomial n (p.coeff n)
 

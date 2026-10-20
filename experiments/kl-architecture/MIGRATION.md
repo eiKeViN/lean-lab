@@ -37,7 +37,7 @@ Old module paths are import-only compatibility entries.
 
 ### CanonicalKL.lean
 
-- `OAI/Data/Polynomial/LowPart.lean` ← 23–67
+- `OAI/Data/Polynomial/LowPart.lean` ← 22–67
 - `OAI/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean` ← 68–469
 
 ### CharacterReciprocity.lean

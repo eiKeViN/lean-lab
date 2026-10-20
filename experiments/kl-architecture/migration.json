@@ -702,9 +702,9 @@
     {
       "id": "CanonicalKL:1",
       "source": "OAI/RepresentationTheory/KazhdanLusztig/CanonicalKL.lean",
-      "start": 23,
+      "start": 22,
       "end": 67,
-      "sha256": "222152540818e9fd3b943f9d92fbf768e1c986082774ef9db14a8cbd68962fe9",
+      "sha256": "e01a12ba8f7c385e77c6a7c7f51447f232b7f0f8141d0a1dff125707d86909e3",
       "prefix": "namespace KLInvariance.CanonicalP\nopen Polynomial\n",
       "suffix": "end KLInvariance.CanonicalP\n"
     },
@@ -714,7 +714,7 @@
       "start": 68,
       "end": 469,
       "sha256": "8ee561a4f757f4f2dbdb3bc090fb4e30b5ac51ca25178b9bbec9fdd27403ddef",
-      "prefix": "namespace KLInvariance\n\nopen Polynomial\n\nuniverse u v u' v'\n\nvariable {B : Type u} {W : Type v} [klPreservedInstance1 : Group W] {M : CoxeterMatrix B}\n\nnoncomputable local instance : DecidableEq W := Classical.decEq W\n\nnamespace CanonicalP\n\n/-- The strict lower half of a polynomial, used in the KL recursion. -/\n",
+      "prefix": "namespace KLInvariance\n\nopen Polynomial\n\nuniverse u v u' v'\n\nvariable {B : Type u} {W : Type v} [klPreservedInstance1 : Group W] {M : CoxeterMatrix B}\n\nnoncomputable local instance : DecidableEq W := Classical.decEq W\n\nnamespace CanonicalP\n\n",
       "suffix": ""
     },
     {

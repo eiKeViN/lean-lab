@@ -4,12 +4,12 @@ import hashlib,json,sys
 from pathlib import Path
 
 def load(path):
- nodes={};types={};owner=None
+ nodes={};raw={};roots=[];types={};owner=None
  for line in Path(path).read_text().splitlines():
   tag,*fields=line.rstrip('\n').split('\t')
   if tag=='NODE':
-   ident,s=fields;v=json.loads(s);k=v[0]
-   children={'app':(1,2),'lam':(3,4),'forall':(3,4),'let':(2,3,4),'proj':(3,)}.get(k,())
+   ident,s=fields;v=json.loads(s);raw[int(ident)]=v[:];k=v[0]
+   children={'app':(1,2),'lam':(3,4),'forall':(3,4),'let':(2,3,4),'proj':(3,),'proof':(1,)}.get(k,())
    for i in children:v[i]=nodes[int(v[i])]
    nodes[int(ident)]=hashlib.sha256(json.dumps(v,separators=(',',':')).encode()).hexdigest()
   elif tag=='MODULE':owner=fields[0]
@@ -17,6 +17,18 @@ def load(path):
    name,levels,node,kind=fields
    if name in types:raise ValueError('Duplicate public name: '+name)
    types[name]=dict(levels=levels,type=nodes[int(node)],kind=kind,module=owner)
+   roots.append((int(node),False))
+ # Check scope on the exported DAG, including shared nodes reached in both
+ # contexts. Kernel-only binder metadata may never leak to a public type.
+ seen=set()
+ while roots:
+  ident,proof=roots.pop()
+  if (ident,proof) in seen:continue
+  seen.add((ident,proof));v=raw[ident];k=v[0]
+  if k in ('forall','lam') and ((v[2]=='kernel')!=proof):
+   raise ValueError('Binder metadata crossed the compiler-proof boundary')
+  children={'app':(1,2),'lam':(3,4),'forall':(3,4),'let':(2,3,4),'proj':(3,),'proof':(1,)}.get(k,())
+  roots.extend((int(v[i]),True if k=='proof' else proof) for i in children)
  return types
 
 def compare(old,new):
