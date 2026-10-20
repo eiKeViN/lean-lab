@@ -1,5 +1,10 @@
 # Kernel transport responsibility migration
 
+**Current acceptance:** passed under `kl-kernel-anonymous-owner-v1`: exact except
+explicitly permitted anonymous-instance owner relocation markers. The original
+strict failure below is retained as historical evidence. No mathematical source
+or client changed after built commit `a9568d548f48febeb2aa99b4ede8130e4eabba68`.
+
 Work branch: `codex/kl-kernel-transport`. Frozen implementation reference:
 `7225842219ed3844b2fbd9cf3d95f9b65bec862c` (`experiments/kl-signed-ranks`).
 The local architecture report at `4030418f6b98ff1d5c6f4a513b8ca1d67b790555`
@@ -159,7 +164,7 @@ old types and six relocated/wrapper types is in
 `kernel-transport-focused-types.json`. Full raw exports remain ignored; their
 SHA-256 values are in `kernel-transport-results.json`.
 
-## Required design decision
+## Original design decision (resolved by the rule below)
 
 The approved plan required exact binder names as well as independent old imports
 and three owner relocations. Lean's generated binder names encode their source
@@ -193,3 +198,74 @@ saved configuration or permission change; no GitHub CI claim. The experiment
 README now warns that the default reproduction command intentionally still
 reports this strict acceptance failure. No independent final source audit of
 this new implementation is claimed.
+
+## Final acceptance under the reviewed bounded rule
+
+This supersedes the earlier pending status, not its raw evidence. Rule version:
+`kl-kernel-anonymous-owner-v1`. Only six explicit declaration pairs are eligible:
+three old names B→C, plus their three new implementation correspondences B→G.
+Each pair has fixed outer forall slots, fixed context IDs and numeric scopes.
+Both Names must exactly match the structured N(owner,h,s) shape, the raw repr
+must agree with that expected shape, and binderInfo must be instImplicit.
+All other fields remain exact. No lambda/let, nested domain or other declaration
+receives an exception. No global stripping, alpha normalization, const rewrite
+or interning mutation. The exception comparator uses no memo at all.
+
+`PublicTypes.lean` adds NAME records while leaving NODE/TYPE and the other raw
+records unchanged. After removing only NAME records, both exports' SHA-256
+values exactly equal those saved in the original built-commit evidence. Existing
+saved exports were also hashed and matched. All 36 mathematical sources, pinned
+configuration and original focused harnesses were checked byte-for-byte against
+`a9568d5…` before and after this run; original strict-failure evidence is frozen.
+Workflow file hashes separately identify the new exporter, comparator and tests.
+
+Run: `results/kernel-transport/20261020T125532453057Z`.
+`bash experiments/kl-kernel-transport/check.sh` exited 0. The source readiness
+checks passed before all build targets, which remained warm. No long source
+rebuild or installation occurred in this acceptance round.
+
+| Final aggregate stage | Wall seconds | Result |
+| --- | ---: | --- |
+| Reference OAI readiness | 3.436 | passed |
+| Experiment OAI readiness | 3.245 | passed |
+| Generic warm target | 3.354 | passed |
+| Compat warm target | 3.406 | passed |
+| Independent API/name/import checks | 6.361 | passed |
+| Wrapper checks | 5.073 | passed |
+| Bott warm target | 3.557 | passed |
+| Inherited signed boundaries | 5.170 | passed |
+| Full OAI warm target | 3.420 | passed |
+| Sixteen axiom closures | 4.357 | passed |
+| Structured reference export | 9.367 | passed |
+| Structured experiment export | 9.036 | passed |
+| Mutation/shared-DAG/actual-export tests | 13.254 | passed |
+| Final warm OAI | 3.310 | passed |
+
+All 14 test groups passed with no skips in the aggregate, including real exports.
+The tests reject altered constants, constant universes and declaration universe
+parameters, user binder names, numeric context/scope components (124 individual
+mutations across the six pairs), binderInfo, owner tokens, unlisted slots,
+nested forall/lambda/let contexts, parameter domains/results/bvars, declaration
+kind/set/count/ownership and raw Name/supplement disagreement. Shared raw node
+pairs are tested across permitted/unmapped declarations in both orders, and
+across outer-slot/nested-domain contexts; inputs and global interning stay
+unchanged. Unit fixtures run without Lean; real exported data is also checked.
+
+Final counts: 3899→3902 public declarations; 34→36 modules; exactly three owner
+moves and three new API names. The other 3896 old declarations are fully exact.
+There are 31 accepted fields in the three old moved types and 31 in the three
+new implementation correspondences. Every accepted difference, Name tree,
+context ID, scope, slot and rule version is recorded in
+`reports/evidence/kernel-transport-accepted-differences.jsonl`.
+
+The final aggregate audit again passed exactly sixteen targets. The six kernel
+API/wrapper closures use propext and Quot.sound; main and relevant downstream
+closures use only propext, Classical.choice and Quot.sound. This is local Lean
+validation under the stated comparison contract, not an independent final audit
+or GitHub CI result. There is no unverified cold-elaboration speed claim.
+
+Final machine evidence is `kernel-transport-acceptance-results.json`; test output
+is `kernel-transport-comparator-tests.log`. The original blocked results,
+focused raw DAG and 31-field diagnostic files were not overwritten. No current
+acceptance blocker remains. No push, PR, merge, access or environment-setting
+change is part of this round.

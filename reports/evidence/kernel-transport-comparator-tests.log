@@ -1,0 +1,19 @@
+test_actual_exported_types (__main__.ComparisonTests.test_actual_exported_types) ... ok
+test_all_name_components_and_extra_scope_rejected (__main__.ComparisonTests.test_all_name_components_and_extra_scope_rejected) ... ok
+test_all_six_pairs_and_exact_unmoved (__main__.ComparisonTests.test_all_six_pairs_and_exact_unmoved) ... ok
+test_binder_info_user_name_and_unlisted_slot_rejected (__main__.ComparisonTests.test_binder_info_user_name_and_unlisted_slot_rejected) ... ok
+test_const_universe_parameter_type_result_and_bvar_rejected (__main__.ComparisonTests.test_const_universe_parameter_type_result_and_bvar_rejected) ... ok
+test_declaration_set_count_owner_and_manifest_rejected (__main__.ComparisonTests.test_declaration_set_count_owner_and_manifest_rejected) ... ok
+test_each_allowed_slot_rejects_changed_scope_and_context_id (__main__.ComparisonTests.test_each_allowed_slot_rejects_changed_scope_and_context_id) ... ok
+test_level_parameters_and_kind_rejected (__main__.ComparisonTests.test_level_parameters_and_kind_rejected) ... ok
+test_missing_name_or_raw_name_disagreement_rejected (__main__.ComparisonTests.test_missing_name_or_raw_name_disagreement_rejected) ... ok
+test_nested_forall_lambda_and_let_rejected (__main__.ComparisonTests.test_nested_forall_lambda_and_let_rejected) ... ok
+test_owner_and_reverse_owner_rejected (__main__.ComparisonTests.test_owner_and_reverse_owner_rejected) ... ok
+test_shared_dag_declaration_context_both_orders_and_immutable (__main__.ComparisonTests.test_shared_dag_declaration_context_both_orders_and_immutable) ... ok
+test_shared_dag_outer_slot_vs_nested_domain_both_orders (__main__.ComparisonTests.test_shared_dag_outer_slot_vs_nested_domain_both_orders) ... ok
+test_structured_name_parser_and_global_intern_unchanged (__main__.ComparisonTests.test_structured_name_parser_and_global_intern_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 13.186s
+
+OK

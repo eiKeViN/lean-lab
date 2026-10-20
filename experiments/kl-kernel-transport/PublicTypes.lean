@@ -7,6 +7,12 @@ structure TypeDumpState where
   ids : ExprStructMap Nat := {}
   next : Nat := 0
 
+-- Supplementary Name trees; the original NODE/TYPE representation is unchanged.
+private def nameTree : Name → Json
+  | .anonymous => toJson (["anonymous"] : List String)
+  | .str p s => Json.arr #[toJson "str", nameTree p, toJson s]
+  | .num p n => Json.arr #[toJson "num", nameTree p, toJson n]
+
 -- Metadata is not part of a mathematical type. Preserve every expression
 -- constructor, binder name/info and universe, sharing repeated subexpressions.
 partial def dumpType (out : IO.FS.Handle) (e : Expr) : StateT TypeDumpState IO Nat := do
@@ -35,6 +41,10 @@ partial def dumpType (out : IO.FS.Handle) (e : Expr) : StateT TypeDumpState IO N
   let state : TypeDumpState ← get
   set (TypeDumpState.mk (state.ids.insert (ExprStructEq.mk e) state.next) (state.next+1))
   out.putStrLn s!"NODE\t{state.next}\t{(toJson fields).compress}"
+  match e with
+  | .forallE n _ _ _ | .lam n _ _ _ =>
+    out.putStrLn s!"NAME\t{state.next}\t{(nameTree n).compress}"
+  | _ => pure ()
   return state.next
 
 run_elab do

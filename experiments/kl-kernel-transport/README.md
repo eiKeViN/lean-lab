@@ -1,9 +1,9 @@
 # Kernel transport under linear equivalences
 
-**Status:** compilation, axiom and focused checks pass; strict API acceptance
-remains blocked by module-dependent compiler-generated instance binder names.
-The runner deliberately still exits 1; see the report for evidence and the
-required comparison-contract decision.
+**Status:** accepted under `kl-kernel-anonymous-owner-v1`: exact except the
+explicitly permitted anonymous-instance owner relocation markers. Raw strict
+comparison still exposes the original three moved declarations; the original
+failure and 31-field diagnostic remain preserved. No mathematical source changed.
 
 An isolated responsibility/namespace migration from `../kl-signed-ranks` at
 `7225842219ed3844b2fbd9cf3d95f9b65bec862c`. Pristine `../kl`, signed-ranks and
@@ -33,11 +33,26 @@ axiom closures, exact types/kinds and module owners, and a warm build.
 
 `api-manifest.json` specifies all 34 reference modules, the two added modules,
 3899 existing public declarations, three new definitions and three owner moves.
+`type_compare.py` permits exactly six declaration pairs at fixed outer forall
+slots, validating structured Name trees, binder info and raw Name agreement.
+The original DAG and global interning are unchanged; no relaxed comparison memo.
+All other fields and the other 3896 old declarations remain exact.
 Private/internal compiler declarations remain excluded by Lean's own predicates;
 their counts are reported per module. No missing old API or unlisted addition is
 accepted. Results are written to ignored `results/kernel-transport/`.
 
 This establishes API discoverability, an independent local import boundary and
-compatibility. It does not claim proof shortening, a new mathematical abstraction
+focused definitional compatibility. It does not claim proof shortening, a new mathematical abstraction
 or a speedup. See `../../reports/kernel-transport-implementation.md` for measured
 results and limits.
+
+The aggregate runner checks the structured export projection against the original
+raw export hashes and pins mathematical source/harness bytes to built commit
+`a9568d548f48febeb2aa99b4ede8130e4eabba68`. It requires warm OAI readiness and
+never rebuilds the long chain for an exporter/comparator-only change.
+
+Pure Python mutation tests (the actual-export test is supplied by the aggregate):
+
+```bash
+python3 experiments/kl-kernel-transport/test_type_compare.py
+```

@@ -9,6 +9,9 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 
+sys.dont_write_bytecode = True
+import type_compare as tc
+
 if len(sys.argv) != 1:
     raise SystemExit('Usage: bash experiments/kl-kernel-transport/check.sh')
 
@@ -21,6 +24,7 @@ pin = '7225842219ed3844b2fbd9cf3d95f9b65bec862c'
 bott = 'OAI.RepresentationTheory.KazhdanLusztig.BottSamelson'
 generic, compat = manifest['added_modules']
 names = ('kernelSourceEquiv', 'kernelTargetEquiv', 'kernelMixedEquiv')
+compiled_commit = 'a9568d548f48febeb2aa99b4ede8130e4eabba68'
 output = root / 'results/kernel-transport' / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
 output.mkdir(parents=True)
 
@@ -92,7 +96,25 @@ def identity():
     return sorted(str(p) for p in changed | additions)
 
 
+def compiled_snapshot():
+    relative = exp.relative_to(root)
+    files = [str(relative / path(m)) for m in manifest['reference_modules'] + manifest['added_modules']]
+    files += [str(relative / n) for n in ('lean-toolchain', 'lake-manifest.json', 'lakefile.toml',
+              'KernelChecks.lean', 'CompatChecks.lean', 'BoundaryChecks.lean', 'Audit.lean',
+              'Smoke.lean', 'api-manifest.json')]
+    files += ['reports/evidence/kernel-transport-' + n for n in
+              ('results.json', 'api-diagnostics.json', 'focused-types.json', 'audit.log')]
+    hashes = {}
+    for name in files:
+        expected = subprocess.check_output(['git', 'show', compiled_commit + ':' + name], cwd=root)
+        actual = (root / name).read_bytes()
+        require(actual == expected, 'Changed compiled source/original evidence: ' + name)
+        hashes[name] = hashlib.sha256(actual).hexdigest()
+    return hashes
+
+
 changed_files = identity()
+compiled_hashes = compiled_snapshot()
 measured('versions', ['bash', '-c', 'set -e; lean --version; lake --version'])
 measured('reference-mathlib-ready', ['lake', '--no-build', 'build', 'Mathlib'], ref)
 measured('reference-ready', ['lake', '--no-build', 'build', 'OAI'], ref)
@@ -111,6 +133,7 @@ for item in (ref / '.lake/build').rglob('*'):
     if item.is_file() and other.exists():
         require(not os.path.samefile(item, other), 'Shared writable artifact: ' + str(other))
 measured('mathlib-ready', ['lake', '--no-build', 'build', 'Mathlib'])
+measured('experiment-ready', ['lake', '--no-build', 'build', 'OAI'])
 measured('generic', ['lake', 'build', generic])
 measured('compat', ['lake', 'build', compat])
 measured('independent-import', ['lake', 'env', 'lean', 'KernelChecks.lean'])
@@ -139,72 +162,46 @@ require(set(closures) == expected_audits, 'Missing or unexpected axiom output')
 for name, axioms in closures.items():
     require(set(axioms) <= {'propext', 'Classical.choice', 'Quot.sound'}, 'Disallowed axioms: ' + name)
 
-# Shared exact constructor interning, including binder names/info and universes.
+# Load raw DAGs without normalization. Supplementary Name rows do not enter
+# global interning; policy comparison is per declaration and uses no memo.
 intern = {}
-children = {'app': (1, 2), 'lam': (3, 4), 'forall': (3, 4), 'let': (2, 3, 4), 'proj': (3,)}
-
 
 def types(label, cwd, expected_modules):
     dump = output / (label + '.types')
     measured(label, ['env', 'LEAN_TYPES_OUT=' + str(dump), 'lake', 'env', 'lean',
                      '--root=' + str(exp), str(exp / 'PublicTypes.lean')], cwd)
-    nodes, rows, modules, owners, excluded = {}, {}, set(), {}, {}
-    owner = None
-    for line in dump.open():
-        fields = line.rstrip('\n').split('\t')
-        if fields[0] == 'MODULE':
-            owner = fields[1]
-            require(owner not in modules, 'Duplicate module: ' + owner)
-            modules.add(owner)
-        elif fields[0] == 'NODE':
-            _, number, payload = fields
-            key = json.loads(payload)
-            require(key[0] in {'bvar', 'sort', 'const', 'app', 'lam', 'forall', 'let', 'lit', 'proj'},
-                    'Unknown expression constructor')
-            for i in children.get(key[0], ()):
-                key[i] = nodes[int(key[i])]
-            require(int(number) not in nodes, 'Duplicate expression node')
-            nodes[int(number)] = intern.setdefault(tuple(key), len(intern))
-        elif fields[0] == 'TYPE':
-            _, name, levels, node, kind = fields
-            require(owner is not None and name not in rows, 'Duplicate/unowned type: ' + name)
-            rows[name] = (json.loads(levels), nodes[int(node)], kind)
-            owners[name] = owner
-        elif fields[0] == 'EXCLUDED':
-            _, module, private, internal = fields
-            require(module not in excluded, 'Duplicate exclusion count')
-            excluded[module] = dict(private=int(private), internal=int(internal))
-        else:
-            raise SystemExit('Unknown dump row: ' + fields[0])
-    require(modules == set(expected_modules), 'Module coverage mismatch: ' + label)
-    require(set(excluded) == modules, 'Missing compiler exclusion counts')
-    return rows, owners, excluded
+    return tc.load_dump(dump, intern, expected_modules)
 
-
-before, owners_before, excluded_before = types('types-before', ref, manifest['reference_modules'])
-after, owners_after, excluded_after = types(
-    'types-after', exp, manifest['reference_modules'] + manifest['added_modules'])
-require(len(before) == manifest['reference_public_count'], 'Unexpected reference public count: ' + str(len(before)))
-bad = [name for name, value in before.items() if after.get(name) != value]
-require(not bad, 'Existing public type/kind changed: ' + str(bad))
-require(set(after) - set(before) == set(manifest['new_declarations']), 'Unexpected new public API')
-require(len(after) == manifest['final_public_count'], 'Unexpected final public count: ' + str(len(after)))
-moves = {name: owners_after[name] for name in before if owners_after[name] != owners_before[name]}
-require(moves == manifest['moved_declarations'], 'Unexpected owner changes: ' + str(moves))
-for name, owner in manifest['new_declarations'].items():
-    require(owners_after[name] == owner and after[name][2] == 'def', 'Wrong new API owner/kind: ' + name)
-    old = name.replace('OAI.LinearEquiv.', prefix, 1)
-    require(after[name] == before[old], 'Relocated implementation type/kind changed: ' + name)
+before = types('types-before', ref, manifest['reference_modules'])
+after = types('types-after', exp, manifest['reference_modules'] + manifest['added_modules'])
+frozen_record = json.loads((root / 'reports/evidence/kernel-transport-results.json').read_text())
+for label, data in (('types-before', before), ('types-after', after)):
+    expected_hash = frozen_record['type_dump_sha256'][label]
+    require(data.raw_projection_sha256 == expected_hash, 'Original raw export changed: ' + label)
+    saved = root / frozen_record['run'] / (label + '.types')
+    if saved.exists():
+        require(hashlib.sha256(saved.read_bytes()).hexdigest() == expected_hash,
+                'Saved original export hash mismatch: ' + label)
+comparison = tc.compare_public(before, after, manifest)
+tests = measured('comparator-tests', [sys.executable, str(exp / 'test_type_compare.py'),
+                  '--before', str(output / 'types-before.types'),
+                  '--after', str(output / 'types-after.types')])
 measured('warm', ['lake', 'build', 'OAI'])
 identity()
-summary = dict(reference_commit=pin, changed_sources=changed_files,
-               reference_public_count=len(before), final_public_count=len(after),
-               new_declarations=manifest['new_declarations'], moved_declarations=moves,
-               excluded_before=excluded_before, excluded_after=excluded_after, axioms=closures,
-               module_counts=dict(reference=len(manifest['reference_modules']),
-                                  experiment=len(manifest['reference_modules']) + len(manifest['added_modules'])),
+require(compiled_snapshot() == compiled_hashes, 'Compiled source snapshot changed during checks')
+workflow_hashes = {n: hashlib.sha256((exp / n).read_bytes()).hexdigest() for n in
+                   ('PublicTypes.lean', 'validate.py', 'type_compare.py', 'test_type_compare.py', 'check.sh')}
+summary = dict(status='ACCEPTED under ' + tc.RULE_VERSION,
+               comparison=comparison, reference_commit=pin, compiled_source_commit=compiled_commit,
+               compiled_source_and_original_evidence_sha256=compiled_hashes,
+               workflow_sha256=workflow_hashes, changed_sources=changed_files,
+               reference_public_count=len(before.rows), final_public_count=len(after.rows),
+               new_declarations=manifest['new_declarations'], moved_declarations=manifest['moved_declarations'],
+               excluded_before=before.excluded, excluded_after=after.excluded, axioms=closures,
+               module_counts=dict(reference=len(before.modules), experiment=len(after.modules)),
+               raw_projection_sha256=dict(before=before.raw_projection_sha256, after=after.raw_projection_sha256),
                type_dump_sha256={label: hashlib.sha256((output / (label + '.types')).read_bytes()).hexdigest()
                                  for label in ('types-before', 'types-after')})
 (output / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
-print('Validated:', len(before), 'existing public declarations;', len(after), 'total.')
+print('ACCEPTED:', tc.RULE_VERSION, '3896 exact old declarations; 3 moved + 3 new pairs; 62 permitted fields.')
 print('Evidence:', output.relative_to(root))
