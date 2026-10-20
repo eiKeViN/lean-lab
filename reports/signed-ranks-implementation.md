@@ -69,7 +69,8 @@ Two comparable, sequential direct-elaboration pairs for unchanged versus changed
 | 1 | 8.814 s | 8.894 s | +0.91% |
 | 2 | 9.275 s | 8.850 s | -4.58% |
 
-No significant regression is observed in these samples; no speedup claim.
+No material regression observed in two sequential timing pairs; no statistical
+significance test or speedup claim.
 The earlier simultaneous exploratory pair is excluded. Direct elaboration is
 not compared to the reconnaissance warm-readiness timing. RSS is maximum child
 process RSS, not aggregate parallel memory; no cross-worker benchmark is claimed.
@@ -112,4 +113,8 @@ certified by compilation or this refactoring.
   the committed compact evidence JSON. No failed stage is represented as passed.
 
 No build remains running and no implementation blocker remains. Independent final
-review and any subsequent publication are pending; this turn is local-only.
+read-only review approved the supplied mathematical diff, validation runner, type
+exporter and boundary checks, with no blocking defect. That review did not rerun
+builds or inspect the live checkout; the execution evidence above is from this
+workspace. Permission to push and create a draft PR remains pending. No push, PR
+or merge has been performed; this work remains local-only.
