@@ -1,0 +1,4450 @@
+{
+  "assessed_at": "2026-10-21",
+  "checkpoint": "2b5287954bd3c16015d9aab10dc3331d61065926",
+  "guides": [
+    "https://leanprover-community.github.io/contribute/index.html",
+    "https://leanprover-community.github.io/contribute/pr-review.html",
+    "https://leanprover-community.github.io/contribute/naming.html",
+    "https://leanprover-community.github.io/contribute/style.html"
+  ],
+  "meaning": "Current dependency-compatible upstream candidate staging, not PR readiness or acceptance; all retained project mathematics remains potentially upstreamable after future interface/integration work.",
+  "modules": [
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/AdjointSheaf.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.AdjointSheaf",
+      "destination": [
+        "OAI.KL.BottSamelson.AdjointSheaf"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 22,
+          "name": "symmetricCoefficientNoetherian"
+        },
+        {
+          "line": 39,
+          "name": "bottVertexProjection"
+        },
+        {
+          "line": 44,
+          "name": "bottVertexProjection_injective"
+        }
+      ],
+      "basis": "Current Tits/stalk/pairing/character construction uses project compatibility wrappers or KL sheaf obligations transitively; mathematically plausible upstream content, retained with present dependency/API rather than generalized now."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Dual/TransportPairing.lean",
+      "module": "OAI.LinearAlgebra.Dual.TransportPairing",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Dual.TransportPairing"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "balanced"
+        },
+        {
+          "line": 25,
+          "name": "symmetric"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Summand",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "Hom.eq_of_maps"
+        },
+        {
+          "line": 31,
+          "name": "Hom.eq_of_vertex"
+        },
+        {
+          "line": 51,
+          "name": "Hom.zero"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Descent.lean",
+      "module": "OAI.LinearAlgebra.Descent",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "descend"
+        },
+        {
+          "line": 22,
+          "name": "descend_apply"
+        },
+        {
+          "line": 28,
+          "name": "descend_idempotent"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/Range.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.Range",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "rangeMap"
+        },
+        {
+          "line": 25,
+          "name": "rangeInclusion"
+        },
+        {
+          "line": 29,
+          "name": "rangeProjection"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/ConjugateRange.lean",
+      "module": "OAI.LinearAlgebra.ConjugateRange",
+      "destination": [
+        "ForMathlib.LinearAlgebra.ConjugateRange"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "conjugate"
+        },
+        {
+          "line": 20,
+          "name": "map"
+        },
+        {
+          "line": 27,
+          "name": "map_bijective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Dual/Summand.lean",
+      "module": "OAI.LinearAlgebra.Dual.Summand",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Dual.Summand"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "dualSection"
+        },
+        {
+          "line": 21,
+          "name": "dualProjection"
+        },
+        {
+          "line": 24,
+          "name": "projection_section"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Dual/Adjoint.lean",
+      "module": "OAI.LinearAlgebra.Dual.Adjoint",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Dual.Adjoint"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "adjoint"
+        },
+        {
+          "line": 21,
+          "name": "pairing"
+        },
+        {
+          "line": 26,
+          "name": "adjoint_comp"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Boundary/Summand.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Boundary.Summand",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "primitive_identity"
+        },
+        {
+          "line": 42,
+          "name": "split_projector_primitive"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/TensorProduct/Coordinates.lean",
+      "module": "OAI.LinearAlgebra.TensorProduct.Coordinates",
+      "destination": [
+        "ForMathlib.LinearAlgebra.TensorProduct.Coordinates"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "tensor_range_le_of_one_tmul"
+        },
+        {
+          "line": 27,
+          "name": "tensor_maps_eq_of_one_tmul"
+        },
+        {
+          "line": 38,
+          "name": "codRestrict_surjective_of_range_le"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/Stalks.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.Stalks",
+      "destination": [
+        "OAI.KL.BottSamelson.Stalks"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 25,
+          "name": "bottWeightProjection_range_le"
+        },
+        {
+          "line": 35,
+          "name": "bottTensor_maps_eq"
+        },
+        {
+          "line": 57,
+          "name": "bottFullIndex"
+        }
+      ],
+      "basis": "Current Tits/stalk/pairing/character construction uses project compatibility wrappers or KL sheaf obligations transitively; mathematically plausible upstream content, retained with present dependency/API rather than generalized now."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/ReflectionPair/TensorKernel.lean",
+      "module": "OAI.Algebra.Module.ReflectionPair.TensorKernel",
+      "destination": [
+        "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 26,
+          "name": "scalarEquiv"
+        },
+        {
+          "line": 47,
+          "name": "tensorFirst"
+        },
+        {
+          "line": 54,
+          "name": "tensorSecond"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/DualAndShift.lean",
+      "module": "OAI.Algebra.Module.Graded.DualAndShift",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.DualAndShift"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 22,
+          "name": "equiv_inverse_homogeneous"
+        },
+        {
+          "line": 42,
+          "name": "pairing_to_dual_homogeneous"
+        },
+        {
+          "line": 54,
+          "name": "perfectPairing_inverse_homogeneous"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Free/ScalarDivisibility.lean",
+      "module": "OAI.Algebra.Module.Free.ScalarDivisibility",
+      "destination": [
+        "ForMathlib.Algebra.Module.Free.ScalarDivisibility"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "exists_smul_iff"
+        },
+        {
+          "line": 30,
+          "name": "exists_prod_smul"
+        },
+        {
+          "line": 42,
+          "name": "scalar_quotient_regular"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/CoefficientChange/Basic.lean",
+      "module": "OAI.Algebra.Module.CoefficientChange.Basic",
+      "destination": [
+        "ForMathlib.Algebra.Module.CoefficientChange.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "equivVal"
+        },
+        {
+          "line": 42,
+          "name": "equiv"
+        },
+        {
+          "line": 52,
+          "name": "kEquiv"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Bruhat/Basic.lean",
+      "module": "OAI.GroupTheory.Coxeter.Bruhat.Basic",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "bruhat_refl"
+        },
+        {
+          "line": 22,
+          "name": "bruhat_trans"
+        },
+        {
+          "line": 26,
+          "name": "length_le_of_bruhat"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Polynomials/SelectedR.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "rPolynomial"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Polynomials/Unique.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.Unique",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "normalized_R_unique"
+        },
+        {
+          "line": 52,
+          "name": "normalized_P_unique"
+        },
+        {
+          "line": 105,
+          "name": "normalizedKL_unique"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Data/Polynomial/ReciprocalRigidity.lean",
+      "module": "OAI.Data.Polynomial.ReciprocalRigidity",
+      "destination": [
+        "ForMathlib.Algebra.Polynomial.Reciprocal"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "low_degree_reflect_eq_self"
+        },
+        {
+          "line": 29,
+          "name": "low_degree_zero_of_eval_reciprocal"
+        },
+        {
+          "line": 55,
+          "name": "eq_of_eval_difference_reciprocal"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Data/Polynomial/LowPart.lean",
+      "module": "OAI.Data.Polynomial.LowPart",
+      "destination": [
+        "ForMathlib.Algebra.Polynomial.LowPart"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 11,
+          "name": "lowPart"
+        },
+        {
+          "line": 22,
+          "name": "lowPart_degree"
+        },
+        {
+          "line": 31,
+          "name": "lowPart_solution"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 26,
+          "name": "polynomial"
+        },
+        {
+          "line": 47,
+          "name": "polynomial_zero"
+        },
+        {
+          "line": 51,
+          "name": "defect"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Dual/BalancedCut.lean",
+      "module": "OAI.LinearAlgebra.Dual.BalancedCut",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Dual.BalancedCut"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "balanced_two"
+        },
+        {
+          "line": 44,
+          "name": "balanced"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Models.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Models",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 23,
+          "name": "kernelData"
+        },
+        {
+          "line": 26,
+          "name": "kernelProdEquiv"
+        },
+        {
+          "line": 37,
+          "name": "kernelProdEquiv_graded"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Models.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Models",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 22,
+          "name": "LocalModels"
+        },
+        {
+          "line": 34,
+          "name": "ModelSum"
+        },
+        {
+          "line": 45,
+          "name": "mono"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/PositiveWord.lean",
+      "module": "OAI.RepresentationTheory.Hecke.PositiveWord",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.PositiveWord"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "one_add_leftInv"
+        },
+        {
+          "line": 24,
+          "name": "barLinear_positiveWord"
+        },
+        {
+          "line": 36,
+          "name": "positiveWord_support"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/CharacterDual.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.CharacterDual",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "unitPolynomialBasis"
+        },
+        {
+          "line": 29,
+          "name": "char_unit"
+        },
+        {
+          "line": 48,
+          "name": "char_natDegree_le_of_dual_equiv"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Boundary/Models.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Boundary.Models",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Boundary.Models"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "top_nontrivial"
+        },
+        {
+          "line": 31,
+          "name": "iso_of_primitive_top_split"
+        },
+        {
+          "line": 66,
+          "name": "iso_coefficientChange"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/CoefficientChange.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.CoefficientChange",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "unchangeHom"
+        },
+        {
+          "line": 48,
+          "name": "changeUnitHom"
+        },
+        {
+          "line": 60,
+          "name": "changeUnitInvHom"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/PositiveTransfer.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.PositiveTransfer",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "transfer"
+        },
+        {
+          "line": 21,
+          "name": "transfer_monotone"
+        },
+        {
+          "line": 29,
+          "name": "transfer_injective"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Exchange.lean",
+      "module": "OAI.GroupTheory.Coxeter.Exchange",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Exchange"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "simpleAction"
+        },
+        {
+          "line": 47,
+          "name": "wordAction"
+        },
+        {
+          "line": 52,
+          "name": "wordAction_concat"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Character.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Character",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "freeStalkChar"
+        },
+        {
+          "line": 23,
+          "name": "ModelSum.character"
+        },
+        {
+          "line": 69,
+          "name": "exists_stalkCharacter_decomposition"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Sheaves/LowerCharacter.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves.LowerCharacter",
+      "destination": [
+        "OAI.KL.Sheaves.LowerCharacter"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "lowerCharacter"
+        },
+        {
+          "line": 24,
+          "name": "boundaryModels_character"
+        },
+        {
+          "line": 39,
+          "name": "lowerCharacter_zero"
+        }
+      ],
+      "basis": "Current basis-specific Bruhat boundary/FreeSheaf/duality-obligation conventions and their model comparisons belong to this proof architecture; future standard sheaf interface integration is not performed."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/PairProjection/Basic.lean",
+      "module": "OAI.LinearAlgebra.PairProjection.Basic",
+      "destination": [
+        "ForMathlib.LinearAlgebra.PairProjection"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "relation"
+        },
+        {
+          "line": 19,
+          "name": "Edge"
+        },
+        {
+          "line": 21,
+          "name": "lower"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Dihedral/PlaneSystem.lean",
+      "module": "OAI.GroupTheory.Coxeter.Dihedral.PlaneSystem",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "pairMatrix"
+        },
+        {
+          "line": 33,
+          "name": "wordProd_alt_even"
+        },
+        {
+          "line": 45,
+          "name": "injective_of_simple_order"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/PlaneBasis.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.PlaneBasis",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "rootPlane_eq_of_mem"
+        },
+        {
+          "line": 33,
+          "name": "positive_combination_of_slope_between"
+        },
+        {
+          "line": 72,
+          "name": "noninverted_of_positive_combination"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Bruhat/Diamonds.lean",
+      "module": "OAI.GroupTheory.Coxeter.Bruhat.Diamonds",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "diamondEdges_of_bruhatStep"
+        },
+        {
+          "line": 75,
+          "name": "intervalIso_bruhatStep_iff"
+        },
+        {
+          "line": 99,
+          "name": "diamondEdges_of_bruhatStep_general"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Algebra/ReflectionFrobenius/Basic.lean",
+      "module": "OAI.Algebra.Algebra.ReflectionFrobenius.Basic",
+      "destination": [
+        "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "fixed"
+        },
+        {
+          "line": 24,
+          "name": "fixed_val"
+        },
+        {
+          "line": 28,
+          "name": "expand"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Bruhat/Transport.lean",
+      "module": "OAI.GroupTheory.Coxeter.Bruhat.Transport",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Transport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "intervalIso_restrict"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Dihedral/Words.lean",
+      "module": "OAI.GroupTheory.Coxeter.Dihedral.Words",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Dihedral.Words"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "alt"
+        },
+        {
+          "line": 35,
+          "name": "reduced_cons_cons_ne"
+        },
+        {
+          "line": 43,
+          "name": "reduced_cons_eq_alt"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/Dihedral.lean",
+      "module": "OAI.RepresentationTheory.Hecke.Dihedral",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "lowerSum"
+        },
+        {
+          "line": 40,
+          "name": "double_string"
+        },
+        {
+          "line": 113,
+          "name": "left_plus_coeff"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/DualR.lean",
+      "module": "OAI.RepresentationTheory.Hecke.DualR",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.DualR"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "dualR"
+        },
+        {
+          "line": 24,
+          "name": "dualR_zero"
+        },
+        {
+          "line": 28,
+          "name": "dualR_recursion"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Polynomials/Normalization.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "rPolynomial_normalization"
+        },
+        {
+          "line": 72,
+          "name": "scaledKL"
+        },
+        {
+          "line": 79,
+          "name": "scaledKL_reciprocity_inverse"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Dihedral/SignedWords.lean",
+      "module": "OAI.GroupTheory.Coxeter.Dihedral.SignedWords",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "wordProd_alt_odd"
+        },
+        {
+          "line": 26,
+          "name": "rotation"
+        },
+        {
+          "line": 28,
+          "name": "simple_rotation"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/Splines.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.Splines",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "linearPolynomial"
+        },
+        {
+          "line": 22,
+          "name": "orbitSpline"
+        },
+        {
+          "line": 25,
+          "name": "orbitSpline_self"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Bruhat/DihedralModel.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Bruhat.DihedralModel",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 25,
+          "name": "reflection_of_parity"
+        },
+        {
+          "line": 32,
+          "name": "oppositeExternal"
+        },
+        {
+          "line": 36,
+          "name": "sameExternal"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/FlowDown.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.FlowDown",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "modelOutgoing"
+        },
+        {
+          "line": 27,
+          "name": "modelProduct"
+        },
+        {
+          "line": 29,
+          "name": "HasFlowDown"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Localization/PlaneModel.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Localization.PlaneModel",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "modelLabel"
+        },
+        {
+          "line": 24,
+          "name": "model_flabby"
+        },
+        {
+          "line": 30,
+          "name": "model_generated"
+        }
+      ],
+      "basis": "PlaneBasis.modelLabel/model_flabby/model_generated/model_quotient are an existing generic Coxeter-to-moment-graph adapter; no project boundary/sheaf obligations are consumed.",
+      "preparation": "Candidate only: existing API and namespace retained; integration, duplicate search, documentation, focused imports and human review remain."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/DihedralOrder.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.DihedralOrder",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "prefixRoot"
+        },
+        {
+          "line": 22,
+          "name": "negPrefixRoot"
+        },
+        {
+          "line": 25,
+          "name": "prefixRoot_strictMono"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/Dihedral/SignedCount.lean",
+      "module": "OAI.Combinatorics.Dihedral.SignedCount",
+      "destination": [
+        "ForMathlib.Combinatorics.Dihedral.SignedCount"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "Before"
+        },
+        {
+          "line": 16,
+          "name": "before_same_source_pos"
+        },
+        {
+          "line": 28,
+          "name": "before_same_source_neg"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/LaterCount.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.LaterCount",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "edgeRoot_same_table"
+        },
+        {
+          "line": 39,
+          "name": "edgeRoot_next_table"
+        },
+        {
+          "line": 58,
+          "name": "afterIndicator"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/BigOperators/FiniteCharacterCancellation.lean",
+      "module": "OAI.Algebra.BigOperators.FiniteCharacterCancellation",
+      "destination": [
+        "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "finite_character_cancellation"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Sheaves/StalkReciprocity.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves.StalkReciprocity",
+      "destination": [
+        "OAI.KL.Sheaves.StalkReciprocity"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 23,
+          "name": "stalkCharacter_reciprocity"
+        }
+      ],
+      "basis": "Current basis-specific Bruhat boundary/FreeSheaf/duality-obligation conventions and their model comparisons belong to this proof architecture; future standard sheaf interface integration is not performed."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Parabolic/InversionList.lean",
+      "module": "OAI.GroupTheory.Coxeter.Parabolic.InversionList",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "leftInvSeq_inclusion"
+        },
+        {
+          "line": 32,
+          "name": "reflection_inclusion"
+        },
+        {
+          "line": 38,
+          "name": "bruhatStep_inclusion_iff"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/PlaneTransport.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.PlaneTransport",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "graphRoot_mem"
+        },
+        {
+          "line": 30,
+          "name": "graphRoot_path_plane"
+        },
+        {
+          "line": 39,
+          "name": "twoStep_mem_coset"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Dihedral/IntervalTransport.lean",
+      "module": "OAI.GroupTheory.Coxeter.Dihedral.IntervalTransport",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "rank_two_of_two_step_bound"
+        },
+        {
+          "line": 58,
+          "name": "swapHom"
+        },
+        {
+          "line": 83,
+          "name": "swap"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/RatioOrder.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.RatioOrder",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "simplePositive"
+        },
+        {
+          "line": 30,
+          "name": "simplePositive_injective"
+        },
+        {
+          "line": 36,
+          "name": "coordinate_sum"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/Subpaths.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.Subpaths",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.Subpaths"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "IsPath.map"
+        },
+        {
+          "line": 25,
+          "name": "IsPath.isChain"
+        },
+        {
+          "line": 39,
+          "name": "IsPath.pairwise_map_of_local"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/DyerPaths/Adapted.lean",
+      "module": "OAI.RepresentationTheory.Hecke.DyerPaths.Adapted",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "Edge"
+        },
+        {
+          "line": 22,
+          "name": "source"
+        },
+        {
+          "line": 23,
+          "name": "target"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Comparison/Transport.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Comparison.Transport",
+      "destination": [
+        "OAI.KL.Comparison.Transport"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 26,
+          "name": "boundarySheaf_gradedIso"
+        },
+        {
+          "line": 35,
+          "name": "stalkCharacter_eq_character"
+        },
+        {
+          "line": 58,
+          "name": "upperInclusion"
+        }
+      ],
+      "basis": "Current transfer/suffix-freeness/propagation bridge assembles application models, rather than an independent existing general interface."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/ScalarMap.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.ScalarMap",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.ScalarMap"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "dispatch_map"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Polynomials/ScaledReciprocity.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "scaledKL_reciprocity_upper"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/CoverUniqueness.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.CoverUniqueness",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "MinimalCover.hom_bijective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Uniqueness.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "stalk_hom_bijective"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Uniqueness.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "Hom.edge_bijective_of_vertex"
+        },
+        {
+          "line": 36,
+          "name": "Hom.isoOfBijective"
+        },
+        {
+          "line": 46,
+          "name": "Hom.aboveIso"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Boundary/Uniqueness.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Boundary.Uniqueness",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 25,
+          "name": "hom_vertex_bijective"
+        },
+        {
+          "line": 49,
+          "name": "homIso"
+        },
+        {
+          "line": 75,
+          "name": "hom_vertex_bijective_of_iso"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/CanonicalPairing.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.CanonicalPairing",
+      "destination": [
+        "OAI.KL.BottSamelson.CanonicalPairing"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "bottCanonicalAdjointHom"
+        },
+        {
+          "line": 28,
+          "name": "bottCanonicalAdjointHom_top_bijective"
+        },
+        {
+          "line": 35,
+          "name": "bottCanonicalAdjointIso"
+        }
+      ],
+      "basis": "Current Tits/stalk/pairing/character construction uses project compatibility wrappers or KL sheaf obligations transitively; mathematically plausible upstream content, retained with present dependency/API rather than generalized now."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/RegularScalar.lean",
+      "module": "OAI.Algebra.Module.Graded.RegularScalar",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.RegularScalar"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "homogeneous_positive_nonzero"
+        },
+        {
+          "line": 35,
+          "name": "dual_mem_ideal"
+        },
+        {
+          "line": 52,
+          "name": "local_diagonal_strict_degree"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Dual/IntegralSupport.lean",
+      "module": "OAI.LinearAlgebra.Dual.IntegralSupport",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Dual.IntegralSupport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "projection"
+        },
+        {
+          "line": 18,
+          "name": "supported"
+        },
+        {
+          "line": 27,
+          "name": "cut"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/Words.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.Words",
+      "destination": [
+        "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "SymmetricCoefficient"
+        },
+        {
+          "line": 23,
+          "name": "coefficientAction"
+        },
+        {
+          "line": 31,
+          "name": "coefficientAction_simple"
+        }
+      ],
+      "basis": "Existing Bott word/coordinate construction for arbitrary finite Coxeter data in the real Tits realization; no project compatibility wrapper dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Dual/Frobenius.lean",
+      "module": "OAI.LinearAlgebra.Dual.Frobenius",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Dual.Frobenius"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "restrictDual"
+        },
+        {
+          "line": 24,
+          "name": "fiber"
+        },
+        {
+          "line": 31,
+          "name": "trace_recover_fiber"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/AlgebraMap.lean",
+      "module": "OAI.Algebra.Module.Graded.AlgebraMap",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.AlgebraMap"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "basisPiece"
+        },
+        {
+          "line": 24,
+          "name": "mem_basisPiece"
+        },
+        {
+          "line": 53,
+          "name": "basis_mem_piece"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Algebra/ReflectionFrobenius/Basis.lean",
+      "module": "OAI.Algebra.Algebra.ReflectionFrobenius.Basis",
+      "destination": [
+        "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "wallCoordinate"
+        },
+        {
+          "line": 22,
+          "name": "wallMatrix"
+        },
+        {
+          "line": 27,
+          "name": "wallMatrix_mulVec"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/PairProjection/Kernel.lean",
+      "module": "OAI.LinearAlgebra.PairProjection.Kernel",
+      "destination": [
+        "ForMathlib.LinearAlgebra.PairProjection"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "kernel_upper"
+        },
+        {
+          "line": 23,
+          "name": "upper_kernel_of_divisibility"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/ReflectionPair/Twist.lean",
+      "module": "OAI.Algebra.Module.ReflectionPair.Twist",
+      "destination": [
+        "ForMathlib.Algebra.Module.ReflectionPair.Twist"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 25,
+          "name": "equivVal"
+        },
+        {
+          "line": 35,
+          "name": "equiv"
+        },
+        {
+          "line": 58,
+          "name": "lattice"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Generators.lean",
+      "module": "OAI.Algebra.Module.Graded.Generators",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "internal_of_components"
+        },
+        {
+          "line": 40,
+          "name": "image_isInternal"
+        },
+        {
+          "line": 78,
+          "name": "subPiece"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Projective/ScalarQuotient.lean",
+      "module": "OAI.Algebra.Module.Projective.ScalarQuotient",
+      "destination": [
+        "ForMathlib.Algebra.Module.Projective.ScalarQuotient"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "scalarQuotientMap"
+        },
+        {
+          "line": 22,
+          "name": "scalarQuotientMap_surjective"
+        },
+        {
+          "line": 31,
+          "name": "scalarKernelMap"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/Basic.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.Basic",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "ModuleData"
+        },
+        {
+          "line": 38,
+          "name": "Hom"
+        },
+        {
+          "line": 42,
+          "name": "sub"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Basic.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Basic",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "GradedSheaf"
+        },
+        {
+          "line": 27,
+          "name": "forget"
+        },
+        {
+          "line": 35,
+          "name": "EdgeFlabby"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/Equality.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.Equality",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Equality"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "Hom.ofEq"
+        },
+        {
+          "line": 19,
+          "name": "Hom.ofEq_apply"
+        },
+        {
+          "line": 33,
+          "name": "Hom.ofEq_bijective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Submodule/ScaledImage.lean",
+      "module": "OAI.Algebra.Module.Submodule.ScaledImage",
+      "destination": [
+        "ForMathlib.Algebra.Module.Submodule.ScaledImage"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "scaled"
+        },
+        {
+          "line": 16,
+          "name": "map_scaled"
+        },
+        {
+          "line": 24,
+          "name": "map_eq_scaled_iff"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Cover/Product.lean",
+      "module": "OAI.Algebra.Module.Cover.Product",
+      "destination": [
+        "ForMathlib.Algebra.Module.Cover.Product"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "pi_mem_ideal_smul"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Quotient/EdgeEquiv.lean",
+      "module": "OAI.Algebra.Module.Quotient.EdgeEquiv",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "iso"
+        },
+        {
+          "line": 27,
+          "name": "map_kernel_scalar"
+        },
+        {
+          "line": 42,
+          "name": "exists_scalar_iso"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Boundary/Basic.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Boundary.Basic",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "BoundarySheaf"
+        },
+        {
+          "line": 31,
+          "name": "singletonSheaf"
+        },
+        {
+          "line": 37,
+          "name": "singleton_boundarySheaf"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/Operators.lean",
+      "module": "OAI.RepresentationTheory.Hecke.Operators",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.Operators"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 23,
+          "name": "Space"
+        },
+        {
+          "line": 25,
+          "name": "basis"
+        },
+        {
+          "line": 28,
+          "name": "end_ext"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Bruhat/LowerFinset.lean",
+      "module": "OAI.GroupTheory.Coxeter.Bruhat.LowerFinset",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "lowerFinset"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/Inverse.lean",
+      "module": "OAI.RepresentationTheory.Hecke.Inverse",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.Inverse"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 25,
+          "name": "bar_coeff_inverse"
+        },
+        {
+          "line": 39,
+          "name": "rValue_inverse_factor"
+        },
+        {
+          "line": 55,
+          "name": "rValue_inverse"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Data/Polynomial/ReflectEvaluation.lean",
+      "module": "OAI.Data.Polynomial.ReflectEvaluation",
+      "destination": [
+        "ForMathlib.Algebra.Polynomial.Reciprocal"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 11,
+          "name": "eval\u2082_reflect_unit"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Hilbert/Series.lean",
+      "module": "OAI.Algebra.Module.Graded.Hilbert.Series",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Series"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "hasSum_monomials"
+        },
+        {
+          "line": 38,
+          "name": "intWeight_eq_natWeight"
+        },
+        {
+          "line": 43,
+          "name": "polynomialGrading_nat"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Hilbert/RationalFunction.lean",
+      "module": "OAI.Algebra.Module.Graded.Hilbert.RationalFunction",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 12,
+          "name": "hasSum_shift_coeff"
+        },
+        {
+          "line": 22,
+          "name": "numerator_unique"
+        },
+        {
+          "line": 36,
+          "name": "numerator_add_shift"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/Pairings.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.Pairings",
+      "destination": [
+        "OAI.KL.BottSamelson.Pairings"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 26,
+          "name": "reflection_character_congruence_iff"
+        },
+        {
+          "line": 82,
+          "name": "reflection_character_separates"
+        },
+        {
+          "line": 103,
+          "name": "isReflection_of_prime_character_congruence"
+        }
+      ],
+      "basis": "Current Tits/stalk/pairing/character construction uses project compatibility wrappers or KL sheaf obligations transitively; mathematically plausible upstream content, retained with present dependency/API rather than generalized now."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/Coefficients.lean",
+      "module": "OAI.RepresentationTheory.Hecke.Coefficients",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.Coefficients"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "left_coeff"
+        },
+        {
+          "line": 60,
+          "name": "left_plus_coeff"
+        },
+        {
+          "line": 67,
+          "name": "positiveWord"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/CoordinateProjection.lean",
+      "module": "OAI.LinearAlgebra.CoordinateProjection",
+      "destination": [
+        "ForMathlib.LinearAlgebra.CoordinateProjection"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "eval"
+        },
+        {
+          "line": 17,
+          "name": "image"
+        },
+        {
+          "line": 18,
+          "name": "project"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Projective/Range.lean",
+      "module": "OAI.Algebra.Module.Projective.Range",
+      "destination": [
+        "ForMathlib.Algebra.Module.Projective.Range"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "descend"
+        },
+        {
+          "line": 21,
+          "name": "descend_apply"
+        },
+        {
+          "line": 27,
+          "name": "projective_of_end"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/ReflectionPair/TensorDescent.lean",
+      "module": "OAI.Algebra.Module.ReflectionPair.TensorDescent",
+      "destination": [
+        "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "tensorFirst_map"
+        },
+        {
+          "line": 26,
+          "name": "tensorSecond_map"
+        },
+        {
+          "line": 50,
+          "name": "tensor_difference"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/KernelCoordinates.lean",
+      "module": "OAI.LinearAlgebra.KernelCoordinates",
+      "destination": [
+        "ForMathlib.LinearAlgebra.KernelCoordinates"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "injective_of_zero_lift"
+        },
+        {
+          "line": 25,
+          "name": "maps_eq_iff_of_zero_iff"
+        },
+        {
+          "line": 29,
+          "name": "functions_eq_of_surjective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/PairProjection/Lifting.lean",
+      "module": "OAI.LinearAlgebra.PairProjection.Lifting",
+      "destination": [
+        "ForMathlib.LinearAlgebra.PairProjection"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "cross_lift"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Projective/Transport.lean",
+      "module": "OAI.Algebra.Module.Projective.Transport",
+      "destination": [
+        "ForMathlib.Algebra.Module.Projective.Transport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "projective_of_same_range"
+        },
+        {
+          "line": 26,
+          "name": "projective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Reflection/Classification.lean",
+      "module": "OAI.LinearAlgebra.Reflection.Classification",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Reflection.Classification"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "orthogonal_eq_id_or_rootReflection"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Localization/FiniteCharacters.lean",
+      "module": "OAI.Algebra.Module.Localization.FiniteCharacters",
+      "destination": [
+        "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "diagonal"
+        },
+        {
+          "line": 20,
+          "name": "stabilizer"
+        },
+        {
+          "line": 45,
+          "name": "diagonal_mem"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Localization/ProjectiveLattice.lean",
+      "module": "OAI.Algebra.Module.Localization.ProjectiveLattice",
+      "destination": [
+        "ForMathlib.Algebra.Module.Localization.ProjectiveLattice"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "finsupp_divide"
+        },
+        {
+          "line": 29,
+          "name": "prime_divide_of_relation"
+        },
+        {
+          "line": 47,
+          "name": "mem_of_prime_local_membership"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Adjoint.lean",
+      "module": "OAI.Algebra.Module.Graded.Adjoint",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Adjoint"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "perfect_inverse_of_homogeneous_functional"
+        },
+        {
+          "line": 74,
+          "name": "adjoint_homogeneous"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Invariance/Induction.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Invariance.Induction",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "rankDifference_subinterval_lt"
+        },
+        {
+          "line": 33,
+          "name": "rTilde_transport_all"
+        },
+        {
+          "line": 67,
+          "name": "scaledKL_eq_scaledPolynomial"
+        }
+      ],
+      "basis": "Actual statements rankDifference_subinterval_lt, rTilde_transport_all and scaledKL_transport use arbitrary Coxeter intervals, order isomorphisms and existing polynomial families only; the old Invariance filename was not a reason to retain them in the project layer.",
+      "preparation": "Candidate only: existing API and namespace retained; integration, duplicate search, documentation, focused imports and human review remain."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Invariance/Finite.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Invariance.Finite",
+      "destination": [
+        "OAI.KL.Invariance.Finite"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "comparison_of_source02"
+        },
+        {
+          "line": 53,
+          "name": "comparison_difference_le"
+        },
+        {
+          "line": 88,
+          "name": "bottom_eq_of_comparisons"
+        }
+      ],
+      "basis": "Current finite/parabolic model adapters and induction assemble this final invariance proof; theorem mathematics may be upstreamable, current orchestration is retained."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Invariance/FiniteModel.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Invariance.FiniteModel",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "FiniteIntervalModel"
+        },
+        {
+          "line": 24,
+          "name": "exists_finiteIntervalModel"
+        },
+        {
+          "line": 36,
+          "name": "intervalEndpointCongr"
+        }
+      ],
+      "basis": "FiniteIntervalModel and its existence/orderIso/kl_eq/rank_eq give finite-generator parabolic reduction for arbitrary systems; existing interface suffices, with no new model abstraction extracted.",
+      "preparation": "Candidate only: existing API and namespace retained; integration, duplicate search, documentation, focused imports and human review remain."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Invariance/Main.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Invariance.Main",
+      "destination": [
+        "OAI.KL.Invariance.Main"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "combinatorial_invariance"
+        }
+      ],
+      "basis": "Current finite/parabolic model adapters and induction assemble this final invariance proof; theorem mathematics may be upstreamable, current orchestration is retained."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Extension.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Extension",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "lowerAt"
+        },
+        {
+          "line": 26,
+          "name": "lowerAt_map"
+        },
+        {
+          "line": 32,
+          "name": "upwardSubmodule"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/Transport.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.Transport",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Transport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "zero"
+        },
+        {
+          "line": 31,
+          "name": "Hom.zero"
+        },
+        {
+          "line": 34,
+          "name": "Hom.pi"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Boundary/Extension.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Boundary.Extension",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Boundary.Extension"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "extend_iso"
+        },
+        {
+          "line": 47,
+          "name": "exists_gradedIso"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Bruhat/Defs.lean",
+      "module": "OAI.GroupTheory.Coxeter.Bruhat.Defs",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 12,
+          "name": "BruhatStep"
+        },
+        {
+          "line": 16,
+          "name": "BruhatLE"
+        },
+        {
+          "line": 20,
+          "name": "Interval"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Polynomials/Normalized.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "PolynomialFamilies"
+        },
+        {
+          "line": 20,
+          "name": "NormalizedKL"
+        },
+        {
+          "line": 39,
+          "name": "klFamilies"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Localization/Lattice.lean",
+      "module": "OAI.Algebra.Module.Localization.Lattice",
+      "destination": [
+        "ForMathlib.Algebra.Module.Localization.Lattice"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 42,
+          "name": "mem_of_prime_local_membership"
+        },
+        {
+          "line": 86,
+          "name": "exists_denominator_of_localized_mem"
+        },
+        {
+          "line": 103,
+          "name": "mem_iff_localized_at_height_one"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Cover/Local.lean",
+      "module": "OAI.Algebra.Module.Cover.Local",
+      "destination": [
+        "ForMathlib.Algebra.Module.Cover.Local"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "lift_surjective"
+        },
+        {
+          "line": 36,
+          "name": "splitEquiv"
+        },
+        {
+          "line": 58,
+          "name": "exists_split_minimal_cover"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Projective/ReverseFiltration.lean",
+      "module": "OAI.Algebra.Module.Projective.ReverseFiltration",
+      "destination": [
+        "ForMathlib.Algebra.Module.Projective.ReverseFiltration"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "kernel_projective_of_presentation"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Components.lean",
+      "module": "OAI.Algebra.Module.Graded.Components",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Components"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "component"
+        },
+        {
+          "line": 20,
+          "name": "positiveIdeal"
+        },
+        {
+          "line": 27,
+          "name": "subsingleton_of_positiveIdeal_smul_eq_top"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Quotient/EdgeImage.lean",
+      "module": "OAI.Algebra.Module.Quotient.EdgeImage",
+      "destination": [
+        "ForMathlib.Algebra.Module.Quotient.KernelReduction"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "kernel_saturated"
+        },
+        {
+          "line": 30,
+          "name": "reduced_kernel_injective"
+        },
+        {
+          "line": 49,
+          "name": "reducedInclusion"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Hilbert/Basic.lean",
+      "module": "OAI.Algebra.Module.Graded.Hilbert.Basic",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "piece"
+        },
+        {
+          "line": 18,
+          "name": "term"
+        },
+        {
+          "line": 21,
+          "name": "value"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/OrdinaryR.lean",
+      "module": "OAI.RepresentationTheory.Hecke.OrdinaryR",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.OrdinaryR"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 25,
+          "name": "variableUnit"
+        },
+        {
+          "line": 32,
+          "name": "rValue_polynomial"
+        },
+        {
+          "line": 63,
+          "name": "polynomial"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/SymmetricAlgebra/Quotient.lean",
+      "module": "OAI.LinearAlgebra.SymmetricAlgebra.Quotient",
+      "destination": [
+        "ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "ideal"
+        },
+        {
+          "line": 17,
+          "name": "quotientMap"
+        },
+        {
+          "line": 25,
+          "name": "ideal_le_ker"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Localization.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Localization",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "edge_subsingleton_of_unit"
+        },
+        {
+          "line": 41,
+          "name": "supportedOutgoing"
+        },
+        {
+          "line": 45,
+          "name": "kernelProduct"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Localization/Ambient.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Localization.Ambient",
+      "destination": [
+        "OAI.KL.Localization.Ambient"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "exists_outgoing_below"
+        },
+        {
+          "line": 37,
+          "name": "polynomialRoot"
+        },
+        {
+          "line": 41,
+          "name": "polynomialRoot_homogeneous"
+        }
+      ],
+      "basis": "Current root-labelled boundary models and application-local embeddings/terminal image arguments depend on project sheaf conventions; generic localization support is already staged below."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Localization/Plane.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Localization.Plane",
+      "destination": [
+        "OAI.KL.Localization.Plane"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 22,
+          "name": "CosetVertex"
+        },
+        {
+          "line": 31,
+          "name": "cosetAmbient"
+        },
+        {
+          "line": 34,
+          "name": "cosetAmbient_injective"
+        }
+      ],
+      "basis": "Current root-labelled boundary models and application-local embeddings/terminal image arguments depend on project sheaf conventions; generic localization support is already staged below."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Localization/Embed.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Localization.Embed",
+      "destination": [
+        "OAI.KL.Localization.GraphEmbedding"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "embedLinear"
+        },
+        {
+          "line": 26,
+          "name": "embedLinear_injective"
+        },
+        {
+          "line": 30,
+          "name": "planePrime"
+        }
+      ],
+      "basis": "Current root-labelled boundary models and application-local embeddings/terminal image arguments depend on project sheaf conventions; generic localization support is already staged below."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RingTheory/Localization/RelativePrime.lean",
+      "module": "OAI.RingTheory.Localization.RelativePrime",
+      "destination": [
+        "ForMathlib.RingTheory.Localization.RelativePrime"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "not_dvd_map"
+        },
+        {
+          "line": 21,
+          "name": "map_prime"
+        },
+        {
+          "line": 30,
+          "name": "map_relPrime"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/PlaneReduction.lean",
+      "module": "OAI.LinearAlgebra.PlaneReduction",
+      "destination": [
+        "ForMathlib.LinearAlgebra.PlaneReduction"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "scalar_reduction"
+        },
+        {
+          "line": 27,
+          "name": "associated_reduction"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Localization/Products.lean",
+      "module": "OAI.Algebra.Module.Localization.Products",
+      "destination": [
+        "ForMathlib.Algebra.Module.Localization.Products"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "smul_top_le_of_map_dvd"
+        },
+        {
+          "line": 25,
+          "name": "smul_top_eq_of_map_associated"
+        },
+        {
+          "line": 32,
+          "name": "associated_prod_power"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Comparison/Propagation.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Comparison.Propagation",
+      "destination": [
+        "OAI.KL.Comparison.Propagation"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 28,
+          "name": "actual_edge_increment_le"
+        },
+        {
+          "line": 49,
+          "name": "actual_edge_increment_eq_iff"
+        },
+        {
+          "line": 92,
+          "name": "partial_kernel_projective_of_image_eq"
+        }
+      ],
+      "basis": "Current transfer/suffix-freeness/propagation bridge assembles application models, rather than an independent existing general interface."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/Monotone.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.Monotone",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.Monotone"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "mem_suffix_iff_score_lt"
+        },
+        {
+          "line": 30,
+          "name": "mem_suffix_iff_score_lt_injective"
+        },
+        {
+          "line": 52,
+          "name": "step_monotone"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Hilbert/Increment.lean",
+      "module": "OAI.Algebra.Module.Graded.Hilbert.Increment",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Increment"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "shifted_map_homogeneous"
+        },
+        {
+          "line": 29,
+          "name": "shiftedImagePieceMap"
+        },
+        {
+          "line": 40,
+          "name": "shiftedImagePieceMap_surjective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Hilbert.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Hilbert",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "kernelHilbert"
+        },
+        {
+          "line": 22,
+          "name": "lowerImage"
+        },
+        {
+          "line": 26,
+          "name": "upperImage"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Data/Polynomial/ScaledComparison.lean",
+      "module": "OAI.Data.Polynomial.ScaledComparison",
+      "destination": [
+        "ForMathlib.Algebra.Polynomial.TransferEvaluation",
+        "ForMathlib.Algebra.Order.Field.RealScaling",
+        "ForMathlib.Algebra.Polynomial.ScaledReciprocity"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 12,
+          "name": "polynomial_eq_of_transfer_eval_eq"
+        },
+        {
+          "line": 33,
+          "name": "edge_scalar_identity"
+        },
+        {
+          "line": 48,
+          "name": "transferCoefficient_pos"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim. The preserved ScaledReciprocity source unit still includes matrix_difference_single/matrix_difference_le for finite weighted-sum differences; their file home remains a documented cleanup item, not a claim that they are polynomial-specific."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Projective/ScalarKernel.lean",
+      "module": "OAI.Algebra.Module.Projective.ScalarKernel",
+      "destination": [
+        "ForMathlib.Algebra.Module.Projective.ScalarKernel"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "scalarKernelEquiv"
+        },
+        {
+          "line": 36,
+          "name": "projective_kernel_of_scalar_presentation"
+        },
+        {
+          "line": 47,
+          "name": "imageMapKernelEquiv"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/Transfer.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.Transfer",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.Transfer"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "dispatch_append"
+        },
+        {
+          "line": 25,
+          "name": "dispatch_add"
+        },
+        {
+          "line": 36,
+          "name": "dispatch_mul_right"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/ReflectionOrder.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.ReflectionOrder",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 33,
+          "name": "normalizedRoot_mem_iff"
+        },
+        {
+          "line": 41,
+          "name": "rootPlane_eq_normalized_span"
+        },
+        {
+          "line": 59,
+          "name": "normalizedRoot_affine"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/DyerPaths/PlaneCoordinates.lean",
+      "module": "OAI.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "path_coordinates"
+        },
+        {
+          "line": 55,
+          "name": "intervalToAmbient"
+        },
+        {
+          "line": 58,
+          "name": "intervalToAmbient_injective"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/SortedSchedule.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.SortedSchedule",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.SortedSchedule"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "sortedSchedule"
+        },
+        {
+          "line": 23,
+          "name": "sortedSchedule_nodup"
+        },
+        {
+          "line": 27,
+          "name": "sortedSchedule_pairwise"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Data/Polynomial/Avoidance.lean",
+      "module": "OAI.Data.Polynomial.Avoidance",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Avoidance"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "coordinatePolynomial"
+        },
+        {
+          "line": 18,
+          "name": "coordinatePolynomial_coeff"
+        },
+        {
+          "line": 30,
+          "name": "coordinatePolynomial_injective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/DyerPaths/Wall.lean",
+      "module": "OAI.RepresentationTheory.Hecke.DyerPaths.Wall",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "rootValue"
+        },
+        {
+          "line": 23,
+          "name": "rootPlaneTies"
+        },
+        {
+          "line": 28,
+          "name": "schedule"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Reflection/Plane.lean",
+      "module": "OAI.LinearAlgebra.Reflection.Plane",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Reflection.Plane"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "formPair_surjective"
+        },
+        {
+          "line": 41,
+          "name": "range_preReflection_product_sub_id"
+        },
+        {
+          "line": 65,
+          "name": "range_reflection_product_sub_id"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/Order.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.Order",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "height"
+        },
+        {
+          "line": 25,
+          "name": "PositiveRoot.height_pos"
+        },
+        {
+          "line": 35,
+          "name": "normalizedRoot"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/PlaneLength.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.PlaneLength",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "planeLength"
+        },
+        {
+          "line": 24,
+          "name": "rootPlane_grouped_erase"
+        },
+        {
+          "line": 49,
+          "name": "planeDefect_eq_relative_difference"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/SymmetricAlgebra/RootIdeal.lean",
+      "module": "OAI.LinearAlgebra.SymmetricAlgebra.RootIdeal",
+      "destination": [
+        "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "symmetric_\u03b9_injective"
+        },
+        {
+          "line": 27,
+          "name": "rootIdeal"
+        },
+        {
+          "line": 30,
+          "name": "rootLine"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/Basic.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.Basic",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "IsPath"
+        },
+        {
+          "line": 21,
+          "name": "pathTerm"
+        },
+        {
+          "line": 27,
+          "name": "step"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/ReflectionLabels.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.ReflectionLabels",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "Represents.triple_isReflection"
+        },
+        {
+          "line": 55,
+          "name": "BruhatStep.label_reflection"
+        },
+        {
+          "line": 61,
+          "name": "BruhatStep.composable_labels_ne"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Order/Interval/Diamonds.lean",
+      "module": "OAI.Order.Interval.Diamonds",
+      "destination": [
+        "ForMathlib.Order.Interval.Diamonds"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "DiamondEdges"
+        },
+        {
+          "line": 24,
+          "name": "DiamondEdges.map"
+        },
+        {
+          "line": 32,
+          "name": "DiamondEdges.map_iff"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Dihedral/Diamonds.lean",
+      "module": "OAI.GroupTheory.Coxeter.Dihedral.Diamonds",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "alt_add_two"
+        },
+        {
+          "line": 19,
+          "name": "alt_odd_sandwich"
+        },
+        {
+          "line": 29,
+          "name": "odd_alt_reflection"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/NonnegativeBasis.lean",
+      "module": "OAI.Algebra.Module.Graded.NonnegativeBasis",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.NonnegativeBasis"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "polynomial_scalar_mod_positive"
+        },
+        {
+          "line": 42,
+          "name": "basis_coordinates_graded"
+        },
+        {
+          "line": 79,
+          "name": "NonnegativeBasis"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Sheaves/Boundary.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves.Boundary",
+      "destination": [
+        "OAI.KL.Sheaves.Boundary"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 25,
+          "name": "Coefficient"
+        },
+        {
+          "line": 27,
+          "name": "root"
+        },
+        {
+          "line": 30,
+          "name": "polynomialLabel"
+        }
+      ],
+      "basis": "Current basis-specific Bruhat boundary/FreeSheaf/duality-obligation conventions and their model comparisons belong to this proof architecture; future standard sheaf interface integration is not performed."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Bruhat/Descent.lean",
+      "module": "OAI.GroupTheory.Coxeter.Bruhat.Descent",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "simple_mul_bruhat_of_descent"
+        },
+        {
+          "line": 25,
+          "name": "lower_parity_balance"
+        },
+        {
+          "line": 48,
+          "name": "externalLower"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/MinimalCover.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.MinimalCover",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "idempotent_eq_zero"
+        },
+        {
+          "line": 51,
+          "name": "MinimalCover.bijective_of_boundaryIso"
+        },
+        {
+          "line": 94,
+          "name": "inverse"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Quotient/EdgeHom.lean",
+      "module": "OAI.Algebra.Module.Quotient.EdgeHom",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "descend"
+        },
+        {
+          "line": 20,
+          "name": "descend_apply"
+        },
+        {
+          "line": 26,
+          "name": "kernel_scalar_le"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/QuotientHom.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.QuotientHom",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "quotientHom"
+        },
+        {
+          "line": 27,
+          "name": "quotientHom_apply"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Hom.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Hom",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "Endomorphism"
+        },
+        {
+          "line": 29,
+          "name": "complement"
+        },
+        {
+          "line": 45,
+          "name": "complement_idempotent"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Boundary/Hom.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Boundary.Hom",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "idempotent_zero_of_top_zero"
+        },
+        {
+          "line": 56,
+          "name": "idempotent_trivial"
+        },
+        {
+          "line": 103,
+          "name": "endomorphism_bijective_of_top"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Hom.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Hom",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "split_stalk_graded"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/Character.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.Character",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Character"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "mapNonnegativeBasis"
+        },
+        {
+          "line": 26,
+          "name": "character_eq_of_gradedEquiv"
+        },
+        {
+          "line": 47,
+          "name": "char"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Comparison/Freeness.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Comparison.Freeness",
+      "destination": [
+        "OAI.KL.Comparison.SuffixFreeness"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 23,
+          "name": "no_conditions_free"
+        },
+        {
+          "line": 37,
+          "name": "schedule_kernels_free_of_images_eq"
+        },
+        {
+          "line": 73,
+          "name": "schedule_kernels_free_of_endpoint_eq"
+        }
+      ],
+      "basis": "Current transfer/suffix-freeness/propagation bridge assembles application models, rather than an independent existing general interface."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/ModuleData/Duality.lean",
+      "module": "OAI.Algebra.Module.Graded.ModuleData.Duality",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Duality"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "equivOfEq_inverse"
+        },
+        {
+          "line": 23,
+          "name": "homOfEq"
+        },
+        {
+          "line": 38,
+          "name": "unit_endomorphisms_commute"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/Support.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.Support",
+      "destination": [
+        "OAI.KL.BottSamelson.Support"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "symmetricGrading_zero"
+        },
+        {
+          "line": 43,
+          "name": "bottSupported_of_stalkSupport"
+        },
+        {
+          "line": 53,
+          "name": "bottStalk_supported_annihilates"
+        }
+      ],
+      "basis": "Current Tits/stalk/pairing/character construction uses project compatibility wrappers or KL sheaf obligations transitively; mathematically plausible upstream content, retained with present dependency/API rather than generalized now."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Duality.lean",
+      "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Duality",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 32,
+          "name": "dualToSupport_homogeneous"
+        },
+        {
+          "line": 59,
+          "name": "UpperQuotient.annihilates"
+        },
+        {
+          "line": 77,
+          "name": "upwardSubmodule_saturated"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/HomogeneousDual.lean",
+      "module": "OAI.Algebra.Module.Graded.HomogeneousDual",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.HomogeneousDual"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "mem_of_homogeneous_smul"
+        },
+        {
+          "line": 48,
+          "name": "homogeneous_basis_repr"
+        },
+        {
+          "line": 63,
+          "name": "dualBasis_homogeneous"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Duality.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Duality",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "scaled_single_section"
+        },
+        {
+          "line": 27,
+          "name": "labelProduct"
+        },
+        {
+          "line": 29,
+          "name": "labelProduct_ne_zero"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Sheaves/Support.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves.Support",
+      "destination": [
+        "OAI.KL.Sheaves.Support"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "incomingEquivInversions"
+        },
+        {
+          "line": 49,
+          "name": "incoming_card"
+        },
+        {
+          "line": 74,
+          "name": "root_injective_on_labels"
+        }
+      ],
+      "basis": "Current basis-specific Bruhat boundary/FreeSheaf/duality-obligation conventions and their model comparisons belong to this proof architecture; future standard sheaf interface integration is not performed."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Hilbert/Images.lean",
+      "module": "OAI.Algebra.Module.Graded.Hilbert.Images",
+      "destination": [
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Images"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "scalarDegreeMap"
+        },
+        {
+          "line": 27,
+          "name": "scalarDegreeMap_surjective"
+        },
+        {
+          "line": 41,
+          "name": "scalarDegreeMap_injective"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/CoefficientChange/Dual.lean",
+      "module": "OAI.Algebra.Module.CoefficientChange.Dual",
+      "destination": [
+        "ForMathlib.Algebra.Module.CoefficientChange.Dual"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "mapEquiv"
+        },
+        {
+          "line": 26,
+          "name": "dualTo"
+        },
+        {
+          "line": 35,
+          "name": "dualFrom"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.ScaledImages",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "outgoingLabelProduct"
+        },
+        {
+          "line": 24,
+          "name": "outgoingLabelProduct_dvd"
+        },
+        {
+          "line": 28,
+          "name": "outgoingLabelProduct_smul_mem"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Localization/Terminal.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Localization.Terminal",
+      "destination": [
+        "OAI.KL.Localization.TerminalImages"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "localized_boundary_decomposition"
+        },
+        {
+          "line": 63,
+          "name": "scheduledLower_root_ne"
+        },
+        {
+          "line": 78,
+          "name": "outgoingUpper_root_ne"
+        }
+      ],
+      "basis": "Current root-labelled boundary models and application-local embeddings/terminal image arguments depend on project sheaf conventions; generic localization support is already staged below."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Flat/Kernel.lean",
+      "module": "OAI.Algebra.Module.Flat.Kernel",
+      "destination": [
+        "ForMathlib.Algebra.Module.Flat.Kernel"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "baseChange_ker"
+        },
+        {
+          "line": 21,
+          "name": "baseChange_map"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Localization/Edge.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Localization.Edge",
+      "destination": [
+        "OAI.KL.Localization.Edge"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "EdgeRing"
+        },
+        {
+          "line": 23,
+          "name": "edgeRingEquiv"
+        },
+        {
+          "line": 43,
+          "name": "reducedPolynomialRoot_prime"
+        }
+      ],
+      "basis": "Current root-labelled boundary models and application-local embeddings/terminal image arguments depend on project sheaf conventions; generic localization support is already staged below."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Quotient/ScalarImage.lean",
+      "module": "OAI.Algebra.Module.Quotient.ScalarImage",
+      "destination": [
+        "ForMathlib.Algebra.Module.Quotient.ScalarImage"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 20,
+          "name": "coordinateReduction"
+        },
+        {
+          "line": 25,
+          "name": "coordinateReduction_surjective"
+        },
+        {
+          "line": 33,
+          "name": "coordinateReduction_kernel"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Algebra/Module/Localization/Membership.lean",
+      "module": "OAI.Algebra.Module.Localization.Membership",
+      "destination": [
+        "ForMathlib.Algebra.Module.Localization.Membership"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "baseChange_eq_localized"
+        },
+        {
+          "line": 22,
+          "name": "denominator"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/DirectedPaths/Suffix.lean",
+      "module": "OAI.Combinatorics.DirectedPaths.Suffix",
+      "destination": [
+        "ForMathlib.Combinatorics.DirectedPaths.Suffix"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "exists_suffix_score_gt"
+        }
+      ],
+      "basis": "Existing order/path/transfer or integer signed comparison/count model; independent of final invariance theorem.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Bruhat/Basic.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Bruhat.Basic",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "Edge"
+        },
+        {
+          "line": 26,
+          "name": "source"
+        },
+        {
+          "line": 27,
+          "name": "target"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/Reflection/Forms.lean",
+      "module": "OAI.LinearAlgebra.Reflection.Forms",
+      "destination": [
+        "ForMathlib.LinearAlgebra.Reflection.Forms"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 14,
+          "name": "finrank_moving_conj"
+        },
+        {
+          "line": 25,
+          "name": "rank_one_eq_reflection_of_negates"
+        },
+        {
+          "line": 58,
+          "name": "negates_of_commutes_nonpos"
+        }
+      ],
+      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Realization/Geometric.lean",
+      "module": "OAI.GroupTheory.Coxeter.Realization.Geometric",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Realization.Geometric"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "simple_normal_value"
+        },
+        {
+          "line": 25,
+          "name": "geometricSimple"
+        },
+        {
+          "line": 28,
+          "name": "geometricSimple_liftable"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Realization/Tits.lean",
+      "module": "OAI.GroupTheory.Coxeter.Realization.Tits",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Realization.Tits"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "gram"
+        },
+        {
+          "line": 19,
+          "name": "root"
+        },
+        {
+          "line": 23,
+          "name": "normal"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Realization/Positivity.lean",
+      "module": "OAI.GroupTheory.Coxeter.Realization.Positivity",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Realization.Positivity"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "rootCoeff"
+        },
+        {
+          "line": 31,
+          "name": "rootCoeff_succ"
+        },
+        {
+          "line": 43,
+          "name": "alternating_root"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Realization/Faithful.lean",
+      "module": "OAI.GroupTheory.Coxeter.Realization.Faithful",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Realization.Faithful"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "extendedAction_injective"
+        },
+        {
+          "line": 37,
+          "name": "involution_of_moving_rank_one"
+        },
+        {
+          "line": 57,
+          "name": "isReflection_of_moving_rank_one"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Realization/Cotangent.lean",
+      "module": "OAI.GroupTheory.Coxeter.Realization.Cotangent",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Realization.Cotangent"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "root"
+        },
+        {
+          "line": 18,
+          "name": "normal_root"
+        },
+        {
+          "line": 21,
+          "name": "simple"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Polynomials/Parabolic.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic",
+      "destination": [
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "normalized_restriction"
+        },
+        {
+          "line": 58,
+          "name": "klFamilies_inclusion"
+        },
+        {
+          "line": 65,
+          "name": "klPolynomial_inclusion"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/Basic.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.Basic",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "IsRoot"
+        },
+        {
+          "line": 22,
+          "name": "Represents"
+        },
+        {
+          "line": 25,
+          "name": "embed"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Roots/PlaneSubgroup.lean",
+      "module": "OAI.GroupTheory.Coxeter.Roots.PlaneSubgroup",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "movingSubgroup"
+        },
+        {
+          "line": 36,
+          "name": "planeSubgroup"
+        },
+        {
+          "line": 39,
+          "name": "planeSubgroup_le_moving"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Basic.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Basic",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 13,
+          "name": "OrderedGraph"
+        },
+        {
+          "line": 20,
+          "name": "Sheaf"
+        },
+        {
+          "line": 29,
+          "name": "Assignment"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Isomorphism.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Isomorphism",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "Iso"
+        },
+        {
+          "line": 28,
+          "name": "symm"
+        },
+        {
+          "line": 38,
+          "name": "assignments"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Zero.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Zero",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 15,
+          "name": "zero"
+        },
+        {
+          "line": 21,
+          "name": "prod"
+        },
+        {
+          "line": 27,
+          "name": "prod_generated"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Extension.lean",
+      "module": "OAI.Combinatorics.MomentGraph.Sheaf.Extension",
+      "destination": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "baseChange"
+        },
+        {
+          "line": 23,
+          "name": "tensorAssignments"
+        },
+        {
+          "line": 29,
+          "name": "baseChange_tmul_compatible"
+        }
+      ],
+      "basis": "Existing ordered-graph/sheaf interfaces, including explicit Coxeter adapters; no target invariance construction dependency.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Parabolic/Standard.lean",
+      "module": "OAI.GroupTheory.Coxeter.Parabolic.Standard",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 17,
+          "name": "matrix"
+        },
+        {
+          "line": 23,
+          "name": "system"
+        },
+        {
+          "line": 26,
+          "name": "inclusion"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Parabolic/Support.lean",
+      "module": "OAI.GroupTheory.Coxeter.Parabolic.Support",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Parabolic.Support"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 16,
+          "name": "reduced_of_append"
+        },
+        {
+          "line": 21,
+          "name": "reduced_pair_eq_alternating"
+        },
+        {
+          "line": 47,
+          "name": "alternating_length_bound"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/CharacterDecomposition.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.CharacterDecomposition",
+      "destination": [
+        "OAI.KL.BottSamelson.CharacterDecomposition"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "bottCharacter_decomposition_both"
+        }
+      ],
+      "basis": "Current Tits/stalk/pairing/character construction uses project compatibility wrappers or KL sheaf obligations transitively; mathematically plausible upstream content, retained with present dependency/API rather than generalized now."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/Character.lean",
+      "module": "OAI.RepresentationTheory.BottSamelson.Character",
+      "destination": [
+        "OAI.KL.BottSamelson.Character"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "bottSplitRightWord"
+        },
+        {
+          "line": 29,
+          "name": "bottSplitLeftWord"
+        },
+        {
+          "line": 36,
+          "name": "bottSplitRightWord_coordinates"
+        }
+      ],
+      "basis": "Current Tits/stalk/pairing/character construction uses project compatibility wrappers or KL sheaf obligations transitively; mathematically plausible upstream content, retained with present dependency/API rather than generalized now."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Sheaves/Reciprocity.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves.Reciprocity",
+      "destination": [
+        "OAI.KL.Sheaves.Reciprocity"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 18,
+          "name": "boundarySheaf_perfectPairing"
+        },
+        {
+          "line": 37,
+          "name": "sectionDualityObligation"
+        },
+        {
+          "line": 61,
+          "name": "boundaryFreeSheaf"
+        }
+      ],
+      "basis": "Current basis-specific Bruhat boundary/FreeSheaf/duality-obligation conventions and their model comparisons belong to this proof architecture; future standard sheaf interface integration is not performed."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Sheaves/FreeModel.lean",
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves.FreeModel",
+      "destination": [
+        "OAI.KL.Sheaves.FreeModel"
+      ],
+      "classification": "project_current_interface",
+      "declarations": [
+        {
+          "line": 23,
+          "name": "SectionDualityObligation"
+        },
+        {
+          "line": 46,
+          "name": "sectionDualityObligation_of_perfectPairing"
+        },
+        {
+          "line": 75,
+          "name": "FreeSheaf"
+        }
+      ],
+      "basis": "Current basis-specific Bruhat boundary/FreeSheaf/duality-obligation conventions and their model comparisons belong to this proof architecture; future standard sheaf interface integration is not performed."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/GroupTheory/Coxeter/Bruhat/DiamondClosure.lean",
+      "module": "OAI.GroupTheory.Coxeter.Bruhat.DiamondClosure",
+      "destination": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 12,
+          "name": "bruhatStep_of_interval_covBy"
+        },
+        {
+          "line": 28,
+          "name": "diamondEdges_bruhatStep"
+        }
+      ],
+      "basis": "Extends Mathlib CoxeterSystem/CoxeterMatrix for arbitrary systems; existing exchange/Bruhat/realization/dihedral statements, not one fixed group.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/Hecke/DyerPaths/LexicographicOrder.lean",
+      "module": "OAI.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder",
+      "destination": [
+        "ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder"
+      ],
+      "classification": "current_candidate",
+      "declarations": [
+        {
+          "line": 26,
+          "name": "lexRootScore"
+        },
+        {
+          "line": 29,
+          "name": "lexRootScore_injective"
+        },
+        {
+          "line": 35,
+          "name": "lexEdgeScore"
+        }
+      ],
+      "basis": "Equal-parameter Hecke/KL polynomial theory over arbitrary Coxeter systems; specialized research scope is not disqualifying.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+    }
+  ],
+  "stable_kernel_candidate": "ForMathlib.LinearAlgebra.KernelTransport",
+  "compatibility": "34 original entrypoints plus two kernel import entrypoints; no new mathematical declarations",
+  "schema": 1,
+  "declaration_evidence_scope": "Up to three regex-derived source declaration examples per prior module, not an exhaustive declaration dump. Complete source spans are in MIGRATION.md; exact 3902 public-type coverage is checked separately by Lean export.",
+  "stable_modules": [
+    {
+      "source": "experiments/kl-architecture/OAI/LinearAlgebra/KernelTransport.lean",
+      "destination": "ForMathlib.LinearAlgebra.KernelTransport",
+      "classification": "current_candidate",
+      "basis": "General source/target/mixed linear kernel equivalences; compare with existing Mathlib kernel/comap APIs before proposing upstream."
+    },
+    {
+      "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/KernelTransportCompat.lean",
+      "destination": "OAI.KL.Compatibility.KernelTransport",
+      "classification": "project_compatibility",
+      "basis": "Three preserved old names delegating to general kernel transport; compatibility facility rather than additional mathematical content."
+    }
+  ]
+}

@@ -66,11 +66,12 @@ reproducibility contract, not a claim that platform settings were saved.
 - Each experiment's `.lake` holds its exact dependency checkout and compiled
   artifacts. Repeated checks reuse these; do not run `lake clean` routinely.
 - All generated caches and `results/` logs are ignored by Git. Selected baseline
-  evidence is committed under `reports/`. Current local footprint is about
+  evidence is committed under `reports/`. The baseline measurement recorded about
   4.0 GiB for `.cache` and 8.0 GiB for the KL `.lake`, including full mathlib
   and KL artifacts.
-- This fresh task had no retained caches from the previous worker. Setup is
-  idempotent when files persist and downloads again if the platform discards them.
+- The original baseline measurement used a fresh worker without retained caches.
+  Later experiments reuse the validated toolchain and dependency artifacts. Setup
+  is idempotent when files persist and downloads again if they are discarded.
 - Do not run `lake update` during normal setup. To intentionally upgrade, create
   a separate experiment or review both `lean-toolchain` and `lake-manifest.json`
   changes together. Reuse a compatible installed toolchain; never substitute a
@@ -78,5 +79,30 @@ reproducibility contract, not a claim that platform settings were saved.
 
 Cheap script regressions: `python3 scripts/test_checks.py` (no Lean build or network).
 
-No CI, containers, background services or speculative refactoring were added.
+The baseline setup adds no CI, containers or background services.
 Source provenance and licenses are in [provenance/README.md](provenance/README.md).
+
+## Lean experiments and library layout
+
+Each experiment is a separate Lake project with its own pinned toolchain and
+manifest. Source is under its `OAI/` tree; the current staging experiment also
+has `ForMathlib/`. Run commands from the lab root after `scripts/setup.sh`.
+
+| Experiment | Purpose |
+| --- | --- |
+| `experiments/kl` | Pristine 34-module upstream baseline |
+| `experiments/kl-signed-ranks` | Paired signed-rank API experiment |
+| `experiments/kl-kernel-transport` | General kernel transport and compatibility |
+| `experiments/kl-architecture` | Frozen, reviewed semantic file migration |
+| [`experiments/kl-for-mathlib`](experiments/kl-for-mathlib/README.md) | Current candidate/application layout, preserving all earlier experiments |
+
+The current candidate layer includes specialized Coxeter, Hecke, KL polynomial
+and Tits word mathematics as well as general algebra. `OAI/KL` retains the
+present application/model interfaces; future interface extraction is separate.
+ForMathlib has no project-layer imports. Candidate status is distinct from
+Mathlib PR readiness. See [the assessment](reports/for-mathlib-layout.md) for
+current evidence, limitations and the complete per-module inventory.
+
+```bash
+bash experiments/kl-for-mathlib/check.sh
+```
