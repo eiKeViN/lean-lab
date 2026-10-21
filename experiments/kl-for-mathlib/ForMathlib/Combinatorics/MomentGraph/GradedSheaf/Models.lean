@@ -2,7 +2,7 @@ import Mathlib
 import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
 import ForMathlib.LinearAlgebra.Dual.BalancedCut
 

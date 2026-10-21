@@ -1,6 +1,8 @@
 import Mathlib
 import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic
-import ForMathlib.Algebra.Module.Graded.AlgebraMap
+import ForMathlib.Algebra.Module.Graded.Basis
+import ForMathlib.Algebra.Module.Graded.PolynomialMap
+import ForMathlib.Algebra.Module.Graded.HomogeneousMul
 
 /-! Semantic home: ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis. Source spans: Frobenius:17, Frobenius:9, Frobenius:8, Frobenius:12.
 See migration.json and MIGRATION.md for exact provenance. -/

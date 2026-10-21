@@ -1,5 +1,7 @@
 import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
+import ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Boundary.Basic. Source spans: GradedSheaves:16.
 See migration.json and MIGRATION.md for exact provenance. -/

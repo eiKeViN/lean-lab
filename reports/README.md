@@ -1,8 +1,9 @@
 # Verification records
 
 Current entrypoints are in the root README and the maintained
-`experiments/kl-for-mathlib/README.md`. The current file-responsibility refinement
-is in [responsibility-boundaries.md](responsibility-boundaries.md); the preceding
+`experiments/kl-for-mathlib/README.md`. The current whole-library refinement is in
+[whole-library-layout.md](whole-library-layout.md); the previous local refinement
+is in [responsibility-boundaries.md](responsibility-boundaries.md). The preceding
 consolidation results are in [project-consolidation.md](project-consolidation.md).
 
 Earlier reports and evidence are retained as historical records. Their commands,

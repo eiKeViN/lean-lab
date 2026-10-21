@@ -1,6 +1,6 @@
 import Mathlib
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness. Source spans: EdgeLocalization:11, EdgeLocalization:13.
 See migration.json and MIGRATION.md for exact provenance. -/

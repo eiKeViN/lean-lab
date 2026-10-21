@@ -1,5 +1,6 @@
 import Mathlib
 import ForMathlib.GroupTheory.Coxeter.Realization.Geometric
+import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Realization.Tits. Source spans: Tits:5, Tits:7.
 See migration.json and MIGRATION.md for exact provenance. -/

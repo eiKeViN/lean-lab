@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Models. Source spans: CharacterReciprocity:6, CharacterReciprocity:7.
 See migration.json and MIGRATION.md for exact provenance. -/

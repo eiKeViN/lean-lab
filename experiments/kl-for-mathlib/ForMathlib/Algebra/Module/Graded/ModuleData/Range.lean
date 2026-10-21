@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.Algebra.Module.Graded.DualAndShift
+import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
 import ForMathlib.LinearAlgebra.Quotient.Transport
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.Range. Source spans: BalancedPairings:13, BalancedPairings:25, BalancedPairings:10.

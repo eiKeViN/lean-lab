@@ -70,6 +70,8 @@ def static_checks():
  if len(used)!=len(set(used)) or set(used)!={u['id'] for u in expanded}:
   raise RuntimeError('Source units must be allocated exactly once')
  known=set(modules)|{'ForMathlib.LinearAlgebra.KernelTransport','OAI.KL.Compatibility.KernelTransport'}
+ if M.get('entrypoints')!={'OAI.KL':['OAI.KL.Invariance.Main']}:
+  raise RuntimeError('Expected the stable KL theorem entrypoint')
  if any(d not in known for x in modules.values() for d in x['imports']):raise RuntimeError('Unknown implementation dependency')
  old_names=set(previous['modules'])|{'OAI.LinearAlgebra.KernelTransport','OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat'}
  mapping=M['module_renames'];splits=M.get('split_module_imports',{})
@@ -102,11 +104,24 @@ def static_checks():
     raise RuntimeError('General support imports domain theory: '+n)
   if n.startswith('ForMathlib.GroupTheory.Coxeter.') and any(d.startswith('ForMathlib.RepresentationTheory.') for d in x['imports']):
    raise RuntimeError('Coxeter object layer imports representation theory: '+n)
+  if n.startswith('ForMathlib.Combinatorics.MomentGraph.Sheaf.'):
+   if any(d.startswith(('ForMathlib.Algebra.Module.Graded.','ForMathlib.Combinatorics.MomentGraph.GradedSheaf.','ForMathlib.Combinatorics.MomentGraph.Boundary.')) for d in x['imports']):
+    raise RuntimeError('Ordinary sheaf core imports graded construction: '+n)
   if n.startswith('ForMathlib.Combinatorics.MomentGraph.') and not n.startswith('ForMathlib.Combinatorics.MomentGraph.Bruhat.'):
    if any(d.startswith(('ForMathlib.GroupTheory.','ForMathlib.RepresentationTheory.')) for d in x['imports']):raise RuntimeError('General sheaf interface imports a Coxeter model: '+n)
  list(graphlib.TopologicalSorter({n:set(x['imports']) for n,x in modules.items()}).static_order())
+ # Compatibility imports may retain other compatibility entries, but never cycles
+ # or absent targets; implementations still may not depend on these umbrellas.
+ for n,ds in M['legacy_shims'].items():
+  if n.startswith('ForMathlib.') and any(d.startswith('OAI.') for d in ds):
+   raise RuntimeError('ForMathlib compatibility entry imports the project: '+n)
+  if any(d not in known|legacy|{'Mathlib'} for d in ds):
+   raise RuntimeError('Unknown compatibility dependency: '+n)
+ combined={n:set(x['imports']) for n,x in modules.items()}
+ combined.update({n:set(ds)-{'Mathlib'} for n,ds in M['legacy_shims'].items()})
+ list(graphlib.TopologicalSorter(combined).static_order())
  # No new mathematical declaration can hide in a file outside the deterministic products.
- allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{'WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
+ allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if '.lake' not in p.parts}
  if actual-allowed:raise RuntimeError('Unlisted Lean source: '+str(actual-allowed))
  for p in list((HERE/'OAI').rglob('*.lean'))+list((HERE/'ForMathlib').rglob('*.lean')):
@@ -136,7 +151,7 @@ def main():
  run('mathlib-ready',['lake','--no-build','build','Mathlib'],env=env)
  if args.checks_only:run('oai-ready',['lake','--no-build','build','ForMathlib','OAI'],env=env)
  else:run('library-build',['lake','build','ForMathlib','OAI'],env=env)
- for file in ('WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
+ for file in ('StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
   run(file,['lake','env','lean',file+'.lean'],env=env)
  check_axioms((OUT/'Audit.log').read_text())
  run('migrated-types',['lake','env','lean','PublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'migrated-types.tsv')))

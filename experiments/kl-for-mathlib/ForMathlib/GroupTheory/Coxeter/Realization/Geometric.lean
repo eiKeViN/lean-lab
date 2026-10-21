@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.LinearAlgebra.Reflection.Forms
+import ForMathlib.LinearAlgebra.Reflection.Bilinear
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Realization.Geometric. Source spans: Tits:4.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown. Source spans: DihedralIntervals:4.
 See migration.json and MIGRATION.md for exact provenance. -/

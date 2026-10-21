@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.Algebra.Module.Graded.DualAndShift
+import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.HomogeneousDual. Source spans: Support:25, Support:13.
 See migration.json and MIGRATION.md for exact provenance. -/

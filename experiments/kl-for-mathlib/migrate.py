@@ -73,6 +73,8 @@ def products():
   files[name.replace('.','/')+'.lean']=(''.join('import '+d+'\n' for d in imports)+'\n/-! Compatibility import for the pre-migration module. No declarations live here. -/\n').encode()
  files['ForMathlib.lean']=(''.join('import '+n+'\n' for n in sorted(m['modules']) if n.startswith('ForMathlib.'))+'import ForMathlib.LinearAlgebra.KernelTransport\n').encode()
  files['OAI/Architecture.lean']=(''.join('import '+n+'\n' for n in sorted(m['modules']))+'import ForMathlib.LinearAlgebra.KernelTransport\nimport OAI.KL.Compatibility.KernelTransport\n').encode()
+ for name,imports in m.get('entrypoints',{}).items():
+  files[name.replace('.','/')+'.lean']=(''.join('import '+n+'\n' for n in imports)).encode()
  # The human index is derived from the same exact source-span manifest.
  byid={u['id']:u for u in expanded}
  lines=['# Source migration index','','Reference: Git `'+m['reference_commit']+':'+m['reference']+'` (historical source, no checkout required).','Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged. Partition records cover their immutable parent exactly; only existing scope frames are copied.','Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.','Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.','','## Old file → semantic homes','']

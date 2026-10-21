@@ -6,13 +6,13 @@ recoverable from Git history; their experiment directories have been removed.
 That consolidation preserved the mathematical source and interfaces. Subsequent
 file-responsibility refinements are recorded below and in the current report.
 
-`ForMathlib/` contains 168 implementation modules that can presently form a
+`ForMathlib/` contains 181 implementation modules that can presently form a
 standalone dependency layer: general algebra/linear support, Coxeter geometry,
 ordered paths and moment-graph sheaves, Hecke and equal-parameter KL polynomial
 theory, and the existing Tits Bott word model. This includes specialized research
 mathematics; subject specialization is not a reason for exclusion.
 
-`OAI/KL/` contains 23 existing application modules plus the kernel-name wrapper:
+`OAI/KL/` contains 25 application modules plus the kernel-name wrapper:
 Tits stalk/pairing/character constructions, basis-specific boundary/duality
 models, localization bridges, comparison propagation and finite/parabolic model
 assembly. Their mathematics may also be suitable upstream; their current
@@ -26,12 +26,20 @@ imports every implementation. Declaration namespaces and public types remain
 compatible (`OAI.*`); candidate staging does not rename mathematical APIs.
 
 Original 34 KL module import entrypoints and the two existing kernel import
-entrypoints are import wrappers. Three published ForMathlib paths now also forward
-to precise implementations: `FiniteCharacterCancellation`, polynomial
-`ScaledReciprocity`, and `Module.Localization.Products`. Earlier semantic import paths are available in
+entrypoints are import wrappers. Published paths retired by responsibility
+refinements also forward to precise implementations; there are 51 compatibility
+entries in total. Earlier semantic import paths are available in
 the pinned historical Git trees.
 The maintained project uses the paths in CLASSIFICATION.md and does not add
 another 193 import wrappers.
+
+Use `import OAI.KL` for the main application theorem, or a focused ForMathlib
+module for reusable support. [MODULES.md](MODULES.md) indexes all 207 current
+implementations and the compatibility paths. `OAI.Architecture` is the complete
+audit/export umbrella; `ForMathlib` loads the entire candidate layer. The
+[whole-library report](../../reports/whole-library-layout.md) records the full
+review and remaining placement debt. File organization is iterative: a full
+review is not a claim that no further refinement will ever be useful.
 
 The classification follows the official guides consulted on 2026-10-21:
 [scope and AI policy](https://leanprover-community.github.io/contribute/index.html),
@@ -62,6 +70,21 @@ Changes to file responsibility preserve complete declarations and proofs:
   Concrete word coordinates are named `BottSamelson/TitsWords`.
 - Project filenames state their roles: `SuffixFreeness`, `GraphEmbedding`,
   `TerminalImages`; general plane models and finite-rank reduction live below.
+- Weighted-basis grading, polynomial-map grading and multiplication homogeneity
+  now have distinct files; homogeneous equivalences and finite pieces do not
+  import structured pair-projection or coefficient-change constructions.
+- Ordinary sheaf isomorphisms, products, pullback, base change, structure and
+  restriction sit below graded sheaf constructions. The old mixed umbrellas
+  remain compatibility imports. Graph deletion has an explicit home; its
+  residual GraphEquiv/reindex dependency is documented in the report.
+- Nondegenerate bilinear-form extensions sit apart from reflection relations.
+  Hilbert numerator identities do not claim a rational-function interface.
+- Bott upper-section projectivity, stalk-character recurrences and interval
+  projection-sheaf flabbiness are separate application responsibilities.
+- Graded stalk splitting and bijectivity under minimal-cover conditions share
+  `GradedSheaf/StalkMaps`; their former ordinary-sheaf paths are compatibility
+  imports. All current ordinary-sheaf implementations, including localization,
+  remain below grading.
 
 No mathematical statement or proof body is rewritten. The earlier 76 explicit
 instance-name annotations and single local instance attribute are inherited.
@@ -88,9 +111,10 @@ evidence without running Lean. The old `--refresh-reference` option is retired;
 there is no second project to recompile.
 The default uses the unchanged, hash-bound 3902-declaration reference snapshot.
 The comparator and all 31 adversarial tests are inherited byte-for-byte.
-The exporter differs solely by including ForMathlib-owned modules as well as
-OAI-owned modules; the static checker enforces that exact one-line derivation.
-Snapshot types are unchanged; only their bound exporter hash is updated, and
+Relative to the original architecture exporter, the sole difference remains the
+ForMathlib-owned module selector alongside OAI-owned modules; the static checker
+enforces that exact one-line derivation. The snapshot and exporter binding are
+unchanged in this round, and
 the retained independently captured reference export is parsed again on every
 check. Replay verifies frozen evidence; it does not re-elaborate old Lean source.
 The candidate-only import harness rejects any OAI module import;

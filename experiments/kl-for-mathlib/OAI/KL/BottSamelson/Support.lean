@@ -4,6 +4,7 @@ import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
 import ForMathlib.LinearAlgebra.Dual.BalancedCut
 import OAI.KL.BottSamelson.AdjointSheaf
 import OAI.KL.Sheaves.LowerCharacter
+import OAI.KL.BottSamelson.Flabby
 
 /-! Semantic home: OAI.KL.BottSamelson.Support. Source spans: Support:3, Support:12, Support:11, Support:2, Support:6, Support:8.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -1,0 +1,209 @@
+✔ [9092/9185] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction (3.4s)
+✖ [9095/9185] Building ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion (6.4s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:60:18: Function expected at
+  bottomGraph
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  (removeGraph G x ht)
+
+Hint: The identifier `bottomGraph` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:67:36: Invalid argument: Variable `bottomGraph` is not a proposition or let-declaration
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:67:4: unsolved goals
+case pos
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+x✝ : Sort ?u.8
+bottomGraph : x✝
+x : V
+ht : ∀ (e : E), G.target e ≠ x
+e : E
+h : G.source e = x
+⊢ ?m.28 x = (sorry ()).source (?m.32 e)
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:68:36: Invalid argument: Variable `bottomGraph` is not a proposition or let-declaration
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:68:4: unsolved goals
+case neg
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+x✝ : Sort ?u.8
+bottomGraph : x✝
+x : V
+ht : ∀ (e : E), G.target e ≠ x
+e : E
+h : ¬G.source e = x
+⊢ ?m.28 (G.source e) = (sorry ()).source (?m.32 e)
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:73:41: Invalid argument: Variable `bottomGraph` is not a proposition or let-declaration
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:73:4: unsolved goals
+case pos
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+x✝ : Sort ?u.8
+bottomGraph : x✝
+x : V
+ht : ∀ (e : E), G.target e ≠ x
+e : E
+h : G.source e = x
+⊢ ?m.28 (G.target e) = (sorry ()).target (?m.32 e)
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:74:41: Invalid argument: Variable `bottomGraph` is not a proposition or let-declaration
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:74:4: unsolved goals
+case neg
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+x✝ : Sort ?u.8
+bottomGraph : x✝
+x : V
+ht : ∀ (e : E), G.target e ≠ x
+e : E
+h : ¬G.source e = x
+⊢ ?m.28 (G.target e) = (sorry ()).target (?m.32 e)
+error: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:62:10: Type mismatch
+  splitEdge G x
+has type
+  E ≃ { e // G.source e ≠ x } ⊕ { e // G.source e = x }
+but is expected to have type
+  E ≃ ?m.17 x ht
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:67:12: This simp argument is unused:
+  splitEdge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitVertex, h, bottomGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:67:22: This simp argument is unused:
+  splitVertex
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, h, bottomGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:68:12: This simp argument is unused:
+  splitEdge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitVertex, h, bottomGraph, removeGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:68:22: This simp argument is unused:
+  splitVertex
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, h, bottomGraph, removeGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:68:34: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, bottomGraph, removeGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:68:48: This simp argument is unused:
+  removeGraph
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, h, bottomGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:73:12: This simp argument is unused:
+  splitEdge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitVertex, h, ht e, bottomGraph, removeTarget]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:73:22: This simp argument is unused:
+  splitVertex
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, h, ht e, bottomGraph, removeTarget]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:73:34: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, ht e, bottomGraph, removeTarget]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:73:36: This simp argument is unused:
+  ht e
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, h, bottomGraph, removeTarget]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:73:53: This simp argument is unused:
+  removeTarget
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, h, ht e, bottomGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:74:12: This simp argument is unused:
+  splitEdge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitVertex, h, ht e, bottomGraph, removeGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:74:22: This simp argument is unused:
+  splitVertex
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, h, ht e, bottomGraph, removeGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:74:34: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, ht e, bottomGraph, removeGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:74:36: This simp argument is unused:
+  ht e
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, h, bottomGraph, removeGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean:74:53: This simp argument is unused:
+  removeGraph
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [splitEdge, splitVertex, h, ht e, bottomGraph]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9098/9185] Built ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure (9.6s)
+✔ [9121/9185] Built OAI.RepresentationTheory.KazhdanLusztig.Tits (12s)
+✔ [9122/9185] Built OAI.KL.BottSamelson.UpperSections (641s)
+✔ [9125/9185] Built OAI.KL.BottSamelson.StalkCharacter (650s)
+✔ [9126/9185] Built ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds (651s)
+✔ [9127/9185] Built OAI.KL.BottSamelson.Flabby (19s)
+✔ [9128/9185] Built ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem (8.1s)
+✔ [9130/9185] Built ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport (12s)
+✔ [9133/9185] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel (17s)
+✔ [9136/9185] Built OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules (15s)
+✔ [9141/9185] Built OAI.KL.BottSamelson.Pairings (14s)
+✔ [9142/9185] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis (16s)
+✔ [9143/9185] Built ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords (16s)
+✔ [9144/9185] Built ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds (8.0s)
+✔ [9147/9185] Built ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder (13s)
+✔ [9151/9185] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel (16s)
+✔ [9152/9185] Built ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder (16s)
+✔ [9155/9185] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport (17s)
+✔ [9156/9185] Built ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder (16s)
+✔ [9157/9185] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted (17s)
+✔ [9159/9185] Built ForMathlib.GroupTheory.Coxeter.Roots.LaterCount (9.8s)
+✔ [9164/9185] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates (8.7s)
+✔ [9165/9185] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder (3.7s)
+✔ [9166/9185] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall (3.0s)
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion
+error: build failed

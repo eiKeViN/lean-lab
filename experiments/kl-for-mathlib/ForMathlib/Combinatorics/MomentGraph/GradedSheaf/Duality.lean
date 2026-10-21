@@ -4,6 +4,7 @@ import ForMathlib.Algebra.Module.Graded.Adjoint
 import ForMathlib.Algebra.Module.Graded.Hilbert.Images
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
+import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality. Source spans: Support:24, Support:16, Support:21, Support:7, Support:30, Support:4.
 See migration.json and MIGRATION.md for exact provenance. -/

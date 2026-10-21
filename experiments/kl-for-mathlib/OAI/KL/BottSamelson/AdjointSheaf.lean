@@ -4,7 +4,7 @@ import ForMathlib.Algebra.Module.Localization.Lattice
 import ForMathlib.Combinatorics.MomentGraph.Boundary.Summand
 import ForMathlib.LinearAlgebra.ConjugateRange
 import ForMathlib.LinearAlgebra.Dual.TransportPairing
-import OAI.KL.BottSamelson.Pairings
+import OAI.KL.BottSamelson.UpperSections
 
 /-! Semantic home: OAI.KL.BottSamelson.AdjointSheaf. Source spans: BalancedPairings:20, BalancedPairings:3, BalancedPairings:5, BalancedPairings:1, BalancedPairings:6, BalancedPairings:2, BalancedPairings:35, BalancedPairings:8, BalancedPairings:11, BalancedPairings:12, BalancedPairings:21, BalancedPairings:24, BalancedPairings:27, BalancedPairings:23, BalancedPairings:30, BalancedPairings:34.
 See migration.json and MIGRATION.md for exact provenance. -/

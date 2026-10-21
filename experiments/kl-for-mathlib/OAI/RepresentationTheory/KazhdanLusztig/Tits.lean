@@ -8,7 +8,8 @@ import ForMathlib.GroupTheory.Coxeter.Realization.Positivity
 import ForMathlib.GroupTheory.Coxeter.Realization.Tits
 import ForMathlib.GroupTheory.Coxeter.Roots.Basic
 import ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup
-import ForMathlib.LinearAlgebra.Reflection.Forms
+import ForMathlib.LinearAlgebra.Reflection.Bilinear
+import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension
 import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic
 import OAI.RepresentationTheory.KazhdanLusztig.Bruhat
 import OAI.RepresentationTheory.KazhdanLusztig.Dihedral
