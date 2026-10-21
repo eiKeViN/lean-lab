@@ -1,0 +1,23 @@
+{
+  "merge": {
+    "start": "2026-10-21T14:46:38Z",
+    "end": "2026-10-21T14:47:53Z"
+  },
+  "selection_and_initial_design": {
+    "start": "2026-10-21T14:47:53Z",
+    "end": "2026-10-21T14:52:29Z",
+    "separate_attribution": "unavailable; interleaved"
+  },
+  "infrastructure_and_proof_drafting": {
+    "start": "2026-10-21T14:52:29Z",
+    "first_source_edit": "2026-10-21T15:00:31Z",
+    "separate_attribution": "interleaved; do not label all this interval pure editing"
+  },
+  "first_source_edit_to_corrected_build": {
+    "start": "2026-10-21T15:00:31.199436Z",
+    "end": "2026-10-21T15:02:15.052503Z",
+    "includes": "editing, validation, failure and waiting; not pure edit duration"
+  },
+  "token_telemetry": "Unavailable: no model input/output usage meter is exposed; no character-count proxy used.",
+  "benchmark_caveat": "First build was ungated, later Lean commands use the existing serial gate. Build attempts have different cache states; do not treat these as speedup pairs."
+}

@@ -47,6 +47,7 @@ def static_checks():
  run('source-transport',[sys.executable,'migrate.py','--check'])
  run('source-coverage',[sys.executable,'source_check.py'])
  run('classification-and-boundaries',[sys.executable,'analyze.py'])
+ run('proof-evolution-source',[sys.executable,'proof_evolution.py','--check'])
  if M.get('expected_public_count')!=3902:raise RuntimeError('Expected fixed coverage of 3902 public declarations')
  modules=M['modules'];legacy=set(M['legacy_shims'])
  policy=snapshot('architecture')
@@ -121,7 +122,7 @@ def static_checks():
  combined.update({n:set(ds)-{'Mathlib'} for n,ds in M['legacy_shims'].items()})
  list(graphlib.TopologicalSorter(combined).static_order())
  # No new mathematical declaration can hide in a file outside the deterministic products.
- allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
+ allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'SemanticCorpus.lean','PilotChecks.lean','PilotAudit.lean','StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if '.lake' not in p.parts}
  if actual-allowed:raise RuntimeError('Unlisted Lean source: '+str(actual-allowed))
  for p in list((HERE/'OAI').rglob('*.lean'))+list((HERE/'ForMathlib').rglob('*.lean')):
@@ -151,13 +152,16 @@ def main():
  run('mathlib-ready',['lake','--no-build','build','Mathlib'],env=env)
  if args.checks_only:run('oai-ready',['lake','--no-build','build','ForMathlib','OAI'],env=env)
  else:run('library-build',['lake','build','ForMathlib','OAI'],env=env)
- for file in ('StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
+ for file in ('PilotChecks','PilotAudit','StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
   run(file,['lake','env','lean',file+'.lean'],env=env)
  check_axioms((OUT/'Audit.log').read_text())
+ from proof_evolution import check_pilot_axioms
+ check_pilot_axioms((OUT/'PilotAudit.log').read_text())
  run('migrated-types',['lake','env','lean','PublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'migrated-types.tsv')))
- run('type-comparison',[sys.executable,'compare_types.py','reference-public-types.json',str(OUT/'migrated-types.tsv')])
+ run('type-comparison',[sys.executable,'proof_evolution.py','--compare',str(OUT/'migrated-types.tsv')])
  run('comparator-tests',[sys.executable,'test_compare_types.py'])
  run('source-partition-tests',[sys.executable,'test_source_partitions.py'])
+ run('proof-evolution-tests',[sys.executable,'test_proof_evolution.py'])
  run('warm-build',['lake','build','ForMathlib','OAI'],env=env)
  print('ForMathlib staging and project-layout validation passed.',flush=True)
 if __name__=='__main__':main()

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "policy_sha256": "2473c0d136973f4e0743306a7e5054a52c9a648c9021decb8a545ce732e4a7d7",
+  "files": {
+    "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean": {
+      "pristine_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5",
+      "active_sha256": "ee31f8a1644a0de3001b841a4ce9742b028464fa4c99e287d668b8c0e2327518"
+    },
+    "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean": {
+      "pristine_sha256": "712647ed9f08c18e4320e2888b1d18314f759c7937215b165099491b40761e1f",
+      "active_sha256": "51faf2d53f498bda85824712134e41a27f22ff89c4dc25a81b2c891fed73d9f9"
+    },
+    "OAI/KL/Invariance/Finite.lean": {
+      "pristine_sha256": "b5f5288d293ad883917abafedb2ac860a03446b2efb47693627ab1d5b617e2e4",
+      "active_sha256": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2"
+    }
+  },
+  "diff_sha256": "f8fbb4dfd1ef9f55e9358fb03fd94aeec3089c5337c5947f6d78535a90032f15",
+  "additional_types_sha256": "445bd6143410e33deb4004ca4a89cc47ce8fc9ec9c5a94444074a8b2f12239d3"
+}

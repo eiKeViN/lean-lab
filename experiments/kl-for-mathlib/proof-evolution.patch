@@ -1,0 +1,180 @@
+--- pristine/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
++++ active/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
+@@ -11,28 +11,41 @@
+ universe u v
+ variable {V : Type u} [Fintype V] {C : Type v} [CommRing C]
+ 
++/-- Exchange two finite weighted sums by distributivity and commutativity.
++This isolates bilinear reindexing from the cancellation argument. -/
++theorem weighted_sum_exchange (m r : V → C) (p : V → V → C) :
++    (∑ z, r z * (∑ y, m y * p y z)) = ∑ y, m y * (∑ z, r z * p y z) := by
++  simp only [Finset.mul_sum]
++  rw [Finset.sum_comm]
++  apply Finset.sum_congr rfl
++  intro y _
++  apply Finset.sum_congr rfl
++  intro z _
++  ring
++
++/-- A finite weighted sum supported at a single coordinate equals its surviving
++value when that weight is one. Apply after the other coordinate errors vanish. -/
++theorem weighted_sum_single (t : V) (m f : V → C) (hm : m t = 1)
++    (hf : ∀ y, y ≠ t → f y = 0) : (∑ y, m y * f y) = f t := by
++  classical
++  rw [Finset.sum_eq_single t]
++  · rw [hm, one_mul]
++  · intro y _ hy
++    rw [hf y hy, mul_zero]
++  · simp
++
+  theorem finite_character_cancellation (t : V) (m : V → C) (r : V → C)
+     (p : V → V → C) (q : V → C) (hm : m t=1)
+     (hword : (∑ y, m y*q y)=∑ z, r z*(∑ y, m y*p y z))
+     (hlower : ∀ y, y≠t → q y=∑ z, r z*p y z) : q t=∑ z, r z*p t z := by
+   classical
+-  have hexpand : (∑ z, r z*(∑ y, m y*p y z))=∑ y, m y*(∑ z, r z*p y z) := by
+-    simp only [Finset.mul_sum]
+-    rw [Finset.sum_comm]
+-    apply Finset.sum_congr rfl
+-    intro y _
+-    apply Finset.sum_congr rfl
+-    intro z _
+-    ring
+-  rw [hexpand] at hword
++  rw [weighted_sum_exchange m r p] at hword
+   have hzero : (∑ y, m y*(q y-∑ z, r z*p y z))=0 := by
+     simp only [mul_sub,Finset.sum_sub_distrib,hword,sub_self]
+   have hsingle : (∑ y, m y*(q y-∑ z, r z*p y z))=q t-∑ z, r z*p t z := by
+-    rw [Finset.sum_eq_single t]
+-    · rw [hm,one_mul]
+-    · intro y _ hy
+-      rw [hlower y hy,sub_self,mul_zero]
+-    · simp
++    apply weighted_sum_single t m _ hm
++    intro y hy
++    rw [hlower y hy, sub_self]
+   rw [hsingle] at hzero
+   exact sub_eq_zero.mp hzero
+ 
+@@ -51,15 +64,9 @@
+     (∑ y, a y*v y)-(∑ y, a y*w y)=v x-w x := by
+   classical
+   rw [← Finset.sum_sub_distrib]
+-  calc
+-    (∑ y, (a y*v y-a y*w y)) = ∑ y, if y=x then v x-w x else 0 := by
+-      apply Finset.sum_congr rfl
+-      intro y _
+-      by_cases hy : y=x
+-      · subst y
+-        simp [hdiag]
+-      · simp [hy,hvw y hy]
+-    _ = v x-w x := by simp
++  simp_rw [← mul_sub]
++  exact weighted_sum_single x a (fun y => v y - w y) hdiag
++    (fun y hy => sub_eq_zero.mpr (hvw y hy))
+ 
+  theorem matrix_difference_le {V : Type*} [Fintype V]
+     (a : V → ℝ) (v w : V → ℝ) (x : V) (p p' : ℝ)
+--- pristine/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean
++++ active/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean
+@@ -15,6 +15,31 @@
+ def scaledPolynomial (t : ℝ) (d : ℕ) (p : ℤ[X]) : ℝ :=
+   t ^ (-(d : ℤ)) * p.eval₂ (Int.castRingHom ℝ) (t^2)
+ 
++/-- A positive real in the open unit interval has a square root in the same
++interval. Use the witness to change variables without carrying a concrete sqrt. -/
++theorem exists_pos_sq_eq_of_mem_Ioo (q : ℝ) (hq : 0 < q) (hq1 : q < 1) :
++    ∃ t : ℝ, 0 < t ∧ t < 1 ∧ t ^ 2 = q := by
++  refine ⟨Real.sqrt q, Real.sqrt_pos.mpr hq, ?_, Real.sq_sqrt hq.le⟩
++  nlinarith [Real.sq_sqrt hq.le]
++
++/-- Clear reciprocal polynomial evaluation scaling at a nonzero real point.
++Use this algebraic step before changing variables; positivity is not required. -/
++theorem eval_difference_of_scaled_reciprocal (p p' : ℤ[X]) (d : ℕ) (t : ℝ)
++    (ht : t ≠ 0)
++    (h : scaledPolynomial t d p - scaledPolynomial t d p' =
++      scaledPolynomial t⁻¹ d p - scaledPolynomial t⁻¹ d p') :
++    p.eval₂ (Int.castRingHom ℝ) (t ^ 2) - p'.eval₂ (Int.castRingHom ℝ) (t ^ 2) =
++      (t ^ 2) ^ d * (p.eval₂ (Int.castRingHom ℝ) (t ^ 2)⁻¹ -
++        p'.eval₂ (Int.castRingHom ℝ) (t ^ 2)⁻¹) := by
++  have he := h
++  simp only [scaledPolynomial, zpow_neg, zpow_natCast, inv_pow, inv_inv,
++    ← mul_sub] at he
++  have hh := congrArg (fun z : ℝ => t ^ d * z) he
++  rw [← mul_assoc, mul_inv_cancel₀ (pow_ne_zero d ht), one_mul] at hh
++  rw [← mul_assoc, ← pow_add] at hh
++  rw [show d + d = 2 * d by omega, pow_mul] at hh
++  exact hh
++
+  theorem eq_of_scaled_difference_reciprocal (p p' : ℤ[X]) (d : ℕ)
+     (hp : 2*p.natDegree < d) (hp' : 2*p'.natDegree < d)
+     (h : ∀ t : ℝ, 0 < t → t < 1 →
+@@ -22,20 +47,9 @@
+         scaledPolynomial t⁻¹ d p-scaledPolynomial t⁻¹ d p') : p=p' := by
+   apply eq_of_eval_difference_reciprocal p p' d hp hp'
+   intro q hq hq1
+-  let t := Real.sqrt q
+-  have ht : 0 < t := Real.sqrt_pos.2 hq
+-  have hsq : t^2=q := Real.sq_sqrt hq.le
+-  have ht1 : t < 1 := by nlinarith
+-  have hisq : (t⁻¹)^2=q⁻¹ := by rw [inv_pow,hsq]
+-  have he := h t ht ht1
+-  simp only [scaledPolynomial,zpow_neg,zpow_natCast,inv_pow,inv_inv,hsq,hisq,
+-    ← mul_sub] at he
+-  have hh := congrArg (fun z : ℝ => t^d*z) he
+-  have htd : t^d ≠ 0 := pow_ne_zero d ht.ne'
+-  rw [← mul_assoc,mul_inv_cancel₀ htd,one_mul] at hh
+-  rw [← mul_assoc,← pow_add] at hh
+-  rw [show d+d=2*d by omega,pow_mul,hsq] at hh
+-  exact hh
++  obtain ⟨t, ht, ht1, hsq⟩ := exists_pos_sq_eq_of_mem_Ioo q hq hq1
++  have he := eval_difference_of_scaled_reciprocal p p' d t ht.ne' (h t ht ht1)
++  simpa only [hsq] using he
+ 
+ end
+ end KLInvariance.Comparison
+--- pristine/OAI/KL/Invariance/Finite.lean
++++ active/OAI/KL/Invariance/Finite.lean
+@@ -88,6 +88,25 @@
+   (φ : Interval cs u b ≃o Interval cs' u' b')
+ noncomputable section
+ 
++include hub in
++/-- Transport polynomial equality away from the bottom through the inverse
++interval isomorphism. This packages the backward comparison's endpoint bookkeeping
++while retaining the original KL context. -/
++theorem upper_polynomial_eq_symm
++    (hupper : ∀ y : Interval cs u b, y.val ≠ u →
++      klPolynomial cs y.val b = klPolynomial cs' (φ y).val b') :
++    ∀ y : Interval cs' u' b', y ≠ intervalBottom cs' hub' →
++      klPolynomial cs' y.val b' = klPolynomial cs (φ.symm y).val b := by
++  intro y hy
++  have hyy : (φ.symm y).val ≠ u := by
++    intro he
++    have he' : φ.symm y = intervalBottom cs hub := Subtype.ext he
++    apply hy
++    have hh := congrArg φ he'
++    rw [φ.apply_symm_apply, intervalIso_bottom cs cs' hub hub' φ] at hh
++    exact hh
++  simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm
++
+  theorem bottom_eq_of_comparisons (hne : u ≠ b)
+     (hupper : ∀ y : Interval cs u b, y.val ≠ u →
+       klPolynomial cs y.val b=klPolynomial cs' (φ y).val b')
+@@ -114,15 +133,7 @@
+   have hf := comparison_difference_le hub φ hub' (intervalBottom cs hub)
+     (fun y hy => hupper y (fun he => hy (Subtype.ext he))) ht.ne' (hforward t ht ht1)
+   have hb := comparison_difference_le hub' φ.symm hub (intervalBottom cs' hub')
+-    (fun y hy => by
+-      have hyy : (φ.symm y).val ≠ u := by
+-        intro he
+-        have he' : φ.symm y=intervalBottom cs hub := Subtype.ext he
+-        apply hy
+-        have hh := congrArg φ he'
+-        rw [φ.apply_symm_apply,intervalIso_bottom cs cs' hub hub' φ] at hh
+-        exact hh
+-      simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm)
++    (upper_polynomial_eq_symm hub hub' φ hupper)
+     ht.ne' (hbackward t ht ht1)
+   rw [intervalIso_bottom cs cs' hub hub' φ] at hf
+   rw [intervalIso_bottom cs' cs hub' hub φ.symm] at hb

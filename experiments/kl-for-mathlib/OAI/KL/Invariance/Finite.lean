@@ -88,6 +88,25 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
 
+include hub in
+/-- Transport polynomial equality away from the bottom through the inverse
+interval isomorphism. This packages the backward comparison's endpoint bookkeeping
+while retaining the original KL context. -/
+theorem upper_polynomial_eq_symm
+    (hupper : ∀ y : Interval cs u b, y.val ≠ u →
+      klPolynomial cs y.val b = klPolynomial cs' (φ y).val b') :
+    ∀ y : Interval cs' u' b', y ≠ intervalBottom cs' hub' →
+      klPolynomial cs' y.val b' = klPolynomial cs (φ.symm y).val b := by
+  intro y hy
+  have hyy : (φ.symm y).val ≠ u := by
+    intro he
+    have he' : φ.symm y = intervalBottom cs hub := Subtype.ext he
+    apply hy
+    have hh := congrArg φ he'
+    rw [φ.apply_symm_apply, intervalIso_bottom cs cs' hub hub' φ] at hh
+    exact hh
+  simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm
+
  theorem bottom_eq_of_comparisons (hne : u ≠ b)
     (hupper : ∀ y : Interval cs u b, y.val ≠ u →
       klPolynomial cs y.val b=klPolynomial cs' (φ y).val b')
@@ -114,15 +133,7 @@ noncomputable section
   have hf := comparison_difference_le hub φ hub' (intervalBottom cs hub)
     (fun y hy => hupper y (fun he => hy (Subtype.ext he))) ht.ne' (hforward t ht ht1)
   have hb := comparison_difference_le hub' φ.symm hub (intervalBottom cs' hub')
-    (fun y hy => by
-      have hyy : (φ.symm y).val ≠ u := by
-        intro he
-        have he' : φ.symm y=intervalBottom cs hub := Subtype.ext he
-        apply hy
-        have hh := congrArg φ he'
-        rw [φ.apply_symm_apply,intervalIso_bottom cs cs' hub hub' φ] at hh
-        exact hh
-      simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm)
+    (upper_polynomial_eq_symm hub hub' φ hupper)
     ht.ne' (hbackward t ht ht1)
   rw [intervalIso_bottom cs cs' hub hub' φ] at hf
   rw [intervalIso_bottom cs' cs hub' hub φ.symm] at hb

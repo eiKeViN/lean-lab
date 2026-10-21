@@ -8,7 +8,7 @@ sys.path.insert(0,str(ROOT/"scripts"))
 from baseline import snapshot
 from source_partitions import expand_units
 def digest(b):return hashlib.sha256(b).hexdigest()
-def products():
+def pristine_products():
  m=json.loads((HERE/'migration.json').read_text());ref=snapshot('transport');parts={}
  if ref.commit!=m['reference_commit'] or ref.prefix!=m['reference']:raise RuntimeError('Unexpected immutable source baseline')
  for p,h in {**m['source_hashes'],**m['fixed']}.items():
@@ -89,6 +89,10 @@ def products():
   lines.append('- `'+name+'`: '+(', '.join('`'+n+'`' for n in x['imports']) or '(Mathlib only)'))
  files['MIGRATION.md']=('\n'.join(lines)+'\n').encode()
  return files
+
+def products():
+ from proof_evolution import overlay
+ return overlay(pristine_products())
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args();files=products()

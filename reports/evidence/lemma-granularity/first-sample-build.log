@@ -1,0 +1,23 @@
+✔ [9114/9122] Built ForMathlib.Algebra.BigOperators.SingleCoordinate (3.8s)
+✔ [9115/9122] Built ForMathlib.Algebra.Polynomial.ScaledEvaluation (3.8s)
+✔ [9116/9122] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport (3.6s)
+✔ [9117/9122] Built OAI.KL.Sheaves.StalkReciprocity (3.7s)
+✔ [9118/9122] Built OAI.KL.Comparison.Transport (5.5s)
+✔ [9119/9122] Built OAI.KL.Comparison.Propagation (11s)
+✔ [9120/9122] Built OAI.KL.Localization.Edge (10s)
+✔ [9121/9122] Built OAI.KL.Comparison.SuffixFreeness (5.6s)
+✖ [9122/9122] Building OAI.KL.Invariance.Finite (4.0s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/OAI/KL/Invariance/Finite.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/Invariance/Finite.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/Invariance/Finite.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/Invariance/Finite.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/Invariance/Finite.setup.json --json
+error: OAI/KL/Invariance/Finite.lean:102:44: Unknown identifier `hub`
+error: OAI/KL/Invariance/Finite.lean:105:54: Unknown identifier `hub`
+error: OAI/KL/Invariance/Finite.lean:135:34: Application type mismatch: The argument
+  hub'
+has type
+  BruhatLE cs' u' b'
+of sort `Prop` but is expected to have type
+  Interval ?m.335 ?m.342 ?m.343 ≃o Interval cs u b
+of sort `Type (max ?u.196 v)` in the application
+  upper_polynomial_eq_symm hub hub'
+Some required targets logged failures:
+- OAI.KL.Invariance.Finite
+error: build failed

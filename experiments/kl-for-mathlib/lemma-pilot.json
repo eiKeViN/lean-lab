@@ -1,0 +1,22 @@
+{
+  "base_commit": "a234ae5be6f77763e2014aad2cddd69e6aa50755",
+  "baseline_public_count": 3902,
+  "pristine_files": {
+    "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5",
+    "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean": "712647ed9f08c18e4320e2888b1d18314f759c7937215b165099491b40761e1f",
+    "OAI/KL/Invariance/Finite.lean": "b5f5288d293ad883917abafedb2ac860a03446b2efb47693627ab1d5b617e2e4"
+  },
+  "changed_declarations": [
+    "OAI.KLInvariance.finite_character_cancellation",
+    "OAI.KLInvariance.Comparison.matrix_difference_single",
+    "OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal",
+    "OAI.KLInvariance.BruhatGraph.bottom_eq_of_comparisons"
+  ],
+  "additions": [
+    "OAI.KLInvariance.weighted_sum_exchange",
+    "OAI.KLInvariance.weighted_sum_single",
+    "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo",
+    "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal",
+    "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm"
+  ]
+}

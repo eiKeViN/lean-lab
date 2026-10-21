@@ -1,0 +1,21 @@
+PilotChecks.lean:9:2: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+PilotChecks.lean:11:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+PilotChecks.lean:11:18: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+PilotChecks.lean:11:30: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+PilotChecks.lean:11:8: warning: Unused tactic linter: `simp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+PilotChecks.lean:11:18: warning: Unused tactic linter: `intro y hy` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+PilotChecks.lean:11:30: warning: Unused tactic linter: `simp [hy]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
