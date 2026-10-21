@@ -4803,7 +4803,7 @@
         "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
         "ForMathlib.LinearAlgebra.ConjugateRange",
         "ForMathlib.LinearAlgebra.Dual.TransportPairing",
-        "OAI.KL.BottSamelson.Pairings"
+        "OAI.KL.BottSamelson.UpperSections"
       ]
     },
     "ForMathlib.LinearAlgebra.Dual.TransportPairing": {
@@ -4843,7 +4843,7 @@
         "BalancedPairings:10"
       ],
       "imports": [
-        "ForMathlib.Algebra.Module.Graded.DualAndShift",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
         "ForMathlib.LinearAlgebra.Quotient.Transport"
       ]
     },
@@ -4909,10 +4909,16 @@
       ],
       "imports": [
         "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
-        "ForMathlib.Algebra.Module.Graded.DualAndShift",
+        "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+        "ForMathlib.Algebra.Module.Graded.FinitePieces",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
         "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
         "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
         "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
         "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
         "ForMathlib.RepresentationTheory.BottSamelson.TitsWords",
@@ -4927,21 +4933,6 @@
       ],
       "imports": [
         "ForMathlib.Algebra.Module.ReflectionPair.Twist"
-      ]
-    },
-    "ForMathlib.Algebra.Module.Graded.DualAndShift": {
-      "units": [
-        "BottSamelson:8",
-        "BottSamelson:25",
-        "BottSamelson:24",
-        "BottSamelson:20",
-        "BottSamelson:28"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.CoefficientChange.Basic",
-        "ForMathlib.Algebra.Module.Graded.AlgebraMap",
-        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
-        "ForMathlib.LinearAlgebra.PairProjection"
       ]
     },
     "ForMathlib.Algebra.Module.Free.ScalarDivisibility": {
@@ -5033,7 +5024,7 @@
         "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange",
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models",
         "ForMathlib.LinearAlgebra.Dual.BalancedCut"
       ]
@@ -5044,7 +5035,7 @@
         "CharacterReciprocity:7"
       ],
       "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero"
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products"
       ]
     },
     "ForMathlib.RepresentationTheory.Hecke.PositiveWord": {
@@ -5084,7 +5075,8 @@
         "CharacterReciprocity:27"
       ],
       "imports": [
-        "ForMathlib.Algebra.Module.Graded.ModuleData.Duality"
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic"
       ]
     },
     "ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer": {
@@ -5253,7 +5245,7 @@
         "DihedralIntervals:4"
       ],
       "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension"
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"
       ]
     },
     "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder": {
@@ -5497,16 +5489,6 @@
         "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis"
       ]
     },
-    "ForMathlib.Algebra.Module.Graded.AlgebraMap": {
-      "units": [
-        "Frobenius:14",
-        "Frobenius:11",
-        "Frobenius:7"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Graded.Generators"
-      ]
-    },
     "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis": {
       "units": [
         "Frobenius:17",
@@ -5516,7 +5498,9 @@
       ],
       "imports": [
         "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic",
-        "ForMathlib.Algebra.Module.Graded.AlgebraMap"
+        "ForMathlib.Algebra.Module.Graded.Basis",
+        "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+        "ForMathlib.Algebra.Module.Graded.HomogeneousMul"
       ]
     },
     "ForMathlib.Algebra.Module.ReflectionPair.Twist": {
@@ -5556,18 +5540,6 @@
         "ForMathlib.Algebra.Module.Graded.Generators"
       ]
     },
-    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic": {
-      "units": [
-        "GradedSheaves:1",
-        "GradedSheaves:2",
-        "GradedSheaves:4",
-        "GradedSheaves:6"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
-      ]
-    },
     "ForMathlib.Algebra.Module.Graded.ModuleData.Equality": {
       "units": [
         "GradedSheaves:3",
@@ -5583,18 +5555,14 @@
       ],
       "imports": []
     },
-    "ForMathlib.Algebra.Module.Cover.Product": {
-      "units": [
-        "GradedSheaves:11"
-      ],
-      "imports": []
-    },
     "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic": {
       "units": [
         "GradedSheaves:16"
       ],
       "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism"
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+        "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
       ]
     },
     "ForMathlib.RepresentationTheory.Hecke.Operators": {
@@ -5633,43 +5601,6 @@
       "imports": [
         "ForMathlib.Algebra.Module.Graded.Generators",
         "ForMathlib.Algebra.Module.Graded.Hilbert.Basic"
-      ]
-    },
-    "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction": {
-      "units": [
-        "IntegralPairings:1"
-      ],
-      "imports": []
-    },
-    "OAI.KL.BottSamelson.Pairings": {
-      "units": [
-        "IntegralPairings:23",
-        "IntegralPairings:24",
-        "IntegralPairings:6",
-        "IntegralPairings:27",
-        "IntegralPairings:10",
-        "IntegralPairings:13",
-        "IntegralPairings:14",
-        "IntegralPairings:19",
-        "IntegralPairings:17",
-        "IntegralPairings:18",
-        "IntegralPairings:21",
-        "IntegralPairings:2",
-        "IntegralPairings:28",
-        "IntegralPairings:4",
-        "IntegralPairings:29"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
-        "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
-        "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
-        "ForMathlib.Algebra.Module.Projective.Range",
-        "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
-        "ForMathlib.LinearAlgebra.KernelCoordinates",
-        "ForMathlib.LinearAlgebra.PairProjection",
-        "ForMathlib.LinearAlgebra.Reflection.Classification",
-        "ForMathlib.RepresentationTheory.Hecke.Coefficients",
-        "OAI.KL.BottSamelson.Stalks"
       ]
     },
     "ForMathlib.RepresentationTheory.Hecke.Coefficients": {
@@ -5779,18 +5710,22 @@
       "units": [
         "MinimalExtensions:1",
         "MinimalExtensions:2",
+        "MinimalExtensions:3",
         "MinimalExtensions:5",
         "MinimalExtensions:10",
         "MinimalExtensions:23",
         "MinimalExtensions:9",
-        "MinimalExtensions:11"
+        "MinimalExtensions:11",
+        "MinimalExtensions:12"
       ],
       "imports": [
         "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
         "ForMathlib.Algebra.Module.Graded.ModuleData.Transport",
         "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero"
-      ]
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
+      ],
+      "description": "Graded lower-extension and pullback constructions, graded stalk-isomorphism lifting and the associated boundary-model family."
     },
     "ForMathlib.Algebra.Module.Graded.ModuleData.Transport": {
       "units": [
@@ -5807,7 +5742,7 @@
         "MinimalExtensions:13"
       ],
       "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
       ]
     },
     "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs": {
@@ -5881,7 +5816,10 @@
         "PlaneLocalization:3"
       ],
       "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
       ]
     },
@@ -6273,7 +6211,8 @@
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
         "ForMathlib.LinearAlgebra.Dual.BalancedCut",
         "OAI.KL.BottSamelson.AdjointSheaf",
-        "OAI.KL.Sheaves.LowerCharacter"
+        "OAI.KL.Sheaves.LowerCharacter",
+        "OAI.KL.BottSamelson.Flabby"
       ]
     },
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality": {
@@ -6290,7 +6229,8 @@
         "ForMathlib.Algebra.Module.Graded.Adjoint",
         "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality"
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic"
       ]
     },
     "ForMathlib.Algebra.Module.Graded.HomogeneousDual": {
@@ -6299,7 +6239,7 @@
         "Support:13"
       ],
       "imports": [
-        "ForMathlib.Algebra.Module.Graded.DualAndShift"
+        "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv"
       ]
     },
     "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality": {
@@ -6429,21 +6369,12 @@
         "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
       ]
     },
-    "ForMathlib.LinearAlgebra.Reflection.Forms": {
-      "units": [
-        "Tits:12",
-        "Tits:2",
-        "Tits:3",
-        "Tits:6"
-      ],
-      "imports": []
-    },
     "ForMathlib.GroupTheory.Coxeter.Realization.Geometric": {
       "units": [
         "Tits:4"
       ],
       "imports": [
-        "ForMathlib.LinearAlgebra.Reflection.Forms"
+        "ForMathlib.LinearAlgebra.Reflection.Bilinear"
       ]
     },
     "ForMathlib.GroupTheory.Coxeter.Realization.Tits": {
@@ -6452,7 +6383,8 @@
         "Tits:7"
       ],
       "imports": [
-        "ForMathlib.GroupTheory.Coxeter.Realization.Geometric"
+        "ForMathlib.GroupTheory.Coxeter.Realization.Geometric",
+        "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension"
       ]
     },
     "ForMathlib.GroupTheory.Coxeter.Realization.Positivity": {
@@ -6518,49 +6450,6 @@
       ],
       "imports": []
     },
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism": {
-      "units": [
-        "GradedSheaves:7",
-        "GradedSheaves:9",
-        "GradedSheaves:10",
-        "GradedSheaves:14",
-        "GradedSheaves:12",
-        "GradedSheaves:15"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Cover.Local",
-        "ForMathlib.Algebra.Module.Cover.Product",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
-        "ForMathlib.LinearAlgebra.Quotient.Transport"
-      ]
-    },
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero": {
-      "units": [
-        "MinimalExtensions:6",
-        "MinimalExtensions:21",
-        "MinimalExtensions:7"
-      ],
-      "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism"
-      ]
-    },
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension": {
-      "units": [
-        "MinimalExtensions:15",
-        "MinimalExtensions:17",
-        "MinimalExtensions:14",
-        "MinimalExtensions:16",
-        "MinimalExtensions:19",
-        "MinimalExtensions:18",
-        "MinimalExtensions:22",
-        "MinimalExtensions:20",
-        "MinimalExtensions:3",
-        "MinimalExtensions:12"
-      ],
-      "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
-      ]
-    },
     "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard": {
       "units": [
         "Tits:16",
@@ -6601,7 +6490,9 @@
         "ForMathlib.Combinatorics.MomentGraph.Boundary.Models",
         "ForMathlib.RepresentationTheory.Hecke.PositiveWord",
         "OAI.KL.BottSamelson.Support",
-        "OAI.KL.Sheaves.FreeModel"
+        "OAI.KL.Sheaves.FreeModel",
+        "OAI.KL.BottSamelson.StalkCharacter",
+        "OAI.KL.BottSamelson.Flabby"
       ]
     },
     "OAI.KL.Sheaves.Reciprocity": {
@@ -6724,6 +6615,274 @@
       ],
       "imports": [],
       "description": "Principal scalar images of modules under an arbitrary algebra extension, with finite products of associated scalars. No localization assumption is used."
+    },
+    "ForMathlib.Algebra.Module.Submodule.PiIdeal": {
+      "units": [
+        "GradedSheaves:11"
+      ],
+      "imports": [],
+      "description": "Coordinatewise membership in an ideal multiple of a finite dependent product. No cover or local-ring structure is assumed."
+    },
+    "ForMathlib.Algebra.Module.Graded.Basis": {
+      "units": [
+        "Frobenius:14"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "description": "Grading transported through a weighted basis, including the degree of a bilinear pairing on homogeneous basis vectors."
+    },
+    "ForMathlib.Algebra.Module.Graded.PolynomialMap": {
+      "units": [
+        "Frobenius:11"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "description": "A multivariate polynomial algebra homomorphism preserves total degree when each variable has degree one."
+    },
+    "ForMathlib.Algebra.Module.Graded.HomogeneousMul": {
+      "units": [
+        "Frobenius:7"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "description": "Recovering homogeneity of a factor after multiplication by a nonzero homogeneous scalar."
+    },
+    "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv": {
+      "units": [
+        "BottSamelson:8",
+        "BottSamelson:24"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Basis"
+      ],
+      "description": "Homogeneous linear equivalences, dual pairings, inverse degrees and equivalences of individual graded pieces."
+    },
+    "ForMathlib.Algebra.Module.Graded.FinitePieces": {
+      "units": [
+        "BottSamelson:25"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "description": "Finiteness of graded pieces under submodules and finite dependent products."
+    },
+    "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection": {
+      "units": [
+        "BottSamelson:20"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "ForMathlib.LinearAlgebra.PairProjection"
+      ],
+      "description": "Graded module-data realization of the existing pair-projection edge, its two maps and homogeneous lifts."
+    },
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic": {
+      "units": [
+        "BottSamelson:28"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic"
+      ],
+      "description": "Changing coefficients of graded module data and their homomorphisms through a grading-preserving algebra equivalence."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs": {
+      "units": [
+        "GradedSheaves:1"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+      ],
+      "description": "Graded sheaf data, its underlying sheaf, graded sections, boundary and boundary-cover existence."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom": {
+      "units": [
+        "GradedSheaves:2"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+      ],
+      "description": "Attaching a new bottom vertex with scalar-quotient edges and extending sections across it."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex": {
+      "units": [
+        "GradedSheaves:4"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+      ],
+      "description": "The existing graph equivalence and reindexing of graded sheaves, sections and flabbiness. The graph-equivalence definition remains in its original complete source unit."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties": {
+      "units": [
+        "GradedSheaves:6"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex"
+      ],
+      "description": "Free stalks, upper-quotient and minimal-kernel conditions and their preservation by reindexing and bottom attachment."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso": {
+      "units": [
+        "GradedSheaves:7",
+        "GradedSheaves:9",
+        "GradedSheaves:14"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Cover.Local",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "description": "Sheaf isomorphisms on graphs and upper sets, transport of sections and images, and local extension across one stalk."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi": {
+      "units": [
+        "GradedSheaves:10",
+        "GradedSheaves:12"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+        "ForMathlib.Algebra.Module.Submodule.PiIdeal"
+      ],
+      "description": "Dependent products of sheaves: sections, generation, flabbiness, kernels and minimality."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion": {
+      "units": [
+        "GradedSheaves:15"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+      ],
+      "description": "Removing a vertex and splitting graph coordinates into the remaining graph and incident edges. GraphEquiv is currently supplied by the existing graded reindex source unit."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products": {
+      "units": [
+        "MinimalExtensions:6",
+        "MinimalExtensions:7"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi"
+      ],
+      "description": "Zero and binary product sheaves, finite-product quotient/minimality properties and adjoining a zero summand."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback": {
+      "units": [
+        "MinimalExtensions:21",
+        "MinimalExtensions:22"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso"
+      ],
+      "description": "Graph maps and pullback sheaves, assignments and live-edge flabbiness, quotient and upward-kernel transport."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange": {
+      "units": [
+        "MinimalExtensions:15",
+        "MinimalExtensions:17",
+        "MinimalExtensions:16"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso"
+      ],
+      "description": "Scalar extension of sheaves and their sections, flat base change of flabbiness and vertex/edge properties."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure": {
+      "units": [
+        "MinimalExtensions:14",
+        "MinimalExtensions:18"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange"
+      ],
+      "description": "The scalar-quotient structure sheaf, its defining properties, natural base-change isomorphism and preservation of flabbiness."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction": {
+      "units": [
+        "MinimalExtensions:19",
+        "MinimalExtensions:20"
+      ],
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
+      ],
+      "description": "Restriction to induced subgraphs and lower ideals, including the structure-sheaf restriction isomorphism."
+    },
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator": {
+      "units": [
+        "IntegralPairings:1"
+      ],
+      "imports": [],
+      "description": "Uniqueness and shifted addition for polynomial numerators of a weighted integer-indexed series with a common nonzero evaluation factor. No rational-function structure is assumed."
+    },
+    "ForMathlib.LinearAlgebra.Reflection.Bilinear": {
+      "units": [
+        "Tits:12",
+        "Tits:2",
+        "Tits:3"
+      ],
+      "imports": [],
+      "description": "Rank-one orthogonal reflections and their bilinear-form and dihedral relations over the reals."
+    },
+    "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension": {
+      "units": [
+        "Tits:6"
+      ],
+      "imports": [],
+      "description": "Nondegenerate extension of a real symmetric bilinear form by the dual of its radical, with the minimal dimension bound. No reflection group is assumed."
+    },
+    "OAI.KL.BottSamelson.UpperSections": {
+      "units": [
+        "IntegralPairings:23",
+        "IntegralPairings:24",
+        "IntegralPairings:6",
+        "IntegralPairings:27",
+        "IntegralPairings:10",
+        "IntegralPairings:13",
+        "IntegralPairings:14",
+        "IntegralPairings:19",
+        "IntegralPairings:17",
+        "IntegralPairings:18",
+        "IntegralPairings:21",
+        "IntegralPairings:28"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+        "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+        "ForMathlib.Algebra.Module.Projective.Range",
+        "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
+        "ForMathlib.LinearAlgebra.KernelCoordinates",
+        "ForMathlib.LinearAlgebra.PairProjection",
+        "ForMathlib.LinearAlgebra.Reflection.Classification",
+        "OAI.KL.BottSamelson.Stalks"
+      ],
+      "description": "Images of Bott word sections on Bruhat upper sets, local-denominator gluing and projectivity of those section images."
+    },
+    "OAI.KL.BottSamelson.StalkCharacter": {
+      "units": [
+        "IntegralPairings:2",
+        "IntegralPairings:4"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
+        "ForMathlib.RepresentationTheory.Hecke.Coefficients",
+        "OAI.KL.BottSamelson.Stalks"
+      ],
+      "description": "Bott stalk-character rank recurrences, top and zero normalization and equality with the Hecke word coefficients, independently of upper-set section projectivity."
+    },
+    "OAI.KL.BottSamelson.Flabby": {
+      "units": [
+        "IntegralPairings:29"
+      ],
+      "imports": [
+        "OAI.KL.BottSamelson.UpperSections"
+      ],
+      "description": "From global Bott upper-section flabbiness to the projection sheaf on a finite Bruhat interval, via extension of interval assignments."
     }
   },
   "legacy_shims": {
@@ -6742,7 +6901,10 @@
     "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson": [
       "ForMathlib.Algebra.Module.CoefficientChange.Basic",
       "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
-      "ForMathlib.Algebra.Module.Graded.DualAndShift",
+      "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+      "ForMathlib.Algebra.Module.Graded.FinitePieces",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
       "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
       "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
       "OAI.KL.BottSamelson.Stalks",
@@ -6841,7 +7003,9 @@
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.Frobenius": [
       "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis",
-      "ForMathlib.Algebra.Module.Graded.AlgebraMap",
+      "ForMathlib.Algebra.Module.Graded.Basis",
+      "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+      "ForMathlib.Algebra.Module.Graded.HomogeneousMul",
       "ForMathlib.Algebra.Module.ReflectionPair.Twist",
       "ForMathlib.LinearAlgebra.Dual.Frobenius",
       "ForMathlib.LinearAlgebra.PairProjection",
@@ -6855,12 +7019,17 @@
       "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves": [
-      "ForMathlib.Algebra.Module.Cover.Product",
+      "ForMathlib.Algebra.Module.Submodule.PiIdeal",
       "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
       "ForMathlib.Algebra.Module.Submodule.ScaledImage",
       "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
-      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
-      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+      "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
       "ForMathlib.LinearAlgebra.Quotient.Transport",
       "OAI.RepresentationTheory.KazhdanLusztig.GradedModules",
       "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules",
@@ -6879,7 +7048,7 @@
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings": [
       "ForMathlib.Algebra.Module.Graded.Adjoint",
-      "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
+      "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
       "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
       "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
       "ForMathlib.Algebra.Module.Projective.Range",
@@ -6891,7 +7060,9 @@
       "ForMathlib.LinearAlgebra.PairProjection",
       "ForMathlib.LinearAlgebra.Reflection.Classification",
       "ForMathlib.RepresentationTheory.Hecke.Coefficients",
-      "OAI.KL.BottSamelson.Pairings",
+      "OAI.KL.BottSamelson.UpperSections",
+      "OAI.KL.BottSamelson.StalkCharacter",
+      "OAI.KL.BottSamelson.Flabby",
       "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.Invariance": [
@@ -6905,8 +7076,11 @@
       "ForMathlib.Algebra.Module.Graded.ModuleData.Transport",
       "ForMathlib.Combinatorics.MomentGraph.Boundary.Extension",
       "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
-      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
-      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
       "OAI.RepresentationTheory.KazhdanLusztig.Comparison",
       "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries"
     ],
@@ -7038,7 +7212,8 @@
       "ForMathlib.GroupTheory.Coxeter.Realization.Tits",
       "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
       "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup",
-      "ForMathlib.LinearAlgebra.Reflection.Forms",
+      "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+      "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension",
       "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic",
       "OAI.RepresentationTheory.KazhdanLusztig.Bruhat",
       "OAI.RepresentationTheory.KazhdanLusztig.Dihedral",
@@ -7060,6 +7235,75 @@
     ],
     "ForMathlib.Algebra.Module.Localization.Products": [
       "ForMathlib.Algebra.Module.Submodule.ProductScaling"
+    ],
+    "ForMathlib.Algebra.Module.Cover.Product": [
+      "ForMathlib.Algebra.Module.Submodule.PiIdeal"
+    ],
+    "ForMathlib.Algebra.Module.Graded.AlgebraMap": [
+      "ForMathlib.Algebra.Module.Graded.Basis",
+      "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+      "ForMathlib.Algebra.Module.Graded.HomogeneousMul",
+      "ForMathlib.Algebra.Module.Graded.Generators"
+    ],
+    "ForMathlib.Algebra.Module.Graded.DualAndShift": [
+      "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+      "ForMathlib.Algebra.Module.Graded.FinitePieces",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
+      "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+      "ForMathlib.Algebra.Module.Graded.AlgebraMap",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+      "ForMathlib.LinearAlgebra.PairProjection"
+    ],
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic": [
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+    ],
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism": [
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+      "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
+      "ForMathlib.Algebra.Module.Cover.Local",
+      "ForMathlib.Algebra.Module.Cover.Product",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
+      "ForMathlib.LinearAlgebra.Quotient.Transport"
+    ],
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero": [
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism"
+    ],
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension": [
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
+    ],
+    "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction": [
+      "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator"
+    ],
+    "ForMathlib.LinearAlgebra.Reflection.Forms": [
+      "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+      "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension"
+    ],
+    "OAI.KL.BottSamelson.Pairings": [
+      "OAI.KL.BottSamelson.UpperSections",
+      "OAI.KL.BottSamelson.StalkCharacter",
+      "OAI.KL.BottSamelson.Flabby",
+      "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
+      "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+      "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+      "ForMathlib.Algebra.Module.Projective.Range",
+      "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
+      "ForMathlib.LinearAlgebra.KernelCoordinates",
+      "ForMathlib.LinearAlgebra.PairProjection",
+      "ForMathlib.LinearAlgebra.Reflection.Classification",
+      "ForMathlib.RepresentationTheory.Hecke.Coefficients",
+      "OAI.KL.BottSamelson.Stalks"
     ]
   },
   "instance_annotations": [
@@ -7199,22 +7443,22 @@
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/GradedModules.lean",
       "line": 1070,
-      "old": "instance (M : ModuleData.{uk,ua,um} \ud835\udcd0) : AddCommGroup M := inferInstanceAs (AddCommGroup M.obj)\n",
-      "new": "instance _root_.OAI.KLInvariance.Graded.ModuleData.instAddCommGroupCarrierObj (M : ModuleData.{uk,ua,um} \ud835\udcd0) : AddCommGroup M := inferInstanceAs (AddCommGroup M.obj)\n",
+      "old": "instance (M : ModuleData.{uk,ua,um} 𝓐) : AddCommGroup M := inferInstanceAs (AddCommGroup M.obj)\n",
+      "new": "instance _root_.OAI.KLInvariance.Graded.ModuleData.instAddCommGroupCarrierObj (M : ModuleData.{uk,ua,um} 𝓐) : AddCommGroup M := inferInstanceAs (AddCommGroup M.obj)\n",
       "name": "OAI.KLInvariance.Graded.ModuleData.instAddCommGroupCarrierObj"
     },
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/GradedModules.lean",
       "line": 1071,
-      "old": "instance (M : ModuleData.{uk,ua,um} \ud835\udcd0) : Module A M := inferInstanceAs (Module A M.obj)\n",
-      "new": "instance _root_.OAI.KLInvariance.Graded.ModuleData.instModuleCarrierObj (M : ModuleData.{uk,ua,um} \ud835\udcd0) : Module A M := inferInstanceAs (Module A M.obj)\n",
+      "old": "instance (M : ModuleData.{uk,ua,um} 𝓐) : Module A M := inferInstanceAs (Module A M.obj)\n",
+      "new": "instance _root_.OAI.KLInvariance.Graded.ModuleData.instModuleCarrierObj (M : ModuleData.{uk,ua,um} 𝓐) : Module A M := inferInstanceAs (Module A M.obj)\n",
       "name": "OAI.KLInvariance.Graded.ModuleData.instModuleCarrierObj"
     },
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/GradedModules.lean",
       "line": 1064,
-      "old": "instance {\ud835\udcd0 : \u2124 \u2192 Submodule k A} : CoeSort (ModuleData.{uk,ua,um} \ud835\udcd0) (Type (max ua um)) :=\n",
-      "new": "instance _root_.OAI.KLInvariance.Graded.instCoeSortModuleDataType {\ud835\udcd0 : \u2124 \u2192 Submodule k A} : CoeSort (ModuleData.{uk,ua,um} \ud835\udcd0) (Type (max ua um)) :=\n",
+      "old": "instance {𝓐 : ℤ → Submodule k A} : CoeSort (ModuleData.{uk,ua,um} 𝓐) (Type (max ua um)) :=\n",
+      "new": "instance _root_.OAI.KLInvariance.Graded.instCoeSortModuleDataType {𝓐 : ℤ → Submodule k A} : CoeSort (ModuleData.{uk,ua,um} 𝓐) (Type (max ua um)) :=\n",
       "name": "OAI.KLInvariance.Graded.instCoeSortModuleDataType"
     },
     {
@@ -7255,43 +7499,43 @@
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean",
       "line": 235,
-      "old": "instance {A : Type ua} [CommRing A] : CoeSort (PairedModule.{ua,um} A) (Type um) := \u27e8PairedModule.carrier\u27e9\n",
-      "new": "instance _root_.OAI.KLInvariance.FrobeniusDuality.instCoeSortPairedModuleType {A : Type ua} [CommRing A] : CoeSort (PairedModule.{ua,um} A) (Type um) := \u27e8PairedModule.carrier\u27e9\n",
+      "old": "instance {A : Type ua} [CommRing A] : CoeSort (PairedModule.{ua,um} A) (Type um) := ⟨PairedModule.carrier⟩\n",
+      "new": "instance _root_.OAI.KLInvariance.FrobeniusDuality.instCoeSortPairedModuleType {A : Type ua} [CommRing A] : CoeSort (PairedModule.{ua,um} A) (Type um) := ⟨PairedModule.carrier⟩\n",
       "name": "OAI.KLInvariance.FrobeniusDuality.instCoeSortPairedModuleType"
     },
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean",
       "line": 2058,
-      "old": "instance : AddCommGroup (Twist \u03c4 Y) := (equivVal \u03c4 Y).addCommGroup\n",
-      "new": "instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instAddCommGroup : AddCommGroup (Twist \u03c4 Y) := (equivVal \u03c4 Y).addCommGroup\n",
+      "old": "instance : AddCommGroup (Twist τ Y) := (equivVal τ Y).addCommGroup\n",
+      "new": "instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instAddCommGroup : AddCommGroup (Twist τ Y) := (equivVal τ Y).addCommGroup\n",
       "name": "OAI.KLInvariance.ReflectionPairTranslation.Twist.instAddCommGroup"
     },
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean",
       "line": 2073,
-      "old": "instance [Module.Free R Y] : Module.Free R (Twist \u03c4 Y) :=\n",
-      "new": "instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instFree [Module.Free R Y] : Module.Free R (Twist \u03c4 Y) :=\n",
+      "old": "instance [Module.Free R Y] : Module.Free R (Twist τ Y) :=\n",
+      "new": "instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instFree [Module.Free R Y] : Module.Free R (Twist τ Y) :=\n",
       "name": "OAI.KLInvariance.ReflectionPairTranslation.Twist.instFree"
     },
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean",
       "line": 2059,
-      "old": "instance : Module R (Twist \u03c4 Y) := by\n",
-      "new": "instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule : Module R (Twist \u03c4 Y) := by\n",
+      "old": "instance : Module R (Twist τ Y) := by\n",
+      "new": "instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule : Module R (Twist τ Y) := by\n",
       "name": "OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule"
     },
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean",
       "line": 2049,
-      "old": "local instance : RingHomInvPair \u03c4.symm.toRingHom \u03c4.toRingHom :=\n",
-      "new": "local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm : RingHomInvPair \u03c4.symm.toRingHom \u03c4.toRingHom :=\n",
+      "old": "local instance : RingHomInvPair τ.symm.toRingHom τ.toRingHom :=\n",
+      "new": "local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm : RingHomInvPair τ.symm.toRingHom τ.toRingHom :=\n",
       "name": "OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm"
     },
     {
       "source": "OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean",
       "line": 2051,
-      "old": "local instance : RingHomInvPair \u03c4.toRingHom \u03c4.symm.toRingHom :=\n",
-      "new": "local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm_1 : RingHomInvPair \u03c4.toRingHom \u03c4.symm.toRingHom :=\n",
+      "old": "local instance : RingHomInvPair τ.toRingHom τ.symm.toRingHom :=\n",
+      "new": "local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm_1 : RingHomInvPair τ.toRingHom τ.symm.toRingHom :=\n",
       "name": "OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm_1"
     },
     {
@@ -7611,7 +7855,6 @@
     "OAI.LinearAlgebra.TensorProduct.Coordinates": "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
     "OAI.RepresentationTheory.BottSamelson.Stalks": "OAI.KL.BottSamelson.Stalks",
     "OAI.Algebra.Module.ReflectionPair.TensorKernel": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
-    "OAI.Algebra.Module.Graded.DualAndShift": "ForMathlib.Algebra.Module.Graded.DualAndShift",
     "OAI.Algebra.Module.Free.ScalarDivisibility": "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
     "OAI.Algebra.Module.CoefficientChange.Basic": "ForMathlib.Algebra.Module.CoefficientChange.Basic",
     "OAI.GroupTheory.Coxeter.Bruhat.Basic": "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
@@ -7669,17 +7912,15 @@
     "OAI.LinearAlgebra.Dual.IntegralSupport": "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
     "OAI.RepresentationTheory.BottSamelson.Words": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords",
     "OAI.LinearAlgebra.Dual.Frobenius": "ForMathlib.LinearAlgebra.Dual.Frobenius",
-    "OAI.Algebra.Module.Graded.AlgebraMap": "ForMathlib.Algebra.Module.Graded.AlgebraMap",
     "OAI.Algebra.Algebra.ReflectionFrobenius.Basis": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis",
     "OAI.LinearAlgebra.PairProjection.Kernel": "ForMathlib.LinearAlgebra.PairProjection",
     "OAI.Algebra.Module.ReflectionPair.Twist": "ForMathlib.Algebra.Module.ReflectionPair.Twist",
     "OAI.Algebra.Module.Graded.Generators": "ForMathlib.Algebra.Module.Graded.Generators",
     "OAI.Algebra.Module.Projective.ScalarQuotient": "ForMathlib.Algebra.Module.Projective.ScalarQuotient",
     "OAI.Algebra.Module.Graded.ModuleData.Basic": "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
-    "OAI.Combinatorics.MomentGraph.GradedSheaf.Basic": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
     "OAI.Algebra.Module.Graded.ModuleData.Equality": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
     "OAI.Algebra.Module.Submodule.ScaledImage": "ForMathlib.Algebra.Module.Submodule.ScaledImage",
-    "OAI.Algebra.Module.Cover.Product": "ForMathlib.Algebra.Module.Cover.Product",
+    "OAI.Algebra.Module.Cover.Product": "ForMathlib.Algebra.Module.Submodule.PiIdeal",
     "OAI.Algebra.Module.Quotient.EdgeEquiv": "ForMathlib.LinearAlgebra.Quotient.Transport",
     "OAI.Combinatorics.MomentGraph.Boundary.Basic": "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
     "OAI.RepresentationTheory.Hecke.Operators": "ForMathlib.RepresentationTheory.Hecke.Operators",
@@ -7687,8 +7928,7 @@
     "OAI.RepresentationTheory.Hecke.Inverse": "ForMathlib.RepresentationTheory.Hecke.Inverse",
     "OAI.Data.Polynomial.ReflectEvaluation": "ForMathlib.Algebra.Polynomial.Reciprocal",
     "OAI.Algebra.Module.Graded.Hilbert.Series": "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
-    "OAI.Algebra.Module.Graded.Hilbert.RationalFunction": "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
-    "OAI.RepresentationTheory.BottSamelson.Pairings": "OAI.KL.BottSamelson.Pairings",
+    "OAI.Algebra.Module.Graded.Hilbert.RationalFunction": "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
     "OAI.RepresentationTheory.Hecke.Coefficients": "ForMathlib.RepresentationTheory.Hecke.Coefficients",
     "OAI.LinearAlgebra.CoordinateProjection": "ForMathlib.LinearAlgebra.CoordinateProjection",
     "OAI.Algebra.Module.Projective.Range": "ForMathlib.Algebra.Module.Projective.Range",
@@ -7770,7 +8010,6 @@
     "OAI.Algebra.Module.Localization.Membership": "ForMathlib.Algebra.Module.Localization.Membership",
     "OAI.Combinatorics.DirectedPaths.Suffix": "ForMathlib.Combinatorics.DirectedPaths.Suffix",
     "OAI.Combinatorics.MomentGraph.Bruhat.Basic": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
-    "OAI.LinearAlgebra.Reflection.Forms": "ForMathlib.LinearAlgebra.Reflection.Forms",
     "OAI.GroupTheory.Coxeter.Realization.Geometric": "ForMathlib.GroupTheory.Coxeter.Realization.Geometric",
     "OAI.GroupTheory.Coxeter.Realization.Tits": "ForMathlib.GroupTheory.Coxeter.Realization.Tits",
     "OAI.GroupTheory.Coxeter.Realization.Positivity": "ForMathlib.GroupTheory.Coxeter.Realization.Positivity",
@@ -7780,9 +8019,6 @@
     "OAI.GroupTheory.Coxeter.Roots.Basic": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
     "OAI.GroupTheory.Coxeter.Roots.PlaneSubgroup": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup",
     "OAI.Combinatorics.MomentGraph.Sheaf.Basic": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-    "OAI.Combinatorics.MomentGraph.Sheaf.Isomorphism": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
-    "OAI.Combinatorics.MomentGraph.Sheaf.Zero": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero",
-    "OAI.Combinatorics.MomentGraph.Sheaf.Extension": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
     "OAI.GroupTheory.Coxeter.Parabolic.Standard": "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard",
     "OAI.GroupTheory.Coxeter.Parabolic.Support": "ForMathlib.GroupTheory.Coxeter.Parabolic.Support",
     "OAI.RepresentationTheory.BottSamelson.CharacterDecomposition": "OAI.KL.BottSamelson.CharacterDecomposition",
@@ -7804,6 +8040,47 @@
       "ForMathlib.Algebra.Order.Field.RealScaling",
       "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
       "ForMathlib.Algebra.Polynomial.TransferEvaluation"
+    ],
+    "OAI.Algebra.Module.Graded.DualAndShift": [
+      "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+      "ForMathlib.Algebra.Module.Graded.FinitePieces",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic"
+    ],
+    "OAI.Algebra.Module.Graded.AlgebraMap": [
+      "ForMathlib.Algebra.Module.Graded.Basis",
+      "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+      "ForMathlib.Algebra.Module.Graded.HomogeneousMul"
+    ],
+    "OAI.Combinatorics.MomentGraph.GradedSheaf.Basic": [
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+    ],
+    "OAI.Combinatorics.MomentGraph.Sheaf.Isomorphism": [
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+      "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+    ],
+    "OAI.Combinatorics.MomentGraph.Sheaf.Zero": [
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
+    ],
+    "OAI.Combinatorics.MomentGraph.Sheaf.Extension": [
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
+    ],
+    "OAI.LinearAlgebra.Reflection.Forms": [
+      "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+      "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension"
+    ],
+    "OAI.RepresentationTheory.BottSamelson.Pairings": [
+      "OAI.KL.BottSamelson.UpperSections",
+      "OAI.KL.BottSamelson.StalkCharacter",
+      "OAI.KL.BottSamelson.Flabby"
     ]
   },
   "policy_git_prefix": "experiments/kl-architecture",
@@ -7826,5 +8103,10 @@
         }
       ]
     }
+  },
+  "entrypoints": {
+    "OAI.KL": [
+      "OAI.KL.Invariance.Main"
+    ]
   }
 }

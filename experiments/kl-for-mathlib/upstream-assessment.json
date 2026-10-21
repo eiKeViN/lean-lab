@@ -291,7 +291,10 @@
       "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/DualAndShift.lean",
       "module": "OAI.Algebra.Module.Graded.DualAndShift",
       "destination": [
-        "ForMathlib.Algebra.Module.Graded.DualAndShift"
+        "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+        "ForMathlib.Algebra.Module.Graded.FinitePieces",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -1612,7 +1615,9 @@
       "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/AlgebraMap.lean",
       "module": "OAI.Algebra.Module.Graded.AlgebraMap",
       "destination": [
-        "ForMathlib.Algebra.Module.Graded.AlgebraMap"
+        "ForMathlib.Algebra.Module.Graded.Basis",
+        "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+        "ForMathlib.Algebra.Module.Graded.HomogeneousMul"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -1776,7 +1781,10 @@
       "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/GradedSheaf/Basic.lean",
       "module": "OAI.Combinatorics.MomentGraph.GradedSheaf.Basic",
       "destination": [
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -1848,7 +1856,7 @@
       "source": "experiments/kl-architecture/OAI/Algebra/Module/Cover/Product.lean",
       "module": "OAI.Algebra.Module.Cover.Product",
       "destination": [
-        "ForMathlib.Algebra.Module.Cover.Product"
+        "ForMathlib.Algebra.Module.Submodule.PiIdeal"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -1982,7 +1990,7 @@
       "declarations": [
         {
           "line": 11,
-          "name": "eval\u2082_reflect_unit"
+          "name": "eval₂_reflect_unit"
         }
       ],
       "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
@@ -2016,7 +2024,7 @@
       "source": "experiments/kl-architecture/OAI/Algebra/Module/Graded/Hilbert/RationalFunction.lean",
       "module": "OAI.Algebra.Module.Graded.Hilbert.RationalFunction",
       "destination": [
-        "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction"
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -2040,7 +2048,9 @@
       "source": "experiments/kl-architecture/OAI/RepresentationTheory/BottSamelson/Pairings.lean",
       "module": "OAI.RepresentationTheory.BottSamelson.Pairings",
       "destination": [
-        "OAI.KL.BottSamelson.Pairings"
+        "OAI.KL.BottSamelson.UpperSections",
+        "OAI.KL.BottSamelson.StalkCharacter",
+        "OAI.KL.BottSamelson.Flabby"
       ],
       "classification": "project_current_interface",
       "declarations": [
@@ -3220,7 +3230,7 @@
       "declarations": [
         {
           "line": 15,
-          "name": "symmetric_\u03b9_injective"
+          "name": "symmetric_ι_injective"
         },
         {
           "line": 27,
@@ -3948,7 +3958,8 @@
       "source": "experiments/kl-architecture/OAI/LinearAlgebra/Reflection/Forms.lean",
       "module": "OAI.LinearAlgebra.Reflection.Forms",
       "destination": [
-        "ForMathlib.LinearAlgebra.Reflection.Forms"
+        "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+        "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -4188,7 +4199,9 @@
       "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Isomorphism.lean",
       "module": "OAI.Combinatorics.MomentGraph.Sheaf.Isomorphism",
       "destination": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism"
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+        "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -4212,7 +4225,8 @@
       "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Zero.lean",
       "module": "OAI.Combinatorics.MomentGraph.Sheaf.Zero",
       "destination": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero"
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -4236,7 +4250,10 @@
       "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Extension.lean",
       "module": "OAI.Combinatorics.MomentGraph.Sheaf.Extension",
       "destination": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension"
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
       ],
       "classification": "current_candidate",
       "declarations": [

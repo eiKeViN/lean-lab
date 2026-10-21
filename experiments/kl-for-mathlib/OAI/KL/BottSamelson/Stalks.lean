@@ -1,9 +1,15 @@
 import Mathlib
 import ForMathlib.Algebra.Module.Free.ScalarDivisibility
-import ForMathlib.Algebra.Module.Graded.DualAndShift
+import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
+import ForMathlib.Algebra.Module.Graded.FinitePieces
+import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
+import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
 import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
 import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
 import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
 import ForMathlib.LinearAlgebra.TensorProduct.Coordinates
 import ForMathlib.RepresentationTheory.BottSamelson.TitsWords

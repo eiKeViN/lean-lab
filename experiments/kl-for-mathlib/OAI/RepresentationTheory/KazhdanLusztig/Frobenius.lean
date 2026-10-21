@@ -1,5 +1,7 @@
 import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis
-import ForMathlib.Algebra.Module.Graded.AlgebraMap
+import ForMathlib.Algebra.Module.Graded.Basis
+import ForMathlib.Algebra.Module.Graded.PolynomialMap
+import ForMathlib.Algebra.Module.Graded.HomogeneousMul
 import ForMathlib.Algebra.Module.ReflectionPair.Twist
 import ForMathlib.LinearAlgebra.Dual.Frobenius
 import ForMathlib.LinearAlgebra.PairProjection

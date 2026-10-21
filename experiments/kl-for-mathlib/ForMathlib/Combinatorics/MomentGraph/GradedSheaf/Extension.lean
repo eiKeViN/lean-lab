@@ -2,10 +2,12 @@ import Mathlib
 import ForMathlib.Algebra.Module.Graded.Hilbert.Series
 import ForMathlib.Algebra.Module.Graded.ModuleData.Transport
 import ForMathlib.Combinatorics.MomentGraph.Boundary.Basic
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
 
-/-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension. Source spans: MinimalExtensions:1, MinimalExtensions:2, MinimalExtensions:5, MinimalExtensions:10, MinimalExtensions:23, MinimalExtensions:9, MinimalExtensions:11.
-See migration.json and MIGRATION.md for exact provenance. -/
+/-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension. Source spans: MinimalExtensions:1, MinimalExtensions:2, MinimalExtensions:3, MinimalExtensions:5, MinimalExtensions:10, MinimalExtensions:23, MinimalExtensions:9, MinimalExtensions:11, MinimalExtensions:12.
+See migration.json and MIGRATION.md for exact provenance.
+Graded lower-extension and pullback constructions, graded stalk-isomorphism lifting and the associated boundary-model family. -/
 
 namespace OAI
 
@@ -96,6 +98,78 @@ noncomputable def stalkHom (x : V) : ModuleData.Hom (B.vertex x) (B.boundary x) 
     exact (B.lowerAt x e).graded n v hv
 
 end KLInvariance.MomentGraph.GradedSheaf
+end
+
+
+section
+namespace KLInvariance.MomentGraph.Sheaf.AboveIso
+open _root_.OAI.KLInvariance.Graded
+universe uk ua um
+variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
+  {𝓐 : ℤ → Submodule k A} [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
+  {V E : Type um} [PartialOrder V] {G : OrderedGraph V E}
+  [Fintype E] [IsNoetherianRing A] [IsDomain A]
+  (hneg : ∀ n < 0, 𝓐 n = ⊥)
+  (hzero : ∀ a ∈ 𝓐 0, ∃ c : k, algebraMap k A c = a)
+  {B C : GradedSheaf (𝓐 := 𝓐) G} {x : V}
+  (j : AboveIso B.forget C.forget x)
+
+include hneg hzero in
+ theorem extend_stalk_graded
+    (hj : ∀ e (h : x < G.target e) n v, v ∈ (B.edge e).piece n →
+      j.edge e h v ∈ (C.edge e).piece n)
+    (hBfree : Module.Free A (B.vertex x)) (hCfree : Module.Free A (C.vertex x))
+    (hBf : B.forget.Flabby) (hBg : B.forget.Generated)
+    (hCf : C.forget.Flabby) (hCg : C.forget.Generated)
+    (hBmin : B.KernelMinimal x) (hCmin : C.KernelMinimal x) :
+    ∃ e : B.vertex x ≃ₗ[A] C.vertex x,
+      (∀ n v, v ∈ (B.vertex x).piece n → e v ∈ (C.vertex x).piece n) ∧
+      ∀ v, j.boundary (B.forget.stalkMap x v) = C.forget.stalkMap x (e v) := by
+  let T := ModuleData.range (C.stalkHom x)
+  let f : ModuleData.Hom (B.vertex x) T :=
+    { map := LinearMap.codRestrict (LinearMap.range (C.forget.stalkMap x))
+        (j.boundary.toLinearMap.comp (B.forget.stalkMap x)) (by
+          intro v
+          rw [← j.map_stalk_image hBf hBg hCf hCg]
+          exact ⟨B.forget.stalkMap x v,⟨v,rfl⟩,rfl⟩)
+      graded := by
+        intro n v hv e _
+        exact hj e.val _ n _ ((B.stalkHom x).graded n v hv e (Set.mem_univ e)) }
+  let g : ModuleData.Hom (C.vertex x) T :=
+    { map := (C.forget.stalkMap x).rangeRestrict
+      graded := fun n v hv => (C.stalkHom x).graded n v hv }
+  have hfs : Function.Surjective f.map := by
+    intro v
+    have hv : v.val ∈ (LinearMap.range (B.forget.stalkMap x)).map j.boundary.toLinearMap := by
+      rw [j.map_stalk_image hBf hBg hCf hCg]
+      exact v.property
+    obtain ⟨w,⟨z,rfl⟩,hz⟩ := hv
+    exact ⟨z,Subtype.ext hz⟩
+  have hgs : Function.Surjective g.map := by
+    intro v
+    obtain ⟨w,hw⟩ := v.property
+    exact ⟨w,Subtype.ext hw⟩
+  have hfm : LinearMap.ker f.map ≤ positiveIdeal 𝓐 • (⊤ : Submodule A (B.vertex x)) := by
+    intro v hv
+    apply (B.kernelMinimal_iff x).mp hBmin
+    apply LinearMap.mem_ker.mpr
+    apply j.boundary.injective
+    rw [map_zero]
+    have hh : f.map v = 0 := LinearMap.mem_ker.mp hv
+    exact congrArg (fun z : T => z.val) hh
+  have hgm : LinearMap.ker g.map ≤ positiveIdeal 𝓐 • (⊤ : Submodule A (C.vertex x)) := by
+    intro v hv
+    apply (C.kernelMinimal_iff x).mp hCmin
+    have hh : g.map v = 0 := LinearMap.mem_ker.mp hv
+    exact congrArg (fun z : T => z.val) hh
+  let F : ModuleData.MinimalCover T := ⟨B.vertex x,hBfree,f,hfs,hfm⟩
+  let D : ModuleData.MinimalCover T := ⟨C.vertex x,hCfree,g,hgs,hgm⟩
+  obtain ⟨e,he,hef⟩ := ModuleData.MinimalCover.equiv hneg hzero F D
+  refine ⟨e,he,?_⟩
+  intro v
+  exact (congrArg Subtype.val (LinearMap.congr_fun hef v)).symm
+
+end KLInvariance.MomentGraph.Sheaf.AboveIso
 end
 
 
@@ -529,6 +603,50 @@ lemma minimal (h : ModelSum O.sheaf U B) (x : V) (hx : x ∉ U) : B.KernelMinima
 
 end ModelSum
 end KLInvariance.MomentGraph.GradedSheaf
+end
+
+
+section
+namespace KLInvariance.MomentGraph
+open _root_.OAI.KLInvariance.Graded
+universe uk ua um
+variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
+  {𝓐 : ℤ → Submodule k A} [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
+  [IsNoetherianRing A]
+  (hneg : ∀ n < 0, 𝓐 n = ⊥)
+  (hscalar : ∀ a : A, ∃ c : k, a-algebraMap k A c ∈ positiveIdeal 𝓐)
+  {V E : Type um} [PartialOrder V] [Fintype V] [Fintype E]
+  (G : OrderedGraph V E) (α : E → A) (hα : ∀ e, α e ∈ 𝓐 1)
+noncomputable section
+attribute [local instance] Classical.propDecidable
+
+ def lowerBoundary (c : V) : BoundarySheaf hneg (lowerGraph G (Set.Iic c) (isLowerSet_Iic c))
+    (fun e => α e.val) ⟨c,le_rfl⟩ :=
+  (exists_boundarySheaf hneg (lowerGraph G (Set.Iic c) (isLowerSet_Iic c)) hscalar
+    ⟨c,le_rfl⟩ (fun x => x.property) (fun e => α e.val) (fun e => hα e.val)).some
+
+ def actualBoundaryModels : GradedSheaf.BoundaryModels hneg (G := G) α where
+  sheaf c := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend
+  free c := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend_free
+    (lowerBoundary hneg hscalar G α hα c).free
+  quotient c := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend_quotient α
+    (lowerBoundary hneg hscalar G α hα c).quotient
+  generated c := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend_generated
+    (lowerBoundary hneg hscalar G α hα c).generated
+  flabby c := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend_flabby
+    (lowerBoundary hneg hscalar G α hα c).flabby.flabby
+  support c x hx := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend_support x hx
+  top c := ((lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtendVertex ⟨c,le_rfl⟩).trans
+    (ModuleData.equivOfEq (lowerBoundary hneg hscalar G α hα c).top)
+  top_graded c n v hv := ModuleData.equivOfEq_graded
+    (lowerBoundary hneg hscalar G α hα c).top n _
+    ((lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtendVertex_graded ⟨c,le_rfl⟩ n v hv)
+  minimal c x hx := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend_minimal x
+    (fun hxc => (lowerBoundary hneg hscalar G α hα c).minimal ⟨x,hxc⟩
+      (fun hh => hx (congrArg Subtype.val hh)))
+
+end
+end KLInvariance.MomentGraph
 end
 
 end OAI

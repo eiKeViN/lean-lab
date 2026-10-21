@@ -1,0 +1,302 @@
+{
+  "base": "7e1ed51e20e43b6c116f20117fdae00279deb1d9",
+  "checked_count": 49,
+  "passed": true,
+  "scope": "All base published compatibility entries and all ten retired implementation paths retain every originally reachable immutable source unit (fixed kernel bodies tracked separately). This is source-unit export coverage, not an independent per-import Lean type export.",
+  "entries": [
+    {
+      "module": "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
+      "old_source_unit_count": 2,
+      "current_source_unit_count": 2,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Algebra.Module.Cover.Product",
+      "old_source_unit_count": 1,
+      "current_source_unit_count": 1,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Algebra.Module.Graded.AlgebraMap",
+      "old_source_unit_count": 9,
+      "current_source_unit_count": 9,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Algebra.Module.Graded.DualAndShift",
+      "old_source_unit_count": 21,
+      "current_source_unit_count": 21,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
+      "old_source_unit_count": 1,
+      "current_source_unit_count": 1,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Algebra.Module.Localization.Products",
+      "old_source_unit_count": 1,
+      "current_source_unit_count": 1,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
+      "old_source_unit_count": 6,
+      "current_source_unit_count": 6,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
+      "old_source_unit_count": 17,
+      "current_source_unit_count": 17,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
+      "old_source_unit_count": 56,
+      "current_source_unit_count": 56,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
+      "old_source_unit_count": 28,
+      "current_source_unit_count": 28,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero",
+      "old_source_unit_count": 31,
+      "current_source_unit_count": 32,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.LinearAlgebra.Reflection.Forms",
+      "old_source_unit_count": 4,
+      "current_source_unit_count": 4,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.KL.BottSamelson.Pairings",
+      "old_source_unit_count": 147,
+      "current_source_unit_count": 147,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.LinearAlgebra.KernelTransport",
+      "old_source_unit_count": 1,
+      "current_source_unit_count": 1,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings",
+      "old_source_unit_count": 304,
+      "current_source_unit_count": 304,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson",
+      "old_source_unit_count": 239,
+      "current_source_unit_count": 239,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Bruhat",
+      "old_source_unit_count": 12,
+      "current_source_unit_count": 12,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL",
+      "old_source_unit_count": 19,
+      "current_source_unit_count": 19,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity",
+      "old_source_unit_count": 372,
+      "current_source_unit_count": 372,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Comparison",
+      "old_source_unit_count": 4,
+      "current_source_unit_count": 4,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Coxeter",
+      "old_source_unit_count": 1,
+      "current_source_unit_count": 1,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Decomposition",
+      "old_source_unit_count": 180,
+      "current_source_unit_count": 180,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Dihedral",
+      "old_source_unit_count": 28,
+      "current_source_unit_count": 28,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals",
+      "old_source_unit_count": 423,
+      "current_source_unit_count": 423,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths",
+      "old_source_unit_count": 392,
+      "current_source_unit_count": 392,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization",
+      "old_source_unit_count": 473,
+      "current_source_unit_count": 473,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Frobenius",
+      "old_source_unit_count": 207,
+      "current_source_unit_count": 207,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.GradedModules",
+      "old_source_unit_count": 15,
+      "current_source_unit_count": 15,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves",
+      "old_source_unit_count": 109,
+      "current_source_unit_count": 109,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Hecke",
+      "old_source_unit_count": 16,
+      "current_source_unit_count": 16,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries",
+      "old_source_unit_count": 113,
+      "current_source_unit_count": 113,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings",
+      "old_source_unit_count": 274,
+      "current_source_unit_count": 274,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Invariance",
+      "old_source_unit_count": 528,
+      "current_source_unit_count": 528,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+      "old_source_unit_count": 2,
+      "current_source_unit_count": 2,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions",
+      "old_source_unit_count": 137,
+      "current_source_unit_count": 137,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Model",
+      "old_source_unit_count": 2,
+      "current_source_unit_count": 2,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra",
+      "old_source_unit_count": 7,
+      "current_source_unit_count": 7,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR",
+      "old_source_unit_count": 17,
+      "current_source_unit_count": 17,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization",
+      "old_source_unit_count": 453,
+      "current_source_unit_count": 453,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer",
+      "old_source_unit_count": 490,
+      "current_source_unit_count": 490,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders",
+      "old_source_unit_count": 400,
+      "current_source_unit_count": 400,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane",
+      "old_source_unit_count": 2,
+      "current_source_unit_count": 2,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules",
+      "old_source_unit_count": 83,
+      "current_source_unit_count": 83,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms",
+      "old_source_unit_count": 166,
+      "current_source_unit_count": 166,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
+      "old_source_unit_count": 2,
+      "current_source_unit_count": 2,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance",
+      "old_source_unit_count": 519,
+      "current_source_unit_count": 519,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Support",
+      "old_source_unit_count": 336,
+      "current_source_unit_count": 336,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels",
+      "old_source_unit_count": 514,
+      "current_source_unit_count": 514,
+      "missing_original_units": []
+    },
+    {
+      "module": "OAI.RepresentationTheory.KazhdanLusztig.Tits",
+      "old_source_unit_count": 55,
+      "current_source_unit_count": 55,
+      "missing_original_units": []
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import Mathlib
 import ForMathlib.Algebra.Module.Graded.ModuleData.Duality
+import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange. Source spans: CharacterReciprocity:25, CharacterReciprocity:24, CharacterReciprocity:27.
 See migration.json and MIGRATION.md for exact provenance. -/
