@@ -1,0 +1,74 @@
+{
+  "base_commit": "a234ae5be6f77763e2014aad2cddd69e6aa50755",
+  "samples": [
+    {
+      "id": "S1",
+      "path": "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+      "declaration": "OAI.KLInvariance.finite_character_cancellation",
+      "file_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5"
+    },
+    {
+      "id": "S2",
+      "path": "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+      "declaration": "OAI.KLInvariance.Comparison.matrix_difference_single",
+      "file_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5"
+    },
+    {
+      "id": "S3",
+      "path": "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean",
+      "declaration": "OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal",
+      "file_sha256": "712647ed9f08c18e4320e2888b1d18314f759c7937215b165099491b40761e1f"
+    },
+    {
+      "id": "S4",
+      "path": "OAI/KL/Invariance/Finite.lean",
+      "declaration": "OAI.KLInvariance.BruhatGraph.bottom_eq_of_comparisons",
+      "file_sha256": "b5f5288d293ad883917abafedb2ac860a03446b2efb47693627ab1d5b617e2e4"
+    }
+  ],
+  "queries": [
+    {
+      "id": "Q1",
+      "text": "weighted finite sum single surviving coordinate",
+      "parent_samples": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "Q2",
+      "text": "exchange two finite sums weighted coefficients",
+      "parent_samples": [
+        "S1"
+      ]
+    },
+    {
+      "id": "Q3",
+      "text": "positive square root inside open unit interval",
+      "parent_samples": [
+        "S3"
+      ]
+    },
+    {
+      "id": "Q4",
+      "text": "clear reciprocal polynomial evaluation scaling",
+      "parent_samples": [
+        "S3"
+      ]
+    },
+    {
+      "id": "Q5",
+      "text": "inverse interval isomorphism equality away from bottom",
+      "parent_samples": [
+        "S4"
+      ]
+    },
+    {
+      "id": "Q6",
+      "text": "projective module prime local denominator",
+      "parent_samples": []
+    }
+  ],
+  "token_telemetry": "unavailable; command-output token counts are not model usage",
+  "measurement_limits": "Selection and initial design interleaved between 14:47:53 and 14:52:29 UTC; no separate elapsed attribution is available for that interval."
+}
