@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "snapshots": {
+    "pristine": {
+      "commit": "7ddc53ba8a09ed902fefff86e67a87217518c1d4",
+      "prefix": "experiments/kl"
+    },
+    "transport": {
+      "commit": "7ddc53ba8a09ed902fefff86e67a87217518c1d4",
+      "prefix": "experiments/kl-kernel-transport"
+    },
+    "architecture": {
+      "commit": "2b5287954bd3c16015d9aab10dc3331d61065926",
+      "prefix": "experiments/kl-architecture"
+    },
+    "published": {
+      "commit": "85b3d1a4fa9c4f08beb718d8925d2d0ec9c50060",
+      "prefix": "experiments/kl-for-mathlib"
+    }
+  },
+  "reference_export": {
+    "path": "provenance/kl-reference-types.tsv.gz",
+    "compressed_sha256": "fcc07ac044eee72ab8f991aa9cedcf7b97d0dbada93a5cd0ede3021ede896fb0",
+    "sha256": "d2100a577282635d884896a2af10ab989ebe6a51b3e7a0b0b06eb67f9458a82f",
+    "bytes": 16922969,
+    "public_count": 3902,
+    "source_snapshot": "transport",
+    "exporter_sha256": "5f457ebe239e2893612b2b254fc66253ceec7c6727f1c417335634658180d270",
+    "validated_at_commit": "85b3d1a4fa9c4f08beb718d8925d2d0ec9c50060",
+    "evidence": "reports/evidence/for-mathlib-reference-snapshot-check.json",
+    "meaning": "Frozen Lean export captured and compared in the validated 85b3d1a run; later checks replay this evidence, not a new historical Lean build."
+  }
+}

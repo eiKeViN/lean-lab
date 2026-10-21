@@ -1,0 +1,25 @@
+{
+  "scope": "Post-removal offline regression run captured in this task; no Lean build or network",
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "scripts/test_checks.py"
+      ],
+      "tests": 18,
+      "exit_code": 0,
+      "unittest_reported_seconds": 0.354
+    },
+    {
+      "command": [
+        "env",
+        "PYTHONOPTIMIZE=1",
+        "python3",
+        "scripts/test_checks.py"
+      ],
+      "tests": 18,
+      "exit_code": 0,
+      "unittest_reported_seconds": 0.363
+    }
+  ]
+}

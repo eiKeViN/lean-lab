@@ -1,82 +1,57 @@
 # Lean lab
 
-Small, pinned Lean experiments with repository-owned setup and checks. The first
-experiment is an unchanged 34-module Kazhdan–Lusztig (KL) source baseline.
-
-**Current status:** all 34 unchanged KL modules compile, and the main theorem's
-axiom audit passes with exactly `propext`, `Quot.sound`, and `Classical.choice`.
-Warm KL build: 3.40 s. Warm setup: 4.40 s, skipping network cache access.
-See [measured results](reports/fresh-task.md).
-
-## Run in a fresh task
-
-From `/workspace/lean-lab` (or the root of your clone):
+The maintained formalization is [experiments/kl-for-mathlib](experiments/kl-for-mathlib/README.md).
+Keep editing that project in place; earlier staged experiments are preserved in
+Git history rather than as parallel working trees. There is no root Lean project:
+the maintained folder owns its toolchain, Lake manifest and dependency directory.
 
 ```bash
 bash scripts/setup.sh
-bash scripts/check.sh smoke
-bash scripts/check.sh kl
-bash scripts/check.sh audit
+bash scripts/check.sh          # full source, build, import, type and axiom checks
 ```
 
-Setup requires bash, git, curl, Python 3, tar, zstd, and Linux x86_64. It installs
-pinned official release binaries only when absent, restores dependencies from the
-committed manifest, then downloads mathlib's matching binary cache. No global
-Lean default or shell profile is changed. Run `source scripts/env.sh` before
-interactive `cd experiments/kl; lake ...` commands. There is intentionally no
-root `lean-toolchain`: each experiment owns its own version and manifest.
+Useful shorter commands:
 
-Warm setup checks whether the full Mathlib artifacts are already usable and skips
-network cache access when they are. `SKIP_CACHE=1` retains the small smoke-only
-setup path for restricted workers. For a diagnostic preflight on missing caches,
-set `CACHE_PROBE_URL` to an explicitly chosen artifact URL; see the measured GET
-in [the report](reports/baseline.md). Setup otherwise lets the official cache tool
-honor its endpoint configuration, then checks readiness without source builds.
-The KL check refuses to compile all of mathlib automatically if its cache is
-missing. The audit prints the exact theorem type and its recursive kernel axiom
-closure and fails if anything outside `propext`, `Quot.sound`, `Classical.choice`
-occurs. It is meaningful only after a successful KL build.
+```bash
+bash scripts/check.sh warm     # require existing artifacts; repeat complete checks
+bash scripts/check.sh static   # Git/source/baseline evidence and dependency boundaries
+bash scripts/check.sh smoke    # inexpensive Mathlib smoke test
+python3 scripts/test_checks.py # offline failure-path regressions
+```
 
-## Saved cloud environment
+`kl`/`build` are aliases for full checking; `audit` is an alias for the complete
+warm check. Direct project commands remain available via
+`bash experiments/kl-for-mathlib/check.sh`. For interactive use, run
+`source scripts/env.sh` before `cd experiments/kl-for-mathlib; lake ...`.
 
-No saved environment setting was changed by this task. Suggested settings:
+The Lean tree separates `ForMathlib/` (168 current upstream-candidate modules)
+from `OAI/KL/` (23 application modules and one compatibility wrapper). Original
+34 KL import entrypoints and two kernel import entrypoints remain as wrappers.
+ForMathlib has no project-layer imports. Specialized Coxeter, Hecke, KL polynomial
+and Tits word mathematics is included among the candidates; candidate status does
+not mean submission-ready. No new interface extraction is part of this cleanup.
 
-| Setting | Value / meaning |
-| --- | --- |
-| Repository | `eiKeViN/lean-lab`; other mounts are read-only references for this task |
-| Setup command | `cd /workspace/lean-lab && bash scripts/setup.sh && bash scripts/check.sh smoke` |
-| Maintenance command | Same as setup; reuses installed tools and ready Mathlib artifacts |
-| Networking | Setup needs GitHub source/releases, redirected release assets, and `cache.mathlib.org`; documented cache fallback is `lakecache.blob.core.windows.net` |
-| Secrets | None needed for public dependency downloads; use the platform Git credential for repository publication |
-| Parallelism | `LEAN_NUM_THREADS=4` by default; override for a differently sized worker |
+The 230 Lean product modules and all 3902 public declarations are retained.
+The fixed toolchain is Lean 4.34.1; Mathlib is pinned at
+`d13f23b723b8a846827a245b89c10fc7d3f11612`. Dependencies and working artifacts
+are owned by the maintained project's `.lake`, with shared installation/download
+caches under `.cache`. Do not run `lake clean` or `lake update` routinely.
+Setup reuses ready caches, refuses automatic full Mathlib source builds, and does
+not change a global Lean default, shell profile or saved environment setting.
+Linux x86_64 bootstrap requires bash, Git, curl, Python 3, tar and zstd.
+`SKIP_CACHE=1 bash scripts/setup.sh` retains the smoke-only setup option.
 
-Eight repository directories were mounted at startup. Associating only this lab
-could reduce checkout work and clutter; that potential saving was not measured
-and the association setting was not changed. The runtime was Debian 13, with a
-4-CPU cgroup quota, 16 GiB RAM limit and approximately 30 GiB initially free disk.
-Saved setup UI values, startup scripts, and persistence across future workers
-cannot be inspected through the available shell; the commands above are the
-reproducibility contract, not a claim that platform settings were saved.
+Source baselines are exact reachable Git commits in
+[provenance/baselines.json](provenance/baselines.json), checked against the original
+34-blob upstream manifest. The independently exported 3902-type reference is
+retained as checksum-bound compressed evidence, not another Lean project.
+No check requires a deleted experiment directory. Setup fetches only missing
+pinned history for shallow clones; checks themselves perform no history fetch.
+Historical compilation is not rerun or claimed by replaying this evidence.
 
-## Cache and maintenance costs
-
-- `.cache/elan` shares per-version Lean installations across experiments.
-  The verified 4.34.1 release fallback is linked to `.cache/lean-4.34.1-linux`.
-- `.cache/mathlib` holds content-addressed mathlib downloads across experiments.
-- Each experiment's `.lake` holds its exact dependency checkout and compiled
-  artifacts. Repeated checks reuse these; do not run `lake clean` routinely.
-- All generated caches and `results/` logs are ignored by Git. Selected baseline
-  evidence is committed under `reports/`. Current local footprint is about
-  4.0 GiB for `.cache` and 8.0 GiB for the KL `.lake`, including full mathlib
-  and KL artifacts.
-- This fresh task had no retained caches from the previous worker. Setup is
-  idempotent when files persist and downloads again if the platform discards them.
-- Do not run `lake update` during normal setup. To intentionally upgrade, create
-  a separate experiment or review both `lean-toolchain` and `lake-manifest.json`
-  changes together. Reuse a compatible installed toolchain; never substitute a
-  different version merely because it is already installed.
-
-Cheap script regressions: `python3 scripts/test_checks.py` (no Lean build or network).
-
-No CI, containers, background services or speculative refactoring were added.
-Source provenance and licenses are in [provenance/README.md](provenance/README.md).
+See [the consolidation record](reports/project-consolidation.md) for actual
+verification and cache results, [provenance](provenance/README.md) for licenses and
+source anchors, and [historical reports](reports/README.md) for earlier stages.
+Current source/type/axiom checks stay strict. An intentional future baseline or
+public-API change should update its documented evidence and policy explicitly,
+without creating another experiment copy or silently weakening acceptance.

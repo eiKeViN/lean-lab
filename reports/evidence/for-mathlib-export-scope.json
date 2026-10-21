@@ -1,0 +1,18 @@
+{
+  "reference_private_to_canonical": [],
+  "migrated_private_to_canonical": [],
+  "unrenamed_union_count": 1899,
+  "unrenamed_sets_equal": true,
+  "cross_environment_private_public_intersection": [],
+  "reference_summary": [
+    3902,
+    0,
+    141
+  ],
+  "migrated_summary": [
+    3902,
+    1,
+    150
+  ],
+  "scope": "Actual names visited by final public-type exporter, not all private environment declarations."
+}

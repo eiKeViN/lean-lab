@@ -1,0 +1,300 @@
+[
+  {
+    "label": "frozen-tree",
+    "command": [
+      "git",
+      "diff",
+      "--exit-code",
+      "7ddc53ba8a09ed902fefff86e67a87217518c1d4",
+      "--",
+      "experiments/kl",
+      "experiments/kl-signed-ranks",
+      "experiments/kl-kernel-transport",
+      "scripts",
+      "provenance"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "wall_seconds": 0.002419184002064867,
+    "user_seconds": 0.0021249999999999997,
+    "system_seconds": 0.0,
+    "children_max_rss_kib_so_far": 13312
+  },
+  {
+    "label": "baseline-identity",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/verify.py"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "wall_seconds": 0.3439429329991981,
+    "user_seconds": 0.272097,
+    "system_seconds": 0.07210799999999999,
+    "children_max_rss_kib_so_far": 13312
+  },
+  {
+    "label": "source-transport",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "migrate.py",
+      "--check"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 0.17934188599974732,
+    "user_seconds": 0.15503,
+    "system_seconds": 0.023856000000000002,
+    "children_max_rss_kib_so_far": 20728
+  },
+  {
+    "label": "source-coverage",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "source_check.py"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 0.37334499200005666,
+    "user_seconds": 0.36873500000000003,
+    "system_seconds": 0.004017999999999994,
+    "children_max_rss_kib_so_far": 20728
+  },
+  {
+    "label": "lean-version",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 0.7869212979967415,
+    "user_seconds": 0.5008490000000001,
+    "system_seconds": 0.28304999999999997,
+    "children_max_rss_kib_so_far": 844448
+  },
+  {
+    "label": "mathlib-ready",
+    "command": [
+      "lake",
+      "--no-build",
+      "build",
+      "Mathlib"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 2.8929518400000234,
+    "user_seconds": 3.2293139999999996,
+    "system_seconds": 1.7977960000000002,
+    "children_max_rss_kib_so_far": 990344
+  },
+  {
+    "label": "oai-ready",
+    "command": [
+      "lake",
+      "--no-build",
+      "build",
+      "OAI"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 3.473899163000169,
+    "user_seconds": 3.8885899999999998,
+    "system_seconds": 1.9690839999999996,
+    "children_max_rss_kib_so_far": 993648
+  },
+  {
+    "label": "ImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 4.514272959000664,
+    "user_seconds": 2.9768100000000004,
+    "system_seconds": 1.5296729999999998,
+    "children_max_rss_kib_so_far": 7168396
+  },
+  {
+    "label": "DomainImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "DomainImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 4.370389616000466,
+    "user_seconds": 2.855544,
+    "system_seconds": 1.5213790000000005,
+    "children_max_rss_kib_so_far": 7203936
+  },
+  {
+    "label": "KernelChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "KernelChecks.lean"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 5.088629026999115,
+    "user_seconds": 3.8111809999999995,
+    "system_seconds": 1.4059440000000007,
+    "children_max_rss_kib_so_far": 7203936
+  },
+  {
+    "label": "CompatChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "CompatChecks.lean"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 4.697679873999732,
+    "user_seconds": 3.332446000000001,
+    "system_seconds": 1.4415169999999993,
+    "children_max_rss_kib_so_far": 7203936
+  },
+  {
+    "label": "BoundaryChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "BoundaryChecks.lean"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 5.402331512999808,
+    "user_seconds": 3.896839,
+    "system_seconds": 1.5601710000000004,
+    "children_max_rss_kib_so_far": 7203936
+  },
+  {
+    "label": "Audit",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Audit.lean"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 4.227239649000694,
+    "user_seconds": 2.912756999999999,
+    "system_seconds": 1.3418829999999993,
+    "children_max_rss_kib_so_far": 7203936
+  },
+  {
+    "label": "reference-ready",
+    "command": [
+      "lake",
+      "--no-build",
+      "build",
+      "OAI"
+    ],
+    "cwd": "experiments/kl-kernel-transport",
+    "exit_code": 0,
+    "wall_seconds": 3.3149839130019245,
+    "user_seconds": 4.0560040000000015,
+    "system_seconds": 1.9001350000000006,
+    "children_max_rss_kib_so_far": 7203936
+  },
+  {
+    "label": "reference-types",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/architecture/ReferenceTypes.lean"
+    ],
+    "cwd": "experiments/kl-kernel-transport",
+    "exit_code": 0,
+    "wall_seconds": 9.551813117002894,
+    "user_seconds": 8.116535999999996,
+    "system_seconds": 1.547274999999999,
+    "children_max_rss_kib_so_far": 7315128
+  },
+  {
+    "label": "reference-snapshot-check",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "compare_types.py",
+      "reference-public-types.json",
+      "/workspace/lean-lab/results/architecture/reference-types.tsv"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 2.48785719299849,
+    "user_seconds": 2.3787480000000016,
+    "system_seconds": 0.10813600000000179,
+    "children_max_rss_kib_so_far": 7315128
+  },
+  {
+    "label": "migrated-types",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "PublicTypes.lean"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 9.52752578199943,
+    "user_seconds": 8.267375000000001,
+    "system_seconds": 1.4107950000000002,
+    "children_max_rss_kib_so_far": 7334512
+  },
+  {
+    "label": "type-comparison",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "compare_types.py",
+      "reference-public-types.json",
+      "/workspace/lean-lab/results/architecture/migrated-types.tsv"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 2.4995068790012738,
+    "user_seconds": 2.3781060000000025,
+    "system_seconds": 0.12021399999999716,
+    "children_max_rss_kib_so_far": 7334512
+  },
+  {
+    "label": "comparator-tests",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "test_compare_types.py"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 0.06499639200046659,
+    "user_seconds": 0.06057299999999799,
+    "system_seconds": 0.004038000000001318,
+    "children_max_rss_kib_so_far": 7334512
+  },
+  {
+    "label": "warm-build",
+    "command": [
+      "lake",
+      "build",
+      "OAI"
+    ],
+    "cwd": "experiments/kl-architecture",
+    "exit_code": 0,
+    "wall_seconds": 3.353472734997922,
+    "user_seconds": 4.173400999999998,
+    "system_seconds": 1.8426580000000001,
+    "children_max_rss_kib_so_far": 7334512
+  }
+]
