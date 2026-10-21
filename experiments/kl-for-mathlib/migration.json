@@ -7581,7 +7581,6 @@
   ],
   "expected_public_count": 3902,
   "publication_checkpoint": "2b5287954bd3c16015d9aab10dc3331d61065926",
-  "previous_experiment": "experiments/kl-architecture",
   "module_renames": {
     "OAI.RepresentationTheory.BottSamelson.AdjointSheaf": "OAI.KL.BottSamelson.AdjointSheaf",
     "OAI.LinearAlgebra.Dual.TransportPairing": "ForMathlib.LinearAlgebra.Dual.TransportPairing",
@@ -7788,5 +7787,6 @@
       "ForMathlib.Algebra.Order.Field.RealScaling",
       "ForMathlib.Algebra.Polynomial.ScaledReciprocity"
     ]
-  }
+  },
+  "policy_git_prefix": "experiments/kl-architecture"
 }

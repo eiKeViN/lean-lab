@@ -4,7 +4,9 @@ from pathlib import Path
 import argparse,hashlib,json,os,re,resource,shlex,subprocess,sys,time,graphlib
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 OUT=ROOT/'results/for-mathlib';OUT.mkdir(parents=True,exist_ok=True)
-M=json.loads((HERE/'migration.json').read_text());REF=ROOT/M['reference']
+sys.path.insert(0,str(ROOT/'scripts'))
+from baseline import snapshot, configuration
+M=json.loads((HERE/'migration.json').read_text())
 METRICS=[]
 
 def run(label,cmd,cwd=HERE,env=None):
@@ -20,7 +22,7 @@ def run(label,cmd,cwd=HERE,env=None):
 
 def serial_environment():
  env=os.environ.copy()
- real=Path(subprocess.check_output(['lean','--print-prefix'],cwd=REF,text=True).strip()).resolve()
+ real=Path(subprocess.check_output(['lean','--print-prefix'],cwd=HERE,text=True).strip()).resolve()
  gate=ROOT/'.cache/architecture-serial-toolchain';gate.mkdir(exist_ok=True)
  for p in real.iterdir():
   if p.name!='bin' and not (gate/p.name).exists():(gate/p.name).symlink_to(p)
@@ -34,28 +36,31 @@ def serial_environment():
  return env
 
 def static_checks():
- # All prior source and tooling remains recoverable and unchanged, including
- # the original strict comparator and its fixed exception policy.
- frozen=['experiments/kl','experiments/kl-signed-ranks','experiments/kl-kernel-transport','experiments/kl-architecture','scripts','provenance']
- run('frozen-tree',['git','diff','--exit-code',M['publication_checkpoint'],'--',*frozen],ROOT)
- extra=subprocess.check_output(['git','ls-files','--others','--exclude-standard','--',*frozen],cwd=ROOT,text=True)
- if extra.strip():raise RuntimeError('Untracked files in frozen reference: '+extra)
+ # Historical trees are immutable Git objects, not maintained experiments.
+ projects={p.name for p in (ROOT/'experiments').iterdir() if p.is_dir() and not p.name.startswith('.')}
+ if projects!={'kl-for-mathlib'}:raise RuntimeError('Expected the single maintained Lean project: '+repr(projects))
  run('baseline-identity',[sys.executable,'scripts/verify.py'],ROOT)
+ run('baseline-export',[sys.executable,'scripts/baseline.py','--export-out',str(OUT/'baseline-types.tsv')],ROOT)
+ run('baseline-snapshot-check',[sys.executable,'compare_types.py','reference-public-types.json',str(OUT/'baseline-types.tsv')])
  run('source-transport',[sys.executable,'migrate.py','--check'])
  run('source-coverage',[sys.executable,'source_check.py'])
  run('classification-and-boundaries',[sys.executable,'analyze.py'])
  if M.get('expected_public_count')!=3902:raise RuntimeError('Expected fixed coverage of 3902 public declarations')
  modules=M['modules'];legacy=set(M['legacy_shims'])
- old_exporter=(ROOT/M['previous_experiment']/'PublicTypes.lean').read_text()
+ policy=snapshot('architecture')
+ if policy.commit!=M['publication_checkpoint'] or policy.prefix!=M['policy_git_prefix']:raise RuntimeError('Unexpected policy Git baseline')
+ source=snapshot('transport')
+ if source.commit!=M['reference_commit'] or source.prefix!=M['reference']:raise RuntimeError('Unexpected source Git baseline')
+ old_exporter=policy.read_text('PublicTypes.lean')
  expected_exporter=old_exporter.replace('if moduleName.toString.startsWith "OAI." then',
    'if moduleName.toString.startsWith "OAI." || moduleName.toString.startsWith "ForMathlib." then')
  if expected_exporter==old_exporter or (HERE/'PublicTypes.lean').read_text()!=expected_exporter:
   raise RuntimeError('Only the ForMathlib owned-module selector may differ in the exporter')
- old_snapshot=json.loads((ROOT/M['previous_experiment']/'reference-public-types.json').read_text())
+ old_snapshot=json.loads(policy.read_text('reference-public-types.json'))
  new_snapshot=json.loads((HERE/'reference-public-types.json').read_text())
- for snapshot in (old_snapshot,new_snapshot):snapshot.pop('exporter_sha256')
+ for record in (old_snapshot,new_snapshot):record.pop('exporter_sha256')
  if old_snapshot!=new_snapshot:raise RuntimeError('Changed reference declaration snapshot or type policy')
- previous=json.loads((ROOT/M['previous_experiment']/'migration.json').read_text())
+ previous=json.loads(policy.read_text('migration.json'))
  for key in ('reference','reference_commit','source_hashes','fixed','units','instance_annotations'):
   if M[key]!=previous[key]:raise RuntimeError('Changed inherited source/provenance field: '+key)
  used=[u for x in modules.values() for u in x['units']]
@@ -72,9 +77,18 @@ def static_checks():
  assessment=json.loads((HERE/'upstream-assessment.json').read_text())
  if {x['module'] for x in assessment['modules']}!=set(previous['modules']) or len(assessment['modules'])!=len(previous['modules']):
   raise RuntimeError('Incomplete prior-module assessment coverage')
- for name in ('compare_types.py','test_compare_types.py','source_check.py'):
-  if (HERE/name).read_bytes()!=(ROOT/M['previous_experiment']/name).read_bytes():
+ for name in ('compare_types.py','test_compare_types.py'):
+  if (HERE/name).read_bytes()!=policy.read_bytes(name):
    raise RuntimeError('Changed inherited verification policy: '+name)
+ expected_coverage=policy.read_text('source_check.py').replace('import json,re','import json,re,sys')
+ expected_coverage=expected_coverage.replace('HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]\n',
+   'HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]\nsys.path.insert(0,str(ROOT/"scripts"))\nfrom baseline import snapshot\n')
+ expected_coverage=expected_coverage.replace("source=(ROOT/m['reference']/f).read_text()", "source=snapshot('transport').read_text(f)")
+ if (HERE/'source_check.py').read_text()!=expected_coverage:raise RuntimeError('Source coverage must retain the historical algorithm with only Git I/O adapted')
+ snapshot_data=json.loads((HERE/'reference-public-types.json').read_text())
+ export=configuration()['reference_export']
+ if snapshot_data['reference_commit']!=M['reference_commit'] or snapshot_data['exporter_sha256']!=hashlib.sha256((HERE/'PublicTypes.lean').read_bytes()).hexdigest() or export['exporter_sha256']!=snapshot_data['exporter_sha256']:
+  raise RuntimeError('Reference type/exporter provenance mismatch')
  for n,x in modules.items():
   for dep in x['imports']:
    if dep in legacy:raise RuntimeError('Implementation imports a compatibility entry: '+n+' -> '+dep)
@@ -96,13 +110,24 @@ def static_checks():
   if re.search(r'\b(sorry|admit|unsafe)\b',p.read_text()):raise RuntimeError('Unexpected proof bypass token: '+str(p))
 
 
+def check_axioms(text):
+ records=re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]",text,re.S)
+ expected=re.findall(r'^#print axioms ([A-Za-z0-9_.]+)$',(HERE/'Audit.lean').read_text(),re.M)
+ if len(expected)!=16 or len(records)!=16 or len({n for n,_ in records})!=16 or {n for n,_ in records}!=set(expected):
+  raise RuntimeError('Expected exactly the sixteen named axiom closures')
+ allowed={'propext','Quot.sound','Classical.choice'}
+ for name,axioms in records:
+  found=set(re.findall(r'[A-Za-z_][A-Za-z_.]*',axioms))
+  if not found<=allowed:raise RuntimeError('Disallowed axiom for '+name+': '+str(found-allowed))
+  if name=='OAI.KLInvariance.combinatorial_invariance' and found!=allowed:raise RuntimeError('Unexpected main theorem axiom closure')
+
+
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--static',action='store_true');parser.add_argument('--refresh-reference',action='store_true',help='Re-export the warm reference and verify its committed snapshot');parser.add_argument('--checks-only',action='store_true',help='Require all OAI artifacts warm, then verify interfaces without rebuilding them');args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--static',action='store_true');parser.add_argument('--verify-baseline',action='store_true',help='Verify immutable source history and retained kernel-export evidence without historical Lean checkouts');parser.add_argument('--checks-only',action='store_true',help='Require all OAI artifacts warm, then verify interfaces without rebuilding them');args=parser.parse_args()
  static_checks()
- if args.static:return
- packages=HERE/'.lake/packages';packages.parent.mkdir(exist_ok=True)
- if not packages.exists() and not packages.is_symlink():packages.symlink_to('../../kl/.lake/packages')
- if packages.resolve()!=(ROOT/'experiments/kl/.lake/packages').resolve():raise RuntimeError('Unexpected dependency checkout; expected the verified shared baseline')
+ if args.static or args.verify_baseline:return
+ packages=HERE/'.lake/packages'
+ if packages.is_symlink() or not packages.is_dir():raise RuntimeError('Run scripts/setup.sh: dependencies must be owned by the maintained project')
  env=serial_environment()
  run('lean-version',['lake','env','lean','--version'],env=env)
  run('mathlib-ready',['lake','--no-build','build','Mathlib'],env=env)
@@ -110,25 +135,7 @@ def main():
  else:run('library-build',['lake','build','ForMathlib','OAI'],env=env)
  for file in ('ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
   run(file,['lake','env','lean',file+'.lean'],env=env)
- audit=(OUT/'Audit.log').read_text();records=re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]",audit,re.S)
- if len(records)!=16:raise RuntimeError('Expected sixteen complete axiom closures, got '+str(len(records)))
- allowed={'propext','Quot.sound','Classical.choice'}
- for theorem,axioms in records:
-  found=set(re.findall(r'[A-Za-z_][A-Za-z_.]*',axioms))
-  if not found<=allowed:raise RuntimeError('Disallowed axiom for '+theorem+': '+str(found-allowed))
-  if theorem=='OAI.KLInvariance.combinatorial_invariance' and found!=allowed:raise RuntimeError('Unexpected main theorem axiom closure')
- # The reference snapshot avoids a second full library build on fresh workers.
- # --refresh-reference checks it using the identical exporter in the warm old environment.
- snapshot=json.loads((HERE/'reference-public-types.json').read_text())
- if snapshot.get('schema')!=3 or snapshot.get('public_count')!=3902 or len(snapshot.get('types',{}))!=3902:raise RuntimeError('Incomplete reference public-type coverage')
- if snapshot['reference_commit']!=M['reference_commit'] or snapshot['exporter_sha256']!=hashlib.sha256((HERE/'PublicTypes.lean').read_bytes()).hexdigest():
-  raise RuntimeError('Reference type snapshot provenance mismatch')
- if args.refresh_reference:
-  run('reference-ready',['lake','--no-build','build','OAI'],REF,env)
-  source=(HERE/'PublicTypes.lean').read_text();baseline=OUT/'ReferenceTypes.lean'
-  baseline.write_text(source.replace('import OAI.Architecture','import OAI.RepresentationTheory.KazhdanLusztig.Invariance',1))
-  run('reference-types',['lake','env','lean',str(baseline)],REF,dict(env,LEAN_TYPES_OUT=str(OUT/'reference-types.tsv')))
-  run('reference-snapshot-check',[sys.executable,'compare_types.py','reference-public-types.json',str(OUT/'reference-types.tsv')])
+ check_axioms((OUT/'Audit.log').read_text())
  run('migrated-types',['lake','env','lean','PublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'migrated-types.tsv')))
  run('type-comparison',[sys.executable,'compare_types.py','reference-public-types.json',str(OUT/'migrated-types.tsv')])
  run('comparator-tests',[sys.executable,'test_compare_types.py'])

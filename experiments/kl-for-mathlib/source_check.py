@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Every non-context source line must belong to a verbatim transported span."""
 from pathlib import Path
-import json,re
+import json,re,sys
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
+sys.path.insert(0,str(ROOT/"scripts"))
+from baseline import snapshot
 
 def uncomment(s):
  out=[];i=0;depth=0;string=False
@@ -26,7 +28,7 @@ def uncomment(s):
 def check():
  m=json.loads((HERE/'migration.json').read_text());missing=[];total=0
  for f in m['source_hashes']:
-  source=(ROOT/m['reference']/f).read_text();raw=source.splitlines();lines=uncomment(source).splitlines();units=[u for u in m['units'] if u['source']==f]
+  source=snapshot('transport').read_text(f);raw=source.splitlines();lines=uncomment(source).splitlines();units=[u for u in m['units'] if u['source']==f]
   covered={i for u in units for i in range(u['start'],u['end']+1)}
   context={s.strip() for u in units for s in (u['prefix']+u['suffix']).splitlines()}
   for i,line in enumerate(lines,1):

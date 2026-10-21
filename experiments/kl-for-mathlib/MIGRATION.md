@@ -1,9 +1,9 @@
 # Source migration index
 
-Reference: `../kl-kernel-transport` at `7ddc53ba8a09ed902fefff86e67a87217518c1d4`.
+Reference: Git `7ddc53ba8a09ed902fefff86e67a87217518c1d4:experiments/kl-kernel-transport` (historical source, no checkout required).
 Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged.
 Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.
-Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Prior semantic paths remain in the frozen kl-architecture experiment.
+Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.
 
 ## Old file → semantic homes
 

@@ -1,0 +1,6 @@
+Immutable Git baseline trees and retained 3902-declaration export checksums verified.
+Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+34 pristine Git blobs match the upstream manifest; active toolchain, lockfile and available dependencies match.
+Mathlib artifacts ready; skipping network cache access.

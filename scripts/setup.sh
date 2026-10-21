@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 source "$(dirname "$0")/env.sh"
-project="${1:-experiments/kl}"
+project="experiments/kl-for-mathlib"
+if [[ $# -gt 1 || ( $# -eq 1 && "$1" != "$project" ) ]]; then
+  echo "Setup targets only $project" >&2; exit 2
+fi
+python3 "$LAB_ROOT/scripts/baseline.py" --fetch-missing
 cd "$LAB_ROOT/$project"
 [[ $(uname -sm) == 'Linux x86_64' ]] || { echo 'Bootstrap supports Linux x86_64; install elan manually on other platforms.' >&2; exit 1; }
 mkdir -p "$LAB_ROOT/.cache"
@@ -35,7 +39,7 @@ lean --version
 lake --version
 # Resolves missing checkouts from the committed manifest; never runs `lake update`.
 lake env lean --version
-if [[ "$project" == experiments/kl ]]; then python3 "$LAB_ROOT/scripts/verify.py"; fi
+python3 "$LAB_ROOT/scripts/verify.py"
 if [[ "${SKIP_CACHE:-0}" != 1 ]]; then
   bash "$LAB_ROOT/scripts/cache.sh"
 fi
