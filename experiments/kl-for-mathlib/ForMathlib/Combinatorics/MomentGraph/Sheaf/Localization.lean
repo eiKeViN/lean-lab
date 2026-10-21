@@ -2,7 +2,6 @@ import Mathlib
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization. Source spans: PlaneLocalization:10, PlaneLocalization:14, PlaneLocalization:12, PlaneLocalization:5, PlaneLocalization:2, PlaneLocalization:15, PlaneLocalization:3.

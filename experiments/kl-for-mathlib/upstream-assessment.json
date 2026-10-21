@@ -1432,7 +1432,7 @@
       "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Uniqueness.lean",
       "module": "OAI.Combinatorics.MomentGraph.Sheaf.Uniqueness",
       "destination": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -3531,7 +3531,7 @@
       "source": "experiments/kl-architecture/OAI/Combinatorics/MomentGraph/Sheaf/Hom.lean",
       "module": "OAI.Combinatorics.MomentGraph.Sheaf.Hom",
       "destination": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ],
       "classification": "current_candidate",
       "declarations": [

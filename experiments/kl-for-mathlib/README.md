@@ -6,7 +6,7 @@ recoverable from Git history; their experiment directories have been removed.
 That consolidation preserved the mathematical source and interfaces. Subsequent
 file-responsibility refinements are recorded below and in the current report.
 
-`ForMathlib/` contains 182 implementation modules that can presently form a
+`ForMathlib/` contains 181 implementation modules that can presently form a
 standalone dependency layer: general algebra/linear support, Coxeter geometry,
 ordered paths and moment-graph sheaves, Hecke and equal-parameter KL polynomial
 theory, and the existing Tits Bott word model. This includes specialized research
@@ -27,14 +27,14 @@ compatible (`OAI.*`); candidate staging does not rename mathematical APIs.
 
 Original 34 KL module import entrypoints and the two existing kernel import
 entrypoints are import wrappers. Published paths retired by responsibility
-refinements also forward to precise implementations; there are 49 compatibility
+refinements also forward to precise implementations; there are 51 compatibility
 entries in total. Earlier semantic import paths are available in
 the pinned historical Git trees.
 The maintained project uses the paths in CLASSIFICATION.md and does not add
 another 193 import wrappers.
 
 Use `import OAI.KL` for the main application theorem, or a focused ForMathlib
-module for reusable support. [MODULES.md](MODULES.md) indexes all 208 current
+module for reusable support. [MODULES.md](MODULES.md) indexes all 207 current
 implementations and the compatibility paths. `OAI.Architecture` is the complete
 audit/export umbrella; `ForMathlib` loads the entire candidate layer. The
 [whole-library report](../../reports/whole-library-layout.md) records the full
@@ -81,6 +81,10 @@ Changes to file responsibility preserve complete declarations and proofs:
   Hilbert numerator identities do not claim a rational-function interface.
 - Bott upper-section projectivity, stalk-character recurrences and interval
   projection-sheaf flabbiness are separate application responsibilities.
+- Graded stalk splitting and bijectivity under minimal-cover conditions share
+  `GradedSheaf/StalkMaps`; their former ordinary-sheaf paths are compatibility
+  imports. All current ordinary-sheaf implementations, including localization,
+  remain below grading.
 
 No mathematical statement or proof body is rewritten. The earlier 76 explicit
 instance-name annotations and single local instance attribute are inherited.

@@ -9,8 +9,8 @@ or declaration namespace is changed; there is no new general API or proof tactic
 
 The review covers all **192 base implementation modules**, their declaration
 anchors, immutable source-unit allocations and owned imports; all base published
-compatibility and aggregate entries; and all resulting **208 implementations**,
-**49 compatibility imports** and **3 aggregate/project entries**. This is a
+compatibility and aggregate entries; and all resulting **207 implementations**,
+**51 compatibility imports** and **3 aggregate/project entries**. This is a
 module-responsibility and dependency review, not an independent line-by-line
 proof certification or a Mathlib novelty review. It does not assume that every
 module needs changing or that a complete pass makes the architecture permanent.
@@ -28,7 +28,7 @@ mathematics into ForMathlib.
 
 ## Changes and mathematical reasons
 
-Paths in this section are relative to the maintained project. Each of the ten
+Paths in this section are relative to the maintained project. Each of the twelve
 old homes remains an import-only compatibility entry; implementations import
 new homes directly. Only existing complete source units are redistributed in
 this round. The one previously approved source partition remains unchanged.
@@ -42,6 +42,7 @@ this round. The one previously approved source partition remains unchanged.
 | `MomentGraph.Sheaf.Isomorphism` | `Sheaf.Iso`, `Sheaf.Pi`, `OrderedGraph.VertexDeletion` | Isomorphisms and stalk-extension squares are ordinary sheaf maps; dependent products and graph-coordinate deletion are separate constructions. `Sheaf.Iso` no longer imports graded sheaves. |
 | `MomentGraph.Sheaf.Zero` | `Sheaf.Products`, `Sheaf.Pullback` | Zero/binary products and zero summands belong together; graph-map pullback, assignment transport and live-edge conditions are a different operation. The preserved upward-kernel pullback unit joins that operation. |
 | `MomentGraph.Sheaf.Extension` | `Sheaf.BaseChange`, `Sheaf.Structure`, `Sheaf.Restriction`; two graded units move to `GradedSheaf.Extension` | Scalar extension and sections, the scalar-quotient structure sheaf, and induced-subgraph restriction have distinct responsibilities. Graded stalk lifting and actual graded boundary models belong to the graded construction layer. Ordinary core operations no longer need it. |
+| `MomentGraph.Sheaf.Hom` and `MomentGraph.Sheaf.Uniqueness` | `GradedSheaf.StalkMaps` | Both statements concern homogeneous stalk maps under graded minimal-cover conditions: a split lift and a bijectivity criterion. Their actual parameters require grading, despite the old namespace/path. The two complete source units share this one object-level home; no proof is split or rewritten. |
 | `Algebra.Module.Graded.Hilbert.RationalFunction` | `Graded.Hilbert.Numerator` | Its three theorems concern shifted weighted sums and uniqueness/addition of polynomial numerators with a common nonzero real evaluation factor. No rational-function structure is assumed. The shift lemma stays with its actual numerator consumers. |
 | `LinearAlgebra.Reflection.Forms` | `Reflection.Bilinear`, `BilinearForm.NondegenerateExtension` | Rank-one orthogonal reflection and dihedral relations differ from extending an arbitrary real symmetric bilinear form by the dual of its radical. The latter needs no reflection group. The geometric realization imports reflection support; the Tits extension explicitly imports the general extension construction. |
 | `OAI.KL.BottSamelson.Pairings` | `BottSamelson.UpperSections`, `BottSamelson.StalkCharacter`, `BottSamelson.Flabby` | Upper-set image projectivity/local denominators, character rank recurrences/Hecke coefficients, and projection-sheaf flabbiness on intervals are separate responsibilities. In particular character recurrences import Stalks but do not require upper-section projectivity or adjoint-sheaf gluing. The later character assembly names its character/flabbiness prerequisites explicitly. |
@@ -106,7 +107,7 @@ Focused reusable mathematics uses its individual ForMathlib module.
 project entry imports `OAI.KL.Invariance.Main`, without legacy KL entrypoints or
 either broad aggregate. Existing published imports remain usable, including
 all 34 original KL and two kernel entries, three earlier ForMathlib compatibility
-entries and the ten homes retired in this pass. No new experiment is copied.
+entries and the twelve homes retired in this pass. No new experiment is copied.
 
 The source reconstruction still binds all **525 original unit records**, **526
 allocated pieces**, fixed files, 34 upstream blob hashes and 76 inherited
@@ -115,10 +116,10 @@ context rewrite is added. The exporter, comparator, reference snapshot,
 source-coverage algorithm, sixteen-closure audit, toolchain and dependency lock
 remain unchanged. Only import graph/allocation and generated headers change.
 
-The implementation inventory changes from 192 to 208: **182 candidates**, **25
+The implementation inventory changes from 192 to 207: **181 candidates**, **25
 application modules** and **one project kernel wrapper**. Compatibility entries
-change from 39 to 49; aggregate/project entries from 2 to 3; generated products
-from 233 to **260**. Direct core edges change from 327 to **363**. These counts
+change from 39 to 51; aggregate/project entries from 2 to 3; generated products
+from 233 to **261**. Direct core edges change from 327 to **362**. These counts
 are consequences, not optimization targets. Independent importability and object
 ownership are the benefits; fewer lines/edges or faster proof elaboration are not
 claimed. ForMathlib → OAI edges remain zero.
@@ -139,7 +140,9 @@ finite pieces without module-data/pair/coefficient-change constructions,
 stalk-character recurrences without upper-section projectivity, and the focused
 project entry. Existing source, type, behavior, axiom, comparator and partition
 checks remain active. Static checking also rejects direct grading dependencies
-from the named ordinary sheaf core.
+from every current ordinary-sheaf implementation. The expanded Lean harness
+imports all 13 current ordinary-sheaf implementations through four leaf imports,
+with no missing module in the recorded closure check.
 
 Validated checkpoint: all **28 stages** of `bash scripts/check.sh` passed.
 The final incremental library completion took **133.729 s**, after reusing the
@@ -164,19 +167,40 @@ annotations are unchanged. Frozen reference replay is not historical Lean
 re-elaboration. Mathlib artifacts were reused through `--no-build` readiness;
 no full Mathlib source build or cache cleaning was performed.
 
-**This is a saved checkpoint, not the final whole-library delivery.** The last
-parameter-based naming sweep confirmed that the two existing `Sheaf.Hom` and
-`Sheaf.Uniqueness` units actually concern graded stalk maps under minimal-cover
-conditions. Consolidating them under a graded stalk-map home remains to do.
-The ordinary localization file also retains a now-unnecessary graded-extension
-import to examine. No new mathematical interface is needed for these changes.
-After that final sweep, regenerate the current inventory and rerun the affected
-incremental validation. The expensive Stalks/UpperSections artifacts should stay
-usable because those refinements are downstream.
+Final naming/dependency sweep: `Sheaf.Hom` and `Sheaf.Uniqueness` now share
+`GradedSheaf.StalkMaps`, preserving `split_stalk_graded` and
+`stalk_hom_bijective` exactly. The ordinary localization file no longer imports
+graded extension. Static checking now applies the no-grading boundary to every
+current ordinary-sheaf implementation, not just the earlier core subset; the
+Lean import harness covers the complete ordinary layer through its leaf imports.
+The original checkpoint evidence remains separately under `validated-checkpoint`.
+The final completion run passed all **28 stages** again. Final incremental
+library completion: **322.595 s**; warm repeat: **4.806 s**; summed recorded
+stage wall time: **414.660 s**. Neither Stalks nor UpperSections was recompiled
+in this completion run. This is reuse of validated artifacts, not a cold-build
+benchmark. [Final stage records and logs](evidence/whole-library-layout/final-validation/)
+are separate from the earlier checkpoint and the preparation/failure evidence.
+
+Final export: 3902 old / 3902 new, no missing, added or changed public type.
+The comparator's relocation count refers to the older transport snapshot, not
+the number of moves in this pass. All 16 axiom closures pass; all 31 comparator,
+14 partition and 18 root regressions pass. The root suite also passes with
+Python optimization. The complete ordinary-sheaf import harness passes and its
+recorded source closure covers all 13 current implementations. All 51 published
+compatibility entries preserve their originally reachable source units.
+The 192 base-module review rows cover all 207 current implementations; the
+receipt verifier passes. There is no remaining implementation or validation
+blocker in this round. The three explicitly described finer placement debts
+remain optional future work, not new APIs promised by this pass.
+
+These are local pinned-environment preservation and compiler checks. They do
+not establish Mathlib HEAD compatibility, novelty, upstream acceptance or an
+independent review of this iteration; compilation alone does not certify the
+intended scope of the original mathematical arguments.
 
 The optional dated receipt verifier is
 `python3 reports/evidence/whole-library-layout/verify-inventory.py`; it checks
 source hashes and original-to-current coverage against this matching checkout,
-including all 49 compatibility source-unit closures. It is not an ongoing
+including all 51 compatibility source-unit closures. It is not an ongoing
 architecture freeze or an independent mathematical review. GitHub CI is a
 separate publication check; local cloud validation is not CI.

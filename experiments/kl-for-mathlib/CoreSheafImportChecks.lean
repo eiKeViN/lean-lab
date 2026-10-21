@@ -1,8 +1,10 @@
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
 import Lean
 
--- Ordinary sheaf scalar extension/restriction/products need no graded sheaf or model.
+-- The complete current ordinary-sheaf layer needs no graded sheaf or model.
 run_elab do
   let env ← Lean.getEnv
   for n in env.header.moduleNames do

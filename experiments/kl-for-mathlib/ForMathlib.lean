@@ -85,6 +85,7 @@ import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
 import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness
 import ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion
@@ -92,7 +93,6 @@ import ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
@@ -102,7 +102,6 @@ import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent

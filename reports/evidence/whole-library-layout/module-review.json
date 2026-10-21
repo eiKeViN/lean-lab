@@ -2,8 +2,8 @@
   "base": "7e1ed51e20e43b6c116f20117fdae00279deb1d9",
   "scope": "Whole-library module responsibility, declaration anchors, source allocation, imports and public entrypoints. Not a line-by-line proof certification or a Mathlib novelty review.",
   "base_implementation_count": 192,
-  "current_implementation_count": 208,
-  "compatibility_count": 49,
+  "current_implementation_count": 207,
+  "compatibility_count": 51,
   "entrypoint_count": 3,
   "base_review": [
     {
@@ -5132,11 +5132,11 @@
     },
     {
       "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
-      "group": "pending graded stalk-map relocation",
-      "decision": "retained",
-      "reason": "The actual statements require graded sheaves, homogeneous maps and minimal covers. A combined graded stalk-map home is identified but not yet implemented in this validated checkpoint.",
+      "group": "graded stalk maps",
+      "decision": "reallocated/renamed",
+      "reason": "Replace the mixed or inaccurate old home with: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps. The mathematical reason for each target is in its current record and the report.",
       "destinations": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ],
       "source_sha256": "81e3d8f5254e9c49aec7d031d61e766efc493429904290a84f46d00b3da6f782",
       "declaration_anchors": [
@@ -5589,11 +5589,11 @@
     },
     {
       "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
-      "group": "pending graded stalk-map relocation",
-      "decision": "retained",
-      "reason": "The actual statements require graded sheaves, homogeneous maps and minimal covers. A combined graded stalk-map home is identified but not yet implemented in this validated checkpoint.",
+      "group": "graded stalk maps",
+      "decision": "reallocated/renamed",
+      "reason": "Replace the mixed or inaccurate old home with: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps. The mathematical reason for each target is in its current record and the report.",
       "destinations": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ],
       "source_sha256": "b107764a352b1451ca163ada2e84b97315b60dd2104b857b016c009be066c95a",
       "declaration_anchors": [
@@ -18513,14 +18513,14 @@
       "group": "graded boundary-sheaf constructions",
       "role": "current candidate",
       "reason": "The named boundary-sheaf construction, comparison, summand or uniqueness property is a graded object-level responsibility, not the selected Tits application.",
-      "source_sha256": "c9ab336ca7ca3f305526340ec3ad395610e60a4a8717b1d1f443c0b0affc4817",
+      "source_sha256": "2c471e6e6ce530a460a44e6ed26cc8395addfd8cc18d46a6d4ee56bc8b03b3cd",
       "source_units": [
         "EdgeLocalization:11",
         "EdgeLocalization:13"
       ],
       "imports": [
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ],
       "declaration_anchors": [
         {
@@ -19308,7 +19308,7 @@
       "group": "graded moment-graph sheaves",
       "role": "current candidate",
       "reason": "The named graded-sheaf operation and its homogeneous maps/conditions remain with that object, while ordinary-sheaf support sits below it.",
-      "source_sha256": "9c96f06e2510ac1e19451b6f040a41e794a2e0e295e2a1a39a8588e6deff7c22",
+      "source_sha256": "a691af39e319d15e7843bf1ce44f48891147c6f045c10ec16674165b58d3644b",
       "source_units": [
         "SheafMorphisms:16",
         "SheafMorphisms:20",
@@ -19322,7 +19322,7 @@
       ],
       "imports": [
         "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ],
       "declaration_anchors": [
         {
@@ -19713,6 +19713,33 @@
         {
           "name": "reindex_edgeFlabby",
           "line": 85
+        }
+      ]
+    },
+    {
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/StalkMaps.lean",
+      "group": "graded moment-graph sheaves",
+      "role": "current candidate",
+      "reason": "Local graded stalk maps under minimal-cover conditions: a split graded lift from an isomorphism above the vertex, and bijectivity of a compatible homogeneous map between minimal covers. Both statements require graded sheaves; namespaces and proof bodies are preserved.",
+      "source_sha256": "ff75437ec2dbf54d97afe9fc2e1a492706f7345469910fbb7051f8e9aed1f55b",
+      "source_units": [
+        "SheafMorphisms:26",
+        "EdgeLocalization:9"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness"
+      ],
+      "declaration_anchors": [
+        {
+          "name": "split_stalk_graded",
+          "line": 26
+        },
+        {
+          "name": "stalk_hom_bijective",
+          "line": 94
         }
       ]
     },
@@ -20345,27 +20372,6 @@
       ]
     },
     {
-      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
-      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Hom.lean",
-      "group": "pending graded stalk-map relocation",
-      "role": "current candidate",
-      "reason": "The actual statements require graded sheaves, homogeneous maps and minimal covers. A combined graded stalk-map home is identified but not yet implemented in this validated checkpoint.",
-      "source_sha256": "81e3d8f5254e9c49aec7d031d61e766efc493429904290a84f46d00b3da6f782",
-      "source_units": [
-        "SheafMorphisms:26"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
-      ],
-      "declaration_anchors": [
-        {
-          "name": "split_stalk_graded",
-          "line": 24
-        }
-      ]
-    },
-    {
       "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
       "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean",
       "group": "ordinary moment-graph sheaves",
@@ -20515,7 +20521,7 @@
       "group": "ordinary moment-graph sheaves",
       "role": "current candidate",
       "reason": "The stated ordinary-sheaf operation is its mathematical responsibility; whole-module direct imports are separated from graded construction where the existing source units permit.",
-      "source_sha256": "8852aba3b53639620bd3187a3c2a9bbaabff16be88d27e9ce4e9243731086d49",
+      "source_sha256": "35006e4c219635ce01e7cffe6ccdb27e546f5ded1cc23377e796e647adcb2f48",
       "source_units": [
         "PlaneLocalization:10",
         "PlaneLocalization:14",
@@ -20529,65 +20535,64 @@
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
       ],
       "declaration_anchors": [
         {
           "name": "edge_subsingleton_of_unit",
-          "line": 18
+          "line": 17
         },
         {
           "name": "supportedOutgoing",
-          "line": 43
+          "line": 42
         },
         {
           "name": "kernelProduct",
-          "line": 47
+          "line": 46
         },
         {
           "name": "structure_kernel_iff_dvd",
-          "line": 50
+          "line": 49
         },
         {
           "name": "structure_kernel_product",
-          "line": 75
+          "line": 74
         },
         {
           "name": "propPiEquiv",
-          "line": 113
+          "line": 112
         },
         {
           "name": "moduleEq_pi_apply",
-          "line": 122
+          "line": 121
         },
         {
           "name": "structurePullbackIso",
-          "line": 129
+          "line": 128
         },
         {
           "name": "structureLocalModels",
-          "line": 165
+          "line": 164
         },
         {
           "name": "extend_modelSum",
-          "line": 192
+          "line": 191
         },
         {
           "name": "lower_surjective_of_generated",
-          "line": 247
+          "line": 246
         },
         {
           "name": "structure_lower_image",
-          "line": 257
+          "line": 256
         },
         {
           "name": "structure_upper_image",
-          "line": 268
+          "line": 267
         },
         {
           "name": "exists_modelSumIso",
-          "line": 289
+          "line": 288
         }
       ]
     },
@@ -21135,27 +21140,6 @@
         {
           "name": "structureSheaf_flat_flabby",
           "line": 218
-        }
-      ]
-    },
-    {
-      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
-      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Uniqueness.lean",
-      "group": "pending graded stalk-map relocation",
-      "role": "current candidate",
-      "reason": "The actual statements require graded sheaves, homogeneous maps and minimal covers. A combined graded stalk-map home is identified but not yet implemented in this validated checkpoint.",
-      "source_sha256": "b107764a352b1451ca163ada2e84b97315b60dd2104b857b016c009be066c95a",
-      "source_units": [
-        "EdgeLocalization:9"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
-      ],
-      "declaration_anchors": [
-        {
-          "name": "stalk_hom_bijective",
-          "line": 24
         }
       ]
     },
@@ -30911,6 +30895,16 @@
       "source_sha256": "aa95fe80ad7eae7240eaf2deeeaf8d232a10b1182a365fecd3235e5615c7b3d2"
     },
     {
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
+      ],
+      "role": "preserve published module path",
+      "source_sha256": "215c66f409121feb676bb3d0abfd3c86f13c0b38b5cd8a796931b36c206ffdeb"
+    },
+    {
       "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
       "imports": [
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
@@ -30923,6 +30917,16 @@
       ],
       "role": "preserve published module path",
       "source_sha256": "b596bfc1c929f05b0faf2934da327ec39a37aa56e4ba5e575f2e1bfb8c9bbc84"
+    },
+    {
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+      "imports": [
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
+      ],
+      "role": "preserve published module path",
+      "source_sha256": "73a4b075309952b574ab07e3bdd141cbb0261dbecea3888ec3ebf393829bc6df"
     },
     {
       "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero",
@@ -31136,7 +31140,7 @@
         "ForMathlib.Combinatorics.DirectedPaths.ScalarMap",
         "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
         "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
         "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
         "OAI.KL.BottSamelson.CanonicalPairing",
@@ -31144,7 +31148,7 @@
         "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization"
       ],
       "role": "preserve published module path",
-      "source_sha256": "4b5547aff162c89d53f3facb45640a3154bd99a8140381f6b8f5a8b5314d910d"
+      "source_sha256": "0210570a92165922c404f2f2ccf8e64b265fafb8d8b41a0ef9b9b4b97ad61af9"
     },
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.Frobenius",
@@ -31395,14 +31399,14 @@
         "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
         "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom",
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
         "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
         "ForMathlib.LinearAlgebra.Quotient.Transport",
         "OAI.KL.Sheaves.Boundary",
         "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions"
       ],
       "role": "preserve published module path",
-      "source_sha256": "1bbba4662faf0c73f75508c86bd879f0ab6d9325993b851fa78d430ec2e4eae7"
+      "source_sha256": "fd4554eed521bd7272d9951635a6019b8f812e0e44e8272a606dfd4d2314f7b4"
     },
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",

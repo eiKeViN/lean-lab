@@ -1,6 +1,6 @@
 import Mathlib
 import ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom. Source spans: SheafMorphisms:16, SheafMorphisms:20, SheafMorphisms:11, SheafMorphisms:12, SheafMorphisms:23, SheafMorphisms:13, SheafMorphisms:27, SheafMorphisms:14, SheafMorphisms:28.
 See migration.json and MIGRATION.md for exact provenance. -/

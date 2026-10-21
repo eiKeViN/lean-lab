@@ -1,8 +1,8 @@
 {
   "base": "7e1ed51e20e43b6c116f20117fdae00279deb1d9",
-  "checked_count": 49,
+  "checked_count": 51,
   "passed": true,
-  "scope": "All base published compatibility entries and all ten retired implementation paths retain every originally reachable immutable source unit (fixed kernel bodies tracked separately). This is source-unit export coverage, not an independent per-import Lean type export.",
+  "scope": "Source-unit export coverage for every published compatibility entry; not an independent per-import Lean type export.",
   "entries": [
     {
       "module": "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
@@ -59,9 +59,21 @@
       "missing_original_units": []
     },
     {
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
+      "old_source_unit_count": 56,
+      "current_source_unit_count": 61,
+      "missing_original_units": []
+    },
+    {
       "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
       "old_source_unit_count": 28,
       "current_source_unit_count": 28,
+      "missing_original_units": []
+    },
+    {
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+      "old_source_unit_count": 48,
+      "current_source_unit_count": 61,
       "missing_original_units": []
     },
     {
@@ -91,13 +103,13 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings",
       "old_source_unit_count": 304,
-      "current_source_unit_count": 304,
+      "current_source_unit_count": 306,
       "missing_original_units": []
     },
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson",
       "old_source_unit_count": 239,
-      "current_source_unit_count": 239,
+      "current_source_unit_count": 241,
       "missing_original_units": []
     },
     {
@@ -115,7 +127,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity",
       "old_source_unit_count": 372,
-      "current_source_unit_count": 372,
+      "current_source_unit_count": 374,
       "missing_original_units": []
     },
     {
@@ -133,7 +145,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.Decomposition",
       "old_source_unit_count": 180,
-      "current_source_unit_count": 180,
+      "current_source_unit_count": 182,
       "missing_original_units": []
     },
     {
@@ -145,13 +157,13 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals",
       "old_source_unit_count": 423,
-      "current_source_unit_count": 423,
+      "current_source_unit_count": 425,
       "missing_original_units": []
     },
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths",
       "old_source_unit_count": 392,
-      "current_source_unit_count": 392,
+      "current_source_unit_count": 394,
       "missing_original_units": []
     },
     {
@@ -163,7 +175,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.Frobenius",
       "old_source_unit_count": 207,
-      "current_source_unit_count": 207,
+      "current_source_unit_count": 209,
       "missing_original_units": []
     },
     {
@@ -193,7 +205,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings",
       "old_source_unit_count": 274,
-      "current_source_unit_count": 274,
+      "current_source_unit_count": 276,
       "missing_original_units": []
     },
     {
@@ -235,7 +247,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization",
       "old_source_unit_count": 453,
-      "current_source_unit_count": 453,
+      "current_source_unit_count": 455,
       "missing_original_units": []
     },
     {
@@ -247,7 +259,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders",
       "old_source_unit_count": 400,
-      "current_source_unit_count": 400,
+      "current_source_unit_count": 402,
       "missing_original_units": []
     },
     {
@@ -265,7 +277,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms",
       "old_source_unit_count": 166,
-      "current_source_unit_count": 166,
+      "current_source_unit_count": 168,
       "missing_original_units": []
     },
     {
@@ -283,7 +295,7 @@
     {
       "module": "OAI.RepresentationTheory.KazhdanLusztig.Support",
       "old_source_unit_count": 336,
-      "current_source_unit_count": 336,
+      "current_source_unit_count": 338,
       "missing_original_units": []
     },
     {

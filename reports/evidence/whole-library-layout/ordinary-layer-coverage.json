@@ -1,0 +1,26 @@
+{
+  "ordinary_implementation_count": 13,
+  "ordinary_implementations": [
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"
+  ],
+  "harness_roots": [
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality"
+  ],
+  "missing": [],
+  "passed": true
+}

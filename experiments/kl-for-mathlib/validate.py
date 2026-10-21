@@ -104,8 +104,7 @@ def static_checks():
     raise RuntimeError('General support imports domain theory: '+n)
   if n.startswith('ForMathlib.GroupTheory.Coxeter.') and any(d.startswith('ForMathlib.RepresentationTheory.') for d in x['imports']):
    raise RuntimeError('Coxeter object layer imports representation theory: '+n)
-  if n in {'ForMathlib.Combinatorics.MomentGraph.Sheaf.'+s for s in
-           ('Basic','Iso','Pi','Products','Pullback','BaseChange','Structure','Restriction')}:
+  if n.startswith('ForMathlib.Combinatorics.MomentGraph.Sheaf.'):
    if any(d.startswith(('ForMathlib.Algebra.Module.Graded.','ForMathlib.Combinatorics.MomentGraph.GradedSheaf.','ForMathlib.Combinatorics.MomentGraph.Boundary.')) for d in x['imports']):
     raise RuntimeError('Ordinary sheaf core imports graded construction: '+n)
   if n.startswith('ForMathlib.Combinatorics.MomentGraph.') and not n.startswith('ForMathlib.Combinatorics.MomentGraph.Bruhat.'):

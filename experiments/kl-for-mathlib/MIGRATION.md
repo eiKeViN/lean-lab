@@ -113,8 +113,8 @@ Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Ear
 - `ForMathlib/Algebra/Module/Graded/RegularScalar.lean` ← 1035–1088
 - `ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean` ← 136–153
 - `ForMathlib/Combinatorics/MomentGraph/Boundary/Uniqueness.lean` ← 640–685, 734–770
+- `ForMathlib/Combinatorics/MomentGraph/GradedSheaf/StalkMaps.lean` ← 511–578
 - `ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Uniqueness.lean` ← 585–631, 692–727, 933–959, 777–799
-- `ForMathlib/Combinatorics/MomentGraph/Sheaf/Uniqueness.lean` ← 511–578
 - `ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean` ← 1096–1117
 - `ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/ScaledReciprocity.lean` ← 155–195
 - `OAI/KL/BottSamelson/CanonicalPairing.lean` ← 809–854, 863–926, 969–996
@@ -273,7 +273,7 @@ Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Ear
 - `ForMathlib/Algebra/Module/Graded/NonnegativeBasis.lean` ← 110–128, 413–445, 11–103
 - `ForMathlib/Combinatorics/MomentGraph/Boundary/Hom.lean` ← 1078–1152, 1238–1299, 1363–1407
 - `ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Hom.lean` ← 989–1032, 1212–1236, 563–701, 708–799, 1329–1361, 809–892, 1553–1621, 899–946, 1628–1693
-- `ForMathlib/Combinatorics/MomentGraph/Sheaf/Hom.lean` ← 1483–1546
+- `ForMathlib/Combinatorics/MomentGraph/GradedSheaf/StalkMaps.lean` ← 1483–1546
 - `ForMathlib/GroupTheory/Coxeter/Bruhat/Descent.lean` ← 237–326
 - `ForMathlib/LinearAlgebra/Quotient/Transport.lean` ← 503–531
 - `OAI/KL/Sheaves/Boundary.lean` ← 130–185, 193–228, 336–406
@@ -405,7 +405,7 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.Combinatorics.MomentGraph.Boundary.Hom`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom`
 - `ForMathlib.Combinatorics.MomentGraph.Boundary.Models`: `ForMathlib.Combinatorics.MomentGraph.Boundary.Summand`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models`
 - `ForMathlib.Combinatorics.MomentGraph.Boundary.Summand`: `ForMathlib.Combinatorics.MomentGraph.Boundary.Hom`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand`
-- `ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness`
+- `ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps`
 - `ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic`, `ForMathlib.GroupTheory.Coxeter.Bruhat.Basic`
 - `ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel`: `ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown`, `ForMathlib.GroupTheory.Coxeter.Bruhat.Descent`, `ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds`, `ForMathlib.GroupTheory.Coxeter.Roots.Splines`, `ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal`
 - `ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel`: `ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel`, `ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis`
@@ -415,10 +415,11 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`: `ForMathlib.Algebra.Module.CoefficientChange.Dual`, `ForMathlib.Algebra.Module.Graded.Adjoint`, `ForMathlib.Algebra.Module.Graded.Hilbert.Images`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality`, `ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic`
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`: `ForMathlib.Algebra.Module.Graded.Hilbert.Series`, `ForMathlib.Algebra.Module.Graded.ModuleData.Transport`, `ForMathlib.Combinatorics.MomentGraph.Boundary.Basic`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Products`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback`
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert`: `ForMathlib.Algebra.Module.Graded.Hilbert.Increment`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`
-- `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom`: `ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom`
+- `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom`: `ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps`
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models`: `ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`, `ForMathlib.LinearAlgebra.Dual.BalancedCut`
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex`
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs`
+- `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps`: `ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`, `ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness`
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand`: `ForMathlib.Algebra.Module.Graded.ModuleData.Range`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom`
 - `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`
 - `ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom`
@@ -426,9 +427,8 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic`: (Mathlib only)
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality`: `ForMathlib.Algebra.Module.Free.ScalarDivisibility`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic`, `ForMathlib.LinearAlgebra.Dual.IntegralSupport`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure`
-- `ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom`: `ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso`: `ForMathlib.Algebra.Module.Cover.Local`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic`, `ForMathlib.LinearAlgebra.Quotient.Transport`
-- `ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`
+- `ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Products`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso`, `ForMathlib.Algebra.Module.Submodule.PiIdeal`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Products`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi`
@@ -436,7 +436,6 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages`: `ForMathlib.Algebra.Module.Flat.Kernel`, `ForMathlib.Algebra.Module.Localization.Membership`, `ForMathlib.Algebra.Module.Submodule.ProductScaling`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange`
-- `ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness`: `ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`
 - `ForMathlib.GroupTheory.Coxeter.Bruhat.Basic`: `ForMathlib.GroupTheory.Coxeter.Bruhat.Defs`, `ForMathlib.GroupTheory.Coxeter.Exchange`
 - `ForMathlib.GroupTheory.Coxeter.Bruhat.Defs`: (Mathlib only)
 - `ForMathlib.GroupTheory.Coxeter.Bruhat.Descent`: `ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset`

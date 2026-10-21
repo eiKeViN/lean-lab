@@ -5396,15 +5396,6 @@
         "ForMathlib.Algebra.Module.Graded.ModuleData.Basic"
       ]
     },
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness": {
-      "units": [
-        "EdgeLocalization:9"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
-      ]
-    },
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness": {
       "units": [
         "EdgeLocalization:10",
@@ -5423,7 +5414,7 @@
       ],
       "imports": [
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ]
     },
     "OAI.KL.BottSamelson.CanonicalPairing": {
@@ -5819,7 +5810,6 @@
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
       ]
     },
@@ -6138,7 +6128,7 @@
       ],
       "imports": [
         "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom"
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps"
       ]
     },
     "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom": {
@@ -6149,15 +6139,6 @@
       ],
       "imports": [
         "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom"
-      ]
-    },
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom": {
-      "units": [
-        "SheafMorphisms:26"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
       ]
     },
     "ForMathlib.Algebra.Module.Graded.ModuleData.Character": {
@@ -6883,6 +6864,18 @@
         "OAI.KL.BottSamelson.UpperSections"
       ],
       "description": "From global Bott upper-section flabbiness to the projection sheaf on a finite Bruhat interval, via extension of interval assignments."
+    },
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps": {
+      "units": [
+        "SheafMorphisms:26",
+        "EdgeLocalization:9"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness"
+      ],
+      "description": "Local graded stalk maps under minimal-cover conditions: a split graded lift from an isomorphism above the vertex, and bijectivity of a compatible homogeneous map between minimal covers. Both statements require graded sheaves; namespaces and proof bodies are preserved."
     }
   },
   "legacy_shims": {
@@ -6994,7 +6987,7 @@
       "ForMathlib.Combinatorics.DirectedPaths.ScalarMap",
       "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
       "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
-      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
       "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
       "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
       "OAI.KL.BottSamelson.CanonicalPairing",
@@ -7160,7 +7153,7 @@
       "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
       "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom",
       "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
-      "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
       "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
       "ForMathlib.LinearAlgebra.Quotient.Transport",
       "OAI.KL.Sheaves.Boundary",
@@ -7304,6 +7297,16 @@
       "ForMathlib.LinearAlgebra.Reflection.Classification",
       "ForMathlib.RepresentationTheory.Hecke.Coefficients",
       "OAI.KL.BottSamelson.Stalks"
+    ],
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom": [
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
+    ],
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness": [
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+      "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension"
     ]
   },
   "instance_annotations": [
@@ -7904,7 +7907,7 @@
     "OAI.Combinatorics.DirectedPaths.ScalarMap": "ForMathlib.Combinatorics.DirectedPaths.ScalarMap",
     "OAI.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity": "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
     "OAI.Algebra.Module.Graded.ModuleData.CoverUniqueness": "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
-    "OAI.Combinatorics.MomentGraph.Sheaf.Uniqueness": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+    "OAI.Combinatorics.MomentGraph.Sheaf.Uniqueness": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
     "OAI.Combinatorics.MomentGraph.GradedSheaf.Uniqueness": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
     "OAI.Combinatorics.MomentGraph.Boundary.Uniqueness": "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
     "OAI.RepresentationTheory.BottSamelson.CanonicalPairing": "OAI.KL.BottSamelson.CanonicalPairing",
@@ -7991,7 +7994,7 @@
     "OAI.Algebra.Module.Graded.ModuleData.QuotientHom": "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom",
     "OAI.Combinatorics.MomentGraph.GradedSheaf.Hom": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
     "OAI.Combinatorics.MomentGraph.Boundary.Hom": "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom",
-    "OAI.Combinatorics.MomentGraph.Sheaf.Hom": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
+    "OAI.Combinatorics.MomentGraph.Sheaf.Hom": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
     "OAI.Algebra.Module.Graded.ModuleData.Character": "ForMathlib.Algebra.Module.Graded.ModuleData.Character",
     "OAI.RepresentationTheory.KazhdanLusztig.Comparison.Freeness": "OAI.KL.Comparison.SuffixFreeness",
     "OAI.Algebra.Module.Graded.ModuleData.Duality": "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",

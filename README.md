@@ -26,7 +26,7 @@ warm check. Direct project commands remain available via
 `bash experiments/kl-for-mathlib/check.sh`. For interactive use, run
 `source scripts/env.sh` before `cd experiments/kl-for-mathlib; lake ...`.
 
-The Lean tree separates `ForMathlib/` (182 current upstream-candidate modules)
+The Lean tree separates `ForMathlib/` (181 current upstream-candidate modules)
 from `OAI/KL/` (25 application modules and one compatibility wrapper). Original
 34 KL import entrypoints and two kernel import entrypoints remain as wrappers.
 Previously published ForMathlib and application paths also forward to their more precise homes.
@@ -34,7 +34,7 @@ ForMathlib has no project-layer imports. Specialized Coxeter, Hecke, KL polynomi
 and Tits word mathematics is included among the candidates; candidate status does
 not mean submission-ready. No new interface extraction is part of this cleanup.
 
-The current tree has 260 Lean product modules and retains all 3902 public declarations.
+The current tree has 261 Lean product modules and retains all 3902 public declarations.
 The fixed toolchain is Lean 4.34.1; Mathlib is pinned at
 `d13f23b723b8a846827a245b89c10fc7d3f11612`. Dependencies and working artifacts
 are owned by the maintained project's `.lake`, with shared installation/download
