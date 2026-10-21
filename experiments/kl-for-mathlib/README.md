@@ -86,7 +86,12 @@ Changes to file responsibility preserve complete declarations and proofs:
   imports. All current ordinary-sheaf implementations, including localization,
   remain below grading.
 
-No mathematical statement or proof body is rewritten. The earlier 76 explicit
+The architecture migration rewrote no mathematical statement or proof body.
+The active [lemma-granularity pilot](../../reports/lemma-granularity.md) now extracts
+five lemmas and rewrites four proofs, preserving all 3902 old API types and checking
+the five additions separately. `proof-evolution.json` binds three precise source
+exceptions and their diff; all other products remain pristine reconstructions.
+The earlier 76 explicit
 instance-name annotations and single local instance attribute are inherited.
 `migration.json` and `migrate.py --check` bind all 525 immutable parent units and
 fixed sources to the pristine reference history. One mixed parent is partitioned
@@ -109,7 +114,9 @@ For static checks: add `--static`. With warm OAI and candidate artifacts:
 `--checks-only`. `--verify-baseline` verifies Git baselines and retained export
 evidence without running Lean. The old `--refresh-reference` option is retired;
 there is no second project to recompile.
-The default uses the unchanged, hash-bound 3902-declaration reference snapshot.
+The unchanged hash-bound reference still covers 3902 old declarations. The active
+pilot requires exactly those types plus the five explicitly listed theorem types
+in `additional-types.json`; it does not replace the old snapshot.
 The comparator and all 31 adversarial tests are inherited byte-for-byte.
 Relative to the original architecture exporter, the sole difference remains the
 ForMathlib-owned module selector alongside OAI-owned modules; the static checker
@@ -155,3 +162,20 @@ Pristine source hashes, the dependency lock, reference export checksums, public
 types and named axiom closures are independent checks. The default checker does
 not fetch history or execute the preserved upstream lakefile. Setup can fetch a
 missing pinned commit in a shallow clone; failure stops setup explicitly.
+
+Pilot material lookup uses [LEMMA_INDEX.md](LEMMA_INDEX.md), generated from the
+Lean docstrings and a small provenance/keyword index. Reproduce the metadata:
+
+```bash
+# In this project after sourcing ../../scripts/env.sh:
+SEMANTIC_CORPUS_OUT="$LAB_ROOT/results/lemma-granularity/after-corpus.json" lake env lean SemanticCorpus.lean
+python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/after-corpus.json" --check
+python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/after-corpus.json" --query "weighted finite sum single surviving coordinate"
+```
+
+The full checker includes 16 source/API evolution rejection tests, the original
+31 comparator tests, the original 16 axiom closures and nine pilot closures.
+`source_check.py` checks pristine source coverage; the hash/diff/span evolution
+check separately verifies the three active exceptions. The evolution recorder
+requires explicit review of source changes; it is not a general API migration
+framework or a replacement for proof/type/axiom validation.

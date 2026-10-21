@@ -1,0 +1,9 @@
+⚠ [9181/9186] Replayed OAI.KL.Invariance.Finite
+warning: OAI/KL/Invariance/Finite.lean:95:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm`:
+  [Fintype I]
+  [Fintype I']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] [Fintype I'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully (9186 jobs).

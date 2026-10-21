@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "explanatory_authority": "Lean docstrings; this index stores provenance and lookup keys, not a second formal specification",
+  "production_sites_are_all_within_original_samples": true,
+  "entries": [
+    {
+      "candidate": "C1",
+      "declaration": "OAI.KLInvariance.weighted_sum_exchange",
+      "original_site": "S1",
+      "second_sites": [],
+      "keywords": [
+        "finite sums",
+        "bilinear weights",
+        "exchange"
+      ],
+      "reason": "The reindexing calculation is independent of the distinguished coordinate and cancellation hypothesis.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "C2",
+      "declaration": "OAI.KLInvariance.weighted_sum_single",
+      "original_site": "S1",
+      "second_sites": [
+        "S2"
+      ],
+      "keywords": [
+        "finite support",
+        "single coordinate",
+        "normalized weight",
+        "error cancellation"
+      ],
+      "reason": "One statement handles both the character error sum and the coordinate-difference sum.",
+      "applicability_tests": [
+        "Fin 3 with nonzero off-coordinate weights"
+      ]
+    },
+    {
+      "candidate": "C5",
+      "declaration": "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo",
+      "original_site": "S3",
+      "second_sites": [],
+      "keywords": [
+        "positive square root",
+        "open unit interval",
+        "change of variables"
+      ],
+      "reason": "An existential witness separates the analytic substitution from polynomial algebra.",
+      "applicability_tests": [
+        "q = 1/4"
+      ]
+    },
+    {
+      "candidate": "C6",
+      "declaration": "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal",
+      "original_site": "S3",
+      "second_sites": [],
+      "keywords": [
+        "reciprocal evaluation",
+        "clear scaling",
+        "nonzero real point"
+      ],
+      "reason": "The power-cancellation calculation needs nonzero rather than positivity; keep it separate from the square-root choice.",
+      "applicability_tests": [
+        "t = -2, p = X+1, d = 1"
+      ]
+    },
+    {
+      "candidate": "C8",
+      "declaration": "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm",
+      "original_site": "S4",
+      "second_sites": [],
+      "keywords": [
+        "inverse interval isomorphism",
+        "away from bottom",
+        "polynomial equality"
+      ],
+      "reason": "Endpoint bookkeeping is a coherent step, but its contextual signature and explicit include requirement make the extraction less lightweight.",
+      "applicability_tests": [
+        "identity interval isomorphism; interface smoke only"
+      ]
+    }
+  ],
+  "declined_candidates": [
+    "C3",
+    "C4",
+    "C7",
+    "C9",
+    "C10"
+  ]
+}

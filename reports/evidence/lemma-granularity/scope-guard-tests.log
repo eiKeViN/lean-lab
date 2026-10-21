@@ -1,0 +1,44 @@
+.......FFF......
+======================================================================
+FAIL: test_reject_new_global_attribute (__main__.EvolutionChecks.test_reject_new_global_attribute)
+----------------------------------------------------------------------
+RuntimeError: Edit outside approved proof/declaration spans: ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 74, in test_reject_new_global_attribute
+    with self.assertRaisesRegex(RuntimeError,'attributes'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "attributes" does not match "Edit outside approved proof/declaration spans: ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+
+======================================================================
+FAIL: test_reject_rebound_old_statement (__main__.EvolutionChecks.test_reject_rebound_old_statement)
+----------------------------------------------------------------------
+RuntimeError: Edit outside approved proof/declaration spans: ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 60, in test_reject_rebound_old_statement
+    with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Changed old theorem statement" does not match "Edit outside approved proof/declaration spans: ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+
+======================================================================
+FAIL: test_reject_rebound_private_axiom (__main__.EvolutionChecks.test_reject_rebound_private_axiom)
+----------------------------------------------------------------------
+RuntimeError: Edit outside approved proof/declaration spans: ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 70, in test_reject_rebound_private_axiom
+    with self.assertRaisesRegex(RuntimeError,'proof-bypass'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "proof-bypass" does not match "Edit outside approved proof/declaration spans: ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.245s
+
+FAILED (failures=3)

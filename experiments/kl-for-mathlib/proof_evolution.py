@@ -34,6 +34,44 @@ def difference(path, before, after):
     return ''.join(difflib.unified_diff(before.decode().splitlines(True),
         after.decode().splitlines(True), fromfile='pristine/'+path, tofile='active/'+path))
 
+def edit_scope(before, after, path):
+    """Line-level diff must stay in four proof bodies or five documented additions.
+
+This is a bounded source check, not a general Lean parser. The unchanged old
+headers and full kernel type export are independent checks of the same edit.
+"""
+    from source_check import uncomment
+    plan = json.loads(PLAN.read_text()); p = policy()
+    def regions(text, additions):
+        code = uncomment(text); spans = []
+        names = [x['declaration'] for x in plan['samples'] if x['path'] == path]
+        entries = [(n, False) for n in names]
+        if additions: entries += [(n, True) for n in p['additions']]
+        boundary = r'(?m)^(?:end\b|[ ]{0,1}(?:(?:private|noncomputable|protected)\s+)*(?:theorem|lemma|def|namespace|include)\b)'
+        for name, new in entries:
+            short = name.rsplit('.', 1)[-1]
+            matches = list(re.finditer(r'(?m)^[ ]{0,1}(?:theorem|lemma)\s+'+re.escape(short)+r'\b', code))
+            if not matches and new: continue
+            if len(matches) != 1: raise RuntimeError('Ambiguous edit-scope declaration: '+name)
+            pos = matches[0].start(); proof = code.index(':= by', pos)+len(':= by')
+            following = re.search(boundary, code[proof:]); end = proof+following.start() if following else len(code)
+            start_line = code[:proof].count('\n')+1
+            if new:
+                doc = text.rfind('/--', 0, pos)
+                if doc < 0: raise RuntimeError('Expected documented addition: '+name)
+                start_line = text[:doc].count('\n')
+                prefix = text[:doc].rstrip()
+                if prefix.endswith('include hub in'):
+                    start_line = text[:prefix.rfind('include hub in')].count('\n')
+            spans.append((start_line, code[:end].count('\n')))
+        return spans
+    old_regions = regions(before, False); new_regions = regions(after, True)
+    covered = lambda lo, hi, spans: all(any(a <= i < b for a,b in spans) for i in range(lo,hi))
+    matcher = difflib.SequenceMatcher(a=before.splitlines(True), b=after.splitlines(True), autojunk=False)
+    for tag,a,b,c,d in matcher.get_opcodes():
+        if tag != 'equal' and (not covered(a,b,old_regions) or not covered(c,d,new_regions)):
+            raise RuntimeError('Edit outside approved proof/declaration spans: '+path)
+
 def overlay(files):
     """All other products stay pristine; every active exception is hash/diff-bound."""
     p = policy(); record = json.loads(MANIFEST.read_text())
@@ -48,6 +86,7 @@ def overlay(files):
             raise RuntimeError('Pristine reconstruction changed: '+path)
         if sha(after) != item['active_sha256'] or before == after:
             raise RuntimeError('Unrecorded active proof change: '+path)
+        edit_scope(before.decode(), after.decode(), path)
         patches.append(difference(path, before, after))
         # No new axiom command, unsafe bypass or global attribute is accepted.
         from source_check import uncomment

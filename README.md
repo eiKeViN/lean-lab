@@ -34,7 +34,8 @@ ForMathlib has no project-layer imports. Specialized Coxeter, Hecke, KL polynomi
 and Tits word mathematics is included among the candidates; candidate status does
 not mean submission-ready. No new interface extraction is part of this cleanup.
 
-The current tree has 261 Lean product modules and retains all 3902 public declarations.
+The current tree has 261 Lean product modules. The active [lemma-granularity pilot](reports/lemma-granularity.md)
+retains all 3902 baseline public declarations and adds five separately checked lemmas.
 The fixed toolchain is Lean 4.34.1; Mathlib is pinned at
 `d13f23b723b8a846827a245b89c10fc7d3f11612`. Dependencies and working artifacts
 are owned by the maintained project's `.lake`, with shared installation/download
@@ -51,6 +52,10 @@ retained as checksum-bound compressed evidence, not another Lean project.
 No check requires a deleted experiment directory. Setup fetches only missing
 pinned history for shallow clones; checks themselves perform no history fetch.
 Historical compilation is not rerun or claimed by replaying this evidence.
+
+The pilot rewrites four proofs in three hash-bound source exceptions; old statements
+and API types remain unchanged. The pristine source reconstruction and historical
+reference export remain intact. See [the pilot materials](experiments/kl-for-mathlib/LEMMA_INDEX.md).
 
 See [the whole-library refinement](reports/whole-library-layout.md) for current
 coverage, file responsibilities, entrypoints and validation, [the previous boundary refinement](reports/responsibility-boundaries.md), and [the consolidation record](reports/project-consolidation.md) for earlier

@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "path": "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+      "before_file_lines": 76,
+      "after_file_lines": 83
+    },
+    {
+      "path": "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean",
+      "before_file_lines": 44,
+      "after_file_lines": 58
+    },
+    {
+      "path": "OAI/KL/Invariance/Finite.lean",
+      "before_file_lines": 356,
+      "after_file_lines": 367
+    }
+  ],
+  "before_total": 476,
+  "after_total": 508,
+  "unit": "physical source lines, not model tokens"
+}

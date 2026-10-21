@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "method": "IDF-weighted word overlap; names and docstrings only; alphabetical tie-break",
+  "count": 2587,
+  "ablate_new_docs": false,
+  "queries": [
+    {
+      "id": "ad-hoc",
+      "query": "positive square root inside open unit interval",
+      "ranking": [
+        {
+          "name": "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo",
+          "score": 26.92584156,
+          "matched": [
+            "interval",
+            "open",
+            "positive",
+            "root",
+            "square",
+            "unit"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+          "score": 10.39725857,
+          "matched": [
+            "interval",
+            "open"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.WallDyer.subpaths_neg_numerator",
+          "score": 10.39725857,
+          "matched": [
+            "inside",
+            "interval"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.graphRoot_square_plane",
+          "score": 8.65800648,
+          "matched": [
+            "root",
+            "square"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.reduced_planeRoot_other_isUnit",
+          "score": 6.8507324,
+          "matched": [
+            "root",
+            "unit"
+          ]
+        }
+      ]
+    }
+  ]
+}

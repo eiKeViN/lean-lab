@@ -41,3 +41,22 @@ run_elab do
       `OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm] do
     let some doc ← Lean.findDocString? env name | throwError "Missing lemma documentation: {name}"
     if doc.trimAscii.toString.isEmpty then throwError "Empty lemma documentation: {name}"
+
+-- Actual kernel proof references: five original-site calls plus the second
+-- weighted-sum consumer. Both weighted consumers are inside the four-sample set.
+run_elab do
+  let env ← Lean.getEnv
+  for (parent, child) in #[
+      (`OAI.KLInvariance.finite_character_cancellation, `OAI.KLInvariance.weighted_sum_exchange),
+      (`OAI.KLInvariance.finite_character_cancellation, `OAI.KLInvariance.weighted_sum_single),
+      (`OAI.KLInvariance.Comparison.matrix_difference_single, `OAI.KLInvariance.weighted_sum_single),
+      (`OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal,
+        `OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo),
+      (`OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal,
+        `OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal),
+      (`OAI.KLInvariance.BruhatGraph.bottom_eq_of_comparisons,
+        `OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm)] do
+    let some (.thmInfo info) := env.find? parent | throwError "Missing parent theorem: {parent}"
+    unless info.value.getUsedConstants.contains child do
+      throwError "Expected direct proof dependency missing: {parent} → {child}"
+  Lean.logInfo "Six production proof references verified; second use is within the four samples."

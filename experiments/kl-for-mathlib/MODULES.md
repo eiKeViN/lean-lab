@@ -14,7 +14,7 @@ Public-type validation covers all 3902 declarations. Source spans: MIGRATION.md.
 | --- | --- |
 | [`ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic`](ForMathlib/Algebra/Algebra/ReflectionFrobenius/Basic.lean) | `fixed`, `fixed_val`, `expand` |
 | [`ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis`](ForMathlib/Algebra/Algebra/ReflectionFrobenius/Basis.lean) | `wallCoordinate`, `wallMatrix`, `wallMatrix_mulVec` |
-| [`ForMathlib.Algebra.BigOperators.SingleCoordinate`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean) | `finite_character_cancellation`, `matrix_difference_single`, `matrix_difference_le` |
+| [`ForMathlib.Algebra.BigOperators.SingleCoordinate`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean) | `weighted_sum_exchange`, `weighted_sum_single`, `finite_character_cancellation` |
 | [`ForMathlib.Algebra.Module.CoefficientChange.Basic`](ForMathlib/Algebra/Module/CoefficientChange/Basic.lean) | `equivVal`, `_root_.OAI.KLInvariance.CoefficientChange.instAddCommGroup`, `_root_.OAI.KLInvariance.CoefficientChange.instModule` |
 | [`ForMathlib.Algebra.Module.CoefficientChange.Dual`](ForMathlib/Algebra/Module/CoefficientChange/Dual.lean) | `mapEquiv`, `dualTo`, `dualFrom` |
 | [`ForMathlib.Algebra.Module.Cover.Local`](ForMathlib/Algebra/Module/Cover/Local.lean) | `lift_surjective`, `splitEquiv`, `exists_split_minimal_cover` |
@@ -69,7 +69,7 @@ Public-type validation covers all 3902 declarations. Source spans: MIGRATION.md.
 | [`ForMathlib.Algebra.Order.Field.RealScaling`](ForMathlib/Algebra/Order/Field/RealScaling.lean) | `edge_scalar_identity`, `transferCoefficient_pos`, `stateScale_pos` |
 | [`ForMathlib.Algebra.Polynomial.LowPart`](ForMathlib/Algebra/Polynomial/LowPart.lean) | `lowPart`, `lowPart_degree`, `lowPart_solution` |
 | [`ForMathlib.Algebra.Polynomial.Reciprocal`](ForMathlib/Algebra/Polynomial/Reciprocal.lean) | `low_degree_reflect_eq_self`, `low_degree_zero_of_eval_reciprocal`, `eq_of_eval_difference_reciprocal` |
-| [`ForMathlib.Algebra.Polynomial.ScaledEvaluation`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean) | `scaledPolynomial`, `eq_of_scaled_difference_reciprocal` |
+| [`ForMathlib.Algebra.Polynomial.ScaledEvaluation`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean) | `scaledPolynomial`, `exists_pos_sq_eq_of_mem_Ioo`, `eval_difference_of_scaled_reciprocal` |
 | [`ForMathlib.Algebra.Polynomial.TransferEvaluation`](ForMathlib/Algebra/Polynomial/TransferEvaluation.lean) | `polynomial_eq_of_transfer_eval_eq` |
 ## Combinatorics
 
@@ -234,7 +234,7 @@ Public-type validation covers all 3902 declarations. Source spans: MIGRATION.md.
 | [`OAI.KL.Comparison.SuffixFreeness`](OAI/KL/Comparison/SuffixFreeness.lean) | `no_conditions_free`, `schedule_kernels_free_of_images_eq`, `schedule_kernels_free_of_endpoint_eq` |
 | [`OAI.KL.Comparison.Transport`](OAI/KL/Comparison/Transport.lean) | `boundarySheaf_gradedIso`, `stalkCharacter_eq_character`, `upperInclusion` |
 | [`OAI.KL.Compatibility.KernelTransport`](OAI/KL/Compatibility/KernelTransport.lean) | `kernelSourceEquiv`, `kernelTargetEquiv`, `kernelMixedEquiv` |
-| [`OAI.KL.Invariance.Finite`](OAI/KL/Invariance/Finite.lean) | `comparison_of_source02`, `comparison_difference_le`, `bottom_eq_of_comparisons` |
+| [`OAI.KL.Invariance.Finite`](OAI/KL/Invariance/Finite.lean) | `comparison_of_source02`, `comparison_difference_le`, `upper_polynomial_eq_symm` |
 | [`OAI.KL.Invariance.Main`](OAI/KL/Invariance/Main.lean) | `combinatorial_invariance` |
 | [`OAI.KL.Localization.Ambient`](OAI/KL/Localization/Ambient.lean) | `exists_outgoing_below`, `polynomialRoot`, `polynomialRoot_homogeneous` |
 | [`OAI.KL.Localization.Edge`](OAI/KL/Localization/Edge.lean) | `EdgeRing`, `edgeRingEquiv`, `edgeRing_isDomain` |

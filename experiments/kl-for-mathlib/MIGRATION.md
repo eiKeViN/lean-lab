@@ -1,7 +1,7 @@
 # Source migration index
 
 Reference: Git `7ddc53ba8a09ed902fefff86e67a87217518c1d4:experiments/kl-kernel-transport` (historical source, no checkout required).
-Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged. Partition records cover their immutable parent exactly; only existing scope frames are copied.
+Ranges below index the unchanged pristine reconstruction. The active five-lemma pilot has three explicit proof-evolution exceptions; see proof-evolution.json and proof-evolution.patch. Partition records cover their immutable parent exactly.
 Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.
 Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.
 

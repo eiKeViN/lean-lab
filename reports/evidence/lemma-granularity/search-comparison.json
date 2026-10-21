@@ -1,0 +1,841 @@
+{
+  "method": "IDF-weighted word overlap; names and docstrings only; alphabetical tie-break",
+  "baseline_count": 2582,
+  "after_count": 2587,
+  "evaluation": "Fixed queries chosen before docs; non-blind small pilot, no independent relevance labels or statistical inference.",
+  "queries": [
+    {
+      "id": "Q1",
+      "query": "weighted finite sum single surviving coordinate",
+      "prior_parent_best_rank": 17,
+      "target": "OAI.KLInvariance.weighted_sum_single",
+      "after_rank": 1,
+      "ablated_rank": 1,
+      "baseline_top5": [
+        {
+          "name": "OAI.KLInvariance.SchedulePaths.entry_eq_weighted_paths",
+          "score": 10.93274273,
+          "matched": [
+            "sum",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.MomentGraph.Sheaf.scaled_single_section",
+          "score": 9.74856153,
+          "matched": [
+            "coordinate",
+            "single"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 8.77762156,
+          "matched": [
+            "finite",
+            "single"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.coordinate_sum",
+          "score": 8.14130787,
+          "matched": [
+            "coordinate",
+            "sum"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.dual_coordinate_sum",
+          "score": 8.14130787,
+          "matched": [
+            "coordinate",
+            "sum"
+          ]
+        }
+      ],
+      "after_top5": [
+        {
+          "name": "OAI.KLInvariance.weighted_sum_single",
+          "score": 30.40379888,
+          "matched": [
+            "coordinate",
+            "finite",
+            "single",
+            "sum",
+            "surviving",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.weighted_sum_exchange",
+          "score": 13.59465103,
+          "matched": [
+            "finite",
+            "sum",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.SchedulePaths.entry_eq_weighted_paths",
+          "score": 10.21268501,
+          "matched": [
+            "sum",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.MomentGraph.Sheaf.scaled_single_section",
+          "score": 9.64326805,
+          "matched": [
+            "coordinate",
+            "single"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 8.68028339,
+          "matched": [
+            "finite",
+            "single"
+          ]
+        }
+      ],
+      "ablated_top5": [
+        {
+          "name": "OAI.KLInvariance.weighted_sum_single",
+          "score": 15.51100238,
+          "matched": [
+            "single",
+            "sum",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.SchedulePaths.entry_eq_weighted_paths",
+          "score": 10.21268501,
+          "matched": [
+            "sum",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.weighted_sum_exchange",
+          "score": 10.21268501,
+          "matched": [
+            "sum",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.MomentGraph.Sheaf.scaled_single_section",
+          "score": 9.6727394,
+          "matched": [
+            "coordinate",
+            "single"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 8.70175942,
+          "matched": [
+            "finite",
+            "single"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "query": "exchange two finite sums weighted coefficients",
+      "prior_parent_best_rank": 142,
+      "target": "OAI.KLInvariance.weighted_sum_exchange",
+      "after_rank": 1,
+      "ablated_rank": 1,
+      "baseline_top5": [
+        {
+          "name": "OAI.KLInvariance.TitsSpace.action_root_nonneg_of_ascent",
+          "score": 10.13685012,
+          "matched": [
+            "exchange",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ParabolicSupport.alternating_length_bound",
+          "score": 9.95491504,
+          "matched": [
+            "coefficients",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.rootCoeff_nonneg",
+          "score": 9.95491504,
+          "matched": [
+            "coefficients",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.finite_bruhat_predecessors",
+          "score": 9.65038811,
+          "matched": [
+            "exchange",
+            "finite"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Dihedral.sum_lower_signed",
+          "score": 7.28960569,
+          "matched": [
+            "finite",
+            "two"
+          ]
+        }
+      ],
+      "after_top5": [
+        {
+          "name": "OAI.KLInvariance.weighted_sum_exchange",
+          "score": 26.26974527,
+          "matched": [
+            "exchange",
+            "finite",
+            "sums",
+            "two",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ParabolicSupport.alternating_length_bound",
+          "score": 9.94076962,
+          "matched": [
+            "coefficients",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.action_root_nonneg_of_ascent",
+          "score": 9.94076962,
+          "matched": [
+            "exchange",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.rootCoeff_nonneg",
+          "score": 9.94076962,
+          "matched": [
+            "coefficients",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.weighted_sum_single",
+          "score": 9.85547084,
+          "matched": [
+            "finite",
+            "weighted"
+          ]
+        }
+      ],
+      "ablated_top5": [
+        {
+          "name": "OAI.KLInvariance.weighted_sum_exchange",
+          "score": 12.54231614,
+          "matched": [
+            "exchange",
+            "weighted"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ParabolicSupport.alternating_length_bound",
+          "score": 9.95874018,
+          "matched": [
+            "coefficients",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.action_root_nonneg_of_ascent",
+          "score": 9.95874018,
+          "matched": [
+            "exchange",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.rootCoeff_nonneg",
+          "score": 9.95874018,
+          "matched": [
+            "coefficients",
+            "two"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.finite_bruhat_predecessors",
+          "score": 9.47225337,
+          "matched": [
+            "exchange",
+            "finite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "query": "positive square root inside open unit interval",
+      "prior_parent_best_rank": null,
+      "target": "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo",
+      "after_rank": 1,
+      "ablated_rank": null,
+      "baseline_top5": [
+        {
+          "name": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+          "score": 10.8267539,
+          "matched": [
+            "interval",
+            "open"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.WallDyer.subpaths_neg_numerator",
+          "score": 10.42167571,
+          "matched": [
+            "inside",
+            "interval"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.graphRoot_square_plane",
+          "score": 8.84063725,
+          "matched": [
+            "root",
+            "square"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.reduced_planeRoot_other_isUnit",
+          "score": 6.87846799,
+          "matched": [
+            "root",
+            "unit"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.subword_of_bruhat_step",
+          "score": 6.7588685,
+          "matched": [
+            "inside"
+          ]
+        }
+      ],
+      "after_top5": [
+        {
+          "name": "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo",
+          "score": 26.92584156,
+          "matched": [
+            "interval",
+            "open",
+            "positive",
+            "root",
+            "square",
+            "unit"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+          "score": 10.39725857,
+          "matched": [
+            "interval",
+            "open"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.WallDyer.subpaths_neg_numerator",
+          "score": 10.39725857,
+          "matched": [
+            "inside",
+            "interval"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.graphRoot_square_plane",
+          "score": 8.65800648,
+          "matched": [
+            "root",
+            "square"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.reduced_planeRoot_other_isUnit",
+          "score": 6.8507324,
+          "matched": [
+            "root",
+            "unit"
+          ]
+        }
+      ],
+      "ablated_top5": [
+        {
+          "name": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+          "score": 10.83057203,
+          "matched": [
+            "interval",
+            "open"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.WallDyer.subpaths_neg_numerator",
+          "score": 10.42549309,
+          "matched": [
+            "inside",
+            "interval"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.graphRoot_square_plane",
+          "score": 8.844358,
+          "matched": [
+            "root",
+            "square"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.TitsSpace.reduced_planeRoot_other_isUnit",
+          "score": 6.88216589,
+          "matched": [
+            "root",
+            "unit"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.subword_of_bruhat_step",
+          "score": 6.76080087,
+          "matched": [
+            "inside"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "query": "clear reciprocal polynomial evaluation scaling",
+      "prior_parent_best_rank": 6,
+      "target": "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal",
+      "after_rank": 1,
+      "ablated_rank": 7,
+      "baseline_top5": [
+        {
+          "name": "OAI.KLInvariance.Comparison.eq_of_eval_difference_reciprocal",
+          "score": 9.13721265,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+          "score": 9.13721265,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.low_degree_reflect_eq_self",
+          "score": 9.13721265,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.BruhatGraph.transported_reciprocal_vector",
+          "score": 5.91311683,
+          "matched": [
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.CanonicalP.lowPart_solution",
+          "score": 5.91311683,
+          "matched": [
+            "reciprocal"
+          ]
+        }
+      ],
+      "after_top5": [
+        {
+          "name": "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal",
+          "score": 28.3534271,
+          "matched": [
+            "clear",
+            "evaluation",
+            "polynomial",
+            "reciprocal",
+            "scaling"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.eq_of_eval_difference_reciprocal",
+          "score": 8.99007684,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+          "score": 8.99007684,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.low_degree_reflect_eq_self",
+          "score": 8.99007684,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.BruhatGraph.transported_reciprocal_vector",
+          "score": 5.78190025,
+          "matched": [
+            "reciprocal"
+          ]
+        }
+      ],
+      "ablated_top5": [
+        {
+          "name": "OAI.KLInvariance.Comparison.eq_of_eval_difference_reciprocal",
+          "score": 8.99892251,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+          "score": 8.99892251,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.low_degree_reflect_eq_self",
+          "score": 8.99892251,
+          "matched": [
+            "polynomial",
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.BruhatGraph.transported_reciprocal_vector",
+          "score": 5.78190025,
+          "matched": [
+            "reciprocal"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.CanonicalP.lowPart_solution",
+          "score": 5.78190025,
+          "matched": [
+            "reciprocal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q5",
+      "query": "inverse interval isomorphism equality away from bottom",
+      "prior_parent_best_rank": 19,
+      "target": "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm",
+      "after_rank": 1,
+      "ablated_rank": null,
+      "baseline_top5": [
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+          "score": 11.33987658,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 11.33987658,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ReflectionPairTranslation.lattice_saturated",
+          "score": 11.33987658,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.HeckeQ.rValue_inverse_eq_barBasis",
+          "score": 9.98391037,
+          "matched": [
+            "bottom",
+            "inverse"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.eq_of_eval_difference_reciprocal",
+          "score": 9.95821186,
+          "matched": [
+            "equality",
+            "from"
+          ]
+        }
+      ],
+      "after_top5": [
+        {
+          "name": "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm",
+          "score": 35.12759206,
+          "matched": [
+            "away",
+            "bottom",
+            "equality",
+            "from",
+            "interval",
+            "inverse",
+            "isomorphism"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+          "score": 11.02642698,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 11.02642698,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ReflectionPairTranslation.lattice_saturated",
+          "score": 11.02642698,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.HeckeQ.rValue_inverse_eq_barBasis",
+          "score": 9.8735896,
+          "matched": [
+            "bottom",
+            "inverse"
+          ]
+        }
+      ],
+      "ablated_top5": [
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+          "score": 11.34372796,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 11.34372796,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ReflectionPairTranslation.lattice_saturated",
+          "score": 11.34372796,
+          "matched": [
+            "away",
+            "from"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.HeckeQ.rValue_inverse_eq_barBasis",
+          "score": 9.9877521,
+          "matched": [
+            "bottom",
+            "inverse"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.Comparison.eq_of_eval_difference_reciprocal",
+          "score": 9.96205432,
+          "matched": [
+            "equality",
+            "from"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q6",
+      "query": "projective module prime local denominator",
+      "prior_parent_best_rank": null,
+      "target": null,
+      "after_rank": null,
+      "ablated_rank": null,
+      "baseline_top5": [
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+          "score": 13.78248882,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.character_local_denominator",
+          "score": 13.78248882,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 13.78248882,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem",
+          "score": 12.99411595,
+          "matched": [
+            "denominator",
+            "module",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+          "score": 12.97732452,
+          "matched": [
+            "local",
+            "prime",
+            "projective"
+          ]
+        }
+      ],
+      "after_top5": [
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+          "score": 13.78822478,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.character_local_denominator",
+          "score": 13.78822478,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 13.78822478,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem",
+          "score": 12.99980958,
+          "matched": [
+            "denominator",
+            "module",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+          "score": 12.98304942,
+          "matched": [
+            "local",
+            "prime",
+            "projective"
+          ]
+        }
+      ],
+      "ablated_top5": [
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+          "score": 13.78822478,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.character_local_denominator",
+          "score": 13.78822478,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+          "score": 13.78822478,
+          "matched": [
+            "denominator",
+            "local",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem",
+          "score": 12.99980958,
+          "matched": [
+            "denominator",
+            "module",
+            "prime"
+          ]
+        },
+        {
+          "name": "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+          "score": 12.98304942,
+          "matched": [
+            "local",
+            "prime",
+            "projective"
+          ]
+        }
+      ]
+    }
+  ]
+}

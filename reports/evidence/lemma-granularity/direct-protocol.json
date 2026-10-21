@@ -1,0 +1,98 @@
+[
+  {
+    "label": "direct-r1-before-sums",
+    "source": "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r1-after-sums",
+    "source": "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "ee31f8a1644a0de3001b841a4ce9742b028464fa4c99e287d668b8c0e2327518",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r1-before-scaling",
+    "source": "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "712647ed9f08c18e4320e2888b1d18314f759c7937215b165099491b40761e1f",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r1-after-scaling",
+    "source": "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "51faf2d53f498bda85824712134e41a27f22ff89c4dc25a81b2c891fed73d9f9",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r1-before-interval",
+    "source": "OAI/KL/Invariance/Finite.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "b5f5288d293ad883917abafedb2ac860a03446b2efb47693627ab1d5b617e2e4",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r1-after-interval",
+    "source": "OAI/KL/Invariance/Finite.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r2-after-sums",
+    "source": "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+    "side": "after",
+    "repeat": 2,
+    "input_sha256": "ee31f8a1644a0de3001b841a4ce9742b028464fa4c99e287d668b8c0e2327518",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r2-before-sums",
+    "source": "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+    "side": "before",
+    "repeat": 2,
+    "input_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r2-after-scaling",
+    "source": "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean",
+    "side": "after",
+    "repeat": 2,
+    "input_sha256": "51faf2d53f498bda85824712134e41a27f22ff89c4dc25a81b2c891fed73d9f9",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r2-before-scaling",
+    "source": "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean",
+    "side": "before",
+    "repeat": 2,
+    "input_sha256": "712647ed9f08c18e4320e2888b1d18314f759c7937215b165099491b40761e1f",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r2-after-interval",
+    "source": "OAI/KL/Invariance/Finite.lean",
+    "side": "after",
+    "repeat": 2,
+    "input_sha256": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2",
+    "exit_code": 0
+  },
+  {
+    "label": "direct-r2-before-interval",
+    "source": "OAI/KL/Invariance/Finite.lean",
+    "side": "before",
+    "repeat": 2,
+    "input_sha256": "b5f5288d293ad883917abafedb2ac860a03446b2efb47693627ab1d5b617e2e4",
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,13 @@
+'OAI.KLInvariance.weighted_sum_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.weighted_sum_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.finite_character_cancellation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Comparison.matrix_difference_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.BruhatGraph.bottom_eq_of_comparisons' depends on axioms: [propext, Classical.choice, Quot.sound]

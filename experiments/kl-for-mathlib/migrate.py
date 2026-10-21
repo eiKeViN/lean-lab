@@ -77,7 +77,7 @@ def pristine_products():
   files[name.replace('.','/')+'.lean']=(''.join('import '+n+'\n' for n in imports)).encode()
  # The human index is derived from the same exact source-span manifest.
  byid={u['id']:u for u in expanded}
- lines=['# Source migration index','','Reference: Git `'+m['reference_commit']+':'+m['reference']+'` (historical source, no checkout required).','Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged. Partition records cover their immutable parent exactly; only existing scope frames are copied.','Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.','Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.','','## Old file → semantic homes','']
+ lines=['# Source migration index','','Reference: Git `'+m['reference_commit']+':'+m['reference']+'` (historical source, no checkout required).','Ranges below index the unchanged pristine reconstruction. The active five-lemma pilot has three explicit proof-evolution exceptions; see proof-evolution.json and proof-evolution.patch. Partition records cover their immutable parent exactly.','Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.','Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.','','## Old file → semantic homes','']
  for f in sorted(m['source_hashes']):
   lines+=['### '+Path(f).name,'']
   for name,x in sorted(m['modules'].items()):
@@ -105,5 +105,5 @@ def main():
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if p.parts[len(HERE.parts)] in ('OAI','ForMathlib') or p==HERE/'ForMathlib.lean'}
  expected={p for p in files if p.startswith(('OAI/','ForMathlib/')) or p=='ForMathlib.lean'}
  if actual!=expected:raise RuntimeError('Unexpected/missing OAI sources: '+str(actual^expected))
- print(('Verified' if args.check else 'Generated')+f' {len(expected)} Lean modules; exact moved source spans and fixed files.')
+ print(('Verified' if args.check else 'Generated')+f' {len(expected)} Lean modules; pristine reconstruction plus hash-bound proof evolution.')
 if __name__=='__main__':main()

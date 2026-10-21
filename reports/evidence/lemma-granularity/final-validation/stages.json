@@ -1,0 +1,468 @@
+[
+  {
+    "label": "baseline-identity",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/verify.py"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "wall_seconds": 0.48332130100607174,
+    "user_seconds": 0.391514,
+    "system_seconds": 0.096176,
+    "children_max_rss_kib_so_far": 14228
+  },
+  {
+    "label": "baseline-export",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/baseline.py",
+      "--export-out",
+      "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "wall_seconds": 0.1420643090023077,
+    "user_seconds": 0.08501799999999998,
+    "system_seconds": 0.056774000000000005,
+    "children_max_rss_kib_so_far": 50688
+  },
+  {
+    "label": "baseline-snapshot-check",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "compare_types.py",
+      "reference-public-types.json",
+      "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 2.6134488559982856,
+    "user_seconds": 2.457078,
+    "system_seconds": 0.155965,
+    "children_max_rss_kib_so_far": 309576
+  },
+  {
+    "label": "source-transport",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "migrate.py",
+      "--check"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.7367860830054269,
+    "user_seconds": 0.6212870000000001,
+    "system_seconds": 0.11679099999999998,
+    "children_max_rss_kib_so_far": 309576
+  },
+  {
+    "label": "source-coverage",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "source_check.py"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.44379364299675217,
+    "user_seconds": 0.408693,
+    "system_seconds": 0.03701700000000002,
+    "children_max_rss_kib_so_far": 309576
+  },
+  {
+    "label": "classification-and-boundaries",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "analyze.py"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.09489254600339336,
+    "user_seconds": 0.08377299999999988,
+    "system_seconds": 0.010834999999999984,
+    "children_max_rss_kib_so_far": 309576
+  },
+  {
+    "label": "proof-evolution-source",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "proof_evolution.py",
+      "--check"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.44798147799883736,
+    "user_seconds": 0.40141899999999975,
+    "system_seconds": 0.04831500000000005,
+    "children_max_rss_kib_so_far": 309576
+  },
+  {
+    "label": "lean-version",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.7711494839968509,
+    "user_seconds": 0.5525549999999999,
+    "system_seconds": 0.21365999999999996,
+    "children_max_rss_kib_so_far": 845260
+  },
+  {
+    "label": "mathlib-ready",
+    "command": [
+      "lake",
+      "--no-build",
+      "build",
+      "Mathlib"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 3.4440676890008035,
+    "user_seconds": 4.138364,
+    "system_seconds": 2.069681,
+    "children_max_rss_kib_so_far": 985836
+  },
+  {
+    "label": "library-build",
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib",
+      "OAI"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.647621358999459,
+    "user_seconds": 5.875133999999999,
+    "system_seconds": 2.00722,
+    "children_max_rss_kib_so_far": 990092
+  },
+  {
+    "label": "PilotChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "PilotChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.524854859999323,
+    "user_seconds": 3.0843630000000015,
+    "system_seconds": 1.5006650000000006,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "PilotAudit",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "PilotAudit.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 3.864355126999726,
+    "user_seconds": 2.5882210000000008,
+    "system_seconds": 1.2981969999999992,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "StalkCharacterImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "StalkCharacterImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.224001148999378,
+    "user_seconds": 2.820027999999997,
+    "system_seconds": 1.4039979999999996,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "CoreSheafImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "CoreSheafImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.202150787001301,
+    "user_seconds": 2.846457000000001,
+    "system_seconds": 1.3605030000000014,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "GradedSupportImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "GradedSupportImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.243827022000914,
+    "user_seconds": 2.8237580000000015,
+    "system_seconds": 1.419903999999999,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "ProjectEntryChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ProjectEntryChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.209730529000808,
+    "user_seconds": 2.8339289999999977,
+    "system_seconds": 1.377415000000001,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "WeightedSumImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "WeightedSumImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.300629642995773,
+    "user_seconds": 2.8427780000000027,
+    "system_seconds": 1.4508600000000005,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "ScaledEvaluationImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ScaledEvaluationImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.197095059003914,
+    "user_seconds": 2.714858999999997,
+    "system_seconds": 1.4760360000000006,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "ResponsibilityCompatChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ResponsibilityCompatChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.307644665997941,
+    "user_seconds": 2.8402600000000007,
+    "system_seconds": 1.4636589999999998,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "ForMathlibChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ForMathlibChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 9.239153209004144,
+    "user_seconds": 5.950519,
+    "system_seconds": 3.183764,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "ImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.55547051600297,
+    "user_seconds": 2.9662039999999976,
+    "system_seconds": 1.5794999999999995,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "DomainImportChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "DomainImportChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.2165271479971125,
+    "user_seconds": 2.8239770000000064,
+    "system_seconds": 1.3944709999999993,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "KernelChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "KernelChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.961192843999015,
+    "user_seconds": 3.698133999999996,
+    "system_seconds": 1.3896639999999998,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "CompatChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "CompatChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.540477620001184,
+    "user_seconds": 3.2338840000000033,
+    "system_seconds": 1.4112170000000006,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "BoundaryChecks",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "BoundaryChecks.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 5.127204318006989,
+    "user_seconds": 3.824596999999997,
+    "system_seconds": 1.3718819999999994,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "Audit",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Audit.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 3.9576992559959763,
+    "user_seconds": 2.5232209999999995,
+    "system_seconds": 1.4598900000000015,
+    "children_max_rss_kib_so_far": 7295568
+  },
+  {
+    "label": "migrated-types",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "PublicTypes.lean"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 11.310611912995228,
+    "user_seconds": 9.945582000000002,
+    "system_seconds": 1.474736,
+    "children_max_rss_kib_so_far": 7330580
+  },
+  {
+    "label": "type-comparison",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "proof_evolution.py",
+      "--compare",
+      "/workspace/lean-lab/results/for-mathlib/migrated-types.tsv"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 2.633626570997876,
+    "user_seconds": 2.4843120000000027,
+    "system_seconds": 0.14761199999999874,
+    "children_max_rss_kib_so_far": 7330580
+  },
+  {
+    "label": "comparator-tests",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "test_compare_types.py"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.07904000599955907,
+    "user_seconds": 0.0625129999999956,
+    "system_seconds": 0.015768000000001337,
+    "children_max_rss_kib_so_far": 7330580
+  },
+  {
+    "label": "source-partition-tests",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "test_source_partitions.py"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.0878460259991698,
+    "user_seconds": 0.06987399999999866,
+    "system_seconds": 0.016328999999998928,
+    "children_max_rss_kib_so_far": 7330580
+  },
+  {
+    "label": "proof-evolution-tests",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "test_proof_evolution.py"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.7665604289941257,
+    "user_seconds": 0.7117609999999956,
+    "system_seconds": 0.056729000000000696,
+    "children_max_rss_kib_so_far": 7330580
+  },
+  {
+    "label": "warm-build",
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib",
+      "OAI"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 4.439626289000444,
+    "user_seconds": 5.505545000000012,
+    "system_seconds": 2.106968000000002,
+    "children_max_rss_kib_so_far": 7330580
+  }
+]
