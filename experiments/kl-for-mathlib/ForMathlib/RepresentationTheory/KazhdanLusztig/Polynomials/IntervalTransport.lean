@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.Algebra.Polynomial.ScaledReciprocity
+import ForMathlib.Algebra.Polynomial.ScaledEvaluation
 import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport. Source spans: Invariance:1, Invariance:4.

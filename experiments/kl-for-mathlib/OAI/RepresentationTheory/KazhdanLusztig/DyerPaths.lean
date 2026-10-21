@@ -1,4 +1,4 @@
-import ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
 import ForMathlib.Combinatorics.DirectedPaths.Subpaths
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds
 import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport

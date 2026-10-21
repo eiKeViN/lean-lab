@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
 import OAI.KL.BottSamelson.CharacterDecomposition
 
 /-! Semantic home: OAI.KL.Sheaves.StalkReciprocity. Source spans: DyerPaths:2.

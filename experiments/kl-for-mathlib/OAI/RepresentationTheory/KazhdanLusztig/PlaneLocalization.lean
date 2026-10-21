@@ -1,4 +1,4 @@
-import ForMathlib.Algebra.Module.Localization.Products
+import ForMathlib.Algebra.Module.Submodule.ProductScaling
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization
 import ForMathlib.LinearAlgebra.PlaneReduction
 import ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient

@@ -1182,7 +1182,7 @@
       "source": "experiments/kl-architecture/OAI/Algebra/BigOperators/FiniteCharacterCancellation.lean",
       "module": "OAI.Algebra.BigOperators.FiniteCharacterCancellation",
       "destination": [
-        "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation"
+        "ForMathlib.Algebra.BigOperators.SingleCoordinate"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -1191,8 +1191,9 @@
           "name": "finite_character_cancellation"
         }
       ],
-      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
-      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+      "basis": "The theorem eliminates one distinguished coordinate from a finite weighted sum over a commutative ring; it does not require a character object. It now shares SingleCoordinate with the real weighted-difference formulas.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim.",
+      "candidate_kind": "existing-object supplement: finite weighted sums"
     },
     {
       "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Sheaves/StalkReciprocity.lean",
@@ -2825,7 +2826,7 @@
       "source": "experiments/kl-architecture/OAI/Algebra/Module/Localization/Products.lean",
       "module": "OAI.Algebra.Module.Localization.Products",
       "destination": [
-        "ForMathlib.Algebra.Module.Localization.Products"
+        "ForMathlib.Algebra.Module.Submodule.ProductScaling"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -2842,8 +2843,9 @@
           "name": "associated_prod_power"
         }
       ],
-      "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
-      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim."
+      "basis": "Statements use an arbitrary R-algebra S, scalar submodules and associated products. No IsLocalization assumption occurs, so the implementation home is Submodule.ProductScaling.",
+      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim.",
+      "candidate_kind": "existing-object supplement: principal scalar submodule images"
     },
     {
       "source": "experiments/kl-architecture/OAI/RepresentationTheory/KazhdanLusztig/Comparison/Propagation.lean",
@@ -2946,7 +2948,8 @@
       "destination": [
         "ForMathlib.Algebra.Polynomial.TransferEvaluation",
         "ForMathlib.Algebra.Order.Field.RealScaling",
-        "ForMathlib.Algebra.Polynomial.ScaledReciprocity"
+        "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+        "ForMathlib.Algebra.BigOperators.SingleCoordinate"
       ],
       "classification": "current_candidate",
       "declarations": [
@@ -2964,7 +2967,8 @@
         }
       ],
       "basis": "Statements use general Mathlib algebraic/order/linear objects and scalar/polynomial operations, without project model data.",
-      "preparation": "Candidate only: OAI namespaces and legacy names retained; broad Mathlib imports, module documentation, duplicate-lemma/API search, generality and maintainer review remain. No Mathlib-head build or PR readiness claim. The preserved ScaledReciprocity source unit still includes matrix_difference_single/matrix_difference_le for finite weighted-sum differences; their file home remains a documented cleanup item, not a claim that they are polynomial-specific."
+      "preparation": "Candidate only; namespaces and original real/integer-polynomial statements are retained. Matrix-difference declarations are now in SingleCoordinate, independent of owned polynomial modules. Duplication, generality, naming and upstream integration still require review.",
+      "candidate_kind": "existing-object supplements: polynomial scaled evaluation, ordered-field scalars and finite weighted sums"
     },
     {
       "source": "experiments/kl-architecture/OAI/Algebra/Module/Projective/ScalarKernel.lean",

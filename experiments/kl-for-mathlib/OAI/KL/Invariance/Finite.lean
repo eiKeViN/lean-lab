@@ -1,5 +1,6 @@
 import Mathlib
-import ForMathlib.Algebra.Polynomial.ScaledReciprocity
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
+import ForMathlib.Algebra.Polynomial.ScaledEvaluation
 import ForMathlib.Algebra.Polynomial.TransferEvaluation
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Transport
 import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport
