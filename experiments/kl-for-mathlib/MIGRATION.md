@@ -1,7 +1,7 @@
 # Source migration index
 
 Reference: Git `7ddc53ba8a09ed902fefff86e67a87217518c1d4:experiments/kl-kernel-transport` (historical source, no checkout required).
-Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged.
+Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged. Partition records cover their immutable parent exactly; only existing scope frames are copied.
 Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.
 Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.
 
@@ -94,7 +94,7 @@ Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Ear
 
 ### DyerPaths.lean
 
-- `ForMathlib/Algebra/BigOperators/FiniteCharacterCancellation.lean` ← 11–40
+- `ForMathlib/Algebra/BigOperators/SingleCoordinate.lean` ← 11–40
 - `ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean` ← 1655–1702, 1777–1819, 1821–1852
 - `ForMathlib/GroupTheory/Coxeter/Bruhat/Diamonds.lean` ← 168–247, 625–666
 - `ForMathlib/GroupTheory/Coxeter/Dihedral/IntervalTransport.lean` ← 336–372, 952–1066, 1556–1653, 483–623
@@ -205,7 +205,7 @@ Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Ear
 
 ### PlaneLocalization.lean
 
-- `ForMathlib/Algebra/Module/Localization/Products.lean` ← 1482–1536
+- `ForMathlib/Algebra/Module/Submodule/ProductScaling.lean` ← 1482–1536
 - `ForMathlib/Combinatorics/MomentGraph/Sheaf/Localization.lean` ← 529–546, 783–849, 614–662, 283–304, 139–190, 851–887, 197–259
 - `ForMathlib/LinearAlgebra/PlaneReduction.lean` ← 1263–1288
 - `ForMathlib/LinearAlgebra/SymmetricAlgebra/Quotient.lean` ← 11–132
@@ -269,7 +269,8 @@ Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Ear
 
 ### SimultaneousInvariance.lean
 
-- `ForMathlib/Algebra/Polynomial/ScaledReciprocity.lean` ← 321–375
+- `ForMathlib/Algebra/BigOperators/SingleCoordinate.lean` ← 350–375
+- `ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean` ← 321–349
 - `ForMathlib/Algebra/Polynomial/TransferEvaluation.lean` ← 460–474
 - `OAI/KL/Comparison/SuffixFreeness.lean` ← 155–233, 11–97, 106–148, 242–313, 386–458
 
@@ -317,7 +318,7 @@ Every implementation also imports the pinned Mathlib.
 
 - `ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic`: (Mathlib only)
 - `ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis`: `ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic`, `ForMathlib.Algebra.Module.Graded.AlgebraMap`
-- `ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation`: (Mathlib only)
+- `ForMathlib.Algebra.BigOperators.SingleCoordinate`: (Mathlib only)
 - `ForMathlib.Algebra.Module.CoefficientChange.Basic`: (Mathlib only)
 - `ForMathlib.Algebra.Module.CoefficientChange.Dual`: `ForMathlib.Algebra.Module.CoefficientChange.Basic`
 - `ForMathlib.Algebra.Module.Cover.Local`: (Mathlib only)
@@ -351,7 +352,6 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.Algebra.Module.Localization.FiniteCharacters`: (Mathlib only)
 - `ForMathlib.Algebra.Module.Localization.Lattice`: (Mathlib only)
 - `ForMathlib.Algebra.Module.Localization.Membership`: (Mathlib only)
-- `ForMathlib.Algebra.Module.Localization.Products`: (Mathlib only)
 - `ForMathlib.Algebra.Module.Localization.ProjectiveLattice`: (Mathlib only)
 - `ForMathlib.Algebra.Module.Projective.Range`: (Mathlib only)
 - `ForMathlib.Algebra.Module.Projective.ReverseFiltration`: (Mathlib only)
@@ -363,11 +363,12 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.Algebra.Module.ReflectionPair.TensorDescent`: `ForMathlib.Algebra.Module.ReflectionPair.TensorKernel`
 - `ForMathlib.Algebra.Module.ReflectionPair.TensorKernel`: `ForMathlib.Algebra.Module.ReflectionPair.Twist`
 - `ForMathlib.Algebra.Module.ReflectionPair.Twist`: `ForMathlib.LinearAlgebra.PairProjection`
+- `ForMathlib.Algebra.Module.Submodule.ProductScaling`: (Mathlib only)
 - `ForMathlib.Algebra.Module.Submodule.ScaledImage`: (Mathlib only)
 - `ForMathlib.Algebra.Order.Field.RealScaling`: (Mathlib only)
 - `ForMathlib.Algebra.Polynomial.LowPart`: (Mathlib only)
 - `ForMathlib.Algebra.Polynomial.Reciprocal`: (Mathlib only)
-- `ForMathlib.Algebra.Polynomial.ScaledReciprocity`: `ForMathlib.Algebra.Polynomial.Reciprocal`
+- `ForMathlib.Algebra.Polynomial.ScaledEvaluation`: `ForMathlib.Algebra.Polynomial.Reciprocal`
 - `ForMathlib.Algebra.Polynomial.TransferEvaluation`: (Mathlib only)
 - `ForMathlib.Combinatorics.Dihedral.SignedCount`: (Mathlib only)
 - `ForMathlib.Combinatorics.DirectedPaths.Basic`: (Mathlib only)
@@ -404,7 +405,7 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism`: `ForMathlib.Algebra.Module.Cover.Local`, `ForMathlib.Algebra.Module.Cover.Product`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic`, `ForMathlib.LinearAlgebra.Quotient.Transport`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero`
-- `ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages`: `ForMathlib.Algebra.Module.Flat.Kernel`, `ForMathlib.Algebra.Module.Localization.Membership`, `ForMathlib.Algebra.Module.Localization.Products`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`
+- `ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages`: `ForMathlib.Algebra.Module.Flat.Kernel`, `ForMathlib.Algebra.Module.Localization.Membership`, `ForMathlib.Algebra.Module.Submodule.ProductScaling`, `ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness`: `ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`
 - `ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero`: `ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism`
 - `ForMathlib.GroupTheory.Coxeter.Bruhat.Basic`: `ForMathlib.GroupTheory.Coxeter.Bruhat.Defs`, `ForMathlib.GroupTheory.Coxeter.Exchange`
@@ -474,7 +475,7 @@ Every implementation also imports the pinned Mathlib.
 - `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical`: `ForMathlib.Algebra.Polynomial.LowPart`, `ForMathlib.RepresentationTheory.Hecke.OrdinaryR`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique`
 - `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral`: `ForMathlib.GroupTheory.Coxeter.Dihedral.Words`, `ForMathlib.RepresentationTheory.Hecke.DualR`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical`
 - `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction`: `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic`
-- `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport`: `ForMathlib.Algebra.Polynomial.ScaledReciprocity`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization`
+- `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport`: `ForMathlib.Algebra.Polynomial.ScaledEvaluation`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization`
 - `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization`: `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical`
 - `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized`: `ForMathlib.GroupTheory.Coxeter.Bruhat.Defs`
 - `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic`: `ForMathlib.GroupTheory.Coxeter.Parabolic.Standard`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical`
@@ -490,9 +491,9 @@ Every implementation also imports the pinned Mathlib.
 - `OAI.KL.BottSamelson.Stalks`: `ForMathlib.Algebra.Module.Free.ScalarDivisibility`, `ForMathlib.Algebra.Module.Graded.DualAndShift`, `ForMathlib.Algebra.Module.Graded.NonnegativeBasis`, `ForMathlib.Algebra.Module.ReflectionPair.TensorKernel`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic`, `ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal`, `ForMathlib.LinearAlgebra.TensorProduct.Coordinates`, `ForMathlib.RepresentationTheory.BottSamelson.TitsWords`, `OAI.KL.Compatibility.KernelTransport`
 - `OAI.KL.BottSamelson.Support`: `ForMathlib.Algebra.Module.Graded.ModuleData.Duality`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`, `ForMathlib.LinearAlgebra.Dual.BalancedCut`, `OAI.KL.BottSamelson.AdjointSheaf`, `OAI.KL.Sheaves.LowerCharacter`
 - `OAI.KL.Comparison.Propagation`: `ForMathlib.Algebra.Module.Graded.RegularScalar`, `ForMathlib.Algebra.Module.Projective.ScalarKernel`, `ForMathlib.Algebra.Order.Field.RealScaling`, `ForMathlib.Combinatorics.DirectedPaths.Monotone`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert`, `OAI.KL.Comparison.Transport`, `OAI.KL.Localization.Ambient`
-- `OAI.KL.Comparison.SuffixFreeness`: `ForMathlib.Algebra.Polynomial.ScaledReciprocity`, `ForMathlib.Combinatorics.DirectedPaths.Suffix`, `OAI.KL.Localization.Edge`
+- `OAI.KL.Comparison.SuffixFreeness`: `ForMathlib.Algebra.BigOperators.SingleCoordinate`, `ForMathlib.Combinatorics.DirectedPaths.Suffix`, `OAI.KL.Localization.Edge`
 - `OAI.KL.Comparison.Transport`: `ForMathlib.Combinatorics.DirectedPaths.ScalarMap`, `ForMathlib.Combinatorics.MomentGraph.Boundary.Extension`, `ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity`, `OAI.KL.BottSamelson.CanonicalPairing`, `OAI.KL.Sheaves.StalkReciprocity`
-- `OAI.KL.Invariance.Finite`: `ForMathlib.Algebra.Polynomial.ScaledReciprocity`, `ForMathlib.Algebra.Polynomial.TransferEvaluation`, `ForMathlib.GroupTheory.Coxeter.Bruhat.Transport`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport`, `OAI.KL.Comparison.SuffixFreeness`
+- `OAI.KL.Invariance.Finite`: `ForMathlib.Algebra.BigOperators.SingleCoordinate`, `ForMathlib.Algebra.Polynomial.ScaledEvaluation`, `ForMathlib.Algebra.Polynomial.TransferEvaluation`, `ForMathlib.GroupTheory.Coxeter.Bruhat.Transport`, `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport`, `OAI.KL.Comparison.SuffixFreeness`
 - `OAI.KL.Invariance.Main`: `ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction`, `OAI.KL.Invariance.Finite`
 - `OAI.KL.Localization.Ambient`: `ForMathlib.GroupTheory.Coxeter.Roots.LaterCount`, `OAI.KL.Sheaves.Support`
 - `OAI.KL.Localization.Edge`: `ForMathlib.Algebra.Module.Quotient.ScalarImage`, `OAI.KL.Comparison.Propagation`, `OAI.KL.Localization.TerminalImages`
@@ -503,5 +504,5 @@ Every implementation also imports the pinned Mathlib.
 - `OAI.KL.Sheaves.FreeModel`: `ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models`, `ForMathlib.RepresentationTheory.Hecke.OrdinaryR`, `OAI.KL.Sheaves.LowerCharacter`, `OAI.KL.Sheaves.Support`
 - `OAI.KL.Sheaves.LowerCharacter`: `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character`, `OAI.KL.Sheaves.Boundary`
 - `OAI.KL.Sheaves.Reciprocity`: `OAI.KL.BottSamelson.Character`
-- `OAI.KL.Sheaves.StalkReciprocity`: `ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation`, `OAI.KL.BottSamelson.CharacterDecomposition`
+- `OAI.KL.Sheaves.StalkReciprocity`: `ForMathlib.Algebra.BigOperators.SingleCoordinate`, `OAI.KL.BottSamelson.CharacterDecomposition`
 - `OAI.KL.Sheaves.Support`: `ForMathlib.Algebra.Module.Graded.HomogeneousDual`, `ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`, `ForMathlib.GroupTheory.Coxeter.Roots.Order`, `OAI.KL.Sheaves.Boundary`

@@ -6,6 +6,7 @@ HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
 from baseline import snapshot
+from source_partitions import expand_units
 def digest(b):return hashlib.sha256(b).hexdigest()
 def products():
  m=json.loads((HERE/'migration.json').read_text());ref=snapshot('transport');parts={}
@@ -18,7 +19,10 @@ def products():
   expected=re.sub(r'\binstance(?=\s*[:({\[])','instance _root_.'+patch['name'],patch['old'],count=1)
   if patch['new']!=expected or patch['old']==expected or patch['name'] not in public:
    raise RuntimeError('Invalid instance-name-only annotation')
- for u in m['units']:
+ expanded=expand_units(m['units'],m.get('unit_partitions',{}),ref.read_text)
+ for parent in m['units']:
+  if parent['id'] in m.get('unit_partitions',{}) and any(a['source']==parent['source'] and parent['start']<=a['line']<=parent['end'] for a in m['instance_annotations']):raise RuntimeError('Partitioned instance annotations require explicit review')
+ for u in expanded:
   body=''.join(ref.read_text(u['source']).splitlines(True)[u['start']-1:u['end']])
   if digest(body.encode())!=u['sha256']:raise RuntimeError('Changed span: '+u['id'])
   bodylines=body.splitlines(True);prefix=u['prefix'];suffix=u['suffix']
@@ -60,7 +64,9 @@ def products():
   files[dest]=b
  for name,item in m['modules'].items():
   text='import Mathlib\n'+''.join('import '+d+'\n' for d in item['imports'])
-  text+='\n/-! Semantic home: '+name+'. Source spans: '+', '.join(item['units'])+'.\nSee migration.json and MIGRATION.md for exact provenance. -/\n\nnamespace OAI\n\n'
+  description=item.get('description','')
+  if '-/' in description:raise RuntimeError('Invalid module description')
+  text+='\n/-! Semantic home: '+name+'. Source spans: '+', '.join(item['units'])+'.\nSee migration.json and MIGRATION.md for exact provenance.\n'+description+' -/\n\nnamespace OAI\n\n' if description else '\n/-! Semantic home: '+name+'. Source spans: '+', '.join(item['units'])+'.\nSee migration.json and MIGRATION.md for exact provenance. -/\n\nnamespace OAI\n\n'
   text+='\n\n'.join(parts[i] for i in item['units'])+'\nend OAI\n'
   files[name.replace('.','/')+'.lean']=text.encode()
  for name,imports in m['legacy_shims'].items():
@@ -68,8 +74,8 @@ def products():
  files['ForMathlib.lean']=(''.join('import '+n+'\n' for n in sorted(m['modules']) if n.startswith('ForMathlib.'))+'import ForMathlib.LinearAlgebra.KernelTransport\n').encode()
  files['OAI/Architecture.lean']=(''.join('import '+n+'\n' for n in sorted(m['modules']))+'import ForMathlib.LinearAlgebra.KernelTransport\nimport OAI.KL.Compatibility.KernelTransport\n').encode()
  # The human index is derived from the same exact source-span manifest.
- byid={u['id']:u for u in m['units']}
- lines=['# Source migration index','','Reference: Git `'+m['reference_commit']+':'+m['reference']+'` (historical source, no checkout required).','Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged.','Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.','Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.','','## Old file → semantic homes','']
+ byid={u['id']:u for u in expanded}
+ lines=['# Source migration index','','Reference: Git `'+m['reference_commit']+':'+m['reference']+'` (historical source, no checkout required).','Ranges below are inclusive, 1-based reference lines. Mathematical bodies are unchanged. Partition records cover their immutable parent exactly; only existing scope frames are copied.','Existing anonymous instance names are pinned explicitly; Hecke inverse proofs restore their original local instance attribute.','Original 34 KL entrypoints and kernel entrypoints are compatibility imports. Earlier semantic paths are recoverable from the pinned Git history, not maintained checkouts.','','## Old file → semantic homes','']
  for f in sorted(m['source_hashes']):
   lines+=['### '+Path(f).name,'']
   for name,x in sorted(m['modules'].items()):

@@ -1,0 +1,73 @@
+{
+  "base_commit": "c2a9bd42fe4ce719af0dc1c1fd020fcb80ae2e04",
+  "scope": "Existing declarations/proof bodies only; no API extraction or proof rewrite",
+  "changes": [
+    {
+      "implementation": "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "kind": "existing Mathlib-object supplement candidate",
+      "reason": "Finite weighted-sum cancellation and difference at one distinguished coordinate. Existing character/matrix names describe original consumers, not required mathematical structures.",
+      "declarations": [
+        "OAI.KLInvariance.finite_character_cancellation",
+        "OAI.KLInvariance.Comparison.matrix_difference_single",
+        "OAI.KLInvariance.Comparison.matrix_difference_le"
+      ],
+      "compatibility": [
+        "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation"
+      ]
+    },
+    {
+      "implementation": "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+      "kind": "existing Mathlib-object supplement candidate",
+      "reason": "Scaled integer-polynomial evaluation and reciprocal-difference rigidity, independently importable from owned weighted-sum support.",
+      "declarations": [
+        "OAI.KLInvariance.Comparison.scaledPolynomial",
+        "OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal"
+      ],
+      "compatibility": [
+        "ForMathlib.Algebra.Polynomial.ScaledReciprocity"
+      ]
+    },
+    {
+      "implementation": "ForMathlib.Algebra.Module.Submodule.ProductScaling",
+      "kind": "existing Mathlib-object supplement candidate",
+      "reason": "Scalar-image submodules under an arbitrary algebra extension, with associated-product support; no localization structure is assumed.",
+      "declarations": [
+        "OAI.KLInvariance.LocalProducts.smul_top_le_of_map_dvd",
+        "OAI.KLInvariance.LocalProducts.associated_prod_scale",
+        "OAI.KLInvariance.LocalProducts.product_image_scale"
+      ],
+      "compatibility": [
+        "ForMathlib.Algebra.Module.Localization.Products"
+      ]
+    }
+  ],
+  "application_clients": [
+    {
+      "module": "OAI.KL.Comparison.SuffixFreeness",
+      "why_retained": "Uses actual boundary sheaves and suffix-freeness conditions of this comparison proof; moving the scalar helper does not produce a new general sheaf interface."
+    },
+    {
+      "module": "OAI.KL.Invariance.Finite",
+      "why_retained": "Assembles finite-system invariance from the current comparison/model pipeline; mathematics may be upstreamable, current dependencies remain application-side."
+    },
+    {
+      "module": "OAI.KL.Sheaves.StalkReciprocity",
+      "why_retained": "Connects current boundary/Bott character models; generic weighted cancellation is separated, model transport is retained."
+    }
+  ],
+  "not_changed": [
+    {
+      "module": "ForMathlib.LinearAlgebra.Dual.BalancedCut",
+      "reason": "Both statements concern the same bilinear cut-balancing object; no size-driven split."
+    },
+    {
+      "module": "ForMathlib.Algebra.Module.Projective.Transport",
+      "reason": "The statements are projectivity transported through equivalences; no new interface or forced split."
+    },
+    {
+      "module": "ForMathlib.Algebra.Module.Cover.Product",
+      "reason": "A submodule-oriented name is a future candidate; this bounded round does not additionally migrate the broad foundational sheaf chain."
+    }
+  ],
+  "upstream_readiness": "These labels do not certify novelty, lint compliance or maintainer acceptance; no Mathlib PR or community comment is created."
+}

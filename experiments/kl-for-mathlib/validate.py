@@ -6,6 +6,8 @@ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 OUT=ROOT/'results/for-mathlib';OUT.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(ROOT/'scripts'))
 from baseline import snapshot, configuration
+sys.path.insert(0,str(HERE))
+from source_partitions import expand_units
 M=json.loads((HERE/'migration.json').read_text())
 METRICS=[]
 
@@ -63,8 +65,9 @@ def static_checks():
  previous=json.loads(policy.read_text('migration.json'))
  for key in ('reference','reference_commit','source_hashes','fixed','units','instance_annotations'):
   if M[key]!=previous[key]:raise RuntimeError('Changed inherited source/provenance field: '+key)
+ expanded=expand_units(M['units'],M.get('unit_partitions',{}),source.read_text)
  used=[u for x in modules.values() for u in x['units']]
- if len(used)!=len(set(used)) or set(used)!={u['id'] for u in M['units']}:
+ if len(used)!=len(set(used)) or set(used)!={u['id'] for u in expanded}:
   raise RuntimeError('Source units must be allocated exactly once')
  known=set(modules)|{'ForMathlib.LinearAlgebra.KernelTransport','OAI.KL.Compatibility.KernelTransport'}
  if any(d not in known for x in modules.values() for d in x['imports']):raise RuntimeError('Unknown implementation dependency')
@@ -103,7 +106,7 @@ def static_checks():
    if any(d.startswith(('ForMathlib.GroupTheory.','ForMathlib.RepresentationTheory.')) for d in x['imports']):raise RuntimeError('General sheaf interface imports a Coxeter model: '+n)
  list(graphlib.TopologicalSorter({n:set(x['imports']) for n,x in modules.items()}).static_order())
  # No new mathematical declaration can hide in a file outside the deterministic products.
- allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{'OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
+ allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{'WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if '.lake' not in p.parts}
  if actual-allowed:raise RuntimeError('Unlisted Lean source: '+str(actual-allowed))
  for p in list((HERE/'OAI').rglob('*.lean'))+list((HERE/'ForMathlib').rglob('*.lean')):
@@ -133,12 +136,13 @@ def main():
  run('mathlib-ready',['lake','--no-build','build','Mathlib'],env=env)
  if args.checks_only:run('oai-ready',['lake','--no-build','build','ForMathlib','OAI'],env=env)
  else:run('library-build',['lake','build','ForMathlib','OAI'],env=env)
- for file in ('ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
+ for file in ('WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','BoundaryChecks','Audit'):
   run(file,['lake','env','lean',file+'.lean'],env=env)
  check_axioms((OUT/'Audit.log').read_text())
  run('migrated-types',['lake','env','lean','PublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'migrated-types.tsv')))
  run('type-comparison',[sys.executable,'compare_types.py','reference-public-types.json',str(OUT/'migrated-types.tsv')])
  run('comparator-tests',[sys.executable,'test_compare_types.py'])
+ run('source-partition-tests',[sys.executable,'test_source_partitions.py'])
  run('warm-build',['lake','build','ForMathlib','OAI'],env=env)
  print('ForMathlib staging and project-layout validation passed.',flush=True)
 if __name__=='__main__':main()

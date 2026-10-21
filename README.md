@@ -27,11 +27,12 @@ warm check. Direct project commands remain available via
 The Lean tree separates `ForMathlib/` (168 current upstream-candidate modules)
 from `OAI/KL/` (23 application modules and one compatibility wrapper). Original
 34 KL import entrypoints and two kernel import entrypoints remain as wrappers.
+Three earlier ForMathlib paths also forward to their more precise homes.
 ForMathlib has no project-layer imports. Specialized Coxeter, Hecke, KL polynomial
 and Tits word mathematics is included among the candidates; candidate status does
 not mean submission-ready. No new interface extraction is part of this cleanup.
 
-The 230 Lean product modules and all 3902 public declarations are retained.
+The current tree has 233 Lean product modules and retains all 3902 public declarations.
 The fixed toolchain is Lean 4.34.1; Mathlib is pinned at
 `d13f23b723b8a846827a245b89c10fc7d3f11612`. Dependencies and working artifacts
 are owned by the maintained project's `.lake`, with shared installation/download
@@ -49,7 +50,8 @@ No check requires a deleted experiment directory. Setup fetches only missing
 pinned history for shallow clones; checks themselves perform no history fetch.
 Historical compilation is not rerun or claimed by replaying this evidence.
 
-See [the consolidation record](reports/project-consolidation.md) for actual
+See [the responsibility-boundary refinement](reports/responsibility-boundaries.md)
+for the current file moves and validation, [the consolidation record](reports/project-consolidation.md) for earlier
 verification and cache results, [provenance](provenance/README.md) for licenses and
 source anchors, and [historical reports](reports/README.md) for earlier stages.
 Current source/type/axiom checks stay strict. An intentional future baseline or

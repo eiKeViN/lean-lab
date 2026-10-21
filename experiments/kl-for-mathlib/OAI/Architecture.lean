@@ -1,6 +1,6 @@
 import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic
 import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis
-import ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
 import ForMathlib.Algebra.Module.CoefficientChange.Basic
 import ForMathlib.Algebra.Module.CoefficientChange.Dual
 import ForMathlib.Algebra.Module.Cover.Local
@@ -34,7 +34,6 @@ import ForMathlib.Algebra.Module.Graded.RegularScalar
 import ForMathlib.Algebra.Module.Localization.FiniteCharacters
 import ForMathlib.Algebra.Module.Localization.Lattice
 import ForMathlib.Algebra.Module.Localization.Membership
-import ForMathlib.Algebra.Module.Localization.Products
 import ForMathlib.Algebra.Module.Localization.ProjectiveLattice
 import ForMathlib.Algebra.Module.Projective.Range
 import ForMathlib.Algebra.Module.Projective.ReverseFiltration
@@ -46,11 +45,12 @@ import ForMathlib.Algebra.Module.Quotient.ScalarImage
 import ForMathlib.Algebra.Module.ReflectionPair.TensorDescent
 import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
 import ForMathlib.Algebra.Module.ReflectionPair.Twist
+import ForMathlib.Algebra.Module.Submodule.ProductScaling
 import ForMathlib.Algebra.Module.Submodule.ScaledImage
 import ForMathlib.Algebra.Order.Field.RealScaling
 import ForMathlib.Algebra.Polynomial.LowPart
 import ForMathlib.Algebra.Polynomial.Reciprocal
-import ForMathlib.Algebra.Polynomial.ScaledReciprocity
+import ForMathlib.Algebra.Polynomial.ScaledEvaluation
 import ForMathlib.Algebra.Polynomial.TransferEvaluation
 import ForMathlib.Combinatorics.Dihedral.SignedCount
 import ForMathlib.Combinatorics.DirectedPaths.Basic

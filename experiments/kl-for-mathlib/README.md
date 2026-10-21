@@ -3,8 +3,8 @@
 The single maintained Lean project. Continue updating this directory in place.
 Earlier stages through `85b3d1a4fa9c4f08beb718d8925d2d0ec9c50060` remain
 recoverable from Git history; their experiment directories have been removed.
-The current mathematical source, interfaces and module paths are unchanged by
-that consolidation.
+That consolidation preserved the mathematical source and interfaces. Subsequent
+file-responsibility refinements are recorded below and in the current report.
 
 `ForMathlib/` contains 168 implementation modules that can presently form a
 standalone dependency layer: general algebra/linear support, Coxeter geometry,
@@ -26,7 +26,9 @@ imports every implementation. Declaration namespaces and public types remain
 compatible (`OAI.*`); candidate staging does not rename mathematical APIs.
 
 Original 34 KL module import entrypoints and the two existing kernel import
-entrypoints are import wrappers. Earlier semantic import paths are available in
+entrypoints are import wrappers. Three published ForMathlib paths now also forward
+to precise implementations: `FiniteCharacterCancellation`, polynomial
+`ScaledReciprocity`, and `Module.Localization.Products`. Earlier semantic import paths are available in
 the pinned historical Git trees.
 The maintained project uses the paths in CLASSIFICATION.md and does not add
 another 193 import wrappers.
@@ -41,7 +43,7 @@ assumption review, focused Mathlib imports, proper docs and human/maintainer
 review. This round does not establish that any file is PR-ready or accepted.
 No Mathlib PR or community comment is published.
 
-Changes to file responsibility use existing complete source units only:
+Changes to file responsibility preserve complete declarations and proofs:
 
 - Polynomial files now use `Algebra/Polynomial`. Generic functional avoidance
   belongs to `LinearAlgebra/Avoidance`.
@@ -51,6 +53,11 @@ Changes to file responsibility use existing complete source units only:
 - Reflection evaluation and reciprocal rigidity share `Polynomial/Reciprocal`.
 - The former mixed scaled-comparison file separates polynomial transfer
   evaluation, ordered-field real-power scalar identities and scaled polynomial reciprocity.
+- `BigOperators/SingleCoordinate` puts the existing finite cancellation and
+  weighted-difference lemmas together; `Polynomial/ScaledEvaluation` contains
+  the scaled evaluation and its reciprocal rigidity, without weighted sums.
+- `Module/Submodule/ProductScaling` describes scalar images and associated
+  finite products over arbitrary algebra extensions; it needs no localization.
 - The dihedral Hecke/KL polynomial bridge is located with KL polynomials.
   Concrete word coordinates are named `BottSamelson/TitsWords`.
 - Project filenames state their roles: `SuffixFreeness`, `GraphEmbedding`,
@@ -58,8 +65,12 @@ Changes to file responsibility use existing complete source units only:
 
 No mathematical statement or proof body is rewritten. The earlier 76 explicit
 instance-name annotations and single local instance attribute are inherited.
-`migration.json` and `migrate.py --check` bind all 525 units and fixed sources to
-the pristine reference history. `source_check.py` verifies full source coverage.
+`migration.json` and `migrate.py --check` bind all 525 immutable parent units and
+fixed sources to the pristine reference history. One mixed parent is partitioned
+at a complete declaration boundary into two hashed pieces, covering its original
+bytes exactly once and copying only existing opening/closing scope frames.
+There are 526 allocated pieces. `source_check.py` verifies full source coverage;
+14 focused partition tests include malformed and incomplete allocations.
 `CLASSIFICATION.md` indexes every prior module with actual declaration references;
 `upstream-assessment.json` records current rationale and remaining preparation.
 `DEPENDENCIES.dot` and `layout-metrics.json` reproduce dependency boundaries.
@@ -101,11 +112,13 @@ Their existing interfaces already suffice; original Invariance/Localization
 filenames do not determine the classification. Real scalar power identities
 belong to `Algebra/Order/Field/RealScaling`, without implying an rpow theory.
 
-The preserved scaled-reciprocity source unit still carries two finite weighted-sum
-difference helpers. Their eventual declaration-level file placement is a known
-cleanup item, not an assertion that they are polynomial-specific. The final
-consumer has an explicit import, avoiding dependence on an incidental transitive
-import. No proof or mathematical interface is rewritten to fix that integration.
+The precise scaled-evaluation entrypoint does not import the finite weighted-sum
+helpers; the precise weighted-sum entrypoint does not import owned polynomial
+theory. Lean import harnesses check both module sets and preserved names.
+The old scaled-reciprocity compatibility entrypoint deliberately exposes both.
+See [the current responsibility report](../../reports/responsibility-boundaries.md)
+and `responsibility-review.json` for mathematical reasons, application-side
+boundaries, deferred cases and the measured validation results.
 
 Kernel and compatibility harnesses preserve every behavior example and exact
 local-module-set assertion; only import paths/expected module identities are

@@ -1,8 +1,9 @@
 # Verification records
 
 Current entrypoints are in the root README and the maintained
-`experiments/kl-for-mathlib/README.md`. Current consolidation results are in
-[project-consolidation.md](project-consolidation.md).
+`experiments/kl-for-mathlib/README.md`. The current file-responsibility refinement
+is in [responsibility-boundaries.md](responsibility-boundaries.md); the preceding
+consolidation results are in [project-consolidation.md](project-consolidation.md).
 
 Earlier reports and evidence are retained as historical records. Their commands,
 cache paths and experiment directories describe the commit where they ran; they

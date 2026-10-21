@@ -5287,18 +5287,12 @@
         "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
       ]
     },
-    "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation": {
-      "units": [
-        "DyerPaths:1"
-      ],
-      "imports": []
-    },
     "OAI.KL.Sheaves.StalkReciprocity": {
       "units": [
         "DyerPaths:2"
       ],
       "imports": [
-        "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
+        "ForMathlib.Algebra.BigOperators.SingleCoordinate",
         "OAI.KL.BottSamelson.CharacterDecomposition"
       ]
     },
@@ -5764,7 +5758,8 @@
         "Invariance:7"
       ],
       "imports": [
-        "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
+        "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+        "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
         "ForMathlib.Algebra.Polynomial.TransferEvaluation",
         "ForMathlib.GroupTheory.Coxeter.Bruhat.Transport",
         "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport",
@@ -5946,12 +5941,6 @@
     "ForMathlib.LinearAlgebra.PlaneReduction": {
       "units": [
         "PlaneLocalization:23"
-      ],
-      "imports": []
-    },
-    "ForMathlib.Algebra.Module.Localization.Products": {
-      "units": [
-        "PlaneLocalization:26"
       ],
       "imports": []
     },
@@ -6252,7 +6241,7 @@
         "SimultaneousInvariance:6"
       ],
       "imports": [
-        "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
+        "ForMathlib.Algebra.BigOperators.SingleCoordinate",
         "ForMathlib.Combinatorics.DirectedPaths.Suffix",
         "OAI.KL.Localization.Edge"
       ]
@@ -6368,7 +6357,7 @@
       "imports": [
         "ForMathlib.Algebra.Module.Flat.Kernel",
         "ForMathlib.Algebra.Module.Localization.Membership",
-        "ForMathlib.Algebra.Module.Localization.Products",
+        "ForMathlib.Algebra.Module.Submodule.ProductScaling",
         "ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization"
       ]
     },
@@ -6673,21 +6662,13 @@
       ],
       "imports": []
     },
-    "ForMathlib.Algebra.Polynomial.ScaledReciprocity": {
-      "units": [
-        "SimultaneousInvariance:5"
-      ],
-      "imports": [
-        "ForMathlib.Algebra.Polynomial.Reciprocal"
-      ]
-    },
     "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport": {
       "units": [
         "Invariance:1",
         "Invariance:4"
       ],
       "imports": [
-        "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
+        "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
         "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization"
       ]
     },
@@ -6719,6 +6700,30 @@
         "ModuleAlgebra:5"
       ],
       "imports": []
+    },
+    "ForMathlib.Algebra.Polynomial.ScaledEvaluation": {
+      "units": [
+        "SimultaneousInvariance:5/scaled-evaluation"
+      ],
+      "imports": [
+        "ForMathlib.Algebra.Polynomial.Reciprocal"
+      ],
+      "description": "Scaled evaluation of integer polynomials over the reals and reciprocal-difference rigidity. No weighted-sum cancellation or graph data is required."
+    },
+    "ForMathlib.Algebra.BigOperators.SingleCoordinate": {
+      "units": [
+        "DyerPaths:1",
+        "SimultaneousInvariance:5/weighted-difference"
+      ],
+      "imports": [],
+      "description": "Cancellation and difference of finite weighted sums at one distinguished coordinate. The existing character/matrix names are retained for compatibility; no character theory or matrix representation is assumed."
+    },
+    "ForMathlib.Algebra.Module.Submodule.ProductScaling": {
+      "units": [
+        "PlaneLocalization:26"
+      ],
+      "imports": [],
+      "description": "Principal scalar images of modules under an arbitrary algebra extension, with finite products of associated scalars. No localization assumption is used."
     }
   },
   "legacy_shims": {
@@ -6801,16 +6806,16 @@
     "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals": [
       "ForMathlib.Combinatorics.Dihedral.SignedCount",
       "ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel",
+      "ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel",
       "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown",
       "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords",
       "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder",
       "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount",
       "ForMathlib.GroupTheory.Coxeter.Roots.Splines",
-      "ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel",
       "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths": [
-      "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
       "ForMathlib.Combinatorics.DirectedPaths.Subpaths",
       "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds",
       "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
@@ -6890,10 +6895,10 @@
       "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.Invariance": [
-      "OAI.KL.Invariance.Finite",
-      "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport",
-      "OAI.KL.Invariance.Main",
       "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction",
+      "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport",
+      "OAI.KL.Invariance.Finite",
+      "OAI.KL.Invariance.Main",
       "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions": [
@@ -6924,7 +6929,7 @@
       "OAI.RepresentationTheory.KazhdanLusztig.Hecke"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization": [
-      "ForMathlib.Algebra.Module.Localization.Products",
+      "ForMathlib.Algebra.Module.Submodule.ProductScaling",
       "ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization",
       "ForMathlib.LinearAlgebra.PlaneReduction",
       "ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient",
@@ -6935,11 +6940,12 @@
       "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
       "ForMathlib.Algebra.Module.Graded.Hilbert.Increment",
       "ForMathlib.Algebra.Module.Projective.ScalarKernel",
-      "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
-      "ForMathlib.Algebra.Polynomial.TransferEvaluation",
       "ForMathlib.Algebra.Order.Field.RealScaling",
+      "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+      "ForMathlib.Algebra.Polynomial.TransferEvaluation",
       "ForMathlib.Combinatorics.DirectedPaths.Monotone",
       "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert",
       "OAI.KL.Comparison.Propagation",
@@ -6991,9 +6997,10 @@
       "Mathlib"
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance": [
-      "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
-      "ForMathlib.Algebra.Polynomial.TransferEvaluation",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
       "ForMathlib.Algebra.Order.Field.RealScaling",
+      "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+      "ForMathlib.Algebra.Polynomial.TransferEvaluation",
       "OAI.KL.Comparison.SuffixFreeness",
       "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels"
     ],
@@ -7043,6 +7050,16 @@
     ],
     "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat": [
       "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "ForMathlib.Algebra.Polynomial.ScaledReciprocity": [
+      "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "ForMathlib.Algebra.Module.Localization.Products": [
+      "ForMathlib.Algebra.Module.Submodule.ProductScaling"
     ]
   },
   "instance_annotations": [
@@ -7632,7 +7649,7 @@
     "OAI.GroupTheory.Coxeter.Roots.DihedralOrder": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder",
     "OAI.Combinatorics.Dihedral.SignedCount": "ForMathlib.Combinatorics.Dihedral.SignedCount",
     "OAI.GroupTheory.Coxeter.Roots.LaterCount": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount",
-    "OAI.Algebra.BigOperators.FiniteCharacterCancellation": "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
+    "OAI.Algebra.BigOperators.FiniteCharacterCancellation": "ForMathlib.Algebra.BigOperators.SingleCoordinate",
     "OAI.RepresentationTheory.KazhdanLusztig.Sheaves.StalkReciprocity": "OAI.KL.Sheaves.StalkReciprocity",
     "OAI.GroupTheory.Coxeter.Parabolic.InversionList": "ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList",
     "OAI.GroupTheory.Coxeter.Roots.PlaneTransport": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport",
@@ -7706,7 +7723,7 @@
     "OAI.RepresentationTheory.KazhdanLusztig.Localization.Embed": "OAI.KL.Localization.GraphEmbedding",
     "OAI.RingTheory.Localization.RelativePrime": "ForMathlib.RingTheory.Localization.RelativePrime",
     "OAI.LinearAlgebra.PlaneReduction": "ForMathlib.LinearAlgebra.PlaneReduction",
-    "OAI.Algebra.Module.Localization.Products": "ForMathlib.Algebra.Module.Localization.Products",
+    "OAI.Algebra.Module.Localization.Products": "ForMathlib.Algebra.Module.Submodule.ProductScaling",
     "OAI.RepresentationTheory.KazhdanLusztig.Comparison.Propagation": "OAI.KL.Comparison.Propagation",
     "OAI.Combinatorics.DirectedPaths.Monotone": "ForMathlib.Combinatorics.DirectedPaths.Monotone",
     "OAI.Algebra.Module.Graded.Hilbert.Increment": "ForMathlib.Algebra.Module.Graded.Hilbert.Increment",
@@ -7783,10 +7800,31 @@
   },
   "split_module_imports": {
     "OAI.Data.Polynomial.ScaledComparison": [
-      "ForMathlib.Algebra.Polynomial.TransferEvaluation",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
       "ForMathlib.Algebra.Order.Field.RealScaling",
-      "ForMathlib.Algebra.Polynomial.ScaledReciprocity"
+      "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+      "ForMathlib.Algebra.Polynomial.TransferEvaluation"
     ]
   },
-  "policy_git_prefix": "experiments/kl-architecture"
+  "policy_git_prefix": "experiments/kl-architecture",
+  "unit_partitions": {
+    "SimultaneousInvariance:5": {
+      "opening_end": 324,
+      "closing_start": 374,
+      "parts": [
+        {
+          "id": "SimultaneousInvariance:5/scaled-evaluation",
+          "start": 321,
+          "end": 349,
+          "sha256": "ab126210f4e5cc43e310eec35dab2b82a9d558cf318f23aac04be9e83d60b505"
+        },
+        {
+          "id": "SimultaneousInvariance:5/weighted-difference",
+          "start": 350,
+          "end": 375,
+          "sha256": "b05ea4c89410723f59a2bc5805b980b836ea6c269e5f92ba37889c4df4aa820b"
+        }
+      ]
+    }
+  }
 }

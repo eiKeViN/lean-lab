@@ -1,6 +1,7 @@
-import ForMathlib.Algebra.Polynomial.ScaledReciprocity
-import ForMathlib.Algebra.Polynomial.TransferEvaluation
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
 import ForMathlib.Algebra.Order.Field.RealScaling
+import ForMathlib.Algebra.Polynomial.ScaledEvaluation
+import ForMathlib.Algebra.Polynomial.TransferEvaluation
 import OAI.KL.Comparison.SuffixFreeness
 import OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels
 

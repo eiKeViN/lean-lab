@@ -1,5 +1,5 @@
 import Mathlib
-import ForMathlib.Algebra.Polynomial.ScaledReciprocity
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
 import ForMathlib.Combinatorics.DirectedPaths.Suffix
 import OAI.KL.Localization.Edge
 

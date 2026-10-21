@@ -1,7 +1,7 @@
 import Mathlib
 import ForMathlib.Algebra.Module.Flat.Kernel
 import ForMathlib.Algebra.Module.Localization.Membership
-import ForMathlib.Algebra.Module.Localization.Products
+import ForMathlib.Algebra.Module.Submodule.ProductScaling
 import ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages. Source spans: TerminalKernels:14, TerminalKernels:7, TerminalKernels:1, TerminalKernels:18, TerminalKernels:2.
