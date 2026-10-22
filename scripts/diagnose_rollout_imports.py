@@ -3,13 +3,9 @@
 from pathlib import Path
 import subprocess,sys,json
 ROOT=Path(__file__).resolve().parents[1];P=ROOT/'experiments/kl-for-mathlib'
-modules=['ForMathlib.LinearAlgebra.CoordinateProjection','ForMathlib.LinearAlgebra.ConjugateRange',
-'ForMathlib.LinearAlgebra.Dual.TransportPairing','ForMathlib.LinearAlgebra.Dual.Summand',
-'ForMathlib.LinearAlgebra.TensorProduct.Coordinates','ForMathlib.LinearAlgebra.Quotient.Transport',
-'ForMathlib.Algebra.Module.Projective.Range','ForMathlib.Algebra.Module.Submodule.ScaledImage',
-'ForMathlib.Algebra.Module.Submodule.PiIdeal','ForMathlib.Order.Interval.Diamonds',
-'ForMathlib.LinearAlgebra.Avoidance','ForMathlib.Algebra.Module.Free.ScalarDivisibility',
-'ForMathlib.Algebra.Module.Cover.Local','ForMathlib.Algebra.Order.Field.RealScaling']
+sys.path.insert(0,str(P))
+from module_rollout import narrow_plan
+modules=[path[:-5].replace('/','.') for path in narrow_plan()['files']]
 config=P/'lakefile.toml';before=config.read_bytes()
 try:
  text=before.decode();old='defaultTargets = ["ForMathlib", "OAI"]'
@@ -19,6 +15,7 @@ try:
  # Exit 1 can mean proposed changes. Raw status/output remain explicit.
  result=subprocess.run(['lake','shake',*modules],cwd=P)
  print('Scoped read-only shake status:',result.returncode)
+ if result.returncode not in (0,1):raise RuntimeError('Unexpected shake diagnostic failure')
 finally:
  config.write_bytes(before)
 assert config.read_bytes()==before

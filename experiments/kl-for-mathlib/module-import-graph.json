@@ -1651,28 +1651,28 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -1849,28 +1849,28 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -2108,21 +2108,21 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
@@ -2250,47 +2250,47 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
@@ -10086,21 +10086,21 @@
     ]
   },
   "OAI.RepresentationTheory.KazhdanLusztig.Sheaves": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },

@@ -1,17 +1,17 @@
-"""Hash-bound 131-node dependency-closed compatibility rollout (128 new modules)."""
+"""Hash-bound 125-node dependency-closed compatibility rollout (122 new modules)."""
 from pathlib import Path
 from functools import lru_cache
 import hashlib,json,subprocess
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 BASE='45cc0cfcf699b7acd17a48d867c5f28bdb30bc5d'
-PLAN_SHA='9ecfeab40eb94e3648eeb6b24fe9b16afeba8c52eb2882e23f1a333befb2c115'
-TYPES_SHA='728d5ce01e0f389cd976ca853f9d644670af406c6eda5fb808bcd06473130a5a'
+PLAN_SHA='f8d3a8befe0fa7bc7b39be70ffa4144906176fa5515e22509f50a343e55fa8b5'
+TYPES_SHA='b4c47fd24af8efb9f69587337733029988fd50901a75a15686aba7cc53f27e87'
 def sha(b):return hashlib.sha256(b).hexdigest()
 def plan():
     data=(HERE/'module-rollout.json').read_bytes()
     if sha(data)!=PLAN_SHA:raise RuntimeError('Changed rollout allowlist')
     d=json.loads(data)
-    if d['base_commit']!=BASE or len(d['files'])!=128 or len(d['selected'])!=131:
+    if d['base_commit']!=BASE or len(d['files'])!=122 or len(d['selected'])!=125:
         raise RuntimeError('Changed rollout scope')
     return d
 @lru_cache(None)
@@ -68,7 +68,7 @@ def generated_checks():
     exporter=(HERE/'PublicTypes.lean').read_text().replace('import OAI.Architecture','import ImplementationImports',1)
     corpus=(HERE/'SemanticCorpus.lean').read_text().replace('import OAI.Architecture','import ImplementationImports',1)
     return {'ImplementationImports.lean':full,'ImplementationPublicTypes.lean':exporter,
-            'ImplementationSemanticCorpus.lean':corpus,'ModernRolloutTypes.lean':modern_exporter()}
+            'ImplementationSemanticCorpus.lean':corpus,'ModernRolloutTypes.lean':modern_exporter(), **coordinate_checks()}
 
 ALIASES_SHA='2bb66d2e7594feea4c0eaec7f6cf0f9de28e39b96675054943c8dfe46af24d51'
 def modern_exporter():
@@ -105,7 +105,7 @@ private def rolloutOriginalKind : ConstantKind → String
   let env ← getEnv
   let policy ← IO.ofExcept <| Json.parse (← IO.FS.readFile "module-rollout-types.json")
   let entries := (← IO.ofExcept policy.getObj?).toList
-  unless entries.length == 1336 do throwError "Unexpected rollout coverage"
+  unless entries.length == 1196 do throwError "Unexpected rollout coverage"
   let some path ← IO.getEnv "LEAN_TYPES_OUT" | throwError "Set LEAN_TYPES_OUT"
   let out ← IO.FS.Handle.mk (System.FilePath.mk path) .write
   let mut closures : Std.HashMap Name (Array Name) := {}
@@ -137,14 +137,14 @@ private def rolloutOriginalKind : ConstantKind → String
     unless st.privateOwners.isEmpty do throw <| IO.userError "Private rewriting is not allowed"
     for n in st.proofAliases.toArray do out.putStrLn s!"PROOF_ALIAS\\t{n}"
     out.putStrLn s!"PRIVATE_SUMMARY\\t0\\t{st.unrenamed.size}\\t0\\t0"
-    out.putStrLn s!"SUMMARY\\t1336\\t0\\t{st.proofAliases.size}"
+    out.putStrLn s!"SUMMARY\\t1196\\t0\\t{st.proofAliases.size}"
   discard <| action.run {}
   out.flush
 '''
 
 def compare_public(path):
     from compare_types import load,compare
-    wanted=expected_types();actual=load(path,1336)
+    wanted=expected_types();actual=load(path,1196)
     if set(actual)!=set(wanted):raise RuntimeError('Incomplete rollout public API')
     result=compare(wanted,actual)
     if not result['passed']:raise RuntimeError('Rollout public types changed: '+json.dumps(result))
@@ -172,6 +172,28 @@ def narrow_legacy(path,data):
     if item is None or not data.startswith(b'module\n'):return data
     if not data.startswith(item['new_header'].encode()):raise RuntimeError('Unapproved narrowed header: '+path)
     return item['old_header'].encode()+data[len(item['new_header'].encode()):]
+
+def coordinate_checks():
+    header="module\nimport ForMathlib.LinearAlgebra.CoordinateProjection\n"
+    narrow=header+"""import Lean
+open OAI.KLInvariance.CoordinateProjection
+universe ur un uv ux
+variable {R : Type ur} [CommRing R] {N : Type un} [AddCommGroup N] [Module R N]
+  {V : Type uv} {X : V → Type ux} [∀ x, AddCommGroup (X x)] [∀ x, Module R (X x)]
+  (f : ∀ x, N →ₗ[R] X x)
+example (U : Set V) (n : N) (x : U) : (project f U n).val x = f x.val n := rfl
+example {U K : Set V} (h : U ⊆ K) (n : N) :
+    restrict f h (project f K n) = project f U n := rfl
+run_elab do
+  if (← Lean.getEnv).contains `MeasureTheory.integral_const then
+    throwError "Unexpected accidental unrelated Mathlib re-export"
+  IO.println "Narrow consumer: owned .val/rfl contracts hold; integral_const is unavailable."
+"""
+    repaired=header+"""import Mathlib.MeasureTheory.Integral.Bochner.Basic
+#check OAI.KLInvariance.CoordinateProjection.project
+#check MeasureTheory.integral_const
+"""
+    return {'ModernCoordinateChecks.lean':narrow,'ModernCoordinateMathlibChecks.lean':repaired}
 
 if __name__=='__main__':
     import argparse

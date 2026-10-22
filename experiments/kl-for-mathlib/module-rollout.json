@@ -24,22 +24,27 @@
     "ForMathlib.Combinatorics.MomentGraph.Boundary.Models",
     "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
     "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
     "ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel",
     "ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
     "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
     "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
     "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
     "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown",
     "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
@@ -129,6 +134,7 @@
     "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders",
     "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules",
     "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms",
+    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
     "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance",
     "OAI.RepresentationTheory.KazhdanLusztig.Support",
     "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels",
@@ -196,11 +202,6 @@
     "ForMathlib.Combinatorics.DirectedPaths.Subpaths",
     "ForMathlib.Combinatorics.DirectedPaths.Suffix",
     "ForMathlib.Combinatorics.DirectedPaths.Transfer",
-    "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
-    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
     "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
     "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs",
     "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
@@ -264,8 +265,7 @@
     "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
     "OAI.RepresentationTheory.KazhdanLusztig.Model",
     "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR",
-    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane",
-    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves"
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane"
   ],
   "topological_order": [
     "ForMathlib.Algebra.Polynomial.Reciprocal",
@@ -298,7 +298,6 @@
     "ForMathlib.LinearAlgebra.Dual.TransportPairing",
     "ForMathlib.LinearAlgebra.ConjugateRange",
     "ForMathlib.Algebra.Module.Localization.Lattice",
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
     "ForMathlib.Combinatorics.DirectedPaths.Suffix",
     "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
     "ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer",
@@ -332,16 +331,13 @@
     "ForMathlib.Combinatorics.DirectedPaths.Monotone",
     "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
     "ForMathlib.Algebra.Module.Graded.Generators",
-    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
     "OAI.RepresentationTheory.KazhdanLusztig.Comparison",
     "ForMathlib.Algebra.Module.Localization.Products",
-    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
     "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
     "OAI.RepresentationTheory.KazhdanLusztig.Model",
     "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR",
     "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
     "ForMathlib.GroupTheory.Coxeter.Parabolic.Support",
-    "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
     "ForMathlib.GroupTheory.Coxeter.Bruhat.Transport",
     "ForMathlib.GroupTheory.Coxeter.Dihedral.Words",
     "ForMathlib.RepresentationTheory.Hecke.Operators",
@@ -380,14 +376,12 @@
     "ForMathlib.GroupTheory.Coxeter.Realization.Cotangent",
     "ForMathlib.Algebra.Module.Graded.HomogeneousDual",
     "ForMathlib.Algebra.Module.Graded.ModuleData.Range",
-    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
     "ForMathlib.Algebra.Module.Projective.ScalarKernel",
     "ForMathlib.Algebra.Module.Graded.ModuleData.Character",
     "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical",
     "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR",
     "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard",
     "ForMathlib.Algebra.Module.Graded.RegularScalar",
-    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
     "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
     "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral",
     "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization",
@@ -1269,91 +1263,6 @@
         }
       ]
     },
-    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean": {
-      "before_sha256": "35c857b7c32cf35ad052d7630a39b83e27165580c4f748cf468565cbfcbbb574",
-      "after_sha256": "284a845f07afd4581d6fc7ab6c12ea613cf968c3cfb3093542dc52974c93ef46",
-      "imports": [
-        "Mathlib"
-      ],
-      "edits": [
-        {
-          "start": 0,
-          "old": "import Mathlib\n",
-          "new": "module\npublic import Mathlib\n\npublic section\n",
-          "role": "public-module-header"
-        },
-        {
-          "start": 953,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 33
-        },
-        {
-          "start": 1113,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 37
-        },
-        {
-          "start": 1245,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 40
-        },
-        {
-          "start": 1499,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 46
-        },
-        {
-          "start": 6104,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 152
-        },
-        {
-          "start": 6656,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 166
-        },
-        {
-          "start": 6922,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 174
-        },
-        {
-          "start": 7239,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 180
-        },
-        {
-          "start": 7435,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 185
-        },
-        {
-          "start": 8905,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 221
-        }
-      ]
-    },
     "ForMathlib/Combinatorics/DirectedPaths/Suffix.lean": {
       "before_sha256": "e07badfd9bee62349a029bf2a9534550ee8d17a608b003697666f5ba6c45b518",
       "after_sha256": "58afe1f97e2d0a76cb29f5ac097e9aef0e2cd4d7705f7ef1bd6c05f9aa19c059",
@@ -2144,22 +2053,6 @@
         }
       ]
     },
-    "OAI/RepresentationTheory/KazhdanLusztig/Sheaves.lean": {
-      "before_sha256": "5085f52128b312a2480c7afd4a80b3ae0d9a61c0411739bad20cbb7da2cb8ccf",
-      "after_sha256": "b5e334c5bb8aac1fdcb0b14bf6db96d409bbf163692921605bf5a4c79689fa70",
-      "imports": [
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "Mathlib"
-      ],
-      "edits": [
-        {
-          "start": 0,
-          "old": "import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\nimport Mathlib\n",
-          "new": "module\npublic import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\npublic import Mathlib\n\npublic section\n",
-          "role": "public-module-header"
-        }
-      ]
-    },
     "OAI/RepresentationTheory/KazhdanLusztig/Comparison.lean": {
       "before_sha256": "e102d3ac7dd6aedf905e8dad98b0a5fe7f201a44dff660e2a5ff288a28c39150",
       "after_sha256": "5098309f0a93d0d716c0e413764c28988a9fba4243b6caa5cffe44b00657a344",
@@ -2189,73 +2082,6 @@
           "old": "import ForMathlib.Algebra.Module.Submodule.ProductScaling\n",
           "new": "module\npublic import ForMathlib.Algebra.Module.Submodule.ProductScaling\n\npublic section\n",
           "role": "public-module-header"
-        }
-      ]
-    },
-    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean": {
-      "before_sha256": "3feb0bec28d97c2f2ab7d6b0a6fff245062cfc69dcf4130750eaa90436140d2f",
-      "after_sha256": "37a94763a8ceed13d72684356d8ddaa254662c2484be22c7dc1cec9f3cf1a602",
-      "imports": [
-        "Mathlib",
-        "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "ForMathlib.LinearAlgebra.Dual.IntegralSupport"
-      ],
-      "edits": [
-        {
-          "start": 0,
-          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Free.ScalarDivisibility\nimport ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\nimport ForMathlib.LinearAlgebra.Dual.IntegralSupport\n",
-          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Free.ScalarDivisibility\npublic import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\npublic import ForMathlib.LinearAlgebra.Dual.IntegralSupport\n\npublic section\n",
-          "role": "public-module-header"
-        },
-        {
-          "start": 984,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 27
-        },
-        {
-          "start": 2171,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 55
-        },
-        {
-          "start": 4248,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 108
-        },
-        {
-          "start": 4442,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 113
-        },
-        {
-          "start": 7187,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 178
-        },
-        {
-          "start": 7317,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 181
-        },
-        {
-          "start": 8579,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 207
         }
       ]
     },
@@ -2365,65 +2191,6 @@
           "new": "@[expose] ",
           "role": "data-body-compatibility",
           "line": 76
-        }
-      ]
-    },
-    "ForMathlib/Combinatorics/MomentGraph/Bruhat/Basic.lean": {
-      "before_sha256": "8d7e80cbd893165d1b80bd270690b0ec9305e77fe93e8047247ef7466e813b17",
-      "after_sha256": "cb9818f358b039035923b8cb2aaa82ba16cfc01b47ad44012c30274b06758109",
-      "imports": [
-        "Mathlib",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
-      ],
-      "edits": [
-        {
-          "start": 0,
-          "old": "import Mathlib\nimport ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n",
-          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n\npublic section\n",
-          "role": "public-module-header"
-        },
-        {
-          "start": 609,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 19
-        },
-        {
-          "start": 695,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 21
-        },
-        {
-          "start": 848,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 26
-        },
-        {
-          "start": 906,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 27
-        },
-        {
-          "start": 965,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 29
-        },
-        {
-          "start": 1324,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 38
         }
       ]
     },
@@ -3828,86 +3595,6 @@
         }
       ]
     },
-    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean": {
-      "before_sha256": "ea8312cb8666a3a137c6b934f27bc57bc92c8f57b39a5552392756f0b4fcb5fa",
-      "after_sha256": "36b49556d3f2b9fec42f8f1dbb1126134182f499057f6d599ea08afd5d647af3",
-      "imports": [
-        "Mathlib",
-        "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
-        "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
-      ],
-      "edits": [
-        {
-          "start": 0,
-          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Equality\nimport ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\n",
-          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Equality\npublic import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\n\npublic section\n",
-          "role": "public-module-header"
-        },
-        {
-          "start": 959,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 28
-        },
-        {
-          "start": 1289,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 36
-        },
-        {
-          "start": 1677,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 47
-        },
-        {
-          "start": 1760,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 49
-        },
-        {
-          "start": 1909,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 52
-        },
-        {
-          "start": 2513,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 64
-        },
-        {
-          "start": 2683,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 67
-        },
-        {
-          "start": 2937,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 73
-        },
-        {
-          "start": 3231,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 80
-        }
-      ]
-    },
     "ForMathlib/Algebra/Module/Projective/ScalarKernel.lean": {
       "before_sha256": "385a541ef70de74d81fe83b47f7eb7ba7a990129f761568806c3903403a1b892",
       "after_sha256": "e0211d56ff8212d9f5474122abc1b0625dda2991ddb1ccc0919525db744bc756",
@@ -4139,43 +3826,6 @@
           "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.HomogeneousDual\n",
           "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.HomogeneousDual\n\npublic section\n",
           "role": "public-module-header"
-        }
-      ]
-    },
-    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Reindex.lean": {
-      "before_sha256": "6cc7577477a647b2bf9439122df6766f6ee375565289e7f2e48bea2315bed548",
-      "after_sha256": "4f4e4e10ff4ebeaa7d53d431203c8bda48c6eade74160a5804a73a7630249e1a",
-      "imports": [
-        "Mathlib",
-        "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
-      ],
-      "edits": [
-        {
-          "start": 0,
-          "old": "import Mathlib\nimport ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs\n",
-          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs\n\npublic section\n",
-          "role": "public-module-header"
-        },
-        {
-          "start": 1113,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 29
-        },
-        {
-          "start": 1439,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 35
-        },
-        {
-          "start": 2419,
-          "old": "",
-          "new": "@[expose] ",
-          "role": "data-body-compatibility",
-          "line": 54
         }
       ]
     },
@@ -4466,6 +4116,7 @@
     "ForMathlib.Algebra.Module.Cover.Local",
     "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
     "ForMathlib.Algebra.Module.ReflectionPair.Twist",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
     "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
     "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem",
     "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
@@ -4473,5 +4124,6 @@
     "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
     "ForMathlib.LinearAlgebra.Avoidance",
     "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"
-  ]
+  ],
+  "downstream_generated_boundary": "Full historical comparison found Sheaf.stalkMap.eq_1 first realized in held legacy GradedSheaf.Properties; hold its producer Basic and all consumers, with no type exception."
 }

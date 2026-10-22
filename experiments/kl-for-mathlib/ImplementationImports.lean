@@ -60,11 +60,6 @@ import ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
 import ForMathlib.Combinatorics.DirectedPaths.Subpaths
 import ForMathlib.Combinatorics.DirectedPaths.Suffix
 import ForMathlib.Combinatorics.DirectedPaths.Transfer
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
 import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
@@ -129,4 +124,3 @@ import OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat
 import OAI.RepresentationTheory.KazhdanLusztig.Model
 import OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR
 import OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane
-import OAI.RepresentationTheory.KazhdanLusztig.Sheaves

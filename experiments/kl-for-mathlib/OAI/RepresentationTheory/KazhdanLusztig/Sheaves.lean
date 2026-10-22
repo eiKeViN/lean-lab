@@ -1,7 +1,4 @@
-module
-public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
-public import Mathlib
-
-public section
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+import Mathlib
 
 /-! Compatibility import for the pre-migration module. No declarations live here. -/

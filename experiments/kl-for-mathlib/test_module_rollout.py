@@ -6,7 +6,7 @@ from unittest.mock import patch
 import module_rollout as m
 class RolloutTests(unittest.TestCase):
     def test_exact_complete_region_roundtrips(self):
-        d=m.policy();self.assertEqual(len(d['selected']),131);self.assertEqual(len(d['held']),130)
+        d=m.policy();self.assertEqual(len(d['selected']),125);self.assertEqual(len(d['held']),136)
         for path in d['files']:
             before=m.baseline(path);after=m.convert(path,before)
             self.assertEqual((m.HERE/path).read_bytes(),after)
@@ -31,7 +31,7 @@ class RolloutTests(unittest.TestCase):
             path=name.replace('.','/')+'.lean'
             self.assertEqual((m.HERE/path).read_bytes(),m.baseline(path))
     def test_public_policy_is_finite_and_strict(self):
-        wanted=m.expected_types();self.assertEqual(len(wanted),1336)
+        wanted=m.expected_types();self.assertEqual(len(wanted),1196)
         with patch('compare_types.load',return_value=wanted):self.assertTrue(m.compare_public('unused')['passed'])
         for data in [dict(list(wanted.items())[1:]),{**wanted,'EXTRA':next(iter(wanted.values()))}]:
             with patch('compare_types.load',return_value=data),self.assertRaises(RuntimeError):m.compare_public('unused')
