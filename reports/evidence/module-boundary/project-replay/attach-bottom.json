@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "/workspace/lean-lab/research/module-boundary/AttachBottomExplicit.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 5.838519753000128,
+  "user_seconds": 4.968914,
+  "system_seconds": 1.385265,
+  "max_rss_kib": 5278036
+}

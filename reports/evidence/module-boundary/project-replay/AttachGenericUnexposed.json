@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "/workspace/lean-lab/research/module-boundary/AttachGenericUnexposed.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 5.536040148999973,
+  "user_seconds": 4.012672,
+  "system_seconds": 1.55865,
+  "max_rss_kib": 5256436
+}

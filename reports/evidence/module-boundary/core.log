@@ -1,0 +1,11 @@
+Unexpected result: UnexposedConsumer
+/workspace/lean-lab/results/boundary/core-run/private/UnexposedConsumer.lean:4:48: error: Type mismatch
+  rfl
+has type
+  ?m.9 = ?m.9
+but is expected to have type
+  structureSheaf n = n + 1
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  structureSheaf ↦ 11
+

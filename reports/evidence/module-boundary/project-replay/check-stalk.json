@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "/workspace/lean-lab/research/module-boundary/CheckStalkJson.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.787918783000123,
+  "user_seconds": 3.149579,
+  "system_seconds": 1.656777,
+  "max_rss_kib": 7624248
+}

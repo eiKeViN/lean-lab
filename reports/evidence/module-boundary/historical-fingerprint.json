@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "research/module-boundary/verify_historical_fingerprint.py",
+    "results/boundary/project-replay/shadow",
+    "results/boundary/historical-fingerprint"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 16.89792205699996,
+  "user_seconds": 13.763969,
+  "system_seconds": 3.585014,
+  "max_rss_kib": 7639672
+}

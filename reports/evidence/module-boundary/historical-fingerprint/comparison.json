@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "fresh": {
+    "old": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+      "kind": "theorem",
+      "module": "diagnostic"
+    },
+    "new": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+      "kind": "theorem",
+      "module": "diagnostic"
+    }
+  },
+  "historical": {
+    "old": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+    },
+    "new": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+    }
+  },
+  "serializer_source_sha256": "5f457ebe239e2893612b2b254fc66253ceec7c6727f1c417335634658180d270"
+}

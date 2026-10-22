@@ -1,0 +1,13 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env bash -c 'export LEAN_PATH=/workspace/lean-lab/results/boundary/shadow:$LEAN_PATH; lean /workspace/lean-lab/results/boundary/CheckStalkAux.lean'",
+    "/workspace/lean-lab/results/boundary/CheckStalkAux.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 29.946388091999893,
+  "user_seconds": 31.662598,
+  "system_seconds": 2.006777,
+  "max_rss_kib": 8321328
+}

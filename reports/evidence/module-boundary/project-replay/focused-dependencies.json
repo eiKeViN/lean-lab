@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lake",
+    "build",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 5.329589738000095,
+  "user_seconds": 6.523452,
+  "system_seconds": 2.605144,
+  "max_rss_kib": 992544
+}

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/module-boundary/inspect_retained.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 2.8884070080000583,
+  "user_seconds": 2.512384,
+  "system_seconds": 0.179641,
+  "max_rss_kib": 291396
+}

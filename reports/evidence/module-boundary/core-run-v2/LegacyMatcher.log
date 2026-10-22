@@ -1,0 +1,4 @@
+Boundary.ext.match_1_1 (motive : Option Nat → Prop) (x✝ : Option Nat) (h_1 : ∀ (_ : Unit), motive none)
+  (h_2 : ∀ (val : Nat), motive (some val)) : motive x✝
+Boundary.ext.match_1_1
+Boundary.ext

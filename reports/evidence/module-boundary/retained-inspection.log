@@ -1,0 +1,61 @@
+{
+  "old": "reports/evidence/module-rollout/final-validation/migrated-types.tsv.gz",
+  "new": "reports/evidence/module-rollout/rejected-131/migrated-types.tsv.gz",
+  "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+  "leaf_differences": [
+    {
+      "path": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2,
+        1,
+        2,
+        2
+      ],
+      "old": [
+        "app",
+        "107587",
+        "2"
+      ],
+      "new": [
+        "lam",
+        "_",
+        "Lean.BinderInfo.default",
+        "89645",
+        "107592"
+      ]
+    },
+    {
+      "path": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2,
+        2
+      ],
+      "old": [
+        "app",
+        "107735",
+        "2"
+      ],
+      "new": [
+        "lam",
+        "_",
+        "Lean.BinderInfo.default",
+        "78",
+        "107744"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+/workspace/lean-lab/research/module-boundary/AttachComparison.lean:18:1: error: Not a definitional equality: the left-hand side
+  genericAttach f C
+is not definitionally equal to the right-hand side
+  explicitAttach f C
+
+Note: This theorem is exported from the current module. This requires that all definitions that need to be unfolded to prove this theorem must be exposed.
+'attach_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'attach_map' depends on axioms: [propext, Classical.choice, Quot.sound]

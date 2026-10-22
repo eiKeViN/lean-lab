@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env bash -c 'export LEAN_PATH=/workspace/lean-lab/results/boundary/shadow:$LEAN_PATH; lean -R /workspace/lean-lab/results/boundary/shadow -o /workspace/lean-lab/results/boundary/shadow/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.olean /workspace/lean-lab/results/boundary/shadow/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean'"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 6.276226163999922,
+  "user_seconds": 4.864724,
+  "system_seconds": 1.737022,
+  "max_rss_kib": 5289996
+}

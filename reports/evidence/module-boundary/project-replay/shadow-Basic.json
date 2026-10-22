@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "-R",
+    "/workspace/lean-lab/results/boundary/project-replay/shadow",
+    "-o",
+    "/workspace/lean-lab/results/boundary/project-replay/shadow/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.olean",
+    "/workspace/lean-lab/results/boundary/project-replay/shadow/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 6.086106773999973,
+  "user_seconds": 5.739668,
+  "system_seconds": 1.337782,
+  "max_rss_kib": 5312368
+}

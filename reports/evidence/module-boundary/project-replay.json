@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "research/module-boundary/run_project.py",
+    "results/boundary/project-replay"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 69.80205563100003,
+  "user_seconds": 57.829396,
+  "system_seconds": 21.752226,
+  "max_rss_kib": 7624356
+}

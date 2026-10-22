@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "/workspace/lean-lab/results/boundary/historical-fingerprint/FocusedStalkTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.573967331999938,
+  "user_seconds": 3.284202,
+  "system_seconds": 1.454866,
+  "max_rss_kib": 7634116
+}

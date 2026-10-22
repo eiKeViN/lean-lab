@@ -1,0 +1,2 @@
+/workspace/lean-lab/results/boundary/core-run/single/InferenceBoundary.lean:5:49: error: tactic execution is stuck, goal contains metavariables
+  ∀ (n : Nat), ?m.2 n

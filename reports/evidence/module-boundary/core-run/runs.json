@@ -1,0 +1,228 @@
+[
+  {
+    "label": "private-exposed",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/single",
+      "/workspace/lean-lab/results/boundary/core-run/single/PrivateBoundary.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/single",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "f59b488937950e16f2eaebc9e134e7f488da4e7d59916f3cc3b7f609547282ba",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "wall_seconds": 0.2405014900000424,
+    "max_child_rss_kib": 308828,
+    "expected_diagnostic": "would need to be public",
+    "pass": true
+  },
+  {
+    "label": "InferenceBoundary",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/single",
+      "/workspace/lean-lab/results/boundary/core-run/single/InferenceBoundary.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/single",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "980a3f71aa9c2c94a440211274de7c8ce2b2221bbce012b624a6e94e08d6f9e6",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "wall_seconds": 0.23526046999995742,
+    "max_child_rss_kib": 309448,
+    "expected_diagnostic": "tactic execution is stuck, goal contains metavariables",
+    "pass": true
+  },
+  {
+    "label": "InferenceExact",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/single",
+      "/workspace/lean-lab/results/boundary/core-run/single/InferenceExact.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/single",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "4d6554715469660ca6b63e08a86cd500cad463b60b18ae9c569228c2d0d662f4",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "wall_seconds": 0.2631864500000347,
+    "max_child_rss_kib": 311668,
+    "expected_diagnostic": "tactic execution is stuck, goal contains metavariables",
+    "pass": true
+  },
+  {
+    "label": "InferenceExplicit",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/single",
+      "/workspace/lean-lab/results/boundary/core-run/single/InferenceExplicit.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/single",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "55d1d68073ea5f4267ec35d5d67e897cd5cec9f015523745a31079ad6662bd28",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.24357191499996134,
+    "max_child_rss_kib": 311668,
+    "expected_diagnostic": null,
+    "pass": true
+  },
+  {
+    "label": "InferenceUnexposed",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/single",
+      "/workspace/lean-lab/results/boundary/core-run/single/InferenceUnexposed.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/single",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "2f6570a4504434958b37bf227751b0b565a7a1f44b581a114fc26c5fc3916c10",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.24934853000002022,
+    "max_child_rss_kib": 311668,
+    "expected_diagnostic": null,
+    "pass": true
+  },
+  {
+    "label": "InferenceTerm",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/single",
+      "/workspace/lean-lab/results/boundary/core-run/single/InferenceTerm.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/single",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "adb1832137ed4de41a6ccac7d9c525270a9b536a5ff9cc6dd713c79a6685a23d",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.23140267600001607,
+    "max_child_rss_kib": 311668,
+    "expected_diagnostic": null,
+    "pass": true
+  },
+  {
+    "label": "InferencePublicProof",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/single",
+      "/workspace/lean-lab/results/boundary/core-run/single/InferencePublicProof.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/single",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "02e1abb614f72060c4224b5c26cca5dcd2881a604c9a231c20ed9c3c943c560d",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.2287775770000735,
+    "max_child_rss_kib": 311668,
+    "expected_diagnostic": null,
+    "pass": true
+  },
+  {
+    "label": "Unexposed",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/private",
+      "-o",
+      "/workspace/lean-lab/results/boundary/core-run/private/Unexposed.olean",
+      "/workspace/lean-lab/results/boundary/core-run/private/Unexposed.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/private",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "2b71ab8718125fb6cf905861444b1f05df0ed60934b1aecc6ba0edf7102c7af3",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.2772961169999917,
+    "max_child_rss_kib": 319344,
+    "expected_diagnostic": null,
+    "pass": true
+  },
+  {
+    "label": "Inline",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/private",
+      "-o",
+      "/workspace/lean-lab/results/boundary/core-run/private/Inline.olean",
+      "/workspace/lean-lab/results/boundary/core-run/private/Inline.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/private",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "cea0bcff2640734f7b137133e0ead2f2eef5ccda5563f17782ef3fe033d41154",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.26485220100005336,
+    "max_child_rss_kib": 319344,
+    "expected_diagnostic": null,
+    "pass": true
+  },
+  {
+    "label": "PublicHelper",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/private",
+      "-o",
+      "/workspace/lean-lab/results/boundary/core-run/private/PublicHelper.olean",
+      "/workspace/lean-lab/results/boundary/core-run/private/PublicHelper.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/private",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "59cc87a10fd1bd0207da3acd4aefc62f36eb9ca802d33bed8eddaba74ba3f06a",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.259857555999929,
+    "max_child_rss_kib": 319344,
+    "expected_diagnostic": null,
+    "pass": true
+  },
+  {
+    "label": "UnexposedConsumer",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/core-run/private",
+      "/workspace/lean-lab/results/boundary/core-run/private/UnexposedConsumer.lean"
+    ],
+    "environment": {
+      "LEAN_PATH": "/workspace/lean-lab/results/boundary/core-run/private",
+      "LEAN_NUM_THREADS": "4"
+    },
+    "source_sha256": "c17ce00e6f3e84aba0dccc0d258e60fad4a1c04e6961f3dd7a5fa0d3c1d1c36a",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "wall_seconds": 0.23842939000007846,
+    "max_child_rss_kib": 319344,
+    "expected_diagnostic": "Not a definitional equality",
+    "pass": false
+  }
+]

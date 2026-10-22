@@ -1,0 +1,2 @@
+'_private._stdin.0.attach_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'attach_map' depends on axioms: [propext, Classical.choice, Quot.sound]

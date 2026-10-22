@@ -1,0 +1,216 @@
+research/module-boundary/StalkCodec.lean:36:6: error: invalid {...} notation, expected type is not known
+research/module-boundary/StalkCodec.lean:48:17: error: Function expected at
+  pure ?m.34
+but this term has type
+  ?m.31 ?m.33
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:49:16: error: Function expected at
+  pure ?m.65
+but this term has type
+  ?m.62 ?m.64
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:50:17: error: Function expected at
+  pure ?m.97
+but this term has type
+  ?m.94 ?m.96
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:51:18: error: Function expected at
+  pure ?m.118
+but this term has type
+  ?m.115 ?m.117
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:48:22: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.succ` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Fin.succ`
+  [apply] `Nat.succ`
+  [apply] `Level.succ`
+  [apply] `Std.PRange.succ`
+  [apply] `Level.PP.Result.succ`
+  [apply] `Std.Time.Internal.Bounded.LE.succ`
+research/module-boundary/StalkCodec.lean:49:21: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.max` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Array.max`
+  [apply] `List.max`
+  [apply] `max`
+  [apply] `Nat.max`
+  [apply] `Option.max`
+  [apply] `Level.max`
+  [apply] `RBMap.max`
+  [apply] `RBNode.max`
+  [apply] `RBTree.max`
+  [apply] `ToLevel.max`
+  [apply] `Std.ExtTreeSet.max`
+  [apply] `Std.TreeSet.max`
+  [apply] `Task.Priority.max`
+  [apply] `Meta.DiagSummary.max`
+  [apply] `Parser.Level.max`
+  [apply] `Try.Config.max`
+  [apply] `Std.Packages.LinearOrderOfLEArgs.max`
+  [apply] `Std.Packages.LinearOrderOfOrdArgs.max`
+  [apply] `Level.PP.Result.max`
+  [apply] `Meta.Rewrites.RewriteResultConfig.max`
+  [apply] `Std.Sat.AIG.RelabelNat.State.max`
+  [apply] `Std.Time.Internal.Bounded.LE.max`
+research/module-boundary/StalkCodec.lean:50:22: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.imax` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Level.imax`
+  [apply] `Nat.imax`
+  [apply] `ToLevel.imax`
+  [apply] `Parser.Level.imax`
+  [apply] `Level.PP.Result.imax`
+research/module-boundary/StalkCodec.lean:51:23: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.param` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Level.param`
+  [apply] `IR.LocalContextEntry.param`
+  [apply] `JsonRpc.Notification.param`
+  [apply] `JsonRpc.Request.param`
+  [apply] `Meta.FunIndParamKind.param`
+research/module-boundary/StalkCodec.lean:61:21: error: Function expected at
+  pure ?m.73
+but this term has type
+  ?m.70 ?m.72
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:62:21: error: Function expected at
+  pure ?m.92
+but this term has type
+  ?m.89 ?m.91
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:63:22: error: Function expected at
+  pure ?m.129
+but this term has type
+  ?m.126 ?m.128
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:64:20: error: Function expected at
+  pure ?m.147
+but this term has type
+  ?m.144 ?m.146
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:70:20: error: Function expected at
+  pure ?m.488
+but this term has type
+  ?m.485 ?m.487
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:71:20: error: Function expected at
+  pure ?m.529
+but this term has type
+  ?m.526 ?m.528
+
+Note: Expected a function because this term is being applied to the argument
+  (.natVal (__do_lift✝))
+research/module-boundary/StalkCodec.lean:72:20: error: Function expected at
+  pure ?m.550
+but this term has type
+  ?m.547 ?m.549
+
+Note: Expected a function because this term is being applied to the argument
+  (.strVal (__do_lift✝))
+research/module-boundary/StalkCodec.lean:73:21: error: Function expected at
+  pure ?m.586
+but this term has type
+  ?m.583 ?m.585
+
+Note: Expected a function because this term is being applied to the argument
+  (__do_lift✝)
+research/module-boundary/StalkCodec.lean:61:26: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.bvar` could not be determined
+
+Hint: Using `Expr.bvar would be unambiguous:
+  [apply] `Expr.bvar`
+research/module-boundary/StalkCodec.lean:62:26: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.sort` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Expr.sort`
+  [apply] `HeadIndex.sort`
+  [apply] `Data.AC.sort`
+  [apply] `Parser.Term.sort`
+  [apply] `Grind.AC.Seq.sort`
+research/module-boundary/StalkCodec.lean:63:27: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.const` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Function.const`
+  [apply] `Expr.const`
+  [apply] `HeadIndex.const`
+  [apply] `ParserDescr.const`
+  [apply] `Doc.DocHighlight.const`
+  [apply] `Lsp.CompletionIdentifier.const`
+  [apply] `Lsp.RefIdent.const`
+  [apply] `Omega.LinearCombo.const`
+  [apply] `Parser.AliasValue.const`
+  [apply] `Std.Do.ExceptConds.const`
+  [apply] `Std.Do.PredTrans.const`
+  [apply] `Compiler.LCNF.LetValue.const`
+  [apply] `Elab.Term.LValResolution.const`
+  [apply] `Meta.DiscrTree.Key.const`
+  [apply] `Meta.Grind.Filter.const`
+  [apply] `Meta.LazyDiscrTree.ImportFailure.const`
+  [apply] `Meta.LazyDiscrTree.Key.const`
+  [apply] `Std.Tactic.BVDecide.BVExpr.const`
+  [apply] `Std.Tactic.BVDecide.BoolExpr.const`
+  [apply] `Elab.Tactic.Grind.ExtraTheorem.const`
+research/module-boundary/StalkCodec.lean:64:25: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.app` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Expr.app`
+  [apply] `Parser.Term.app`
+  [apply] `Meta.Grind.SplitArg.app`
+research/module-boundary/StalkCodec.lean:70:25: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.letE` could not be determined
+
+Hint: Using `Expr.letE would be unambiguous:
+  [apply] `Expr.letE`
+research/module-boundary/StalkCodec.lean:71:25: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.lit` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Doc.lit`
+  [apply] `Expr.lit`
+  [apply] `HeadIndex.lit`
+  [apply] `IR.Expr.lit`
+  [apply] `Compiler.LCNF.LetValue.lit`
+  [apply] `Meta.DiscrTree.Key.lit`
+  [apply] `Meta.LazyDiscrTree.Key.lit`
+research/module-boundary/StalkCodec.lean:72:25: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.lit` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Doc.lit`
+  [apply] `Expr.lit`
+  [apply] `HeadIndex.lit`
+  [apply] `IR.Expr.lit`
+  [apply] `Compiler.LCNF.LetValue.lit`
+  [apply] `Meta.DiscrTree.Key.lit`
+  [apply] `Meta.LazyDiscrTree.Key.lit`
+research/module-boundary/StalkCodec.lean:73:26: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.proj` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Expr.proj`
+  [apply] `HeadIndex.proj`
+  [apply] `IR.Expr.proj`
+  [apply] `Meta.Config.proj`
+  [apply] `Meta.PProdN.proj`
+  [apply] `Parser.Term.proj`
+  [apply] `Compiler.LCNF.LetValue.proj`
+  [apply] `Meta.DSimp.Config.proj`
+  [apply] `Meta.DiscrTree.Key.proj`
+  [apply] `Meta.LazyDiscrTree.Key.proj`
+  [apply] `Meta.Simp.Config.proj`
+  [apply] `Parser.Sym.DSimp.proj`
+  [apply] `Compiler.LCNF.UnreachableBranches.Value.proj`

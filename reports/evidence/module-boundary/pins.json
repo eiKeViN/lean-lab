@@ -1,0 +1,12 @@
+{
+  "version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "source_files": {
+    "Lean/Elab/BuiltinTerm.lean": "8c05cb49c6f257458b4fd8e22495658c8982bc7ed421cfbad954f17e66d095b9",
+    "Lean/Elab/SyntheticMVars.lean": "e33b9ec83b5ca5108b910419fda0492a36a7837cb205d7594429fb6ed9ea22fc",
+    "Lean/Elab/MutualDef.lean": "73a278e79b6fa2a355c3076c40eec8f0cd607c8b68f21e1fa344b56d14e6c3b9",
+    "Lean/Meta/Match/Match.lean": "6d447f20c2a7bb9d9bbc26c8cac24f95baed700e13e2fc763a869765dcc44e8e",
+    "Lean/Elab/PreDefinition/Eqns.lean": "59644308b84ec8c1c6b8886b3524e239cc8a97aa6210feb6046b90eb126e1ee6"
+  },
+  "mathlib_head": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "mathlib_status": ""
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "-R",
+    "/workspace/lean-lab/research/module-boundary",
+    "-o",
+    "/workspace/lean-lab/results/boundary/project-replay/codec/StalkCodec.olean",
+    "/workspace/lean-lab/research/module-boundary/StalkCodec.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.4158994939998593,
+  "user_seconds": 1.251442,
+  "system_seconds": 0.341957,
+  "max_rss_kib": 1646596
+}

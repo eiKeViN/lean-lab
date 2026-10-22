@@ -1,0 +1,2 @@
+/workspace/lean-lab/research/module-boundary/AttachGeneric.lean:12:36: error: tactic execution is stuck, goal contains metavariables
+  ∀ (i : ℤ), ∀ m ∈ ?m.71 i, f.map m ∈ N.piece (i + 0)

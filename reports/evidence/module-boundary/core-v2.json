@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "research/module-boundary/run_core.py",
+    "results/boundary/core-run-v2"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 8.94173548599997,
+  "user_seconds": 6.39484,
+  "system_seconds": 2.568093,
+  "max_rss_kib": 1639096
+}

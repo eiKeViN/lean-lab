@@ -1,0 +1,3 @@
+/workspace/lean-lab/results/boundary/core-run-v3/single/PrivateBoundary.lean:4:48: error(lean.unknownIdentifier): Unknown identifier `quotientLinear`
+
+Note: A private declaration `quotientLinear` (from the current module) exists but would need to be public to access here.

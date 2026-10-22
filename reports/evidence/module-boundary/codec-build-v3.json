@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".cache/lean-4.34.1-linux/bin/lean",
+    "-R",
+    "research/module-boundary",
+    "-o",
+    "results/boundary/codec/StalkCodec.olean",
+    "research/module-boundary/StalkCodec.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 1.0697163560000718,
+  "user_seconds": 0.8981619999999999,
+  "system_seconds": 0.236729,
+  "max_rss_kib": 1631136
+}
