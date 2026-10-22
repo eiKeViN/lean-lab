@@ -118,7 +118,14 @@ coordinate witness lemmas are accepted for coherent statements, not size alone.
 condition in the exact-sequence formulation consumed by flat tensoring, rather
 than moving a large proof. It is not presented as a large complexity reduction.
 
-## Validation and retrieval
+## Extraction validation and retrieval
+
+The results in this section were captured for source/tooling commit
+`c8a5c201ce78bd3a17603d885cc8c78f283a5f40`, first published at
+`a1abd884603bb53d837df53b63e8fbb4d8adba14`. The G9 follow-up below records its
+separate, smaller checks; the original full-build/32-stage run is not relabelled
+as a run on the documentation correction. Retrieval figures retain their original
+pre-correction corpus and were not retuned.
 
 The final `lake build ForMathlib OAI` passed in **1171.704 s** with the
 fixed Lean 4.34.1 (`5045d0056413266e57c625dcd7c365b10e377c52`) and Mathlib
@@ -203,7 +210,61 @@ and compressed before/after/ablation corpora preserve the exact observation.
 No docstrings or queries were retuned after examining these rankings.
 
 
-## Costs and reproduction
+## Independent source review and G9 correction
+
+The independent source-only review covered all 24 new helper statements/proofs,
+all 21 rewritten-client diffs, relevant surrounding definitions, the report,
+coverage/index/plans and the existing sequence-shift API. It found no other
+blocking mathematical source issue. It did not independently rerun Lean or
+exhaustively search Mathlib for duplicates.
+
+G9, `Hilbert.le_of_homogeneous_pieces_le`, proves `T ≤ S` with `hhom` on T:
+**the homogeneous source is T; target S need not be homogeneous**. The Lean
+docstring, authoritative index metadata and regenerated index now say this.
+The adjacent `eq_of_value_eq` docstring still correctly refers to T as the target
+of that old client's given inclusion `S ≤ T`; frozen planning/evidence retain
+that historical client wording. The corrected source/index disambiguate the
+helper's reverse inclusion.
+
+Against published `a1abd884603bb53d837df53b63e8fbb4d8adba14`, exactly one
+three-line Lean docstring changed. Every declaration/signature/proof and all
+279 other tracked Lean sources are byte-identical. The source-evolution record
+and patch were refreshed for comment bytes; no type snapshot, validator code,
+allowlist, dependency pin or mathematical content changed.
+
+[Consistency and cache evidence](evidence/lemma-granularity-library/review-g9/consistency.json)
+and the separate [command ledger](evidence/lemma-granularity-library/review-g9/measurements.jsonl)
+record the fresh checks:
+
+- An isolated elaboration passed in 4.887 s without changing the 15 inspected
+  canonical artifacts. Only `Hilbert.Basic` was then rebuilt (8.716 s): its five
+  local cache/trace files changed; ten Stalks/UpperSections artifacts did not.
+- The ordinary `SemanticCorpus.lean` read the actual project cache and exported
+  2627 records. Only G9's `doc` field changed. Source and compiled docs match,
+  the index was regenerated, and the normal generator's `--check` passed.
+  No manually patched or hybrid corpus was used.
+- A fresh complete type export/comparison preserves all 3947 types. Fresh
+  81 + 16 named axiom queries pass; the main closure remains exactly the three
+  allowed axioms. All seven static stages pass. These are fresh cache imports,
+  not fresh elaboration of unchanged downstream proofs. The original full-build,
+  32-stage run and regression evidence above remain historical, not rerun here.
+- The read-only `lake --no-build build ForMathlib OAI` probe returns **exit 3**:
+  `Hilbert.Series` and legacy `ModuleAlgebra` need rebuilding. This is known
+  cache staleness, not a compiler or permission failure. The graph reaches
+  Stalks/UpperSections. **No full downstream rebuild or warm-readiness pass is
+  claimed for this follow-up.** Comment-only source identity plus the focused
+  compile and fresh docs/types/axioms suffice for this correction. A later full
+  check will rebuild normally; no trace was edited and no check was weakened.
+
+The 11 follow-up commands total 57.257 command-wall seconds and 64.917 child CPU
+seconds, including the intentional non-ready probe. Reliable token telemetry
+remains unavailable. The new corpus/hashes are archived in `review-g9`; prior
+measurement and retrieval evidence was not overwritten. Reproduce the focused
+doc check by building `ForMathlib.Algebra.Module.Graded.Hilbert.Basic`, exporting
+with the existing `SemanticCorpus.lean`, and running `render_lemma_index.py
+<new-corpus> --check`; the ledger retains exact executed commands for all checks.
+
+## Extraction costs and full reproduction
 
 [Timing summary](evidence/lemma-granularity-library/timing-summary.json),
 [command ledger](evidence/lemma-granularity-library/measurements.jsonl) and

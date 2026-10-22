@@ -1,0 +1,7 @@
+{
+  "base_commit": "a1abd884603bb53d837df53b63e8fbb4d8adba14",
+  "source_sha256": "10c5946aa53e8965269eef22c73404a1c34232c74174f24ec070952cea64b8fc",
+  "only_exact_docstring_changed": true,
+  "new_docstring": "/-- Componentwise inclusion reconstructs T \u2264 S when the source submodule T\nis homogeneous. This algebraic gluing step needs neither finiteness nor Hilbert\nconvergence, and makes no homogeneity assumption on the target S. -/",
+  "signature_and_proof_unchanged": true
+}

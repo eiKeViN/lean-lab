@@ -391,12 +391,12 @@ Applicability checks: no separate example in this pilot.
 
 [`OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L73)
 
-Componentwise inclusion reconstructs inclusion in a homogeneous target. This is the algebraic gluing step after degreewise information has been proved; no finiteness or Hilbert convergence hypothesis is needed.
+Componentwise inclusion reconstructs T ≤ S when the source submodule T is homogeneous. This algebraic gluing step needs neither finiteness nor Hilbert convergence, and makes no homogeneity assumption on the target S.
 
-Keywords: homogeneous components, submodule inclusion, decomposition.
+Keywords: homogeneous components, submodule inclusion, decomposition, homogeneous source submodule.
 Source client: [`OAI.KLInvariance.Hilbert.eq_of_value_eq`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L87) (L9).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean) at `a0b5b594`.
-Reason: Reconstruct submodule inclusion from componentwise inclusion and homogeneous target membership.
+Reason: Reconstruct T ≤ S from componentwise inclusion and homogeneity of the source submodule T; no homogeneity of the target S is required.
 Observed second production sites: none.
 Applicability checks: no separate example in this pilot.
 

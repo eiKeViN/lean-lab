@@ -436,9 +436,10 @@
       "keywords": [
         "homogeneous components",
         "submodule inclusion",
-        "decomposition"
+        "decomposition",
+        "homogeneous source submodule"
       ],
-      "reason": "Reconstruct submodule inclusion from componentwise inclusion and homogeneous target membership.",
+      "reason": "Reconstruct T \u2264 S from componentwise inclusion and homogeneity of the source submodule T; no homogeneity of the target S is required.",
       "applicability_tests": []
     },
     {

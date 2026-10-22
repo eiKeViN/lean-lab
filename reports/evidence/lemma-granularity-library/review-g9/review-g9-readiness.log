@@ -1,0 +1,14 @@
+✖ [8943/9186] Building ForMathlib.Algebra.Module.Graded.Hilbert.Series
+error: target is out-of-date and needs to be rebuilt
+⚠ [9015/9186] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:62:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✖ [9125/9186] Building OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra
+error: target is out-of-date and needs to be rebuilt
+Some required targets logged failures:
+- ForMathlib.Algebra.Module.Graded.Hilbert.Series
+- OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra

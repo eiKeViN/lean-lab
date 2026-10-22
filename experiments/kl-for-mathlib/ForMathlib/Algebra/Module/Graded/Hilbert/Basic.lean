@@ -67,9 +67,9 @@ theorem pieces_eq_of_value_eq (𝓜 : ℤ → Submodule k M)
     lt_of_le_of_ne (Submodule.finrank_mono (piece_mono 𝓜 h n)) hne
   exact (ne_of_lt (value_lt_of_piece_finrank_lt 𝓜 h hq hT n hlt)) hv
 
-/-- Componentwise inclusion reconstructs inclusion in a homogeneous target.
-This is the algebraic gluing step after degreewise information has been proved;
-no finiteness or Hilbert convergence hypothesis is needed. -/
+/-- Componentwise inclusion reconstructs T ≤ S when the source submodule T
+is homogeneous. This algebraic gluing step needs neither finiteness nor Hilbert
+convergence, and makes no homogeneity assumption on the target S. -/
 theorem le_of_homogeneous_pieces_le (𝓜 : ℤ → Submodule k M) [DirectSum.Decomposition 𝓜]
     {S T : Submodule k M}
     (hhom : ∀ n m, m ∈ T → (DirectSum.decompose 𝓜 m n : M) ∈ T)
