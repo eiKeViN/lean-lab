@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "shake",
+    "--keep-public",
+    "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 7.9976620639999965,
+  "user_seconds": 15.761315,
+  "system_seconds": 2.79238,
+  "max_rss_kib": 2780744
+}

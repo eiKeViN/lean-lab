@@ -6,6 +6,7 @@ from unittest.mock import patch
 import proof_evolution as ev
 import compare_types as types
 from migrate import pristine_products
+from module_integration import legacy_source
 
 REAL=ev.HERE
 PRISTINE=pristine_products()
@@ -19,7 +20,7 @@ class EvolutionChecks(unittest.TestCase):
         for name in ['lemma-pilot.json','proof-evolution.json','proof-evolution.patch','additional-types.json']:
             (self.root/name).write_bytes((REAL/name).read_bytes())
         for path in ev.policy()['pristine_files']:
-            target=self.root/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((REAL/path).read_bytes())
+            target=self.root/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(legacy_source(path, (REAL/path).read_bytes()))
         for name,value in [('HERE',self.root),('POLICY',self.root/'lemma-pilot.json'),('MANIFEST',self.root/'proof-evolution.json')]:
             p=patch.object(ev,name,value);p.start();self.addCleanup(p.stop)
 

@@ -1,0 +1,81 @@
+{
+  "final_stage_count": 37,
+  "all_final_stages_passed": true,
+  "original_types": 3902,
+  "added_types": 45,
+  "modern_public_types": 11,
+  "public_comparison": {
+    "old_count": 11,
+    "new_count": 11,
+    "missing": [],
+    "added": [],
+    "changed": [],
+    "relocated": 9,
+    "passed": true
+  },
+  "full_build_wall_seconds": 2163.25725329,
+  "first_acceptance": {
+    "command": [
+      "bash",
+      "scripts/check.sh"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2288.7194964140003,
+    "user_seconds": 2455.892493,
+    "system_seconds": 279.092822,
+    "max_rss_kib": 7779876
+  },
+  "final_acceptance": {
+    "command": [
+      "bash",
+      "scripts/check.sh",
+      "warm"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 133.40570423200006,
+    "user_seconds": 104.715378,
+    "system_seconds": 38.268266,
+    "max_rss_kib": 7782464
+  },
+  "final_no_build_readiness": {
+    "label": "oai-ready",
+    "command": [
+      "lake",
+      "--no-build",
+      "build",
+      "ForMathlib",
+      "OAI"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 3.992855782999868,
+    "user_seconds": 4.816502,
+    "system_seconds": 2.2328329999999994,
+    "children_max_rss_kib_so_far": 995328
+  },
+  "final_no_change_build": {
+    "label": "warm-build",
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib",
+      "OAI"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 3.8217299920006553,
+    "user_seconds": 4.433589999999995,
+    "system_seconds": 2.108165999999997,
+    "children_max_rss_kib_so_far": 7782464
+  },
+  "token_telemetry": null,
+  "regression_tests": {
+    "comparator": 31,
+    "source_partitions": 14,
+    "proof_evolution": 30,
+    "module_integration": 7,
+    "offline_failure_paths": 18
+  },
+  "fresh_compiled_docstrings_checked": 45,
+  "no_other_production_edits_required": true
+}

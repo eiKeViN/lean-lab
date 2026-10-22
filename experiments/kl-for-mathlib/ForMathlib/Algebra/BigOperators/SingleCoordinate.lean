@@ -1,4 +1,10 @@
-import Mathlib
+module
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Algebra.Polynomial.Basic
+public import Mathlib.Tactic.Ring
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.BigOperators.SingleCoordinate. Source spans: DyerPaths:1, SimultaneousInvariance:5/weighted-difference.
 See migration.json and MIGRATION.md for exact provenance.

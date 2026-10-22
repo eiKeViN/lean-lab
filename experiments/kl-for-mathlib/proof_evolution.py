@@ -179,7 +179,8 @@ def overlay(files):
         raise RuntimeError('Unexpected evolved file allowlist')
     patches = []
     for path, expected in p['pristine_files'].items():
-        before = files[path]; after = (HERE/path).read_bytes(); item = record['files'][path]
+        from module_integration import legacy_source
+        before = files[path]; after = legacy_source(path, (HERE/path).read_bytes()); item = record['files'][path]
         if sha(before) != expected or item['pristine_sha256'] != expected:
             raise RuntimeError('Pristine reconstruction changed: '+path)
         if sha(after) != item['active_sha256'] or before == after:
@@ -204,7 +205,7 @@ def overlay(files):
     for sample in samples():
         name = sample['declaration'].rsplit('.', 1)[-1]
         headers = []
-        for body in (pristine[sample['path']].decode(), (HERE/sample['path']).read_text()):
+        for body in (pristine[sample['path']].decode(), legacy_source(sample['path'], (HERE/sample['path']).read_bytes()).decode()):
             matches = list(re.finditer(r'\b(?:theorem|lemma)\s+'+re.escape(name)+r'\b', body))
             if len(matches) != 1: raise RuntimeError('Ambiguous old theorem header: '+name)
             start = matches[0].start(); end = body.index(':= by', start)
@@ -248,9 +249,10 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--record',action='store_true');parser.add_argument('--check',action='store_true');parser.add_argument('--compare');args=parser.parse_args()
     if args.record:
         from migrate import pristine_products
+        from module_integration import legacy_source
         p=policy();files=pristine_products();items={};patches=[]
         for path, expected in p['pristine_files'].items():
-            before=files[path];after=(HERE/path).read_bytes()
+            before=files[path];after=legacy_source(path, (HERE/path).read_bytes())
             if sha(before)!=expected:raise RuntimeError('Wrong pristine baseline: '+path)
             items[path]=dict(pristine_sha256=expected,active_sha256=sha(after))
             patches.append(difference(path,before,after))

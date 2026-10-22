@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/results/module-integration/focused-owned.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.950795286000357,
+  "user_seconds": 1.335626,
+  "system_seconds": 0.620763,
+  "max_rss_kib": 1985576
+}

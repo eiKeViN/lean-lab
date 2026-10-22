@@ -133,6 +133,18 @@ check. Replay verifies frozen evidence; it does not re-elaborate old Lean source
 The candidate-only import harness rejects any OAI module import;
 other import, behavior and axiom checks remain active.
 
+
+The [three-file module integration](../../reports/module-integration.md) migrates
+SingleCoordinate and the two kernel-transport files. Its exact syntax manifest is
+`module-integration.json`; `module-import-graph.json` records module status and
+explicit public/meta/import-all modifiers. The original implementation exporter
+remains unchanged. `ModernPublicTypes.lean` separately checks the eleven selected
+public types and original declaration kinds; `ModernCompatChecks.lean` checks the
+old kernel reductions in a modern consumer; `LegacyKernelEntryChecks.lean` tests
+both original kernel entrypoints. SingleCoordinate intentionally uses
+four conservative focused Mathlib imports, so arbitrary unrelated Mathlib content
+is no longer an implicit contract of that focused path.
+
 The exact Lean 4.34.1 toolchain and pinned Mathlib checkout/artifacts are reused.
 Missing Mathlib artifacts fail before local compilation. Renamed local modules
 are genuinely re-elaborated; .olean files are not relabelled or transplanted.
@@ -206,3 +218,7 @@ Baseline source hashes are checked. It is not a cold historical build and cannot
 establish a speedup. Earlier benchmark modes remain available; prefer recorded
 results to routinely repeating them. The current report separates new editing/
 validation work, failed actions, dependency invalidation and already-built tooling.
+
+The earlier proof-only timing scripts now encounter module/import changes in the
+selected files; their historical timing interpretation does not carry over to
+current runs. Use the recorded integration checks for current acceptance.

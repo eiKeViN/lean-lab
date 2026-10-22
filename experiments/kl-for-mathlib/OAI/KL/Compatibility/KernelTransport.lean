@@ -1,4 +1,7 @@
-import ForMathlib.LinearAlgebra.KernelTransport
+module
+public import ForMathlib.LinearAlgebra.KernelTransport
+
+public section
 
 /-! Preserve the original KL kernel-transport names and explicit types. -/
 
@@ -13,7 +16,7 @@ variable {R : Type ur} [Ring R]
   {N : Type un} [AddCommGroup N] [Module R N]
   {P : Type up} [AddCommGroup P] [Module R P]
 
-def kernelSourceEquiv (f : M →ₗ[R] P) (e : M ≃ₗ[R] N) :
+@[expose] def kernelSourceEquiv (f : M →ₗ[R] P) (e : M ≃ₗ[R] N) :
     LinearMap.ker f ≃ₗ[R] LinearMap.ker (f.comp e.symm.toLinearMap) :=
   _root_.OAI.LinearEquiv.kernelSourceEquiv f e
 
@@ -30,7 +33,7 @@ variable {R : Type ur} [Ring R]
   {N : Type un} [AddCommGroup N] [Module R N]
   {P : Type up} [AddCommGroup P] [Module R P]
 
-def kernelTargetEquiv (f : M →ₗ[R] N) (e : N ≃ₗ[R] P) :
+@[expose] def kernelTargetEquiv (f : M →ₗ[R] N) (e : N ≃ₗ[R] P) :
     LinearMap.ker f ≃ₗ[R] LinearMap.ker (e.toLinearMap.comp f) :=
   _root_.OAI.LinearEquiv.kernelTargetEquiv f e
 
@@ -48,7 +51,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {P : Type up} [AddCommGroup P] [Module k P] [Module A P] [IsScalarTower k A P]
   {Q : Type uq} [AddCommGroup Q] [Module k Q]
 
-def kernelMixedEquiv (f : M →ₗ[A] P) (e : M ≃ₗ[A] N) (g : P ≃ₗ[k] Q) :
+@[expose] def kernelMixedEquiv (f : M →ₗ[A] P) (e : M ≃ₗ[A] N) (g : P ≃ₗ[k] Q) :
     LinearMap.ker f ≃ₗ[k] LinearMap.ker
       (g.toLinearMap.comp ((f.comp e.symm.toLinearMap).restrictScalars k)) :=
   _root_.OAI.LinearEquiv.kernelMixedEquiv f e g

@@ -10,7 +10,7 @@
   "total_product_modules": 261,
   "core_direct_import_edges": 363,
   "candidate_to_project_edges": [],
-  "physical_implementation_lines": 43908,
+  "physical_implementation_lines": 43920,
   "median_implementation_lines": 134,
   "module_lines": {
     "OAI.KL.BottSamelson.AdjointSheaf": 1041,
@@ -189,7 +189,7 @@
     "ForMathlib.Algebra.Order.Field.RealScaling": 54,
     "ForMathlib.Algebra.Module.Quotient.KernelReduction": 67,
     "ForMathlib.Algebra.Polynomial.ScaledEvaluation": 58,
-    "ForMathlib.Algebra.BigOperators.SingleCoordinate": 83,
+    "ForMathlib.Algebra.BigOperators.SingleCoordinate": 89,
     "ForMathlib.Algebra.Module.Submodule.ProductScaling": 67,
     "ForMathlib.Algebra.Module.Submodule.PiIdeal": 31,
     "ForMathlib.Algebra.Module.Graded.Basis": 99,
@@ -218,7 +218,7 @@
     "OAI.KL.BottSamelson.StalkCharacter": 157,
     "OAI.KL.BottSamelson.Flabby": 90,
     "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps": 151,
-    "ForMathlib.LinearAlgebra.KernelTransport": 86,
-    "OAI.KL.Compatibility.KernelTransport": 60
+    "ForMathlib.LinearAlgebra.KernelTransport": 89,
+    "OAI.KL.Compatibility.KernelTransport": 63
   }
 }

@@ -1,5 +1,8 @@
 # Verification records
 
+The [three-file production integration](module-integration.md) connects the module
+pilot to exact source transforms, split audits and real downstream validation.
+
 The bounded [import/module pilot](module-import-pilot.md) records four-grid,
 visibility compatibility, and incremental-build experiments on the pinned baseline.
 

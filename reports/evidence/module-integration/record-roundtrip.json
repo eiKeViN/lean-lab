@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "experiments/kl-for-mathlib/proof_evolution.py",
+    "--record"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.8519801170004939,
+  "user_seconds": 0.81709,
+  "system_seconds": 0.036849,
+  "max_rss_kib": 27768
+}

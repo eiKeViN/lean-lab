@@ -1,0 +1,5 @@
+OAI.KLInvariance.weighted_sum_single.{u, v} {V : Type u} [Fintype V] {C : Type v} [CommRing C] (t : V) (m f : V → C)
+  (hm : m t = 1) (hf : ∀ (y : V), y ≠ t → f y = 0) : ∑ y, m y * f y = f t
+OAI.KLInvariance.Comparison.matrix_difference_le.{u_1} {V : Type u_1} [Fintype V] (a v w : V → ℝ) (x : V) (p p' : ℝ)
+  (hdiag : a x = 1) (hvw : ∀ (y : V), y ≠ x → v y = w y) (hp : p ≤ ∑ y, a y * v y) (hp' : p' = ∑ y, a y * w y) :
+  p - p' ≤ v x - w x

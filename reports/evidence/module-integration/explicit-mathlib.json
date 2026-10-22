@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/results/module-integration/explicit-mathlib.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.636012468999979,
+  "user_seconds": 3.122518,
+  "system_seconds": 1.509642,
+  "max_rss_kib": 7291332
+}

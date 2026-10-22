@@ -10,9 +10,12 @@ HERE=Path(__file__).resolve().parent
 m=json.loads((HERE/'migration.json').read_text())
 a=json.loads((HERE/'upstream-assessment.json').read_text())
 from proof_evolution import active_modules
+from module_integration import graph
+import_graph=graph()
+(HERE/'module-import-graph.json').write_text(json.dumps(import_graph,indent=2)+'\n')
 g={n:x['imports'] for n,x in active_modules(m['modules']).items()}
 for name in ['ForMathlib.LinearAlgebra.KernelTransport','OAI.KL.Compatibility.KernelTransport']:
- g[name]=re.findall(r'^import ((?:OAI|ForMathlib)[.].+)$',(HERE/(name.replace('.','/')+'.lean')).read_text(),re.M)
+ g[name]=[e['module'] for e in import_graph[name]['imports'] if e['module'].startswith(('OAI.','ForMathlib.'))]
 candidate={n for n in g if n.startswith('ForMathlib.')};project=set(g)-candidate
 bad=[(n,d) for n in candidate for d in g[n] if d not in candidate]
 if bad:raise RuntimeError('Candidate-to-project dependency: '+repr(bad))
@@ -28,7 +31,10 @@ lines+=['','The full machine-readable inventory, current basis and candidate pre
 lines=['digraph Staging {','graph [rankdir=LR, label="Imported module → consumer; candidate layer may not import project layer", labelloc=t];','node [shape=box, style=filled, fontsize=9];']
 for n in sorted(g):lines.append(json.dumps(n)+' [fillcolor="'+('#dbeafe' if n in candidate else '#fee2e2')+'", label='+json.dumps(n)+'];')
 for n,ds in sorted(g.items()):
- for d in ds:lines.append(json.dumps(d)+' -> '+json.dumps(n)+';')
+ for d in ds:
+  edge=next(e for e in import_graph[n]['imports'] if e['module']==d)
+  flags=', '.join(k for k in ('public','meta','all') if edge[k]) or ('module import' if import_graph[n]['module'] else 'legacy import')
+  lines.append(json.dumps(d)+' -> '+json.dumps(n)+' [label='+json.dumps(flags)+'];')
 lines.append('}');(HERE/'DEPENDENCIES.dot').write_text('\n'.join(lines)+'\n')
 # A current-path guide complements CLASSIFICATION's historical source index.
 lines=['# Current module guide','','Use `import OAI.KL` for the application theorem. Use a focused `ForMathlib.*`',
@@ -45,7 +51,7 @@ for group,names in groups.items():
  lines+=['## '+group,'','| Current implementation | Declaration anchors |','| --- | --- |']
  for n in names:
   path=n.replace('.','/')+'.lean';text=(HERE/path).read_text()
-  anchors=re.findall(r'^\s*(?:(?:noncomputable|private|protected)\s+)*(?:def|theorem|lemma|abbrev|instance|structure|class)\s+([^\s:({]+)',text,re.M)
+  anchors=re.findall(r'^\s*(?:@\[expose\]\s+)?(?:(?:noncomputable|private|protected)\s+)*(?:def|theorem|lemma|abbrev|instance|structure|class)\s+([^\s:({]+)',text,re.M)
   lines.append('| [`'+n+'`]('+path+') | '+', '.join('`'+a+'`' for a in anchors[:3])+' |')
 lines+=['','## Published compatibility imports','','These files contain imports only; implementations use current homes directly.','',
  '| Compatibility path | Current imports |','| --- | --- |']

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "LEAN_TYPES_OUT=/workspace/lean-lab/results/module-integration/scoped-types.tsv",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/IntegrationImplementation.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 10.097030943999926,
+  "user_seconds": 7.902341,
+  "system_seconds": 2.3359579999999998,
+  "max_rss_kib": 7634964
+}

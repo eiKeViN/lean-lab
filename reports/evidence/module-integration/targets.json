@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake build ForMathlib.Algebra.BigOperators.SingleCoordinate ForMathlib.LinearAlgebra.KernelTransport OAI.KL.Compatibility.KernelTransport"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 11.06529665700009,
+  "user_seconds": 11.875812,
+  "system_seconds": 3.712244,
+  "max_rss_kib": 3106128
+}

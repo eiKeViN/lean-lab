@@ -12,12 +12,12 @@ The library round adds twenty-four lemmas and rewrites twenty-one old proofs.
 
 ## C1 — `weighted_sum_exchange`
 
-[`OAI.KLInvariance.weighted_sum_exchange`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L16)
+[`OAI.KLInvariance.weighted_sum_exchange`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L22)
 
 Exchange two finite weighted sums by distributivity and commutativity. This isolates bilinear reindexing from the cancellation argument.
 
 Keywords: finite sums, bilinear weights, exchange.
-Source client: [`OAI.KLInvariance.finite_character_cancellation`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L37) (S1).
+Source client: [`OAI.KLInvariance.finite_character_cancellation`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L43) (S1).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a234ae5be6f77763e2014aad2cddd69e6aa50755/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean) at `a234ae5b`.
 Reason: The reindexing calculation is independent of the distinguished coordinate and cancellation hypothesis.
 Observed second production sites: none.
@@ -25,12 +25,12 @@ Applicability checks: no separate example in this pilot.
 
 ## C2 — `weighted_sum_single`
 
-[`OAI.KLInvariance.weighted_sum_single`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L28)
+[`OAI.KLInvariance.weighted_sum_single`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L34)
 
 A finite weighted sum supported at a single coordinate equals its surviving value when that weight is one. Apply after the other coordinate errors vanish.
 
 Keywords: finite support, single coordinate, normalized weight, error cancellation.
-Source client: [`OAI.KLInvariance.finite_character_cancellation`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L37) (S1).
+Source client: [`OAI.KLInvariance.finite_character_cancellation`](ForMathlib/Algebra/BigOperators/SingleCoordinate.lean#L43) (S1).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a234ae5be6f77763e2014aad2cddd69e6aa50755/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean) at `a234ae5b`.
 Reason: One statement handles both the character error sum and the coordinate-difference sum.
 Observed second production sites: `OAI.KLInvariance.Comparison.matrix_difference_single` (S2).

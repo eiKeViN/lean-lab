@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "base_commit": "3beae71a3edd8a817821d6f84eb49a9bb1a4681c",
+  "files": {
+    "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean": {
+      "imports": [
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Algebra.Polynomial.Basic",
+        "Mathlib.Tactic.Ring"
+      ],
+      "expose": [],
+      "before_sha256": "ee31f8a1644a0de3001b841a4ce9742b028464fa4c99e287d668b8c0e2327518",
+      "after_sha256": "3875d45402e41af195c5a240175abe4f97c054778dc2548a8710943c40e1f24d"
+    },
+    "ForMathlib/LinearAlgebra/KernelTransport.lean": {
+      "imports": [
+        "Mathlib"
+      ],
+      "expose": [
+        "kernelSourceEquiv",
+        "kernelTargetEquiv",
+        "kernelMixedEquiv"
+      ],
+      "before_sha256": "62aff252cb500b11ff4f2a62d4bb9f5d73f43d2c615f2be07611af0912aad292",
+      "after_sha256": "dc83913516dc6d3e90fb0b653d76efff4fe506c2f30b4d61f26a82fc60018438"
+    },
+    "OAI/KL/Compatibility/KernelTransport.lean": {
+      "imports": [
+        "ForMathlib.LinearAlgebra.KernelTransport"
+      ],
+      "expose": [
+        "kernelSourceEquiv",
+        "kernelTargetEquiv",
+        "kernelMixedEquiv"
+      ],
+      "before_sha256": "954b7beeda2abd61a4eca74248800869339cffb3e8fddbb6d07ebc61c8f5538e",
+      "after_sha256": "925af4a80052374936590ca410b4e0b25d6d96a91a84ea84f33018e7978e9bf3"
+    }
+  }
+}

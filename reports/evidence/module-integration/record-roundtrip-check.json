@@ -1,0 +1,13 @@
+{
+  "before": {
+    "proof-evolution.json": "36cc01b5f9dd6cea7d277be538a2e4a2a9f3575b7e3d2848c3f2de9ccf1d4dd8",
+    "proof-evolution.patch": "ef79378d2bec467a1237fbb83f62f966aaf0741635202a935f5d9d49ad7154be",
+    "additional-types.json": "b39deefb8632098e38264682b4eb673ef37869a8ce89cc582de1fdbf6021b33c"
+  },
+  "after": {
+    "proof-evolution.json": "36cc01b5f9dd6cea7d277be538a2e4a2a9f3575b7e3d2848c3f2de9ccf1d4dd8",
+    "proof-evolution.patch": "ef79378d2bec467a1237fbb83f62f966aaf0741635202a935f5d9d49ad7154be",
+    "additional-types.json": "b39deefb8632098e38264682b4eb673ef37869a8ce89cc582de1fdbf6021b33c"
+  },
+  "byte_identical": true
+}
