@@ -1,0 +1,56 @@
+{
+  "baseline_count": 2587,
+  "final_count": 2595,
+  "baseline_replay_identical": true,
+  "ablation": "Only the eight expansion docstrings removed; earlier five retained.",
+  "queries": [
+    {
+      "query": "two reflection product displacement root span",
+      "parent": "OAI.KLInvariance.ReflectionPlane.range_preReflection_product_sub_id",
+      "target": "OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply",
+      "before_parent_rank": 1,
+      "after_target_rank": 1,
+      "ablation_target_rank": 17
+    },
+    {
+      "query": "normalized root plane quadratic combination norm",
+      "parent": "OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane",
+      "target": "OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff",
+      "before_parent_rank": 3,
+      "after_target_rank": 1,
+      "ablation_target_rank": 1
+    },
+    {
+      "query": "single support annihilator stalk projection kernel",
+      "parent": "OAI.KLInvariance.IntegralSupport.supported_iff_annihilates",
+      "target": "OAI.KLInvariance.IntegralSupport.supported_of_annihilates",
+      "before_parent_rank": 4,
+      "after_target_rank": 2,
+      "ablation_target_rank": 99
+    },
+    {
+      "query": "isomorphism lower image inverse edge membership",
+      "parent": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.scaledImages",
+      "target": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
+      "before_parent_rank": null,
+      "after_target_rank": 1,
+      "ablation_target_rank": 9
+    },
+    {
+      "query": "scaled upper image inverse isomorphism scalar",
+      "parent": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.scaledImages",
+      "target": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm",
+      "before_parent_rank": 66,
+      "after_target_rank": 1,
+      "ablation_target_rank": 4
+    },
+    {
+      "query": "complementary positive root spans given plane",
+      "parent": "OAI.KLInvariance.TitsSpace.PlaneBasis.coset_structure_scaledImages",
+      "target": "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement",
+      "before_parent_rank": 316,
+      "after_target_rank": 4,
+      "ablation_target_rank": 53
+    }
+  ]
+}

@@ -56,24 +56,39 @@ variable [IsDomain R] [∀ x, Module.IsTorsionFree R (A x)] (hp : p ≠ 0)
   (hbalanced : ∀ x m n, d (cut M p hcut x m) n = d m (cut M p hcut x n))
 
 include hp hbalanced in
+/-- A single-supported section pairs to zero with the kernel of its stalk
+projection. Balanced cuts and a nonzero scalar give this integrally, without
+passing to a fraction field. -/
+theorem annihilates_of_supported (x : V) (m : M) (hm : m ∈ supported M x) :
+    ∀ n : M, projection M x n = 0 → d m n = 0 := by
+  intro n hn
+  have hh := hbalanced x m n
+  rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
+  simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
+
+include hp hbalanced in
+/-- Annihilating the stalk-projection kernel forces single support. Perfectness
+kills each other balanced cut, and torsion-freeness removes its nonzero scalar;
+this is the integral converse to the supported-section pairing argument. -/
+theorem supported_of_annihilates (x : V) (m : M)
+    (hm : ∀ n : M, projection M x n = 0 → d m n = 0) : m ∈ supported M x := by
+  intro y hy
+  have hc : cut M p hcut y m = 0 := by
+    apply d.injective
+    apply LinearMap.ext
+    intro n
+    rw [hbalanced]
+    simpa only [map_zero,LinearMap.zero_apply] using
+      hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
+  have hv := congrArg (fun s : M => s.val y) hc
+  simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
+
+include hp hbalanced in
 /-- The exact integral annihilator, not merely its generic vector space. -/
  theorem supported_iff_annihilates (x : V) (m : M) :
     m ∈ supported M x ↔ ∀ n : M, projection M x n = 0 → d m n = 0 := by
-  constructor
-  · intro hm n hn
-    have hh := hbalanced x m n
-    rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
-    simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
-  · intro hm y hy
-    have hc : cut M p hcut y m = 0 := by
-      apply d.injective
-      apply LinearMap.ext
-      intro n
-      rw [hbalanced]
-      simpa only [map_zero,LinearMap.zero_apply] using
-        hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
-    have hv := congrArg (fun s : M => s.val y) hc
-    simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
+  exact ⟨annihilates_of_supported M p hcut hp d hbalanced x m,
+    supported_of_annihilates M p hcut hp d hbalanced x m⟩
 
 /-- Precomposition with a surjective stalk projection gives the integral
 single-support module. No field extension was used anywhere in this map. -/

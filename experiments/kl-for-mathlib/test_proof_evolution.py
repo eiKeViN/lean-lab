@@ -42,6 +42,18 @@ class EvolutionChecks(unittest.TestCase):
         path=next(iter(ev.policy()['pristine_files']));f=self.root/path;f.write_text(f.read_text()+'\n')
         with self.assertRaisesRegex(RuntimeError,'Unrecorded active'):ev.overlay(dict(PRISTINE))
 
+    def test_reject_rebound_first_round_source(self):
+        path=next(iter(ev.policy()['prior_active_files']));f=self.root/path
+        f.write_text(f.read_text()+'\n');self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'frozen first-round'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_rebound_first_round_type(self):
+        f=self.root/'additional-types.json';data=json.loads(f.read_text())
+        data[next(iter(data))]['type']='0'*64;f.write_text(json.dumps(data))
+        record=json.loads(ev.MANIFEST.read_text());record['additional_types_sha256']=ev.sha(f.read_bytes());ev.MANIFEST.write_text(json.dumps(record))
+        with self.assertRaisesRegex(RuntimeError,'retained first-round added types'):
+            self.compare_mock({**OLD,**ADDED})
+
     def test_reject_unlisted_file(self):
         r=json.loads(ev.MANIFEST.read_text());r['files']['Extra.lean']={};ev.MANIFEST.write_text(json.dumps(r))
         with self.assertRaisesRegex(RuntimeError,'allowlist'):ev.overlay(dict(PRISTINE))
@@ -57,23 +69,38 @@ class EvolutionChecks(unittest.TestCase):
     def test_reject_rebound_old_statement(self):
         f=self.root/'ForMathlib/Algebra/BigOperators/SingleCoordinate.lean';text=f.read_text()
         self.assertIn('(hm : m t=1)',text);f.write_text(text.replace('(hm : m t=1)','(hm : m t=2)',1));self.bind_sources()
-        with patch.object(ev,'edit_scope',return_value=None):
+        with patch.object(ev,'edit_scope',return_value=None), patch.object(ev,'check_prior_source',return_value=None):
             with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_unsampled_proof_edit(self):
         f=self.root/'ForMathlib/Algebra/BigOperators/SingleCoordinate.lean';text=f.read_text()
         self.assertIn("exact sub_le_sub hp hp'.ge",text)
         f.write_text(text.replace("exact sub_le_sub hp hp'.ge","simpa using sub_le_sub hp hp'.ge",1));self.bind_sources()
+        with patch.object(ev,'check_prior_source',return_value=None):
+            with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_rebound_expansion_unsampled_proof(self):
+        f=self.root/'ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean';text=f.read_text()
+        self.assertIn('simp [h]',text)
+        f.write_text(text.replace('simp [h]','simpa [h]',1));self.bind_sources()
         with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_rebound_expansion_statement(self):
+        f=self.root/'ForMathlib/LinearAlgebra/Reflection/Plane.lean';text=f.read_text()
+        needle='(hfg : LinearIndependent k ![f, g]) :\n    LinearMap.range'
+        self.assertIn(needle,text)
+        f.write_text(text.replace(needle,'(hfg : LinearIndependent k ![g, f]) :\n    LinearMap.range',1));self.bind_sources()
+        with patch.object(ev,'edit_scope',return_value=None):
+            with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_private_axiom(self):
         path=next(iter(ev.policy()['pristine_files']));f=self.root/path;f.write_text(f.read_text()+'\nprivate axiom hidden : False\n');self.bind_sources()
-        with patch.object(ev,'edit_scope',return_value=None):
+        with patch.object(ev,'edit_scope',return_value=None), patch.object(ev,'check_prior_source',return_value=None):
             with self.assertRaisesRegex(RuntimeError,'proof-bypass'):ev.overlay(dict(PRISTINE))
 
     def test_reject_new_global_attribute(self):
         path=next(iter(ev.policy()['pristine_files']));f=self.root/path;f.write_text(f.read_text()+'\nattribute [simp] Nat.add_comm\n');self.bind_sources()
-        with patch.object(ev,'edit_scope',return_value=None):
+        with patch.object(ev,'edit_scope',return_value=None), patch.object(ev,'check_prior_source',return_value=None):
             with self.assertRaisesRegex(RuntimeError,'attributes'):ev.overlay(dict(PRISTINE))
 
     def test_reject_missing_old_api(self):

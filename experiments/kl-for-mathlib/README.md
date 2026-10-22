@@ -87,10 +87,12 @@ Changes to file responsibility preserve complete declarations and proofs:
   remain below grading.
 
 The architecture migration rewrote no mathematical statement or proof body.
-The active [lemma-granularity pilot](../../reports/lemma-granularity.md) now extracts
-five lemmas and rewrites four proofs, preserving all 3902 old API types and checking
-the five additions separately. `proof-evolution.json` binds three precise source
-exceptions and their diff; all other products remain pristine reconstructions.
+The active [expanded lemma-granularity pilot](../../reports/lemma-granularity-expansion.md)
+now has thirteen lemmas and nine rewritten proofs across both rounds. All 3902
+original API types and the first five added types are preserved; eight new types
+are listed separately in the cumulative snapshot. `proof-evolution.json` binds
+seven precise source exceptions and their diff; the first three remain additionally
+frozen to the first-round active hashes. All other products remain pristine reconstructions.
 The earlier 76 explicit
 instance-name annotations and single local instance attribute are inherited.
 `migration.json` and `migrate.py --check` bind all 525 immutable parent units and
@@ -115,7 +117,7 @@ For static checks: add `--static`. With warm OAI and candidate artifacts:
 evidence without running Lean. The old `--refresh-reference` option is retired;
 there is no second project to recompile.
 The unchanged hash-bound reference still covers 3902 old declarations. The active
-pilot requires exactly those types plus the five explicitly listed theorem types
+pilot requires exactly those types plus the thirteen explicitly listed theorem types
 in `additional-types.json`; it does not replace the old snapshot.
 The comparator and all 31 adversarial tests are inherited byte-for-byte.
 Relative to the original architecture exporter, the sole difference remains the
@@ -173,9 +175,29 @@ python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/after-corpus.
 python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/after-corpus.json" --query "weighted finite sum single surviving coordinate"
 ```
 
-The full checker includes 16 source/API evolution rejection tests, the original
-31 comparator tests, the original 16 axiom closures and nine pilot closures.
+The full checker includes 20 source/API evolution tests, the original
+31 comparator tests, the original 16 axiom closures and 22 pilot closures.
 `source_check.py` checks pristine source coverage; the hash/diff/span evolution
-check separately verifies the three active exceptions. The evolution recorder
+check separately verifies the seven active exceptions and the frozen first-round files. The evolution recorder
 requires explicit review of source changes; it is not a general API migration
 framework or a replacement for proof/type/axiom validation.
+
+
+Expansion retrieval uses the same search method and six committed non-name
+queries. `--expansion --ablate-new-docs` removes only the eight expansion docstrings,
+leaving the first round's five intact. For direct measurements, run only when no
+other build is active:
+
+```bash
+# In this project after sourcing ../../scripts/env.sh:
+SEMANTIC_CORPUS_OUT="$LAB_ROOT/results/lemma-granularity/expansion-after-corpus.json" python3 pilot_measure.py expansion-after-corpus lake env lean SemanticCorpus.lean
+python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/expansion-after-corpus.json" --check
+python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/expansion-after-corpus.json" --expansion --query "single support annihilator stalk projection kernel"
+python3 measure_samples.py --expansion
+```
+
+The measurement option performs one direct before/after source pair for each of
+the four expansion modules using the same warm active dependencies. It does not
+measure a cold historical build or establish a speedup. Baseline source hashes
+are checked. Prefer the full report's recorded measurements over routinely
+repeating benchmarking commands.

@@ -1,0 +1,66 @@
+[
+  {
+    "label": "expansion-direct-r1-before-reflection",
+    "source": "ForMathlib/LinearAlgebra/Reflection/Plane.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "8f06a57c938d25ed60d26af55fe0118fa14667f4635efc735398d4afbe368598",
+    "exit_code": 0
+  },
+  {
+    "label": "expansion-direct-r1-after-reflection",
+    "source": "ForMathlib/LinearAlgebra/Reflection/Plane.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "c7a0b7adf0ca3738690e24faccc0760e8eb3f8010d011ba68b3731f086618998",
+    "exit_code": 0
+  },
+  {
+    "label": "expansion-direct-r1-before-support",
+    "source": "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "108c1533006b65c9d4d5b2596b9a6ac4b0be44fa6907bc99a29bbaa5e8d46ee7",
+    "exit_code": 0
+  },
+  {
+    "label": "expansion-direct-r1-after-support",
+    "source": "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "8ed0b7725185b40ae26f0c2202bd247c02ffe0eb65993a00fc9a0940d1877d3f",
+    "exit_code": 0
+  },
+  {
+    "label": "expansion-direct-r1-before-images",
+    "source": "ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "60463e3568e8a659742c0fd212993bad3c3ba79d88c7f26035daab67afc47257",
+    "exit_code": 0
+  },
+  {
+    "label": "expansion-direct-r1-after-images",
+    "source": "ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "81cd1abbc1e76e83882e37c1162b7ed67e8813c76873f3776f5b174b249c1fb3",
+    "exit_code": 0
+  },
+  {
+    "label": "expansion-direct-r1-before-coset",
+    "source": "OAI/KL/Localization/TerminalImages.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "724d16f0b20ad5943c4356c7048142d28892222549982c031499965f6df7af8b",
+    "exit_code": 0
+  },
+  {
+    "label": "expansion-direct-r1-after-coset",
+    "source": "OAI/KL/Localization/TerminalImages.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41",
+    "exit_code": 0
+  }
+]

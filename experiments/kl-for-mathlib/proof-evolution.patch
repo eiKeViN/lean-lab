@@ -1,9 +1,6 @@
 --- pristine/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
 +++ active/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
-@@ -11,28 +11,41 @@
- universe u v
- variable {V : Type u} [Fintype V] {C : Type v} [CommRing C]
- 
+@@ -13,0 +14,23 @@
 +/-- Exchange two finite weighted sums by distributivity and commutativity.
 +This isolates bilinear reindexing from the cancellation argument. -/
 +theorem weighted_sum_exchange (m r : V → C) (p : V → V → C) :
@@ -27,11 +24,7 @@
 +    rw [hf y hy, mul_zero]
 +  · simp
 +
-  theorem finite_character_cancellation (t : V) (m : V → C) (r : V → C)
-     (p : V → V → C) (q : V → C) (hm : m t=1)
-     (hword : (∑ y, m y*q y)=∑ z, r z*(∑ y, m y*p y z))
-     (hlower : ∀ y, y≠t → q y=∑ z, r z*p y z) : q t=∑ z, r z*p t z := by
-   classical
+@@ -19,9 +42 @@
 -  have hexpand : (∑ z, r z*(∑ y, m y*p y z))=∑ y, m y*(∑ z, r z*p y z) := by
 -    simp only [Finset.mul_sum]
 -    rw [Finset.sum_comm]
@@ -42,9 +35,7 @@
 -    ring
 -  rw [hexpand] at hword
 +  rw [weighted_sum_exchange m r p] at hword
-   have hzero : (∑ y, m y*(q y-∑ z, r z*p y z))=0 := by
-     simp only [mul_sub,Finset.sum_sub_distrib,hword,sub_self]
-   have hsingle : (∑ y, m y*(q y-∑ z, r z*p y z))=q t-∑ z, r z*p t z := by
+@@ -31,5 +46,3 @@
 -    rw [Finset.sum_eq_single t]
 -    · rw [hm,one_mul]
 -    · intro y _ hy
@@ -53,13 +44,7 @@
 +    apply weighted_sum_single t m _ hm
 +    intro y hy
 +    rw [hlower y hy, sub_self]
-   rw [hsingle] at hzero
-   exact sub_eq_zero.mp hzero
- 
-@@ -51,15 +64,9 @@
-     (∑ y, a y*v y)-(∑ y, a y*w y)=v x-w x := by
-   classical
-   rw [← Finset.sum_sub_distrib]
+@@ -54,9 +67,3 @@
 -  calc
 -    (∑ y, (a y*v y-a y*w y)) = ∑ y, if y=x then v x-w x else 0 := by
 -      apply Finset.sum_congr rfl
@@ -72,15 +57,9 @@
 +  simp_rw [← mul_sub]
 +  exact weighted_sum_single x a (fun y => v y - w y) hdiag
 +    (fun y hy => sub_eq_zero.mpr (hvw y hy))
- 
-  theorem matrix_difference_le {V : Type*} [Fintype V]
-     (a : V → ℝ) (v w : V → ℝ) (x : V) (p p' : ℝ)
 --- pristine/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean
 +++ active/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean
-@@ -15,6 +15,31 @@
- def scaledPolynomial (t : ℝ) (d : ℕ) (p : ℤ[X]) : ℝ :=
-   t ^ (-(d : ℤ)) * p.eval₂ (Int.castRingHom ℝ) (t^2)
- 
+@@ -17,0 +18,25 @@
 +/-- A positive real in the open unit interval has a square root in the same
 +interval. Use the witness to change variables without carrying a concrete sqrt. -/
 +theorem exists_pos_sq_eq_of_mem_Ioo (q : ℝ) (hq : 0 < q) (hq1 : q < 1) :
@@ -106,13 +85,7 @@
 +  rw [show d + d = 2 * d by omega, pow_mul] at hh
 +  exact hh
 +
-  theorem eq_of_scaled_difference_reciprocal (p p' : ℤ[X]) (d : ℕ)
-     (hp : 2*p.natDegree < d) (hp' : 2*p'.natDegree < d)
-     (h : ∀ t : ℝ, 0 < t → t < 1 →
-@@ -22,20 +47,9 @@
-         scaledPolynomial t⁻¹ d p-scaledPolynomial t⁻¹ d p') : p=p' := by
-   apply eq_of_eval_difference_reciprocal p p' d hp hp'
-   intro q hq hq1
+@@ -25,14 +50,3 @@
 -  let t := Real.sqrt q
 -  have ht : 0 < t := Real.sqrt_pos.2 hq
 -  have hsq : t^2=q := Real.sq_sqrt hq.le
@@ -130,15 +103,9 @@
 +  obtain ⟨t, ht, ht1, hsq⟩ := exists_pos_sq_eq_of_mem_Ioo q hq hq1
 +  have he := eval_difference_of_scaled_reciprocal p p' d t ht.ne' (h t ht ht1)
 +  simpa only [hsq] using he
- 
- end
- end KLInvariance.Comparison
 --- pristine/OAI/KL/Invariance/Finite.lean
 +++ active/OAI/KL/Invariance/Finite.lean
-@@ -88,6 +88,25 @@
-   (φ : Interval cs u b ≃o Interval cs' u' b')
- noncomputable section
- 
+@@ -90,0 +91,19 @@
 +include hub in
 +/-- Transport polynomial equality away from the bottom through the inverse
 +interval isomorphism. This packages the backward comparison's endpoint bookkeeping
@@ -158,13 +125,7 @@
 +    exact hh
 +  simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm
 +
-  theorem bottom_eq_of_comparisons (hne : u ≠ b)
-     (hupper : ∀ y : Interval cs u b, y.val ≠ u →
-       klPolynomial cs y.val b=klPolynomial cs' (φ y).val b')
-@@ -114,15 +133,7 @@
-   have hf := comparison_difference_le hub φ hub' (intervalBottom cs hub)
-     (fun y hy => hupper y (fun he => hy (Subtype.ext he))) ht.ne' (hforward t ht ht1)
-   have hb := comparison_difference_le hub' φ.symm hub (intervalBottom cs' hub')
+@@ -117,9 +136 @@
 -    (fun y hy => by
 -      have hyy : (φ.symm y).val ≠ u := by
 -        intro he
@@ -175,6 +136,201 @@
 -        exact hh
 -      simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm)
 +    (upper_polynomial_eq_symm hub hub' φ hupper)
-     ht.ne' (hbackward t ht ht1)
-   rw [intervalIso_bottom cs cs' hub hub' φ] at hf
-   rw [intervalIso_bottom cs' cs hub' hub φ.symm] at hb
+--- pristine/ForMathlib/LinearAlgebra/Reflection/Plane.lean
++++ active/ForMathlib/LinearAlgebra/Reflection/Plane.lean
+@@ -38,0 +39,10 @@
++/-- The displacement of a product of two pre-reflections is a combination of
++its two roots. No independence or root normalization is needed for this action
++formula; the range theorem supplies independence only for the reverse inclusion. -/
++theorem preReflection_product_sub_id_apply (α β : V) (f g : Module.Dual k V) (v : V) :
++    ((Module.preReflection α f).comp (Module.preReflection β g) -
++      (LinearMap.id : V →ₗ[k] V)) v = (-f v + f β * g v) • α + (-g v) • β := by
++  simp only [LinearMap.sub_apply, LinearMap.comp_apply, Module.preReflection_apply,
++    LinearMap.id_apply, map_sub, map_smul]
++  module
++
+@@ -45,6 +54,0 @@
+-  have hformula (v : V) :
+-      ((Module.preReflection α f).comp (Module.preReflection β g) -
+-        (LinearMap.id : V →ₗ[k] V)) v = (-f v + f β * g v) • α + (-g v) • β := by
+-    simp only [LinearMap.sub_apply, LinearMap.comp_apply, Module.preReflection_apply,
+-      LinearMap.id_apply, map_sub, map_smul]
+-    module
+@@ -53 +57 @@
+-    rw [hformula]
++    rw [preReflection_product_sub_id_apply]
+@@ -61 +65 @@
+-    rw [hformula, hf, hg]
++    rw [preReflection_product_sub_id_apply, hf, hg]
+@@ -99,0 +104,26 @@
++/-- A vector in a normalized root plane has norm two exactly when its
++coordinates satisfy the associated quadratic equation. Symmetry and the two
++root norms are the only inputs; no nondegeneracy of the plane is required. -/
++theorem plane_combination_norm_two_iff
++    (B : LinearMap.BilinForm ℝ V) (hB : B.IsSymm)
++    (a b : V) (ha : B a a = 2) (hb : B b b = 2) (x y : ℝ) :
++    B (x • a + y • b) (x • a + y • b) = 2 ↔
++      x^2 + B a b*x*y + y^2 = 1 := by
++  have hba : B b a = B a b := hB.eq b a
++  simp only [map_add, map_smul, LinearMap.add_apply, LinearMap.smul_apply,
++    smul_eq_mul, ha, hb, hba]
++  constructor <;> intro h <;> nlinarith [h]
++
++/-- The root constructed from normalized plane coordinates again has norm two.
++This isolates the normalization needed to form the final reflection in a triple
++product, without asserting the operator identity itself. -/
++theorem triple_root_norm_two
++    (B : LinearMap.BilinForm ℝ V) (hB : B.IsSymm)
++    (a b : V) (ha : B a a = 2) (hb : B b b = 2) (x y : ℝ)
++    (hnorm : x^2 + B a b*x*y + y^2 = 1) :
++    B (x • b - (B a b*x+y) • a) (x • b - (B a b*x+y) • a) = 2 := by
++  have hba : B b a = B a b := hB.eq b a
++  simp only [map_sub, map_smul, LinearMap.sub_apply, LinearMap.smul_apply,
++    smul_eq_mul, ha, hb, hba]
++  nlinarith [hnorm]
++
+@@ -115,11 +145,3 @@
+-  have hnorm : x^2+p*x*y+y^2=1 := by
+-    simp only [map_add,map_smul,LinearMap.add_apply,LinearMap.smul_apply,
+-      smul_eq_mul,ha,hb,hba] at hc
+-    dsimp [p]
+-    nlinarith [hc]
+-  have hd : B d d = 2 := by
+-    dsimp [d,r]
+-    simp only [map_sub,map_smul,LinearMap.sub_apply,LinearMap.smul_apply,
+-      smul_eq_mul,ha,hb,hba]
+-    change x*(x*2-(p*x+y)*p)-(p*x+y)*(x*p-(p*x+y)*2)=2
+-    nlinarith [hnorm]
++  have hnorm : x^2+p*x*y+y^2=1 :=
++    (plane_combination_norm_two_iff B hB a b ha hb x y).mp hc
++  have hd : B d d = 2 := triple_root_norm_two B hB a b ha hb x y hnorm
+--- pristine/ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean
++++ active/ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean
+@@ -58,0 +59,28 @@
++/-- A single-supported section pairs to zero with the kernel of its stalk
++projection. Balanced cuts and a nonzero scalar give this integrally, without
++passing to a fraction field. -/
++theorem annihilates_of_supported (x : V) (m : M) (hm : m ∈ supported M x) :
++    ∀ n : M, projection M x n = 0 → d m n = 0 := by
++  intro n hn
++  have hh := hbalanced x m n
++  rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
++  simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
++
++include hp hbalanced in
++/-- Annihilating the stalk-projection kernel forces single support. Perfectness
++kills each other balanced cut, and torsion-freeness removes its nonzero scalar;
++this is the integral converse to the supported-section pairing argument. -/
++theorem supported_of_annihilates (x : V) (m : M)
++    (hm : ∀ n : M, projection M x n = 0 → d m n = 0) : m ∈ supported M x := by
++  intro y hy
++  have hc : cut M p hcut y m = 0 := by
++    apply d.injective
++    apply LinearMap.ext
++    intro n
++    rw [hbalanced]
++    simpa only [map_zero,LinearMap.zero_apply] using
++      hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
++  have hv := congrArg (fun s : M => s.val y) hc
++  simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
++
++include hp hbalanced in
+@@ -62,15 +90,2 @@
+-  constructor
+-  · intro hm n hn
+-    have hh := hbalanced x m n
+-    rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
+-    simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
+-  · intro hm y hy
+-    have hc : cut M p hcut y m = 0 := by
+-      apply d.injective
+-      apply LinearMap.ext
+-      intro n
+-      rw [hbalanced]
+-      simpa only [map_zero,LinearMap.zero_apply] using
+-        hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
+-    have hv := congrArg (fun s : M => s.val y) hc
+-    simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
++  exact ⟨annihilates_of_supported M p hcut hp d hbalanced x m,
++    supported_of_annihilates M p hcut hp d hbalanced x m⟩
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean
+@@ -129,0 +130,28 @@
++/-- Membership in a lower kernel image is transported by the inverse edge
++isomorphism. The vertex-kernel condition and lower commuting square are both
++included, so callers do not have to transport witnesses themselves. -/
++theorem mem_lowerImage_iff_symm (e : E)
++    (F : Set (Outgoing (G := G) (G.source e))) (z : C.edge e) :
++    z ∈ (C.upwardKernel (G.source e) F).map (C.lower e) ↔
++      (j.edge e).symm z ∈ (B.upwardKernel (G.source e) F).map (B.lower e) := by
++  rw [← j.map_lowerImage e F, Submodule.mem_map_equiv]
++
++/-- Membership in a scalar multiple of an upper kernel image is transported
++by the inverse edge isomorphism. The scalar is arbitrary, including zero; no
++injectivity of scalar multiplication is used. -/
++theorem mem_scaledUpperImage_iff_symm (e : E)
++    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : C.edge e) :
++    (∃ w ∈ C.upwardKernel (G.target e) H, r • C.upper e w = z) ↔
++      ∃ w ∈ B.upwardKernel (G.target e) H, r • B.upper e w = (j.edge e).symm z := by
++  constructor
++  · rintro ⟨w,hw,he⟩
++    have hw' : (j.vertex (G.target e)).symm w ∈ B.upwardKernel (G.target e) H := by
++      apply (j.upwardKernel_iff _ _ _).mp
++      simpa only [LinearEquiv.apply_symm_apply] using hw
++    refine ⟨_,hw',?_⟩
++    apply (j.edge e).injective
++    rw [map_smul,j.upper,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
++  · rintro ⟨w,hw,he⟩
++    refine ⟨j.vertex (G.target e) w,(j.upwardKernel_iff _ _ _).mpr hw,?_⟩
++    rw [← j.upper,← map_smul,he,LinearEquiv.apply_symm_apply]
++
+@@ -135,21 +163,2 @@
+-  constructor
+-  · rintro ⟨v,hv,he⟩
+-    have hv' : (j.vertex (G.source e)).symm v ∈ B.upwardKernel (G.source e) F := by
+-      apply (j.upwardKernel_iff _ _ _).mp
+-      simpa only [LinearEquiv.apply_symm_apply] using hv
+-    have he' : B.lower e ((j.vertex (G.source e)).symm v)=(j.edge e).symm z := by
+-      apply (j.edge e).injective
+-      rw [j.lower,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
+-    obtain ⟨w,hw,hew⟩ := (h ((j.edge e).symm z)).mp ⟨_,hv',he'⟩
+-    refine ⟨j.vertex (G.target e) w,(j.upwardKernel_iff _ _ _).mpr hw,?_⟩
+-    rw [← j.upper,← map_smul,hew,LinearEquiv.apply_symm_apply]
+-  · rintro ⟨w,hw,he⟩
+-    have hw' : (j.vertex (G.target e)).symm w ∈ B.upwardKernel (G.target e) H := by
+-      apply (j.upwardKernel_iff _ _ _).mp
+-      simpa only [LinearEquiv.apply_symm_apply] using hw
+-    have he' : r • B.upper e ((j.vertex (G.target e)).symm w)=(j.edge e).symm z := by
+-      apply (j.edge e).injective
+-      rw [map_smul,j.upper,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
+-    obtain ⟨v,hv,hev⟩ := (h ((j.edge e).symm z)).mpr ⟨_,hw',he'⟩
+-    refine ⟨j.vertex (G.source e) v,(j.upwardKernel_iff _ _ _).mpr hv,?_⟩
+-    rw [← j.lower,hev,LinearEquiv.apply_symm_apply]
++  exact (j.mem_lowerImage_iff_symm e F z).trans
++    ((h ((j.edge e).symm z)).trans (j.mem_scaledUpperImage_iff_symm e H r z).symm)
+--- pristine/OAI/KL/Localization/TerminalImages.lean
++++ active/OAI/KL/Localization/TerminalImages.lean
+@@ -85,0 +86,13 @@
++include B in
++/-- Every root in the chosen root plane has a distinct positive-root complement
++spanning that plane. The basis roots supply the witness; no schedule, interval
++comparison or sheaf data is needed for this geometric choice. -/
++theorem exists_root_plane_complement (α : PositiveRoot M cs) (hα : α.val ∈ P) :
++    ∃ β : PositiveRoot M cs, α ≠ β ∧ rootPlane α β = P := by
++  obtain ⟨β,hαβ,hβ⟩ : ∃ β : PositiveRoot M cs, α ≠ β ∧ β.val ∈ P := by
++    by_cases h : α=B.left
++    · exact ⟨B.right,h ▸ B.distinct,B.right_mem⟩
++    · exact ⟨B.left,h,B.left_mem⟩
++  exact ⟨β,hαβ,(rootPlane_eq_of_mem B.left B.right α β B.distinct
++    (B.plane_eq.ge hα) (B.plane_eq.ge hβ) hαβ).trans B.plane_eq⟩
++
+@@ -96,7 +109,2 @@
+-    obtain ⟨β,hαβ,hβ⟩ : ∃ β : PositiveRoot M cs, α ≠ β ∧ β.val ∈ P := by
+-      by_cases h : α=B.left
+-      · exact ⟨B.right,h ▸ B.distinct,B.right_mem⟩
+-      · exact ⟨B.left,h,B.left_mem⟩
+-    have hplane : rootPlane α β=P :=
+-      (rootPlane_eq_of_mem B.left B.right α β B.distinct
+-        (B.plane_eq.ge (B.edgeRoot_plane e.property)) (B.plane_eq.ge hβ) hαβ).trans B.plane_eq
++    obtain ⟨β,hαβ,hplane⟩ := B.exists_root_plane_complement α
++      (B.edgeRoot_plane e.property)

@@ -178,7 +178,7 @@ Public-type validation covers all 3902 declarations. Source spans: MIGRATION.md.
 | [`ForMathlib.LinearAlgebra.Quotient.Transport`](ForMathlib/LinearAlgebra/Quotient/Transport.lean) | `descend`, `descend_apply`, `descend_idempotent` |
 | [`ForMathlib.LinearAlgebra.Reflection.Bilinear`](ForMathlib/LinearAlgebra/Reflection/Bilinear.lean) | `finrank_moving_conj`, `rank_one_eq_reflection_of_negates`, `negates_of_commutes_nonpos` |
 | [`ForMathlib.LinearAlgebra.Reflection.Classification`](ForMathlib/LinearAlgebra/Reflection/Classification.lean) | `orthogonal_eq_id_or_rootReflection` |
-| [`ForMathlib.LinearAlgebra.Reflection.Plane`](ForMathlib/LinearAlgebra/Reflection/Plane.lean) | `formPair_surjective`, `range_preReflection_product_sub_id`, `range_reflection_product_sub_id` |
+| [`ForMathlib.LinearAlgebra.Reflection.Plane`](ForMathlib/LinearAlgebra/Reflection/Plane.lean) | `formPair_surjective`, `preReflection_product_sub_id_apply`, `range_preReflection_product_sub_id` |
 | [`ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient`](ForMathlib/LinearAlgebra/SymmetricAlgebra/Quotient.lean) | `ideal`, `quotientMap`, `ideal_le_ker` |
 | [`ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal`](ForMathlib/LinearAlgebra/SymmetricAlgebra/RootIdeal.lean) | `symmetric_ι_injective`, `rootIdeal`, `rootLine` |
 | [`ForMathlib.LinearAlgebra.TensorProduct.Coordinates`](ForMathlib/LinearAlgebra/TensorProduct/Coordinates.lean) | `tensor_range_le_of_one_tmul`, `tensor_maps_eq_of_one_tmul`, `codRestrict_surjective_of_range_le` |

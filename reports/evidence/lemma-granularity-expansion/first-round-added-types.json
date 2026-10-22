@@ -1,0 +1,32 @@
+{
+  "OAI.KLInvariance.weighted_sum_exchange": {
+    "levels": "\"[`u, `v]\"",
+    "type": "cf515ec599b8a6eb15d7f0bdfb391608680d1c1c4f2beed4177c71c2a81404ab",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+  },
+  "OAI.KLInvariance.weighted_sum_single": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fd6470018de0ae42e390351d2f59b33aaf9b68b9855b4ec83927c7c4355563a6",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+  },
+  "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo": {
+    "levels": "\"[]\"",
+    "type": "ea8f37927b3e0fb6f612bef261a953d1dd19ca417515a81771e876b2a3993297",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Polynomial.ScaledEvaluation"
+  },
+  "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal": {
+    "levels": "\"[]\"",
+    "type": "9d96c0a5854ed6c3f2ce8a6131f963fb6a6d3ec96ad8c27d2ac17d4999949009",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Polynomial.ScaledEvaluation"
+  },
+  "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "aa80c95ac61617b12195829dfe69105d55905dbc4209bd7f69b298f6267fcde5",
+    "kind": "theorem",
+    "module": "OAI.KL.Invariance.Finite"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "method": "Nonblank uncommented proof-body lines; signatures/docstrings excluded; descriptive only, not token usage or mathematical complexity.",
+  "samples": [
+    {
+      "sample": "E1",
+      "before_client": 18,
+      "after_client": 12,
+      "helper_bodies": 3
+    },
+    {
+      "sample": "E2",
+      "before_client": 43,
+      "after_client": 35,
+      "helper_bodies": 8
+    },
+    {
+      "sample": "E3",
+      "before_client": 15,
+      "after_client": 2,
+      "helper_bodies": 14
+    },
+    {
+      "sample": "E4",
+      "before_client": 22,
+      "after_client": 3,
+      "helper_bodies": 12
+    },
+    {
+      "sample": "E5",
+      "before_client": 27,
+      "after_client": 22,
+      "helper_bodies": 6
+    }
+  ],
+  "before_clients": 125,
+  "after_clients": 74,
+  "helper_bodies": 43,
+  "whole_files_before": 786,
+  "whole_files_after": 840
+}

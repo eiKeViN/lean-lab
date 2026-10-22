@@ -32,10 +32,12 @@ from `OAI/KL/` (25 application modules and one compatibility wrapper). Original
 Previously published ForMathlib and application paths also forward to their more precise homes.
 ForMathlib has no project-layer imports. Specialized Coxeter, Hecke, KL polynomial
 and Tits word mathematics is included among the candidates; candidate status does
-not mean submission-ready. No new interface extraction is part of this cleanup.
+not mean submission-ready. The architecture cleanup preserved the proofs; the
+active extraction pilot below is a subsequent, explicitly checked evolution.
 
-The current tree has 261 Lean product modules. The active [lemma-granularity pilot](reports/lemma-granularity.md)
-retains all 3902 baseline public declarations and adds five separately checked lemmas.
+The current tree has 261 Lean product modules. The active [expanded lemma-granularity pilot](reports/lemma-granularity-expansion.md)
+retains all 3902 baseline public types and the first five added types, with eight
+further additions (thirteen total) separately checked.
 The fixed toolchain is Lean 4.34.1; Mathlib is pinned at
 `d13f23b723b8a846827a245b89c10fc7d3f11612`. Dependencies and working artifacts
 are owned by the maintained project's `.lake`, with shared installation/download
@@ -53,8 +55,9 @@ No check requires a deleted experiment directory. Setup fetches only missing
 pinned history for shallow clones; checks themselves perform no history fetch.
 Historical compilation is not rerun or claimed by replaying this evidence.
 
-The pilot rewrites four proofs in three hash-bound source exceptions; old statements
-and API types remain unchanged. The pristine source reconstruction and historical
+Across both rounds the pilot rewrites nine proofs in seven hash-bound source
+exceptions; the first round remains frozen separately. Old statements and API
+types remain unchanged. The pristine source reconstruction and historical
 reference export remain intact. See [the pilot materials](experiments/kl-for-mathlib/LEMMA_INDEX.md).
 
 See [the whole-library refinement](reports/whole-library-layout.md) for current

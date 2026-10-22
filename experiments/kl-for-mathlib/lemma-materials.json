@@ -78,6 +78,126 @@
       "applicability_tests": [
         "identity interval isomorphism; interface smoke only"
       ]
+    },
+    {
+      "candidate": "X1",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply",
+      "original_site": "E1",
+      "second_sites": [],
+      "keywords": [
+        "pre-reflection displacement",
+        "root span",
+        "dependent forms"
+      ],
+      "reason": "Action formula; independence is only needed later for the range reverse inclusion.",
+      "applicability_tests": [
+        "dependent forms on a one-dimensional rational vector space"
+      ]
+    },
+    {
+      "candidate": "X2",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff",
+      "original_site": "E2",
+      "second_sites": [],
+      "keywords": [
+        "normalized plane",
+        "quadratic equation",
+        "no nondegeneracy"
+      ],
+      "reason": "Coordinate normalization equivalence, separate from the reflection operator calculation.",
+      "applicability_tests": [
+        "coincident normalized roots, coordinates (1,0)"
+      ]
+    },
+    {
+      "candidate": "X3",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.triple_root_norm_two",
+      "original_site": "E2",
+      "second_sites": [],
+      "keywords": [
+        "constructed root",
+        "norm two",
+        "triple reflection"
+      ],
+      "reason": "Normalize the constructed reflected root, leaving the operator identity in its client.",
+      "applicability_tests": [
+        "coincident roots, coordinates (1,0)"
+      ]
+    },
+    {
+      "candidate": "X4",
+      "declaration": "OAI.KLInvariance.IntegralSupport.annihilates_of_supported",
+      "original_site": "E3",
+      "second_sites": [],
+      "keywords": [
+        "single support",
+        "integral annihilator",
+        "balanced cuts"
+      ],
+      "reason": "Forward support-to-annihilator implication, not a fraction-field argument.",
+      "applicability_tests": [
+        "arbitrary single-supported section; forward implication"
+      ]
+    },
+    {
+      "candidate": "X5",
+      "declaration": "OAI.KLInvariance.IntegralSupport.supported_of_annihilates",
+      "original_site": "E3",
+      "second_sites": [],
+      "keywords": [
+        "projection kernel",
+        "perfect duality",
+        "torsion-free cut cancellation"
+      ],
+      "reason": "Converse annihilator-to-support implication, including cut vanishing and scalar cancellation.",
+      "applicability_tests": [
+        "arbitrary integral annihilator; converse implication"
+      ]
+    },
+    {
+      "candidate": "X6",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
+      "original_site": "E4",
+      "second_sites": [],
+      "keywords": [
+        "lower kernel image",
+        "inverse edge isomorphism",
+        "commuting square"
+      ],
+      "reason": "Transport lower-image witnesses through the inverse sheaf isomorphism.",
+      "applicability_tests": [
+        "round trip through j.symm"
+      ]
+    },
+    {
+      "candidate": "X7",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm",
+      "original_site": "E4",
+      "second_sites": [],
+      "keywords": [
+        "scaled upper image",
+        "arbitrary scalar",
+        "isomorphism membership"
+      ],
+      "reason": "Transport scalar upper-image witnesses, including scalar zero.",
+      "applicability_tests": [
+        "scalar zero through a nonidentity-allowed isomorphism"
+      ]
+    },
+    {
+      "candidate": "X8",
+      "declaration": "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement",
+      "original_site": "E5",
+      "second_sites": [],
+      "keywords": [
+        "root plane complement",
+        "positive root",
+        "basis witness"
+      ],
+      "reason": "Geometric root choice independent of sheaf and schedule data.",
+      "applicability_tests": [
+        "left basis root gives some distinct complementary root"
+      ]
     }
   ],
   "declined_candidates": [
@@ -85,6 +205,10 @@
     "C4",
     "C7",
     "C9",
-    "C10"
+    "C10",
+    "round2: baseChange scalar-action identity in scaledImages_denominator",
+    "round2: lowerCharacter nonnegativity branches",
+    "round2: two scalar coefficient identities inside reflection_triple_in_plane",
+    "round2: unconditional model-sum/localization transport redesign"
   ]
 }

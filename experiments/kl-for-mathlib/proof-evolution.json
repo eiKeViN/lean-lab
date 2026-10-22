@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "policy_sha256": "2473c0d136973f4e0743306a7e5054a52c9a648c9021decb8a545ce732e4a7d7",
+  "policy_sha256": "6f501cd9acb38124f9e27eaeacd386b16734cd5bd3bc3f393273076fd60e5c33",
   "files": {
     "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean": {
       "pristine_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5",
@@ -13,8 +13,24 @@
     "OAI/KL/Invariance/Finite.lean": {
       "pristine_sha256": "b5f5288d293ad883917abafedb2ac860a03446b2efb47693627ab1d5b617e2e4",
       "active_sha256": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2"
+    },
+    "ForMathlib/LinearAlgebra/Reflection/Plane.lean": {
+      "pristine_sha256": "8f06a57c938d25ed60d26af55fe0118fa14667f4635efc735398d4afbe368598",
+      "active_sha256": "c7a0b7adf0ca3738690e24faccc0760e8eb3f8010d011ba68b3731f086618998"
+    },
+    "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean": {
+      "pristine_sha256": "108c1533006b65c9d4d5b2596b9a6ac4b0be44fa6907bc99a29bbaa5e8d46ee7",
+      "active_sha256": "8ed0b7725185b40ae26f0c2202bd247c02ffe0eb65993a00fc9a0940d1877d3f"
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean": {
+      "pristine_sha256": "60463e3568e8a659742c0fd212993bad3c3ba79d88c7f26035daab67afc47257",
+      "active_sha256": "81cd1abbc1e76e83882e37c1162b7ed67e8813c76873f3776f5b174b249c1fb3"
+    },
+    "OAI/KL/Localization/TerminalImages.lean": {
+      "pristine_sha256": "724d16f0b20ad5943c4356c7048142d28892222549982c031499965f6df7af8b",
+      "active_sha256": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41"
     }
   },
-  "diff_sha256": "f8fbb4dfd1ef9f55e9358fb03fd94aeec3089c5337c5947f6d78535a90032f15",
-  "additional_types_sha256": "445bd6143410e33deb4004ca4a89cc47ce8fc9ec9c5a94444074a8b2f12239d3"
+  "diff_sha256": "5ec58da5ad6ec2766d30ac18fd8f068772b704f74e537eb07cd529130364a240",
+  "additional_types_sha256": "75306176d36cfe22dbfdba991ec7fa784023c3d464b0b55d0098a944271aacdc"
 }

@@ -1,0 +1,50 @@
+{
+  "OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "f036621a9f69c7bb803e97febc25bd8c142c8b8d796d2cf28490c7ac73bb1e14",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Reflection.Plane"
+  },
+  "OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff": {
+    "levels": "\"[`u_1]\"",
+    "type": "f9538e793a8ae2a84bf9073fbba5fcf9f3221fe9c384b9d34016d27203684605",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Reflection.Plane"
+  },
+  "OAI.KLInvariance.ReflectionPlane.triple_root_norm_two": {
+    "levels": "\"[`u_1]\"",
+    "type": "0d14500a43cc50126d6cb84e2477cf6efb4722274c19649a8f9c1d84ca61f9df",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Reflection.Plane"
+  },
+  "OAI.KLInvariance.IntegralSupport.annihilates_of_supported": {
+    "levels": "\"[`ur, `uv, `um]\"",
+    "type": "4b9887407afc102586d288e323a7eed8d76b910d8b220fdc39d9d71ef2a336ec",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport"
+  },
+  "OAI.KLInvariance.IntegralSupport.supported_of_annihilates": {
+    "levels": "\"[`ur, `uv, `um]\"",
+    "type": "c7af0c8d4d541a78aa1bb23a2da86d4c4ccbf9f5a9e4826f7e4452fa870494b2",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm": {
+    "levels": "\"[`ur, `uv, `ue, `uz, `uz']\"",
+    "type": "b87b9ecf50680b2f189497ad5e137ae1bb39a5426e8738a8cc94fa6273497ea5",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm": {
+    "levels": "\"[`ur, `uv, `ue, `uz, `uz']\"",
+    "type": "8a19a8e5e8e1dafa64755099f89b6a027c3aeb13089957711f6fb29a94a4b27c",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b691704148f478ada4f00d633fb8e65b4d2ea68b7d674b0eff8b76925945b2c2",
+    "kind": "theorem",
+    "module": "OAI.KL.Localization.TerminalImages"
+  }
+}

@@ -36,21 +36,25 @@ theorem formPair_surjective (f g : Module.Dual k V)
   change l (c, d) = 0
   rw [heval, h₁, h₂, mul_zero, mul_zero, add_zero]
 
+/-- The displacement of a product of two pre-reflections is a combination of
+its two roots. No independence or root normalization is needed for this action
+formula; the range theorem supplies independence only for the reverse inclusion. -/
+theorem preReflection_product_sub_id_apply (α β : V) (f g : Module.Dual k V) (v : V) :
+    ((Module.preReflection α f).comp (Module.preReflection β g) -
+      (LinearMap.id : V →ₗ[k] V)) v = (-f v + f β * g v) • α + (-g v) • β := by
+  simp only [LinearMap.sub_apply, LinearMap.comp_apply, Module.preReflection_apply,
+    LinearMap.id_apply, map_sub, map_smul]
+  module
+
 /-- The range of the difference of a two-reflection product from the
 identity is exactly the span of the two roots. -/
 theorem range_preReflection_product_sub_id (α β : V) (f g : Module.Dual k V)
     (hfg : LinearIndependent k ![f, g]) :
     LinearMap.range ((Module.preReflection α f).comp (Module.preReflection β g) -
       LinearMap.id) = Submodule.span k {α, β} := by
-  have hformula (v : V) :
-      ((Module.preReflection α f).comp (Module.preReflection β g) -
-        (LinearMap.id : V →ₗ[k] V)) v = (-f v + f β * g v) • α + (-g v) • β := by
-    simp only [LinearMap.sub_apply, LinearMap.comp_apply, Module.preReflection_apply,
-      LinearMap.id_apply, map_sub, map_smul]
-    module
   apply le_antisymm
   · rintro z ⟨v, rfl⟩
-    rw [hformula]
+    rw [preReflection_product_sub_id_apply]
     exact Submodule.mem_span_pair.mpr ⟨_, _, rfl⟩
   · intro z hz
     obtain ⟨a, b, rfl⟩ := Submodule.mem_span_pair.mp hz
@@ -58,7 +62,7 @@ theorem range_preReflection_product_sub_id (α β : V) (f g : Module.Dual k V)
     have hf : f v = -a - f β * b := congrArg Prod.fst hv
     have hg : g v = -b := congrArg Prod.snd hv
     refine ⟨v, ?_⟩
-    rw [hformula, hf, hg]
+    rw [preReflection_product_sub_id_apply, hf, hg]
     module
 
 
@@ -97,6 +101,32 @@ section
 namespace KLInvariance.ReflectionPlane
 variable {V : Type*} [AddCommGroup V] [Module ℝ V]
 
+/-- A vector in a normalized root plane has norm two exactly when its
+coordinates satisfy the associated quadratic equation. Symmetry and the two
+root norms are the only inputs; no nondegeneracy of the plane is required. -/
+theorem plane_combination_norm_two_iff
+    (B : LinearMap.BilinForm ℝ V) (hB : B.IsSymm)
+    (a b : V) (ha : B a a = 2) (hb : B b b = 2) (x y : ℝ) :
+    B (x • a + y • b) (x • a + y • b) = 2 ↔
+      x^2 + B a b*x*y + y^2 = 1 := by
+  have hba : B b a = B a b := hB.eq b a
+  simp only [map_add, map_smul, LinearMap.add_apply, LinearMap.smul_apply,
+    smul_eq_mul, ha, hb, hba]
+  constructor <;> intro h <;> nlinarith [h]
+
+/-- The root constructed from normalized plane coordinates again has norm two.
+This isolates the normalization needed to form the final reflection in a triple
+product, without asserting the operator identity itself. -/
+theorem triple_root_norm_two
+    (B : LinearMap.BilinForm ℝ V) (hB : B.IsSymm)
+    (a b : V) (ha : B a a = 2) (hb : B b b = 2) (x y : ℝ)
+    (hnorm : x^2 + B a b*x*y + y^2 = 1) :
+    B (x • b - (B a b*x+y) • a) (x • b - (B a b*x+y) • a) = 2 := by
+  have hba : B b a = B a b := hB.eq b a
+  simp only [map_sub, map_smul, LinearMap.sub_apply, LinearMap.smul_apply,
+    smul_eq_mul, ha, hb, hba]
+  nlinarith [hnorm]
+
 /-- The product of three normalized reflections in a root plane is again
 an actual orthogonal reflection. The plane itself need not be nondegenerate. -/
 theorem reflection_triple_in_plane
@@ -112,17 +142,9 @@ theorem reflection_triple_in_plane
   let r := p*x+y
   let d := x • b - r • a
   have hba : B b a = p := hB.eq b a
-  have hnorm : x^2+p*x*y+y^2=1 := by
-    simp only [map_add,map_smul,LinearMap.add_apply,LinearMap.smul_apply,
-      smul_eq_mul,ha,hb,hba] at hc
-    dsimp [p]
-    nlinarith [hc]
-  have hd : B d d = 2 := by
-    dsimp [d,r]
-    simp only [map_sub,map_smul,LinearMap.sub_apply,LinearMap.smul_apply,
-      smul_eq_mul,ha,hb,hba]
-    change x*(x*2-(p*x+y)*p)-(p*x+y)*(x*p-(p*x+y)*2)=2
-    nlinarith [hnorm]
+  have hnorm : x^2+p*x*y+y^2=1 :=
+    (plane_combination_norm_two_iff B hB a b ha hb x y).mp hc
+  have hd : B d d = 2 := triple_root_norm_two B hB a b ha hb x y hnorm
   refine ⟨d,hd,?_⟩
   apply LinearEquiv.ext
   intro v

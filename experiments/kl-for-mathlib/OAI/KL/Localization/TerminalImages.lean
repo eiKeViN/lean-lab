@@ -83,6 +83,19 @@ noncomputable section
   subst s
   exact (B.edgeRoot_ne_of_path e.property hst).symm
 
+include B in
+/-- Every root in the chosen root plane has a distinct positive-root complement
+spanning that plane. The basis roots supply the witness; no schedule, interval
+comparison or sheaf data is needed for this geometric choice. -/
+theorem exists_root_plane_complement (α : PositiveRoot M cs) (hα : α.val ∈ P) :
+    ∃ β : PositiveRoot M cs, α ≠ β ∧ rootPlane α β = P := by
+  obtain ⟨β,hαβ,hβ⟩ : ∃ β : PositiveRoot M cs, α ≠ β ∧ β.val ∈ P := by
+    by_cases h : α=B.left
+    · exact ⟨B.right,h ▸ B.distinct,B.right_mem⟩
+    · exact ⟨B.left,h,B.left_mem⟩
+  exact ⟨β,hαβ,(rootPlane_eq_of_mem B.left B.right α β B.distinct
+    (B.plane_eq.ge hα) (B.plane_eq.ge hβ) hαβ).trans B.plane_eq⟩
+
  theorem coset_structure_scaledImages [Fintype (B.CosetEdge a₀ b)]
     (e : B.CosetEdge a₀ b) (hx : BruhatLE cs u ((e.val.1.val:W)*a₀))
     (c : B.CosetVertex a₀ b) :
@@ -93,13 +106,8 @@ noncomputable section
   classical
   by_cases hyc : e.val.2 ≤ c
   · let α := B.edgeRoot e.property
-    obtain ⟨β,hαβ,hβ⟩ : ∃ β : PositiveRoot M cs, α ≠ β ∧ β.val ∈ P := by
-      by_cases h : α=B.left
-      · exact ⟨B.right,h ▸ B.distinct,B.right_mem⟩
-      · exact ⟨B.left,h,B.left_mem⟩
-    have hplane : rootPlane α β=P :=
-      (rootPlane_eq_of_mem B.left B.right α β B.distinct
-        (B.plane_eq.ge (B.edgeRoot_plane e.property)) (B.plane_eq.ge hβ) hαβ).trans B.plane_eq
+    obtain ⟨β,hαβ,hplane⟩ := B.exists_root_plane_complement α
+      (B.edgeRoot_plane e.property)
     apply structure_scaledImages_of_count (B.cosetGraph a₀ b) (B.cosetLabel basis a₀ b hmin) c
       e _ _ _ (B.reducedCosetRoot basis a₀ b hmin e β)
       ((planeWeight ((e.val.1.val:W)*a₀) α P).toNat)

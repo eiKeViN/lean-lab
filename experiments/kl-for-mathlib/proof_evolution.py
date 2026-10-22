@@ -12,6 +12,14 @@ ROOT = HERE.parents[1]
 PLAN = ROOT / 'reports/evidence/lemma-granularity/plan.json'
 POLICY = HERE / 'lemma-pilot.json'
 MANIFEST = HERE / 'proof-evolution.json'
+EXPANSION = ROOT / 'reports/evidence/lemma-granularity-expansion/plan.json'
+PRIOR_TYPES = ROOT / 'reports/evidence/lemma-granularity-expansion/first-round-added-types.json'
+EXPANSION_SHA = 'baeb7f870cba363f9d1b86af0c8f56d033b322df15d7241999fb85c198a49531'
+PRIOR_TYPES_SHA = '445bd6143410e33deb4004ca4a89cc47ce8fc9ec9c5a94444074a8b2f12239d3'
+PRIOR_EVOLUTION_SHA = '84de13d6dc207dd305691d2037718c93a027548ae8e2ac575add41d64b9d546b'
+
+def samples():
+    return json.loads(PLAN.read_text())['samples'] + json.loads(EXPANSION.read_text())['samples']
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -21,30 +29,42 @@ def policy():
     original = json.loads(PLAN.read_text())
     if p['base_commit'] != original['base_commit'] or p['baseline_public_count'] != 3902:
         raise RuntimeError('Unexpected proof-evolution baseline')
-    paths = {x['path']: x['file_sha256'] for x in original['samples']}
-    if p['pristine_files'] != paths or len(paths) != 3 or len(p['changed_declarations']) != 4:
+    if sha(EXPANSION.read_bytes()) != EXPANSION_SHA or p.get('expansion_plan_sha256') != EXPANSION_SHA:
+        raise RuntimeError('Changed committed expansion plan')
+    if sha(PRIOR_TYPES.read_bytes()) != PRIOR_TYPES_SHA:
+        raise RuntimeError('Changed retained first-round types')
+    expansion = json.loads(EXPANSION.read_text())
+    paths = {x['path']: x['file_sha256'] for x in samples()}
+    if p['pristine_files'] != paths or len(paths) != 7 or len(p['changed_declarations']) != 9:
         raise RuntimeError('Pilot source/declaration allowlist changed')
-    if p['changed_declarations'] != [x['declaration'] for x in original['samples']]:
+    if p['changed_declarations'] != [x['declaration'] for x in samples()]:
         raise RuntimeError('Unexpected rewritten declaration list')
-    if len(p['additions']) != 5 or len(set(p['additions'])) != 5:
-        raise RuntimeError('Expected five explicitly listed new lemmas')
+    prior = json.loads(PRIOR_TYPES.read_text())
+    if p['additions'] != list(prior) + expansion['additions'] or len(set(p['additions'])) != 13:
+        raise RuntimeError('Expected five retained and eight explicitly listed new lemmas')
+    frozen_path = EXPANSION.parent/'first-round-evolution.json'
+    if sha(frozen_path.read_bytes()) != PRIOR_EVOLUTION_SHA:
+        raise RuntimeError('Changed retained first-round evolution record')
+    frozen = json.loads(frozen_path.read_text())
+    if p.get('prior_active_files') != {k:v['active_sha256'] for k,v in frozen['files'].items()}:
+        raise RuntimeError('Changed first-round source bindings')
     return p
 
 def difference(path, before, after):
     return ''.join(difflib.unified_diff(before.decode().splitlines(True),
-        after.decode().splitlines(True), fromfile='pristine/'+path, tofile='active/'+path))
+        after.decode().splitlines(True), fromfile='pristine/'+path, tofile='active/'+path, n=0))
 
 def edit_scope(before, after, path):
-    """Line-level diff must stay in four proof bodies or five documented additions.
+    """Line-level diff must stay in nine proof bodies or thirteen documented additions.
 
 This is a bounded source check, not a general Lean parser. The unchanged old
 headers and full kernel type export are independent checks of the same edit.
 """
     from source_check import uncomment
-    plan = json.loads(PLAN.read_text()); p = policy()
+    p = policy()
     def regions(text, additions):
         code = uncomment(text); spans = []
-        names = [x['declaration'] for x in plan['samples'] if x['path'] == path]
+        names = [x['declaration'] for x in samples() if x['path'] == path]
         entries = [(n, False) for n in names]
         if additions: entries += [(n, True) for n in p['additions']]
         boundary = r'(?m)^(?:end\b|[ ]{0,1}(?:(?:private|noncomputable|protected)\s+)*(?:theorem|lemma|def|namespace|include)\b)'
@@ -61,8 +81,19 @@ headers and full kernel type export are independent checks of the same edit.
                 if doc < 0: raise RuntimeError('Expected documented addition: '+name)
                 start_line = text[:doc].count('\n')
                 prefix = text[:doc].rstrip()
-                if prefix.endswith('include hub in'):
-                    start_line = text[:prefix.rfind('include hub in')].count('\n')
+                permitted = {'OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm':'include hub in',
+                    **json.loads(EXPANSION.read_text())['permitted_prefixes']}
+                extra = permitted.get(name)
+                if extra and prefix.endswith(extra):
+                    start_line = text[:prefix.rfind(extra)].count('\n')
+            if not new:
+                doc = text.rfind('/--', 0, pos)
+                if doc >= 0 and not text[doc+3:text.index('-/', doc)].count(':= by'):
+                    prefix = text[:doc].rstrip()
+                    # Only exact prefixes already present in the pristine source
+                    # are admitted as insertion destinations in the active source.
+                    if name == 'OAI.KLInvariance.IntegralSupport.supported_iff_annihilates' and prefix.endswith('include hp hbalanced in'):
+                        spans.append((text[:prefix.rfind('include hp hbalanced in')].count('\n'), text[:doc].count('\n')))
             spans.append((start_line, code[:end].count('\n')))
         return spans
     old_regions = regions(before, False); new_regions = regions(after, True)
@@ -71,6 +102,11 @@ headers and full kernel type export are independent checks of the same edit.
     for tag,a,b,c,d in matcher.get_opcodes():
         if tag != 'equal' and (not covered(a,b,old_regions) or not covered(c,d,new_regions)):
             raise RuntimeError('Edit outside approved proof/declaration spans: '+path)
+
+def check_prior_source(path, after, p):
+    if path in p['prior_active_files'] and sha(after) != p['prior_active_files'][path]:
+        raise RuntimeError('Changed frozen first-round source: '+path)
+
 
 def overlay(files):
     """All other products stay pristine; every active exception is hash/diff-bound."""
@@ -86,6 +122,7 @@ def overlay(files):
             raise RuntimeError('Pristine reconstruction changed: '+path)
         if sha(after) != item['active_sha256'] or before == after:
             raise RuntimeError('Unrecorded active proof change: '+path)
+        check_prior_source(path, after, p)
         edit_scope(before.decode(), after.decode(), path)
         patches.append(difference(path, before, after))
         # No new axiom command, unsafe bypass or global attribute is accepted.
@@ -101,9 +138,8 @@ def overlay(files):
     if patch != (HERE/'proof-evolution.patch').read_bytes() or sha(patch) != record['diff_sha256']:
         raise RuntimeError('Evolution diff does not describe the exact active source')
     # Preserve literal old declaration headers as well as kernel-exported types.
-    original_plan = json.loads(PLAN.read_text())
     pristine = __import__('migrate').pristine_products()
-    for sample in original_plan['samples']:
+    for sample in samples():
         name = sample['declaration'].rsplit('.', 1)[-1]
         headers = []
         for body in (pristine[sample['path']].decode(), (HERE/sample['path']).read_text()):
@@ -122,7 +158,10 @@ def compare_export(path):
         raise RuntimeError('Unbound additional-type snapshot')
     expected = json.loads(expected_bytes)
     if set(expected) != set(p['additions']) or any(v['kind'] != 'theorem' for v in expected.values()):
-        raise RuntimeError('Additional type snapshot is not the exact five-lemma allowlist')
+        raise RuntimeError('Additional type snapshot is not the exact thirteen-lemma allowlist')
+    prior = json.loads(PRIOR_TYPES.read_text())
+    if any(expected.get(k) != v for k,v in prior.items()):
+        raise RuntimeError('Changed retained first-round added types')
     all_types = load(path, 3902+len(p['additions']))
     old = load_snapshot(HERE/'reference-public-types.json')
     if set(all_types) != set(old)|set(expected) or set(old)&set(expected):
@@ -159,7 +198,7 @@ def main():
     elif args.check:
         from migrate import products
         products()
-        print(json.dumps(dict(pristine_public_count=3902,explicit_additions=5,evolved_files=3,old_headers_preserved=True,passed=True)))
+        print(json.dumps(dict(pristine_public_count=3902,explicit_additions=13,evolved_files=7,old_headers_preserved=True,passed=True)))
     elif args.compare:print(json.dumps(compare_export(args.compare),indent=2))
     else:parser.error('choose --record or --compare')
 if __name__=='__main__':main()

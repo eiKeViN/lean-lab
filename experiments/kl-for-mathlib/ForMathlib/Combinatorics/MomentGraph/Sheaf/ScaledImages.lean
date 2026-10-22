@@ -127,32 +127,41 @@ variable {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
   {B : Sheaf.{ur,uv,ue,uz} (R := R) G} {C : Sheaf.{ur,uv,ue,uz'} (R := R) G}
   (j : Iso B C)
 
+/-- Membership in a lower kernel image is transported by the inverse edge
+isomorphism. The vertex-kernel condition and lower commuting square are both
+included, so callers do not have to transport witnesses themselves. -/
+theorem mem_lowerImage_iff_symm (e : E)
+    (F : Set (Outgoing (G := G) (G.source e))) (z : C.edge e) :
+    z ∈ (C.upwardKernel (G.source e) F).map (C.lower e) ↔
+      (j.edge e).symm z ∈ (B.upwardKernel (G.source e) F).map (B.lower e) := by
+  rw [← j.map_lowerImage e F, Submodule.mem_map_equiv]
+
+/-- Membership in a scalar multiple of an upper kernel image is transported
+by the inverse edge isomorphism. The scalar is arbitrary, including zero; no
+injectivity of scalar multiplication is used. -/
+theorem mem_scaledUpperImage_iff_symm (e : E)
+    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : C.edge e) :
+    (∃ w ∈ C.upwardKernel (G.target e) H, r • C.upper e w = z) ↔
+      ∃ w ∈ B.upwardKernel (G.target e) H, r • B.upper e w = (j.edge e).symm z := by
+  constructor
+  · rintro ⟨w,hw,he⟩
+    have hw' : (j.vertex (G.target e)).symm w ∈ B.upwardKernel (G.target e) H := by
+      apply (j.upwardKernel_iff _ _ _).mp
+      simpa only [LinearEquiv.apply_symm_apply] using hw
+    refine ⟨_,hw',?_⟩
+    apply (j.edge e).injective
+    rw [map_smul,j.upper,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
+  · rintro ⟨w,hw,he⟩
+    refine ⟨j.vertex (G.target e) w,(j.upwardKernel_iff _ _ _).mpr hw,?_⟩
+    rw [← j.upper,← map_smul,he,LinearEquiv.apply_symm_apply]
+
 include j in
  theorem scaledImages (e : E) (F : Set (Outgoing (G := G) (G.source e)))
     (H : Set (Outgoing (G := G) (G.target e))) (r : R)
     (h : B.ScaledImages e F H r) : C.ScaledImages e F H r := by
   intro z
-  constructor
-  · rintro ⟨v,hv,he⟩
-    have hv' : (j.vertex (G.source e)).symm v ∈ B.upwardKernel (G.source e) F := by
-      apply (j.upwardKernel_iff _ _ _).mp
-      simpa only [LinearEquiv.apply_symm_apply] using hv
-    have he' : B.lower e ((j.vertex (G.source e)).symm v)=(j.edge e).symm z := by
-      apply (j.edge e).injective
-      rw [j.lower,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
-    obtain ⟨w,hw,hew⟩ := (h ((j.edge e).symm z)).mp ⟨_,hv',he'⟩
-    refine ⟨j.vertex (G.target e) w,(j.upwardKernel_iff _ _ _).mpr hw,?_⟩
-    rw [← j.upper,← map_smul,hew,LinearEquiv.apply_symm_apply]
-  · rintro ⟨w,hw,he⟩
-    have hw' : (j.vertex (G.target e)).symm w ∈ B.upwardKernel (G.target e) H := by
-      apply (j.upwardKernel_iff _ _ _).mp
-      simpa only [LinearEquiv.apply_symm_apply] using hw
-    have he' : r • B.upper e ((j.vertex (G.target e)).symm w)=(j.edge e).symm z := by
-      apply (j.edge e).injective
-      rw [map_smul,j.upper,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
-    obtain ⟨v,hv,hev⟩ := (h ((j.edge e).symm z)).mpr ⟨_,hw',he'⟩
-    refine ⟨j.vertex (G.source e) v,(j.upwardKernel_iff _ _ _).mpr hv,?_⟩
-    rw [← j.lower,hev,LinearEquiv.apply_symm_apply]
+  exact (j.mem_lowerImage_iff_symm e F z).trans
+    ((h ((j.edge e).symm z)).trans (j.mem_scaledUpperImage_iff_symm e H r z).symm)
 
 end KLInvariance.MomentGraph.Sheaf.Iso
 end
