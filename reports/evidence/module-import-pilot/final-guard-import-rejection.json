@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/results/module-pilot/legacy-wide-modern-rejected.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 1.8978039260000514,
+  "user_seconds": 0.8950699999999999,
+  "system_seconds": 1.008334,
+  "max_rss_kib": 4032788
+}

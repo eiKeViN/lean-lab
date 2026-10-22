@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "WeightedSumImportChecks.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 5.023399076000032,
+  "user_seconds": 17.289917,
+  "system_seconds": 5.771599,
+  "max_rss_kib": 7611764
+}

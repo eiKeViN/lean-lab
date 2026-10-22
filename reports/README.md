@@ -1,5 +1,8 @@
 # Verification records
 
+The bounded [import/module pilot](module-import-pilot.md) records four-grid,
+visibility compatibility, and incremental-build experiments on the pinned baseline.
+
 Current entrypoints are in the root README and the maintained
 `experiments/kl-for-mathlib/README.md`. The current library extraction round is in
 [lemma-granularity-library.md](lemma-granularity-library.md), with a separate

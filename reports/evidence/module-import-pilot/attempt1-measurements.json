@@ -1,0 +1,60 @@
+[
+  {
+    "command": [
+      "lake",
+      "--no-build",
+      "build",
+      "Mathlib"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.959555509000012,
+    "user_seconds": 3.328353,
+    "system_seconds": 1.8685019999999999,
+    "max_rss_kib": 997676,
+    "label": "upstream-ready"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ForMathlib.LinearAlgebra.KernelTransport",
+      "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 11.980015505999972,
+    "user_seconds": 14.214896,
+    "system_seconds": 4.575911,
+    "max_rss_kib": 7310560,
+    "label": "target-ready"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-baseline.lean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 5.337511430999996,
+    "user_seconds": 4.063422,
+    "system_seconds": 1.404215,
+    "max_rss_kib": 7312244,
+    "label": "kernel-baseline"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ForMathlib.LinearAlgebra.KernelTransport",
+      "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.5720471490000136,
+    "user_seconds": 4.326679,
+    "system_seconds": 2.00999,
+    "max_rss_kib": 999124,
+    "label": "restored-targets"
+  }
+]
