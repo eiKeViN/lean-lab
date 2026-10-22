@@ -162,6 +162,11 @@ build was performed this round; the existing pinned toolchain/cache was reused.
   failed rerun and final clean logs are all retained, rather than relabelling
   the earlier 32-stage result as a rerun of the strengthened test.
 
+Publication cleanup removed five leftover historical logs that were not listed
+in the current 32-stage manifest. The tested source/tooling commit is
+`c8a5c201ce78bd3a17603d885cc8c78f283a5f40`; this evidence-only follow-up changes
+no tested input and requires no further Lean build.
+
 [Verified input hashes](evidence/lemma-granularity-library/verified-inputs.json)
 record the final tested source/tooling and export hash. The line-based guard is
 bounded, not a general Lean parser; compilation, type export and axiom checks are
