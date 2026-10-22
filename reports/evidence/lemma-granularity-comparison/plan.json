@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "round": 3,
+  "starting_commit": "bdcb35071c4790585beb47f7f28798ece8ed58d9",
+  "pristine_base": "a234ae5be6f77763e2014aad2cddd69e6aa50755",
+  "samples": [
+    {
+      "id": "P1",
+      "path": "OAI/KL/Comparison/Transport.lean",
+      "declaration": "OAI.KLInvariance.BruhatGraph.transported_dispatch_entry",
+      "helpers": [
+        "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le"
+      ],
+      "file_sha256": "31a677c4ad9e14a598bc46fca1717ec3620ce0d41737b41f0e317bdb5785a578",
+      "reason": "Separate monotonicity along a directed Bruhat path from dispatch graph embedding."
+    },
+    {
+      "id": "P2",
+      "path": "OAI/KL/Comparison/Transport.lean",
+      "declaration": "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse",
+      "helpers": [
+        "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+        "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term",
+        "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight"
+      ],
+      "file_sha256": "31a677c4ad9e14a598bc46fca1717ec3620ce0d41737b41f0e317bdb5785a578",
+      "reason": "Separate reflected polynomial evaluation, summand normalization and the repeated inverse-square degree weight."
+    },
+    {
+      "id": "P3",
+      "path": "OAI/KL/Comparison/Transport.lean",
+      "declaration": "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_upper",
+      "helpers": [
+        "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper"
+      ],
+      "file_sha256": "31a677c4ad9e14a598bc46fca1717ec3620ce0d41737b41f0e317bdb5785a578",
+      "reason": "Restrict a triangular weighted sum to an upper interval independently of the special scaled-stalk weights."
+    },
+    {
+      "id": "P4",
+      "path": "OAI/KL/Comparison/Propagation.lean",
+      "declaration": "OAI.KLInvariance.BruhatGraph.costalkEquivDual_symmetric",
+      "helpers": [
+        "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled"
+      ],
+      "file_sha256": "c3a51bd3ce596e4a43e37ea6f2fde8ec714cce063ad3f9a351ea47ce8c7ad712",
+      "reason": "Separate the scaled costalk pairing identity from symmetry and scalar cancellation."
+    },
+    {
+      "id": "P5",
+      "path": "OAI/KL/Comparison/Propagation.lean",
+      "declaration": "OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character",
+      "helpers": [
+        "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character"
+      ],
+      "file_sha256": "c3a51bd3ce596e4a43e37ea6f2fde8ec714cce063ad3f9a351ea47ce8c7ad712",
+      "reason": "Expose the raw full-kernel Hilbert expression before normalization; reuse the square-weight identity."
+    },
+    {
+      "id": "P6",
+      "path": "OAI/KL/Comparison/SuffixFreeness.lean",
+      "declaration": "OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq",
+      "helpers": [
+        "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free"
+      ],
+      "file_sha256": "584e398f4b9c4f29f0d04333ec9d41b68b8f2bddd817645d942a75b667e4b367",
+      "reason": "Expose the one-edge reverse-filtration preservation step, leaving suffix induction to the client."
+    }
+  ],
+  "additions": [
+    "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le",
+    "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+    "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term",
+    "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+    "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+    "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
+    "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character",
+    "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free"
+  ],
+  "extra_calls": [
+    {
+      "parent": "OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character",
+      "child": "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight"
+    }
+  ],
+  "permitted_prefixes": {
+    "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled": "omit [Fintype \u03c3] in"
+  },
+  "declined": [
+    {
+      "candidate": "upper-suffix kernel set identities",
+      "reason": "Existing cutoff and pullback-kernel APIs already expose the responsibilities; new wrappers would mainly restate extensional rewriting."
+    },
+    {
+      "candidate": "normalization positivity and simple scalar cancellation",
+      "reason": "Use existing Mathlib facts and the existing scalar helpers rather than one-line wrappers."
+    },
+    {
+      "candidate": "a chosen homogeneous basis has the stalk polynomial",
+      "reason": "Three existing character-equality rewrites belong inside the raw Hilbert extraction, not a further context-heavy lemma."
+    },
+    {
+      "candidate": "modify prior support assumptions or move the complementary-root API",
+      "reason": "Known future API debt; this round freezes the previous thirteen theorem types and seven source exceptions."
+    }
+  ],
+  "queries": [
+    "increasing Bruhat path source above start",
+    "reflected stalk polynomial reciprocal evaluation",
+    "normalized R polynomial scaled stalk summand",
+    "inverse square degree weight identity",
+    "upper interval triangular weighted sum",
+    "incoming label costalk section pairing",
+    "full kernel Hilbert reciprocal character",
+    "one edge reverse schedule kernel freeness"
+  ],
+  "measurement": {
+    "cost": "comparison-prefixed labels; prior ledgers immutable; distinguish incremental edit/guard work and dependency invalidation.",
+    "direct": "One before/after source pair for each of the three files; same warm current dependencies, no input olean reuse, no competing own build.",
+    "reuse": "Nine expected direct relationships: eight original sites plus a second consumer of the square-weight identity, both inside this round.",
+    "tokens": "Unavailable unless real telemetry is exposed; do not infer from characters or output tokens."
+  }
+}
