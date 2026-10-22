@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Projective.ReverseFiltration
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Projective.ReverseFiltration
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Projective.ScalarQuotient. Source spans: GradedModules:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -12,7 +15,7 @@ universe ua up ui
 variable {A : Type ua} [CommRing A] [klPreservedInstance10 : IsDomain A]
 noncomputable section
 
-def scalarQuotientMap (a : A) (ι : Type ui) :
+@[expose] def scalarQuotientMap (a : A) (ι : Type ui) :
     (ι → A) →ₗ[A] (ι → A ⧸ Ideal.span {a}) where
   toFun v i := Ideal.Quotient.mk _ (v i)
   map_add' _ _ := by ext i; simp
@@ -28,7 +31,7 @@ theorem scalarQuotientMap_surjective (a : A) (ι : Type ui) :
 
 /-- Multiplication by the actual nonzero label identifies the kernel of
 coordinate reduction with a free module. -/
-def scalarKernelMap (a : A) (ι : Type ui) :
+@[expose] def scalarKernelMap (a : A) (ι : Type ui) :
     (ι → A) →ₗ[A] LinearMap.ker (scalarQuotientMap a ι) where
   toFun v := ⟨fun i => a*v i, by
     ext i

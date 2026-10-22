@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Bruhat.Defs. Source spans: Model:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -9,18 +12,18 @@ namespace KLInvariance
 open Polynomial
 universe u v u' v'
 variable {B : Type u} {W : Type v} [Group W] {M : CoxeterMatrix B}
-def BruhatStep (cs : CoxeterSystem M W) (x y : W) : Prop :=
+@[expose] def BruhatStep (cs : CoxeterSystem M W) (x y : W) : Prop :=
   cs.length x < cs.length y ∧ ∃ t : W, cs.IsReflection t ∧ y = t * x
 
 /-- The actual strong Bruhat order, not the weak order. -/
-def BruhatLE (cs : CoxeterSystem M W) : W → W → Prop :=
+@[expose] def BruhatLE (cs : CoxeterSystem M W) : W → W → Prop :=
   Relation.ReflTransGen (BruhatStep cs)
 
 /-- The unlabelled interval, including both endpoints. -/
-def Interval (cs : CoxeterSystem M W) (u b : W) :=
+@[expose] def Interval (cs : CoxeterSystem M W) (u b : W) :=
   {x : W // BruhatLE cs u x ∧ BruhatLE cs x b}
 
-instance intervalOrder (cs : CoxeterSystem M W) (u b : W) :
+@[expose] instance intervalOrder (cs : CoxeterSystem M W) (u b : W) :
     PartialOrder (Interval cs u b) where
   le left right := BruhatLE cs left.val right.val
   le_refl _ := Relation.ReflTransGen.refl
@@ -40,7 +43,7 @@ instance intervalOrder (cs : CoxeterSystem M W) (u b : W) :
         (lt_of_lt_of_le step.1 (length_mono rest))
 
 /-- `d(x,y)` in the manuscript, used only for comparable endpoints. -/
-noncomputable def rankDifference (cs : CoxeterSystem M W) (x y : W) : ℕ :=
+@[expose] noncomputable def rankDifference (cs : CoxeterSystem M W) (x y : W) : ℕ :=
   cs.length y - cs.length x
 
 end KLInvariance

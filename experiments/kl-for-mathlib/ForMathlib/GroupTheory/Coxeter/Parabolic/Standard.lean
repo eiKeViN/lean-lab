@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Realization.Cotangent
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Realization.Cotangent
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Parabolic.Standard. Source spans: Tits:16, Tits:17.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -14,7 +17,7 @@ variable {I : Type u} {W : Type v} [Group W] {M : CoxeterMatrix I}
 variable (cs : CoxeterSystem M W) (J : Set I)
 noncomputable section
 
-def matrix : CoxeterMatrix J where
+@[expose] def matrix : CoxeterMatrix J where
   M i j := M i.val j.val
   isSymm := M.isSymm.submatrix Subtype.val
   diagonal i := M.diagonal i.val
@@ -23,7 +26,7 @@ def matrix : CoxeterMatrix J where
 abbrev system : CoxeterSystem (matrix (M := M) J) (matrix (M := M) J).Group :=
   (matrix (M := M) J).toCoxeterSystem
 
-def inclusion : (matrix (M := M) J).Group →* W :=
+@[expose] def inclusion : (matrix (M := M) J).Group →* W :=
   (system (M := M) J).lift ⟨fun i => cs.simple i.val,
     fun i j => cs.simple_mul_simple_pow i.val j.val⟩
 
@@ -38,7 +41,7 @@ lemma inclusion_word (ω : List J) :
   | cons i ω ih =>
     rw [wordProd_cons, map_mul, inclusion_simple, List.map_cons, wordProd_cons, ih]
 
-def restrictVec (l : I → ℝ) : J → ℝ := fun j => l j.val
+@[expose] def restrictVec (l : I → ℝ) : J → ℝ := fun j => l j.val
 
 lemma simple_restrict (i : J) (l : I → ℝ) :
     restrictVec J (Cotangent.action M cs (cs.simple i.val) l) =
@@ -162,7 +165,7 @@ theorem lower_range (y : (matrix (M := M) J).Group) {z : W}
   obtain ⟨τ, _, rfl⟩ := List.sublist_map_iff.mp hsub
   exact ⟨(system (M := M) J).wordProd τ, (inclusion_word cs J τ).trans hprod⟩
 
-def intervalMap (x y : (matrix (M := M) J).Group) :
+@[expose] def intervalMap (x y : (matrix (M := M) J).Group) :
     Interval (system (M := M) J) x y →
       Interval cs (inclusion cs J x) (inclusion cs J y) :=
   fun z => ⟨inclusion cs J z.val, (bruhat_inclusion_iff cs J x z.val).2 z.property.1,
@@ -185,7 +188,7 @@ lemma intervalMap_bijective (x y : (matrix (M := M) J).Group) :
 
 /-- The exact unlabelled interval identification used in the finite-rank
 reduction; it arises from a proved embedding, not an added main hypothesis. -/
-def intervalIso (x y : (matrix (M := M) J).Group) :
+@[expose] def intervalIso (x y : (matrix (M := M) J).Group) :
     Interval (system (M := M) J) x y ≃o
       Interval cs (inclusion cs J x) (inclusion cs J y) where
   toEquiv := Equiv.ofBijective _ (intervalMap_bijective cs J x y)

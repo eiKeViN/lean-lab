@@ -1,0 +1,1411 @@
+--- pristine/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
++++ active/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean
+@@ -13,0 +14,23 @@
++/-- Exchange two finite weighted sums by distributivity and commutativity.
++This isolates bilinear reindexing from the cancellation argument. -/
++theorem weighted_sum_exchange (m r : V → C) (p : V → V → C) :
++    (∑ z, r z * (∑ y, m y * p y z)) = ∑ y, m y * (∑ z, r z * p y z) := by
++  simp only [Finset.mul_sum]
++  rw [Finset.sum_comm]
++  apply Finset.sum_congr rfl
++  intro y _
++  apply Finset.sum_congr rfl
++  intro z _
++  ring
++
++/-- A finite weighted sum supported at a single coordinate equals its surviving
++value when that weight is one. Apply after the other coordinate errors vanish. -/
++theorem weighted_sum_single (t : V) (m f : V → C) (hm : m t = 1)
++    (hf : ∀ y, y ≠ t → f y = 0) : (∑ y, m y * f y) = f t := by
++  classical
++  rw [Finset.sum_eq_single t]
++  · rw [hm, one_mul]
++  · intro y _ hy
++    rw [hf y hy, mul_zero]
++  · simp
++
+@@ -19,9 +42 @@
+-  have hexpand : (∑ z, r z*(∑ y, m y*p y z))=∑ y, m y*(∑ z, r z*p y z) := by
+-    simp only [Finset.mul_sum]
+-    rw [Finset.sum_comm]
+-    apply Finset.sum_congr rfl
+-    intro y _
+-    apply Finset.sum_congr rfl
+-    intro z _
+-    ring
+-  rw [hexpand] at hword
++  rw [weighted_sum_exchange m r p] at hword
+@@ -31,5 +46,3 @@
+-    rw [Finset.sum_eq_single t]
+-    · rw [hm,one_mul]
+-    · intro y _ hy
+-      rw [hlower y hy,sub_self,mul_zero]
+-    · simp
++    apply weighted_sum_single t m _ hm
++    intro y hy
++    rw [hlower y hy, sub_self]
+@@ -54,9 +67,3 @@
+-  calc
+-    (∑ y, (a y*v y-a y*w y)) = ∑ y, if y=x then v x-w x else 0 := by
+-      apply Finset.sum_congr rfl
+-      intro y _
+-      by_cases hy : y=x
+-      · subst y
+-        simp [hdiag]
+-      · simp [hy,hvw y hy]
+-    _ = v x-w x := by simp
++  simp_rw [← mul_sub]
++  exact weighted_sum_single x a (fun y => v y - w y) hdiag
++    (fun y hy => sub_eq_zero.mpr (hvw y hy))
+--- pristine/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean
++++ active/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean
+@@ -17,0 +18,25 @@
++/-- A positive real in the open unit interval has a square root in the same
++interval. Use the witness to change variables without carrying a concrete sqrt. -/
++theorem exists_pos_sq_eq_of_mem_Ioo (q : ℝ) (hq : 0 < q) (hq1 : q < 1) :
++    ∃ t : ℝ, 0 < t ∧ t < 1 ∧ t ^ 2 = q := by
++  refine ⟨Real.sqrt q, Real.sqrt_pos.mpr hq, ?_, Real.sq_sqrt hq.le⟩
++  nlinarith [Real.sq_sqrt hq.le]
++
++/-- Clear reciprocal polynomial evaluation scaling at a nonzero real point.
++Use this algebraic step before changing variables; positivity is not required. -/
++theorem eval_difference_of_scaled_reciprocal (p p' : ℤ[X]) (d : ℕ) (t : ℝ)
++    (ht : t ≠ 0)
++    (h : scaledPolynomial t d p - scaledPolynomial t d p' =
++      scaledPolynomial t⁻¹ d p - scaledPolynomial t⁻¹ d p') :
++    p.eval₂ (Int.castRingHom ℝ) (t ^ 2) - p'.eval₂ (Int.castRingHom ℝ) (t ^ 2) =
++      (t ^ 2) ^ d * (p.eval₂ (Int.castRingHom ℝ) (t ^ 2)⁻¹ -
++        p'.eval₂ (Int.castRingHom ℝ) (t ^ 2)⁻¹) := by
++  have he := h
++  simp only [scaledPolynomial, zpow_neg, zpow_natCast, inv_pow, inv_inv,
++    ← mul_sub] at he
++  have hh := congrArg (fun z : ℝ => t ^ d * z) he
++  rw [← mul_assoc, mul_inv_cancel₀ (pow_ne_zero d ht), one_mul] at hh
++  rw [← mul_assoc, ← pow_add] at hh
++  rw [show d + d = 2 * d by omega, pow_mul] at hh
++  exact hh
++
+@@ -25,14 +50,3 @@
+-  let t := Real.sqrt q
+-  have ht : 0 < t := Real.sqrt_pos.2 hq
+-  have hsq : t^2=q := Real.sq_sqrt hq.le
+-  have ht1 : t < 1 := by nlinarith
+-  have hisq : (t⁻¹)^2=q⁻¹ := by rw [inv_pow,hsq]
+-  have he := h t ht ht1
+-  simp only [scaledPolynomial,zpow_neg,zpow_natCast,inv_pow,inv_inv,hsq,hisq,
+-    ← mul_sub] at he
+-  have hh := congrArg (fun z : ℝ => t^d*z) he
+-  have htd : t^d ≠ 0 := pow_ne_zero d ht.ne'
+-  rw [← mul_assoc,mul_inv_cancel₀ htd,one_mul] at hh
+-  rw [← mul_assoc,← pow_add] at hh
+-  rw [show d+d=2*d by omega,pow_mul,hsq] at hh
+-  exact hh
++  obtain ⟨t, ht, ht1, hsq⟩ := exists_pos_sq_eq_of_mem_Ioo q hq hq1
++  have he := eval_difference_of_scaled_reciprocal p p' d t ht.ne' (h t ht ht1)
++  simpa only [hsq] using he
+--- pristine/OAI/KL/Invariance/Finite.lean
++++ active/OAI/KL/Invariance/Finite.lean
+@@ -90,0 +91,19 @@
++include hub in
++/-- Transport polynomial equality away from the bottom through the inverse
++interval isomorphism. This packages the backward comparison's endpoint bookkeeping
++while retaining the original KL context. -/
++theorem upper_polynomial_eq_symm
++    (hupper : ∀ y : Interval cs u b, y.val ≠ u →
++      klPolynomial cs y.val b = klPolynomial cs' (φ y).val b') :
++    ∀ y : Interval cs' u' b', y ≠ intervalBottom cs' hub' →
++      klPolynomial cs' y.val b' = klPolynomial cs (φ.symm y).val b := by
++  intro y hy
++  have hyy : (φ.symm y).val ≠ u := by
++    intro he
++    have he' : φ.symm y = intervalBottom cs hub := Subtype.ext he
++    apply hy
++    have hh := congrArg φ he'
++    rw [φ.apply_symm_apply, intervalIso_bottom cs cs' hub hub' φ] at hh
++    exact hh
++  simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm
++
+@@ -117,9 +136 @@
+-    (fun y hy => by
+-      have hyy : (φ.symm y).val ≠ u := by
+-        intro he
+-        have he' : φ.symm y=intervalBottom cs hub := Subtype.ext he
+-        apply hy
+-        have hh := congrArg φ he'
+-        rw [φ.apply_symm_apply,intervalIso_bottom cs cs' hub hub' φ] at hh
+-        exact hh
+-      simpa only [φ.apply_symm_apply] using (hupper (φ.symm y) hyy).symm)
++    (upper_polynomial_eq_symm hub hub' φ hupper)
+--- pristine/ForMathlib/LinearAlgebra/Reflection/Plane.lean
++++ active/ForMathlib/LinearAlgebra/Reflection/Plane.lean
+@@ -38,0 +39,10 @@
++/-- The displacement of a product of two pre-reflections is a combination of
++its two roots. No independence or root normalization is needed for this action
++formula; the range theorem supplies independence only for the reverse inclusion. -/
++theorem preReflection_product_sub_id_apply (α β : V) (f g : Module.Dual k V) (v : V) :
++    ((Module.preReflection α f).comp (Module.preReflection β g) -
++      (LinearMap.id : V →ₗ[k] V)) v = (-f v + f β * g v) • α + (-g v) • β := by
++  simp only [LinearMap.sub_apply, LinearMap.comp_apply, Module.preReflection_apply,
++    LinearMap.id_apply, map_sub, map_smul]
++  module
++
+@@ -45,6 +54,0 @@
+-  have hformula (v : V) :
+-      ((Module.preReflection α f).comp (Module.preReflection β g) -
+-        (LinearMap.id : V →ₗ[k] V)) v = (-f v + f β * g v) • α + (-g v) • β := by
+-    simp only [LinearMap.sub_apply, LinearMap.comp_apply, Module.preReflection_apply,
+-      LinearMap.id_apply, map_sub, map_smul]
+-    module
+@@ -53 +57 @@
+-    rw [hformula]
++    rw [preReflection_product_sub_id_apply]
+@@ -61 +65 @@
+-    rw [hformula, hf, hg]
++    rw [preReflection_product_sub_id_apply, hf, hg]
+@@ -99,0 +104,26 @@
++/-- A vector in a normalized root plane has norm two exactly when its
++coordinates satisfy the associated quadratic equation. Symmetry and the two
++root norms are the only inputs; no nondegeneracy of the plane is required. -/
++theorem plane_combination_norm_two_iff
++    (B : LinearMap.BilinForm ℝ V) (hB : B.IsSymm)
++    (a b : V) (ha : B a a = 2) (hb : B b b = 2) (x y : ℝ) :
++    B (x • a + y • b) (x • a + y • b) = 2 ↔
++      x^2 + B a b*x*y + y^2 = 1 := by
++  have hba : B b a = B a b := hB.eq b a
++  simp only [map_add, map_smul, LinearMap.add_apply, LinearMap.smul_apply,
++    smul_eq_mul, ha, hb, hba]
++  constructor <;> intro h <;> nlinarith [h]
++
++/-- The root constructed from normalized plane coordinates again has norm two.
++This isolates the normalization needed to form the final reflection in a triple
++product, without asserting the operator identity itself. -/
++theorem triple_root_norm_two
++    (B : LinearMap.BilinForm ℝ V) (hB : B.IsSymm)
++    (a b : V) (ha : B a a = 2) (hb : B b b = 2) (x y : ℝ)
++    (hnorm : x^2 + B a b*x*y + y^2 = 1) :
++    B (x • b - (B a b*x+y) • a) (x • b - (B a b*x+y) • a) = 2 := by
++  have hba : B b a = B a b := hB.eq b a
++  simp only [map_sub, map_smul, LinearMap.sub_apply, LinearMap.smul_apply,
++    smul_eq_mul, ha, hb, hba]
++  nlinarith [hnorm]
++
+@@ -115,11 +145,3 @@
+-  have hnorm : x^2+p*x*y+y^2=1 := by
+-    simp only [map_add,map_smul,LinearMap.add_apply,LinearMap.smul_apply,
+-      smul_eq_mul,ha,hb,hba] at hc
+-    dsimp [p]
+-    nlinarith [hc]
+-  have hd : B d d = 2 := by
+-    dsimp [d,r]
+-    simp only [map_sub,map_smul,LinearMap.sub_apply,LinearMap.smul_apply,
+-      smul_eq_mul,ha,hb,hba]
+-    change x*(x*2-(p*x+y)*p)-(p*x+y)*(x*p-(p*x+y)*2)=2
+-    nlinarith [hnorm]
++  have hnorm : x^2+p*x*y+y^2=1 :=
++    (plane_combination_norm_two_iff B hB a b ha hb x y).mp hc
++  have hd : B d d = 2 := triple_root_norm_two B hB a b ha hb x y hnorm
+--- pristine/ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean
++++ active/ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean
+@@ -58,0 +59,28 @@
++/-- A single-supported section pairs to zero with the kernel of its stalk
++projection. Balanced cuts and a nonzero scalar give this integrally, without
++passing to a fraction field. -/
++theorem annihilates_of_supported (x : V) (m : M) (hm : m ∈ supported M x) :
++    ∀ n : M, projection M x n = 0 → d m n = 0 := by
++  intro n hn
++  have hh := hbalanced x m n
++  rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
++  simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
++
++include hp hbalanced in
++/-- Annihilating the stalk-projection kernel forces single support. Perfectness
++kills each other balanced cut, and torsion-freeness removes its nonzero scalar;
++this is the integral converse to the supported-section pairing argument. -/
++theorem supported_of_annihilates (x : V) (m : M)
++    (hm : ∀ n : M, projection M x n = 0 → d m n = 0) : m ∈ supported M x := by
++  intro y hy
++  have hc : cut M p hcut y m = 0 := by
++    apply d.injective
++    apply LinearMap.ext
++    intro n
++    rw [hbalanced]
++    simpa only [map_zero,LinearMap.zero_apply] using
++      hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
++  have hv := congrArg (fun s : M => s.val y) hc
++  simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
++
++include hp hbalanced in
+@@ -62,15 +90,2 @@
+-  constructor
+-  · intro hm n hn
+-    have hh := hbalanced x m n
+-    rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
+-    simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
+-  · intro hm y hy
+-    have hc : cut M p hcut y m = 0 := by
+-      apply d.injective
+-      apply LinearMap.ext
+-      intro n
+-      rw [hbalanced]
+-      simpa only [map_zero,LinearMap.zero_apply] using
+-        hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
+-    have hv := congrArg (fun s : M => s.val y) hc
+-    simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
++  exact ⟨annihilates_of_supported M p hcut hp d hbalanced x m,
++    supported_of_annihilates M p hcut hp d hbalanced x m⟩
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean
+@@ -129,0 +130,28 @@
++/-- Membership in a lower kernel image is transported by the inverse edge
++isomorphism. The vertex-kernel condition and lower commuting square are both
++included, so callers do not have to transport witnesses themselves. -/
++theorem mem_lowerImage_iff_symm (e : E)
++    (F : Set (Outgoing (G := G) (G.source e))) (z : C.edge e) :
++    z ∈ (C.upwardKernel (G.source e) F).map (C.lower e) ↔
++      (j.edge e).symm z ∈ (B.upwardKernel (G.source e) F).map (B.lower e) := by
++  rw [← j.map_lowerImage e F, Submodule.mem_map_equiv]
++
++/-- Membership in a scalar multiple of an upper kernel image is transported
++by the inverse edge isomorphism. The scalar is arbitrary, including zero; no
++injectivity of scalar multiplication is used. -/
++theorem mem_scaledUpperImage_iff_symm (e : E)
++    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : C.edge e) :
++    (∃ w ∈ C.upwardKernel (G.target e) H, r • C.upper e w = z) ↔
++      ∃ w ∈ B.upwardKernel (G.target e) H, r • B.upper e w = (j.edge e).symm z := by
++  constructor
++  · rintro ⟨w,hw,he⟩
++    have hw' : (j.vertex (G.target e)).symm w ∈ B.upwardKernel (G.target e) H := by
++      apply (j.upwardKernel_iff _ _ _).mp
++      simpa only [LinearEquiv.apply_symm_apply] using hw
++    refine ⟨_,hw',?_⟩
++    apply (j.edge e).injective
++    rw [map_smul,j.upper,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
++  · rintro ⟨w,hw,he⟩
++    refine ⟨j.vertex (G.target e) w,(j.upwardKernel_iff _ _ _).mpr hw,?_⟩
++    rw [← j.upper,← map_smul,he,LinearEquiv.apply_symm_apply]
++
+@@ -135,21 +163,2 @@
+-  constructor
+-  · rintro ⟨v,hv,he⟩
+-    have hv' : (j.vertex (G.source e)).symm v ∈ B.upwardKernel (G.source e) F := by
+-      apply (j.upwardKernel_iff _ _ _).mp
+-      simpa only [LinearEquiv.apply_symm_apply] using hv
+-    have he' : B.lower e ((j.vertex (G.source e)).symm v)=(j.edge e).symm z := by
+-      apply (j.edge e).injective
+-      rw [j.lower,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
+-    obtain ⟨w,hw,hew⟩ := (h ((j.edge e).symm z)).mp ⟨_,hv',he'⟩
+-    refine ⟨j.vertex (G.target e) w,(j.upwardKernel_iff _ _ _).mpr hw,?_⟩
+-    rw [← j.upper,← map_smul,hew,LinearEquiv.apply_symm_apply]
+-  · rintro ⟨w,hw,he⟩
+-    have hw' : (j.vertex (G.target e)).symm w ∈ B.upwardKernel (G.target e) H := by
+-      apply (j.upwardKernel_iff _ _ _).mp
+-      simpa only [LinearEquiv.apply_symm_apply] using hw
+-    have he' : r • B.upper e ((j.vertex (G.target e)).symm w)=(j.edge e).symm z := by
+-      apply (j.edge e).injective
+-      rw [map_smul,j.upper,LinearEquiv.apply_symm_apply,LinearEquiv.apply_symm_apply,he]
+-    obtain ⟨v,hv,hev⟩ := (h ((j.edge e).symm z)).mpr ⟨_,hw',he'⟩
+-    refine ⟨j.vertex (G.source e) v,(j.upwardKernel_iff _ _ _).mpr hv,?_⟩
+-    rw [← j.lower,hev,LinearEquiv.apply_symm_apply]
++  exact (j.mem_lowerImage_iff_symm e F z).trans
++    ((h ((j.edge e).symm z)).trans (j.mem_scaledUpperImage_iff_symm e H r z).symm)
+--- pristine/OAI/KL/Localization/TerminalImages.lean
++++ active/OAI/KL/Localization/TerminalImages.lean
+@@ -85,0 +86,13 @@
++include B in
++/-- Every root in the chosen root plane has a distinct positive-root complement
++spanning that plane. The basis roots supply the witness; no schedule, interval
++comparison or sheaf data is needed for this geometric choice. -/
++theorem exists_root_plane_complement (α : PositiveRoot M cs) (hα : α.val ∈ P) :
++    ∃ β : PositiveRoot M cs, α ≠ β ∧ rootPlane α β = P := by
++  obtain ⟨β,hαβ,hβ⟩ : ∃ β : PositiveRoot M cs, α ≠ β ∧ β.val ∈ P := by
++    by_cases h : α=B.left
++    · exact ⟨B.right,h ▸ B.distinct,B.right_mem⟩
++    · exact ⟨B.left,h,B.left_mem⟩
++  exact ⟨β,hαβ,(rootPlane_eq_of_mem B.left B.right α β B.distinct
++    (B.plane_eq.ge hα) (B.plane_eq.ge hβ) hαβ).trans B.plane_eq⟩
++
+@@ -96,7 +109,2 @@
+-    obtain ⟨β,hαβ,hβ⟩ : ∃ β : PositiveRoot M cs, α ≠ β ∧ β.val ∈ P := by
+-      by_cases h : α=B.left
+-      · exact ⟨B.right,h ▸ B.distinct,B.right_mem⟩
+-      · exact ⟨B.left,h,B.left_mem⟩
+-    have hplane : rootPlane α β=P :=
+-      (rootPlane_eq_of_mem B.left B.right α β B.distinct
+-        (B.plane_eq.ge (B.edgeRoot_plane e.property)) (B.plane_eq.ge hβ) hαβ).trans B.plane_eq
++    obtain ⟨β,hαβ,hplane⟩ := B.exists_root_plane_complement α
++      (B.edgeRoot_plane e.property)
+--- pristine/OAI/KL/Comparison/Transport.lean
++++ active/OAI/KL/Comparison/Transport.lean
+@@ -174,0 +175,17 @@
++omit [Fintype I'] in
++/-- Every edge source on an increasing Bruhat path lies above its start.
++This is the source-side path bound used when lifting a path into a transported
++interval; it needs no schedule or interval isomorphism. -/
++theorem adapted_path_sources_le {z w : W'} {p : List (AdaptedDyer.Edge cs')}
++    (hp : IsPath (AdaptedDyer.source cs') (AdaptedDyer.target cs') z w p) :
++    ∀ e ∈ p, BruhatLE cs' z (AdaptedDyer.source cs' e) := by
++  induction p generalizing z with
++  | nil => simp
++  | cons e p ih =>
++    intro f hf
++    rcases List.mem_cons.mp hf with rfl | hf
++    · exact hp.1 ▸ bruhat_refl cs' z
++    · rw [← hp.1]
++      exact (show BruhatLE cs' (AdaptedDyer.source cs' e)
++        (AdaptedDyer.target cs' e) from .single e.property).trans (ih hp.2 f hf)
++
+@@ -182,12 +198,0 @@
+-  have hsource {z w : W'} {p : List (AdaptedDyer.Edge cs')}
+-      (hp : IsPath (AdaptedDyer.source cs') (AdaptedDyer.target cs') z w p) :
+-      ∀ e ∈ p, BruhatLE cs' z (AdaptedDyer.source cs' e) := by
+-    induction p generalizing z with
+-    | nil => simp
+-    | cons e p ih =>
+-      intro f hf
+-      rcases List.mem_cons.mp hf with rfl | hf
+-      · exact hp.1 ▸ bruhat_refl cs' z
+-      · rw [← hp.1]
+-        exact (show BruhatLE cs' (AdaptedDyer.source cs' e)
+-          (AdaptedDyer.target cs' e) from .single e.property).trans (ih hp.2 f hf)
+@@ -210 +215 @@
+-    exact transportedEdge_lift φ e ((φ x).property.1.trans (hsource hp e he))
++    exact transportedEdge_lift φ e ((φ x).property.1.trans (adapted_path_sources_le hp e he))
+@@ -341,5 +346,20 @@
+- theorem scaledStalk_reciprocity_inverse {C : Type*} [Field C]
+-    (v : C) (hv : v≠0) (x : Interval cs 1 b) :
+-    scaledStalk cs b basis v⁻¹ x=∑ z : Interval cs 1 b,
+-      eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val)*
+-        scaledStalk cs b basis v z := by
++/-- A squared reciprocal degree weight reverses the grading exponent.
++This field identity is shared by scaled-stalk polynomial reciprocity and the
++normalization of the full-kernel Hilbert expression; no positivity is required. -/
++theorem reciprocal_square_weight {C : Type*} [Field C] (v : C) (hv : v ≠ 0)
++    (m n : ℤ) : v^(m-n) * (v^2)^(n-m) = (v⁻¹)^(m-n) := by
++  rw [show (v^2)^(n-m) = v^(2*(n-m)) by rw [zpow_mul]; norm_num,
++    ← zpow_add₀ hv,inv_zpow,← zpow_neg]
++  congr 1
++  omega
++
++/-- Evaluating polynomial stalk reciprocity at the nonzero square gives a
++reciprocal-point identity before any degree weights are normalized. The degree
++bound justifies evaluating the reflected stalk polynomial. -/
++theorem stalkCharacter_reciprocity_eval {C : Type*} [Field C]
++    (v : C) (hv : v ≠ 0) (x : Interval cs 1 b) :
++    (v^2)^(rankDifference cs x.val b) *
++      eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x) =
++    ∑ z : Interval cs 1 b,
++      eval₂ (Int.castRingHom C) (v^2) (OrdinaryR.polynomial cs x.val z.val) *
++        eval₂ (Int.castRingHom C) (v^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) z) := by
+@@ -355,15 +375,12 @@
+-  have heq := congrArg (fun a : C => v^((cs.length x.val : ℤ)-cs.length b)*a) heval
+-  have hd : (rankDifference cs x.val b : ℤ)=(cs.length b : ℤ)-cs.length x.val := by
+-    simp [rankDifference,Int.ofNat_sub (length_le_of_bruhat cs x.property.2)]
+-  have hscale : v^((cs.length x.val : ℤ)-cs.length b)*(v^2)^(rankDifference cs x.val b)=
+-      (v⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
+-    rw [←pow_mul,←zpow_natCast,←zpow_add₀ hv,inv_zpow,←zpow_neg]
+-    congr 1
+-    push_cast
+-    omega
+-  rw [←mul_assoc,hscale,Finset.mul_sum] at heq
+-  change (v⁻¹)^((cs.length x.val : ℤ)-cs.length b)*
+-    eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)=_
+-  rw [heq]
+-  apply Finset.sum_congr rfl
+-  intro z _
++  exact heval
++
++/-- Each ordinary R-polynomial summand acquires exactly the target stalk's
++weight after normalization. This combines R-tilde normalization and addition of
++the two grading exponents, with no extra comparability hypothesis on the vertices. -/
++theorem scaledStalk_rTilde_term {C : Type*} [Field C]
++    (v : C) (hv : v ≠ 0) (x z : Interval cs 1 b) :
++    v^((cs.length x.val : ℤ)-cs.length b) *
++      (eval₂ (Int.castRingHom C) (v^2) (OrdinaryR.polynomial cs x.val z.val) *
++        eval₂ (Int.castRingHom C) (v^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) z)) =
++    eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val) *
++      scaledStalk cs b basis v z := by
+@@ -382,0 +400,22 @@
++ theorem scaledStalk_reciprocity_inverse {C : Type*} [Field C]
++    (v : C) (hv : v≠0) (x : Interval cs 1 b) :
++    scaledStalk cs b basis v⁻¹ x=∑ z : Interval cs 1 b,
++      eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val)*
++        scaledStalk cs b basis v z := by
++  classical
++  have heval := stalkCharacter_reciprocity_eval cs b basis v hv x
++  have heq := congrArg (fun a : C => v^((cs.length x.val : ℤ)-cs.length b)*a) heval
++  have hd : (rankDifference cs x.val b : ℤ)=(cs.length b : ℤ)-cs.length x.val := by
++    simp [rankDifference,Int.ofNat_sub (length_le_of_bruhat cs x.property.2)]
++  have hscale : v^((cs.length x.val : ℤ)-cs.length b)*(v^2)^(rankDifference cs x.val b)=
++      (v⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
++    rw [← zpow_natCast (v^2) (rankDifference cs x.val b),hd]
++    exact reciprocal_square_weight v hv _ _
++  rw [←mul_assoc,hscale,Finset.mul_sum] at heq
++  change (v⁻¹)^((cs.length x.val : ℤ)-cs.length b)*
++    eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)=_
++  rw [heq]
++  apply Finset.sum_congr rfl
++  intro z _
++  exact scaledStalk_rTilde_term cs b basis v hv x z
++
+@@ -390,6 +429,11 @@
+- theorem scaledStalk_reciprocity_upper {C : Type*} [Field C]
+-    (t : C) (ht : t≠0) (a : W) (x : Interval cs a b) :
+-    scaledStalk cs b basis t ((upperInclusion cs a b).vertex x)=
+-      ∑ᶠ z : Interval cs a b,
+-        eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
+-          scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z) := by
++omit [Fintype I] in
++/-- Triangular R-tilde support restricts any weighted row sum to an upper
++interval. The weights are arbitrary and the coefficient ring need not be a field;
++scaled-stalk reciprocity uses this after its algebraic reciprocal identity. -/
++theorem rTilde_weighted_sum_upper {C : Type*} [CommRing C] (T : C)
++    (a : W) (x : Interval cs a b) (w : Interval cs 1 b → C) :
++    (∑ z : Interval cs 1 b,
++      eval₂ (Int.castRingHom C) T (Hecke.rTilde cs x.val z.val) * w z) =
++    ∑ᶠ z : Interval cs a b,
++      eval₂ (Int.castRingHom C) T (Hecke.rTilde cs x.val z.val) *
++        w ((upperInclusion cs a b).vertex z) := by
+@@ -399 +443 @@
+-  rw [scaledStalk_reciprocity cs b basis t ht, finsum_eq_sum_of_fintype]
++  rw [finsum_eq_sum_of_fintype]
+@@ -403,2 +447,2 @@
+-  let g (z : Interval cs 1 b) :=
+-    eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*scaledStalk cs b basis t⁻¹ z
++  let g (z : Interval cs 1 b) := eval₂ (Int.castRingHom C) T
++    (Hecke.rTilde cs x.val z.val) * w z
+@@ -417,3 +461,12 @@
+-    _ = _ := Equiv.sum_comp e (fun z =>
+-      eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
+-        scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z))
++    _ = _ := Equiv.sum_comp e (fun z => eval₂ (Int.castRingHom C) T
++      (Hecke.rTilde cs x.val z.val) * w ((upperInclusion cs a b).vertex z))
++
++ theorem scaledStalk_reciprocity_upper {C : Type*} [Field C]
++    (t : C) (ht : t≠0) (a : W) (x : Interval cs a b) :
++    scaledStalk cs b basis t ((upperInclusion cs a b).vertex x)=
++      ∑ᶠ z : Interval cs a b,
++        eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
++          scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z) := by
++  rw [scaledStalk_reciprocity cs b basis t ht]
++  exact rTilde_weighted_sum_upper cs b (t⁻¹-t) a x
++    (fun z => scaledStalk cs b basis t⁻¹ z)
+--- pristine/OAI/KL/Comparison/Propagation.lean
++++ active/OAI/KL/Comparison/Propagation.lean
+@@ -170,0 +171,19 @@
++/-- Multiplying costalk dual evaluation by the incoming label product recovers
++the section pairing on the two single-supported lifts. Symmetry is not needed;
++this is the compatibility identity used before cancelling that product. -/
++theorem costalk_pairing_scaled (d : SectionDuality cs u b basis hub B)
++    (x : Interval cs u b) (k l : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
++    Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x *
++      (costalkEquivDual cs u b basis hub B d x k) l.val =
++    d.pairing (kernelEquivSingleSupport cs u b basis hub B x k).val
++      (kernelEquivSingleSupport cs u b basis hub B x l).val := by
++  let e := costalkEquivDual cs u b basis hub B d x
++  let g := Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x
++  let f := kernelEquivSingleSupport cs u b basis hub B x
++  calc
++    g * (e k) l.val = (e k) (g • l.val) := (map_smul (e k) g l.val).symm
++    _ = (e k) ((f l).val.val x) := congrArg (e k)
++      (kernelEquivSingleSupport_apply cs u b basis hub B x l).symm
++    _ = _ := costalkEquivDual_pairing cs u b basis hub B d x k (f l).val
++
++omit [Fintype σ] in
+@@ -176,9 +194,0 @@
+-  let e := costalkEquivDual cs u b basis hub B d x
+-  let g := Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x
+-  let f := kernelEquivSingleSupport cs u b basis hub B x
+-  have he (k l : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
+-      g * (e k) l.val=d.pairing (f k).val (f l).val := calc
+-    g * (e k) l.val = (e k) (g • l.val) := (map_smul (e k) g l.val).symm
+-    _ = (e k) ((f l).val.val x) := congrArg (e k)
+-      (kernelEquivSingleSupport_apply cs u b basis hub B x l).symm
+-    _ = _ := costalkEquivDual_pairing cs u b basis hub B d x k (f l).val
+@@ -187 +197,2 @@
+-    ((he k l).trans ((hsym _ _).trans (he l k).symm))
++    ((costalk_pairing_scaled cs u b basis hub B d x k l).trans
++      ((hsym _ _).trans (costalk_pairing_scaled cs u b basis hub B d x l k).symm))
+@@ -328,0 +340,26 @@
++/-- A homogeneous section duality and stalk-character identification give
++the raw full-kernel Hilbert expression. Basis choice and reciprocal character
++evaluation are handled here, leaving scalar normalization to the caller. -/
++theorem fullKernel_hilbert_of_duality_character
++    (d : SectionDuality cs 1 b basis (one_bruhat cs b) C)
++    (hd : ∀ i j (m n : C.sheaf.sections Set.univ),
++      m ∈ (C.sheaf.sections Set.univ).piece i → n ∈ (C.sheaf.sections Set.univ).piece j →
++      d.pairing m n ∈ polynomialGrading ℝ σ (i+j-(cs.length b : ℤ)))
++    (x : Interval cs 1 b)
++    (hc : stalkCharacter cs 1 b basis (one_bruhat cs b) x = klPolynomial cs x.val b)
++    {q : ℝ} (hq : 0 < q) (hq1 : q < 1) :
++    C.sheaf.kernelHilbert q x Set.univ =
++      q^((cs.length b : ℤ)-cs.length x.val) *
++        Polynomial.eval₂ (Int.castRingHom ℝ) q⁻¹ (klPolynomial cs x.val b) *
++        (1-q)⁻¹ ^ Fintype.card σ := by
++  let _ := C.free x
++  let c := (exists_nonnegativeBasis (σ := σ) (C.sheaf.vertex x).piece
++    (C.sheaf.vertex x).nonneg).some
++  have hcp : c.polynomial = klPolynomial cs x.val b := by
++    rw [← character_eq (C.sheaf.vertex x).piece (C.sheaf.vertex x).nonneg c,
++      ← stalkCharacter_eq_character cs 1 b basis (one_bruhat cs b) C x]
++    exact hc
++  rw [GradedSheaf.kernelHilbert,fullKernel_eq cs 1 b basis (one_bruhat cs b) C x,
++    costalk_hilbert_of_duality cs 1 b basis (one_bruhat cs b) C d (cs.length b) hd x c
++      hq hq1,hcp,incoming_card cs b x]
++
+@@ -339,11 +376,2 @@
+-  let _ := C.free x
+-  let c := (exists_nonnegativeBasis (σ := σ) (C.sheaf.vertex x).piece
+-    (C.sheaf.vertex x).nonneg).some
+-  have hcp : c.polynomial = klPolynomial cs x.val b := by
+-    rw [← character_eq (C.sheaf.vertex x).piece (C.sheaf.vertex x).nonneg c,
+-      ← stalkCharacter_eq_character cs 1 b basis (one_bruhat cs b) C x]
+-    exact hc
+-  rw [normalizedKernel,GradedSheaf.kernelHilbert,
+-    fullKernel_eq cs 1 b basis (one_bruhat cs b) C x,
+-    costalk_hilbert_of_duality cs 1 b basis (one_bruhat cs b) C d (cs.length b) hd x c
+-      (sq_pos_of_pos ht) (by nlinarith),hcp,incoming_card cs b x]
++  rw [normalizedKernel,fullKernel_hilbert_of_duality_character cs b basis C d hd x hc
++    (sq_pos_of_pos ht) (by nlinarith)]
+@@ -351,8 +379,2 @@
+-  have hscale : t^((cs.length x.val : ℤ)-cs.length b) *
+-      (t^2)^((cs.length b : ℤ)-cs.length x.val) =
+-      (t⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
+-    rw [show (t^2)^((cs.length b : ℤ)-cs.length x.val) =
+-      t^(2*((cs.length b : ℤ)-cs.length x.val)) by rw [zpow_mul]; norm_num,
+-      ← zpow_add₀ ht.ne',inv_zpow,← zpow_neg]
+-    congr 1
+-    omega
++  have hscale := reciprocal_square_weight t ht.ne'
++    (cs.length x.val : ℤ) (cs.length b : ℤ)
+--- pristine/OAI/KL/Comparison/SuffixFreeness.lean
++++ active/OAI/KL/Comparison/SuffixFreeness.lean
+@@ -35,0 +36,24 @@
++/-- One reverse-schedule edge preserves freeness of all remaining kernels
++when its embedded lower and scaled upper images agree. The source uses the
++previous source and target kernels; every other vertex keeps its old kernel. -/
++theorem schedule_head_kernels_free (e : Edge cs u b) (p : List (Edge cs u b))
++    (hfree : ∀ x : Interval cs u b, Module.Free (Coefficient (σ := σ))
++      (B.sheaf.upwardSubmodule x (remainingConditions cs u b p x)))
++    (heq : B.sheaf.lowerImage e (remainingConditions cs u b p ((graph cs u b).source e)) =
++      (B.sheaf.upperImage e (remainingConditions cs u b p ((graph cs u b).target e))).map
++        (edgeFactorMap cs basis u b hub B e)) (x : Interval cs u b) :
++    Module.Free (Coefficient (σ := σ))
++      (B.sheaf.upwardSubmodule x (remainingConditions cs u b (e::p) x)) := by
++  by_cases hx : source cs u b e = x
++  · subst x
++    rw [remainingConditions_cons_source]
++    let hS : Module.Free (Coefficient (σ := σ))
++        (B.sheaf.upwardSubmodule ((graph cs u b).source e)
++          (remainingConditions cs u b p (source cs u b e))) := hfree _
++    let hT : Module.Free (Coefficient (σ := σ))
++        (B.sheaf.upwardSubmodule ((graph cs u b).target e)
++          (remainingConditions cs u b p ((graph cs u b).target e))) := hfree _
++    exact partial_kernel_free_of_image_eq cs u b basis hub B e _ _ heq
++  · rw [remainingConditions_cons_other cs u b e p x hx]
++    exact hfree x
++
+@@ -57,15 +81,2 @@
+-      by_cases hx : source cs u b e = x
+-      · subst x
+-        rw [remainingConditions_cons_source]
+-        let hS : Module.Free (Coefficient (σ := σ))
+-            (B.sheaf.upwardSubmodule ((graph cs u b).source e)
+-              (remainingConditions cs u b p (source cs u b e))) :=
+-          hip p (List.suffix_refl _) (source cs u b e)
+-        let hT : Module.Free (Coefficient (σ := σ))
+-            (B.sheaf.upwardSubmodule ((graph cs u b).target e)
+-              (remainingConditions cs u b p ((graph cs u b).target e))) :=
+-          hip p (List.suffix_refl _) (target cs u b e)
+-        exact partial_kernel_free_of_image_eq cs u b basis hub B e _ _
+-          (heq e p (List.suffix_refl _))
+-      · rw [remainingConditions_cons_other cs u b e p x hx]
+-        exact hip p (List.suffix_refl _) x
++      exact schedule_head_kernels_free cs u b basis hub B e p
++        (hip p (List.suffix_refl _)) (heq e p (List.suffix_refl _)) x
+--- pristine/ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean
++++ active/ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean
+@@ -48,0 +49,19 @@
++/-- The vanishing polynomial of the finite weights is zero on the chosen
++block and equals their product off that block when the weight vanishes there.
++This pointwise calculation is independent of any stable lattice. -/
++theorem projector_product_values (C : Finset X) (f : X → R)
++    (hz : ∀ x ∉ C, f x = 0) :
++    (∀ x ∈ C, (∏ y ∈ C, (algebraMap R (X → R) (f y)-f)) x = 0) ∧
++    (∀ x ∉ C, (∏ y ∈ C, (algebraMap R (X → R) (f y)-f)) x = ∏ y ∈ C, f y) := by
++  classical
++  constructor
++  · intro x hx
++    rw [Finset.prod_apply]
++    apply Finset.prod_eq_zero hx
++    simp
++  · intro x hx
++    rw [Finset.prod_apply]
++    apply Finset.prod_congr rfl
++    intro y _
++    simp [hz x hx]
++
+@@ -66,4 +85 @@
+-    dsimp [h]
+-    rw [Finset.prod_apply]
+-    apply Finset.prod_eq_zero hx
+-    simp
++    exact (projector_product_values C f hz).1 x hx
+@@ -73,5 +89,18 @@
+-    dsimp [h,d]
+-    rw [Finset.prod_apply]
+-    apply Finset.prod_congr rfl
+-    intro y _
+-    simp [hz x hx]
++    exact (projector_product_values C f hz).2 x hx
++
++/-- The product of separating test values on a residue block is not divisible
++by the prime when each test is nondivisible at the reference point and congruent
++throughout the block. Only coordinate congruences enter this product argument. -/
++theorem class_product_not_dvd [Fintype X] [DecidableEq X] (p : R) (hp : Prime p)
++    (C : Finset X) (x : X) (test : X → X → R)
++    (hunit : ∀ y ∉ C, ¬ p ∣ test y x)
++    (hcongr : ∀ z ∈ C, ∀ y, p ∣ test y z-test y x)
++    (z : X) (hz : z ∈ C) : ¬ p ∣ (∏ y ∈ Finset.univ \ C, test y) z := by
++  classical
++  rw [Finset.prod_apply]
++  apply hp.not_dvd_finsetProd
++  intro y hy
++  have hyC := (Finset.mem_sdiff.mp hy).2
++  intro h
++  apply hunit y hyC
++  simpa only [sub_sub_cancel] using dvd_sub h (hcongr z hz y)
+@@ -93,9 +122,2 @@
+-  have hfu (z : X) (hz : z ∈ C) : ¬ p ∣ f z := by
+-    dsimp [f]
+-    rw [Finset.prod_apply]
+-    apply hp.not_dvd_finsetProd
+-    intro y hy
+-    have hyC := (Finset.mem_sdiff.mp hy).2
+-    intro h
+-    apply hunit y hyC
+-    simpa only [sub_sub_cancel] using dvd_sub h (hcongr z hz y)
++  have hfu (z : X) (hz : z ∈ C) : ¬ p ∣ f z :=
++    class_product_not_dvd p hp C x test hunit hcongr z hz
+@@ -108,0 +131,22 @@
++
++/-- The complementary denominator products assemble disjoint character-block
++lifts into one scalar multiple of the target. Primality and stable lattice
++membership are deliberately absent from this pointwise partition identity. -/
++theorem partition_diagonal_sum {Q : Type*} [Fintype Q] [DecidableEq Q]
++    (q : X → Q) (z : ∀ x, E x) (d : Q → R) (g : Q → X → R)
++    (hgin : ∀ j x, q x=j → g j x=d j)
++    (hgout : ∀ j x, q x≠j → g j x=0)
++    (m : Q → ∀ x, E x) (hmatch : ∀ j x, q x=j → m j x=z x) :
++    (∏ j, d j) • z = ∑ j : Q, (∏ k ∈ Finset.univ.erase j, d k) • diagonal (g j) (m j) := by
++  classical
++  funext x
++  simp only [Pi.smul_apply,Finset.sum_apply]
++  rw [Finset.sum_eq_single (q x)]
++  · change (∏ j, d j) • z x = (∏ k ∈ Finset.univ.erase (q x),d k) •
++      (g (q x) x • m (q x) x)
++    rw [hgin _ _ rfl,hmatch _ _ rfl,← mul_smul,
++      Finset.prod_erase_mul _ _ (Finset.mem_univ _)]
++  · intro j _ hj
++    change (∏ k ∈ Finset.univ.erase j,d k) • (g j x • m j x)=0
++    rw [hgout j x (Ne.symm hj),zero_smul,smul_zero]
++  · simp
+@@ -123,15 +167,2 @@
+-  have hh : (∑ j : Q, (∏ k ∈ Finset.univ.erase j, d k) •
+-      diagonal (g j) (m j)) ∈ L := by
+-    exact L.sum_mem fun j _ => L.smul_mem _ (hg j _ (hm j))
+-  convert hh using 1
+-  funext x
+-  simp only [Pi.smul_apply,Finset.sum_apply]
+-  rw [Finset.sum_eq_single (q x)]
+-  · change (∏ j, d j) • z x = (∏ k ∈ Finset.univ.erase (q x),d k) •
+-      (g (q x) x • m (q x) x)
+-    rw [hgin _ _ rfl,hmatch _ _ rfl,← mul_smul,
+-      Finset.prod_erase_mul _ _ (Finset.mem_univ _)]
+-  · intro j _ hj
+-    change (∏ k ∈ Finset.univ.erase j,d k) • (g j x • m j x)=0
+-    rw [hgout j x (Ne.symm hj),zero_smul,smul_zero]
+-  · simp
++  rw [partition_diagonal_sum q z d g hgin hgout m hmatch]
++  exact L.sum_mem fun j _ => L.smul_mem _ (hg j _ (hm j))
+@@ -143,0 +175,39 @@
++
++/-- A point outside a residue-character class admits a stable test that
++vanishes there and is prime-nondivisible at the reference point. The chosen tests
++remain congruent across the class; finiteness and primeness are not needed here. -/
++theorem exists_character_separators {A : Type*}
++    (L : Submodule R (∀ x, E x)) (p : R) (χ : A → X → R)
++    (hχ : ∀ a, χ a ∈ stabilizer L) (x : X) :
++    ∃ test : X → X → R,
++      (∀ y, test y ∈ stabilizer L) ∧
++      (∀ y, ¬ (residueSetoid p χ).r x y → test y y=0) ∧
++      (∀ y, ¬ (residueSetoid p χ).r x y → ¬ p ∣ test y x) ∧
++      (∀ z, (residueSetoid p χ).r x z → ∀ y, p ∣ test y z-test y x) := by
++  classical
++  have ha : ∀ y : {y : X // ¬ (residueSetoid p χ).r x y}, ∃ a, ¬ p ∣ χ a x-χ a y.val := by
++    intro y
++    exact not_forall.mp y.property
++  choose a ha using ha
++  let test (y : X) : X → R := if hy : ¬ (residueSetoid p χ).r x y then
++    χ (a ⟨y,hy⟩)-algebraMap R (X → R) (χ (a ⟨y,hy⟩) y) else 0
++  refine ⟨test,?_,?_,?_,?_⟩
++  · intro y
++    by_cases hy : ¬ (residueSetoid p χ).r x y
++    · simp only [test,dite_eq_left hy]
++      exact (stabilizer L).sub_mem (hχ _) ((stabilizer L).algebraMap_mem _)
++    · simp only [test,dite_eq_right hy]
++      exact (stabilizer L).zero_mem
++  · intro y hy
++    simp [test,hy]
++  · intro y hy
++    simpa [test,hy] using ha ⟨y,hy⟩
++  · intro z hz y
++    by_cases hy : ¬ (residueSetoid p χ).r x y
++    · simp only [test,dite_eq_left hy]
++      change p ∣ (χ (a ⟨y,hy⟩) z-χ (a ⟨y,hy⟩) y)-
++        (χ (a ⟨y,hy⟩) x-χ (a ⟨y,hy⟩) y)
++      rw [sub_sub_sub_cancel_right]
++      exact (residueSetoid p χ).symm hz _
++    · simp only [test,dite_eq_right hy,Pi.zero_apply,sub_self]
++      exact dvd_zero _
+@@ -154,25 +224,5 @@
+-  have ha : ∀ y : {y : X // y ∉ C}, ∃ a, ¬ p ∣ χ a x-χ a y.val := by
+-    intro y
+-    have hh : ¬ ∀ a, p ∣ χ a x-χ a y.val := fun h => y.property ((hc _).mpr h)
+-    exact not_forall.mp hh
+-  choose a ha using ha
+-  let test (y : X) : X → R := if hy : y ∉ C then
+-    χ (a ⟨y,hy⟩)-algebraMap R (X → R) (χ (a ⟨y,hy⟩) y) else 0
+-  have ht (y : X) : test y ∈ stabilizer L := by
+-    by_cases hy : y ∉ C
+-    · simp only [test,dite_eq_left hy]
+-      exact (stabilizer L).sub_mem (hχ _) ((stabilizer L).algebraMap_mem _)
+-    · simp only [test,dite_eq_right hy]
+-      exact (stabilizer L).zero_mem
+-  have hz (y : X) (hy : y ∉ C) : test y y=0 := by simp [test,hy]
+-  have hu (y : X) (hy : y ∉ C) : ¬ p ∣ test y x := by simpa [test,hy] using ha ⟨y,hy⟩
+-  have hcon (z : X) (hz : z ∈ C) (y : X) : p ∣ test y z-test y x := by
+-    by_cases hy : y ∉ C
+-    · simp only [test,dite_eq_left hy]
+-      change p ∣ (χ (a ⟨y,hy⟩) z-χ (a ⟨y,hy⟩) y)-
+-        (χ (a ⟨y,hy⟩) x-χ (a ⟨y,hy⟩) y)
+-      rw [sub_sub_sub_cancel_right]
+-      exact (residueSetoid p χ).symm ((hc z).mp hz) _
+-    · simp only [test,dite_eq_right hy,Pi.zero_apply,sub_self]
+-      exact dvd_zero _
+-  obtain ⟨d,hd,g,hg,hgc,hgz⟩ := class_projector L p hp C x test ht hz hu hcon
++  obtain ⟨test,ht,hz,hu,hcon⟩ := exists_character_separators L p χ hχ x
++  obtain ⟨d,hd,g,hg,hgc,hgz⟩ := class_projector L p hp C x test ht
++    (fun y hy => hz y (fun h => hy ((hc y).mpr h)))
++    (fun y hy => hu y (fun h => hy ((hc y).mpr h)))
++    (fun z hz y => hcon z ((hc z).mp hz) y)
+--- pristine/ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean
++++ active/ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean
+@@ -27,0 +28,15 @@
++omit [IsDomain R] [UniqueFactorizationMonoid R] in
++/-- A scalar relation forces prime divisibility in every free coordinate when
++the other scalar is not divisible by that prime. No projective splitting is required for this
++coordinate step itself. -/
++theorem prime_dvd_coordinates {P ι : Type*} [AddCommGroup P] [Module R P]
++    (s : P →ₗ[R] (ι →₀ R)) (p a c : R) (hp : Prime p) (ha : ¬ p ∣ a)
++    (m n : P) (h : a • m=(p*c) • n) : ∀ i, p ∣ s m i := by
++  intro i
++  have he := congrArg (fun z : P => s z i) h
++  simp only [map_smul, Finsupp.smul_apply, smul_eq_mul] at he
++  have hm : p ∣ a*s m i := by
++    rw [he]
++    exact dvd_mul_of_dvd_left (dvd_mul_right p c) _
++  exact (hp.dvd_mul.mp hm).resolve_left ha
++
+@@ -35,8 +50 @@
+-  have hdvd : ∀ i, p ∣ s m i := by
+-    intro i
+-    have he := congrArg (fun z : P => s z i) h
+-    simp only [map_smul, Finsupp.smul_apply, smul_eq_mul] at he
+-    have hm : p ∣ a*s m i := by
+-      rw [he]
+-      exact dvd_mul_of_dvd_left (dvd_mul_right p c) _
+-    exact (hp.dvd_mul.mp hm).resolve_left ha
++  have hdvd := prime_dvd_coordinates s p a c hp ha m n h
+@@ -45,0 +54,21 @@
++
++/-- Local membership away from a prime removes one prime factor from a
++projective lattice denominator. This isolates the prime-cancellation argument
++from the subsequent unique-factorization induction. -/
++theorem cancel_prime_denominator
++    {E : Type*} [AddCommGroup E] [Module R E] [Module.IsTorsionFree R E]
++    (M : Submodule R E) [Module.Projective R M] (x : E) (p c : R) (hp : Prime p)
++    (hpcx : (p*c) • x ∈ M) (hlocal : ∃ a : R, ¬ p ∣ a ∧ a • x ∈ M) : c • x ∈ M := by
++  obtain ⟨a,hpa,hax⟩ := hlocal
++  let m : M := ⟨(p*c) • x,hpcx⟩
++  let n : M := ⟨a • x,hax⟩
++  have he : a • m=(p*c) • n := by
++    apply Subtype.ext
++    exact smul_comm a (p*c) x
++  obtain ⟨z,hz⟩ := prime_divide_of_relation p a c hp hpa m n he
++  have hcx : c • x=(z : E) := by
++    apply smul_right_injective E hp.ne_zero
++    have hv := congrArg Subtype.val hz
++    change p • (z : E)=(p*c) • x at hv
++    simpa only [mul_smul] using hv.symm
++  exact hcx ▸ z.property
+@@ -63,13 +92 @@
+-    obtain ⟨a,hpa,hax⟩ := hlocal p hp
+-    let m : M := ⟨(p*c) • x,hpcx⟩
+-    let n : M := ⟨a • x,hax⟩
+-    have he : a • m=(p*c) • n := by
+-      apply Subtype.ext
+-      exact smul_comm a (p*c) x
+-    obtain ⟨z,hz⟩ := prime_divide_of_relation p a c hp hpa m n he
+-    have hcx : c • x=(z : E) := by
+-      apply smul_right_injective E hp.ne_zero
+-      have hv := congrArg Subtype.val hz
+-      change p • (z : E)=(p*c) • x at hv
+-      simpa only [mul_smul] using hv.symm
+-    exact ih hcz (hcx ▸ z.property)
++    exact ih hcz (cancel_prime_denominator M x p c hp hpcx (hlocal p hp))
+--- pristine/ForMathlib/Algebra/Polynomial/Reciprocal.lean
++++ active/ForMathlib/Algebra/Polynomial/Reciprocal.lean
+@@ -25,0 +26,20 @@
++/-- Functional reciprocal equality on the open unit interval determines the
++reflected polynomial identity, provided reflection covers the degree. Strict
++midpoint support is used only later for rigidity. -/
++theorem eq_reflect_of_eval_reciprocal (p : ℝ[X]) (d : ℕ) (hp : p.natDegree ≤ d)
++    (h : ∀ q : ℝ, 0 < q → q < 1 → p.eval q = q ^ d * p.eval q⁻¹) : p = reflect d p := by
++  apply p.eq_of_infinite_eval_eq
++  apply (Set.Ioo_infinite (show (0 : ℝ) < 1 by norm_num)).mono
++  intro q hq
++  change p.eval q = (reflect d p).eval q
++  let : Invertible q⁻¹ := invertibleOfNonzero (inv_ne_zero (ne_of_gt hq.1))
++  have hr := eval₂_reflect_mul_pow (RingHom.id ℝ) q⁻¹ d p hp
++  simp only [eval₂_id, invOf_eq_inv, inv_inv] at hr
++  have hr' := congrArg (fun z : ℝ => z * q ^ d) hr
++  have hq0 : q ≠ 0 := ne_of_gt hq.1
++  simp only [mul_assoc, ← mul_pow, inv_mul_cancel₀ hq0, one_pow, mul_one] at hr'
++  calc
++    p.eval q = q ^ d * p.eval q⁻¹ := h q hq.1 hq.2
++    _ = (reflect d p).eval q := by
++      simpa only [mul_comm] using hr'.symm
++
+@@ -32,15 +52 @@
+-  have heq : p = reflect d p := by
+-    apply p.eq_of_infinite_eval_eq
+-    apply (Set.Ioo_infinite (show (0 : ℝ) < 1 by norm_num)).mono
+-    intro q hq
+-    change p.eval q = (reflect d p).eval q
+-    let : Invertible q⁻¹ := invertibleOfNonzero (inv_ne_zero (ne_of_gt hq.1))
+-    have hr := eval₂_reflect_mul_pow (RingHom.id ℝ) q⁻¹ d p (by omega)
+-    simp only [eval₂_id, invOf_eq_inv, inv_inv] at hr
+-    have hr' := congrArg (fun z : ℝ => z * q ^ d) hr
+-    have hq0 : q ≠ 0 := ne_of_gt hq.1
+-    simp only [mul_assoc, ← mul_pow, inv_mul_cancel₀ hq0, one_pow, mul_one] at hr'
+-    calc
+-      p.eval q = q ^ d * p.eval q⁻¹ := h q hq.1 hq.2
+-      _ = (reflect d p).eval q := by
+-        simpa only [mul_comm] using hr'.symm
++  have heq := eq_reflect_of_eval_reciprocal p d (by omega) h
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean
+@@ -42,0 +43,13 @@
++/-- A strict rank defect in one homogeneous piece makes the convergent
++Hilbert value strictly smaller. Only inclusion and positivity of the evaluation
++parameter are used; neither submodule must itself be homogeneous. -/
++theorem value_lt_of_piece_finrank_lt (𝓜 : ℤ → Submodule k M)
++    [∀ n, Module.Finite k (𝓜 n)] {S T : Submodule k M} (h : S ≤ T)
++    {q : ℝ} (hq : 0 < q) (hT : Summable (term 𝓜 T q)) (n : ℤ)
++    (hlt : Module.finrank k (piece 𝓜 S n) < Module.finrank k (piece 𝓜 T n)) :
++    value 𝓜 S q < value 𝓜 T q := by
++  have hterm : term 𝓜 S q n < term 𝓜 T q n := by
++    apply mul_lt_mul_of_pos_right _ (zpow_pos hq n)
++    exact_mod_cast hlt
++  exact (summable_of_le 𝓜 h hq hT).tsum_lt_tsum (term_mono 𝓜 h hq) hterm hT
++
+@@ -55,6 +68,16 @@
+-  have hterm : term 𝓜 S q n < term 𝓜 T q n := by
+-    apply mul_lt_mul_of_pos_right _ (zpow_pos hq n)
+-    exact_mod_cast hlt
+-  have hstrict := (summable_of_le 𝓜 h hq hT).tsum_lt_tsum
+-    (term_mono 𝓜 h hq) hterm hT
+-  exact (ne_of_lt hstrict) hv
++  exact (ne_of_lt (value_lt_of_piece_finrank_lt 𝓜 h hq hT n hlt)) hv
++
++/-- Componentwise inclusion reconstructs T ≤ S when the source submodule T
++is homogeneous. This algebraic gluing step needs neither finiteness nor Hilbert
++convergence, and makes no homogeneity assumption on the target S. -/
++theorem le_of_homogeneous_pieces_le (𝓜 : ℤ → Submodule k M) [DirectSum.Decomposition 𝓜]
++    {S T : Submodule k M}
++    (hhom : ∀ n m, m ∈ T → (DirectSum.decompose 𝓜 m n : M) ∈ T)
++    (hpieces : ∀ n, piece 𝓜 T n ≤ piece 𝓜 S n) : T ≤ S := by
++  classical
++  intro m hm
++  rw [← DirectSum.sum_support_decompose 𝓜 m]
++  apply Submodule.sum_mem
++  intro n hn
++  have hmem : DirectSum.decompose 𝓜 m n ∈ piece 𝓜 T n := hhom n m hm
++  exact hpieces n hmem
+@@ -69 +91,0 @@
+-  classical
+@@ -71,8 +93 @@
+-  intro m hm
+-  rw [← DirectSum.sum_support_decompose 𝓜 m]
+-  apply Submodule.sum_mem
+-  intro n hn
+-  have heq := pieces_eq_of_value_eq 𝓜 h hq hT hv n
+-  have hmem : DirectSum.decompose 𝓜 m n ∈ piece 𝓜 T n := hhom n m hm
+-  rw [←heq] at hmem
+-  exact hmem
++  exact le_of_homogeneous_pieces_le 𝓜 hhom (fun n => (pieces_eq_of_value_eq 𝓜 h hq hT hv n).ge)
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean
+@@ -61 +60,0 @@
+-  have h := (hs.hasSum.mul_left (q^d))
+@@ -64,9 +63,4 @@
+-      (q^d * value 𝓜 ⊤ q) := by
+-    apply (Equiv.addRight d).hasSum_iff.mp
+-    apply h.congr_fun
+-    intro n
+-    rw [term_top]
+-    change (Module.finrank k (𝓜 (n+d-d)) : ℝ)*q^(n+d) =
+-      q^d * ((Module.finrank k (𝓜 n) : ℝ)*q^n)
+-    rw [add_sub_cancel_right,zpow_add₀ hq]
+-    ring
++      (q^d * value 𝓜 ⊤ q) :=
++    hasSum_shift_coeff hq
++      (show HasSum (fun n => (Module.finrank k (𝓜 n) : ℝ) * q^n) _ from
++        by apply hs.hasSum.congr_fun; intro n; rw [term_top]) d
+@@ -119,0 +114,10 @@
++/-- A kernel divisibility witness stays inside a saturated submodule.
++This is the integral witness-lifting step before identifying the kernel of the
++restricted image map with scalar multiplication on that submodule. -/
++theorem saturated_kernel_witness (S : Submodule A M) (f : M →ₗ[A] N) (a : A)
++    (hf : ∀ v, f v = 0 ↔ ∃ w, v = a • w)
++    (hS : ∀ v, a • v ∈ S → v ∈ S) (v : M) (hv : v ∈ S) (hz : f v = 0) :
++    ∃ w ∈ S, v = a • w := by
++  obtain ⟨w,hw⟩ := (hf v).mp hz
++  exact ⟨w,hS w (hw ▸ hv),hw⟩
++
+@@ -128,2 +132 @@
+-    obtain ⟨w,hw⟩ := (hf v.val).mp hz
+-    have hwS : w ∈ S := hS w (hw ▸ v.property)
++    obtain ⟨w,hwS,hw⟩ := saturated_kernel_witness S f a hf hS v.val v.property hz
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean
+@@ -1,0 +2 @@
++import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
+@@ -502,0 +504,41 @@
++/-- Degreewise exact dimensions give the weighted Hilbert-term identity.
++This algebraic equality holds at every real parameter, before convergence is
++established for the kernel and image series. -/
++theorem term_image_exact
++    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
++    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
++    [∀ n, Module.Finite k (𝓜 n)]
++    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
++    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
++    (q : ℝ) (n : ℤ) :
++    term 𝓜 (S.restrictScalars k) q n =
++      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
++      term 𝓝 ((S.map f).restrictScalars k) q n := by
++  unfold term
++  rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
++
++/-- Positivity and the termwise exact identity make both the kernel and image
++Hilbert series summable whenever the ambient restricted series is summable.
++This separates convergence from summing the exact sequence. -/
++theorem image_terms_summable
++    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
++    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
++    [∀ n, Module.Finite k (𝓜 n)]
++    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
++    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
++    {q : ℝ} (hq : 0 < q) (hs : Summable (term 𝓜 (S.restrictScalars k) q)) :
++    Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) ∧
++      Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
++  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
++  constructor
++  · apply hs.of_nonneg_of_le
++    · exact fun n => term_nonneg _ _ hq n
++    · intro n
++      rw [ht n]
++      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
++  · apply hs.of_nonneg_of_le
++    · exact fun n => term_nonneg _ _ hq n
++    · intro n
++      rw [ht n]
++      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
++
+@@ -515,17 +557,2 @@
+-  have ht (n : ℤ) : term 𝓜 (S.restrictScalars k) q n =
+-      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
+-      term 𝓝 ((S.map f).restrictScalars k) q n := by
+-    unfold term
+-    rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
+-  have hk : Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) := by
+-    apply hs.of_nonneg_of_le
+-    · exact fun n => term_nonneg _ _ hq n
+-    · intro n
+-      rw [ht n]
+-      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
+-  have hi : Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
+-    apply hs.of_nonneg_of_le
+-    · exact fun n => term_nonneg _ _ hq n
+-    · intro n
+-      rw [ht n]
+-      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
++  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
++  obtain ⟨hk,hi⟩ := image_terms_summable 𝓜 𝓝 S hS f hf hq hs
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean
+@@ -81 +80,0 @@
+-  have ha := hs.hasSum.mul_left (q^d)
+@@ -84,8 +83,4 @@
+-      (q^d * value 𝓜 (S.restrictScalars k) q) := by
+-    apply (Equiv.addRight d).hasSum_iff.mp
+-    apply ha.congr_fun
+-    intro n
+-    change (Module.finrank k (piece 𝓜 (S.restrictScalars k) (n+d-d)) : ℝ)*q^(n+d) =
+-      q^d * ((Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ)*q^n)
+-    rw [add_sub_cancel_right,zpow_add₀ hq]
+-    ring
++      (q^d * value 𝓜 (S.restrictScalars k) q) :=
++    hasSum_shift_coeff hq
++      (show HasSum (fun n => (Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ) * q^n) _ from
++        by apply hs.hasSum.congr_fun; intro n; rfl) d
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
+@@ -78,0 +79,37 @@
++/-- An upper vertex set maps to a live-edge-closed set when every live edge
++out of its image lifts. Injectivity and sheaf flabbiness are not needed for this
++geometric closure argument. -/
++theorem image_closedUnder_live (live : Set F)
++    (hlift : ∀ e ∈ live, ∀ x, f.vertex x = H.source e →
++      ∃ a, f.edge a=e ∧ G.source a=x) (Ω : Set V) (hΩ : IsUpperSet Ω) :
++    B.ClosedUnder live (f.vertex '' Ω) := by
++  intro e he hsource
++  obtain ⟨x,hx,hxe⟩ := hsource
++  obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
++  exact ⟨G.target a,hΩ (G.increasing a).le hx,f.target a⟩
++
++/-- Pushing a compatible partial section along an injective graph map
++preserves compatibility on its image when live edges lift and dead edge modules
++are subsingletons. No extension or finiteness assumption is needed. -/
++theorem push_compatible_live (hi : Function.Injective f.vertex) (live : Set F)
++    (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
++    (hlift : ∀ e ∈ live, ∀ x, f.vertex x = H.source e →
++      ∃ a, f.edge a=e ∧ G.source a=x) (Ω : Set V)
++    (s : (B.pullback f).Assignment) (hs : (B.pullback f).CompatibleOn Ω s) :
++    B.CompatibleOn (f.vertex '' Ω) (B.pushAssignment f s) := by
++  classical
++  intro e hsource htarget
++  by_cases he : e ∈ live
++  · obtain ⟨x,hx,hxe⟩ := hsource
++    obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
++    obtain ⟨y,hy,hye⟩ := htarget
++    have hya : y=G.target a := hi (hye.trans (f.target a).symm)
++    subst y
++    have hh := hs a hx hy
++    rw [← B.pull_push f hi s] at hh
++    change (B.pullback f).lower a (B.pullAssignment f (B.pushAssignment f s) (G.source a)) =
++      (B.pullback f).upper a (B.pullAssignment f (B.pushAssignment f s) (G.target a)) at hh
++    rw [pull_lower,pull_upper] at hh
++    exact hh
++  · exact @Subsingleton.elim _ (hdead e he) _ _
++
+@@ -85,20 +122,2 @@
+-  have hc : B.ClosedUnder live (f.vertex '' Ω) := by
+-    intro e he hsource
+-    obtain ⟨x,hx,hxe⟩ := hsource
+-    obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
+-    exact ⟨G.target a,hΩ (G.increasing a).le hx,f.target a⟩
+-  have hcompat : B.CompatibleOn (f.vertex '' Ω) (B.pushAssignment f s) := by
+-    intro e hsource htarget
+-    by_cases he : e ∈ live
+-    · obtain ⟨x,hx,hxe⟩ := hsource
+-      obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
+-      obtain ⟨y,hy,hye⟩ := htarget
+-      have hya : y=G.target a := hi (hye.trans (f.target a).symm)
+-      subst y
+-      have hh := hs a hx hy
+-      rw [← B.pull_push f hi s] at hh
+-      change (B.pullback f).lower a (B.pullAssignment f (B.pushAssignment f s) (G.source a)) =
+-        (B.pullback f).upper a (B.pullAssignment f (B.pushAssignment f s) (G.target a)) at hh
+-      rw [pull_lower,pull_upper] at hh
+-      exact hh
+-    · exact @Subsingleton.elim _ (hdead e he) _ _
++  have hc := B.image_closedUnder_live f live hlift Ω hΩ
++  have hcompat := B.push_compatible_live f hi live hdead hlift Ω s hs
+@@ -152,0 +172,41 @@
++/-- An ambient upward-kernel condition always pulls back along a graph map.
++The reverse direction is the one that needs live-edge lifting; this inclusion
++uses only the commuting lower maps. -/
++theorem upwardKernel_le_pullback (x : V) (T : Set F) :
++    B.upwardKernel (f.vertex x) {e | e.val ∈ T} ≤
++      (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} := by
++  intro v hv
++  classical
++  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
++  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
++  have hxs : B.pullAssignment f s x = v := hs
++  intro e he
++  have hh := hv ⟨f.edge e.val,(f.source e.val).symm.trans (congrArg f.vertex e.property)⟩ he
++  rw [← hs,B.stalkMap_assignment s] at hh
++  rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s),B.pull_lower f]
++  exact hh
++
++/-- Lifting live outgoing edges and killing the other edge modules reflect
++upward-kernel conditions back to the ambient graph. The statement isolates the
++hypotheses absent from unconditional kernel pullback. -/
++theorem pullbackKernel_le_of_live (x : V) (T : Set F)
++    (live : Set F) (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
++    (hlift : ∀ e ∈ live, f.vertex x = H.source e →
++      ∃ a, f.edge a=e ∧ G.source a=x) :
++    (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} ≤
++      B.upwardKernel (f.vertex x) {e | e.val ∈ T} := by
++  intro v hv
++  classical
++  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
++  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
++  have hxs : B.pullAssignment f s x = v := hs
++  intro e he
++  rw [← hs,B.stalkMap_assignment s]
++  by_cases hl : e.val ∈ live
++  · obtain ⟨a,ha,hax⟩ := hlift e.val hl e.property.symm
++    have hh := hv ⟨a,hax⟩ (show f.edge a ∈ T from ha.symm ▸ he)
++    rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s)] at hh
++    rw [B.pull_lower f] at hh
++    exact (congrArg (fun q : F => B.lower q (s (H.source q)) = 0) ha).mp hh
++  · exact @Subsingleton.elim _ (hdead e.val hl) _ _
++
+@@ -159,21 +219,2 @@
+-  classical
+-  ext v
+-  change B.vertex (f.vertex x) at v
+-  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
+-  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
+-  have hxs : B.pullAssignment f s x = v := hs
+-  constructor
+-  · intro hv e he
+-    rw [← hs,B.stalkMap_assignment s]
+-    by_cases hl : e.val ∈ live
+-    · obtain ⟨a,ha,hax⟩ := hlift e.val hl e.property.symm
+-      have hh := hv ⟨a,hax⟩ (show f.edge a ∈ T from ha.symm ▸ he)
+-      rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s)] at hh
+-      rw [B.pull_lower f] at hh
+-      exact (congrArg (fun q : F => B.lower q (s (H.source q)) = 0) ha).mp hh
+-    · exact @Subsingleton.elim _ (hdead e.val hl) _ _
+-  · intro hv e he
+-    have hh := hv ⟨f.edge e.val,(f.source e.val).symm.trans (congrArg f.vertex e.property)⟩ he
+-    rw [← hs,B.stalkMap_assignment s] at hh
+-    rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s),B.pull_lower f]
+-    exact hh
++  exact le_antisymm (B.pullbackKernel_le_of_live f x T live hdead hlift)
++    (B.upwardKernel_le_pullback f x T)
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean
+@@ -107,0 +108,13 @@
++/-- The tensored finite section constraint vanishes exactly on compatible
++tensored assignments. This uses the finite edge product comparison, without
++flatness or a finite vertex set. -/
++theorem tensorAssignments_mem_sections_iff [Finite E] (Ω : Set V)
++    (z : S ⊗[R] B.Assignment) :
++    B.tensorAssignments S z ∈ (B.baseChange S).sections Ω ↔
++      AlgebraTensorModule.lTensor S S (B.constraint Ω) z = 0 := by
++  classical
++  let := Fintype.ofFinite E
++  rw [← (B.baseChange S).ker_constraint Ω,LinearMap.mem_ker,B.constraint_tensorAssignments S]
++  exact (TensorProduct.piRight R S S
++    (fun e : {e : E // G.source e ∈ Ω ∧ G.target e ∈ Ω} => B.edge e.val)).map_eq_zero_iff
++
+@@ -115,10 +128 @@
+-  have hc : (B.baseChange S).constraint Ω (B.tensorAssignments S z) = 0 := by
+-    rw [hz]
+-    apply LinearMap.mem_ker.mp
+-    rw [(B.baseChange S).ker_constraint Ω]
+-    exact f.property
+-  have he : AlgebraTensorModule.lTensor S S (B.constraint Ω) z = 0 := by
+-    apply (TensorProduct.piRight R S S
+-      (fun e : {e : E // G.source e ∈ Ω ∧ G.target e ∈ Ω} => B.edge e.val)).injective
+-    rw [map_zero]
+-    exact (B.constraint_tensorAssignments S Ω z).symm.trans hc
++  have he := (B.tensorAssignments_mem_sections_iff S Ω z).mp (by rw [hz]; exact f.property)
+@@ -149,8 +153,7 @@
+- theorem baseChange_flabby [Finite V] [Finite E] [Module.Flat R S]
+-    (hb : B.Flabby) : (B.baseChange S).Flabby := by
+-  intro Ω hΩ f hf
+-  obtain ⟨z,hz⟩ := B.tensorSections_surjective S Ω ⟨f,hf⟩
+-  suffices ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
+-      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x by
+-    simpa only [hz] using this
+-  clear hz f hf
++/-- A section already represented as a tensor of sections extends globally
++when the original sheaf is flabby. Finiteness and flatness are needed to represent
++arbitrary sections, not for this extension of a given tensor. -/
++theorem tensorSection_extend (hb : B.Flabby) (Ω : Set V) (hΩ : IsUpperSet Ω)
++    (z : S ⊗[R] B.sections Ω) :
++    ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
++      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x := by
+@@ -171,0 +175,9 @@
++ theorem baseChange_flabby [Finite V] [Finite E] [Module.Flat R S]
++    (hb : B.Flabby) : (B.baseChange S).Flabby := by
++  intro Ω hΩ f hf
++  obtain ⟨z,hz⟩ := B.tensorSections_surjective S Ω ⟨f,hf⟩
++  suffices ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
++      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x by
++    simpa only [hz] using this
++  exact B.tensorSection_extend S hb Ω hΩ z
++
+@@ -192,0 +205,8 @@
++/-- The upper quotient condition is the exact scalar-kernel sequence at an
++edge. This presents the original module relation before any extension of scalars
++or flatness argument. -/
++theorem upperQuotient_exact (α : E → R) (h : B.UpperQuotient α) (e : E) :
++    Function.Exact (DistribSMul.toLinearMap R (B.vertex (G.target e)) (α e)) (B.upper e) := by
++  intro v
++  exact ((h e).2 v).trans (by simp only [Set.mem_range, DistribSMul.toLinearMap_apply,eq_comm])
++
+@@ -197,5 +217 @@
+-  have hs : Function.Exact (DistribSMul.toLinearMap R (B.vertex (G.target e)) (α e))
+-      (B.upper e) := by
+-    intro v
+-    exact ((h e).2 v).trans (by simp only [Set.mem_range, DistribSMul.toLinearMap_apply,
+-      eq_comm])
++  have hs := B.upperQuotient_exact α h e
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean
+@@ -175,0 +176,30 @@
++/-- The lower image of a product sheaf is detected in its two coordinates.
++The statement includes the kernel witnesses, so scaled-image arguments can use
++coordinate membership without unpacking product sections again. -/
++theorem prod_lowerImage_iff (B C : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (F : Set (Outgoing (G := G) (G.source e))) (z : (prod B C).edge e) :
++    z ∈ ((prod B C).upwardKernel (G.source e) F).map ((prod B C).lower e) ↔
++      z.1 ∈ (B.upwardKernel (G.source e) F).map (B.lower e) ∧
++      z.2 ∈ (C.upwardKernel (G.source e) F).map (C.lower e) := by
++  constructor
++  · rintro ⟨v,hv,he⟩
++    have hv' := (prod_upwardKernel_iff B C _ F v).mp hv
++    exact ⟨⟨v.1,hv'.1,congrArg Prod.fst he⟩,⟨v.2,hv'.2,congrArg Prod.snd he⟩⟩
++  · rintro ⟨⟨b,hb,hbe⟩,⟨c,hc,hce⟩⟩
++    exact ⟨(b,c),(prod_upwardKernel_iff B C _ F _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
++
++/-- A scalar upper-image witness in a product sheaf is equivalent to one
++witness in each factor. The scalar can be zero; no division or cancellation is
++part of this product decomposition. -/
++theorem prod_scaledUpperImage_iff (B C : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : (prod B C).edge e) :
++    (∃ v ∈ (prod B C).upwardKernel (G.target e) H, r • (prod B C).upper e v=z) ↔
++      (∃ b ∈ B.upwardKernel (G.target e) H, r • B.upper e b=z.1) ∧
++      (∃ c ∈ C.upwardKernel (G.target e) H, r • C.upper e c=z.2) := by
++  constructor
++  · rintro ⟨v,hv,he⟩
++    have hv' := (prod_upwardKernel_iff B C _ H v).mp hv
++    exact ⟨⟨v.1,hv'.1,congrArg Prod.fst he⟩,⟨v.2,hv'.2,congrArg Prod.snd he⟩⟩
++  · rintro ⟨⟨b,hb,hbe⟩,⟨c,hc,hce⟩⟩
++    exact ⟨(b,c),(prod_upwardKernel_iff B C _ H _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
++
+@@ -182,11 +212,32 @@
+-  constructor
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (prod_upwardKernel_iff B C _ F v).mp hv
+-    obtain ⟨b,hb,hbe⟩ := (hB z.1).mp ⟨v.1,hv'.1,congrArg Prod.fst he⟩
+-    obtain ⟨c,hc,hce⟩ := (hC z.2).mp ⟨v.2,hv'.2,congrArg Prod.snd he⟩
+-    exact ⟨(b,c),(prod_upwardKernel_iff B C _ H _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (prod_upwardKernel_iff B C _ H v).mp hv
+-    obtain ⟨b,hb,hbe⟩ := (hB z.1).mpr ⟨v.1,hv'.1,congrArg Prod.fst he⟩
+-    obtain ⟨c,hc,hce⟩ := (hC z.2).mpr ⟨v.2,hv'.2,congrArg Prod.snd he⟩
+-    exact ⟨(b,c),(prod_upwardKernel_iff B C _ F _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
++  exact (prod_lowerImage_iff B C e F z).trans
++    ((and_congr (hB z.1) (hC z.2)).trans (prod_scaledUpperImage_iff B C e H r z).symm)
++
++/-- Lower-image membership in a product family is coordinatewise membership.
++The reverse implication assembles the chosen kernel witnesses, with no finite
++index assumption. -/
++theorem pi_lowerImage_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (F : Set (Outgoing (G := G) (G.source e))) (z : (pi B).edge e) :
++    z ∈ ((pi B).upwardKernel (G.source e) F).map ((pi B).lower e) ↔
++      ∀ i, z i ∈ ((B i).upwardKernel (G.source e) F).map ((B i).lower e) := by
++  classical
++  constructor
++  · rintro ⟨v,hv,he⟩ i
++    exact ⟨v i,(pi_upwardKernel_iff B _ F v).mp hv i,congrFun he i⟩
++  · intro hz
++    choose v hv hve using hz
++    exact ⟨v,(pi_upwardKernel_iff B _ F _).mpr hv,funext hve⟩
++
++/-- Scalar upper-image membership in a product family is coordinatewise.
++Choice assembles the witnesses for an arbitrary index type; the scalar needs no
++inverse and may vanish. -/
++theorem pi_scaledUpperImage_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : (pi B).edge e) :
++    (∃ v ∈ (pi B).upwardKernel (G.target e) H, r • (pi B).upper e v=z) ↔
++      ∀ i, ∃ w ∈ (B i).upwardKernel (G.target e) H, r • (B i).upper e w=z i := by
++  classical
++  constructor
++  · rintro ⟨v,hv,he⟩ i
++    exact ⟨v i,(pi_upwardKernel_iff B _ H v).mp hv i,congrFun he i⟩
++  · intro hz
++    choose v hv hve using hz
++    exact ⟨v,(pi_upwardKernel_iff B _ H _).mpr hv,funext hve⟩
+@@ -198 +248,0 @@
+-  classical
+@@ -200,9 +250,2 @@
+-  constructor
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (pi_upwardKernel_iff B _ F v).mp hv
+-    choose w hw hwe using fun i => (hB i (z i)).mp ⟨v i,hv' i,congrFun he i⟩
+-    exact ⟨w,(pi_upwardKernel_iff B _ H _).mpr hw,funext hwe⟩
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (pi_upwardKernel_iff B _ H v).mp hv
+-    choose w hw hwe using fun i => (hB i (z i)).mpr ⟨v i,hv' i,congrFun he i⟩
+-    exact ⟨w,(pi_upwardKernel_iff B _ F _).mpr hw,funext hwe⟩
++  exact (pi_lowerImage_iff B e F z).trans
++    ((forall_congr' (fun i => hB i (z i))).trans (pi_scaledUpperImage_iff B e H r z).symm)
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean
+@@ -47,0 +48,28 @@
++/-- Agreement off one vertex makes the remaining correction divisible by
++the outgoing label product. Compatibility and pairwise relative primality suffice;
++choosing a flow-down section and a minimal vertex belongs to the caller. -/
++theorem modelProduct_dvd_difference (a : V)
++    (hrel : (modelOutgoing G c a : Set E).Pairwise (Function.onFun IsRelPrime α))
++    (s : Finset V) (hs : IsUpperSet (s : Set V)) (ha : a ∈ s) (hac : a ≤ c)
++    (f g : (structureSheaf G α c).Assignment)
++    (hf : (structureSheaf G α c).CompatibleOn (s : Set V) f)
++    (hg : (structureSheaf G α c).IsGlobal g)
++    (hgf : ∀ x ∈ s.erase a, g x=f x) :
++    modelProduct G α c a ∣ f a ⟨hac⟩ - g a ⟨hac⟩ := by
++  classical
++  apply Finset.prod_dvd_of_isRelPrime hrel
++  intro e he
++  obtain ⟨hea,hec⟩ := (mem_modelOutgoing G c a e).mp he
++  have hsource : G.source e ∈ s := hea ▸ ha
++  have htarget : G.target e ∈ s.erase a := Finset.mem_erase.mpr
++    ⟨by simpa [← hea] using (G.increasing e).ne',hs (G.increasing e).le hsource⟩
++  have hf' := (structureCompatible_iff G α c (s : Set V) f).mp hf e hsource
++    (Finset.mem_of_mem_erase htarget) ⟨hec⟩
++  have hg' := (structureCompatible_iff G α c Set.univ g).mp hg e
++    (Set.mem_univ _) (Set.mem_univ _) ⟨hec⟩
++  rw [hgf _ htarget] at hg'
++  have hd := dvd_sub hf' hg'
++  rw [sub_sub_sub_cancel_right] at hd
++  subst a
++  exact hd
++
+@@ -81,16 +109 @@
+-    have hdiv : modelProduct G α c a ∣ f a ⟨hac⟩ - g a ⟨hac⟩ := by
+-      apply Finset.prod_dvd_of_isRelPrime (hrel a)
+-      intro e he
+-      obtain ⟨hea,hec⟩ := (mem_modelOutgoing G c a e).mp he
+-      have hsource : G.source e ∈ s := hea ▸ ha
+-      have htarget : G.target e ∈ s.erase a := Finset.mem_erase.mpr
+-        ⟨by simpa [← hea] using (G.increasing e).ne',hs (G.increasing e).le hsource⟩
+-      have hf' := (structureCompatible_iff G α c (s : Set V) f).mp hf e hsource
+-        (Finset.mem_of_mem_erase htarget) ⟨hec⟩
+-      have hg' := (structureCompatible_iff G α c Set.univ g).mp hg e
+-        (Set.mem_univ _) (Set.mem_univ _) ⟨hec⟩
+-      rw [hgf _ htarget] at hg'
+-      have hd := dvd_sub hf' hg'
+-      rw [sub_sub_sub_cancel_right] at hd
+-      subst a
+-      exact hd
++    have hdiv := modelProduct_dvd_difference G α c a (hrel a) s hs ha hac f g hf hg hgf

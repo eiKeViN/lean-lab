@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.DirectedPaths.Basic
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.DirectedPaths.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.DirectedPaths.Monotone. Source spans: PositiveTransfer:3, PositiveTransfer:11.
 See migration.json and MIGRATION.md for exact provenance. -/

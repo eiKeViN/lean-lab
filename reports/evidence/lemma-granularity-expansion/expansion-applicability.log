@@ -1,0 +1,9 @@
+Six production proof references verified; second use is within the four samples.
+PilotChecks.lean:69:4: error: Function expected at
+  Module.preReflection 1 LinearMap.id ∘ₗ Module.preReflection 2 LinearMap.id - LinearMap.id
+but this term has type
+  ?m.74
+
+Note: Expected a function because this term is being applied to the argument
+  v
+Eight expansion original-site references verified; no second production use claimed.

@@ -1,0 +1,9 @@
+{
+  "captured_export_checksums_valid": true,
+  "offline_original_and_added_comparison_passed": true,
+  "offline_modern_public_comparison_passed": true,
+  "original_axiom_parsers_passed": true,
+  "execution_source_and_final_code_hashes_verified": true,
+  "fresh_compilation_coverage": 261,
+  "notes": "Offline rechecks validate retained captured exports; fresh Lean execution is evidenced by the recorded acceptance stages."
+}

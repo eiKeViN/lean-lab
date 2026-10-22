@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "scripts/test_checks.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.3793447269999888,
+  "user_seconds": 0.28543199999999996,
+  "system_seconds": 0.09392199999999999,
+  "max_rss_kib": 55288
+}

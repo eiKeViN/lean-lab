@@ -1,0 +1,15 @@
+{
+  "previous_semantic_modules": 193,
+  "transported_units": 525,
+  "allocated_source_pieces": 526,
+  "implementation_modules": 207,
+  "candidate_modules": 181,
+  "project_modules_including_kernel_wrapper": 26,
+  "compatibility_import_entries": 51,
+  "aggregate_entries": 3,
+  "total_product_modules": 261,
+  "core_direct_import_edges": 363,
+  "candidate_to_project_edges": [],
+  "physical_implementation_lines": 44493,
+  "median_implementation_lines": 137
+}

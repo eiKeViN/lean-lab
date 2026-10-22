@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.Dihedral.SignedCount. Source spans: DihedralIntervals:11, DihedralIntervals:17, DihedralIntervals:18.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -8,9 +11,9 @@ namespace OAI
 section
 namespace KLInvariance.SignedDihedral
 noncomputable section
-local instance _root_.OAI.KLInvariance.SignedDihedral.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SignedDihedral.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
 
- def Before (a b : ℤ) : Prop :=
+ @[expose] def Before (a b : ℤ) : Prop :=
   (0 < a ∧ 0 < b ∧ a < b) ∨ (a < 0 ∧ b < 0 ∧ a < b) ∨ (0 < a ∧ b < 0)
 
  theorem before_same_source_pos {i j z : ℤ} (hij : |i| < |j|)
@@ -139,12 +142,12 @@ has no wrap-around exception in the midpoint comparison table. -/
       · omega
   simpa only [Finset.card_range] using hc.symm
 
- noncomputable def arrowAfter (a label z : ℤ) : ℕ :=
+ @[expose] noncomputable def arrowAfter (a label z : ℤ) : ℕ :=
   if |a| < |z| ∧ Odd (a+z) ∧ Before label (a+z) then 1 else 0
 
 /-- Double internal ranks and the singleton top, with no singleton bottom
 term because upward arrows never end at the bottom. -/
- noncomputable def countAfter (a label c : ℤ) : ℕ :=
+ @[expose] noncomputable def countAfter (a label c : ℤ) : ℕ :=
   (∑ r ∈ Finset.range c.natAbs, (arrowAfter a label r + arrowAfter a label (-r))) +
     arrowAfter a label c
 
@@ -165,7 +168,7 @@ end
 section
 namespace KLInvariance.SignedDihedral
 noncomputable section
-local instance _root_.OAI.KLInvariance.SignedDihedral.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SignedDihedral.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
 
  theorem odd_add_abs (i z : ℤ) : Odd (i+z) ↔ Odd (i.natAbs+z.natAbs) := by
   rw [Int.odd_add, Nat.odd_add, Int.natAbs_odd, Int.natAbs_even]
@@ -320,7 +323,7 @@ end
 section
 namespace KLInvariance.SignedDihedral
 noncomputable section
-local instance _root_.OAI.KLInvariance.SignedDihedral.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SignedDihedral.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
 
  theorem arrowAfter_far {i j z : ℤ} (hij : |i| < |j|) (hjz : |j| < |z|) :
     arrowAfter i (i+j) z = if Odd (i.natAbs+z.natAbs) ∧ 0 < j then 1 else 0 := by
@@ -340,7 +343,7 @@ local instance _root_.OAI.KLInvariance.SignedDihedral.instDecidable_oAI_2 (p : P
       omega
   simp only [arrowAfter,hiz,true_and,odd_add_abs,hb]
 
- def positiveCount (L M C : ℕ) : ℕ :=
+ @[expose] def positiveCount (L M C : ℕ) : ℕ :=
   (∑ r ∈ Finset.range C, if L < r ∧ Odd (L+r) then (if M < r then 2 else 1) else 0) +
     (if M < C ∧ Odd (L+C) then 1 else 0)
 

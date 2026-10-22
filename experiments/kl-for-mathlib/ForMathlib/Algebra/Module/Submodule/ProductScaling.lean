@@ -1,4 +1,11 @@
-import Mathlib
+module
+public import Mathlib.Algebra.Module.Submodule.Pointwise
+public import Mathlib.Algebra.GroupWithZero.Associated
+public import Mathlib.Algebra.Algebra.Defs
+public import Mathlib.Algebra.Algebra.Tower
+public import Mathlib.Algebra.BigOperators.Associated
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Submodule.ProductScaling. Source spans: PlaneLocalization:26.
 See migration.json and MIGRATION.md for exact provenance.

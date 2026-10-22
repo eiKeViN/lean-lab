@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib.LinearAlgebra.DFinsupp
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.ConjugateRange. Source spans: BalancedPairings:16.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,9 +18,9 @@ variable {R : Type ur} [CommRing R]
   (e : M ≃ₗ[R] N) (f : End R N)
 noncomputable section
 
- def conjugate : End R M := e.symm.toLinearMap.comp (f.comp e.toLinearMap)
+ @[expose] def conjugate : End R M := e.symm.toLinearMap.comp (f.comp e.toLinearMap)
 
- def map : LinearMap.range f →ₗ[R] LinearMap.range (conjugate e f) :=
+ @[expose] def map : LinearMap.range f →ₗ[R] LinearMap.range (conjugate e f) :=
   (e.symm.toLinearMap.domRestrict f.range).codRestrict _ (by
     rintro ⟨_,n,rfl⟩
     refine ⟨e.symm n,?_⟩
@@ -34,7 +37,7 @@ noncomputable section
     refine ⟨⟨f (e m),e m,rfl⟩,?_⟩
     rfl
 
- def equiv : LinearMap.range f ≃ₗ[R] LinearMap.range (conjugate e f) :=
+ @[expose] def equiv : LinearMap.range f ≃ₗ[R] LinearMap.range (conjugate e f) :=
   LinearEquiv.ofBijective (map e f) (map_bijective e f)
 
  theorem equiv_apply (n : LinearMap.range f) : (equiv e f n).val=e.symm n.val := rfl

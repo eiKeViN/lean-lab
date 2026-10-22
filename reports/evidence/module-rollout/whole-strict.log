@@ -1,0 +1,185 @@
+All targets up-to-date (8923 jobs).
+⚠ [8955/9186] Replayed ForMathlib.Combinatorics.Dihedral.SignedCount
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:14:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:171:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:326:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8956/9186] Replayed ForMathlib.Combinatorics.DirectedPaths.Basic
+warning: ForMathlib/Combinatorics/DirectedPaths/Basic.lean:16:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8957/9186] Replayed ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer
+warning: ForMathlib/Combinatorics/DirectedPaths/PositiveTransfer.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8960/9186] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8962/9186] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8963/9186] Replayed ForMathlib.GroupTheory.Coxeter.Exchange
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8974/9186] Built ForMathlib.Algebra.Module.Cover.Local (5.0s)
+✔ [8975/9186] Built ForMathlib.Algebra.Module.Localization.FiniteCharacters (9.7s)
+⚠ [8979/9186] Replayed ForMathlib.Combinatorics.DirectedPaths.ScalarMap
+warning: ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8980/9186] Replayed ForMathlib.Combinatorics.DirectedPaths.Subpaths
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:69:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:115:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8992/9186] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8993/9186] Built ForMathlib.Algebra.Module.CoefficientChange.Basic (14s)
+✔ [8995/9186] Built ForMathlib.LinearAlgebra.Avoidance (18s)
+✔ [8996/9186] Built ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic (21s)
+⚠ [8997/9186] Replayed ForMathlib.Combinatorics.DirectedPaths.Transfer
+warning: ForMathlib/Combinatorics/DirectedPaths/Transfer.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8999/9186] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean:21:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9002/9186] Replayed ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+warning: ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean:86:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9010/9186] Replayed ForMathlib.Algebra.Module.Graded.Basis
+warning: ForMathlib/Algebra/Module/Graded/Basis.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9016/9186] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9017/9186] Built ForMathlib.Algebra.Module.ReflectionPair.Twist (22s)
+⚠ [9018/9186] Replayed ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9025/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso (23s)
+✔ [9030/9186] Built OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra (23s)
+✔ [9031/9186] Built ForMathlib.Algebra.Module.CoefficientChange.Dual (21s)
+✔ [9038/9186] Built ForMathlib.Algebra.Module.Projective.Transport (19s)
+⚠ [9041/9186] Replayed ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+warning: ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean:22:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9044/9186] Built ForMathlib.Algebra.Module.ReflectionPair.TensorKernel (18s)
+✔ [9045/9186] Built ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis (20s)
+✔ [9046/9186] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic (20s)
+✔ [9050/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi (20s)
+✔ [9053/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback (18s)
+✔ [9054/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange (19s)
+⚠ [9056/9186] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean:23:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9058/9186] Built OAI.RepresentationTheory.KazhdanLusztig.GradedModules (18s)
+✔ [9059/9186] Built ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover (19s)
+✔ [9060/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.Basic (20s)
+✔ [9061/9186] Built ForMathlib.LinearAlgebra.KernelCoordinates (19s)
+✔ [9064/9186] Built ForMathlib.Algebra.Module.ReflectionPair.TensorDescent (20s)
+✔ [9068/9186] Built ForMathlib.LinearAlgebra.Dual.Frobenius (25s)
+⚠ [9069/9186] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:110:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:215:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:303:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9073/9186] Built ForMathlib.Algebra.Module.Graded.DualAndShift (22s)
+✔ [9074/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Products (22s)
+✔ [9076/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure (23s)
+✔ [9079/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.Order (19s)
+✔ [9080/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.Splines (21s)
+✔ [9085/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup (21s)
+✔ [9086/9186] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange (21s)
+✔ [9087/9186] Built ForMathlib.RepresentationTheory.BottSamelson.TitsWords (46s)
+✔ [9088/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Models (46s)
+✔ [9089/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown (46s)
+✔ [9090/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction (46s)
+✔ [9092/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels (19s)
+✔ [9093/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength (20s)
+✔ [9094/9186] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Basic (20s)
+✔ [9095/9186] Built OAI.RepresentationTheory.KazhdanLusztig.Tits (19s)
+✔ [9096/9186] Built OAI.KL.BottSamelson.Stalks (168s)
+✔ [9097/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization (167s)
+✔ [9098/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism (165s)
+✔ [9099/9186] Built ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure (165s)
+✔ [9100/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension (21s)
+✔ [9101/9186] Built OAI.KL.BottSamelson.UpperSections (770s)
+✔ [9102/9186] Built OAI.KL.BottSamelson.StalkCharacter (778s)
+✔ [9103/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages (780s)
+✔ [9104/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero (774s)
+✔ [9105/9186] Built ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds (25s)
+✔ [9106/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension (17s)
+✔ [9107/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps (17s)
+✔ [9108/9186] Built OAI.KL.Sheaves.Boundary (19s)
+✔ [9109/9186] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Extension (18s)
+✔ [9110/9186] Built OAI.KL.BottSamelson.Flabby (19s)
+✔ [9111/9186] Built OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules (17s)
+✔ [9112/9186] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel (17s)
+✔ [9113/9186] Built ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport (18s)
+✔ [9114/9186] Built ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem (18s)
+✔ [9115/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom (22s)
+✔ [9116/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness (21s)
+✔ [9117/9186] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom (19s)
+✔ [9118/9186] Built OAI.KL.BottSamelson.Pairings (18s)
+✔ [9119/9186] Built OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves (13s)
+✔ [9120/9186] Built ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords (15s)
+✔ [9121/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis (19s)
+✔ [9122/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand (22s)
+✔ [9123/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character (24s)
+✔ [9124/9186] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Hom (24s)
+✔ [9125/9186] Built OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries (21s)
+✔ [9126/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder (20s)
+✔ [9127/9186] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel (19s)
+✔ [9128/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder (18s)
+✔ [9129/9186] Built ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds (18s)
+✔ [9130/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality (20s)
+✔ [9131/9186] Built OAI.KL.Sheaves.LowerCharacter (20s)
+✔ [9132/9186] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Summand (19s)
+✔ [9133/9186] Built OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions (19s)
+✔ [9134/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder (16s)
+✔ [9135/9186] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted (17s)
+✔ [9136/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport (18s)
+✔ [9137/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models (23s)
+✔ [9138/9186] Built OAI.KL.Sheaves.Support (31s)
+✔ [9139/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert (32s)
+✔ [9140/9186] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness (31s)
+✔ [9141/9186] Built OAI.KL.BottSamelson.AdjointSheaf (66s)
+✔ [9142/9186] Built OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms (57s)
+✔ [9143/9186] Built ForMathlib.GroupTheory.Coxeter.Roots.LaterCount (57s)
+✔ [9144/9186] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates (56s)
+✔ [9145/9186] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Models (17s)
+✔ [9146/9186] Built OAI.KL.Sheaves.FreeModel (23s)
+✔ [9147/9186] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness (22s)
+✔ [9148/9186] Built OAI.KL.BottSamelson.Support (27s)
+✔ [9149/9186] Built OAI.RepresentationTheory.KazhdanLusztig.Decomposition (26s)
+✔ [9150/9186] Built OAI.KL.Localization.Ambient (21s)
+✔ [9151/9186] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder (21s)
+✔ [9152/9186] Built OAI.KL.BottSamelson.Character (31s)
+✔ [9153/9186] Built OAI.RepresentationTheory.KazhdanLusztig.Frobenius (33s)
+✔ [9154/9186] Built OAI.KL.Localization.GraphEmbedding (35s)
+✔ [9155/9186] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall (36s)
+✔ [9156/9186] Built OAI.KL.BottSamelson.CanonicalPairing (35s)
+✔ [9157/9186] Built OAI.KL.Sheaves.Reciprocity (35s)
+✔ [9158/9186] Built OAI.RepresentationTheory.KazhdanLusztig.BottSamelson (31s)
+✔ [9159/9186] Built OAI.KL.Localization.Plane (35s)
+✔ [9160/9186] Built ForMathlib (19s)
+✔ [9162/9186] Built OAI.KL.BottSamelson.CharacterDecomposition (17s)
+✔ [9163/9186] Built OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings (17s)
+✔ [9164/9186] Built OAI.KL.Localization.TerminalImages (15s)
+✔ [9165/9186] Built OAI.KL.Sheaves.StalkReciprocity (12s)
+✔ [9166/9186] Built OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings (12s)
+✔ [9167/9186] Built OAI.KL.Comparison.Transport (9.3s)
+✔ [9168/9186] Built OAI.RepresentationTheory.KazhdanLusztig.Support (9.5s)
+✔ [9169/9186] Built OAI.KL.Comparison.Propagation (15s)
+✔ [9170/9186] Built OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity (14s)
+✔ [9171/9186] Built OAI.KL.Localization.Edge (12s)
+✔ [9172/9186] Built OAI.RepresentationTheory.KazhdanLusztig.DyerPaths (12s)
+✔ [9173/9186] Built OAI.KL.Comparison.SuffixFreeness (9.9s)
+✔ [9174/9186] Built OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders (10s)
+⚠ [9175/9186] Built OAI.KL.Invariance.Finite (8.9s)
+warning: OAI/KL/Invariance/Finite.lean:95:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm`:
+  [Fintype I]
+  [Fintype I']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] [Fintype I'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [9176/9186] Built OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals (8.5s)
+✔ [9177/9186] Built OAI.KL.Invariance.Main (7.5s)
+✔ [9178/9186] Built OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization (7.6s)
+✔ [9179/9186] Built OAI.KL (6.6s)
+✔ [9180/9186] Built OAI.Architecture (10s)
+✔ [9181/9186] Built OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization (10s)
+✔ [9182/9186] Built OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer (3.5s)
+✔ [9183/9186] Built OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels (3.8s)
+✔ [9184/9186] Built OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance (3.8s)
+✔ [9185/9186] Built OAI.RepresentationTheory.KazhdanLusztig.Invariance (3.7s)
+Build completed successfully (9186 jobs).

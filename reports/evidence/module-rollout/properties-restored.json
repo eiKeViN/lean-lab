@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "/tmp/build_properties.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 30.802683146999698,
+  "user_seconds": 29.713804,
+  "system_seconds": 9.020758,
+  "max_rss_kib": 7352824
+}

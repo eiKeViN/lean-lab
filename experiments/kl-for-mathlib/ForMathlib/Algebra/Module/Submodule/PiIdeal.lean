@@ -1,4 +1,11 @@
-import Mathlib
+module
+public import Mathlib.Algebra.Algebra.Operations
+public import Mathlib.RingTheory.Ideal.Defs
+public import Mathlib.Tactic.Ring
+public import Mathlib.LinearAlgebra.Pi
+public import Mathlib.RingTheory.Ideal.Operations
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Submodule.PiIdeal. Source spans: GradedSheaves:11.
 See migration.json and MIGRATION.md for exact provenance.

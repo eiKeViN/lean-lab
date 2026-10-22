@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
-import ForMathlib.LinearAlgebra.Quotient.Transport
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+public import ForMathlib.LinearAlgebra.Quotient.Transport
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom. Source spans: SheafMorphisms:10.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -14,7 +17,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A}
 noncomputable section
 
- def quotientHom {M N E F : ModuleData.{uk,ua,um} 𝓐}
+ @[expose] def quotientHom {M N E F : ModuleData.{uk,ua,um} 𝓐}
     (f : Hom M E) (g : Hom N F) (hf : Function.Surjective f.map)
     (h : Hom M N) (hk : LinearMap.ker f.map ≤ LinearMap.ker (g.map.comp h.map)) : Hom E F where
   map := QuotientEdge.descend f.map g.map hf h.map hk

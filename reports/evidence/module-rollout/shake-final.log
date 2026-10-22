@@ -1,0 +1,14 @@
+All targets up-to-date (1457 jobs).
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Submodule/PiIdeal.lean:
+  remove #[public import Mathlib.Tactic.Ring, public import Mathlib.LinearAlgebra.Pi, public import Mathlib.RingTheory.Ideal.Operations]
+  add #[import Mathlib.RingTheory.Ideal.Operations, import Mathlib.LinearAlgebra.Pi]
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Order/Interval/Diamonds.lean:
+  remove #[public import Mathlib.Order.Cover]
+  add #[import Mathlib.Order.Cover]
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Free/ScalarDivisibility.lean:
+  remove #[public import Mathlib.RingTheory.Coprime.Lemmas]
+  add #[import Mathlib.RingTheory.Coprime.Lemmas]
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Order/Field/RealScaling.lean:
+  remove #[public import Mathlib.Tactic.NormNum, public import Mathlib.Tactic.Ring, public import Mathlib.Tactic.Linarith, public import Mathlib.Tactic.LinearCombination]
+  add #[import Mathlib.Tactic.LinearCombination, import Mathlib.Tactic.NormNum.OfScientific, import Mathlib.Tactic.NormNum.DivMod, import Mathlib.Tactic.NormNum.Abs, import Mathlib.Data.Rat.Cast.Order, import Mathlib.Tactic.Linarith.Frontend, import Mathlib.Tactic.Ring.RingNF]
+Scoped read-only shake status: 1

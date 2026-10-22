@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib.RingTheory.Flat.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Flat.Kernel. Source spans: TerminalKernels:6.
 See migration.json and MIGRATION.md for exact provenance. -/

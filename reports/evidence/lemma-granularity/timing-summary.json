@@ -1,0 +1,61 @@
+{
+  "direct_pairs": [
+    {
+      "module": "sums",
+      "before_seconds": [
+        4.295399157999782,
+        4.2168947710015345
+      ],
+      "after_seconds": [
+        4.071223500999622,
+        4.504918389000522
+      ],
+      "mean_before": 4.256146964500658,
+      "mean_after": 4.288070945000072,
+      "after_over_before": 1.0075006762608723
+    },
+    {
+      "module": "scaling",
+      "before_seconds": [
+        4.18211464399792,
+        4.346173344994895
+      ],
+      "after_seconds": [
+        4.134542168001644,
+        4.1349282509982
+      ],
+      "mean_before": 4.264143994496408,
+      "mean_after": 4.134735209499922,
+      "after_over_before": 0.9696518726470051
+    },
+    {
+      "module": "interval",
+      "before_seconds": [
+        4.82062642499659,
+        4.781501694997132
+      ],
+      "after_seconds": [
+        4.8218857960018795,
+        4.913595673999225
+      ],
+      "mean_before": 4.801064059996861,
+      "mean_after": 4.867740735000552,
+      "after_over_before": 1.013887895302054
+    }
+  ],
+  "measured_command_wall_sum": 208.71762686898,
+  "extraction_build_attempt_seconds": 105.60345090999908,
+  "final_validation_stage_count": 32,
+  "final_validation_stage_wall_sum": 107.81445173500106,
+  "final_warm_build_seconds": 4.439626289000444,
+  "token_telemetry": null,
+  "token_telemetry_reason": "No model input/output usage meter is exposed; word/character counts are not usage.",
+  "cost_limit": "Command sums exclude model drafting and most infrastructure editing; phase wall windows overlap command activity.",
+  "initial_validation_stage_wall_sum": 101.26274098799331,
+  "all_recorded_command_and_validation_wall_sum": 417.7948195919744,
+  "amortized_extraction_build_validation_per_retained_lemma_seconds": 21.120690181999816,
+  "amortized_extraction_build_validation_per_implementation_attempt_seconds": 17.600575151666515,
+  "retained_lemmas": 5,
+  "considered_candidates": 10,
+  "implementation_attempts_including_context_retry": 6
+}

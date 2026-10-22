@@ -33,6 +33,30 @@ omit [Fintype σ] in
   exact Module.Free.of_equiv (Submodule.topEquiv :
     (⊤ : Submodule (Coefficient (σ := σ)) (B.sheaf.vertex x)) ≃ₗ[Coefficient] B.sheaf.vertex x).symm
 
+/-- One reverse-schedule edge preserves freeness of all remaining kernels
+when its embedded lower and scaled upper images agree. The source uses the
+previous source and target kernels; every other vertex keeps its old kernel. -/
+theorem schedule_head_kernels_free (e : Edge cs u b) (p : List (Edge cs u b))
+    (hfree : ∀ x : Interval cs u b, Module.Free (Coefficient (σ := σ))
+      (B.sheaf.upwardSubmodule x (remainingConditions cs u b p x)))
+    (heq : B.sheaf.lowerImage e (remainingConditions cs u b p ((graph cs u b).source e)) =
+      (B.sheaf.upperImage e (remainingConditions cs u b p ((graph cs u b).target e))).map
+        (edgeFactorMap cs basis u b hub B e)) (x : Interval cs u b) :
+    Module.Free (Coefficient (σ := σ))
+      (B.sheaf.upwardSubmodule x (remainingConditions cs u b (e::p) x)) := by
+  by_cases hx : source cs u b e = x
+  · subst x
+    rw [remainingConditions_cons_source]
+    let hS : Module.Free (Coefficient (σ := σ))
+        (B.sheaf.upwardSubmodule ((graph cs u b).source e)
+          (remainingConditions cs u b p (source cs u b e))) := hfree _
+    let hT : Module.Free (Coefficient (σ := σ))
+        (B.sheaf.upwardSubmodule ((graph cs u b).target e)
+          (remainingConditions cs u b p ((graph cs u b).target e))) := hfree _
+    exact partial_kernel_free_of_image_eq cs u b basis hub B e _ _ heq
+  · rw [remainingConditions_cons_other cs u b e p x hx]
+    exact hfree x
+
 /-- Reverse traversal of the actual schedule, after embedded image equality.
 Both kernels used in Schanuel have already been made free at this point. -/
  theorem schedule_kernels_free_of_images_eq (p : List (Edge cs u b))
@@ -54,21 +78,8 @@ Both kernels used in Schanuel have already been made free at this point. -/
     intro q hq x
     rcases List.suffix_cons_iff.mp hq with h | h
     · subst q
-      by_cases hx : source cs u b e = x
-      · subst x
-        rw [remainingConditions_cons_source]
-        let hS : Module.Free (Coefficient (σ := σ))
-            (B.sheaf.upwardSubmodule ((graph cs u b).source e)
-              (remainingConditions cs u b p (source cs u b e))) :=
-          hip p (List.suffix_refl _) (source cs u b e)
-        let hT : Module.Free (Coefficient (σ := σ))
-            (B.sheaf.upwardSubmodule ((graph cs u b).target e)
-              (remainingConditions cs u b p ((graph cs u b).target e))) :=
-          hip p (List.suffix_refl _) (target cs u b e)
-        exact partial_kernel_free_of_image_eq cs u b basis hub B e _ _
-          (heq e p (List.suffix_refl _))
-      · rw [remainingConditions_cons_other cs u b e p x hx]
-        exact hip p (List.suffix_refl _) x
+      exact schedule_head_kernels_free cs u b basis hub B e p
+        (hip p (List.suffix_refl _)) (heq e p (List.suffix_refl _)) x
     · exact hip q h x
 
  theorem schedule_kernels_free_of_endpoint_eq (p : List (Edge cs u b))

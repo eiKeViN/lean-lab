@@ -1,0 +1,449 @@
+[
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.0470180359999404,
+    "user_seconds": 1.816211,
+    "system_seconds": 0.71436,
+    "max_rss_kib": 1007548,
+    "label": "single-default-private-build"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot-incremental/private-consumer.lean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 1.7846609969999463,
+    "user_seconds": 1.206233,
+    "system_seconds": 0.571124,
+    "max_rss_kib": 1221844,
+    "label": "single-default-private-consumer"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.2850265189999845,
+    "user_seconds": 3.938198,
+    "system_seconds": 1.4211559999999999,
+    "max_rss_kib": 1995104,
+    "label": "single-prepare"
+  },
+  {
+    "command": [
+      "python3",
+      "validate.py",
+      "--static"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.769047625999974,
+    "user_seconds": 3.505772,
+    "system_seconds": 0.272606,
+    "max_rss_kib": 309580,
+    "label": "module-source-policy"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "WeightedSumImportChecks.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.2340075859999615,
+    "user_seconds": 1.595008,
+    "system_seconds": 0.639339,
+    "max_rss_kib": 2480208,
+    "label": "existing-weighted-check"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.051215756999909,
+    "user_seconds": 0.826928,
+    "system_seconds": 0.46152299999999996,
+    "max_rss_kib": 868540,
+    "label": "single-warm"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.083462139999938,
+    "user_seconds": 3.112986,
+    "system_seconds": 1.148116,
+    "max_rss_kib": 1995700,
+    "label": "single-doc-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.1624737550000646,
+    "user_seconds": 3.324196,
+    "system_seconds": 1.188462,
+    "max_rss_kib": 1997336,
+    "label": "single-doc-restore-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.2055708330000243,
+    "user_seconds": 3.326434,
+    "system_seconds": 1.19093,
+    "max_rss_kib": 1997344,
+    "label": "single-doc-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.096253080999986,
+    "user_seconds": 3.150415,
+    "system_seconds": 1.103514,
+    "max_rss_kib": 1997188,
+    "label": "single-doc-restore-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.0351729230000046,
+    "user_seconds": 3.247988,
+    "system_seconds": 1.012518,
+    "max_rss_kib": 1995648,
+    "label": "single-doc-2"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.026713143000052,
+    "user_seconds": 3.066814,
+    "system_seconds": 1.223895,
+    "max_rss_kib": 1995896,
+    "label": "single-doc-restore-2"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.914488477999953,
+    "user_seconds": 3.042953,
+    "system_seconds": 1.125418,
+    "max_rss_kib": 1996268,
+    "label": "single-proof-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.1506170709999424,
+    "user_seconds": 3.242343,
+    "system_seconds": 1.19985,
+    "max_rss_kib": 1996076,
+    "label": "single-proof-restore-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.105230600999903,
+    "user_seconds": 3.179512,
+    "system_seconds": 1.256962,
+    "max_rss_kib": 1995656,
+    "label": "single-proof-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.2258140950000325,
+    "user_seconds": 3.272951,
+    "system_seconds": 1.23698,
+    "max_rss_kib": 1995944,
+    "label": "single-proof-restore-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.1197803090000207,
+    "user_seconds": 3.185177,
+    "system_seconds": 1.116498,
+    "max_rss_kib": 1997356,
+    "label": "single-proof-2"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.075787126000023,
+    "user_seconds": 3.198422,
+    "system_seconds": 1.113385,
+    "max_rss_kib": 1995464,
+    "label": "single-proof-restore-2"
+  },
+  {
+    "command": [
+      "lake",
+      "shake",
+      "--keep-public",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.606414227000073,
+    "user_seconds": 4.459964,
+    "system_seconds": 2.070996,
+    "max_rss_kib": 996032,
+    "label": "shake-single"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 15.11796897599993,
+    "user_seconds": 21.143015,
+    "system_seconds": 4.693548,
+    "max_rss_kib": 7329264,
+    "label": "kernel-prepare"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.6115691090000155,
+    "user_seconds": 4.278878,
+    "system_seconds": 1.9835919999999998,
+    "max_rss_kib": 997832,
+    "label": "kernel-warm"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.652436697999974,
+    "user_seconds": 13.493143,
+    "system_seconds": 3.474244,
+    "max_rss_kib": 7319632,
+    "label": "kernel-doc-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 11.17344507000007,
+    "user_seconds": 14.113897,
+    "system_seconds": 3.679763,
+    "max_rss_kib": 7320008,
+    "label": "kernel-doc-restore-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.876451227000075,
+    "user_seconds": 13.879266,
+    "system_seconds": 3.682962,
+    "max_rss_kib": 7320724,
+    "label": "kernel-doc-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.496160251999981,
+    "user_seconds": 13.054952,
+    "system_seconds": 3.5603540000000002,
+    "max_rss_kib": 7323048,
+    "label": "kernel-doc-restore-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.737643669000022,
+    "user_seconds": 13.288185,
+    "system_seconds": 3.7566100000000002,
+    "max_rss_kib": 7324160,
+    "label": "kernel-doc-2"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.283309492999933,
+    "user_seconds": 13.137987,
+    "system_seconds": 3.402227,
+    "max_rss_kib": 7321556,
+    "label": "kernel-doc-restore-2"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.677793667999936,
+    "user_seconds": 16.307218,
+    "system_seconds": 3.978839,
+    "max_rss_kib": 7322620,
+    "label": "kernel-body-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.984948400000007,
+    "user_seconds": 16.707436,
+    "system_seconds": 4.241988,
+    "max_rss_kib": 7327084,
+    "label": "kernel-body-restore-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.681371982999963,
+    "user_seconds": 16.478816,
+    "system_seconds": 3.964119,
+    "max_rss_kib": 7328224,
+    "label": "kernel-body-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.827886197999987,
+    "user_seconds": 17.161263,
+    "system_seconds": 4.252642,
+    "max_rss_kib": 7325736,
+    "label": "kernel-body-restore-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.707136401999946,
+    "user_seconds": 16.776004,
+    "system_seconds": 3.980038,
+    "max_rss_kib": 7327980,
+    "label": "kernel-body-2"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ModulePilotProbe"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.772196101999953,
+    "user_seconds": 16.795906,
+    "system_seconds": 4.109709,
+    "max_rss_kib": 7329204,
+    "label": "kernel-body-restore-2"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ForMathlib.LinearAlgebra.KernelTransport",
+      "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 12.04836486499994,
+    "user_seconds": 14.48927,
+    "system_seconds": 4.360729,
+    "max_rss_kib": 7310668,
+    "label": "restored-targets"
+  }
+]

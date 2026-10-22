@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Realization.Positivity
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Realization.Positivity
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Realization.Faithful. Source spans: Tits:13, Tits:14.
 See migration.json and MIGRATION.md for exact provenance. -/

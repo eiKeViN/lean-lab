@@ -1,0 +1,232 @@
+{
+  "method": "Nonblank textual proof-body lines only; not a complexity score, semantic benefit, token count or performance metric.",
+  "old_clients": [
+    {
+      "id": "L1",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector",
+      "before_proof_lines": 23,
+      "after_proof_lines": 16
+    },
+    {
+      "id": "L2",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.class_projector",
+      "before_proof_lines": 20,
+      "after_proof_lines": 13
+    },
+    {
+      "id": "L3",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+      "before_proof_lines": 17,
+      "after_proof_lines": 4
+    },
+    {
+      "id": "L4",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector",
+      "before_proof_lines": 30,
+      "after_proof_lines": 10
+    },
+    {
+      "id": "L5",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation",
+      "before_proof_lines": 14,
+      "after_proof_lines": 7
+    },
+    {
+      "id": "L6",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+      "before_proof_lines": 24,
+      "after_proof_lines": 12
+    },
+    {
+      "id": "L7",
+      "declaration": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+      "before_proof_lines": 20,
+      "after_proof_lines": 6
+    },
+    {
+      "id": "L8",
+      "declaration": "OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq",
+      "before_proof_lines": 11,
+      "after_proof_lines": 6
+    },
+    {
+      "id": "L9",
+      "declaration": "OAI.KLInvariance.Hilbert.eq_of_value_eq",
+      "before_proof_lines": 10,
+      "after_proof_lines": 2
+    },
+    {
+      "id": "L10",
+      "declaration": "OAI.KLInvariance.Hilbert.scalar_value",
+      "before_proof_lines": 16,
+      "after_proof_lines": 10
+    },
+    {
+      "id": "L11",
+      "declaration": "OAI.KLInvariance.Hilbert.imageMap_ker",
+      "before_proof_lines": 10,
+      "after_proof_lines": 9
+    },
+    {
+      "id": "L12",
+      "declaration": "OAI.KLInvariance.Hilbert.value_image_exact",
+      "before_proof_lines": 19,
+      "after_proof_lines": 4
+    },
+    {
+      "id": "L13",
+      "declaration": "OAI.KLInvariance.Hilbert.shifted_image_value",
+      "before_proof_lines": 18,
+      "after_proof_lines": 13
+    },
+    {
+      "id": "L14",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live",
+      "before_proof_lines": 28,
+      "after_proof_lines": 10
+    },
+    {
+      "id": "L15",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pullback_kernel",
+      "before_proof_lines": 21,
+      "after_proof_lines": 2
+    },
+    {
+      "id": "L16",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorSections_surjective",
+      "before_proof_lines": 23,
+      "after_proof_lines": 14
+    },
+    {
+      "id": "L17",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.baseChange_flabby",
+      "before_proof_lines": 20,
+      "after_proof_lines": 6
+    },
+    {
+      "id": "L18",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.baseChange_upperQuotient",
+      "before_proof_lines": 15,
+      "after_proof_lines": 11
+    },
+    {
+      "id": "L19",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledImages",
+      "before_proof_lines": 12,
+      "after_proof_lines": 3
+    },
+    {
+      "id": "L20",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledImages",
+      "before_proof_lines": 11,
+      "after_proof_lines": 3
+    },
+    {
+      "id": "L21",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.flowDown_flabby",
+      "before_proof_lines": 68,
+      "after_proof_lines": 53
+    }
+  ],
+  "new_helpers": [
+    {
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values",
+      "proof_lines": 11
+    },
+    {
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd",
+      "proof_lines": 8
+    },
+    {
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum",
+      "proof_lines": 12
+    },
+    {
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators",
+      "proof_lines": 27
+    },
+    {
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates",
+      "proof_lines": 7
+    },
+    {
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+      "proof_lines": 13
+    },
+    {
+      "declaration": "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal",
+      "proof_lines": 14
+    },
+    {
+      "declaration": "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
+      "proof_lines": 4
+    },
+    {
+      "declaration": "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le",
+      "proof_lines": 7
+    },
+    {
+      "declaration": "OAI.KLInvariance.Hilbert.saturated_kernel_witness",
+      "proof_lines": 2
+    },
+    {
+      "declaration": "OAI.KLInvariance.Hilbert.term_image_exact",
+      "proof_lines": 2
+    },
+    {
+      "declaration": "OAI.KLInvariance.Hilbert.image_terms_summable",
+      "proof_lines": 12
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live",
+      "proof_lines": 4
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live",
+      "proof_lines": 15
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback",
+      "proof_lines": 10
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live",
+      "proof_lines": 14
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff",
+      "proof_lines": 5
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend",
+      "proof_lines": 14
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact",
+      "proof_lines": 2
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+      "proof_lines": 6
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff",
+      "proof_lines": 6
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+      "proof_lines": 7
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
+      "proof_lines": 7
+    },
+    {
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference",
+      "proof_lines": 16
+    }
+  ],
+  "before_client_lines": 430,
+  "after_client_lines": 214,
+  "new_helper_lines": 225
+}

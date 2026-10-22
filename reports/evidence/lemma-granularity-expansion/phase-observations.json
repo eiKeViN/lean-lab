@@ -1,0 +1,23 @@
+{
+  "first_observed_clock_utc": "2026-10-22T00:32:17Z",
+  "plan_commit_utc": "2026-10-22T00:33:03Z",
+  "first_sample_build_utc": "2026-10-22T00:34:00.080676Z",
+  "sample_modules_complete_utc": "2026-10-22T00:37:57.577378Z",
+  "selection_duration": "Not independently instrumented; selection was complete before the plan commit.",
+  "design_editing_and_infrastructure": "Interleaved with builds; no invented pure phase durations.",
+  "known_additional_failures": [
+    {
+      "action": "source scripts/env.sh; lake --version from project cwd",
+      "result": "exit 127: wrong relative env path; corrected from repository root, no install needed",
+      "duration": "Not included in measured command ledger"
+    },
+    {
+      "action": "proof_evolution.py --record",
+      "target": "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean",
+      "result": "exit 1: diff alignment inserted repeated existing include-prefix before old docstring; bounded prefix allowance then passed",
+      "duration": "Not instrumented by pilot_measure.py"
+    }
+  ],
+  "token_telemetry": "No model token-usage meter exposed; not inferred from source or tool output.",
+  "cost_scope": "Expansion-prefixed pilot_measure entries only; prior measured evidence preserved separately. Not a complete accounting of every read or editing action."
+}

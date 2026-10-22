@@ -1,0 +1,4129 @@
+{
+  "schema": 1,
+  "base_commit": "45cc0cfcf699b7acd17a48d867c5f28bdb30bc5d",
+  "reason": "Strict historical names/types and modern types: hold Structure/AttachBottom and finite compiler helper/type representation failures plus their consumer closure. No historical snapshot changes or matcher exemptions.",
+  "held": [
+    "ForMathlib",
+    "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic",
+    "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis",
+    "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+    "ForMathlib.Algebra.Module.CoefficientChange.Dual",
+    "ForMathlib.Algebra.Module.Cover.Local",
+    "ForMathlib.Algebra.Module.Graded.DualAndShift",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+    "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+    "ForMathlib.Algebra.Module.Projective.Transport",
+    "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
+    "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
+    "ForMathlib.Algebra.Module.ReflectionPair.Twist",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Extension",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Models",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
+    "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds",
+    "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds",
+    "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
+    "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem",
+    "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords",
+    "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+    "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder",
+    "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount",
+    "ForMathlib.GroupTheory.Coxeter.Roots.Order",
+    "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
+    "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength",
+    "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup",
+    "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport",
+    "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder",
+    "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels",
+    "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
+    "ForMathlib.GroupTheory.Coxeter.Roots.Splines",
+    "ForMathlib.LinearAlgebra.Avoidance",
+    "ForMathlib.LinearAlgebra.Dual.Frobenius",
+    "ForMathlib.LinearAlgebra.KernelCoordinates",
+    "ForMathlib.RepresentationTheory.BottSamelson.TitsWords",
+    "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted",
+    "ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder",
+    "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates",
+    "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall",
+    "OAI.Architecture",
+    "OAI.KL",
+    "OAI.KL.BottSamelson.AdjointSheaf",
+    "OAI.KL.BottSamelson.CanonicalPairing",
+    "OAI.KL.BottSamelson.Character",
+    "OAI.KL.BottSamelson.CharacterDecomposition",
+    "OAI.KL.BottSamelson.Flabby",
+    "OAI.KL.BottSamelson.Pairings",
+    "OAI.KL.BottSamelson.StalkCharacter",
+    "OAI.KL.BottSamelson.Stalks",
+    "OAI.KL.BottSamelson.Support",
+    "OAI.KL.BottSamelson.UpperSections",
+    "OAI.KL.Comparison.Propagation",
+    "OAI.KL.Comparison.SuffixFreeness",
+    "OAI.KL.Comparison.Transport",
+    "OAI.KL.Invariance.Finite",
+    "OAI.KL.Invariance.Main",
+    "OAI.KL.Localization.Ambient",
+    "OAI.KL.Localization.Edge",
+    "OAI.KL.Localization.GraphEmbedding",
+    "OAI.KL.Localization.Plane",
+    "OAI.KL.Localization.TerminalImages",
+    "OAI.KL.Sheaves.Boundary",
+    "OAI.KL.Sheaves.FreeModel",
+    "OAI.KL.Sheaves.LowerCharacter",
+    "OAI.KL.Sheaves.Reciprocity",
+    "OAI.KL.Sheaves.StalkReciprocity",
+    "OAI.KL.Sheaves.Support",
+    "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings",
+    "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson",
+    "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity",
+    "OAI.RepresentationTheory.KazhdanLusztig.Decomposition",
+    "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals",
+    "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths",
+    "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization",
+    "OAI.RepresentationTheory.KazhdanLusztig.Frobenius",
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedModules",
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves",
+    "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries",
+    "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings",
+    "OAI.RepresentationTheory.KazhdanLusztig.Invariance",
+    "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions",
+    "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra",
+    "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization",
+    "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer",
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders",
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules",
+    "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms",
+    "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
+    "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance",
+    "OAI.RepresentationTheory.KazhdanLusztig.Support",
+    "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels",
+    "OAI.RepresentationTheory.KazhdanLusztig.Tits"
+  ],
+  "selected": [
+    "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
+    "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+    "ForMathlib.Algebra.Module.Cover.Product",
+    "ForMathlib.Algebra.Module.Flat.Kernel",
+    "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
+    "ForMathlib.Algebra.Module.Graded.Adjoint",
+    "ForMathlib.Algebra.Module.Graded.AlgebraMap",
+    "ForMathlib.Algebra.Module.Graded.Basis",
+    "ForMathlib.Algebra.Module.Graded.Components",
+    "ForMathlib.Algebra.Module.Graded.FinitePieces",
+    "ForMathlib.Algebra.Module.Graded.Generators",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Basic",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Increment",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
+    "ForMathlib.Algebra.Module.Graded.HomogeneousDual",
+    "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+    "ForMathlib.Algebra.Module.Graded.HomogeneousMul",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Character",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Range",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Transport",
+    "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
+    "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+    "ForMathlib.Algebra.Module.Graded.RegularScalar",
+    "ForMathlib.Algebra.Module.Localization.Lattice",
+    "ForMathlib.Algebra.Module.Localization.Membership",
+    "ForMathlib.Algebra.Module.Localization.Products",
+    "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+    "ForMathlib.Algebra.Module.Projective.Range",
+    "ForMathlib.Algebra.Module.Projective.ReverseFiltration",
+    "ForMathlib.Algebra.Module.Projective.ScalarKernel",
+    "ForMathlib.Algebra.Module.Projective.ScalarQuotient",
+    "ForMathlib.Algebra.Module.Quotient.KernelReduction",
+    "ForMathlib.Algebra.Module.Quotient.ScalarImage",
+    "ForMathlib.Algebra.Module.Submodule.PiIdeal",
+    "ForMathlib.Algebra.Module.Submodule.ProductScaling",
+    "ForMathlib.Algebra.Module.Submodule.ScaledImage",
+    "ForMathlib.Algebra.Order.Field.RealScaling",
+    "ForMathlib.Algebra.Polynomial.LowPart",
+    "ForMathlib.Algebra.Polynomial.Reciprocal",
+    "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+    "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
+    "ForMathlib.Algebra.Polynomial.TransferEvaluation",
+    "ForMathlib.Combinatorics.Dihedral.SignedCount",
+    "ForMathlib.Combinatorics.DirectedPaths.Basic",
+    "ForMathlib.Combinatorics.DirectedPaths.Monotone",
+    "ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer",
+    "ForMathlib.Combinatorics.DirectedPaths.ScalarMap",
+    "ForMathlib.Combinatorics.DirectedPaths.SortedSchedule",
+    "ForMathlib.Combinatorics.DirectedPaths.Subpaths",
+    "ForMathlib.Combinatorics.DirectedPaths.Suffix",
+    "ForMathlib.Combinatorics.DirectedPaths.Transfer",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Transport",
+    "ForMathlib.GroupTheory.Coxeter.Dihedral.Words",
+    "ForMathlib.GroupTheory.Coxeter.Exchange",
+    "ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList",
+    "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard",
+    "ForMathlib.GroupTheory.Coxeter.Parabolic.Support",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Cotangent",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Faithful",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Geometric",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Positivity",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Tits",
+    "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension",
+    "ForMathlib.LinearAlgebra.ConjugateRange",
+    "ForMathlib.LinearAlgebra.CoordinateProjection",
+    "ForMathlib.LinearAlgebra.Dual.Adjoint",
+    "ForMathlib.LinearAlgebra.Dual.BalancedCut",
+    "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
+    "ForMathlib.LinearAlgebra.Dual.Summand",
+    "ForMathlib.LinearAlgebra.Dual.TransportPairing",
+    "ForMathlib.LinearAlgebra.KernelTransport",
+    "ForMathlib.LinearAlgebra.PairProjection",
+    "ForMathlib.LinearAlgebra.PlaneReduction",
+    "ForMathlib.LinearAlgebra.Quotient.Transport",
+    "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+    "ForMathlib.LinearAlgebra.Reflection.Classification",
+    "ForMathlib.LinearAlgebra.Reflection.Forms",
+    "ForMathlib.LinearAlgebra.Reflection.Plane",
+    "ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient",
+    "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
+    "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
+    "ForMathlib.Order.Interval.Diamonds",
+    "ForMathlib.RepresentationTheory.Hecke.Coefficients",
+    "ForMathlib.RepresentationTheory.Hecke.DualR",
+    "ForMathlib.RepresentationTheory.Hecke.Inverse",
+    "ForMathlib.RepresentationTheory.Hecke.Operators",
+    "ForMathlib.RepresentationTheory.Hecke.OrdinaryR",
+    "ForMathlib.RepresentationTheory.Hecke.PositiveWord",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique",
+    "ForMathlib.RingTheory.Localization.RelativePrime",
+    "OAI.KL.Compatibility.KernelTransport",
+    "OAI.LinearAlgebra.KernelTransport",
+    "OAI.RepresentationTheory.KazhdanLusztig.Bruhat",
+    "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL",
+    "OAI.RepresentationTheory.KazhdanLusztig.Comparison",
+    "OAI.RepresentationTheory.KazhdanLusztig.Coxeter",
+    "OAI.RepresentationTheory.KazhdanLusztig.Dihedral",
+    "OAI.RepresentationTheory.KazhdanLusztig.Hecke",
+    "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "OAI.RepresentationTheory.KazhdanLusztig.Model",
+    "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR",
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane"
+  ],
+  "topological_order": [
+    "ForMathlib.Algebra.Polynomial.Reciprocal",
+    "ForMathlib.Combinatorics.Dihedral.SignedCount",
+    "ForMathlib.LinearAlgebra.PairProjection",
+    "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+    "ForMathlib.LinearAlgebra.Reflection.Classification",
+    "ForMathlib.Algebra.Module.Projective.Range",
+    "ForMathlib.LinearAlgebra.Dual.Summand",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs",
+    "ForMathlib.LinearAlgebra.Quotient.Transport",
+    "ForMathlib.Algebra.Module.Submodule.ScaledImage",
+    "ForMathlib.Algebra.Module.Submodule.PiIdeal",
+    "ForMathlib.GroupTheory.Coxeter.Exchange",
+    "ForMathlib.Algebra.Polynomial.LowPart",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
+    "ForMathlib.LinearAlgebra.KernelTransport",
+    "ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient",
+    "ForMathlib.LinearAlgebra.PlaneReduction",
+    "ForMathlib.LinearAlgebra.CoordinateProjection",
+    "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
+    "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+    "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension",
+    "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
+    "ForMathlib.Algebra.Module.Projective.ReverseFiltration",
+    "ForMathlib.LinearAlgebra.Reflection.Plane",
+    "ForMathlib.Combinatorics.DirectedPaths.Basic",
+    "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+    "ForMathlib.Algebra.Module.Graded.Components",
+    "ForMathlib.LinearAlgebra.Dual.TransportPairing",
+    "ForMathlib.LinearAlgebra.ConjugateRange",
+    "ForMathlib.Algebra.Module.Localization.Lattice",
+    "ForMathlib.Combinatorics.DirectedPaths.Suffix",
+    "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
+    "ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer",
+    "ForMathlib.Order.Interval.Diamonds",
+    "ForMathlib.LinearAlgebra.Dual.BalancedCut",
+    "ForMathlib.Algebra.Module.Quotient.KernelReduction",
+    "ForMathlib.Algebra.Module.Flat.Kernel",
+    "ForMathlib.Algebra.Module.Submodule.ProductScaling",
+    "ForMathlib.Algebra.Polynomial.TransferEvaluation",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Basic",
+    "ForMathlib.Algebra.Module.Localization.Membership",
+    "ForMathlib.Algebra.Order.Field.RealScaling",
+    "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
+    "ForMathlib.RingTheory.Localization.RelativePrime",
+    "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+    "ForMathlib.LinearAlgebra.Dual.Adjoint",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized",
+    "ForMathlib.Algebra.Module.Cover.Product",
+    "OAI.RepresentationTheory.KazhdanLusztig.Coxeter",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
+    "OAI.KL.Compatibility.KernelTransport",
+    "OAI.LinearAlgebra.KernelTransport",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Geometric",
+    "ForMathlib.LinearAlgebra.Reflection.Forms",
+    "ForMathlib.Algebra.Module.Quotient.ScalarImage",
+    "ForMathlib.Algebra.Module.Projective.ScalarQuotient",
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane",
+    "ForMathlib.Combinatorics.DirectedPaths.ScalarMap",
+    "ForMathlib.Combinatorics.DirectedPaths.Subpaths",
+    "ForMathlib.Combinatorics.DirectedPaths.Monotone",
+    "ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation",
+    "ForMathlib.Algebra.Module.Graded.Generators",
+    "OAI.RepresentationTheory.KazhdanLusztig.Comparison",
+    "ForMathlib.Algebra.Module.Localization.Products",
+    "ForMathlib.Algebra.Polynomial.ScaledReciprocity",
+    "OAI.RepresentationTheory.KazhdanLusztig.Model",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
+    "ForMathlib.GroupTheory.Coxeter.Parabolic.Support",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Transport",
+    "ForMathlib.GroupTheory.Coxeter.Dihedral.Words",
+    "ForMathlib.RepresentationTheory.Hecke.Operators",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique",
+    "OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Tits",
+    "ForMathlib.Combinatorics.DirectedPaths.Transfer",
+    "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+    "ForMathlib.Algebra.Module.Graded.HomogeneousMul",
+    "ForMathlib.Algebra.Module.Graded.Basis",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+    "ForMathlib.Algebra.Module.Graded.FinitePieces",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
+    "ForMathlib.Algebra.Module.Graded.Adjoint",
+    "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
+    "ForMathlib.RepresentationTheory.Hecke.Coefficients",
+    "ForMathlib.RepresentationTheory.Hecke.Inverse",
+    "ForMathlib.RepresentationTheory.Hecke.DualR",
+    "OAI.RepresentationTheory.KazhdanLusztig.Bruhat",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Positivity",
+    "ForMathlib.Combinatorics.DirectedPaths.SortedSchedule",
+    "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+    "ForMathlib.Algebra.Module.Graded.AlgebraMap",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Transport",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Increment",
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
+    "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
+    "ForMathlib.RepresentationTheory.Hecke.OrdinaryR",
+    "ForMathlib.RepresentationTheory.Hecke.PositiveWord",
+    "OAI.RepresentationTheory.KazhdanLusztig.Hecke",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Faithful",
+    "ForMathlib.GroupTheory.Coxeter.Realization.Cotangent",
+    "ForMathlib.Algebra.Module.Graded.HomogeneousDual",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Range",
+    "ForMathlib.Algebra.Module.Projective.ScalarKernel",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Character",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical",
+    "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR",
+    "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard",
+    "ForMathlib.Algebra.Module.Graded.RegularScalar",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization",
+    "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic",
+    "ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
+    "OAI.RepresentationTheory.KazhdanLusztig.Dihedral",
+    "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction"
+  ],
+  "files": {
+    "ForMathlib/Algebra/Polynomial/Reciprocal.lean": {
+      "before_sha256": "fd12d20fb617fed94723540abf9dec19b3acedccb42b20613f03192db390b75c",
+      "after_sha256": "3e5cd69b980e2b5d6d5d1ba429d8a9d1e185c6eaefa458ec9ac0b0766bec2b2a",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/Dihedral/SignedCount.lean": {
+      "before_sha256": "0a4099bea95eaa4df4310955d9805668a7ff8b0d474660ec289b9b58416b31c2",
+      "after_sha256": "38cbacef8082505d8028c4950e7d52b4e37097a931765d86f1ebdf4665750512",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 307,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 11
+        },
+        {
+          "start": 435,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 13
+        },
+        {
+          "start": 5008,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 142
+        },
+        {
+          "start": 5253,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 147
+        },
+        {
+          "start": 5835,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 168
+        },
+        {
+          "start": 12429,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 323
+        },
+        {
+          "start": 13203,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 343
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/PairProjection.lean": {
+      "before_sha256": "a7e778bdf9258a6f08e1df791e1e59df95942b21d5b2b2b89ed7c46ec398f467",
+      "after_sha256": "0a7b006738bdd5cc30f3a90da3eb33e639971f5aaabb8de444c757bd32746c3a",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 509,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 613,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 21
+        },
+        {
+          "start": 691,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 22
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean": {
+      "before_sha256": "08231913e42f91f8d5bd367bc11c8c70765f3248221193a70ea543fb22bb39b9",
+      "after_sha256": "cc9f06497ac9664e15ebf0eaccbbb3523d0aa814fc1060a4bd0f301f17392352",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Reflection/Classification.lean": {
+      "before_sha256": "9f7137455007ecbe59327ff5bdf5407bda4908e1b02da4a04f099658b17d8136",
+      "after_sha256": "4faf5ab57ac1537b13a9e4aa9e1f329f6c18c6b62fa17a2005beb74aa3cdf1b1",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Projective/Range.lean": {
+      "before_sha256": "bde9b72891779dcbbf17a75b23c8280a4e5190cf9f60999c2e88c4c0f325837a",
+      "after_sha256": "fe175fd88e43afdff49b9a7bb6b9c0157e5a87dda2b644f9aa14c13e7da123f9",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 477,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        },
+        {
+          "start": 1373,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 36
+        },
+        {
+          "start": 2123,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 53
+        },
+        {
+          "start": 3454,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 90
+        },
+        {
+          "start": 3609,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 93
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Dual/Summand.lean": {
+      "before_sha256": "cdcf615197454e304479a93385b04fe3410aea1648db4200a5593b722b2d04c4",
+      "after_sha256": "c9e51942df0a3e1f690923b4d467cb90d15c36718ba08ddb3ef937420f6a8cb6",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 485,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 568,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 21
+        },
+        {
+          "start": 928,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 33
+        },
+        {
+          "start": 1296,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 42
+        },
+        {
+          "start": 2029,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 60
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean": {
+      "before_sha256": "531b3e45cb0cf625c2dbb26e009ffa988487f3ba8b570977314c70d322490708",
+      "after_sha256": "6582909a51eb46f7822c010e9fbcf074628eae80f2f23ef35328072f5cdb7e0e",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 304,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 12
+        },
+        {
+          "start": 493,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 648,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        },
+        {
+          "start": 747,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 23
+        },
+        {
+          "start": 1669,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 43
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Quotient/Transport.lean": {
+      "before_sha256": "a166df45e82ffc9191fd8718409a6b866291f642c940612948e249d24fbb0f20",
+      "after_sha256": "386bec87a028f38048860de14b5e72c591c2f2861282a506e985540bc977bd95",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 529,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 1424,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 45
+        },
+        {
+          "start": 3232,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 90
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Submodule/ScaledImage.lean": {
+      "before_sha256": "cbb56e35438efea729f3e0920efb9729dc21de5447655fbef9187004aa7c8308",
+      "after_sha256": "bc7407b6f8183f14d01e16a8f3a5dad0654cc3245b794a9d74f371e22a37be6a",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 339,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 13
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Submodule/PiIdeal.lean": {
+      "before_sha256": "a5c7408aa3d04cedc8892f619e7c01508297dc9247c4218a55bab2e8b89d5a7e",
+      "after_sha256": "c2d4756e498706798129b913dc5eca3de27a05b9fd8277befabf11b9d2209074",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Exchange.lean": {
+      "before_sha256": "4b225d8f80780f1f7f76ac4decb87871523674d73b081f241feb355f0d727284",
+      "after_sha256": "c572a83c37fe7d045efe90e50ce464a956a30b64b02ee70612481f02ead422c5",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 360,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        },
+        {
+          "start": 486,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 19
+        },
+        {
+          "start": 1384,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 47
+        },
+        {
+          "start": 5288,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 141
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Polynomial/LowPart.lean": {
+      "before_sha256": "a994c5f4014d08025ce88b268498f393791e123ac41f8c77a003bbb3ac10a93e",
+      "after_sha256": "bf2595f0cca8ea9a95617bbd524dec309e1abd57abf5339658e83f7f2bbb96d9",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 302,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 11
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Numerator.lean": {
+      "before_sha256": "4b9e8fa929a65ab141d96b351093fa46c5c72b7553b2277528702721db5e968c",
+      "after_sha256": "53225d77b21a33ae6d6fb509737e69fd2034c450d099cf173633eed0e6d39b20",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/SymmetricAlgebra/Quotient.lean": {
+      "before_sha256": "57538de62d21e91703a9df7dfb10e7cd358771bad8627a6227c397e2c802dd55",
+      "after_sha256": "f2edc5e44be61776f77308ab8ff0b0629c4927d41c22bce7b5ed538d4cbef32a",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 366,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 14
+        },
+        {
+          "start": 487,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        },
+        {
+          "start": 1126,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 31
+        },
+        {
+          "start": 1308,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 35
+        },
+        {
+          "start": 1618,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 42
+        },
+        {
+          "start": 2155,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 54
+        },
+        {
+          "start": 4081,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 105
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/PlaneReduction.lean": {
+      "before_sha256": "e6353c0cfa7c60e6eeddf837b84689e24b2a8a2d17c06582f2b28e6e77a57fea",
+      "after_sha256": "f5785e1987e397c3ba850c3fc2ab499781c54e039d52d9585f6308ccf7f425d5",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/CoordinateProjection.lean": {
+      "before_sha256": "afc183972cdbeed3864dd16bcf22b440cba20c4418c8c7a0d31b1560c23dceca",
+      "after_sha256": "ca5747869131576fb5828400e40a86f9a11d2594f2e542a6d6cfe9178a80f9c9",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 477,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 563,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        },
+        {
+          "start": 649,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 1204,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 36
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/SymmetricAlgebra/RootIdeal.lean": {
+      "before_sha256": "dfd61ee3f41bcfbf3dc74348706678f0e52f47aa0d81303deea62bc6c6a16f63",
+      "after_sha256": "4693ac325788724aed986cba2069d17c8ad49fedd939d34560036b16ed2a4165",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 797,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 27
+        },
+        {
+          "start": 894,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 30
+        },
+        {
+          "start": 956,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 32
+        },
+        {
+          "start": 1836,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 51
+        },
+        {
+          "start": 2051,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 55
+        },
+        {
+          "start": 2595,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 66
+        },
+        {
+          "start": 3396,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 80
+        },
+        {
+          "start": 5613,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 127
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Reflection/Bilinear.lean": {
+      "before_sha256": "3874bcdd23791ec162954f875303558f8e2425bbc29578781701a127623f9a44",
+      "after_sha256": "7248051cb9ef3a4c287fb4161318f69d32b816229075a5f9e32682a771d0a07a",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/BilinearForm/NondegenerateExtension.lean": {
+      "before_sha256": "08f00a613a1fd62e2c550d862e1297030714a5e7064de0c3843fc12ec2ca5475",
+      "after_sha256": "7e7f8e8f9fc3b8903ff816899710d8e88f4a0f245fe6cef4c8ad7031de01223a",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 543,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Free/ScalarDivisibility.lean": {
+      "before_sha256": "a4cc1285ce58476242b42a87dd843f135cfd11899f67427bdaa5ba405114edc7",
+      "after_sha256": "0d50403ec40fba7b020c7d639c085214b685ecd128f07bb72941fcf434e801ce",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Projective/ReverseFiltration.lean": {
+      "before_sha256": "758ac2c1630e074408c046fa019a729746074488e74498aff56214f9e10c497d",
+      "after_sha256": "cd5f5ff365b3b4b743b3f834f12e1a45f83ccd80a23f1664b14e55620245e6bb",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Reflection/Plane.lean": {
+      "before_sha256": "c7a0b7adf0ca3738690e24faccc0760e8eb3f8010d011ba68b3731f086618998",
+      "after_sha256": "61a1c89d093dfd619b56cd80c63443ade5e72fb7ab88292ff9b7ded739f4486e",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/Basic.lean": {
+      "before_sha256": "7f4062ca54e2002feb7ac9485be1113eeb7bc084207b95a8ca9f01ee8c34c318",
+      "after_sha256": "63224a07cd0f3a9a93f714b91cd8fce31c8a9e6bea443a4b865f5b7bf882b2eb",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 326,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 13
+        },
+        {
+          "start": 485,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 612,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 21
+        },
+        {
+          "start": 861,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 27
+        },
+        {
+          "start": 1085,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 32
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Components.lean": {
+      "before_sha256": "d0762b185d5fc52e4b1273759834ef4e2a6a20426a214d35abfac05c5db9b958",
+      "after_sha256": "ead5e9a778295681c79ce7e7b28c5c3502354315b7972acdc3aa0c3cbe1f3d0c",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 400,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 14
+        },
+        {
+          "start": 678,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Dual/TransportPairing.lean": {
+      "before_sha256": "3cfeb5fee0161baa0199646f7379b9059e4794af4bfac1b37a1e4fa1214c9225",
+      "after_sha256": "31cf78c97d5312139f6b2ea91f3269b0ccdfcc6f59cb17a2d65f191fc96618a8",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/ConjugateRange.lean": {
+      "before_sha256": "698992895823c54c35de9ec270c68561e7d62fc6204e6e2593bd76ec249b633a",
+      "after_sha256": "6b3ecb5be1fe8b990a5378653f30f9c04fd594bb25d304152e4459d5c3764d0f",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 435,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 511,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        },
+        {
+          "start": 1014,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 37
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Localization/Lattice.lean": {
+      "before_sha256": "920f5f0ca619204425ee21035a38d3d4b11ef4b017c0ca921bf897d76ed655a8",
+      "after_sha256": "bbd053afa253d237769786f56bbc7527e61da8178e1cbb866c397ce18e16d017",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/Suffix.lean": {
+      "before_sha256": "e07badfd9bee62349a029bf2a9534550ee8d17a608b003697666f5ba6c45b518",
+      "after_sha256": "58afe1f97e2d0a76cb29f5ac097e9aef0e2cd4d7705f7ef1bd6c05f9aa19c059",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/TensorProduct/Coordinates.lean": {
+      "before_sha256": "d005bfdca04f7e3c600d582fb4a8ae5fde37b73ea4f172cb21c6382de0ca62ef",
+      "after_sha256": "1a6ed858a5a03e08e32a29aff83a55af1a87973f23f1e771c5d4ddb97c915959",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/PositiveTransfer.lean": {
+      "before_sha256": "1389e3210e2dad55695b9918e96f4181eb9d0ec9071831d75b826367b7224f4c",
+      "after_sha256": "7b1f2fb076a32d8c2a77dccf9983d83fe4f51e8e7d96c7c8eb4b770086ee5e7d",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 287,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 14
+        },
+        {
+          "start": 558,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 1282,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 42
+        }
+      ]
+    },
+    "ForMathlib/Order/Interval/Diamonds.lean": {
+      "before_sha256": "d2f14fffb59275ccc8ea12566c08d2ce8511bc80fa404e31fa2ac6490e1d0190",
+      "after_sha256": "255916d4fe48eb1361c1e53f52a14d78f7840fb25c74ae8c360fff5f17b219b6",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Dual/BalancedCut.lean": {
+      "before_sha256": "655ee3083315eaad92ef5676dc3a424946a97312c21ea809de7627a147e571b8",
+      "after_sha256": "e164e614672766fecf681fb8d3fb83a7687a9d21788f35823095d3a163e7699e",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Quotient/KernelReduction.lean": {
+      "before_sha256": "8697f3535a725d294da23f566fd6000addc60da639a008509eb776dc2ba1d88b",
+      "after_sha256": "99a234f0523a89d3f74c348fb73f7c1aacf5a48836995053ec84ea2b4faf0b88",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 1740,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 49
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Flat/Kernel.lean": {
+      "before_sha256": "005332819eef2b83424dc3f27febf1d7ef2aa9a74330f77ecbcc06d7900c435b",
+      "after_sha256": "5c2d1caebf4fb94057b6278e502e6ae0869afdfe824ef53443ba53dd5e10fd8b",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Submodule/ProductScaling.lean": {
+      "before_sha256": "97c8922087f7a8880bd7ce1d74e5d26fd71bb895f9a83b604789867f719ca09a",
+      "after_sha256": "abd7388f6fb572e92cbc22c574d1283ab68261ec6e9b626b015e9aba389fd4a6",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Polynomial/TransferEvaluation.lean": {
+      "before_sha256": "c5a439555d9af2eb088ee73c4d845ac55a858eda387e9441e4e9044ab128d573",
+      "after_sha256": "40acbfbf9731b4b3f0c767c83751c2018f2ce31db79118bf2e95acb91f01efcd",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean": {
+      "before_sha256": "10c5946aa53e8965269eef22c73404a1c34232c74174f24ec070952cea64b8fc",
+      "after_sha256": "91a0faac6e5a7e17921f8658728387eddf69d9b92cb3e512aeab753286921962",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 429,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 15
+        },
+        {
+          "start": 541,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 677,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 21
+        },
+        {
+          "start": 4776,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 104
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Localization/Membership.lean": {
+      "before_sha256": "9c6fd68101419806cb244e74e3281aa4a688a300f9c26ba2371514e03bb39ad1",
+      "after_sha256": "ae8b8a4759b2f7aecf4e0ae9314c9005ec0f95a0b0846e73ced6dc3c4b54854e",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Order/Field/RealScaling.lean": {
+      "before_sha256": "a935ae63cd804aba0140f388cf83a72228e6e2febb6f1281bf9eca80d60a3295",
+      "after_sha256": "3eff7a3e129f54e0d88751bb16145dc3ba4b89931661f365bf50c0daee1a51aa",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean": {
+      "before_sha256": "8ed0b7725185b40ae26f0c2202bd247c02ffe0eb65993a00fc9a0940d1877d3f",
+      "after_sha256": "a6d90be35951e30ece3c0dcf021b564a6c0979c3658b7358df93ec407edcf4af",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 437,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 526,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 921,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 27
+        },
+        {
+          "start": 3858,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 95
+        },
+        {
+          "start": 5107,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 124
+        }
+      ]
+    },
+    "ForMathlib/RingTheory/Localization/RelativePrime.lean": {
+      "before_sha256": "0b5b9ebcd63b362743c97b7fe7e35e591509643c80505b22e7e4c40700363704",
+      "after_sha256": "d6ca533a2dbd97b661dd7d69877d7c047cfa4166001db164c0331102068f2dc5",
+      "imports": [
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean": {
+      "before_sha256": "51faf2d53f498bda85824712134e41a27f22ff89c4dc25a81b2c891fed73d9f9",
+      "after_sha256": "80ed4f9d2cc6b01da9a33d010485c4657e0f7e54cc0a333696f18db5b22f370a",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Polynomial.Reciprocal"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Polynomial.Reciprocal\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Polynomial.Reciprocal\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 495,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 15
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Dual/Adjoint.lean": {
+      "before_sha256": "333b5772126286e26243965579d0ca0332fcea050dc23babf80597afdd369aee",
+      "after_sha256": "e922c52f6d58a1d48f1e9e1da28ebf448f70b55c6fdcd3fe6906e2ae2e7272bf",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.LinearAlgebra.Dual.Summand"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.LinearAlgebra.Dual.Summand\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.LinearAlgebra.Dual.Summand\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 485,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 2703,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 103
+        },
+        {
+          "start": 3571,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 132
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Normalized.lean": {
+      "before_sha256": "d6205667eeaeedea04330edd71c7fb3b2bc60083142bd29069c3befac1810b10",
+      "after_sha256": "4e4ab9785282d96cd1b28d33182e024d675a2c7887eb7ef1f746b44f9df2c9dc",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Defs\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 1694,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 39
+        },
+        {
+          "start": 1813,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 42
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Cover/Product.lean": {
+      "before_sha256": "c2a402baa86ca923b014bcff23e069449e4fec1cba183b67e99268e027e16037",
+      "after_sha256": "a4449060dc58624436bf20ec4e1c45ca5131849d36785a10184d5a925519476d",
+      "imports": [
+        "ForMathlib.Algebra.Module.Submodule.PiIdeal"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Module.Submodule.PiIdeal\n",
+          "new": "module\npublic import ForMathlib.Algebra.Module.Submodule.PiIdeal\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Coxeter.lean": {
+      "before_sha256": "3045e3d0728683e1cb823aa2fcde79b5bbb19c57122c3e651d441da7942e38c5",
+      "after_sha256": "cc0f59154eeeed91d82331d1ed4416179adc521e7ed9a137c1fc382f74f46c27",
+      "imports": [
+        "ForMathlib.GroupTheory.Coxeter.Exchange",
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.GroupTheory.Coxeter.Exchange\nimport Mathlib\n",
+          "new": "module\npublic import ForMathlib.GroupTheory.Coxeter.Exchange\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Bruhat/Basic.lean": {
+      "before_sha256": "df39e06fa861a280df760e908181ca0e7929e973efa07326f75cfdad447d72df",
+      "after_sha256": "a86f22d2cb699df44e952a508c4a53197a9d697a073d7d69893e2a269f224c0d",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs",
+        "ForMathlib.GroupTheory.Coxeter.Exchange"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Defs\nimport ForMathlib.GroupTheory.Coxeter.Exchange\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs\npublic import ForMathlib.GroupTheory.Coxeter.Exchange\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 7746,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 185
+        },
+        {
+          "start": 7952,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 189
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/RationalFunction.lean": {
+      "before_sha256": "aeba5d846637e5e421f80c56ba3c8a2af81b795d0774f6304e9f3c3000edc48a",
+      "after_sha256": "8f897f3218095a9977e9898b6c96de86d478ae1579fadc64e5b61064f476b3ed",
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator\n",
+          "new": "module\npublic import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "OAI/LinearAlgebra/KernelTransport.lean": {
+      "before_sha256": "ebe34f53741f81d0b53f8b0547fc242cce96d644dea39d6c7e6e865996a4a2e2",
+      "after_sha256": "7ba17cdf9254da4220342ee26e753e5320ddac1e8e08e5b4ca24130ad66ce04d",
+      "imports": [
+        "ForMathlib.LinearAlgebra.KernelTransport"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.LinearAlgebra.KernelTransport\n",
+          "new": "module\npublic import ForMathlib.LinearAlgebra.KernelTransport\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Realization/Geometric.lean": {
+      "before_sha256": "bcbc4b81ec624a3a7f1ce83323b8760046832248a561b9e0f1352395f7753caf",
+      "after_sha256": "4cb6cf7c66107e8967a08332f87435387af2efef53880afbd3fb7f3d08a2346b",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.LinearAlgebra.Reflection.Bilinear"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.LinearAlgebra.Reflection.Bilinear\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.LinearAlgebra.Reflection.Bilinear\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 676,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 25
+        },
+        {
+          "start": 1452,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 46
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Reflection/Forms.lean": {
+      "before_sha256": "a5fcbcc9bd195dc98fbf7f1242f5342326976cf3a99a0458246002572a6b5e2e",
+      "after_sha256": "b0238abb9068d1f73b3d1def3f71b137c2f3369b7988a4ce463022082fe3cef4",
+      "imports": [
+        "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+        "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.LinearAlgebra.Reflection.Bilinear\nimport ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension\n",
+          "new": "module\npublic import ForMathlib.LinearAlgebra.Reflection.Bilinear\npublic import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Quotient/ScalarImage.lean": {
+      "before_sha256": "ca1b19372a189b9d559f9813e6a2162fa8d63e45abbbeb662cb5ea210b9f8b21",
+      "after_sha256": "68237bb25b0dc9537e0d02180b9a3185f61d1b2a588b885cad974123e16bfed9",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Free.ScalarDivisibility\nimport ForMathlib.LinearAlgebra.Quotient.Transport\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Free.ScalarDivisibility\npublic import ForMathlib.LinearAlgebra.Quotient.Transport\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 581,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        },
+        {
+          "start": 2548,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 60
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Projective/ScalarQuotient.lean": {
+      "before_sha256": "1d2d10d8b75eed3988932776ecede2a9444be4d1e87eb27708dfd4ec8792c4eb",
+      "after_sha256": "d24c07330004d59b64c607b2f8f9f0bfcc632f08f43125f457dd84598d61b14d",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Projective.ReverseFiltration"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Projective.ReverseFiltration\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Projective.ReverseFiltration\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 421,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 15
+        },
+        {
+          "start": 1039,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 31
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/ReflectionPlane.lean": {
+      "before_sha256": "825c89922547b09c52543f968274df30bb2b925fe700545990163dc615385f9e",
+      "after_sha256": "82b4577972ff3afdcaff073819e56fad52d9ef9b5224c44f603e4bc0df77b8fa",
+      "imports": [
+        "ForMathlib.LinearAlgebra.Reflection.Plane",
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.LinearAlgebra.Reflection.Plane\nimport Mathlib\n",
+          "new": "module\npublic import ForMathlib.LinearAlgebra.Reflection.Plane\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean": {
+      "before_sha256": "43a301debe8b3c5c13d2f39088d3e097971c8bee4c6c1ae08173ae81abc25c2a",
+      "after_sha256": "b93735ff9c3ed551ba1e09ab704283f369fefe32f390a374ce72d4796057245f",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Combinatorics.DirectedPaths.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.DirectedPaths.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.DirectedPaths.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 447,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 15
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean": {
+      "before_sha256": "c3286ca883a2c632430a7534c4bf0482d018bd756c7e4bfaebcd290fdf9e172d",
+      "after_sha256": "b77c83cc1c52386977c83f0c57d0c981d4b558c6be120ca6965c59c95709d20e",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Combinatorics.DirectedPaths.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.DirectedPaths.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.DirectedPaths.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 2410,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 66
+        },
+        {
+          "start": 2616,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 69
+        },
+        {
+          "start": 4539,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 112
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/Monotone.lean": {
+      "before_sha256": "e8cad61e23591db6eab5196b89957bd012f020ae5c04130d689504ffabeee963",
+      "after_sha256": "d20bc3dea92272e0e37e27518276f0b56a06e316582988ed26af75d0798361d2",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Combinatorics.DirectedPaths.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.DirectedPaths.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.DirectedPaths.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/BigOperators/FiniteCharacterCancellation.lean": {
+      "before_sha256": "fe50d15bed4b41ce7576ff5433d584e69d110af2013c693d0c2d26fa97f53917",
+      "after_sha256": "b56807b58a3a1dbfa8b673c1664e70c204ab2194acb2f4bead06c0cea5363681",
+      "imports": [
+        "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.BigOperators.SingleCoordinate\n",
+          "new": "module\npublic import ForMathlib.Algebra.BigOperators.SingleCoordinate\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Generators.lean": {
+      "before_sha256": "b905973c1b9c2ba2bc8fa64aa4a125ff05bfbfcd1b749f6cfc74697f6653951d",
+      "after_sha256": "0588e4642b971e8df01d9083350bdc3dc592b44eedaab3f50b67665bd362d534",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Components"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Components\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Components\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 2865,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 78
+        },
+        {
+          "start": 3937,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 106
+        },
+        {
+          "start": 4476,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 119
+        },
+        {
+          "start": 4795,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 128
+        },
+        {
+          "start": 5548,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 148
+        },
+        {
+          "start": 7466,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 194
+        },
+        {
+          "start": 21852,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 534
+        },
+        {
+          "start": 26146,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 635
+        },
+        {
+          "start": 26355,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 639
+        },
+        {
+          "start": 36348,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 888
+        },
+        {
+          "start": 37718,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 921
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Comparison.lean": {
+      "before_sha256": "e102d3ac7dd6aedf905e8dad98b0a5fe7f201a44dff660e2a5ff288a28c39150",
+      "after_sha256": "5098309f0a93d0d716c0e413764c28988a9fba4243b6caa5cffe44b00657a344",
+      "imports": [
+        "ForMathlib.Algebra.Polynomial.Reciprocal",
+        "ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer",
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Polynomial.Reciprocal\nimport ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer\nimport Mathlib\n",
+          "new": "module\npublic import ForMathlib.Algebra.Polynomial.Reciprocal\npublic import ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Localization/Products.lean": {
+      "before_sha256": "c9cb93f8b612459d5bc5f4e768d622d0c40bf3d1de682fa7503a31d392a25cc6",
+      "after_sha256": "38ab0836155ced7d334caa4f2fa1267777c856c1a5737c430d6f3086fb08efde",
+      "imports": [
+        "ForMathlib.Algebra.Module.Submodule.ProductScaling"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Module.Submodule.ProductScaling\n",
+          "new": "module\npublic import ForMathlib.Algebra.Module.Submodule.ProductScaling\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Polynomial/ScaledReciprocity.lean": {
+      "before_sha256": "2a1232127b47a7584695baf967758733a332b86b0df79ee261292426f4988434",
+      "after_sha256": "ac16f142b5ab7571b2134aaa4a648f2a79ac809989100c7fb778b46821ca015e",
+      "imports": [
+        "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+        "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Polynomial.ScaledEvaluation\nimport ForMathlib.Algebra.BigOperators.SingleCoordinate\n",
+          "new": "module\npublic import ForMathlib.Algebra.Polynomial.ScaledEvaluation\npublic import ForMathlib.Algebra.BigOperators.SingleCoordinate\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Model.lean": {
+      "before_sha256": "c3c9f90b078c3f0c978df7d3a672f45248f5b868bdf38baf6101794407965289",
+      "after_sha256": "ffd9782efa99beef594894d92b297c05e59e5170b6672e0518c63bc67797dcd6",
+      "imports": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized",
+        "Mathlib"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized\nimport Mathlib\n",
+          "new": "module\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized\npublic import Mathlib\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/SelectedR.lean": {
+      "before_sha256": "2e739caef284b176fa2050db7e7649fc26f923a82f424b62c9b99d4d4826a890",
+      "after_sha256": "7b2cef9c5a8059a8f3068eeca3e0690723fa6a36f01fe44569307f46c421cea9",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 413,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean": {
+      "before_sha256": "f5d4b84f51a0a477f45d21c5ff8762095983bdb1081f68aa6b7b319c5dadae5b",
+      "after_sha256": "af804840170e6943b27c5c66a34b3e549fbb45152ed6393b16569822af3161d1",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 390,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 567,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 21
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Parabolic/Support.lean": {
+      "before_sha256": "a88503b4c7af0f367d6064308622ac60d3c3390181fb3afe9ea0f4e9e7c81c84",
+      "after_sha256": "9c94fd3de085d843b2131ff18e2dc21de6d9daf099745ea3853ddbfad2c71979",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 2687,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 76
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Bruhat/Transport.lean": {
+      "before_sha256": "de697f774162c8ba1f650fca526907cd2c1622a88061df9b06fa0f846de051ed",
+      "after_sha256": "7be28ea08fbdf6e2952967144d611db4eb8671278c9de79f76330902488fdf61",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 585,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean": {
+      "before_sha256": "c72bf4879bd02189cb4788b172adcbeb3eb065e9ef2019ae623b60c30c75cdef",
+      "after_sha256": "69920ee3829997776f3e3baa024ca69c079b7d415d9f33c43d26fa31504f49f7",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 469,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 2770,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 83
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/Operators.lean": {
+      "before_sha256": "4ec7a746f6ef7bc89e2d6f8bce06223226b683031412113a480d2b4c5098142a",
+      "after_sha256": "e6dd43102a4f715796db89a73111e8323c04c781db8f493fbb7c5d16edf2853a",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 557,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 25
+        },
+        {
+          "start": 1011,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 38
+        },
+        {
+          "start": 1250,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 43
+        },
+        {
+          "start": 4030,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 98
+        },
+        {
+          "start": 5121,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 127
+        },
+        {
+          "start": 6116,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 151
+        },
+        {
+          "start": 9115,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 224
+        },
+        {
+          "start": 9339,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 231
+        },
+        {
+          "start": 10175,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 251
+        },
+        {
+          "start": 12548,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 302
+        },
+        {
+          "start": 14411,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 338
+        },
+        {
+          "start": 20862,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 481
+        },
+        {
+          "start": 22217,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 523
+        },
+        {
+          "start": 22498,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 530
+        },
+        {
+          "start": 25673,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 592
+        },
+        {
+          "start": 26935,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 624
+        },
+        {
+          "start": 27930,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 648
+        },
+        {
+          "start": 30929,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 721
+        },
+        {
+          "start": 31160,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 728
+        },
+        {
+          "start": 32023,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 748
+        },
+        {
+          "start": 34408,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 799
+        },
+        {
+          "start": 36459,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 842
+        },
+        {
+          "start": 43235,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 995
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Unique.lean": {
+      "before_sha256": "96056bfde98236b3d462dea684066a6a4a5c30dc995f456c8395dd254e0898d1",
+      "after_sha256": "be8e2593d3e542a691828daf40b9bac67d2ca902949146a8f3d7028bb3fec15d",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Polynomial.Reciprocal",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Polynomial.Reciprocal\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Polynomial.Reciprocal\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/KernelTransportCompat.lean": {
+      "before_sha256": "0d4e65ecf9aabc686ff1fd54c0f4f51a35f0128bf02bf1272c46cc3d1a932bfa",
+      "after_sha256": "205f801d5dad6fb45058b84f9eed364feaed2de0f7fb1582a91035e0df8ce660",
+      "imports": [
+        "OAI.KL.Compatibility.KernelTransport"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import OAI.KL.Compatibility.KernelTransport\n",
+          "new": "module\npublic import OAI.KL.Compatibility.KernelTransport\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Realization/Tits.lean": {
+      "before_sha256": "ad2e4df73a89e4c2a26d942d6b73624eb88a3b24a9690ec3d2bc0efd922471e6",
+      "after_sha256": "c94752c95cb24511c0dbfab2cc8ce018a0486e09999f342df323f91af4a633a0",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Realization.Geometric",
+        "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Realization.Geometric\nimport ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Geometric\npublic import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 465,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 524,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        },
+        {
+          "start": 590,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 24
+        },
+        {
+          "start": 674,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 27
+        },
+        {
+          "start": 2133,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 71
+        },
+        {
+          "start": 3059,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 98
+        },
+        {
+          "start": 3456,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 105
+        },
+        {
+          "start": 4283,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 122
+        },
+        {
+          "start": 6182,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 161
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/Transfer.lean": {
+      "before_sha256": "431cb872795b74293cc6d9c3e2141256072d2136c6c3bbc9945a4a29c8f59c74",
+      "after_sha256": "69455f7852a3f4ae6b41f1627a85b2da86ea9f3c7beffc92131377a2353b03ab",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Combinatorics.DirectedPaths.Subpaths"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.DirectedPaths.Subpaths\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.DirectedPaths.Subpaths\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 405,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 15
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/PolynomialMap.lean": {
+      "before_sha256": "0eeaf52ca5ec2ff43b737b74e5419b0c1f36b4ee1903f9d625232cd42d66418a",
+      "after_sha256": "72dae5ba65009e4d6cf953bc78e73355299537dd6bbc864a479ac7f4013c42cd",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Generators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Generators\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/HomogeneousMul.lean": {
+      "before_sha256": "251ac10acdcc43ce43e6577da57b13b2eb5cba602968dc6cf2e64695a83dc73d",
+      "after_sha256": "4fbfe702f667b9855ac895e151b866f02e2d49c4735e94d2ef3532e7bd5f99d4",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Generators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Generators\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Basis.lean": {
+      "before_sha256": "2f2180ab4b7301ce55b00f1dbda3dd6a43a67faa74a63486160745778693a303",
+      "after_sha256": "69db957815da80142de60e2eba10937945ceb18de4ccc09483a82d087f09fbf1",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Generators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Generators\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 739,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 21
+        },
+        {
+          "start": 1027,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 28
+        },
+        {
+          "start": 1724,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 44
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean": {
+      "before_sha256": "cf789ef0c27dab8470466c2caefc86d5708505cea0c7a42a977d4fc3a7ca0555",
+      "after_sha256": "dc60c4112d50faf9a24152ff3c0750510c75dc6e99b5544777be12bd3dbc4df0",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Generators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Generators\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 961,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 29
+        },
+        {
+          "start": 1184,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 35
+        },
+        {
+          "start": 1349,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 36
+        },
+        {
+          "start": 1624,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 42
+        },
+        {
+          "start": 2103,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 54
+        },
+        {
+          "start": 2587,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 66
+        },
+        {
+          "start": 3055,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 77
+        },
+        {
+          "start": 3274,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 82
+        },
+        {
+          "start": 3493,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 87
+        },
+        {
+          "start": 3725,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 92
+        },
+        {
+          "start": 3913,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 97
+        },
+        {
+          "start": 4206,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 106
+        },
+        {
+          "start": 4423,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 113
+        },
+        {
+          "start": 4603,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 118
+        },
+        {
+          "start": 5015,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 128
+        },
+        {
+          "start": 7784,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 206
+        },
+        {
+          "start": 8278,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 222
+        },
+        {
+          "start": 8442,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 227
+        },
+        {
+          "start": 10481,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 268
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/FinitePieces.lean": {
+      "before_sha256": "bcfe08a2c9aefcbc12a0f2d30f413ed95ea4457d0fbad81f3a6999ba4329a9bd",
+      "after_sha256": "1e8919981cd9e5dada91dbbf8bce78e9ef88a57407d2bf73b865db66a906067d",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Generators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Generators\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 533,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 1073,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 31
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean": {
+      "before_sha256": "f18cdba9ba9d923ebfca4d643ce2f8129cc783081d2dcc1333784ebf1d0fa0e5",
+      "after_sha256": "42032b3722e29b0a9f05582ffe73079e7eda0480cb48b5fd532b06d801733500",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
+        "ForMathlib.Algebra.Module.Graded.Generators",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Hilbert.Numerator\nimport ForMathlib.Algebra.Module.Graded.Generators\nimport ForMathlib.Algebra.Module.Graded.Hilbert.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator\npublic import ForMathlib.Algebra.Module.Graded.Generators\npublic import ForMathlib.Algebra.Module.Graded.Hilbert.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 2098,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 53
+        },
+        {
+          "start": 5156,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 125
+        },
+        {
+          "start": 5477,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 134
+        },
+        {
+          "start": 8428,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 194
+        },
+        {
+          "start": 15113,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 341
+        },
+        {
+          "start": 18450,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 427
+        },
+        {
+          "start": 19180,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 444
+        },
+        {
+          "start": 20317,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 469
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Adjoint.lean": {
+      "before_sha256": "2e85f9af150c93e1c48126804579425e5b26b45e53549cb765c655980576149b",
+      "after_sha256": "81575e5e2a94c3ed11529556ddfe6e73c3273da178a4c3677430abfa2762f1bb",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Generators",
+        "ForMathlib.LinearAlgebra.Dual.Adjoint"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Generators\nimport ForMathlib.LinearAlgebra.Dual.Adjoint\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Generators\npublic import ForMathlib.LinearAlgebra.Dual.Adjoint\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Bruhat/Descent.lean": {
+      "before_sha256": "feaf05ffa289c11648279695f400b55aa6eb0a323a5497832bb048c63e48178a",
+      "after_sha256": "b541ae831f196580410f1d9dae989311063cbd36fbf01421fd7b6d8494c0f067",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 1779,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 48
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/Coefficients.lean": {
+      "before_sha256": "d4c839c6d85b8454be5c70a2b200acf25072e972b3e19b31a3acc071181fbe7c",
+      "after_sha256": "2250272f214ba39d74b474e171dd0788dc259007a148bee14285efe45180f582",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.RepresentationTheory.Hecke.Operators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.RepresentationTheory.Hecke.Operators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.RepresentationTheory.Hecke.Operators\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 2380,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 67
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/Inverse.lean": {
+      "before_sha256": "ec7b18f799fadc030066f6ee6d2c210aada2e13a916ddf33e0c4e20522089f96",
+      "after_sha256": "8fe67330ec811b1010526998c85476b91b4db9e189d3425f0ffaf8b3d2a027ed",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
+        "ForMathlib.RepresentationTheory.Hecke.Operators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\nimport ForMathlib.RepresentationTheory.Hecke.Operators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\npublic import ForMathlib.RepresentationTheory.Hecke.Operators\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/DualR.lean": {
+      "before_sha256": "6de6b0b9bd0077edb8ae9b11319a4244d943cf379103e1916723385f911dcfbf",
+      "after_sha256": "c71b09bc5ea71ae743f265ad48a209d3ca33d1c423bc137455fc580dce168bee",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.RepresentationTheory.Hecke.Operators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.RepresentationTheory.Hecke.Operators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.RepresentationTheory.Hecke.Operators\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 396,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Bruhat.lean": {
+      "before_sha256": "1962588929e90e6fce82265de41e075d4d3eca45b6ba747cabf7892c0255d2c0",
+      "after_sha256": "73493ed97aacaf0429afe0a14935d3c29ab5e5673725ca9ecb989486b56969cc",
+      "imports": [
+        "ForMathlib.Algebra.Polynomial.Reciprocal",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique",
+        "OAI.RepresentationTheory.KazhdanLusztig.Coxeter",
+        "OAI.RepresentationTheory.KazhdanLusztig.Model"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Polynomial.Reciprocal\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique\nimport OAI.RepresentationTheory.KazhdanLusztig.Coxeter\nimport OAI.RepresentationTheory.KazhdanLusztig.Model\n",
+          "new": "module\npublic import ForMathlib.Algebra.Polynomial.Reciprocal\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique\npublic import OAI.RepresentationTheory.KazhdanLusztig.Coxeter\npublic import OAI.RepresentationTheory.KazhdanLusztig.Model\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Realization/Positivity.lean": {
+      "before_sha256": "039ad1f640c5dba4fec7695095fcdfaf88ad7f08d0ed3dddfce9f911974133da",
+      "after_sha256": "e6373195c84c0d83106e315f39814c29bec85aab59eb57209d44e8d166c26199",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Parabolic.Support",
+        "ForMathlib.GroupTheory.Coxeter.Realization.Tits"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Parabolic.Support\nimport ForMathlib.GroupTheory.Coxeter.Realization.Tits\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Parabolic.Support\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Tits\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 574,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean": {
+      "before_sha256": "7482a40d19b01738226daa3b6be1a01db4d761bf7d35cefb136c030d71cd88f9",
+      "after_sha256": "ee16dad57af783031346ce5fe9c8de2d46c04ca8705e012e3ff5dba8f7e6c976",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Combinatorics.DirectedPaths.Transfer"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.DirectedPaths.Transfer\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.DirectedPaths.Transfer\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 418,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 14
+        },
+        {
+          "start": 545,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 15
+        },
+        {
+          "start": 656,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        },
+        {
+          "start": 1251,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 31
+        },
+        {
+          "start": 1357,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 34
+        },
+        {
+          "start": 1502,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 37
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/HomogeneousEquiv.lean": {
+      "before_sha256": "a09f57421ba18f19055b8b06d21eca5fea1fa90285a397888003368212edc9db",
+      "after_sha256": "b8a9500d47b16e49bbb79f18c35379f4f79dc037082c70186c825713f847bdc8",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Basis"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Basis\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Basis\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 3062,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 81
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/AlgebraMap.lean": {
+      "before_sha256": "a07bfb839e65fef6b57779ef759116517e69ee60afcabd868f1e4e9e45f45d15",
+      "after_sha256": "52b3d7a9cf48b33c451e6cc9f943cdca74079f610b27559f59c566561827ea57",
+      "imports": [
+        "ForMathlib.Algebra.Module.Graded.Basis",
+        "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+        "ForMathlib.Algebra.Module.Graded.HomogeneousMul",
+        "ForMathlib.Algebra.Module.Graded.Generators"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Module.Graded.Basis\nimport ForMathlib.Algebra.Module.Graded.PolynomialMap\nimport ForMathlib.Algebra.Module.Graded.HomogeneousMul\nimport ForMathlib.Algebra.Module.Graded.Generators\n",
+          "new": "module\npublic import ForMathlib.Algebra.Module.Graded.Basis\npublic import ForMathlib.Algebra.Module.Graded.PolynomialMap\npublic import ForMathlib.Algebra.Module.Graded.HomogeneousMul\npublic import ForMathlib.Algebra.Module.Graded.Generators\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/PairProjection.lean": {
+      "before_sha256": "8f6d3a2676a795ca15afa32259246110e19437c1e6c9b8e58cf9560acfafd574",
+      "after_sha256": "5ad6be457be85c38f3ba3d11cb88b26a11cc8df18beb76fa245da15631daeb62",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "ForMathlib.LinearAlgebra.PairProjection"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Basic\nimport ForMathlib.LinearAlgebra.PairProjection\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Basic\npublic import ForMathlib.LinearAlgebra.PairProjection\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 1029,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 29
+        },
+        {
+          "start": 1151,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 32
+        },
+        {
+          "start": 1859,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 48
+        },
+        {
+          "start": 2337,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 59
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Transport.lean": {
+      "before_sha256": "2d4676e8884170a499ba42793cebf580d12dea052d631dc11c5bde003f3307bd",
+      "after_sha256": "6e6ff432e0ea318be5840ca0c3846897885a983fbd36e1ac4d05a9718c5c7538",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Basic\nimport ForMathlib.LinearAlgebra.Quotient.Transport\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Basic\npublic import ForMathlib.LinearAlgebra.Quotient.Transport\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 521,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 1126,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 31
+        },
+        {
+          "start": 1226,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 34
+        },
+        {
+          "start": 1707,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 49
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/CoverUniqueness.lean": {
+      "before_sha256": "03affa338b86f166c1eba9e93e0eb875703ecf0ea6c046f9a723d7e36cf61025",
+      "after_sha256": "59a4e8206fb05f42c8c960bb9f7198b7d6c90c0fcce28ad7b28b9e19fbfe8093",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Equality.lean": {
+      "before_sha256": "746dde4290e50dd4a198a73d67e02847deadb9a6b617dbe0b09f67ee09b8e86b",
+      "after_sha256": "d265dbe90e15ea6d7f9d975cb5280aa4256a9cfd59c0fec33531ecf4c6391b73",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Basic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 439,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 15
+        },
+        {
+          "start": 1166,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 36
+        },
+        {
+          "start": 1374,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 40
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/QuotientHom.lean": {
+      "before_sha256": "7f10b609c57751627c0c06458523e792b2688e01e9f90bfc78eacb62336abee1",
+      "after_sha256": "5a7ce2cf41c1bed1ad841abfd583e6ca6c1205f174792b3b5c985fd79fdbfe59",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Basic\nimport ForMathlib.LinearAlgebra.Quotient.Transport\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Basic\npublic import ForMathlib.LinearAlgebra.Quotient.Transport\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 501,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean": {
+      "before_sha256": "7c54ab4a7bd329cf1652d58b57dfb80fe63e8f575b8d1e4459c4bfa9487d9c90",
+      "after_sha256": "cd50a97f81abaa092adef98a9421e2d7acf11a2113354705da5a832896a53ed0",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Series"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Hilbert.Series\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Hilbert.Series\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 1159,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 29
+        },
+        {
+          "start": 2372,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 56
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean": {
+      "before_sha256": "672eaa9d3750e38e52bb383ec473e53c8117e906402d59189707916ce43627ef",
+      "after_sha256": "cd93ab224c635d2bfa8b48e639384e4fd29ab3b8c5deb2b27f0dd268df661a62",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Series"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Hilbert.Series\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Hilbert.Series\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 642,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 19
+        },
+        {
+          "start": 1712,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 48
+        },
+        {
+          "start": 3916,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 103
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/NonnegativeBasis.lean": {
+      "before_sha256": "1ebbe390d9346f33343913af367d59c360fb7711dca476dba94aa783c7a00090",
+      "after_sha256": "da622f5937dad9644e81202afb17eb7fdd6fe6c7196ccf3f4855626bcb612328",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Series"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Hilbert.Series\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Hilbert.Series\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 4000,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 106
+        },
+        {
+          "start": 6027,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 148
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean": {
+      "before_sha256": "ee8451eefb301adcb627a47f4f4e12180fb0348a1f2e1426be2dfc55c69dcb45",
+      "after_sha256": "d14db7a915e95fe11bf18b7f33612cda15dc1c7e2a3a1c578b114a25d80f640c",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Polynomial.Reciprocal",
+        "ForMathlib.RepresentationTheory.Hecke.Inverse"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Polynomial.Reciprocal\nimport ForMathlib.RepresentationTheory.Hecke.Inverse\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Polynomial.Reciprocal\npublic import ForMathlib.RepresentationTheory.Hecke.Inverse\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 449,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 19
+        },
+        {
+          "start": 607,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 25
+        },
+        {
+          "start": 2086,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 63
+        },
+        {
+          "start": 8978,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 220
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/PositiveWord.lean": {
+      "before_sha256": "0b94160a42d06f25889df139018ae8c2f49add4427ccc38846a177fe091cbfc8",
+      "after_sha256": "9a9b07c91818f95fe1f3ccb12b11c29d678e32765342d3b43443331adf3ae8e0",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
+        "ForMathlib.RepresentationTheory.Hecke.Coefficients",
+        "ForMathlib.RepresentationTheory.Hecke.DualR"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\nimport ForMathlib.RepresentationTheory.Hecke.Coefficients\nimport ForMathlib.RepresentationTheory.Hecke.DualR\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\npublic import ForMathlib.RepresentationTheory.Hecke.Coefficients\npublic import ForMathlib.RepresentationTheory.Hecke.DualR\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Hecke.lean": {
+      "before_sha256": "bc756d4046133396a95d47ee2d92d87b64cd954da7310931a5ab3b46d2455789",
+      "after_sha256": "db152052f58736db40f1d1d86a50a4c487a45e9e99ed25450c27d3ff91f88ea9",
+      "imports": [
+        "ForMathlib.Algebra.Polynomial.Reciprocal",
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
+        "ForMathlib.RepresentationTheory.Hecke.Inverse",
+        "ForMathlib.RepresentationTheory.Hecke.Operators",
+        "OAI.RepresentationTheory.KazhdanLusztig.Bruhat"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Polynomial.Reciprocal\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\nimport ForMathlib.RepresentationTheory.Hecke.Inverse\nimport ForMathlib.RepresentationTheory.Hecke.Operators\nimport OAI.RepresentationTheory.KazhdanLusztig.Bruhat\n",
+          "new": "module\npublic import ForMathlib.Algebra.Polynomial.Reciprocal\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\npublic import ForMathlib.RepresentationTheory.Hecke.Inverse\npublic import ForMathlib.RepresentationTheory.Hecke.Operators\npublic import OAI.RepresentationTheory.KazhdanLusztig.Bruhat\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Realization/Faithful.lean": {
+      "before_sha256": "413df90b9fd6a8eca97748447e7e68d21143ef154f18932e5c1ef3bc5656f95f",
+      "after_sha256": "1dc03003ba622167cc6f09c74b3cbe6f08d57d9ec6b3b8b7ea0e18e812d21546",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Realization.Positivity"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Realization.Positivity\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Positivity\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Realization/Cotangent.lean": {
+      "before_sha256": "4e81293f876681520db519867edce2efcdbe2c701b7db142405acf896292e1d6",
+      "after_sha256": "23dd7758609a811f029596c86cd2a8f96d975e441d44b599e20f8d4f016422c9",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Realization.Positivity"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Realization.Positivity\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Positivity\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 383,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        },
+        {
+          "start": 554,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 21
+        },
+        {
+          "start": 1134,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 41
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/HomogeneousDual.lean": {
+      "before_sha256": "388f01c25cbb127053c6e5ef4c08122cae518f2bf7d448fbab61ef5afab19abe",
+      "after_sha256": "aeebbe6a1aa101cb1e7e2c46658b87e875d153e721a1590b445a33bbfd349693",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.HomogeneousEquiv\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean": {
+      "before_sha256": "eff9993607ea6baa9075cc0afb302c697075b141f0789e278d6549aa1b1572c6",
+      "after_sha256": "06c7253b3cf539042a8d2ee5a1ff67470ba8c8153efb217f320f2f6a2333a60f",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+        "ForMathlib.LinearAlgebra.Quotient.Transport"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection\nimport ForMathlib.LinearAlgebra.Quotient.Transport\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection\npublic import ForMathlib.LinearAlgebra.Quotient.Transport\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 603,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 18
+        },
+        {
+          "start": 893,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 25
+        },
+        {
+          "start": 1003,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 29
+        },
+        {
+          "start": 1980,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 64
+        },
+        {
+          "start": 2537,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 81
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Projective/ScalarKernel.lean": {
+      "before_sha256": "385a541ef70de74d81fe83b47f7eb7ba7a990129f761568806c3903403a1b892",
+      "after_sha256": "e0211d56ff8212d9f5474122abc1b0625dda2991ddb1ccc0919525db744bc756",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
+        "ForMathlib.Algebra.Module.Projective.ReverseFiltration"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.Hilbert.Images\nimport ForMathlib.Algebra.Module.Projective.ReverseFiltration\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.Hilbert.Images\npublic import ForMathlib.Algebra.Module.Projective.ReverseFiltration\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 711,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        },
+        {
+          "start": 1746,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 47
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Character.lean": {
+      "before_sha256": "fe68863d77380a3d6c9795b84c3cec78afa88b570e2a5b591eaee0f08d5231c9",
+      "after_sha256": "53a019b9586d44083a578522d503d1cda4351713d0acf431e2397a1b244c7fe5",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "ForMathlib.Algebra.Module.Graded.NonnegativeBasis"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Basic\nimport ForMathlib.Algebra.Module.Graded.NonnegativeBasis\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Basic\npublic import ForMathlib.Algebra.Module.Graded.NonnegativeBasis\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 538,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        },
+        {
+          "start": 1711,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 50
+        },
+        {
+          "start": 2073,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 60
+        },
+        {
+          "start": 2603,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 70
+        },
+        {
+          "start": 3560,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 90
+        },
+        {
+          "start": 4372,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 104
+        },
+        {
+          "start": 5033,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 122
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean": {
+      "before_sha256": "fa2e6ee117795624e6d39ad775ba2034caebfa10f72a90599e813b7c119fb55b",
+      "after_sha256": "0d9573b2bfae44d0721f3a7077bdfec90f56da4cb08c454f3027845cd23c302d",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Polynomial.LowPart",
+        "ForMathlib.RepresentationTheory.Hecke.OrdinaryR",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Polynomial.LowPart\nimport ForMathlib.RepresentationTheory.Hecke.OrdinaryR\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Polynomial.LowPart\npublic import ForMathlib.RepresentationTheory.Hecke.OrdinaryR\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 612,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        },
+        {
+          "start": 897,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 26
+        },
+        {
+          "start": 1759,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 51
+        },
+        {
+          "start": 16848,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 384
+        },
+        {
+          "start": 16979,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 387
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/OrdinaryR.lean": {
+      "before_sha256": "d69cf4cb10023efe00e5c0ce05a8a0ffbe0cfed6561ce2e61168c68f3398fcfd",
+      "after_sha256": "548e7ecb3d62697882e0d606c9a0df8d0a3ccb4be1f9561223b5f40d3fefca4b",
+      "imports": [
+        "ForMathlib.RepresentationTheory.Hecke.OrdinaryR",
+        "OAI.RepresentationTheory.KazhdanLusztig.Hecke"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.RepresentationTheory.Hecke.OrdinaryR\nimport OAI.RepresentationTheory.KazhdanLusztig.Hecke\n",
+          "new": "module\npublic import ForMathlib.RepresentationTheory.Hecke.OrdinaryR\npublic import OAI.RepresentationTheory.KazhdanLusztig.Hecke\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Parabolic/Standard.lean": {
+      "before_sha256": "990e60ab5fca44374b84994e3df56c41f4f51340264e95734ba0ca12da85cccf",
+      "after_sha256": "28b53cedf7d21c523c8ef7b443f7a26ad74c7e380a95e715338f160435ede1d1",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Realization.Cotangent"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Realization.Cotangent\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Cotangent\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 472,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 17
+        },
+        {
+          "start": 809,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 26
+        },
+        {
+          "start": 1393,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 41
+        },
+        {
+          "start": 6218,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 165
+        },
+        {
+          "start": 7161,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 188
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/RegularScalar.lean": {
+      "before_sha256": "cc48e449346c215c4e5a8418d2e278b9694e0c85c7e01799590044d8dbcb46d3",
+      "after_sha256": "4821140dacd82d18ca91d10b3e9d43c65691343a3f7c8912441e1e0eaf699c00",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.HomogeneousDual"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.HomogeneousDual\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.HomogeneousDual\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Duality.lean": {
+      "before_sha256": "167ab3863d3af11db21e207e4cf1a104345892a206a9554d1c7b81f180128bc5",
+      "after_sha256": "be3a9ec8b8c5d413bd310618c013e98e824fc59490f6e403bcac0c246b00b802",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.HomogeneousDual",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Character",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Transport"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.HomogeneousDual\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Character\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Equality\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Transport\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.HomogeneousDual\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Character\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Equality\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Transport\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 761,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 23
+        },
+        {
+          "start": 3885,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 109
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean": {
+      "before_sha256": "b663e3a47a193e7f0a689ea184f73bf362433e60618b406f85b94e4f796c9c9f",
+      "after_sha256": "b60d9824465828d4d6c1a61e00333cef8ec3ce8295e67063fd5364a9959a535b",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Dihedral.Words",
+        "ForMathlib.RepresentationTheory.Hecke.DualR",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.Words\nimport ForMathlib.RepresentationTheory.Hecke.DualR\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.Words\npublic import ForMathlib.RepresentationTheory.Hecke.DualR\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 464,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 14
+        },
+        {
+          "start": 717,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 20
+        },
+        {
+          "start": 4193,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 107
+        },
+        {
+          "start": 5919,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 148
+        },
+        {
+          "start": 8767,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 212
+        },
+        {
+          "start": 12416,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 300
+        },
+        {
+          "start": 14123,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 343
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Normalization.lean": {
+      "before_sha256": "5a8926a4dab6f2186240b40083e8e045eaf4616aac2153d5e621e6b0eff5ea45",
+      "after_sha256": "10682e62478cff3b29b2527f384a6ad10ff60581e7035f90f8c0b25c960fe190",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 3146,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 72
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/CanonicalKL.lean": {
+      "before_sha256": "a7094ccc28472fd0fda417c65b3398187d8152a4be3c17673033802477ef624b",
+      "after_sha256": "41b8eb0b4c5e41768e238d29597aaac4287bf62d693b4f48e40ad08bc860c262",
+      "imports": [
+        "ForMathlib.Algebra.Polynomial.LowPart",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical",
+        "OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Algebra.Polynomial.LowPart\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\nimport OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR\n",
+          "new": "module\npublic import ForMathlib.Algebra.Polynomial.LowPart\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\npublic import OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Parabolic.lean": {
+      "before_sha256": "593d6313974775abf7c067c73689e79f4660587d406f414294068c443ef2e6a1",
+      "after_sha256": "c49147fdbc9a75da6aa98978938bd022ebac8a74d128eec290ef8425b274c04a",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Parabolic.Standard\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Parabolic/InversionList.lean": {
+      "before_sha256": "1144ed6721a784c14e6df8ee50559f9d9cd953ed207210e23a17e4d7fd521fe8",
+      "after_sha256": "6f5a63fbb3281142f9e3733648da062c0f9621bb9d6968367a6766ff06aed2ae",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Parabolic.Standard\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/CharacterDual.lean": {
+      "before_sha256": "d0bd2d3f57782cf05486a14e309bfd007e5d4094d64284f4f9f53dee5ffdc459",
+      "after_sha256": "10133768fd82d03e899d9119638acb57b829e9fcbe6832346b255667d9206b90",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Module.Graded.ModuleData.Duality"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Module.Graded.ModuleData.Duality\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Module.Graded.ModuleData.Duality\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 466,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 16
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/IntervalTransport.lean": {
+      "before_sha256": "6dc8c9f6c047f90f41d8031fb90cafa0456e5de30ef39c8d8b9e686e5982697a",
+      "after_sha256": "bf16d6b4bd4c903da886d8f5d6e1e31ca8c4855a536e38e45c7a184dd0cd6cfe",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.Algebra.Polynomial.ScaledEvaluation",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Algebra.Polynomial.ScaledEvaluation\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Algebra.Polynomial.ScaledEvaluation\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/ScaledReciprocity.lean": {
+      "before_sha256": "e288ba52b943490841b8abc1e7896deb4cebdf0544bac0eee933f6a80618d180",
+      "after_sha256": "6177081921da74bbfb4731bbb0bf210e13670cfbab63b37951fd1b9ce7d674c9",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Dihedral.lean": {
+      "before_sha256": "fb52d654883aa6e4384c3a2178331d761a42cb1aa5d0d7effb01d7720c066b77",
+      "after_sha256": "74eb9f8f8c7ea6f6fa2a004654ae80e98b6bb6aa2fb8bad9d95c2c738e1b7fba",
+      "imports": [
+        "ForMathlib.GroupTheory.Coxeter.Bruhat.Transport",
+        "ForMathlib.GroupTheory.Coxeter.Dihedral.Words",
+        "ForMathlib.RepresentationTheory.Hecke.DualR",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization",
+        "OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.GroupTheory.Coxeter.Bruhat.Transport\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.Words\nimport ForMathlib.RepresentationTheory.Hecke.DualR\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization\nimport OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL\n",
+          "new": "module\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Transport\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.Words\npublic import ForMathlib.RepresentationTheory.Hecke.DualR\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization\npublic import OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL\n\npublic section\n",
+          "role": "public-module-header"
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/FiniteRankReduction.lean": {
+      "before_sha256": "cd03c3cb147cedd389556d7a5bd5fba06cb4ed27c86b9d9de9ced31d526de7eb",
+      "after_sha256": "5335f56dd7eea89cfbf3673e4b81786a604db74b2c1d18869d5738b11729d167",
+      "imports": [
+        "Mathlib",
+        "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic"
+      ],
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic\n\npublic section\n",
+          "role": "public-module-header"
+        },
+        {
+          "start": 1392,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 36
+        },
+        {
+          "start": 1641,
+          "old": "",
+          "new": "@[expose] ",
+          "role": "data-body-compatibility",
+          "line": 45
+        }
+      ]
+    }
+  },
+  "additional_held_seeds": [
+    "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic",
+    "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis",
+    "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+    "ForMathlib.Algebra.Module.Cover.Local",
+    "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+    "ForMathlib.Algebra.Module.ReflectionPair.Twist",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+    "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem",
+    "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+    "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder",
+    "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
+    "ForMathlib.LinearAlgebra.Avoidance",
+    "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"
+  ],
+  "downstream_generated_boundary": "Full historical comparison found Sheaf.stalkMap.eq_1 first realized in held legacy GradedSheaf.Properties; hold its producer Basic and all consumers, with no type exception."
+}

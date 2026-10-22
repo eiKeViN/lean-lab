@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "/tmp/build_imports8.py"
+  ],
+  "exit_code": 2,
+  "wall_seconds": 0.011833635999209946,
+  "user_seconds": 0.0035499999999999998,
+  "system_seconds": 0.007918,
+  "max_rss_kib": 9216
+}

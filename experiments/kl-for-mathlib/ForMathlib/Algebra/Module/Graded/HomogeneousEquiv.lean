@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Basis
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Basis
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.HomogeneousEquiv. Source spans: BottSamelson:8, BottSamelson:24.
 See migration.json and MIGRATION.md for exact provenance.
@@ -78,7 +81,7 @@ variable {k : Type uk} [Field k]
   (he : ∀ n m, m ∈ 𝓜 n → e m ∈ 𝓝 (n+d))
 noncomputable section
 
- def homogeneousPieceEquiv (n : ℤ) : 𝓜 n ≃ₗ[k] 𝓝 (n+d) where
+ @[expose] def homogeneousPieceEquiv (n : ℤ) : 𝓜 n ≃ₗ[k] 𝓝 (n+d) where
   toFun m := ⟨e m.val,he n m.val m.property⟩
   invFun v := ⟨e.symm v.val,by
     simpa only [add_sub_cancel_right] using

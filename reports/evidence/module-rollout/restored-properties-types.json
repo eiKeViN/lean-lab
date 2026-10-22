@@ -1,0 +1,17 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "experiments/kl-for-mathlib",
+    "LEAN_TYPES_OUT=/workspace/lean-lab/results/module-rollout/restored-properties-types.tsv",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/RestoredPropertiesTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 8.613333045999752,
+  "user_seconds": 7.117444,
+  "system_seconds": 1.6161159999999999,
+  "max_rss_kib": 7647208
+}

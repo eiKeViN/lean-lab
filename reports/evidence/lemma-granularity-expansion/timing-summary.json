@@ -1,0 +1,37 @@
+{
+  "direct_pairs": [
+    {
+      "module_label": "reflection",
+      "before_seconds": 5.7537495379999655,
+      "after_seconds": 5.482723165999914,
+      "change_percent": -4.7104304803344155
+    },
+    {
+      "module_label": "support",
+      "before_seconds": 5.610370325000076,
+      "after_seconds": 5.631268920000139,
+      "change_percent": 0.3724993857702641
+    },
+    {
+      "module_label": "images",
+      "before_seconds": 5.103346413000054,
+      "after_seconds": 5.258952313000009,
+      "change_percent": 3.049095385795697
+    },
+    {
+      "module_label": "coset",
+      "before_seconds": 5.412573801999997,
+      "after_seconds": 5.410824455000011,
+      "change_percent": -0.03232005814571837
+    }
+  ],
+  "build_attempt_wall_sum": 1267.757348743,
+  "failed_measured_wall_sum": 158.391163241,
+  "all_measured_command_wall_sum": 1477.4509482270007,
+  "eight_retained_build_amortized": 158.469668592875,
+  "ten_implemented_attempts_build_amortized": 126.7757348743,
+  "attempt_denominator": "Eight planned lemma implementations plus two failed transport-proof iterations; shared-batch average, not individual costs.",
+  "full_validation_wrapper_wall": 106.67544753200013,
+  "model_tokens": null,
+  "unmeasured_costs": "Selection, model drafting, editing/infrastructure/reporting and some small verification actions are not individually metered. Aggregate is not marginal future price."
+}

@@ -1,0 +1,60 @@
+All targets up-to-date (8923 jobs).
+✔ [1755/1763] Built ForMathlib.LinearAlgebra.PlaneReduction (1.2s)
+✔ [1756/1763] Built ForMathlib.LinearAlgebra.Dual.BalancedCut (2.3s)
+✔ [1760/1795] Built ForMathlib.Algebra.Module.Flat.Kernel (3.8s)
+✔ [1786/1795] Built ForMathlib.Algebra.Module.Projective.ReverseFiltration (5.3s)
+✔ [1792/1795] Built ForMathlib.Algebra.Polynomial.LowPart (5.0s)
+✖ [1793/1795] Building ForMathlib.Algebra.Module.Quotient.KernelReduction (6.3s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Quotient/KernelReduction.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Quotient/KernelReduction.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Quotient/KernelReduction.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Quotient/KernelReduction.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Quotient/KernelReduction.setup.json --json
+error: ForMathlib/Algebra/Module/Quotient/KernelReduction.lean:69:8: failed to synthesize instance of type class
+  Module.Free (A ⧸ Ideal.span {α}) (QuotSMulTop α ↥f.ker)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+✖ [1794/1795] Building ForMathlib.Algebra.Module.Submodule.ProductScaling (5.0s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Submodule/ProductScaling.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Submodule/ProductScaling.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Submodule/ProductScaling.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Submodule/ProductScaling.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Submodule/ProductScaling.setup.json --json
+error: ForMathlib/Algebra/Module/Submodule/ProductScaling.lean:28:8: Unknown constant `IsScalarTower.algebraMap_smul`
+error: ForMathlib/Algebra/Module/Submodule/ProductScaling.lean:22:57: unsolved goals
+R : Type ur
+inst✝⁶ : CommRing R
+S : Type us
+inst✝⁵ : CommRing S
+inst✝⁴ : Algebra R S
+M : Type um
+inst✝³ : AddCommGroup M
+inst✝² : Module R M
+inst✝¹ : Module S M
+inst✝ : IsScalarTower R S M
+p q : R
+w : M
+left✝ : w ∈ ⊤
+hz : p • w ∈ p • ⊤
+t : S
+ht : (algebraMap R S) p = (algebraMap R S) q * t
+⊢ q • t • w = p • w
+error: ForMathlib/Algebra/Module/Submodule/ProductScaling.lean:40:59: Application type mismatch: The argument
+  fun x => p
+has type
+  ?m.37 → S
+but is expected to have type
+  ι
+in the application
+  Function.prod ?m.36 a fun x => p
+error: ForMathlib/Algebra/Module/Submodule/ProductScaling.lean:40:55: Application type mismatch: The argument
+  s
+has type
+  Finset ι
+but is expected to have type
+  (i : ι) → ?m.33 i
+in the application
+  Function.prod s
+✔ [1795/1795] Built ForMathlib.Algebra.Module.Localization.Membership (5.8s)
+Some required targets logged failures:
+- ForMathlib.Algebra.Module.Quotient.KernelReduction
+- ForMathlib.Algebra.Module.Submodule.ProductScaling
+error: build failed
+Traceback (most recent call last):
+  File "/tmp/build_imports8.py", line 6, in <module>
+    subprocess.run(['lake','build',*modules],cwd=p,env=serial_environment(),check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'build', 'ForMathlib.LinearAlgebra.PlaneReduction', 'ForMathlib.Algebra.Module.Flat.Kernel', 'ForMathlib.LinearAlgebra.Dual.BalancedCut', 'ForMathlib.Algebra.Module.Quotient.KernelReduction', 'ForMathlib.Algebra.Module.Projective.ReverseFiltration', 'ForMathlib.Algebra.Polynomial.LowPart', 'ForMathlib.Algebra.Module.Localization.Membership', 'ForMathlib.Algebra.Module.Submodule.ProductScaling']' returned non-zero exit status 1.

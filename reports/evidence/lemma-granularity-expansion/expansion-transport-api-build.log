@@ -1,0 +1,10 @@
+⚠ [9021/9032] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:62:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [9031/9032] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages (4.8s)
+✔ [9032/9032] Built OAI.KL.Localization.TerminalImages (5.2s)
+Build completed successfully (9032 jobs).

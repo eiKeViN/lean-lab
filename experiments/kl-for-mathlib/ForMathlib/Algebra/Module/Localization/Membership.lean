@@ -1,4 +1,8 @@
-import Mathlib
+module
+public import Mathlib.Algebra.Module.LocalizedModule.Submodule
+public import Mathlib.RingTheory.Localization.BaseChange
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Localization.Membership. Source spans: TerminalKernels:17.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -32,9 +32,14 @@ from `OAI/KL/` (25 application modules and one compatibility wrapper). Original
 Previously published ForMathlib and application paths also forward to their more precise homes.
 ForMathlib has no project-layer imports. Specialized Coxeter, Hecke, KL polynomial
 and Tits word mathematics is included among the candidates; candidate status does
-not mean submission-ready. No new interface extraction is part of this cleanup.
+not mean submission-ready. The architecture cleanup preserved the proofs; the
+active extraction pilot below is a subsequent, explicitly checked evolution.
 
-The current tree has 261 Lean product modules and retains all 3902 public declarations.
+The current tree has 261 Lean product modules. The active [library extraction round](reports/lemma-granularity-library.md)
+preserves all 3902 baseline public types and the previous twenty-one added types,
+with twenty-four further additions (forty-five total) checked separately. It rewrites
+21 more old proofs; [coverage](reports/lemma-granularity-library-coverage.md) distinguishes
+whole-library inventory from targeted proof reading.
 The fixed toolchain is Lean 4.34.1; Mathlib is pinned at
 `d13f23b723b8a846827a245b89c10fc7d3f11612`. Dependencies and working artifacts
 are owned by the maintained project's `.lake`, with shared installation/download
@@ -51,6 +56,11 @@ retained as checksum-bound compressed evidence, not another Lean project.
 No check requires a deleted experiment directory. Setup fetches only missing
 pinned history for shallow clones; checks themselves perform no history fetch.
 Historical compilation is not rerun or claimed by replaying this evidence.
+
+Across three rounds the pilot rewrites fifteen proofs in ten hash-bound source
+exceptions; the previous seven active files remain frozen separately. Old statements and API
+types remain unchanged. The pristine source reconstruction and historical
+reference export remain intact. See [the pilot materials](experiments/kl-for-mathlib/LEMMA_INDEX.md).
 
 See [the whole-library refinement](reports/whole-library-layout.md) for current
 coverage, file responsibilities, entrypoints and validation, [the previous boundary refinement](reports/responsibility-boundaries.md), and [the consolidation record](reports/project-consolidation.md) for earlier

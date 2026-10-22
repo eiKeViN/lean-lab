@@ -1,0 +1,868 @@
+[
+  {
+    "command": [
+      "lake",
+      "--no-build",
+      "build",
+      "Mathlib"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.249509021999984,
+    "user_seconds": 3.573481,
+    "system_seconds": 2.063824,
+    "max_rss_kib": 991024,
+    "label": "upstream-ready"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ForMathlib.LinearAlgebra.KernelTransport",
+      "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.7830340859999865,
+    "user_seconds": 4.440343,
+    "system_seconds": 2.097708,
+    "max_rss_kib": 1003020,
+    "label": "target-ready"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-baseline.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.572304515999974,
+    "user_seconds": 4.33094,
+    "system_seconds": 1.382494,
+    "max_rss_kib": 7324992,
+    "label": "kernel-baseline"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.926316880999991,
+    "user_seconds": 4.617693,
+    "system_seconds": 2.141435,
+    "max_rss_kib": 991448,
+    "label": "legacy-wide-build"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.010885024999993,
+    "user_seconds": 4.601604,
+    "system_seconds": 2.075871,
+    "max_rss_kib": 998612,
+    "label": "legacy-wide-warm-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.63635667799997,
+    "user_seconds": 3.448306,
+    "system_seconds": 1.415699,
+    "max_rss_kib": 7310892,
+    "label": "legacy-wide-elab-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-wide-legacy-0.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.6599498150000045,
+    "user_seconds": 3.247728,
+    "system_seconds": 1.429611,
+    "max_rss_kib": 7314152,
+    "label": "legacy-wide-legacy-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.6913319770000044,
+    "user_seconds": 4.626272,
+    "system_seconds": 1.9792519999999998,
+    "max_rss_kib": 986260,
+    "label": "legacy-wide-warm-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.068694256000015,
+    "user_seconds": 3.737535,
+    "system_seconds": 1.5219559999999999,
+    "max_rss_kib": 7309160,
+    "label": "legacy-wide-elab-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-wide-legacy-1.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.666459870999972,
+    "user_seconds": 3.397464,
+    "system_seconds": 1.278966,
+    "max_rss_kib": 7311972,
+    "label": "legacy-wide-legacy-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.8827771250000183,
+    "user_seconds": 4.467784,
+    "system_seconds": 2.206521,
+    "max_rss_kib": 990444,
+    "label": "legacy-wide-warm-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.982182964000003,
+    "user_seconds": 3.58863,
+    "system_seconds": 1.615841,
+    "max_rss_kib": 7310760,
+    "label": "legacy-wide-elab-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-wide-legacy-2.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.624791939000033,
+    "user_seconds": 3.307569,
+    "system_seconds": 1.333389,
+    "max_rss_kib": 7310992,
+    "label": "legacy-wide-legacy-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-wide-modern-rejected.lean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 1.7987018530000114,
+    "user_seconds": 0.8210999999999999,
+    "system_seconds": 0.9712339999999999,
+    "max_rss_kib": 4033152,
+    "label": "legacy-wide-modern-rejected"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.2970871619999684,
+    "user_seconds": 2.004274,
+    "system_seconds": 0.693211,
+    "max_rss_kib": 2015096,
+    "label": "legacy-narrow-build"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.0946385480000345,
+    "user_seconds": 0.910609,
+    "system_seconds": 0.429678,
+    "max_rss_kib": 869820,
+    "label": "legacy-narrow-warm-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.9494187860000238,
+    "user_seconds": 1.5974819999999998,
+    "system_seconds": 0.5203289999999999,
+    "max_rss_kib": 2003664,
+    "label": "legacy-narrow-elab-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-narrow-legacy-0.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.9815860630000088,
+    "user_seconds": 1.393035,
+    "system_seconds": 0.600861,
+    "max_rss_kib": 2003796,
+    "label": "legacy-narrow-legacy-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.9989609069999688,
+    "user_seconds": 0.8021229999999999,
+    "system_seconds": 0.413645,
+    "max_rss_kib": 866176,
+    "label": "legacy-narrow-warm-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.9397397769999998,
+    "user_seconds": 1.481832,
+    "system_seconds": 0.621556,
+    "max_rss_kib": 2002072,
+    "label": "legacy-narrow-elab-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-narrow-legacy-1.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.8652757059999772,
+    "user_seconds": 1.34067,
+    "system_seconds": 0.5366569999999999,
+    "max_rss_kib": 2003892,
+    "label": "legacy-narrow-legacy-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.0617441120000422,
+    "user_seconds": 0.8578389999999999,
+    "system_seconds": 0.42399699999999996,
+    "max_rss_kib": 866164,
+    "label": "legacy-narrow-warm-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.9013796859999843,
+    "user_seconds": 1.533482,
+    "system_seconds": 0.552346,
+    "max_rss_kib": 2006008,
+    "label": "legacy-narrow-elab-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-narrow-legacy-2.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.998100039999997,
+    "user_seconds": 1.456817,
+    "system_seconds": 0.557245,
+    "max_rss_kib": 2005020,
+    "label": "legacy-narrow-legacy-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/legacy-narrow-modern-rejected.lean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 1.0748941559999707,
+    "user_seconds": 0.6373249999999999,
+    "system_seconds": 0.435336,
+    "max_rss_kib": 848012,
+    "label": "legacy-narrow-modern-rejected"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 6.552151844000036,
+    "user_seconds": 7.098422,
+    "system_seconds": 2.428179,
+    "max_rss_kib": 3102268,
+    "label": "module-wide-build"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.6568128590000697,
+    "user_seconds": 4.335643,
+    "system_seconds": 2.011513,
+    "max_rss_kib": 1000040,
+    "label": "module-wide-warm-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.7598243310000043,
+    "user_seconds": 3.008663,
+    "system_seconds": 0.982362,
+    "max_rss_kib": 5268460,
+    "label": "module-wide-elab-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-wide-legacy-0.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.63459986099997,
+    "user_seconds": 3.315911,
+    "system_seconds": 1.330946,
+    "max_rss_kib": 7311144,
+    "label": "module-wide-legacy-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-wide-modern-0.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.8531493609999643,
+    "user_seconds": 2.86819,
+    "system_seconds": 1.005601,
+    "max_rss_kib": 5238184,
+    "label": "module-wide-modern-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.541436519000058,
+    "user_seconds": 4.555246,
+    "system_seconds": 1.805923,
+    "max_rss_kib": 994064,
+    "label": "module-wide-warm-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.837335626999902,
+    "user_seconds": 3.034142,
+    "system_seconds": 1.009788,
+    "max_rss_kib": 5268684,
+    "label": "module-wide-elab-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-wide-legacy-1.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.392320871999914,
+    "user_seconds": 3.026951,
+    "system_seconds": 1.384912,
+    "max_rss_kib": 7312616,
+    "label": "module-wide-legacy-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-wide-modern-1.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.706078343999934,
+    "user_seconds": 2.5860719999999997,
+    "system_seconds": 1.136215,
+    "max_rss_kib": 5236044,
+    "label": "module-wide-modern-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.716257390999999,
+    "user_seconds": 4.5782419999999995,
+    "system_seconds": 2.143137,
+    "max_rss_kib": 991340,
+    "label": "module-wide-warm-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.8534218790000523,
+    "user_seconds": 3.021433,
+    "system_seconds": 1.034289,
+    "max_rss_kib": 5267788,
+    "label": "module-wide-elab-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-wide-legacy-2.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.576153234000003,
+    "user_seconds": 3.193854,
+    "system_seconds": 1.398762,
+    "max_rss_kib": 7311540,
+    "label": "module-wide-legacy-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-wide-modern-2.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.8845130619999964,
+    "user_seconds": 2.820162,
+    "system_seconds": 1.085947,
+    "max_rss_kib": 5238004,
+    "label": "module-wide-modern-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-wide-all.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.8255921670000816,
+    "user_seconds": 2.822419,
+    "system_seconds": 1.022468,
+    "max_rss_kib": 5233196,
+    "label": "module-wide-all"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.0768117019999863,
+    "user_seconds": 1.784352,
+    "system_seconds": 0.736926,
+    "max_rss_kib": 1007920,
+    "label": "module-narrow-build"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.0919580139999425,
+    "user_seconds": 0.914979,
+    "system_seconds": 0.427677,
+    "max_rss_kib": 867008,
+    "label": "module-narrow-warm-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.6271423150000146,
+    "user_seconds": 1.289984,
+    "system_seconds": 0.515034,
+    "max_rss_kib": 1247540,
+    "label": "module-narrow-elab-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-narrow-legacy-0.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.9415405830000054,
+    "user_seconds": 1.435853,
+    "system_seconds": 0.518703,
+    "max_rss_kib": 2004972,
+    "label": "module-narrow-legacy-0"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-narrow-modern-0.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.8283031219999657,
+    "user_seconds": 1.279338,
+    "system_seconds": 0.5655359999999999,
+    "max_rss_kib": 1238860,
+    "label": "module-narrow-modern-0"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.131657081999947,
+    "user_seconds": 0.935279,
+    "system_seconds": 0.413715,
+    "max_rss_kib": 867640,
+    "label": "module-narrow-warm-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.7956288540000287,
+    "user_seconds": 1.460124,
+    "system_seconds": 0.525752,
+    "max_rss_kib": 1246676,
+    "label": "module-narrow-elab-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-narrow-legacy-1.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.9912768720000713,
+    "user_seconds": 1.398362,
+    "system_seconds": 0.6066509999999999,
+    "max_rss_kib": 2004172,
+    "label": "module-narrow-legacy-1"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-narrow-modern-1.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.7767136520000122,
+    "user_seconds": 1.32115,
+    "system_seconds": 0.47067299999999995,
+    "max_rss_kib": 1238824,
+    "label": "module-narrow-modern-1"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.0818853079999826,
+    "user_seconds": 0.856193,
+    "system_seconds": 0.459507,
+    "max_rss_kib": 867016,
+    "label": "module-narrow-warm-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.7655888750000486,
+    "user_seconds": 1.386375,
+    "system_seconds": 0.554119,
+    "max_rss_kib": 1245916,
+    "label": "module-narrow-elab-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-narrow-legacy-2.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.0358277990000033,
+    "user_seconds": 1.39848,
+    "system_seconds": 0.653237,
+    "max_rss_kib": 2005056,
+    "label": "module-narrow-legacy-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-narrow-modern-2.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.784150101000023,
+    "user_seconds": 1.297171,
+    "system_seconds": 0.49846399999999996,
+    "max_rss_kib": 1239876,
+    "label": "module-narrow-modern-2"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/module-narrow-all.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.847241136999969,
+    "user_seconds": 1.365063,
+    "system_seconds": 0.49726,
+    "max_rss_kib": 1244080,
+    "label": "module-narrow-all"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 11.492639123999993,
+    "user_seconds": 11.580796,
+    "system_seconds": 3.053798,
+    "max_rss_kib": 3098236,
+    "label": "kernel-exposed-build"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-exposed-legacy.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.922288043000094,
+    "user_seconds": 4.547522,
+    "system_seconds": 1.5207959999999998,
+    "max_rss_kib": 7324016,
+    "label": "kernel-exposed-legacy"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-exposed-modern.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.9014129329999605,
+    "user_seconds": 3.843266,
+    "system_seconds": 1.218302,
+    "max_rss_kib": 5250964,
+    "label": "kernel-exposed-modern"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-exposed-all.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.986691553000014,
+    "user_seconds": 3.898559,
+    "system_seconds": 1.24364,
+    "max_rss_kib": 5254428,
+    "label": "kernel-exposed-all"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.995895952999945,
+    "user_seconds": 11.182259,
+    "system_seconds": 2.8311539999999997,
+    "max_rss_kib": 3105468,
+    "label": "kernel-hidden-build"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-hidden-legacy.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.376281010999946,
+    "user_seconds": 4.059306,
+    "system_seconds": 1.436479,
+    "max_rss_kib": 7323908,
+    "label": "kernel-hidden-legacy"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-hidden-modern.lean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.59678906900001,
+    "user_seconds": 3.770656,
+    "system_seconds": 0.971324,
+    "max_rss_kib": 5251956,
+    "label": "kernel-hidden-modern"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-hidden-all-wrapper.lean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.227304914999991,
+    "user_seconds": 3.302066,
+    "system_seconds": 1.042504,
+    "max_rss_kib": 5237216,
+    "label": "kernel-hidden-all-wrapper"
+  },
+  {
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/lean-lab/results/module-pilot/kernel-hidden-all-both.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.656591319999961,
+    "user_seconds": 3.713008,
+    "system_seconds": 1.088443,
+    "max_rss_kib": 5251652,
+    "label": "kernel-hidden-all-both"
+  },
+  {
+    "command": [
+      "lake",
+      "build",
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ForMathlib.LinearAlgebra.KernelTransport",
+      "OAI.KL.Compatibility.KernelTransport"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 12.180930783999997,
+    "user_seconds": 14.648065,
+    "system_seconds": 4.252769,
+    "max_rss_kib": 7318980,
+    "label": "restored-targets"
+  }
+]

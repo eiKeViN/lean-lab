@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib.LinearAlgebra.BilinearMap
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Submodule.ScaledImage. Source spans: GradedSheaves:8.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -10,7 +13,7 @@ namespace KLInvariance.EmbeddedModule
 variable {R M N : Type*} [CommRing R] [AddCommGroup M] [Module R M]
   [AddCommGroup N] [Module R N]
 
-def scaled (r : R) (K : Submodule R M) : Submodule R M :=
+@[expose] def scaled (r : R) (K : Submodule R M) : Submodule R M :=
   K.map (LinearMap.lsmul R M r)
 
 theorem map_scaled (j : M ≃ₗ[R] N) (r : R) (K : Submodule R M) :

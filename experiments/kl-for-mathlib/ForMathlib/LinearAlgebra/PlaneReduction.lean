@@ -1,4 +1,10 @@
-import Mathlib
+module
+public import Mathlib.LinearAlgebra.Span.Defs
+public import Mathlib.Algebra.GroupWithZero.Associated
+public import Mathlib.Algebra.Algebra.Defs
+public import Mathlib.Algebra.Field.Defs
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.PlaneReduction. Source spans: PlaneLocalization:23.
 See migration.json and MIGRATION.md for exact provenance. -/

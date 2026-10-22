@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/PublicVisibility.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.9105361720012297,
+  "user_seconds": 2.6962349999999997,
+  "system_seconds": 1.215428,
+  "max_rss_kib": 5381528
+}

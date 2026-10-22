@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "scripts/diagnose_rollout_imports.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 7.150807416999669,
+  "user_seconds": 15.327213,
+  "system_seconds": 1.778643,
+  "max_rss_kib": 2951024
+}

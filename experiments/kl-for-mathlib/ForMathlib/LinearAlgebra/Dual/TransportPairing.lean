@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib.LinearAlgebra.DFinsupp
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Dual.TransportPairing. Source spans: BalancedPairings:4.
 See migration.json and MIGRATION.md for exact provenance. -/

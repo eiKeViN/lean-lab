@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Generators
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Generators
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.Basic. Source spans: GradedModules:6, GradedModules:7, GradedModules:8.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -26,20 +29,20 @@ structure ModuleData (𝓐 : ℤ → Submodule k A) where
 attribute [instance] ModuleData.kModule ModuleData.tower ModuleData.decomposition
   ModuleData.graded ModuleData.finite
 
-instance _root_.OAI.KLInvariance.Graded.instCoeSortModuleDataType {𝓐 : ℤ → Submodule k A} : CoeSort (ModuleData.{uk,ua,um} 𝓐) (Type (max ua um)) :=
+@[expose] instance _root_.OAI.KLInvariance.Graded.instCoeSortModuleDataType {𝓐 : ℤ → Submodule k A} : CoeSort (ModuleData.{uk,ua,um} 𝓐) (Type (max ua um)) :=
   ⟨fun M => M.obj⟩
 
 namespace ModuleData
 variable {𝓐 : ℤ → Submodule k A}
 
-instance _root_.OAI.KLInvariance.Graded.ModuleData.instAddCommGroupCarrierObj (M : ModuleData.{uk,ua,um} 𝓐) : AddCommGroup M := inferInstanceAs (AddCommGroup M.obj)
-instance _root_.OAI.KLInvariance.Graded.ModuleData.instModuleCarrierObj (M : ModuleData.{uk,ua,um} 𝓐) : Module A M := inferInstanceAs (Module A M.obj)
+@[expose] instance _root_.OAI.KLInvariance.Graded.ModuleData.instAddCommGroupCarrierObj (M : ModuleData.{uk,ua,um} 𝓐) : AddCommGroup M := inferInstanceAs (AddCommGroup M.obj)
+@[expose] instance _root_.OAI.KLInvariance.Graded.ModuleData.instModuleCarrierObj (M : ModuleData.{uk,ua,um} 𝓐) : Module A M := inferInstanceAs (Module A M.obj)
 
 structure Hom (M N : ModuleData.{uk,ua,um} 𝓐) where
   map : M →ₗ[A] N
   graded : ∀ n m, m ∈ M.piece n → map m ∈ N.piece n
 
-noncomputable def sub [IsNoetherianRing A] (M : ModuleData.{uk,ua,um} 𝓐)
+@[expose] noncomputable def sub [IsNoetherianRing A] (M : ModuleData.{uk,ua,um} 𝓐)
     (S : Submodule A M) (hS : ∀ n m, m ∈ S → component M.piece n m ∈ S) :
     ModuleData.{uk,ua,um} 𝓐 where
   obj := ModuleCat.of A S
@@ -51,7 +54,7 @@ noncomputable def sub [IsNoetherianRing A] (M : ModuleData.{uk,ua,um} 𝓐)
   nonneg := fun n hn => subPiece_eq_bot M.piece S n (M.nonneg n hn)
   finite := inferInstance
 
-noncomputable def quotient (M : ModuleData.{uk,ua,um} 𝓐)
+@[expose] noncomputable def quotient (M : ModuleData.{uk,ua,um} 𝓐)
     (S : Submodule A M) (hS : ∀ n m, m ∈ S → component M.piece n m ∈ S) :
     ModuleData.{uk,ua,um} 𝓐 where
   obj := ModuleCat.of A (M ⧸ S)
@@ -63,7 +66,7 @@ noncomputable def quotient (M : ModuleData.{uk,ua,um} 𝓐)
   nonneg := fun n hn => quotientPiece_eq_bot M.piece S n (M.nonneg n hn)
   finite := inferInstance
 
-noncomputable def pi {ι : Type um} [Fintype ι] (M : ι → ModuleData.{uk,ua,um} 𝓐) :
+@[expose] noncomputable def pi {ι : Type um} [Fintype ι] (M : ι → ModuleData.{uk,ua,um} 𝓐) :
     ModuleData.{uk,ua,um} 𝓐 where
   obj := ModuleCat.of A (∀ i, M i)
   kModule := inferInstance
@@ -74,27 +77,27 @@ noncomputable def pi {ι : Type um} [Fintype ι] (M : ι → ModuleData.{uk,ua,u
   nonneg := fun n hn => piPiece_eq_bot (fun i => (M i).piece) n (fun i => (M i).nonneg n hn)
   finite := inferInstance
 
-noncomputable def kernel [IsNoetherianRing A] {M N : ModuleData.{uk,ua,um} 𝓐}
+@[expose] noncomputable def kernel [IsNoetherianRing A] {M N : ModuleData.{uk,ua,um} 𝓐}
     (f : Hom M N) : ModuleData.{uk,ua,um} 𝓐 :=
   sub M f.map.ker (kernel_homogeneous M.piece N.piece f.map 0
     (by simpa using f.graded))
 
-noncomputable def range [IsNoetherianRing A] {M N : ModuleData.{uk,ua,um} 𝓐}
+@[expose] noncomputable def range [IsNoetherianRing A] {M N : ModuleData.{uk,ua,um} 𝓐}
     (f : Hom M N) : ModuleData.{uk,ua,um} 𝓐 :=
   sub N f.map.range (range_homogeneous M.piece N.piece f.map 0
     (by simpa using f.graded))
 
-noncomputable def scalarQuotient (M : ModuleData.{uk,ua,um} 𝓐)
+@[expose] noncomputable def scalarQuotient (M : ModuleData.{uk,ua,um} 𝓐)
     (a : A) (d : ℤ) (ha : a ∈ 𝓐 d) : ModuleData.{uk,ua,um} 𝓐 :=
   quotient M (LinearMap.range (LinearMap.lsmul A M a))
     (scalar_range_homogeneous 𝓐 M.piece d a ha)
 
- def projection {ι : Type um} [Fintype ι] (M : ι → ModuleData.{uk,ua,um} 𝓐) (i : ι) :
+ @[expose] def projection {ι : Type um} [Fintype ι] (M : ι → ModuleData.{uk,ua,um} 𝓐) (i : ι) :
     Hom (pi M) (M i) where
   map := LinearMap.proj i
   graded := fun _ _ hm => hm i (Set.mem_univ i)
 
- def quotientMap (M : ModuleData.{uk,ua,um} 𝓐)
+ @[expose] def quotientMap (M : ModuleData.{uk,ua,um} 𝓐)
     (S : Submodule A M) (hS : ∀ n m, m ∈ S → component M.piece n m ∈ S) :
     Hom M (quotient M S hS) where
   map := S.mkQ
@@ -103,19 +106,19 @@ noncomputable def scalarQuotient (M : ModuleData.{uk,ua,um} 𝓐)
     change S.mkQ m ∈ quotientPiece M.piece S n
     exact Submodule.mem_map.mpr ⟨m,hm,rfl⟩
 
- def subtype [IsNoetherianRing A] (M : ModuleData.{uk,ua,um} 𝓐)
+ @[expose] def subtype [IsNoetherianRing A] (M : ModuleData.{uk,ua,um} 𝓐)
     (S : Submodule A M) (hS : ∀ n m, m ∈ S → component M.piece n m ∈ S) :
     Hom (sub M S hS) M where
   map := S.subtype
   graded := fun _ _ hm => hm
 
 
- def Hom.comp {M N P : ModuleData.{uk,ua,um} 𝓐} (g : Hom N P) (f : Hom M N) :
+ @[expose] def Hom.comp {M N P : ModuleData.{uk,ua,um} 𝓐} (g : Hom N P) (f : Hom M N) :
     Hom M P where
   map := g.map.comp f.map
   graded := fun n m hm => g.graded n _ (f.graded n m hm)
 
- def Hom.id (M : ModuleData.{uk,ua,um} 𝓐) : Hom M M where
+ @[expose] def Hom.id (M : ModuleData.{uk,ua,um} 𝓐) : Hom M M where
   map := LinearMap.id
   graded := fun _ _ h => h
 
@@ -125,7 +128,7 @@ noncomputable def scalarQuotient (M : ModuleData.{uk,ua,um} 𝓐)
 
 variable [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
 
-noncomputable def free {ι : Type (max ua um)} [Fintype ι]
+@[expose] noncomputable def free {ι : Type (max ua um)} [Fintype ι]
     (hneg : ∀ n < 0, 𝓐 n = ⊥) (d : ι → ℤ) (hd : ∀ i, 0 ≤ d i) :
     ModuleData.{uk,ua,um} 𝓐 where
   obj := ModuleCat.of A (ι → A)
@@ -203,7 +206,7 @@ noncomputable section
     exact DirectSum.sum_support_decompose M.piece m
 
 namespace ModuleData
- def shift (M : ModuleData.{uk,ua,um} 𝓐) (d : ℕ) : ModuleData.{uk,ua,um} 𝓐 where
+ @[expose] def shift (M : ModuleData.{uk,ua,um} 𝓐) (d : ℕ) : ModuleData.{uk,ua,um} 𝓐 where
   obj := M.obj
   kModule := M.kModule
   tower := M.tower
@@ -219,12 +222,12 @@ namespace ModuleData
   nonneg n hn := M.nonneg (n-d) (by omega)
   finite := M.finite
 
- def Hom.shift {M N : ModuleData.{uk,ua,um} 𝓐} (f : Hom M N) (d : ℕ) :
+ @[expose] def Hom.shift {M N : ModuleData.{uk,ua,um} 𝓐} (f : Hom M N) (d : ℕ) :
     Hom (M.shift d) (N.shift d) where
   map := f.map
   graded n m hm := f.graded (n-d) m hm
 
- def prod (M N : ModuleData.{uk,ua,um} 𝓐) : ModuleData.{uk,ua,um} 𝓐 where
+ @[expose] def prod (M N : ModuleData.{uk,ua,um} 𝓐) : ModuleData.{uk,ua,um} 𝓐 where
   obj := ModuleCat.of A (M × N)
   kModule := inferInstance
   tower := inferInstance
@@ -265,7 +268,7 @@ namespace ModuleData
   nonneg n hn := by simp [M.nonneg n hn,N.nonneg n hn]
   finite := inferInstance
 
- def Hom.prodMap {M N P Q : ModuleData.{uk,ua,um} 𝓐} (f : Hom M P) (g : Hom N Q) :
+ @[expose] def Hom.prodMap {M N P Q : ModuleData.{uk,ua,um} 𝓐} (f : Hom M P) (g : Hom N Q) :
     Hom (M.prod N) (P.prod Q) where
   map := f.map.prodMap g.map
   graded n _ hm := ⟨f.graded n _ hm.1,g.graded n _ hm.2⟩

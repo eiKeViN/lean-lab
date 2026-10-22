@@ -1,0 +1,12 @@
+{
+  "/sys/fs/cgroup/cpu.max": "400000 100000",
+  "/sys/fs/cgroup/memory.max": "17179869184",
+  "LEAN_NUM_THREADS": "4 from scripts/env.sh",
+  "compiler_gate": "serial flock from validate.serial_environment",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "manifest_sha256": "c4e5502f1da3e2b3a053a967c88bb49a73858ca9bb859d7c4650cbf762ca0bd4",
+  "setup_stage": "existing fixed upstream cache reused; separate setup log retained",
+  "token_telemetry": "unavailable",
+  "mathlib_head": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "mathlib_worktree_clean": true
+}

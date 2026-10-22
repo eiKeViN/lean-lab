@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/AttachProbe-upstream-all.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 4.436994204999792,
+  "user_seconds": 3.580914,
+  "system_seconds": 1.174268,
+  "max_rss_kib": 5275264
+}

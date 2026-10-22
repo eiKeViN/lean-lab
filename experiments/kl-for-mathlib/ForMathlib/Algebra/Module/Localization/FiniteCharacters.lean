@@ -46,6 +46,25 @@ noncomputable section
     (hf : f ∈ stabilizer L) {m : ∀ x, E x} (hm : m ∈ L) :
     diagonal f m ∈ L := hf m hm
 
+/-- The vanishing polynomial of the finite weights is zero on the chosen
+block and equals their product off that block when the weight vanishes there.
+This pointwise calculation is independent of any stable lattice. -/
+theorem projector_product_values (C : Finset X) (f : X → R)
+    (hz : ∀ x ∉ C, f x = 0) :
+    (∀ x ∈ C, (∏ y ∈ C, (algebraMap R (X → R) (f y)-f)) x = 0) ∧
+    (∀ x ∉ C, (∏ y ∈ C, (algebraMap R (X → R) (f y)-f)) x = ∏ y ∈ C, f y) := by
+  classical
+  constructor
+  · intro x hx
+    rw [Finset.prod_apply]
+    apply Finset.prod_eq_zero hx
+    simp
+  · intro x hx
+    rw [Finset.prod_apply]
+    apply Finset.prod_congr rfl
+    intro y _
+    simp [hz x hx]
+
 /-- A polynomial in stable diagonal weights which kills the complement of
 `C` and is a common scalar on `C`. Its scalar is a product, not a quotient. -/
  theorem uniform_projector (L : Submodule R (∀ x, E x)) (C : Finset X)
@@ -63,18 +82,28 @@ noncomputable section
   · intro x hx
     change d-h x=d
     suffices h x=0 by rw [this,sub_zero]
-    dsimp [h]
-    rw [Finset.prod_apply]
-    apply Finset.prod_eq_zero hx
-    simp
+    exact (projector_product_values C f hz).1 x hx
   · intro x hx
     change d-h x=0
     suffices h x=d by rw [this,sub_self]
-    dsimp [h,d]
-    rw [Finset.prod_apply]
-    apply Finset.prod_congr rfl
-    intro y _
-    simp [hz x hx]
+    exact (projector_product_values C f hz).2 x hx
+
+/-- The product of separating test values on a residue block is not divisible
+by the prime when each test is nondivisible at the reference point and congruent
+throughout the block. Only coordinate congruences enter this product argument. -/
+theorem class_product_not_dvd [Fintype X] [DecidableEq X] (p : R) (hp : Prime p)
+    (C : Finset X) (x : X) (test : X → X → R)
+    (hunit : ∀ y ∉ C, ¬ p ∣ test y x)
+    (hcongr : ∀ z ∈ C, ∀ y, p ∣ test y z-test y x)
+    (z : X) (hz : z ∈ C) : ¬ p ∣ (∏ y ∈ Finset.univ \ C, test y) z := by
+  classical
+  rw [Finset.prod_apply]
+  apply hp.not_dvd_finsetProd
+  intro y hy
+  have hyC := (Finset.mem_sdiff.mp hy).2
+  intro h
+  apply hunit y hyC
+  simpa only [sub_sub_cancel] using dvd_sub h (hcongr z hz y)
 
 /-- Separate one residue-character class from its complement without
 inverting any element of the coefficient domain. -/
@@ -90,15 +119,8 @@ inverting any element of the coefficient domain. -/
   let f : X → R := ∏ y ∈ Finset.univ \ C, test y
   have hf : f ∈ stabilizer L :=
     (stabilizer L).prod_mem fun y _ => htest y
-  have hfu (z : X) (hz : z ∈ C) : ¬ p ∣ f z := by
-    dsimp [f]
-    rw [Finset.prod_apply]
-    apply hp.not_dvd_finsetProd
-    intro y hy
-    have hyC := (Finset.mem_sdiff.mp hy).2
-    intro h
-    apply hunit y hyC
-    simpa only [sub_sub_cancel] using dvd_sub h (hcongr z hz y)
+  have hfu (z : X) (hz : z ∈ C) : ¬ p ∣ f z :=
+    class_product_not_dvd p hp C x test hunit hcongr z hz
   have hfz (z : X) (hz : z ∉ C) : f z=0 := by
     dsimp [f]
     rw [Finset.prod_apply]
@@ -106,6 +128,28 @@ inverting any element of the coefficient domain. -/
   obtain ⟨g,hg,hgc,hgz⟩ := uniform_projector L C f hf hfz
   refine ⟨∏ z ∈ C, f z,?_,g,hg,hgc,hgz⟩
   exact hp.not_dvd_finsetProd (fun z hz => hfu z hz)
+
+/-- The complementary denominator products assemble disjoint character-block
+lifts into one scalar multiple of the target. Primality and stable lattice
+membership are deliberately absent from this pointwise partition identity. -/
+theorem partition_diagonal_sum {Q : Type*} [Fintype Q] [DecidableEq Q]
+    (q : X → Q) (z : ∀ x, E x) (d : Q → R) (g : Q → X → R)
+    (hgin : ∀ j x, q x=j → g j x=d j)
+    (hgout : ∀ j x, q x≠j → g j x=0)
+    (m : Q → ∀ x, E x) (hmatch : ∀ j x, q x=j → m j x=z x) :
+    (∏ j, d j) • z = ∑ j : Q, (∏ k ∈ Finset.univ.erase j, d k) • diagonal (g j) (m j) := by
+  classical
+  funext x
+  simp only [Pi.smul_apply,Finset.sum_apply]
+  rw [Finset.sum_eq_single (q x)]
+  · change (∏ j, d j) • z x = (∏ k ∈ Finset.univ.erase (q x),d k) •
+      (g (q x) x • m (q x) x)
+    rw [hgin _ _ rfl,hmatch _ _ rfl,← mul_smul,
+      Finset.prod_erase_mul _ _ (Finset.mem_univ _)]
+  · intro j _ hj
+    change (∏ k ∈ Finset.univ.erase j,d k) • (g j x • m j x)=0
+    rw [hgout j x (Ne.symm hj),zero_smul,smul_zero]
+  · simp
 
 /-- Local lifts on each finite character block assemble after a single
 scalar denominator away from the prime. -/
@@ -120,27 +164,53 @@ scalar denominator away from the prime. -/
     ∃ a : R, ¬ p ∣ a ∧ a • z ∈ L := by
   classical
   refine ⟨∏ j, d j,hp.not_dvd_finsetProd (fun j _ => hd j),?_⟩
-  have hh : (∑ j : Q, (∏ k ∈ Finset.univ.erase j, d k) •
-      diagonal (g j) (m j)) ∈ L := by
-    exact L.sum_mem fun j _ => L.smul_mem _ (hg j _ (hm j))
-  convert hh using 1
-  funext x
-  simp only [Pi.smul_apply,Finset.sum_apply]
-  rw [Finset.sum_eq_single (q x)]
-  · change (∏ j, d j) • z x = (∏ k ∈ Finset.univ.erase (q x),d k) •
-      (g (q x) x • m (q x) x)
-    rw [hgin _ _ rfl,hmatch _ _ rfl,← mul_smul,
-      Finset.prod_erase_mul _ _ (Finset.mem_univ _)]
-  · intro j _ hj
-    change (∏ k ∈ Finset.univ.erase j,d k) • (g j x • m j x)=0
-    rw [hgout j x (Ne.symm hj),zero_smul,smul_zero]
-  · simp
+  rw [partition_diagonal_sum q z d g hgin hgout m hmatch]
+  exact L.sum_mem fun j _ => L.smul_mem _ (hg j _ (hm j))
 
  def residueSetoid {A : Type*} (p : R) (χ : A → X → R) : Setoid X where
   r x y := ∀ a, p ∣ χ a x-χ a y
   iseqv := ⟨fun x a => by rw [sub_self]; exact dvd_zero _,
     fun h a => by simpa only [neg_sub] using dvd_neg.mpr (h a),
     fun h h' a => by simpa only [sub_add_sub_cancel] using dvd_add (h a) (h' a)⟩
+
+/-- A point outside a residue-character class admits a stable test that
+vanishes there and is prime-nondivisible at the reference point. The chosen tests
+remain congruent across the class; finiteness and primeness are not needed here. -/
+theorem exists_character_separators {A : Type*}
+    (L : Submodule R (∀ x, E x)) (p : R) (χ : A → X → R)
+    (hχ : ∀ a, χ a ∈ stabilizer L) (x : X) :
+    ∃ test : X → X → R,
+      (∀ y, test y ∈ stabilizer L) ∧
+      (∀ y, ¬ (residueSetoid p χ).r x y → test y y=0) ∧
+      (∀ y, ¬ (residueSetoid p χ).r x y → ¬ p ∣ test y x) ∧
+      (∀ z, (residueSetoid p χ).r x z → ∀ y, p ∣ test y z-test y x) := by
+  classical
+  have ha : ∀ y : {y : X // ¬ (residueSetoid p χ).r x y}, ∃ a, ¬ p ∣ χ a x-χ a y.val := by
+    intro y
+    exact not_forall.mp y.property
+  choose a ha using ha
+  let test (y : X) : X → R := if hy : ¬ (residueSetoid p χ).r x y then
+    χ (a ⟨y,hy⟩)-algebraMap R (X → R) (χ (a ⟨y,hy⟩) y) else 0
+  refine ⟨test,?_,?_,?_,?_⟩
+  · intro y
+    by_cases hy : ¬ (residueSetoid p χ).r x y
+    · simp only [test,dite_eq_left hy]
+      exact (stabilizer L).sub_mem (hχ _) ((stabilizer L).algebraMap_mem _)
+    · simp only [test,dite_eq_right hy]
+      exact (stabilizer L).zero_mem
+  · intro y hy
+    simp [test,hy]
+  · intro y hy
+    simpa [test,hy] using ha ⟨y,hy⟩
+  · intro z hz y
+    by_cases hy : ¬ (residueSetoid p χ).r x y
+    · simp only [test,dite_eq_left hy]
+      change p ∣ (χ (a ⟨y,hy⟩) z-χ (a ⟨y,hy⟩) y)-
+        (χ (a ⟨y,hy⟩) x-χ (a ⟨y,hy⟩) y)
+      rw [sub_sub_sub_cancel_right]
+      exact (residueSetoid p χ).symm hz _
+    · simp only [test,dite_eq_right hy,Pi.zero_apply,sub_self]
+      exact dvd_zero _
 
  theorem character_class_projector [Fintype X] {A : Type*}
     (L : Submodule R (∀ x, E x)) (p : R) (hp : Prime p)
@@ -151,31 +221,11 @@ scalar denominator away from the prime. -/
   classical
   let C : Finset X := Finset.univ.filter ((residueSetoid p χ).r x)
   have hc (z : X) : z ∈ C ↔ (residueSetoid p χ).r x z := by simp [C]
-  have ha : ∀ y : {y : X // y ∉ C}, ∃ a, ¬ p ∣ χ a x-χ a y.val := by
-    intro y
-    have hh : ¬ ∀ a, p ∣ χ a x-χ a y.val := fun h => y.property ((hc _).mpr h)
-    exact not_forall.mp hh
-  choose a ha using ha
-  let test (y : X) : X → R := if hy : y ∉ C then
-    χ (a ⟨y,hy⟩)-algebraMap R (X → R) (χ (a ⟨y,hy⟩) y) else 0
-  have ht (y : X) : test y ∈ stabilizer L := by
-    by_cases hy : y ∉ C
-    · simp only [test,dite_eq_left hy]
-      exact (stabilizer L).sub_mem (hχ _) ((stabilizer L).algebraMap_mem _)
-    · simp only [test,dite_eq_right hy]
-      exact (stabilizer L).zero_mem
-  have hz (y : X) (hy : y ∉ C) : test y y=0 := by simp [test,hy]
-  have hu (y : X) (hy : y ∉ C) : ¬ p ∣ test y x := by simpa [test,hy] using ha ⟨y,hy⟩
-  have hcon (z : X) (hz : z ∈ C) (y : X) : p ∣ test y z-test y x := by
-    by_cases hy : y ∉ C
-    · simp only [test,dite_eq_left hy]
-      change p ∣ (χ (a ⟨y,hy⟩) z-χ (a ⟨y,hy⟩) y)-
-        (χ (a ⟨y,hy⟩) x-χ (a ⟨y,hy⟩) y)
-      rw [sub_sub_sub_cancel_right]
-      exact (residueSetoid p χ).symm ((hc z).mp hz) _
-    · simp only [test,dite_eq_right hy,Pi.zero_apply,sub_self]
-      exact dvd_zero _
-  obtain ⟨d,hd,g,hg,hgc,hgz⟩ := class_projector L p hp C x test ht hz hu hcon
+  obtain ⟨test,ht,hz,hu,hcon⟩ := exists_character_separators L p χ hχ x
+  obtain ⟨d,hd,g,hg,hgc,hgz⟩ := class_projector L p hp C x test ht
+    (fun y hy => hz y (fun h => hy ((hc y).mpr h)))
+    (fun y hy => hu y (fun h => hy ((hc y).mpr h)))
+    (fun z hz y => hcon z ((hc z).mp hz) y)
   exact ⟨d,hd,g,hg,fun z h => hgc z ((hc z).mpr h),
     fun z h => hgz z (fun hz => h ((hc z).mp hz))⟩
 

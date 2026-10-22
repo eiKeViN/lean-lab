@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal. Source spans: ReflectionSchedules:9, ReflectionSchedules:11, ReflectionSchedules:12.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -24,12 +27,12 @@ theorem symmetric_ι_injective : Function.Injective (SymmetricAlgebra.ι k V) :=
   exact hf h
 
 
-def rootIdeal (a : V) : Ideal (SymmetricAlgebra k V) :=
+@[expose] def rootIdeal (a : V) : Ideal (SymmetricAlgebra k V) :=
   Ideal.span {SymmetricAlgebra.ι k V a}
 
-def rootLine (a : V) : Submodule k V := Submodule.span k {a}
+@[expose] def rootLine (a : V) : Submodule k V := Submodule.span k {a}
 
-def symQuotientMap (a : V) : SymmetricAlgebra k V →ₐ[k] SymmetricAlgebra k (V ⧸ rootLine (k := k) a) :=
+@[expose] def symQuotientMap (a : V) : SymmetricAlgebra k V →ₐ[k] SymmetricAlgebra k (V ⧸ rootLine (k := k) a) :=
   SymmetricAlgebra.lift ((SymmetricAlgebra.ι k (V ⧸ rootLine (k := k) a)).comp (rootLine (k := k) a).mkQ)
 
 @[simp] theorem symQuotientMap_ι (a v : V) :
@@ -48,11 +51,11 @@ theorem rootIdeal_le_ker (a : V) : rootIdeal (k := k) a ≤ RingHom.ker (symQuot
     exact (Submodule.Quotient.mk_eq_zero (rootLine (k := k) a)).mpr (Submodule.subset_span (Set.mem_singleton a))
   rw [ha,map_zero]
 
-def quotientForward (a : V) : (SymmetricAlgebra k V ⧸ rootIdeal (k := k) a) →ₐ[k]
+@[expose] def quotientForward (a : V) : (SymmetricAlgebra k V ⧸ rootIdeal (k := k) a) →ₐ[k]
     SymmetricAlgebra k (V ⧸ rootLine (k := k) a) :=
   Ideal.Quotient.liftₐ _ (symQuotientMap a) (fun _ hz => rootIdeal_le_ker a hz)
 
-def quotientRootMap (a : V) : V ⧸ rootLine (k := k) a →ₗ[k]
+@[expose] def quotientRootMap (a : V) : V ⧸ rootLine (k := k) a →ₗ[k]
     (SymmetricAlgebra k V ⧸ rootIdeal (k := k) a) :=
   (rootLine (k := k) a).liftQ ((Ideal.Quotient.mkₐ k (rootIdeal (k := k) a)).toLinearMap.comp (SymmetricAlgebra.ι k V)) (by
     apply Submodule.span_le.mpr
@@ -63,7 +66,7 @@ def quotientRootMap (a : V) : V ⧸ rootLine (k := k) a →ₗ[k]
     change Ideal.Quotient.mk (rootIdeal (k := k) a) (SymmetricAlgebra.ι k V a) = 0
     exact Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.subset_span (Set.mem_singleton _)))
 
-def quotientBackward (a : V) : SymmetricAlgebra k (V ⧸ rootLine (k := k) a) →ₐ[k]
+@[expose] def quotientBackward (a : V) : SymmetricAlgebra k (V ⧸ rootLine (k := k) a) →ₐ[k]
     (SymmetricAlgebra k V ⧸ rootIdeal (k := k) a) := SymmetricAlgebra.lift (quotientRootMap a)
 
 @[simp] theorem quotientForward_mk (a : V) (z : SymmetricAlgebra k V) :
@@ -77,7 +80,7 @@ def quotientBackward (a : V) : SymmetricAlgebra k (V ⧸ rootLine (k := k) a) �
 
 /-- Exact coefficient-ring identification used for the manuscript's C=A/(alpha).
 This is an isomorphism of the actual quotient, not a replacement invariant. -/
-def rootQuotientEquiv (a : V) : (SymmetricAlgebra k V ⧸ rootIdeal (k := k) a) ≃ₐ[k]
+@[expose] def rootQuotientEquiv (a : V) : (SymmetricAlgebra k V ⧸ rootIdeal (k := k) a) ≃ₐ[k]
     SymmetricAlgebra k (V ⧸ rootLine (k := k) a) :=
   AlgEquiv.ofAlgHom (quotientForward a) (quotientBackward a)
     (by
@@ -124,7 +127,7 @@ theorem linear_homogeneous [Fintype κ] (b : Basis κ k V) (v : V) :
   simpa only [Algebra.smul_def,MvPolynomial.algebraMap_eq] using (MvPolynomial.isHomogeneous_X k i).C_mul (b.repr v i)
 
 /-- Polynomial coordinates on the actual symmetric-algebra quotient. -/
-def rootQuotientPolynomial (a : V) (b : Basis κ k (V ⧸ rootLine (k := k) a)) :
+@[expose] def rootQuotientPolynomial (a : V) (b : Basis κ k (V ⧸ rootLine (k := k) a)) :
     (SymmetricAlgebra k V ⧸ rootIdeal (k := k) a) ≃ₐ[k] MvPolynomial κ k :=
   (rootQuotientEquiv a).trans (SymmetricAlgebra.equivMvPolynomial b)
 

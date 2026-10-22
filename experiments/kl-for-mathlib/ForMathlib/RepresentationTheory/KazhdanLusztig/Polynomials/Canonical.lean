@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Algebra.Polynomial.LowPart
-import ForMathlib.RepresentationTheory.Hecke.OrdinaryR
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique
+module
+public import Mathlib
+public import ForMathlib.Algebra.Polynomial.LowPart
+public import ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical. Source spans: CanonicalKL:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,13 +20,13 @@ universe u v u' v'
 
 variable {B : Type u} {W : Type v} [klPreservedInstance1 : Group W] {M : CoxeterMatrix B}
 
-noncomputable local instance _root_.OAI.KLInvariance.instDecidableEq_oAI_2 : DecidableEq W := Classical.decEq W
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.instDecidableEq_oAI_2 : DecidableEq W := Classical.decEq W
 
 namespace CanonicalP
 
 /-- The standard lower-half KL recursion, on the actual Bruhat interval.
 Its reciprocity will be proved from the genuine R-kernel, not stipulated. -/
-noncomputable def polynomial (cs : CoxeterSystem M W) (x y : W) : ℤ[X] := by
+@[expose] noncomputable def polynomial (cs : CoxeterSystem M W) (x y : W) : ℤ[X] := by
   classical
   exact if BruhatLE cs x y then
     if x = y then 1 else
@@ -48,7 +51,7 @@ theorem polynomial_zero (cs : CoxeterSystem M W) (x y : W)
     (hxy : ¬BruhatLE cs x y) : polynomial cs x y = 0 := by
   rw [polynomial, ite_eq_right hxy]
 
-noncomputable def defect (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
+@[expose] noncomputable def defect (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
   ∑ z ∈ properIntervalFinset cs x y, OrdinaryR.polynomial cs x z * polynomial cs z y
 
 theorem polynomial_recursion (cs : CoxeterSystem M W) (x y : W)
@@ -381,10 +384,10 @@ theorem intervalIso_rankDifference
     simpa only [OrderIso.symm_apply_apply] using h
 
 /-- Named endpoints for an actual nonempty interval. -/
-def intervalBottom (cs : CoxeterSystem M W) {u b : W} (hub : BruhatLE cs u b) :
+@[expose] def intervalBottom (cs : CoxeterSystem M W) {u b : W} (hub : BruhatLE cs u b) :
     Interval cs u b := ⟨u, bruhat_refl cs u, hub⟩
 
-def intervalTop (cs : CoxeterSystem M W) {u b : W} (hub : BruhatLE cs u b) :
+@[expose] def intervalTop (cs : CoxeterSystem M W) {u b : W} (hub : BruhatLE cs u b) :
     Interval cs u b := ⟨b, hub, bruhat_refl cs b⟩
 
 theorem intervalIso_bottom

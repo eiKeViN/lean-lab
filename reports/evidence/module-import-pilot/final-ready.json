@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "--no-build",
+    "build",
+    "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+    "ForMathlib.LinearAlgebra.KernelTransport",
+    "OAI.KL.Compatibility.KernelTransport"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.8500125260000004,
+  "user_seconds": 4.392086,
+  "system_seconds": 2.135982,
+  "max_rss_kib": 989376
+}

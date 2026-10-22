@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+module
+public import Mathlib
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization. Source spans: Dihedral:9.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -69,7 +72,7 @@ theorem rPolynomial_normalization {C : Type*} [Field C]
 /-- The manuscript's q^{-d/2} P(q), written with t^2=q so no square-root
 branch is hidden. This is an evaluation of the already constructed genuine
 KL polynomial, not a new combinatorial invariant. -/
-noncomputable def scaledKL {C : Type*} [Field C]
+@[expose] noncomputable def scaledKL {C : Type*} [Field C]
     (cs : CoxeterSystem M W) (t : C) (x b : W) : C :=
   t ^ ((cs.length x : ℤ)-cs.length b) *
     eval₂ (Int.castRingHom C) (t^2) (klPolynomial cs x b)

@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.Equality. Source spans: GradedSheaves:3, GradedSheaves:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -12,7 +15,7 @@ universe uk ua um
 variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A}
 
-def Hom.ofEq {M N : ModuleData.{uk,ua,um} 𝓐} (h : M = N) : Hom M N := h ▸ Hom.id M
+@[expose] def Hom.ofEq {M N : ModuleData.{uk,ua,um} 𝓐} (h : M = N) : Hom M N := h ▸ Hom.id M
 
 @[simp] theorem Hom.ofEq_rfl (M : ModuleData.{uk,ua,um} 𝓐) : Hom.ofEq (rfl : M=M) = Hom.id M := rfl
 
@@ -33,11 +36,11 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
 theorem Hom.ofEq_bijective {M N : ModuleData.{uk,ua,um} 𝓐} (h : M=N) :
     Function.Bijective (Hom.ofEq h).map := by subst N; exact Function.bijective_id
 
-noncomputable def unit [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
+@[expose] noncomputable def unit [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
     (hneg : ∀ n < 0, 𝓐 n = ⊥) : ModuleData.{uk,ua,um} 𝓐 :=
   free (ι := PUnit.{max ua um + 1}) hneg (fun _ => 0) (fun _ => le_rfl)
 
-instance unit_free [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
+@[expose] instance unit_free [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
     (hneg : ∀ n < 0, 𝓐 n = ⊥) : Module.Free A (unit.{uk,ua,um} hneg) :=
   inferInstanceAs (Module.Free A (PUnit.{max ua um + 1} → A))
 

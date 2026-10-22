@@ -1,0 +1,8 @@
+Serialization guard: identical record and alpha controls accepted; 8 theorem mutations and 3 unsupported definition cases rejected.
+ModernPublicTypes.lean:157:11: error: unexpected token 'theorem'; expected term
+ModernPublicTypes.lean:157:19: error: unexpected token ')'; expected identifier
+ModernPublicTypes.lean:157:19: error: unexpected token ')'; expected ':'
+ModernPublicTypes.lean:169:60: error: unexpected token 'then'; expected identifier
+ModernPublicTypes.lean:169:66: error: unexpected token '.'; expected ':'
+ModernPublicTypes.lean:172:34: error: unexpected token 'with'; expected identifier
+ModernPublicTypes.lean:173:8: error: unexpected token '|'; expected ':'

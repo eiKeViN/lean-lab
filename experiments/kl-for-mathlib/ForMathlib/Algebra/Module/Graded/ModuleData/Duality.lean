@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.HomogeneousDual
-import ForMathlib.Algebra.Module.Graded.ModuleData.Character
-import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
-import ForMathlib.Algebra.Module.Graded.ModuleData.Transport
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.HomogeneousDual
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Character
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Transport
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.Duality. Source spans: Support:5, Support:1, Support:14.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -20,7 +23,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   subst N
   rfl
 
- def homOfEq {M N : ModuleData.{uk,ua,um} 𝓐} (h : M=N) : Hom M N :=
+ @[expose] def homOfEq {M N : ModuleData.{uk,ua,um} 𝓐} (h : M=N) : Hom M N :=
   ⟨(equivOfEq h).toLinearMap,equivOfEq_graded h⟩
 
 end KLInvariance.Graded.ModuleData
@@ -106,7 +109,7 @@ omit [Finite σ] in
     h.trans (map_zero e).symm)
   exact c.basis.dualBasis.ne_zero i hz
 
- def reflectedBasis
+ @[expose] def reflectedBasis
     (e : Dual (MvPolynomial σ k) M ≃ₗ[MvPolynomial σ k] N) (l : ℕ)
     (he : ∀ r lam, (∀ j (v : M), v∈M.piece j →
       lam v∈polynomialGrading k σ (j+r)) → e lam∈N.piece (r+l))

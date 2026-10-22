@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Duality
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Duality
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual. Source spans: CharacterReciprocity:35, CharacterReciprocity:15.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,7 +16,7 @@ universe uk us um
 variable {k : Type uk} [Field k] {σ : Type us} [Finite σ]
 noncomputable section
 
- def unitPolynomialBasis : NonnegativeBasis (σ := σ)
+ @[expose] def unitPolynomialBasis : NonnegativeBasis (σ := σ)
     (unit.{uk,max uk us,um} (polynomialGrading_negative k σ)).piece where
   index := PUnit.{max uk us um + 1}
   finite := inferInstance

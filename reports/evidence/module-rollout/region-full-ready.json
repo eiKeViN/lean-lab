@@ -1,0 +1,17 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "experiments/kl-for-mathlib",
+    "LEAN_TYPES_OUT=/workspace/lean-lab/results/module-rollout/region-full-ready.tsv",
+    "lake",
+    "env",
+    "lean",
+    ".lake/RolloutFullTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 10.538401732999773,
+  "user_seconds": 8.476166,
+  "system_seconds": 2.191463,
+  "max_rss_kib": 7730536
+}

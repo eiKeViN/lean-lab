@@ -1,4 +1,11 @@
-import Mathlib
+module
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.LinearCombination
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Order.Field.RealScaling. Source spans: PositiveTransfer:7.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.DirectedPaths.Suffix. Source spans: TerminalKernels:24.
 See migration.json and MIGRATION.md for exact provenance. -/

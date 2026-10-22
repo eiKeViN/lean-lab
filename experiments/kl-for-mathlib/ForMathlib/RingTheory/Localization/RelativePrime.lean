@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.RingTheory.Localization.RelativePrime. Source spans: PlaneLocalization:16.
 See migration.json and MIGRATION.md for exact provenance. -/

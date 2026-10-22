@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "scripts/build_rollout.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 92.8560337960007,
+  "user_seconds": 115.446035,
+  "system_seconds": 16.471765,
+  "max_rss_kib": 3196644
+}

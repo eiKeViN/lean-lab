@@ -1,0 +1,89 @@
+import OAI.KL
+
+#print axioms OAI.KLInvariance.weighted_sum_exchange
+#print axioms OAI.KLInvariance.weighted_sum_single
+#print axioms OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo
+#print axioms OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal
+#print axioms OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm
+#print axioms OAI.KLInvariance.finite_character_cancellation
+#print axioms OAI.KLInvariance.Comparison.matrix_difference_single
+#print axioms OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal
+#print axioms OAI.KLInvariance.BruhatGraph.bottom_eq_of_comparisons
+
+-- Expansion: eight helpers and five original clients.
+#print axioms OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply
+#print axioms OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff
+#print axioms OAI.KLInvariance.ReflectionPlane.triple_root_norm_two
+#print axioms OAI.KLInvariance.IntegralSupport.annihilates_of_supported
+#print axioms OAI.KLInvariance.IntegralSupport.supported_of_annihilates
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm
+#print axioms OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement
+#print axioms OAI.KLInvariance.ReflectionPlane.range_preReflection_product_sub_id
+#print axioms OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane
+#print axioms OAI.KLInvariance.IntegralSupport.supported_iff_annihilates
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.Iso.scaledImages
+#print axioms OAI.KLInvariance.TitsSpace.PlaneBasis.coset_structure_scaledImages
+
+-- Comparison pipeline: eight helpers and six old clients.
+#print axioms OAI.KLInvariance.BruhatGraph.adapted_path_sources_le
+#print axioms OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval
+#print axioms OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term
+#print axioms OAI.KLInvariance.BruhatGraph.reciprocal_square_weight
+#print axioms OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper
+#print axioms OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled
+#print axioms OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character
+#print axioms OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free
+#print axioms OAI.KLInvariance.BruhatGraph.transported_dispatch_entry
+#print axioms OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse
+#print axioms OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_upper
+#print axioms OAI.KLInvariance.BruhatGraph.costalkEquivDual_symmetric
+#print axioms OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character
+#print axioms OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq
+
+-- Library round: twenty-four helpers and twenty-one old clients.
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators
+#print axioms OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates
+#print axioms OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator
+#print axioms OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal
+#print axioms OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt
+#print axioms OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le
+#print axioms OAI.KLInvariance.Hilbert.saturated_kernel_witness
+#print axioms OAI.KLInvariance.Hilbert.term_image_exact
+#print axioms OAI.KLInvariance.Hilbert.image_terms_summable
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.class_projector
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator
+#print axioms OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector
+#print axioms OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation
+#print axioms OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership
+#print axioms OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal
+#print axioms OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq
+#print axioms OAI.KLInvariance.Hilbert.eq_of_value_eq
+#print axioms OAI.KLInvariance.Hilbert.scalar_value
+#print axioms OAI.KLInvariance.Hilbert.imageMap_ker
+#print axioms OAI.KLInvariance.Hilbert.value_image_exact
+#print axioms OAI.KLInvariance.Hilbert.shifted_image_value
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.pullback_kernel
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.tensorSections_surjective
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.baseChange_flabby
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.baseChange_upperQuotient
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledImages
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledImages
+#print axioms OAI.KLInvariance.MomentGraph.Sheaf.flowDown_flabby

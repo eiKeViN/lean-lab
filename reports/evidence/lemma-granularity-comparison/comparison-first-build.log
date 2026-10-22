@@ -1,0 +1,24 @@
+⚠ [9008/9117] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:62:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [9114/9117] Built OAI.KL.Comparison.Transport (5.7s)
+warning: OAI/KL/Comparison/Transport.lean:178:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.BruhatGraph.adapted_path_sources_le`:
+  [Fintype I']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: OAI/KL/Comparison/Transport.lean:431:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [9115/9117] Built OAI.KL.Comparison.Propagation (12s)
+✔ [9116/9117] Built OAI.KL.Localization.Edge (10s)
+✔ [9117/9117] Built OAI.KL.Comparison.SuffixFreeness (5.7s)
+Build completed successfully (9117 jobs).

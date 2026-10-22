@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic
+module
+public import Mathlib
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction. Source spans: Invariance:8.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -33,7 +36,7 @@ structure FiniteIntervalModel where
   · rw [StandardParabolic.inclusion_word,hv',hvu]
   · rw [StandardParabolic.inclusion_word,hw',hwb]
 
-def intervalEndpointCongr {a b a' b' : W} (ha : a = a') (hb : b = b') :
+@[expose] def intervalEndpointCongr {a b a' b' : W} (ha : a = a') (hb : b = b') :
     Interval cs a b ≃o Interval cs a' b' := by
   subst a'
   subst b'
@@ -42,7 +45,7 @@ def intervalEndpointCongr {a b a' b' : W} (ha : a = a') (hb : b = b') :
 namespace FiniteIntervalModel
 variable {cs u b} (F : FiniteIntervalModel cs u b)
 
- def orderIso : Interval (StandardParabolic.system (M := M) F.indices) F.lower F.upper ≃o
+ @[expose] def orderIso : Interval (StandardParabolic.system (M := M) F.indices) F.lower F.upper ≃o
     Interval cs u b := by
   let _ : Fintype F.indices := F.finite.fintype
   have h := StandardParabolic.intervalIso cs F.indices F.lower F.upper

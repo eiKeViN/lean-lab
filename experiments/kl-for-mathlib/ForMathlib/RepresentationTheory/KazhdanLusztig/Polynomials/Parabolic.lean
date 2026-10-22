@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic. Source spans: Tits:23.
 See migration.json and MIGRATION.md for exact provenance. -/

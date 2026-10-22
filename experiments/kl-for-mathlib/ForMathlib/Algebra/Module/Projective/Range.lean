@@ -1,4 +1,8 @@
-import Mathlib
+module
+public import Mathlib.Algebra.Module.Projective
+public import Mathlib.LinearAlgebra.Isomorphisms
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Projective.Range. Source spans: IntegralPairings:7, IntegralPairings:20.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -14,7 +18,7 @@ variable {R : Type ur} [CommRing R]
   {Q : Type uq} [AddCommGroup Q] [Module R Q]
 noncomputable section
 
- def descend (f : M →ₗ[R] P) (hf : Function.Surjective f) (g : M →ₗ[R] Q)
+ @[expose] def descend (f : M →ₗ[R] P) (hf : Function.Surjective f) (g : M →ₗ[R] Q)
     (hg : ∀ m, f m=0 → g m=0) : P →ₗ[R] Q :=
   ((LinearMap.ker f).liftQ g hg).comp (f.quotKerEquivOfSurjective hf).symm.toLinearMap
 
@@ -33,7 +37,7 @@ noncomputable section
   obtain ⟨m,rfl⟩ := hf p
   rw [LinearMap.comp_apply,descend_apply,he,LinearMap.id_apply]
 
- def kernelRetraction (f : M →ₗ[R] P) (s : P →ₗ[R] M)
+ @[expose] def kernelRetraction (f : M →ₗ[R] P) (s : P →ₗ[R] M)
     (hs : ∀ p, f (s p)=p) : M →ₗ[R] LinearMap.ker f :=
   (LinearMap.id-s.comp f).codRestrict (LinearMap.ker f) (fun m => by
     change f (m-s (f m))=0
@@ -50,7 +54,7 @@ noncomputable section
   change (m : M)-s (f m)=m
   rw [m.property,map_zero,sub_zero]
 
- def splitEquiv (f : M →ₗ[R] P) (s : P →ₗ[R] M) (hs : ∀ p, f (s p)=p) :
+ @[expose] def splitEquiv (f : M →ₗ[R] P) (s : P →ₗ[R] M) (hs : ∀ p, f (s p)=p) :
     M ≃ₗ[R] (LinearMap.ker f × P) :=
   { (kernelRetraction f s hs).prod f with
     invFun := fun z => z.1.val+s z.2
@@ -87,10 +91,10 @@ variable {R : Type ur} [CommRing R]
   (h : ∀ m, r m=0 → k (f m)=0)
 noncomputable section
 
- def onKernel : LinearMap.ker r →ₗ[R] LinearMap.ker k :=
+ @[expose] def onKernel : LinearMap.ker r →ₗ[R] LinearMap.ker k :=
   (f.comp (LinearMap.ker r).subtype).codRestrict (LinearMap.ker k) (fun m => h m.val m.property)
 
- def kernelOnKernelEquiv : ↥(LinearMap.ker r ⊓ LinearMap.ker f) ≃ₗ[R]
+ @[expose] def kernelOnKernelEquiv : ↥(LinearMap.ker r ⊓ LinearMap.ker f) ≃ₗ[R]
     LinearMap.ker (onKernel r f k h) where
   toFun z := ⟨⟨z.val,z.property.1⟩,Subtype.ext z.property.2⟩
   invFun z := ⟨z.val.val,z.val.property,congrArg Subtype.val z.property⟩

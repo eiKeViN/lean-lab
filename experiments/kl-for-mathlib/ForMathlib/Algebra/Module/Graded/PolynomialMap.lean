@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Generators
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Generators
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.PolynomialMap. Source spans: Frobenius:11.
 See migration.json and MIGRATION.md for exact provenance.

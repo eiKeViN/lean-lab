@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Generators
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Generators
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.FinitePieces. Source spans: BottSamelson:25.
 See migration.json and MIGRATION.md for exact provenance.
@@ -13,7 +16,7 @@ universe uk ua um ui
 variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {M : Type um} [AddCommGroup M] [Module k M] [Module A M] [IsScalarTower k A M]
 
- instance subPiece_finite (𝓜 : ℤ → Submodule k M) (S : Submodule A M) (n : ℤ)
+ @[expose] instance subPiece_finite (𝓜 : ℤ → Submodule k M) (S : Submodule A M) (n : ℤ)
     [Module.Finite k (𝓜 n)] : Module.Finite k (subPiece 𝓜 S n) := by
   let f : subPiece 𝓜 S n →ₗ[k] 𝓜 n :=
     { toFun := fun v => ⟨v.val.val,v.property⟩
@@ -28,7 +31,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
  variable {ι : Type ui} [Finite ι] {P : ι → Type um}
    [∀ i, AddCommGroup (P i)] [∀ i, Module k (P i)]
 
- instance piPiece_finite (𝓟 : ∀ i, ℤ → Submodule k (P i)) (n : ℤ)
+ @[expose] instance piPiece_finite (𝓟 : ∀ i, ℤ → Submodule k (P i)) (n : ℤ)
     [∀ i, Module.Finite k (𝓟 i n)] : Module.Finite k (piPiece 𝓟 n) := by
   let f : piPiece 𝓟 n →ₗ[k] (∀ i, 𝓟 i n) :=
     { toFun := fun v i => ⟨v.val i,v.property i (Set.mem_univ i)⟩

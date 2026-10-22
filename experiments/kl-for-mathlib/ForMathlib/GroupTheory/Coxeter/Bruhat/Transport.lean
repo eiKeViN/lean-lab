@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Bruhat.Transport. Source spans: Dihedral:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,7 +18,7 @@ variable {B' : Type u₂} {W' : Type v₂} [Group W'] {M' : CoxeterMatrix B'}
 
 /-- Restriction of the actual interval isomorphism to any subinterval. This
 is the same unlabeled map, not a new isomorphism with extra structure. -/
-def intervalIso_restrict (cs : CoxeterSystem M W) (cs' : CoxeterSystem M' W')
+@[expose] def intervalIso_restrict (cs : CoxeterSystem M W) (cs' : CoxeterSystem M' W')
     {u b : W} {u' b' : W'} (ι : Interval cs u b ≃o Interval cs' u' b')
     (x y : Interval cs u b) :
     Interval cs x.val y.val ≃o Interval cs' (ι x).val (ι y).val where

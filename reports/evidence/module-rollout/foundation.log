@@ -1,0 +1,50 @@
+All targets up-to-date (8923 jobs).
+⚠ [8925/8963] Built ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer (3.4s)
+warning: ForMathlib/Combinatorics/DirectedPaths/PositiveTransfer.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8926/8963] Built ForMathlib.LinearAlgebra.TensorProduct.Coordinates (6.9s)
+✔ [8927/8963] Built ForMathlib.Algebra.Module.Cover.Local (11s)
+✔ [8928/8963] Built ForMathlib.Order.Interval.Diamonds (14s)
+✔ [8929/8963] Built ForMathlib.Combinatorics.DirectedPaths.Suffix (13s)
+✔ [8930/8963] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic (14s)
+✔ [8931/8963] Built ForMathlib.Algebra.Module.Localization.Lattice (14s)
+✔ [8932/8963] Built ForMathlib.LinearAlgebra.ConjugateRange (14s)
+✔ [8933/8963] Built ForMathlib.LinearAlgebra.Dual.TransportPairing (14s)
+✔ [8934/8963] Built ForMathlib.Algebra.Module.Graded.Components (14s)
+⚠ [8935/8963] Built ForMathlib.Combinatorics.DirectedPaths.Basic (14s)
+warning: ForMathlib/Combinatorics/DirectedPaths/Basic.lean:16:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8936/8963] Built ForMathlib.LinearAlgebra.Reflection.Plane (15s)
+✔ [8937/8963] Built ForMathlib.Algebra.Module.Projective.ReverseFiltration (16s)
+✔ [8938/8963] Built ForMathlib.Algebra.Module.Free.ScalarDivisibility (14s)
+✔ [8939/8963] Built ForMathlib.LinearAlgebra.Avoidance (14s)
+✔ [8940/8963] Built ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic (17s)
+✔ [8941/8963] Built ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension (17s)
+✔ [8942/8963] Built ForMathlib.LinearAlgebra.Reflection.Bilinear (23s)
+✔ [8944/8963] Built ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal (26s)
+✔ [8945/8963] Built ForMathlib.LinearAlgebra.CoordinateProjection (23s)
+✔ [8946/8963] Built ForMathlib.LinearAlgebra.PlaneReduction (21s)
+✔ [8947/8963] Built ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient (18s)
+✔ [8948/8963] Built ForMathlib.Algebra.Module.Graded.Hilbert.Numerator (15s)
+✔ [8949/8963] Built ForMathlib.Algebra.Polynomial.LowPart (15s)
+⚠ [8950/8963] Built ForMathlib.GroupTheory.Coxeter.Exchange (16s)
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8951/8963] Built ForMathlib.Algebra.Module.Submodule.PiIdeal (14s)
+✔ [8952/8963] Built ForMathlib.Algebra.Module.Submodule.ScaledImage (14s)
+✔ [8953/8963] Built ForMathlib.LinearAlgebra.Quotient.Transport (14s)
+⚠ [8954/8963] Built ForMathlib.GroupTheory.Coxeter.Bruhat.Defs (12s)
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8955/8963] Built ForMathlib.LinearAlgebra.Dual.Summand (13s)
+⚠ [8956/8963] Built ForMathlib.Algebra.Module.CoefficientChange.Basic (14s)
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:30:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:34:3: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8957/8963] Built ForMathlib.Algebra.Module.Projective.Range (14s)
+✔ [8958/8963] Built ForMathlib.LinearAlgebra.Reflection.Classification (16s)
+✔ [8959/8963] Built ForMathlib.Algebra.Module.Localization.ProjectiveLattice (16s)
+✔ [8960/8963] Built ForMathlib.LinearAlgebra.PairProjection (15s)
+⚠ [8961/8963] Built ForMathlib.Combinatorics.Dihedral.SignedCount (17s)
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:14:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:171:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:326:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8962/8963] Built ForMathlib.Algebra.Module.Localization.FiniteCharacters (16s)
+✔ [8963/8963] Built ForMathlib.Algebra.Polynomial.Reciprocal (16s)
+Build completed successfully (8963 jobs).

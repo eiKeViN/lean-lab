@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Realization.Geometric
-import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Realization.Geometric
+public import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Realization.Tits. Source spans: Tits:5, Tits:7.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,16 +18,16 @@ variable {I : Type u} [Fintype I] (M : CoxeterMatrix I)
 noncomputable section
 
 
-def gram (i j : I) : ℝ := -2 * Real.cos (Real.pi / M i j)
+@[expose] def gram (i j : I) : ℝ := -2 * Real.cos (Real.pi / M i j)
 
-def root (i : I) : I → ℝ := by
+@[expose] def root (i : I) : I → ℝ := by
   classical
   exact Pi.single i 1
 
-def normal (i : I) : Module.Dual ℝ (I → ℝ) :=
+@[expose] def normal (i : I) : Module.Dual ℝ (I → ℝ) :=
   ∑ j, gram M i j • LinearMap.proj j
 
-def form : LinearMap.BilinForm ℝ (I → ℝ) :=
+@[expose] def form : LinearMap.BilinForm ℝ (I → ℝ) :=
   ∑ i, (LinearMap.proj i).smulRight (normal M i)
 
 @[simp] theorem normal_root (i j : I) : normal M i (root j) = gram M i j := by
@@ -68,7 +71,7 @@ theorem root_linearIndependent : LinearIndependent ℝ (root (I := I)) := by
 
 /-- A concrete action on the ordinary geometric root space over ℝ. Its
 faithfulness and the root-sign theorem are still required for the main proof. -/
-def action {W : Type v} [Group W] (cs : CoxeterSystem M W) :
+@[expose] def action {W : Type v} [Group W] (cs : CoxeterSystem M W) :
     W →* ((I → ℝ) ≃ₗ[ℝ] (I → ℝ)) :=
   Realization.geometricAction cs (form M) root (form_roots M)
 
@@ -95,14 +98,14 @@ noncomputable section
 
 abbrev Extended := Realization.Extension (form M)
 
-def extendedForm : LinearMap.BilinForm ℝ (Extended M) :=
+@[expose] def extendedForm : LinearMap.BilinForm ℝ (Extended M) :=
   Classical.choose (Realization.exists_minimal_nondegenerate_extension (form M) (form_symm M))
 
 theorem extendedForm_spec : (extendedForm M).IsSymm ∧ (extendedForm M).Nondegenerate ∧
     ∀ v w, extendedForm M (v, 0) (w, 0) = form M v w :=
   Classical.choose_spec (Realization.exists_minimal_nondegenerate_extension (form M) (form_symm M))
 
-def extendedRoot (i : I) : Extended M := (root i, 0)
+@[expose] def extendedRoot (i : I) : Extended M := (root i, 0)
 
 @[simp] theorem extendedForm_roots (i j : I) :
     extendedForm M (extendedRoot M i) (extendedRoot M j) =
@@ -119,7 +122,7 @@ theorem extendedNormal_linearIndependent :
     LinearIndependent ℝ (fun i => extendedForm M (extendedRoot M i)) :=
   (extendedRoot_linearIndependent M).map' (extendedForm M) (extendedForm_spec M).2.1.ker_eq_bot
 
-def extendedAction {W : Type v} [Group W] (cs : CoxeterSystem M W) :
+@[expose] def extendedAction {W : Type v} [Group W] (cs : CoxeterSystem M W) :
     W →* (Extended M ≃ₗ[ℝ] Extended M) :=
   Realization.geometricAction cs (extendedForm M) (extendedRoot M) (extendedForm_roots M)
 
@@ -158,7 +161,7 @@ theorem extended_finrank : Module.finrank ℝ (Extended M) =
   rw [Realization.extension_finrank, Module.finrank_pi]
 
 
-def dominant : Module.Dual ℝ (Extended M) :=
+@[expose] def dominant : Module.Dual ℝ (Extended M) :=
   (∑ i : I, LinearMap.proj i).comp
     (LinearMap.fst ℝ (I → ℝ) (Module.Dual ℝ (LinearMap.ker (form M))))
 

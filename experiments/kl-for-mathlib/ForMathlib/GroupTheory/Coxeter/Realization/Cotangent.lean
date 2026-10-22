@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Realization.Positivity
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Realization.Positivity
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Realization.Cotangent. Source spans: Tits:15.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,12 +16,12 @@ universe u v
 variable {I : Type u} (M : CoxeterMatrix I)
 noncomputable section
 
-def root (i : I) : I → ℝ := fun j => -2 * Real.cos (Real.pi / M i j)
+@[expose] def root (i : I) : I → ℝ := fun j => -2 * Real.cos (Real.pi / M i j)
 
 lemma normal_root (i : I) : (LinearMap.proj i : (I → ℝ) →ₗ[ℝ] ℝ) (root M i) = 2 := by
   simp [root]
 
-def simple (i : I) : (I → ℝ) ≃ₗ[ℝ] (I → ℝ) := Module.reflection (normal_root M i)
+@[expose] def simple (i : I) : (I → ℝ) ≃ₗ[ℝ] (I → ℝ) := Module.reflection (normal_root M i)
 
 theorem simple_liftable : M.IsLiftable (simple M) := by
   intro i j
@@ -38,7 +41,7 @@ theorem simple_liftable : M.IsLiftable (simple M) := by
   · simp [root, M.symmetric j i]
   · rfl
 
-def action {W : Type v} [Group W] (cs : CoxeterSystem M W) :
+@[expose] def action {W : Type v} [Group W] (cs : CoxeterSystem M W) :
     W →* ((I → ℝ) ≃ₗ[ℝ] (I → ℝ)) := cs.lift ⟨simple M, simple_liftable M⟩
 
 @[simp] theorem action_simple {W : Type v} [Group W] (cs : CoxeterSystem M W)

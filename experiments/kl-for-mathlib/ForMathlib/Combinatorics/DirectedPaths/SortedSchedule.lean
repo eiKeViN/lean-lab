@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.DirectedPaths.Transfer
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.DirectedPaths.Transfer
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.DirectedPaths.SortedSchedule. Source spans: ReflectionOrders:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -11,10 +14,10 @@ namespace KLInvariance.SchedulePaths
 universe u v w
 variable {E : Type u} {A : Type v} {Λ : Type w} [LinearOrder A] [LinearOrder Λ]
 noncomputable section
-local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
-local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidableEq_oAI : DecidableEq E := Classical.decEq E
+@[expose] local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidableEq_oAI : DecidableEq E := Classical.decEq E
 
-def sortedSchedule (F : Finset E) (score : E → Λ) : List E :=
+@[expose] def sortedSchedule (F : Finset E) (score : E → Λ) : List E :=
   F.toList.mergeSort (fun e f => score f ≤ score e)
 
 @[simp] theorem mem_sortedSchedule (F : Finset E) (score : E → Λ) (e : E) :
@@ -28,13 +31,13 @@ theorem sortedSchedule_pairwise (F : Finset E) (score : E → Λ) :
     (sortedSchedule F score).Pairwise (fun e f => score f ≤ score e) :=
   List.pairwise_mergeSort' _ _
 
-def blockValues (F : Finset E) (primary : E → A) : List A :=
+@[expose] def blockValues (F : Finset E) (primary : E → A) : List A :=
   (F.image primary).sort (fun a b => b ≤ a)
 
-def scheduleBlock (F : Finset E) (primary : E → A) (score : E → Λ) (a : A) : List E :=
+@[expose] def scheduleBlock (F : Finset E) (primary : E → A) (score : E → Λ) (a : A) : List E :=
   sortedSchedule (F.filter (fun e => primary e=a)) score
 
-def groupedSchedule (F : Finset E) (primary : E → A) (score : E → Λ) : List E :=
+@[expose] def groupedSchedule (F : Finset E) (primary : E → A) (score : E → Λ) : List E :=
   (blockValues F primary).flatMap (scheduleBlock F primary score)
 
 @[simp] theorem mem_blockValues (F : Finset E) (primary : E → A) (a : A) :

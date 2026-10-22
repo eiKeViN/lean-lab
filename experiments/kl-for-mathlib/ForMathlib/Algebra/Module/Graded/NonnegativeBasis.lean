@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.NonnegativeBasis. Source spans: SheafMorphisms:2, SheafMorphisms:7, SheafMorphisms:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -103,7 +106,7 @@ theorem exists_nonnegativeBasis [Module.Free (MvPolynomial σ k) M]
 namespace NonnegativeBasis
 variable {𝓜} (b : NonnegativeBasis (σ := σ) 𝓜)
 
-noncomputable def polynomial : ℤ[X] := ∑ i, X ^ b.degree i
+@[expose] noncomputable def polynomial : ℤ[X] := ∑ i, X ^ b.degree i
 
 omit [Finite σ] [IsScalarTower k (MvPolynomial σ k) M]
   [DirectSum.Decomposition 𝓜] [SetLike.GradedSMul (polynomialGrading k σ) 𝓜] in
@@ -145,7 +148,7 @@ lemma polynomial_eq (c : NonnegativeBasis (σ := σ) 𝓜) : b.polynomial = c.po
 
 end NonnegativeBasis
 
-noncomputable def character [Module.Free (MvPolynomial σ k) M]
+@[expose] noncomputable def character [Module.Free (MvPolynomial σ k) M]
     [Module.Finite (MvPolynomial σ k) M] (hneg : ∀ n < 0, 𝓜 n = ⊥) : ℤ[X] :=
   (exists_nonnegativeBasis (σ := σ) 𝓜 hneg).some.polynomial
 

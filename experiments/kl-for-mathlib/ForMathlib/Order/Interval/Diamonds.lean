@@ -1,4 +1,8 @@
-import Mathlib
+module
+public import Mathlib.Order.Hom.Basic
+public import Mathlib.Order.Cover
+
+public section
 
 /-! Semantic home: ForMathlib.Order.Interval.Diamonds. Source spans: ReflectionSchedules:18.
 See migration.json and MIGRATION.md for exact provenance. -/

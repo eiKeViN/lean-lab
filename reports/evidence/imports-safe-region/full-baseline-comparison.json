@@ -1,0 +1,12 @@
+{
+  "old_count": 3947,
+  "new_count": 3947,
+  "missing": [],
+  "added": [],
+  "changed": [],
+  "relocated": 0,
+  "passed": true,
+  "exact_all_fields_equal": true,
+  "baseline_sha256": "4941d5baf676d273d887fa1a96f8142bd30d1b2372747c5e390e3f3b4b5f1ada",
+  "final_sha256": "4941d5baf676d273d887fa1a96f8142bd30d1b2372747c5e390e3f3b4b5f1ada"
+}

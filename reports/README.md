@@ -1,7 +1,17 @@
 # Verification records
 
+The [three-file production integration](module-integration.md) connects the module
+pilot to exact source transforms, split audits and real downstream validation.
+
+The bounded [import/module pilot](module-import-pilot.md) records four-grid,
+visibility compatibility, and incremental-build experiments on the pinned baseline.
+
 Current entrypoints are in the root README and the maintained
-`experiments/kl-for-mathlib/README.md`. The current whole-library refinement is in
+`experiments/kl-for-mathlib/README.md`. The current library extraction round is in
+[lemma-granularity-library.md](lemma-granularity-library.md), with a separate
+[coverage register](lemma-granularity-library-coverage.md), following the
+[comparison pilot](lemma-granularity-comparison.md), the
+[expanded pilot](lemma-granularity-expansion.md) and [first pilot](lemma-granularity.md). The prior whole-library refinement is in
 [whole-library-layout.md](whole-library-layout.md); the previous local refinement
 is in [responsibility-boundaries.md](responsibility-boundaries.md). The preceding
 consolidation results are in [project-consolidation.md](project-consolidation.md).

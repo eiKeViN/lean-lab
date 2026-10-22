@@ -1,0 +1,22 @@
+Six production proof references verified; second use is within the four samples.
+Eight expansion original-site references verified; no second production use claimed.
+Nine comparison relationships verified; square-weight second use is within this round.
+27 library proof relationships verified: 24 new-helper original, two existing-API uses, one helper-to-helper.
+PilotChecks.lean:361:2: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+PilotChecks.lean:362:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+PilotChecks.lean:362:60: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+PilotChecks.lean:362:45: warning: Unused tactic linter: `simp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+PilotChecks.lean:362:60: warning: Unused tactic linter: `simp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+PilotChecks.lean:369:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

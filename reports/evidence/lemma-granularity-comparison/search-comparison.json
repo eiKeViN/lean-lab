@@ -1,0 +1,72 @@
+{
+  "baseline_count": 2595,
+  "final_count": 2603,
+  "baseline_replay_identical": true,
+  "ablation": "Remove only eight comparison-round docstrings; retain previous thirteen.",
+  "queries": [
+    {
+      "query": "increasing Bruhat path source above start",
+      "parent": "OAI.KLInvariance.BruhatGraph.transported_dispatch_entry",
+      "target": "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le",
+      "before_parent_rank": 285,
+      "after_target_rank": 1,
+      "ablation_target_rank": 14
+    },
+    {
+      "query": "reflected stalk polynomial reciprocal evaluation",
+      "parent": "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse",
+      "target": "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+      "before_parent_rank": 30,
+      "after_target_rank": 1,
+      "ablation_target_rank": 43
+    },
+    {
+      "query": "normalized R polynomial scaled stalk summand",
+      "parent": "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse",
+      "target": "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term",
+      "before_parent_rank": 12,
+      "after_target_rank": 1,
+      "ablation_target_rank": 3
+    },
+    {
+      "query": "inverse square degree weight identity",
+      "parent": "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse",
+      "target": "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+      "before_parent_rank": 29,
+      "after_target_rank": 1,
+      "ablation_target_rank": 2
+    },
+    {
+      "query": "upper interval triangular weighted sum",
+      "parent": "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_upper",
+      "target": "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+      "before_parent_rank": 134,
+      "after_target_rank": 1,
+      "ablation_target_rank": 1
+    },
+    {
+      "query": "incoming label costalk section pairing",
+      "parent": "OAI.KLInvariance.BruhatGraph.costalkEquivDual_symmetric",
+      "target": "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
+      "before_parent_rank": 11,
+      "after_target_rank": 1,
+      "ablation_target_rank": 3
+    },
+    {
+      "query": "full kernel Hilbert reciprocal character",
+      "parent": "OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character",
+      "target": "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character",
+      "before_parent_rank": 1,
+      "after_target_rank": 1,
+      "ablation_target_rank": 1
+    },
+    {
+      "query": "one edge reverse schedule kernel freeness",
+      "parent": "OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq",
+      "target": "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free",
+      "before_parent_rank": 12,
+      "after_target_rank": 1,
+      "ablation_target_rank": 125
+    }
+  ]
+}

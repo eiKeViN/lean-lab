@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Reflection.Bilinear. Source spans: Tits:12, Tits:2, Tits:3.
 See migration.json and MIGRATION.md for exact provenance.

@@ -1,0 +1,2 @@
+/workspace/lean-lab/experiments/kl-for-mathlib/.lake/ExposeSyntax.lean:4:2: warning: `@[expose]` has no effect; this declaration would be exposed by default
+/workspace/lean-lab/experiments/kl-for-mathlib/.lake/ExposeSyntax.lean:4:25: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Classical.propDecidable', which is 'noncomputable'

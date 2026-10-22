@@ -1,0 +1,158 @@
+{
+  "build_commands": [
+    {
+      "label": "library-algebra-characters",
+      "wall_seconds": 9.477235041999847,
+      "user_seconds": 11.142985000000001,
+      "system_seconds": 3.6353750000000002,
+      "exit_code": 1
+    },
+    {
+      "label": "library-algebra-build",
+      "wall_seconds": 25.79824602900044,
+      "user_seconds": 29.927333,
+      "system_seconds": 7.160932,
+      "exit_code": 1
+    },
+    {
+      "label": "library-algebra-corrected",
+      "wall_seconds": 24.832523295999636,
+      "user_seconds": 29.400323,
+      "system_seconds": 5.950947,
+      "exit_code": 1
+    },
+    {
+      "label": "library-algebra-final",
+      "wall_seconds": 14.550643076000597,
+      "user_seconds": 15.141171,
+      "system_seconds": 4.076391,
+      "exit_code": 0
+    },
+    {
+      "label": "library-sheaf-build",
+      "wall_seconds": 26.37772585699986,
+      "user_seconds": 28.868214,
+      "system_seconds": 6.9726099999999995,
+      "exit_code": 0
+    },
+    {
+      "label": "library-reuse-downstream",
+      "wall_seconds": 44.87213169700044,
+      "user_seconds": 0.05620399999999999,
+      "system_seconds": 0.0165,
+      "exit_code": -15
+    },
+    {
+      "label": "library-full-downstream",
+      "wall_seconds": 1243.8362569320007,
+      "user_seconds": 1398.691274,
+      "system_seconds": 91.420034,
+      "exit_code": 0
+    },
+    {
+      "label": "library-final-downstream",
+      "wall_seconds": 1171.703841188999,
+      "user_seconds": 1333.407255,
+      "system_seconds": 73.095797,
+      "exit_code": 0
+    }
+  ],
+  "measured_command_wall_sum": 2727.0901285690034,
+  "measured_child_cpu_sum": 3216.208056,
+  "build_command_wall_sum": 2561.4486031180004,
+  "full_validation_wall": 109.7469441530011,
+  "warm_build_wall": 4.650938974000383,
+  "failed_measured_commands": [
+    {
+      "label": "library-algebra-characters",
+      "command": [
+        "lake",
+        "build",
+        "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+      ],
+      "started_utc": "2026-10-22T02:20:47.569362+00:00",
+      "ended_utc": "2026-10-22T02:20:57.046515+00:00",
+      "wall_seconds": 9.477235041999847,
+      "user_seconds": 11.142985000000001,
+      "system_seconds": 3.6353750000000002,
+      "exit_code": 1
+    },
+    {
+      "label": "library-algebra-build",
+      "command": [
+        "lake",
+        "build",
+        "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+        "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+        "ForMathlib.Algebra.Polynomial.Reciprocal",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Basic",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Increment"
+      ],
+      "started_utc": "2026-10-22T02:22:14.809926+00:00",
+      "ended_utc": "2026-10-22T02:22:40.608135+00:00",
+      "wall_seconds": 25.79824602900044,
+      "user_seconds": 29.927333,
+      "system_seconds": 7.160932,
+      "exit_code": 1
+    },
+    {
+      "label": "library-algebra-corrected",
+      "command": [
+        "lake",
+        "build",
+        "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+        "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+        "ForMathlib.Algebra.Polynomial.Reciprocal",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Basic",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
+        "ForMathlib.Algebra.Module.Graded.Hilbert.Increment"
+      ],
+      "started_utc": "2026-10-22T02:23:16.464817+00:00",
+      "ended_utc": "2026-10-22T02:23:41.297308+00:00",
+      "wall_seconds": 24.832523295999636,
+      "user_seconds": 29.400323,
+      "system_seconds": 5.950947,
+      "exit_code": 1
+    },
+    {
+      "label": "library-reuse-downstream",
+      "command": [
+        "lake",
+        "build",
+        "ForMathlib",
+        "OAI"
+      ],
+      "started_utc": "2026-10-22T02:36:21.699112+00:00",
+      "ended_utc": "2026-10-22T02:37:06.571179+00:00",
+      "wall_seconds": 44.87213169700044,
+      "user_seconds": 0.05620399999999999,
+      "system_seconds": 0.0165,
+      "exit_code": -15
+    },
+    {
+      "label": "library-applicability-clean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "PilotChecks.lean"
+      ],
+      "started_utc": "2026-10-22T03:14:34.669942+00:00",
+      "ended_utc": "2026-10-22T03:14:40.955196+00:00",
+      "wall_seconds": 6.285286332000396,
+      "user_seconds": 5.224851,
+      "system_seconds": 1.459031,
+      "exit_code": 1
+    }
+  ],
+  "attempted_new_statements": 25,
+  "retained_new_statements": 24,
+  "old_clients": 21,
+  "token_telemetry": null,
+  "caveat": "Command wall sums are not exclusive session time: the cancelled 44.872-second gated startup overlaps the first full build. The full-validation wrapper includes its 32 stages; stages are not added again. Shared averages are not marginal per-lemma prices or active model/editing time. Unmetered selection/design/tooling/reporting and failed scripts are listed in phase-observations.json; no timing speedup is inferred.",
+  "shared_build_command_wall_per_retained_lemma": 106.72702512991668,
+  "shared_build_command_wall_per_attempted_lemma": 102.45794412472002
+}

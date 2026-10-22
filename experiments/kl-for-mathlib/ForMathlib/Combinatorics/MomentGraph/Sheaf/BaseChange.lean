@@ -105,6 +105,19 @@ noncomputable section
     exact (tmul_sub _ _ _).symm
   | add z w hz hw => simp only [map_add,hz,hw]; rfl
 
+/-- The tensored finite section constraint vanishes exactly on compatible
+tensored assignments. This uses the finite edge product comparison, without
+flatness or a finite vertex set. -/
+theorem tensorAssignments_mem_sections_iff [Finite E] (Ω : Set V)
+    (z : S ⊗[R] B.Assignment) :
+    B.tensorAssignments S z ∈ (B.baseChange S).sections Ω ↔
+      AlgebraTensorModule.lTensor S S (B.constraint Ω) z = 0 := by
+  classical
+  let := Fintype.ofFinite E
+  rw [← (B.baseChange S).ker_constraint Ω,LinearMap.mem_ker,B.constraint_tensorAssignments S]
+  exact (TensorProduct.piRight R S S
+    (fun e : {e : E // G.source e ∈ Ω ∧ G.target e ∈ Ω} => B.edge e.val)).map_eq_zero_iff
+
  theorem tensorSections_surjective [Finite V] [Finite E] [Module.Flat R S] (Ω : Set V) :
     Function.Surjective (B.tensorSections S Ω) := by
   classical
@@ -112,16 +125,7 @@ noncomputable section
   let := Fintype.ofFinite E
   intro f
   obtain ⟨z,hz⟩ := (B.tensorAssignments_bijective S).2 f.val
-  have hc : (B.baseChange S).constraint Ω (B.tensorAssignments S z) = 0 := by
-    rw [hz]
-    apply LinearMap.mem_ker.mp
-    rw [(B.baseChange S).ker_constraint Ω]
-    exact f.property
-  have he : AlgebraTensorModule.lTensor S S (B.constraint Ω) z = 0 := by
-    apply (TensorProduct.piRight R S S
-      (fun e : {e : E // G.source e ∈ Ω ∧ G.target e ∈ Ω} => B.edge e.val)).injective
-    rw [map_zero]
-    exact (B.constraint_tensorAssignments S Ω z).symm.trans hc
+  have he := (B.tensorAssignments_mem_sections_iff S Ω z).mp (by rw [hz]; exact f.property)
   have hex : Function.Exact (B.sections Ω).subtype (B.constraint Ω) := by
     rw [← B.ker_constraint Ω]
     exact (B.constraint Ω).exact_subtype_ker_map
@@ -146,14 +150,13 @@ for a finite moment graph. No freeness or BMP character input is used. -/
   LinearEquiv.ofBijective (B.tensorSections S Ω)
     ⟨B.tensorSections_injective S Ω,B.tensorSections_surjective S Ω⟩
 
- theorem baseChange_flabby [Finite V] [Finite E] [Module.Flat R S]
-    (hb : B.Flabby) : (B.baseChange S).Flabby := by
-  intro Ω hΩ f hf
-  obtain ⟨z,hz⟩ := B.tensorSections_surjective S Ω ⟨f,hf⟩
-  suffices ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
-      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x by
-    simpa only [hz] using this
-  clear hz f hf
+/-- A section already represented as a tensor of sections extends globally
+when the original sheaf is flabby. Finiteness and flatness are needed to represent
+arbitrary sections, not for this extension of a given tensor. -/
+theorem tensorSection_extend (hb : B.Flabby) (Ω : Set V) (hΩ : IsUpperSet Ω)
+    (z : S ⊗[R] B.sections Ω) :
+    ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
+      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x := by
   induction z using TensorProduct.inductionOn with
   | tmul s f =>
     obtain ⟨g,hg,hgf⟩ := hb Ω hΩ f.val f.property
@@ -168,6 +171,15 @@ for a finite moment graph. No freeness or BMP character input is used. -/
     intro x hx
     simp only [map_add,Submodule.coe_add,Pi.add_apply]
     rw [hfz x hx,hgw x hx]
+
+ theorem baseChange_flabby [Finite V] [Finite E] [Module.Flat R S]
+    (hb : B.Flabby) : (B.baseChange S).Flabby := by
+  intro Ω hΩ f hf
+  obtain ⟨z,hz⟩ := B.tensorSections_surjective S Ω ⟨f,hf⟩
+  suffices ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
+      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x by
+    simpa only [hz] using this
+  exact B.tensorSection_extend S hb Ω hΩ z
 
 end
 end KLInvariance.MomentGraph.Sheaf
@@ -190,15 +202,19 @@ variable {R : Type ur} [CommRing R] (S : Type us) [CommRing S] [Algebra R S]
     Module.Finite S ((B.baseChange S).vertex x) :=
   inferInstanceAs (Module.Finite S (S ⊗[R] B.vertex x))
 
+/-- The upper quotient condition is the exact scalar-kernel sequence at an
+edge. This presents the original module relation before any extension of scalars
+or flatness argument. -/
+theorem upperQuotient_exact (α : E → R) (h : B.UpperQuotient α) (e : E) :
+    Function.Exact (DistribSMul.toLinearMap R (B.vertex (G.target e)) (α e)) (B.upper e) := by
+  intro v
+  exact ((h e).2 v).trans (by simp only [Set.mem_range, DistribSMul.toLinearMap_apply,eq_comm])
+
  theorem baseChange_upperQuotient [Module.Flat R S] (α : E → R)
     (h : B.UpperQuotient α) : (B.baseChange S).UpperQuotient (fun e => algebraMap R S (α e)) := by
   intro e
   refine ⟨LinearMap.lTensor_surjective S (h e).1, ?_⟩
-  have hs : Function.Exact (DistribSMul.toLinearMap R (B.vertex (G.target e)) (α e))
-      (B.upper e) := by
-    intro v
-    exact ((h e).2 v).trans (by simp only [Set.mem_range, DistribSMul.toLinearMap_apply,
-      eq_comm])
+  have hs := B.upperQuotient_exact α h e
   have ht := Module.Flat.lTensor_exact S hs
   intro v
   change (B.upper e).lTensor S v = 0 ↔ ∃ w, v = algebraMap R S (α e) • w

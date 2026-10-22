@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Hilbert.Numerator. Source spans: IntegralPairings:1.
 See migration.json and MIGRATION.md for exact provenance.

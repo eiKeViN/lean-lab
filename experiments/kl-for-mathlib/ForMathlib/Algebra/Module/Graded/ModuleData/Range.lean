@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
-import ForMathlib.LinearAlgebra.Quotient.Transport
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
+public import ForMathlib.LinearAlgebra.Quotient.Transport
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.Range. Source spans: BalancedPairings:13, BalancedPairings:25, BalancedPairings:10.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,18 +18,18 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {M N : ModuleData.{uk,ua,um} 𝓐}
 noncomputable section
 
- def rangeMap (e : Hom M M) (f : Hom N N) (g : Hom M N)
+ @[expose] def rangeMap (e : Hom M M) (f : Hom N N) (g : Hom M N)
     (h : ∀ m, f.map (g.map m)=g.map (e.map m)) : Hom (range e) (range f) where
   map := (g.map.domRestrict e.map.range).codRestrict f.map.range (by
     rintro ⟨_,m,rfl⟩
     exact ⟨g.map m,h m⟩)
   graded n m hm := g.graded n m.val hm
 
- def rangeInclusion (e : Hom M M) : Hom (range e) M where
+ @[expose] def rangeInclusion (e : Hom M M) : Hom (range e) M where
   map := e.map.range.subtype
   graded _ _ hm := hm
 
- def rangeProjection (e : Hom M M) : Hom M (range e) where
+ @[expose] def rangeProjection (e : Hom M M) : Hom M (range e) where
   map := e.map.rangeRestrict
   graded n m hm := e.graded n m hm
 
@@ -61,7 +64,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   (heg : ∀ m, g.map m=0 → g.map (e.map m)=0)
 noncomputable section
 
- def descended : Hom X X where
+ @[expose] def descended : Hom X X where
   map := descend f.map hf e.map hef
   graded := by
     intro n x hx
@@ -78,7 +81,7 @@ include heg in
   rw [← hm]
   exact (descend_apply f.map hf e.map hef m).symm
 
- def descendedEdge : Hom (pairEdge f g hg) (pairEdge f g hg) where
+ @[expose] def descendedEdge : Hom (pairEdge f g hg) (pairEdge f g hg) where
   map := descend (lower f.map g.map) (lower_surjective f.map g.map hg)
     (descended e f hf hef).map (lower_kernel_preserved e f g hf hef heg)
   graded := by

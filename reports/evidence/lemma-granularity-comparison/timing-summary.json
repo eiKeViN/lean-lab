@@ -1,0 +1,29 @@
+{
+  "direct_pairs": [
+    {
+      "module": "transport",
+      "before_seconds": 5.806290143999831,
+      "after_seconds": 5.839717229000598,
+      "change_percent": 0.5757046956275547
+    },
+    {
+      "module": "propagation",
+      "before_seconds": 10.52134055299939,
+      "after_seconds": 9.783188534000146,
+      "change_percent": -7.01576016174873
+    },
+    {
+      "module": "suffix",
+      "before_seconds": 5.852038859000459,
+      "after_seconds": 5.929768660999798,
+      "change_percent": 1.3282516379704346
+    }
+  ],
+  "build_wall_sum": 109.36292990200036,
+  "build_shared_average_per_retained_lemma": 13.670366237750045,
+  "full_validation_wall": 109.60142583400011,
+  "measured_command_wall_sum": 312.113681711,
+  "failed_measured_commands": [],
+  "token_telemetry": null,
+  "caveat": "Shared batch averages, not individual or marginal prices. Selection/model editing/tool adaptation/reporting and some checks are unmetered; do not double-count stages inside wrapper."
+}

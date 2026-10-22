@@ -1,0 +1,272 @@
+{
+  "OAI.KLInvariance.weighted_sum_exchange": {
+    "levels": "\"[`u, `v]\"",
+    "type": "cf515ec599b8a6eb15d7f0bdfb391608680d1c1c4f2beed4177c71c2a81404ab",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+  },
+  "OAI.KLInvariance.weighted_sum_single": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fd6470018de0ae42e390351d2f59b33aaf9b68b9855b4ec83927c7c4355563a6",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.BigOperators.SingleCoordinate"
+  },
+  "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo": {
+    "levels": "\"[]\"",
+    "type": "ea8f37927b3e0fb6f612bef261a953d1dd19ca417515a81771e876b2a3993297",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Polynomial.ScaledEvaluation"
+  },
+  "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal": {
+    "levels": "\"[]\"",
+    "type": "9d96c0a5854ed6c3f2ce8a6131f963fb6a6d3ec96ad8c27d2ac17d4999949009",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Polynomial.ScaledEvaluation"
+  },
+  "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "aa80c95ac61617b12195829dfe69105d55905dbc4209bd7f69b298f6267fcde5",
+    "kind": "theorem",
+    "module": "OAI.KL.Invariance.Finite"
+  },
+  "OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "f036621a9f69c7bb803e97febc25bd8c142c8b8d796d2cf28490c7ac73bb1e14",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Reflection.Plane"
+  },
+  "OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff": {
+    "levels": "\"[`u_1]\"",
+    "type": "f9538e793a8ae2a84bf9073fbba5fcf9f3221fe9c384b9d34016d27203684605",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Reflection.Plane"
+  },
+  "OAI.KLInvariance.ReflectionPlane.triple_root_norm_two": {
+    "levels": "\"[`u_1]\"",
+    "type": "0d14500a43cc50126d6cb84e2477cf6efb4722274c19649a8f9c1d84ca61f9df",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Reflection.Plane"
+  },
+  "OAI.KLInvariance.IntegralSupport.annihilates_of_supported": {
+    "levels": "\"[`ur, `uv, `um]\"",
+    "type": "4b9887407afc102586d288e323a7eed8d76b910d8b220fdc39d9d71ef2a336ec",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport"
+  },
+  "OAI.KLInvariance.IntegralSupport.supported_of_annihilates": {
+    "levels": "\"[`ur, `uv, `um]\"",
+    "type": "c7af0c8d4d541a78aa1bb23a2da86d4c4ccbf9f5a9e4826f7e4452fa870494b2",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm": {
+    "levels": "\"[`ur, `uv, `ue, `uz, `uz']\"",
+    "type": "b87b9ecf50680b2f189497ad5e137ae1bb39a5426e8738a8cc94fa6273497ea5",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm": {
+    "levels": "\"[`ur, `uv, `ue, `uz, `uz']\"",
+    "type": "8a19a8e5e8e1dafa64755099f89b6a027c3aeb13089957711f6fb29a94a4b27c",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b691704148f478ada4f00d633fb8e65b4d2ea68b7d674b0eff8b76925945b2c2",
+    "kind": "theorem",
+    "module": "OAI.KL.Localization.TerminalImages"
+  },
+  "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le": {
+    "levels": "\"[`u', `v']\"",
+    "type": "d057351cf9b32e4f43b5c31896317dbb75ceadfbc3999abad49928e34fff2c53",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval": {
+    "levels": "\"[`u, `u_1]\"",
+    "type": "ef54e06a1df4bafd85188955c287b54816a70963d4e14732d8501b0b1c861904",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term": {
+    "levels": "\"[`u, `u_1]\"",
+    "type": "5abdbb0d8edf2155aab05b3ec85c8dcba5674e8ecfab938af1788ad5bd2428cf",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight": {
+    "levels": "\"[`u_1]\"",
+    "type": "5925adc21959ac49720e67abf8b8f02ad963f1e9eb8e6ecd6feb02b34b5793df",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper": {
+    "levels": "\"[`u, `u_1]\"",
+    "type": "1f694f2c4329767c4da65b2a48edca87129ab343f7a53f22e2184a315e59b371",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "90102cfca4b144922393c543f40c2039dd861e3ab9c5e921f6babdddcc08a28a",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Propagation"
+  },
+  "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "e06d7fcd710b738e9192ec11342595c1f5576f1e5decbc5e043fa84438dee384",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Propagation"
+  },
+  "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "0e2415446acec1ec5707c737944ec8fa832acdace9033324288e36fd0bc1e104",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.SuffixFreeness"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f696f58972ab8d07738c2bf7aedb77dab30315f666e42b5202f7666f558bd4e4",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd": {
+    "levels": "\"[`u, `v]\"",
+    "type": "86799ebee59cbd1edb4ede6dc65d9b4da9126e9be6a2ad98244fb26c66f07c84",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "3de68081572595cd6dce4215833db05f1311d8f46d72a10e5860ff0035d8fe0d",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "a5f699cdb4e24643e31986909be77c1689cb28c178ee5773c5967c064200557e",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates": {
+    "levels": "\"[`u_1, `u_2, `u_3]\"",
+    "type": "6fe03f362b581c05b4089706cd0f8714c27ba32b5d22dc4d0d77187f86ae09e2",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.ProjectiveLattice"
+  },
+  "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "db9f31701211a8eb653754f76e4052bc7d490691b2dc5c7a4315885acdedc398",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.ProjectiveLattice"
+  },
+  "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal": {
+    "levels": "\"[]\"",
+    "type": "7b0bd93bab219450993a0cd1979708b5defe694f1d5a7d27a7417a41c7082b8f",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Polynomial.Reciprocal"
+  },
+  "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt": {
+    "levels": "\"[`uk, `um]\"",
+    "type": "83c5beee25eb3f9b8d01034b4d68df16da4180f9ddcf4224274a60693bd5822a",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Basic"
+  },
+  "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le": {
+    "levels": "\"[`uk, `um]\"",
+    "type": "37ff551bb3228b272e624b8023a15da15d733175d6b48644911ca0eb3bf0512e",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Basic"
+  },
+  "OAI.KLInvariance.Hilbert.saturated_kernel_witness": {
+    "levels": "\"[`ua, `um, `un]\"",
+    "type": "da1d424d7f11f70e0d8bbc36cf0606e12a34e202cf0f81d53087e0873939286a",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Images"
+  },
+  "OAI.KLInvariance.Hilbert.term_image_exact": {
+    "levels": "\"[`uk, `ua, `um, `un]\"",
+    "type": "74392e19196db595bd3cb9bc124c2c305c66e86601ce3347c82ee8862b96033b",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Series"
+  },
+  "OAI.KLInvariance.Hilbert.image_terms_summable": {
+    "levels": "\"[`uk, `ua, `um, `un]\"",
+    "type": "adb2fbfb29b5b76bef3a1bf0ceefc5ce4e672c94ca17a63dd54eef1d7647665d",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Series"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live": {
+    "levels": "\"[`ur, `uv, `ue, `uw, `uf, `um]\"",
+    "type": "da4b361fdcb8c842923a667512c531be033fb3d396c4fb1868473bfed120b989",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live": {
+    "levels": "\"[`ur, `uv, `ue, `uw, `uf, `um]\"",
+    "type": "e852cf917b937eb6d6ab30fb48b532bcd466701c8f9fd8e11984446c6ca7b7df",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback": {
+    "levels": "\"[`ur, `uv, `ue, `uw, `uf, `um]\"",
+    "type": "978bc8d1ddbb5ae1eac98e61ac1ed6fb1cee958f79bbc3c28e11f96c013b3318",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live": {
+    "levels": "\"[`ur, `uv, `ue, `uw, `uf, `um]\"",
+    "type": "d02e1e88c8fbb9edbb34fa38c7c644498699afb013885cda820d26360bac95cd",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff": {
+    "levels": "\"[`ur, `us, `uv, `ue, `um]\"",
+    "type": "edb95288661f4739b45251fb2d5116af1adf079c44d06f8c7f5d8f28e358603d",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend": {
+    "levels": "\"[`ur, `us, `uv, `ue, `um]\"",
+    "type": "06da31cc5e2163ed53298c00c83ffd9d6816a6f43047eea3dd71fb3ebe94f6e6",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact": {
+    "levels": "\"[`ur, `uv, `ue, `um]\"",
+    "type": "0faeb9c9197fab4d7624929fbc14ff90135ac394401b473f29d31d83195a5f0c",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff": {
+    "levels": "\"[`ur, `uv, `ue, `uz]\"",
+    "type": "9ab7baa74daea726db0543575797eb9b6237b7105602134d3b004ad5ca8b18cd",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff": {
+    "levels": "\"[`ur, `uv, `ue, `uz]\"",
+    "type": "5fe89b309e51302e3371409fc657277f40cb48e51b13b141d760cf6f9977ac54",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff": {
+    "levels": "\"[`ur, `uv, `ue, `uz, `u_1]\"",
+    "type": "7ae5f601ae9bab58dbe87cfbc1182f73c011890286d66ed0817d1cd224d3d2e9",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff": {
+    "levels": "\"[`ur, `uv, `ue, `uz, `u_1]\"",
+    "type": "d00d2d84dc9e964bc9a764c9d1abfd29553b17da8146c03ad49597dd28869169",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference": {
+    "levels": "\"[`ur, `uv, `ue]\"",
+    "type": "6f14c01e10bba5dda1109eb7cca2ce925f758380c831aac89d389769722d3dcb",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown"
+  }
+}

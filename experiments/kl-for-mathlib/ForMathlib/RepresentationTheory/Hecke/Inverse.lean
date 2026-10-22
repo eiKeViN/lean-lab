@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
-import ForMathlib.RepresentationTheory.Hecke.Operators
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+public import ForMathlib.RepresentationTheory.Hecke.Operators
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.Inverse. Source spans: Hecke:4.
 See migration.json and MIGRATION.md for exact provenance. -/

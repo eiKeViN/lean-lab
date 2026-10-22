@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Dihedral.Words. Source spans: Dihedral:2, Dihedral:3.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,7 +16,7 @@ variable {W : Type*} [Group W] {M : CoxeterMatrix Bool}
 
 /-- The alternating expression starting with `i`, unlike Mathlib's
 `alternatingWord`, which specifies the final letter. -/
-def alt (i : Bool) : ℕ → List Bool
+@[expose] def alt (i : Bool) : ℕ → List Bool
   | 0 => []
   | n + 1 => i :: alt (!i) n
 
@@ -80,7 +83,7 @@ end
 section
 namespace KLInvariance.Dihedral
 
-noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
 
 variable {W : Type*} [Group W] {M : CoxeterMatrix Bool}
 

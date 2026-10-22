@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Dual.IntegralSupport. Source spans: Support:9, EdgeLocalization:21.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,9 +16,9 @@ variable {R : Type ur} [CommRing R]
   {V : Type uv} [DecidableEq V] {A : V → Type um} [∀ x, AddCommGroup (A x)] [∀ x, Module R (A x)]
   (M : Submodule R (∀ x, A x))
 
-noncomputable def projection (x : V) : M →ₗ[R] A x := (LinearMap.proj x).comp M.subtype
+@[expose] noncomputable def projection (x : V) : M →ₗ[R] A x := (LinearMap.proj x).comp M.subtype
 
-def supported (x : V) : Submodule R M where
+@[expose] def supported (x : V) : Submodule R M where
   carrier := {m | ∀ y, y ≠ x → m.val y = 0}
   zero_mem' := by intro y hy; rfl
   add_mem' := by intro m n hm hn y hy; exact congrArg₂ (· + ·) (hm y hy) (hn y hy) |>.trans (zero_add _)
@@ -24,7 +27,7 @@ def supported (x : V) : Submodule R M where
 variable (p : R)
   (hcut : ∀ x (m : M), (p • Pi.single x (m.val x)) ∈ M)
 
-noncomputable def cut (x : V) : M →ₗ[R] M := by
+@[expose] noncomputable def cut (x : V) : M →ₗ[R] M := by
   exact ((p • (LinearMap.single R A x).comp (LinearMap.proj x)).domRestrict M).codRestrict M (hcut x)
 
 @[simp] theorem cut_apply (x : V) (m : M) : (cut M p hcut x m).val = p • Pi.single x (m.val x) := rfl
@@ -56,28 +59,43 @@ variable [IsDomain R] [∀ x, Module.IsTorsionFree R (A x)] (hp : p ≠ 0)
   (hbalanced : ∀ x m n, d (cut M p hcut x m) n = d m (cut M p hcut x n))
 
 include hp hbalanced in
+/-- A single-supported section pairs to zero with the kernel of its stalk
+projection. Balanced cuts and a nonzero scalar give this integrally, without
+passing to a fraction field. -/
+theorem annihilates_of_supported (x : V) (m : M) (hm : m ∈ supported M x) :
+    ∀ n : M, projection M x n = 0 → d m n = 0 := by
+  intro n hn
+  have hh := hbalanced x m n
+  rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
+  simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
+
+include hp hbalanced in
+/-- Annihilating the stalk-projection kernel forces single support. Perfectness
+kills each other balanced cut, and torsion-freeness removes its nonzero scalar;
+this is the integral converse to the supported-section pairing argument. -/
+theorem supported_of_annihilates (x : V) (m : M)
+    (hm : ∀ n : M, projection M x n = 0 → d m n = 0) : m ∈ supported M x := by
+  intro y hy
+  have hc : cut M p hcut y m = 0 := by
+    apply d.injective
+    apply LinearMap.ext
+    intro n
+    rw [hbalanced]
+    simpa only [map_zero,LinearMap.zero_apply] using
+      hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
+  have hv := congrArg (fun s : M => s.val y) hc
+  simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
+
+include hp hbalanced in
 /-- The exact integral annihilator, not merely its generic vector space. -/
  theorem supported_iff_annihilates (x : V) (m : M) :
     m ∈ supported M x ↔ ∀ n : M, projection M x n = 0 → d m n = 0 := by
-  constructor
-  · intro hm n hn
-    have hh := hbalanced x m n
-    rw [cut_of_supported M p hcut x m hm,cut_eq_zero M p hcut x n hn] at hh
-    simpa only [map_smul,LinearMap.smul_apply,map_zero,smul_eq_zero_iff_right hp] using hh
-  · intro hm y hy
-    have hc : cut M p hcut y m = 0 := by
-      apply d.injective
-      apply LinearMap.ext
-      intro n
-      rw [hbalanced]
-      simpa only [map_zero,LinearMap.zero_apply] using
-        hm (cut M p hcut y n) (cut_other M p hcut y x (Ne.symm hy) n)
-    have hv := congrArg (fun s : M => s.val y) hc
-    simpa only [cut_self,Submodule.coe_zero,Pi.zero_apply,smul_eq_zero_iff_right hp] using hv
+  exact ⟨annihilates_of_supported M p hcut hp d hbalanced x m,
+    supported_of_annihilates M p hcut hp d hbalanced x m⟩
 
 /-- Precomposition with a surjective stalk projection gives the integral
 single-support module. No field extension was used anywhere in this map. -/
-noncomputable def dualToSupport (x : V) : Module.Dual R (A x) →ₗ[R] supported M x :=
+@[expose] noncomputable def dualToSupport (x : V) : Module.Dual R (A x) →ₗ[R] supported M x :=
   (d.symm.toLinearMap.comp (projection M x).dualMap).codRestrict (supported M x) (by
     intro lam
     apply (supported_iff_annihilates M p hcut hp d hbalanced x _).mpr
@@ -106,7 +124,7 @@ noncomputable def dualToSupport (x : V) : Module.Dual R (A x) →ₗ[R] supporte
     change d.symm ((projection M x).dualMap lam) = m.val
     rw [hlam,LinearEquiv.symm_apply_apply]
 
-noncomputable def supportEquivDual (x : V) (hπ : Function.Surjective (projection M x)) :
+@[expose] noncomputable def supportEquivDual (x : V) (hπ : Function.Surjective (projection M x)) :
     supported M x ≃ₗ[R] Module.Dual R (A x) :=
   (LinearEquiv.ofBijective (dualToSupport M p hcut hp d hbalanced x)
     (dualToSupport_bijective M p hcut hp d hbalanced x hπ)).symm

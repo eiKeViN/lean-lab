@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Generators
-import ForMathlib.LinearAlgebra.Dual.Adjoint
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Generators
+public import ForMathlib.LinearAlgebra.Dual.Adjoint
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Adjoint. Source spans: IntegralPairings:31, IntegralPairings:32.
 See migration.json and MIGRATION.md for exact provenance. -/

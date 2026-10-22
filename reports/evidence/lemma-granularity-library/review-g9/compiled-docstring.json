@@ -1,0 +1,3 @@
+{"name": "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le",
+ "doc":
+ "Componentwise inclusion reconstructs T ≤ S when the source submodule T\nis homogeneous. This algebraic gluing step needs neither finiteness nor Hilbert\nconvergence, and makes no homogeneity assumption on the target S. "}

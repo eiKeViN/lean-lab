@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.RepresentationTheory.Hecke.Operators
+module
+public import Mathlib
+public import ForMathlib.RepresentationTheory.Hecke.Operators
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.Coefficients. Source spans: IntegralPairings:3.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -64,7 +67,7 @@ noncomputable section
   rw [Finsupp.add_apply,left_coeff]
   split_ifs <;> ring
 
- def positiveWord (cs : CoxeterSystem M W) (q : C) : List I → Space W C
+ @[expose] def positiveWord (cs : CoxeterSystem M W) (q : C) : List I → Space W C
   | [] => basis 1
   | i::l => positiveWord cs q l+left cs q i (positiveWord cs q l)
 

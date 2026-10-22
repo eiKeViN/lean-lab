@@ -1,0 +1,154 @@
+{
+  "legacy-wide": {
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean": {
+      "sha256": "b677ea9505310cac6ce90d056fa1c7dd49bb8d2bb9e0044977f6b6a5775db150",
+      "bytes": 111240
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace": {
+      "sha256": "19c22ee7d857c4507cc334621fbc6a930f4ffd2f769de7299c4d2e79da2bccf5",
+      "bytes": 2785
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean": {
+      "sha256": "e21dfbb7cc4e62834986e618568b88bb833e75ea0b2f2b4b90ec7037eb8f5489",
+      "bytes": 5238
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.hash": {
+      "sha256": "cbec118905d037a3414e1d92400f7670d13d5248945cecaf18eb4230f8fc674a",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean.hash": {
+      "sha256": "26524782bbd4718442f092653bb1761ed1a7c78d85d82bf158ff4f63a3c94996",
+      "bytes": 16
+    }
+  },
+  "legacy-narrow": {
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean": {
+      "sha256": "a3478cc10e31bfc7f5886dd31f3e9d3985bacacdeba12132a060e472632b1ed8",
+      "bytes": 111192
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace": {
+      "sha256": "070d5007c0c91c73803cf69e423bc3a21b7506e3245b94bc0754e1000951e225",
+      "bytes": 3347
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean": {
+      "sha256": "88d533cbbc20941c644b3268ce78d130dfcd30acbc3efa02cdea566f172f1001",
+      "bytes": 5415
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.hash": {
+      "sha256": "f3e1c8629fb51dffce3ef590620bb9151ba3985e2a9d40e04790e81f2ba97fe0",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean.hash": {
+      "sha256": "13a00ba186cd2feb85f39c7892221e252ba8427b441dfe360dd2197303e7549f",
+      "bytes": 16
+    }
+  },
+  "module-wide": {
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir.hash": {
+      "sha256": "a32d543ffdb2edd8603d6ce9f03e8cfaa0986ebdef5f204dac99a229bb22cfeb",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash": {
+      "sha256": "1524af1eec0ec5c6aac3e53164ce2ba1c241338b2f81698046d9ec6b15b3f05c",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private": {
+      "sha256": "612eaa5d350e9dfca2fe797e1817360b947c95daf7cbb699988d3932b6206d1b",
+      "bytes": 79912
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean": {
+      "sha256": "427887747c3e16a0a8a0579c07d389222721d5bb09e9592b3180342df8131c61",
+      "bytes": 29968
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace": {
+      "sha256": "bbfa17cfb5f5d5660d6bbf47c4a8cc8a3b2203b3477eaad64efa64b57fa3bb0b",
+      "bytes": 2920
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean": {
+      "sha256": "bb16924b91336e100f997b3016fdb2c6a27335eb98719f804de59f7785db34d7",
+      "bytes": 5238
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server": {
+      "sha256": "c2fb287e6e865bfae043a95c5cd1ab697918673c9ffe756de11ae5ca5c0d0035",
+      "bytes": 3016
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir.sig.hash": {
+      "sha256": "1cdfd4132c4ed5c6edc178eed3f7568b8e5770aee55726957d84aaa65181ed9b",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.hash": {
+      "sha256": "3d8a5f4f221ff19a56c2ce57c2c0b9af74aabcb4fbead0e7106ce8f191541e35",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir": {
+      "sha256": "5aa7b7496646d8f38e1e325226aa72a576b456187d710d0e3430dde605059ea3",
+      "bytes": 1352
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean.hash": {
+      "sha256": "f79b02d3852b1960b7b616abcd1376fe775922c0cb6111230b1cc284ea8c0173",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir.sig": {
+      "sha256": "bb03907d9f92a634f893e7204a74fe1b271fdaa92cc08c4164a92c85089bd6be",
+      "bytes": 176
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash": {
+      "sha256": "47799be64c217667e76b53dc5c6e87bd3baaf3ff245e1ceb55a19fc2beda1038",
+      "bytes": 16
+    }
+  },
+  "module-narrow": {
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir.hash": {
+      "sha256": "f0ee59311df4190c99d759a434cf1f515be585138a57a864f3ed6e315e7452cd",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash": {
+      "sha256": "78d6251260ea4df0509c83a161efccdbc35eecf5694c35478026a67982122a86",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private": {
+      "sha256": "1e830081980c5c892ac86c66e0d999d5ba71dd58e33d003a0e6a705909dc7280",
+      "bytes": 79544
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean": {
+      "sha256": "5bca4d3a57d9f27d393a5a7578317ce5dca66d897baebdbe2617f107f68acea2",
+      "bytes": 30288
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace": {
+      "sha256": "aab5c657b611aa86b947d395421aa01475acdb007eeb70ed7e9ccce6031cd2c4",
+      "bytes": 3473
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean": {
+      "sha256": "f13aa109fb91cebd3fcc480a671198e3be6ff5ed55c11ceae962d3d652184ca3",
+      "bytes": 5415
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server": {
+      "sha256": "9b7b0d8f96fb50ae6c4516072f1edc0da01bd67d7dbe7b5c17399e4a3275d68f",
+      "bytes": 3016
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir.sig.hash": {
+      "sha256": "1cdfd4132c4ed5c6edc178eed3f7568b8e5770aee55726957d84aaa65181ed9b",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.hash": {
+      "sha256": "7f3932a85c3faa19b4bdc52adfd7fa3063e9f70ce845b96fb5d418dbcfa65154",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir": {
+      "sha256": "188b44a51f87d2545cdf9e97cc4186ff5a64f9958dbff3ebcb4c0e51c9bab229",
+      "bytes": 2136
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean.hash": {
+      "sha256": "6298b4b7ac2768d3f7b999fffd63277af7150c219d610c072524b3a008d030a2",
+      "bytes": 16
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ir.sig": {
+      "sha256": "bb03907d9f92a634f893e7204a74fe1b271fdaa92cc08c4164a92c85089bd6be",
+      "bytes": 176
+    },
+    ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash": {
+      "sha256": "5a02aa9c196d3c33895cd2cbcc1f2747acec8c28e579c72feab0bbb496ced267",
+      "bytes": 16
+    }
+  }
+}

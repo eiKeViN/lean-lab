@@ -172,6 +172,23 @@ omit [Fintype I] [Fintype I'] in
   rw [φ.apply_symm_apply,φ.apply_symm_apply]
   rfl
 
+omit [Fintype I'] in
+/-- Every edge source on an increasing Bruhat path lies above its start.
+This is the source-side path bound used when lifting a path into a transported
+interval; it needs no schedule or interval isomorphism. -/
+theorem adapted_path_sources_le {z w : W'} {p : List (AdaptedDyer.Edge cs')}
+    (hp : IsPath (AdaptedDyer.source cs') (AdaptedDyer.target cs') z w p) :
+    ∀ e ∈ p, BruhatLE cs' z (AdaptedDyer.source cs' e) := by
+  induction p generalizing z with
+  | nil => simp
+  | cons e p ih =>
+    intro f hf
+    rcases List.mem_cons.mp hf with rfl | hf
+    · exact hp.1 ▸ bruhat_refl cs' z
+    · rw [← hp.1]
+      exact (show BruhatLE cs' (AdaptedDyer.source cs' e)
+        (AdaptedDyer.target cs' e) from .single e.property).trans (ih hp.2 f hf)
+
 omit [Fintype I] in
  theorem transported_dispatch_entry {R : Type*} [Semiring R] (T : R)
     (x y : Interval cs u b) :
@@ -179,18 +196,6 @@ omit [Fintype I] in
       (transportedSchedule φ) x =
     WallDyer.entry (cs := cs') T (geometricFunctional (M := M') (cs := cs'))
       b' (φ x).val (φ y).val := by
-  have hsource {z w : W'} {p : List (AdaptedDyer.Edge cs')}
-      (hp : IsPath (AdaptedDyer.source cs') (AdaptedDyer.target cs') z w p) :
-      ∀ e ∈ p, BruhatLE cs' z (AdaptedDyer.source cs' e) := by
-    induction p generalizing z with
-    | nil => simp
-    | cons e p ih =>
-      intro f hf
-      rcases List.mem_cons.mp hf with rfl | hf
-      · exact hp.1 ▸ bruhat_refl cs' z
-      · rw [← hp.1]
-        exact (show BruhatLE cs' (AdaptedDyer.source cs' e)
-          (AdaptedDyer.target cs' e) from .single e.property).trans (ih hp.2 f hf)
   symm
   apply dispatch_entry_graph_embedding (AdaptedDyer.source cs') (AdaptedDyer.target cs')
     (source cs u b) (target cs u b) T
@@ -207,7 +212,7 @@ omit [Fintype I] in
       (φ (target cs u b e)).property.2)
   · intro r hr e he
     have hp := ((mem_subpaths _ _ _ _ _ r).mp hr).2
-    exact transportedEdge_lift φ e ((φ x).property.1.trans (hsource hp e he))
+    exact transportedEdge_lift φ e ((φ x).property.1.trans (adapted_path_sources_le hp e he))
       ((AdaptedDyer.path_targets_le cs' hp e he).trans (φ y).property.2)
 
 omit [Fintype I] in
@@ -338,11 +343,26 @@ local instance scaledInterval : Fintype (Interval cs 1 b) := by
   t^((cs.length x.val : ℤ)-cs.length b)*
     eval₂ (Int.castRingHom C) (t^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)
 
- theorem scaledStalk_reciprocity_inverse {C : Type*} [Field C]
-    (v : C) (hv : v≠0) (x : Interval cs 1 b) :
-    scaledStalk cs b basis v⁻¹ x=∑ z : Interval cs 1 b,
-      eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val)*
-        scaledStalk cs b basis v z := by
+/-- A squared reciprocal degree weight reverses the grading exponent.
+This field identity is shared by scaled-stalk polynomial reciprocity and the
+normalization of the full-kernel Hilbert expression; no positivity is required. -/
+theorem reciprocal_square_weight {C : Type*} [Field C] (v : C) (hv : v ≠ 0)
+    (m n : ℤ) : v^(m-n) * (v^2)^(n-m) = (v⁻¹)^(m-n) := by
+  rw [show (v^2)^(n-m) = v^(2*(n-m)) by rw [zpow_mul]; norm_num,
+    ← zpow_add₀ hv,inv_zpow,← zpow_neg]
+  congr 1
+  omega
+
+/-- Evaluating polynomial stalk reciprocity at the nonzero square gives a
+reciprocal-point identity before any degree weights are normalized. The degree
+bound justifies evaluating the reflected stalk polynomial. -/
+theorem stalkCharacter_reciprocity_eval {C : Type*} [Field C]
+    (v : C) (hv : v ≠ 0) (x : Interval cs 1 b) :
+    (v^2)^(rankDifference cs x.val b) *
+      eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x) =
+    ∑ z : Interval cs 1 b,
+      eval₂ (Int.castRingHom C) (v^2) (OrdinaryR.polynomial cs x.val z.val) *
+        eval₂ (Int.castRingHom C) (v^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) z) := by
   classical
   have hrec := stalkCharacter_reciprocity cs basis b x
   let q : Cˣ := Units.mk0 (v^2) (pow_ne_zero 2 hv)
@@ -352,21 +372,18 @@ local instance scaledInterval : Fintype (Interval cs 1 b) := by
   have hq : (q : C)=v^2 := rfl
   have hqi : (↑q⁻¹ : C)=(v⁻¹)^2 := by simp [q,inv_pow]
   rw [hq,hqi] at heval
-  have heq := congrArg (fun a : C => v^((cs.length x.val : ℤ)-cs.length b)*a) heval
-  have hd : (rankDifference cs x.val b : ℤ)=(cs.length b : ℤ)-cs.length x.val := by
-    simp [rankDifference,Int.ofNat_sub (length_le_of_bruhat cs x.property.2)]
-  have hscale : v^((cs.length x.val : ℤ)-cs.length b)*(v^2)^(rankDifference cs x.val b)=
-      (v⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
-    rw [←pow_mul,←zpow_natCast,←zpow_add₀ hv,inv_zpow,←zpow_neg]
-    congr 1
-    push_cast
-    omega
-  rw [←mul_assoc,hscale,Finset.mul_sum] at heq
-  change (v⁻¹)^((cs.length x.val : ℤ)-cs.length b)*
-    eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)=_
-  rw [heq]
-  apply Finset.sum_congr rfl
-  intro z _
+  exact heval
+
+/-- Each ordinary R-polynomial summand acquires exactly the target stalk's
+weight after normalization. This combines R-tilde normalization and addition of
+the two grading exponents, with no extra comparability hypothesis on the vertices. -/
+theorem scaledStalk_rTilde_term {C : Type*} [Field C]
+    (v : C) (hv : v ≠ 0) (x z : Interval cs 1 b) :
+    v^((cs.length x.val : ℤ)-cs.length b) *
+      (eval₂ (Int.castRingHom C) (v^2) (OrdinaryR.polynomial cs x.val z.val) *
+        eval₂ (Int.castRingHom C) (v^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) z)) =
+    eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val) *
+      scaledStalk cs b basis v z := by
   have hr : OrdinaryR.polynomial cs x.val z.val=rPolynomial cs x.val z.val :=
     (rPolynomial_eq_constructed cs x.val z.val).symm
   rw [hr,rPolynomial_normalization cs v hv]
@@ -380,6 +397,28 @@ local instance scaledInterval : Fintype (Interval cs 1 b) := by
         ((cs.length z.val : ℤ)-cs.length x.val)=(cs.length z.val : ℤ)-cs.length b by ring]
       ring
 
+ theorem scaledStalk_reciprocity_inverse {C : Type*} [Field C]
+    (v : C) (hv : v≠0) (x : Interval cs 1 b) :
+    scaledStalk cs b basis v⁻¹ x=∑ z : Interval cs 1 b,
+      eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val)*
+        scaledStalk cs b basis v z := by
+  classical
+  have heval := stalkCharacter_reciprocity_eval cs b basis v hv x
+  have heq := congrArg (fun a : C => v^((cs.length x.val : ℤ)-cs.length b)*a) heval
+  have hd : (rankDifference cs x.val b : ℤ)=(cs.length b : ℤ)-cs.length x.val := by
+    simp [rankDifference,Int.ofNat_sub (length_le_of_bruhat cs x.property.2)]
+  have hscale : v^((cs.length x.val : ℤ)-cs.length b)*(v^2)^(rankDifference cs x.val b)=
+      (v⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
+    rw [← zpow_natCast (v^2) (rankDifference cs x.val b),hd]
+    exact reciprocal_square_weight v hv _ _
+  rw [←mul_assoc,hscale,Finset.mul_sum] at heq
+  change (v⁻¹)^((cs.length x.val : ℤ)-cs.length b)*
+    eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)=_
+  rw [heq]
+  apply Finset.sum_congr rfl
+  intro z _
+  exact scaledStalk_rTilde_term cs b basis v hv x z
+
  theorem scaledStalk_reciprocity {C : Type*} [Field C]
     (t : C) (ht : t≠0) (x : Interval cs 1 b) :
     scaledStalk cs b basis t x=∑ z : Interval cs 1 b,
@@ -387,21 +426,26 @@ local instance scaledInterval : Fintype (Interval cs 1 b) := by
         scaledStalk cs b basis t⁻¹ z := by
   simpa only [inv_inv] using scaledStalk_reciprocity_inverse cs b basis t⁻¹ (inv_ne_zero ht) x
 
- theorem scaledStalk_reciprocity_upper {C : Type*} [Field C]
-    (t : C) (ht : t≠0) (a : W) (x : Interval cs a b) :
-    scaledStalk cs b basis t ((upperInclusion cs a b).vertex x)=
-      ∑ᶠ z : Interval cs a b,
-        eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
-          scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z) := by
+omit [Fintype I] in
+/-- Triangular R-tilde support restricts any weighted row sum to an upper
+interval. The weights are arbitrary and the coefficient ring need not be a field;
+scaled-stalk reciprocity uses this after its algebraic reciprocal identity. -/
+theorem rTilde_weighted_sum_upper {C : Type*} [CommRing C] (T : C)
+    (a : W) (x : Interval cs a b) (w : Interval cs 1 b → C) :
+    (∑ z : Interval cs 1 b,
+      eval₂ (Int.castRingHom C) T (Hecke.rTilde cs x.val z.val) * w z) =
+    ∑ᶠ z : Interval cs a b,
+      eval₂ (Int.castRingHom C) T (Hecke.rTilde cs x.val z.val) *
+        w ((upperInclusion cs a b).vertex z) := by
   classical
   let := interval_finite cs a b
   let := Fintype.ofFinite (Interval cs a b)
-  rw [scaledStalk_reciprocity cs b basis t ht, finsum_eq_sum_of_fintype]
+  rw [finsum_eq_sum_of_fintype]
   let e : {z : Interval cs 1 b // BruhatLE cs a z.val} ≃ Interval cs a b :=
     ⟨fun z => ⟨z.val.val,z.property,z.val.property.2⟩,
       fun z => ⟨(upperInclusion cs a b).vertex z,z.property.1⟩,fun _ => rfl,fun _ => rfl⟩
-  let g (z : Interval cs 1 b) :=
-    eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*scaledStalk cs b basis t⁻¹ z
+  let g (z : Interval cs 1 b) := eval₂ (Int.castRingHom C) T
+    (Hecke.rTilde cs x.val z.val) * w z
   change (∑ z : Interval cs 1 b, g z)=_
   calc
     _ = ∑ z ∈ Finset.univ.filter (fun z : Interval cs 1 b => BruhatLE cs a z.val),g z := by
@@ -414,9 +458,18 @@ local instance scaledInterval : Fintype (Interval cs 1 b) := by
       simp [g,Hecke.rTilde_zero cs x.val z.val hnot]
     _ = ∑ z : {z : Interval cs 1 b // BruhatLE cs a z.val}, g z.val :=
       Finset.sum_subtype _ (by simp) g
-    _ = _ := Equiv.sum_comp e (fun z =>
-      eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
-        scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z))
+    _ = _ := Equiv.sum_comp e (fun z => eval₂ (Int.castRingHom C) T
+      (Hecke.rTilde cs x.val z.val) * w ((upperInclusion cs a b).vertex z))
+
+ theorem scaledStalk_reciprocity_upper {C : Type*} [Field C]
+    (t : C) (ht : t≠0) (a : W) (x : Interval cs a b) :
+    scaledStalk cs b basis t ((upperInclusion cs a b).vertex x)=
+      ∑ᶠ z : Interval cs a b,
+        eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
+          scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z) := by
+  rw [scaledStalk_reciprocity cs b basis t ht]
+  exact rTilde_weighted_sum_upper cs b (t⁻¹-t) a x
+    (fun z => scaledStalk cs b basis t⁻¹ z)
 
 end
 end KLInvariance.BruhatGraph

@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib.LinearAlgebra.DFinsupp
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Dual.Summand. Source spans: BalancedPairings:17.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,10 +18,10 @@ variable {R : Type ur} [CommRing R]
   (hpi : ∀ n, p (i n)=n)
 noncomputable section
 
- def dualSection : Module.Dual R N →ₗ[R] M :=
+ @[expose] def dualSection : Module.Dual R N →ₗ[R] M :=
   d.symm.toLinearMap.comp p.dualMap
 
- def dualProjection : M →ₗ[R] Module.Dual R N := i.dualMap.comp d.toLinearMap
+ @[expose] def dualProjection : M →ₗ[R] Module.Dual R N := i.dualMap.comp d.toLinearMap
 
 include hpi in
  theorem projection_section (lam : Module.Dual R N) :
@@ -30,7 +33,7 @@ include hpi in
   change lam (p (i n))=lam n
   rw [hpi]
 
- def adjointProjector : Module.End R M := (dualSection d p).comp (dualProjection d i)
+ @[expose] def adjointProjector : Module.End R M := (dualSection d p).comp (dualProjection d i)
 
 include hpi in
  theorem adjointProjector_idempotent (m : M) :
@@ -39,7 +42,7 @@ include hpi in
   rw [projection_section d i p hpi]
   rfl
 
- def adjointSummand : Submodule R M := LinearMap.range (dualSection d p)
+ @[expose] def adjointSummand : Submodule R M := LinearMap.range (dualSection d p)
 
 include hpi in
  theorem dualProjection_injective_on_adjoint :
@@ -57,7 +60,7 @@ include hpi in
   intro lam
   exact ⟨⟨dualSection d p lam,lam,rfl⟩,projection_section d i p hpi lam⟩
 
- def adjointEquivDual : adjointSummand d p ≃ₗ[R] Module.Dual R N :=
+ @[expose] def adjointEquivDual : adjointSummand d p ≃ₗ[R] Module.Dual R N :=
   LinearEquiv.ofBijective ((dualProjection d i).domRestrict (adjointSummand d p))
     ⟨dualProjection_injective_on_adjoint d i p hpi,dualProjection_surjective_on_adjoint d i p hpi⟩
 

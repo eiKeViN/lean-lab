@@ -76,32 +76,51 @@ noncomputable section
   have hx : h.choose=x := hi h.choose_spec
   exact moduleEq_apply (fun z => B.vertex (f.vertex z)) hx s
 
+/-- An upper vertex set maps to a live-edge-closed set when every live edge
+out of its image lifts. Injectivity and sheaf flabbiness are not needed for this
+geometric closure argument. -/
+theorem image_closedUnder_live (live : Set F)
+    (hlift : ∀ e ∈ live, ∀ x, f.vertex x = H.source e →
+      ∃ a, f.edge a=e ∧ G.source a=x) (Ω : Set V) (hΩ : IsUpperSet Ω) :
+    B.ClosedUnder live (f.vertex '' Ω) := by
+  intro e he hsource
+  obtain ⟨x,hx,hxe⟩ := hsource
+  obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
+  exact ⟨G.target a,hΩ (G.increasing a).le hx,f.target a⟩
+
+/-- Pushing a compatible partial section along an injective graph map
+preserves compatibility on its image when live edges lift and dead edge modules
+are subsingletons. No extension or finiteness assumption is needed. -/
+theorem push_compatible_live (hi : Function.Injective f.vertex) (live : Set F)
+    (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
+    (hlift : ∀ e ∈ live, ∀ x, f.vertex x = H.source e →
+      ∃ a, f.edge a=e ∧ G.source a=x) (Ω : Set V)
+    (s : (B.pullback f).Assignment) (hs : (B.pullback f).CompatibleOn Ω s) :
+    B.CompatibleOn (f.vertex '' Ω) (B.pushAssignment f s) := by
+  classical
+  intro e hsource htarget
+  by_cases he : e ∈ live
+  · obtain ⟨x,hx,hxe⟩ := hsource
+    obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
+    obtain ⟨y,hy,hye⟩ := htarget
+    have hya : y=G.target a := hi (hye.trans (f.target a).symm)
+    subst y
+    have hh := hs a hx hy
+    rw [← B.pull_push f hi s] at hh
+    change (B.pullback f).lower a (B.pullAssignment f (B.pushAssignment f s) (G.source a)) =
+      (B.pullback f).upper a (B.pullAssignment f (B.pushAssignment f s) (G.target a)) at hh
+    rw [pull_lower,pull_upper] at hh
+    exact hh
+  · exact @Subsingleton.elim _ (hdead e he) _ _
+
  theorem pullback_flabby_live [Finite W] (hb : B.Flabby)
     (hi : Function.Injective f.vertex) (live : Set F)
     (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
     (hlift : ∀ e ∈ live, ∀ x, f.vertex x = H.source e →
       ∃ a, f.edge a=e ∧ G.source a=x) : (B.pullback f).Flabby := by
   intro Ω hΩ s hs
-  have hc : B.ClosedUnder live (f.vertex '' Ω) := by
-    intro e he hsource
-    obtain ⟨x,hx,hxe⟩ := hsource
-    obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
-    exact ⟨G.target a,hΩ (G.increasing a).le hx,f.target a⟩
-  have hcompat : B.CompatibleOn (f.vertex '' Ω) (B.pushAssignment f s) := by
-    intro e hsource htarget
-    by_cases he : e ∈ live
-    · obtain ⟨x,hx,hxe⟩ := hsource
-      obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
-      obtain ⟨y,hy,hye⟩ := htarget
-      have hya : y=G.target a := hi (hye.trans (f.target a).symm)
-      subst y
-      have hh := hs a hx hy
-      rw [← B.pull_push f hi s] at hh
-      change (B.pullback f).lower a (B.pullAssignment f (B.pushAssignment f s) (G.source a)) =
-        (B.pullback f).upper a (B.pullAssignment f (B.pushAssignment f s) (G.target a)) at hh
-      rw [pull_lower,pull_upper] at hh
-      exact hh
-    · exact @Subsingleton.elim _ (hdead e he) _ _
+  have hc := B.image_closedUnder_live f live hlift Ω hΩ
+  have hcompat := B.push_compatible_live f hi live hdead hlift Ω s hs
   obtain ⟨t,ht,hts⟩ := B.extend_closedUnder hb live hdead (f.vertex '' Ω) hc
     (B.pushAssignment f s) hcompat
   refine ⟨B.pullAssignment f t,B.pull_global f t ht,?_⟩
@@ -150,33 +169,55 @@ noncomputable section
   subst x
   rfl
 
+/-- An ambient upward-kernel condition always pulls back along a graph map.
+The reverse direction is the one that needs live-edge lifting; this inclusion
+uses only the commuting lower maps. -/
+theorem upwardKernel_le_pullback (x : V) (T : Set F) :
+    B.upwardKernel (f.vertex x) {e | e.val ∈ T} ≤
+      (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} := by
+  intro v hv
+  classical
+  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
+  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
+  have hxs : B.pullAssignment f s x = v := hs
+  intro e he
+  have hh := hv ⟨f.edge e.val,(f.source e.val).symm.trans (congrArg f.vertex e.property)⟩ he
+  rw [← hs,B.stalkMap_assignment s] at hh
+  rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s),B.pull_lower f]
+  exact hh
+
+/-- Lifting live outgoing edges and killing the other edge modules reflect
+upward-kernel conditions back to the ambient graph. The statement isolates the
+hypotheses absent from unconditional kernel pullback. -/
+theorem pullbackKernel_le_of_live (x : V) (T : Set F)
+    (live : Set F) (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
+    (hlift : ∀ e ∈ live, f.vertex x = H.source e →
+      ∃ a, f.edge a=e ∧ G.source a=x) :
+    (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} ≤
+      B.upwardKernel (f.vertex x) {e | e.val ∈ T} := by
+  intro v hv
+  classical
+  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
+  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
+  have hxs : B.pullAssignment f s x = v := hs
+  intro e he
+  rw [← hs,B.stalkMap_assignment s]
+  by_cases hl : e.val ∈ live
+  · obtain ⟨a,ha,hax⟩ := hlift e.val hl e.property.symm
+    have hh := hv ⟨a,hax⟩ (show f.edge a ∈ T from ha.symm ▸ he)
+    rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s)] at hh
+    rw [B.pull_lower f] at hh
+    exact (congrArg (fun q : F => B.lower q (s (H.source q)) = 0) ha).mp hh
+  · exact @Subsingleton.elim _ (hdead e.val hl) _ _
+
  theorem pullback_kernel (x : V) (T : Set F)
     (live : Set F) (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
     (hlift : ∀ e ∈ live, f.vertex x = H.source e →
       ∃ a, f.edge a=e ∧ G.source a=x) :
     (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} =
       B.upwardKernel (f.vertex x) {e | e.val ∈ T} := by
-  classical
-  ext v
-  change B.vertex (f.vertex x) at v
-  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
-  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
-  have hxs : B.pullAssignment f s x = v := hs
-  constructor
-  · intro hv e he
-    rw [← hs,B.stalkMap_assignment s]
-    by_cases hl : e.val ∈ live
-    · obtain ⟨a,ha,hax⟩ := hlift e.val hl e.property.symm
-      have hh := hv ⟨a,hax⟩ (show f.edge a ∈ T from ha.symm ▸ he)
-      rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s)] at hh
-      rw [B.pull_lower f] at hh
-      exact (congrArg (fun q : F => B.lower q (s (H.source q)) = 0) ha).mp hh
-    · exact @Subsingleton.elim _ (hdead e.val hl) _ _
-  · intro hv e he
-    have hh := hv ⟨f.edge e.val,(f.source e.val).symm.trans (congrArg f.vertex e.property)⟩ he
-    rw [← hs,B.stalkMap_assignment s] at hh
-    rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s),B.pull_lower f]
-    exact hh
+  exact le_antisymm (B.pullbackKernel_le_of_live f x T live hdead hlift)
+    (B.upwardKernel_le_pullback f x T)
 
 end
 end KLInvariance.MomentGraph.Sheaf

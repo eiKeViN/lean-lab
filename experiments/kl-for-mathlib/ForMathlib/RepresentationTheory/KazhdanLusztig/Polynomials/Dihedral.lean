@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Dihedral.Words
-import ForMathlib.RepresentationTheory.Hecke.DualR
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+public import ForMathlib.RepresentationTheory.Hecke.DualR
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral. Source spans: Dihedral:4, Dihedral:5, Dihedral:7, Dihedral:8.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -11,13 +14,13 @@ namespace OAI
 section
 namespace KLInvariance.Dihedral
 
-noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
 
 open Hecke (Space basis)
 variable {W : Type*} [Group W] {M : CoxeterMatrix Bool}
 variable {C : Type*} [CommRing C]
 
-noncomputable def lowerSum (cs : CoxeterSystem M W) (w : W) : Space W C :=
+@[expose] noncomputable def lowerSum (cs : CoxeterSystem M W) (w : W) : Space W C :=
   ∑ z ∈ lowerFinset cs w, basis z
 
 @[simp] theorem lowerSum_coeff (cs : CoxeterSystem M W) (w x : W) :
@@ -104,7 +107,7 @@ end
 section
 namespace KLInvariance.Dihedral
 
-noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
 
 open Hecke (Space basis)
 variable {W : Type*} [Group W] {M : CoxeterMatrix Bool}
@@ -145,7 +148,7 @@ theorem union_string (cs : CoxeterSystem M W) (i : Bool) {z : W}
     · simpa only [cs.simple_mul_simple_cancel_left] using
         Hecke.simple_mul_le_ascent cs i h hz
 
-noncomputable def correction (cs : CoxeterSystem M W) (i : Bool) (n : ℕ) : Space W C :=
+@[expose] noncomputable def correction (cs : CoxeterSystem M W) (i : Bool) (n : ℕ) : Space W C :=
   if n = 0 then 0 else lowerSum cs (cs.wordProd (alt i n))
 
 @[simp] theorem correction_coeff (cs : CoxeterSystem M W) (i : Bool) (n : ℕ) (x : W) :
@@ -209,7 +212,7 @@ end
 section
 namespace KLInvariance.Dihedral
 
-noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_3 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_3 (p : Prop) : Decidable p := Classical.propDecidable p
 
 open Hecke (Space basis)
 variable {W : Type*} [Group W] {M : CoxeterMatrix Bool}
@@ -297,7 +300,7 @@ end
 section
 namespace KLInvariance.Dihedral
 
-noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
 
 open Hecke (Space basis)
 open Polynomial
@@ -340,7 +343,7 @@ theorem rPolynomial_sum (cs : CoxeterSystem M W) (x y : W)
   apply Polynomial.toLaurent_injective
   simpa using rValue_sum cs OrdinaryR.variableUnit x y hxy
 
-noncomputable def constantP (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
+@[expose] noncomputable def constantP (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
   if BruhatLE cs x y then 1 else 0
 
 theorem constant_normalizedKL (cs : CoxeterSystem M W) :

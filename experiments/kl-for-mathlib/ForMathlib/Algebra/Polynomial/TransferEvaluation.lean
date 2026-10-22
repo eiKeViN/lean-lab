@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Polynomial.TransferEvaluation. Source spans: SimultaneousInvariance:7.
 See migration.json and MIGRATION.md for exact provenance. -/

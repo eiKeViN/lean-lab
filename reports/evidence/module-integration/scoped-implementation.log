@@ -1,0 +1,2 @@
+Serialization guard: identical record and alpha controls accepted; 8 theorem mutations and 3 unsupported definition cases rejected.
+Unique global public types exported with checked serialization copies and compiler-proof propositions.

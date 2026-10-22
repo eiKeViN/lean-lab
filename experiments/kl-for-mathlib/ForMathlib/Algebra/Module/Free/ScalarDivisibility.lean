@@ -1,4 +1,9 @@
-import Mathlib
+module
+public import Mathlib.LinearAlgebra.DFinsupp
+public import Mathlib.LinearAlgebra.Basis.Defs
+public import Mathlib.RingTheory.Coprime.Lemmas
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Free.ScalarDivisibility. Source spans: BottSamelson:14.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/AttachProbe-generators.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 4.57522312799847,
+  "user_seconds": 3.747791,
+  "system_seconds": 1.144334,
+  "max_rss_kib": 5280564
+}

@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Hilbert.Increment. Source spans: PositiveTransfer:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -26,7 +29,7 @@ omit [Algebra k A] [IsScalarTower k A M] [IsScalarTower k A N] in
   exact Submodule.mem_map.mpr ⟨component 𝓜 (n-d) w,hS (n-d) w hw,
     (map_component 𝓜 𝓝 f d hf n w).symm⟩
 
- def shiftedImagePieceMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+ @[expose] def shiftedImagePieceMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     (S : Submodule A M) (f : M →ₗ[A] N) (d : ℤ)
     (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 (n+d)) (n : ℤ) :
     subPiece 𝓜 S (n-d) →ₗ[k] subPiece 𝓝 (S.map f) n where
@@ -53,7 +56,7 @@ omit [Algebra k A] [IsScalarTower k A M] [IsScalarTower k A N] in
   rw [← map_component 𝓜 𝓝 f d hf n v]
   exact DirectSum.decompose_of_mem_same 𝓝 hgrad
 
-noncomputable def shiftedImagePieceEquiv
+@[expose] noncomputable def shiftedImagePieceEquiv
     (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
     (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
@@ -78,17 +81,12 @@ noncomputable def shiftedImagePieceEquiv
     (hs : Summable (term 𝓜 (S.restrictScalars k) q)) :
     value 𝓝 ((S.map f).restrictScalars k) q =
       q^d * value 𝓜 (S.restrictScalars k) q := by
-  have ha := hs.hasSum.mul_left (q^d)
   have hb : HasSum
       (fun n : ℤ => (Module.finrank k (piece 𝓜 (S.restrictScalars k) (n-d)) : ℝ)*q^n)
-      (q^d * value 𝓜 (S.restrictScalars k) q) := by
-    apply (Equiv.addRight d).hasSum_iff.mp
-    apply ha.congr_fun
-    intro n
-    change (Module.finrank k (piece 𝓜 (S.restrictScalars k) (n+d-d)) : ℝ)*q^(n+d) =
-      q^d * ((Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ)*q^n)
-    rw [add_sub_cancel_right,zpow_add₀ hq]
-    ring
+      (q^d * value 𝓜 (S.restrictScalars k) q) :=
+    hasSum_shift_coeff hq
+      (show HasSum (fun n => (Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ) * q^n) _ from
+        by apply hs.hasSum.congr_fun; intro n; rfl) d
   apply HasSum.tsum_eq
   apply hb.congr_fun
   intro n

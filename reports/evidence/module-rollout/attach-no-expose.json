@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/AttachProbe-no-expose.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.716363781999462,
+  "user_seconds": 3.9021150000000002,
+  "system_seconds": 1.140715,
+  "max_rss_kib": 5276000
+}

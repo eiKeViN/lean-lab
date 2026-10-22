@@ -1,0 +1,50 @@
+[
+  {
+    "label": "comparison-direct-r1-before-transport",
+    "source": "OAI/KL/Comparison/Transport.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "31a677c4ad9e14a598bc46fca1717ec3620ce0d41737b41f0e317bdb5785a578",
+    "exit_code": 0
+  },
+  {
+    "label": "comparison-direct-r1-after-transport",
+    "source": "OAI/KL/Comparison/Transport.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "294eb43386cfb9001db92aac262d8605c9735152baab1a88b4c414e0627d1dc3",
+    "exit_code": 0
+  },
+  {
+    "label": "comparison-direct-r1-before-propagation",
+    "source": "OAI/KL/Comparison/Propagation.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "c3a51bd3ce596e4a43e37ea6f2fde8ec714cce063ad3f9a351ea47ce8c7ad712",
+    "exit_code": 0
+  },
+  {
+    "label": "comparison-direct-r1-after-propagation",
+    "source": "OAI/KL/Comparison/Propagation.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "c330d6b7bca3c86579e1ebd2db9cefbf968a28bf6644387235cac7ef4e256cbf",
+    "exit_code": 0
+  },
+  {
+    "label": "comparison-direct-r1-before-suffix",
+    "source": "OAI/KL/Comparison/SuffixFreeness.lean",
+    "side": "before",
+    "repeat": 1,
+    "input_sha256": "584e398f4b9c4f29f0d04333ec9d41b68b8f2bddd817645d942a75b667e4b367",
+    "exit_code": 0
+  },
+  {
+    "label": "comparison-direct-r1-after-suffix",
+    "source": "OAI/KL/Comparison/SuffixFreeness.lean",
+    "side": "after",
+    "repeat": 1,
+    "input_sha256": "afcb971b29c76b8e95d72555580a99972d3c6befa97dea96cf16f38f9c76ff97",
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,11 @@
+✔ [1205/1209] Built ForMathlib.Algebra.BigOperators.SingleCoordinate (938ms)
+ℹ [1206/1209] Replayed ModulePilotProbe.Modern
+info: ModulePilotProbe/Modern.lean:4:0: OAI.KLInvariance.weighted_sum_single.{u, v} {V : Type u} [Fintype V] {C : Type v} [CommRing C] (t : V) (m f : V → C)
+  (hm : m t = 1) (hf : ∀ (y : V), y ≠ t → f y = 0) : ∑ y, m y * f y = f t
+ℹ [1207/1209] Built ModulePilotProbe.All (800ms)
+info: ModulePilotProbe/All.lean:4:0: OAI.KLInvariance.weighted_sum_single.{u, v} {V : Type u} [Fintype V] {C : Type v} [CommRing C] (t : V) (m f : V → C)
+  (hm : m t = 1) (hf : ∀ (y : V), y ≠ t → f y = 0) : ∑ y, m y * f y = f t
+ℹ [1208/1209] Built ModulePilotProbe.Legacy (1.0s)
+info: ModulePilotProbe/Legacy.lean:3:0: OAI.KLInvariance.weighted_sum_single.{u, v} {V : Type u} [Fintype V] {C : Type v} [CommRing C] (t : V) (m f : V → C)
+  (hm : m t = 1) (hf : ∀ (y : V), y ≠ t → f y = 0) : ∑ y, m y * f y = f t
+Build completed successfully (1209 jobs).

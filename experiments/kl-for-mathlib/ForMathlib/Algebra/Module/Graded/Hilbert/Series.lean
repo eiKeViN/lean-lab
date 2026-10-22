@@ -1,6 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Generators
-import ForMathlib.Algebra.Module.Graded.Hilbert.Basic
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
+public import ForMathlib.Algebra.Module.Graded.Generators
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Hilbert.Series. Source spans: HilbertSeries:1, HilbertSeries:2, HilbertSeries:3, HilbertSeries:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -49,7 +53,7 @@ lemma polynomialGrading_nat (k : Type*) [Field k] (σ : Type*) (n : ℕ) :
   simp only [intWeight_eq_natWeight, Nat.cast_inj]
   rfl
 
-instance polynomialPiece_finite (k : Type*) [Field k] (σ : Type*) [Finite σ] (n : ℤ) :
+@[expose] instance polynomialPiece_finite (k : Type*) [Field k] (σ : Type*) [Finite σ] (n : ℤ) :
     Module.Finite k (Graded.polynomialGrading k σ n) := by
   by_cases hn : 0 ≤ n
   · obtain ⟨m, rfl⟩ := Int.eq_ofNat_of_zero_le hn
@@ -121,7 +125,7 @@ universe uk ua um ui
 variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
 
 /-- Degree pieces of a shifted finite free module, as a genuine linear equivalence. -/
-def shiftedPieceEquiv {ι : Type ui} (𝓐 : ℤ → Submodule k A) (d : ι → ℤ) (n : ℤ) :
+@[expose] def shiftedPieceEquiv {ι : Type ui} (𝓐 : ℤ → Submodule k A) (d : ι → ℤ) (n : ℤ) :
     Graded.shiftedPiece 𝓐 d n ≃ₗ[k] (∀ i, 𝓐 (n-d i)) where
   toFun v i := ⟨v.val i, v.property i⟩
   invFun v := ⟨fun i => v i, fun i => (v i).property⟩
@@ -130,7 +134,7 @@ def shiftedPieceEquiv {ι : Type ui} (𝓐 : ℤ → Submodule k A) (d : ι → 
   map_add' _ _ := rfl
   map_smul' _ _ := rfl
 
-instance shiftedPiece_finite {ι : Type ui} [Finite ι]
+@[expose] instance shiftedPiece_finite {ι : Type ui} [Finite ι]
     (𝓐 : ℤ → Submodule k A) [∀ n, Module.Finite k (𝓐 n)] (d : ι → ℤ) (n : ℤ) :
     Module.Finite k (Graded.shiftedPiece 𝓐 d n) :=
   Module.Finite.of_surjective (shiftedPieceEquiv 𝓐 d n).symm.toLinearMap
@@ -190,7 +194,7 @@ theorem exists_finite_graded_cover [Module.Finite A M]
     intro i _
     simpa using SetLike.GradedSMul.smul_mem (hv i) (hd i)
 
-def degreeMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+@[expose] def degreeMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n) (n : ℤ) :
     𝓜 n →ₗ[k] 𝓝 n :=
   LinearMap.codRestrict (𝓝 n) ((f.restrictScalars k).comp (𝓜 n).subtype)
@@ -337,7 +341,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {N : Type un} [AddCommGroup N] [Module k N] [Module A N] [IsScalarTower k A N]
 
 /-- The actual degreewise kernel, not merely an equality of dimensions. -/
-def degreeKernelEquiv (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+@[expose] def degreeKernelEquiv (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n) (n : ℤ) :
     subPiece 𝓜 (LinearMap.ker f) n ≃ₗ[k] LinearMap.ker (degreeMap 𝓜 𝓝 f hf n) where
   toFun m := ⟨⟨m.val.val,m.property⟩, by
@@ -423,7 +427,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {M : Type um} [AddCommGroup M] [Module k M] [Module A M] [IsScalarTower k A M]
   {N : Type un} [AddCommGroup N] [Module k N] [Module A N] [IsScalarTower k A N]
 
- def subPieceEquiv (𝓜 : ℤ → Submodule k M) (S : Submodule A M) (n : ℤ) :
+ @[expose] def subPieceEquiv (𝓜 : ℤ → Submodule k M) (S : Submodule A M) (n : ℤ) :
     subPiece 𝓜 S n ≃ₗ[k] piece 𝓜 (S.restrictScalars k) n where
   toFun v := ⟨⟨v.val.val,v.property⟩,v.val.property⟩
   invFun v := ⟨⟨v.val.val,v.property⟩,v.val.property⟩
@@ -440,7 +444,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
     value (subPiece 𝓜 S) ⊤ q = value 𝓜 (S.restrictScalars k) q := by
   exact tsum_congr (term_subPiece 𝓜 S q)
 
- def imagePieceMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+ @[expose] def imagePieceMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     (S : Submodule A M) (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
     (n : ℤ) : subPiece 𝓜 S n →ₗ[k] subPiece 𝓝 (S.map f) n where
   toFun v := ⟨⟨f v.val.val,Submodule.mem_map.mpr ⟨_,v.val.property,rfl⟩⟩,
@@ -465,7 +469,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   rw [← hh]
   exact DirectSum.decompose_of_mem_same 𝓝 hgrad
 
- def imageKernelEquiv (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+ @[expose] def imageKernelEquiv (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     (S : Submodule A M) (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
     (n : ℤ) : subPiece 𝓜 (S ⊓ LinearMap.ker f) n ≃ₗ[k]
       LinearMap.ker (imagePieceMap 𝓜 𝓝 S f hf n) where
@@ -500,6 +504,47 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
     (subPieceEquiv 𝓝 (S.map f) n).finrank_eq] at h
   omega
 
+/-- Degreewise exact dimensions give the weighted Hilbert-term identity.
+This algebraic equality holds at every real parameter, before convergence is
+established for the kernel and image series. -/
+theorem term_image_exact
+    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
+    [∀ n, Module.Finite k (𝓜 n)]
+    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
+    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
+    (q : ℝ) (n : ℤ) :
+    term 𝓜 (S.restrictScalars k) q n =
+      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
+      term 𝓝 ((S.map f).restrictScalars k) q n := by
+  unfold term
+  rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
+
+/-- Positivity and the termwise exact identity make both the kernel and image
+Hilbert series summable whenever the ambient restricted series is summable.
+This separates convergence from summing the exact sequence. -/
+theorem image_terms_summable
+    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
+    [∀ n, Module.Finite k (𝓜 n)]
+    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
+    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
+    {q : ℝ} (hq : 0 < q) (hs : Summable (term 𝓜 (S.restrictScalars k) q)) :
+    Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) ∧
+      Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
+  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
+  constructor
+  · apply hs.of_nonneg_of_le
+    · exact fun n => term_nonneg _ _ hq n
+    · intro n
+      rw [ht n]
+      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
+  · apply hs.of_nonneg_of_le
+    · exact fun n => term_nonneg _ _ hq n
+    · intro n
+      rw [ht n]
+      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
+
 /-- Removing a kernel condition adds exactly the Hilbert value of its
 embedded restriction image. No freeness of the source kernel is used. -/
  theorem value_image_exact
@@ -512,23 +557,8 @@ embedded restriction image. No freeness of the source kernel is used. -/
     value 𝓜 (S.restrictScalars k) q =
       value 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q +
       value 𝓝 ((S.map f).restrictScalars k) q := by
-  have ht (n : ℤ) : term 𝓜 (S.restrictScalars k) q n =
-      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
-      term 𝓝 ((S.map f).restrictScalars k) q n := by
-    unfold term
-    rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
-  have hk : Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) := by
-    apply hs.of_nonneg_of_le
-    · exact fun n => term_nonneg _ _ hq n
-    · intro n
-      rw [ht n]
-      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
-  have hi : Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
-    apply hs.of_nonneg_of_le
-    · exact fun n => term_nonneg _ _ hq n
-    · intro n
-      rw [ht n]
-      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
+  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
+  obtain ⟨hk,hi⟩ := image_terms_summable 𝓜 𝓝 S hS f hf hq hs
   unfold value
   rw [show term 𝓜 (S.restrictScalars k) q = _ from funext ht,hk.tsum_add hi]
 

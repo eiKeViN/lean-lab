@@ -1,0 +1,24 @@
+✔ [9167/9186] Built ForMathlib (2.9s)
+⚠ [9170/9186] Replayed OAI.KL.Invariance.Finite
+warning: OAI/KL/Invariance/Finite.lean:95:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm`:
+  [Fintype I]
+  [Fintype I']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] [Fintype I'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [9171/9186] Built ForMathlib.Algebra.Polynomial.ScaledReciprocity (5.6s)
+✔ [9172/9186] Built OAI.RepresentationTheory.KazhdanLusztig.DyerPaths (8.2s)
+✔ [9173/9186] Built ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation (11s)
+✔ [9175/9186] Built OAI.KL.Invariance.Main (11s)
+✔ [9176/9186] Built OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders (9.0s)
+✔ [9177/9186] Built OAI.Architecture (5.5s)
+✔ [9178/9186] Built OAI.KL (8.3s)
+✔ [9179/9186] Built OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals (8.3s)
+✔ [9180/9186] Built OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization (2.8s)
+✔ [9181/9186] Built OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization (2.8s)
+✔ [9182/9186] Built OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer (2.8s)
+✔ [9183/9186] Built OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels (2.9s)
+✔ [9184/9186] Built OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance (2.8s)
+✔ [9185/9186] Built OAI.RepresentationTheory.KazhdanLusztig.Invariance (2.9s)
+Build completed successfully (9186 jobs).

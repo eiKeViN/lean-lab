@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Components. Source spans: ModuleAlgebra:4, ModuleAlgebra:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -11,13 +14,13 @@ namespace KLInvariance.Graded
 variable {k A M : Type*} [CommRing k] [CommRing A] [Algebra k A]
   [AddCommGroup M] [Module k M] [Module A M] [klPreservedInstance4 : IsScalarTower k A M]
 
-noncomputable def component (𝓜 : ℤ → Submodule k M)
+@[expose] noncomputable def component (𝓜 : ℤ → Submodule k M)
     [DirectSum.Decomposition 𝓜] (n : ℤ) : M →ₗ[k] M where
   toFun m := DirectSum.decompose 𝓜 m n
   map_add' x y := by simp [DirectSum.decompose_add]
   map_smul' r m := by simp [DirectSum.decompose_smul, DirectSum.smul_apply]
 
-def positiveIdeal (𝓐 : ℤ → Submodule k A) : Ideal A :=
+@[expose] def positiveIdeal (𝓐 : ℤ → Submodule k A) : Ideal A :=
   Ideal.span {a | ∃ n : ℤ, 0 < n ∧ a ∈ 𝓐 n}
 
 include klPreservedInstance4 in

@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient. Source spans: PlaneLocalization:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -11,10 +14,10 @@ universe uk uv
 variable {k : Type uk} [Field k] {V : Type uv} [AddCommGroup V] [Module k V]
 noncomputable section
 
- def ideal (P : Submodule k V) : Ideal (SymmetricAlgebra k V) :=
+ @[expose] def ideal (P : Submodule k V) : Ideal (SymmetricAlgebra k V) :=
   Ideal.span ((SymmetricAlgebra.ι k V) '' (P : Set V))
 
- def quotientMap (P : Submodule k V) :
+ @[expose] def quotientMap (P : Submodule k V) :
     SymmetricAlgebra k V →ₐ[k] SymmetricAlgebra k (V ⧸ P) :=
   SymmetricAlgebra.lift ((SymmetricAlgebra.ι k (V ⧸ P)).comp P.mkQ)
 
@@ -28,18 +31,18 @@ noncomputable section
   change quotientMap P (SymmetricAlgebra.ι k V v) = 0
   rw [quotientMap_ι,show P.mkQ v = 0 from (Submodule.Quotient.mk_eq_zero P).mpr hv,map_zero]
 
- def forward (P : Submodule k V) : (SymmetricAlgebra k V ⧸ ideal P) →ₐ[k]
+ @[expose] def forward (P : Submodule k V) : (SymmetricAlgebra k V ⧸ ideal P) →ₐ[k]
     SymmetricAlgebra k (V ⧸ P) :=
   Ideal.Quotient.liftₐ _ (quotientMap P) (fun _ hz => ideal_le_ker P hz)
 
- def linearQuotient (P : Submodule k V) : V ⧸ P →ₗ[k]
+ @[expose] def linearQuotient (P : Submodule k V) : V ⧸ P →ₗ[k]
     (SymmetricAlgebra k V ⧸ ideal P) :=
   P.liftQ ((Ideal.Quotient.mkₐ k (ideal P)).toLinearMap.comp (SymmetricAlgebra.ι k V)) (by
     intro v hv
     apply LinearMap.mem_ker.mpr
     exact Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.subset_span ⟨v,hv,rfl⟩))
 
- def backward (P : Submodule k V) : SymmetricAlgebra k (V ⧸ P) →ₐ[k]
+ @[expose] def backward (P : Submodule k V) : SymmetricAlgebra k (V ⧸ P) →ₐ[k]
     (SymmetricAlgebra k V ⧸ ideal P) := SymmetricAlgebra.lift (linearQuotient P)
 
 @[simp] theorem forward_mk (P : Submodule k V) (z : SymmetricAlgebra k V) :
@@ -51,7 +54,7 @@ noncomputable section
   rw [backward,SymmetricAlgebra.lift_ι_apply]
   rfl
 
- def quotientEquiv (P : Submodule k V) : (SymmetricAlgebra k V ⧸ ideal P) ≃ₐ[k]
+ @[expose] def quotientEquiv (P : Submodule k V) : (SymmetricAlgebra k V ⧸ ideal P) ≃ₐ[k]
     SymmetricAlgebra k (V ⧸ P) :=
   AlgEquiv.ofAlgHom (forward P) (backward P)
     (by
@@ -102,7 +105,7 @@ noncomputable section
   rw [map_zero]
   exact hz
 
- instance ideal_isPrime (P : Submodule k V) : (ideal P).IsPrime := by
+ @[expose] instance ideal_isPrime (P : Submodule k V) : (ideal P).IsPrime := by
   rw [ideal_eq_ker]
   exact RingHom.ker_isPrime (quotientMap P)
 

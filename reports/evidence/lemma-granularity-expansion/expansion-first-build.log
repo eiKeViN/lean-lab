@@ -1,0 +1,48 @@
+⚠ [9003/9032] Built ForMathlib.LinearAlgebra.Dual.IntegralSupport (5.5s)
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:62:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✖ [9004/9032] Building ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages (9.6s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean:135:10: Invalid field `lowerImage`: The environment does not contain `OAI.KLInvariance.MomentGraph.Sheaf.lowerImage`, so it is not possible to project the field `lowerImage` from an expression
+  C
+of type `Sheaf G`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean:135:49: Invalid field `lowerImage`: The environment does not contain `OAI.KLInvariance.MomentGraph.Sheaf.lowerImage`, so it is not possible to project the field `lowerImage` from an expression
+  B
+of type `Sheaf G`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean:172:11: Invalid field `mem_lowerImage_iff_symm`: The environment does not contain `OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm`, so it is not possible to project the field `mem_lowerImage_iff_symm` from an expression
+  j
+of type `B.Iso C`
+✔ [9005/9032] Built ForMathlib.LinearAlgebra.Reflection.Plane (14s)
+✔ [9006/9032] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality (13s)
+✔ [9007/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.Basic (9.9s)
+✔ [9008/9032] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality (11s)
+✔ [9009/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.Splines (9.0s)
+✔ [9010/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.Order (15s)
+✔ [9011/9032] Built OAI.KL.Sheaves.Boundary (19s)
+✔ [9012/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup (17s)
+✔ [9013/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength (13s)
+✔ [9014/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels (17s)
+✔ [9015/9032] Built OAI.KL.Sheaves.Support (22s)
+✔ [9016/9032] Built ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure (13s)
+✔ [9017/9032] Built ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds (4.2s)
+✔ [9018/9032] Built ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem (4.1s)
+✔ [9019/9032] Built ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport (8.7s)
+✔ [9020/9032] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel (13s)
+✔ [9021/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis (15s)
+✔ [9022/9032] Built ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords (14s)
+✔ [9023/9032] Built ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds (7.6s)
+✔ [9024/9032] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel (10s)
+✔ [9025/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder (15s)
+✔ [9026/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport (12s)
+✔ [9027/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder (8.4s)
+✔ [9028/9032] Built ForMathlib.GroupTheory.Coxeter.Roots.LaterCount (4.8s)
+✔ [9029/9032] Built OAI.KL.Localization.Ambient (4.5s)
+✔ [9030/9032] Built OAI.KL.Localization.GraphEmbedding (5.5s)
+✔ [9031/9032] Built OAI.KL.Localization.Plane (7.1s)
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages
+error: build failed

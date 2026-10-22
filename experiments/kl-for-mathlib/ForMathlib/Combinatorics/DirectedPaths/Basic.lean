@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.DirectedPaths.Basic. Source spans: ReflectionSchedules:14.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -10,26 +13,26 @@ namespace KLInvariance.SchedulePaths
 universe u v w
 variable {V : Type u} {E : Type v} {R : Type w}
 noncomputable section
-local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
 variable (source target : E → V)
 
-def IsPath (x y : V) : List E → Prop
+@[expose] def IsPath (x y : V) : List E → Prop
   | [] => x = y
   | e :: p => source e = x ∧ IsPath (target e) y p
 
 variable [Semiring R]
-def pathTerm (T : R) (v : V → R) : List E → V → R
+@[expose] def pathTerm (T : R) (v : V → R) : List E → V → R
   | [], x => v x
   | e :: p, x => if source e = x then T * pathTerm T v p (target e) else 0
 
 /-- One elementary matrix `1+T E_xy`, acting without choosing an enumeration
 of the finite vertex set. -/
-def step (T : R) (e : E) (v : V → R) : V → R :=
+@[expose] def step (T : R) (e : E) (v : V → R) : V → R :=
   fun x => v x + if source e = x then T * v (target e) else 0
 
 /-- Edges are listed in decreasing schedule order, so the chronologically
 last transfer is the outermost one. -/
-def dispatch (T : R) (v : V → R) : List E → V → R
+@[expose] def dispatch (T : R) (v : V → R) : List E → V → R
   | [] => v
   | e :: p => step source target T e (dispatch T v p)
 

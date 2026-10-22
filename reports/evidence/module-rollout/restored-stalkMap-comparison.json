@@ -1,0 +1,16 @@
+{
+  "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+  "baseline": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+  },
+  "restored": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+  },
+  "passed": true
+}

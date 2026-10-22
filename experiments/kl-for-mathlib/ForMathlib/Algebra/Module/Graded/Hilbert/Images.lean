@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Hilbert.Images. Source spans: Support:19, Support:20.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,7 +19,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   [DirectSum.Decomposition 𝓜] [SetLike.GradedSMul 𝓐 𝓜]
   (a : A) (d : ℤ) (ha : a ∈ 𝓐 d)
 
- def scalarDegreeMap (n : ℤ) : 𝓜 (n-d) →ₗ[k]
+ @[expose] def scalarDegreeMap (n : ℤ) : 𝓜 (n-d) →ₗ[k]
     subPiece 𝓜 (LinearMap.range (LinearMap.lsmul A M a)) n :=
   { toFun := fun m => ⟨⟨a • m.val,⟨m.val,rfl⟩⟩,by
       change a • m.val ∈ 𝓜 n
@@ -45,7 +48,7 @@ omit [DirectSum.Decomposition 𝓜] in
   apply hinj
   exact congrArg (fun t => t.val.val) h
 
-noncomputable def scalarDegreeEquiv
+@[expose] noncomputable def scalarDegreeEquiv
     (hinj : Function.Injective (fun m : M => a • m)) (n : ℤ) :
     𝓜 (n-d) ≃ₗ[k] subPiece 𝓜 (LinearMap.range (LinearMap.lsmul A M a)) n :=
   LinearEquiv.ofBijective (scalarDegreeMap 𝓐 𝓜 a d ha n)
@@ -58,18 +61,12 @@ include ha in
     (hs : Summable (term 𝓜 ⊤ q)) :
     value (subPiece 𝓜 (LinearMap.range (LinearMap.lsmul A M a))) ⊤ q =
       q^d * value 𝓜 ⊤ q := by
-  have h := (hs.hasSum.mul_left (q^d))
   have hh : HasSum
       (fun n : ℤ => (Module.finrank k (𝓜 (n-d)) : ℝ)*q^n)
-      (q^d * value 𝓜 ⊤ q) := by
-    apply (Equiv.addRight d).hasSum_iff.mp
-    apply h.congr_fun
-    intro n
-    rw [term_top]
-    change (Module.finrank k (𝓜 (n+d-d)) : ℝ)*q^(n+d) =
-      q^d * ((Module.finrank k (𝓜 n) : ℝ)*q^n)
-    rw [add_sub_cancel_right,zpow_add₀ hq]
-    ring
+      (q^d * value 𝓜 ⊤ q) :=
+    hasSum_shift_coeff hq
+      (show HasSum (fun n => (Module.finrank k (𝓜 n) : ℝ) * q^n) _ from
+        by apply hs.hasSum.congr_fun; intro n; rw [term_top]) d
   apply HasSum.tsum_eq
   apply hh.congr_fun
   intro n
@@ -106,7 +103,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {M : Type um} [AddCommGroup M] [Module k M] [Module A M] [IsScalarTower k A M]
   {N : Type un} [AddCommGroup N] [Module k N] [Module A N] [IsScalarTower k A N]
 
- def imageMap (S : Submodule A M) (f : M →ₗ[A] N) : S →ₗ[A] S.map f where
+ @[expose] def imageMap (S : Submodule A M) (f : M →ₗ[A] N) : S →ₗ[A] S.map f where
   toFun v := ⟨f v.val,Submodule.mem_map.mpr ⟨_,v.property,rfl⟩⟩
   map_add' _ _ := by ext; exact map_add f _ _
   map_smul' _ _ := by ext; exact map_smul f _ _
@@ -117,6 +114,16 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   obtain ⟨v,hv,rfl⟩ := Submodule.mem_map.mp hm
   exact ⟨⟨v,hv⟩,rfl⟩
 
+/-- A kernel divisibility witness stays inside a saturated submodule.
+This is the integral witness-lifting step before identifying the kernel of the
+restricted image map with scalar multiplication on that submodule. -/
+theorem saturated_kernel_witness (S : Submodule A M) (f : M →ₗ[A] N) (a : A)
+    (hf : ∀ v, f v = 0 ↔ ∃ w, v = a • w)
+    (hS : ∀ v, a • v ∈ S → v ∈ S) (v : M) (hv : v ∈ S) (hz : f v = 0) :
+    ∃ w ∈ S, v = a • w := by
+  obtain ⟨w,hw⟩ := (hf v).mp hz
+  exact ⟨w,hS w (hw ▸ hv),hw⟩
+
  theorem imageMap_ker (S : Submodule A M) (f : M →ₗ[A] N) (a : A)
     (hf : ∀ v, f v = 0 ↔ ∃ w, v = a • w)
     (hS : ∀ v, a • v ∈ S → v ∈ S) :
@@ -125,8 +132,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   constructor
   · intro hv
     have hz : f v.val = 0 := congrArg Subtype.val hv
-    obtain ⟨w,hw⟩ := (hf v.val).mp hz
-    have hwS : w ∈ S := hS w (hw ▸ v.property)
+    obtain ⟨w,hwS,hw⟩ := saturated_kernel_witness S f a hf hS v.val v.property hz
     exact ⟨⟨w,hwS⟩,Subtype.ext hw.symm⟩
   · rintro ⟨w,rfl⟩
     apply Subtype.ext

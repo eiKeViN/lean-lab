@@ -1,0 +1,40 @@
+{
+  "representations": [
+    {
+      "visible": "axiom",
+      "original": "theorem",
+      "count": 827
+    },
+    {
+      "visible": "constructor",
+      "original": "constructor",
+      "count": 14
+    },
+    {
+      "visible": "def",
+      "original": "def",
+      "count": 379
+    },
+    {
+      "visible": "inductive",
+      "original": "inductive",
+      "count": 12
+    },
+    {
+      "visible": "recursor",
+      "original": "recursor",
+      "count": 12
+    },
+    {
+      "visible": "theorem",
+      "original": "theorem",
+      "count": 92
+    }
+  ],
+  "total": 1336,
+  "axiom_policy": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

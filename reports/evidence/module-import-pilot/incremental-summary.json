@@ -1,0 +1,365 @@
+[
+  {
+    "label": "single-doc-0",
+    "wall_seconds": 3.083462139999938,
+    "max_rss_kib": 1995700,
+    "built": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash"
+      ],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "single-doc-1",
+    "wall_seconds": 3.2055708330000243,
+    "max_rss_kib": 1997344,
+    "built": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash"
+      ],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "single-doc-2",
+    "wall_seconds": 3.0351729230000046,
+    "max_rss_kib": 1995648,
+    "built": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash"
+      ],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "single-proof-0",
+    "wall_seconds": 2.914488477999953,
+    "max_rss_kib": 1996268,
+    "built": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash"
+      ],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "single-proof-1",
+    "wall_seconds": 3.105230600999903,
+    "max_rss_kib": 1995656,
+    "built": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash"
+      ],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "single-proof-2",
+    "wall_seconds": 3.1197803090000207,
+    "max_rss_kib": 1997356,
+    "built": [
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.private",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.trace",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.ilean.hash",
+        ".lake/build/lib/lean/ForMathlib/Algebra/BigOperators/SingleCoordinate.olean.server.hash"
+      ],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "kernel-doc-0",
+    "wall_seconds": 10.652436697999974,
+    "max_rss_kib": 7319632,
+    "built": [
+      "OAI.KL.Compatibility.KernelTransport",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.trace",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server"
+      ],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "kernel-doc-1",
+    "wall_seconds": 10.876451227000075,
+    "max_rss_kib": 7320724,
+    "built": [
+      "OAI.KL.Compatibility.KernelTransport",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.trace",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server"
+      ],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "kernel-doc-2",
+    "wall_seconds": 10.737643669000022,
+    "max_rss_kib": 7324160,
+    "built": [
+      "OAI.KL.Compatibility.KernelTransport",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.trace",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server"
+      ],
+      "ModulePilotProbe.Modern": [],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "kernel-body-0",
+    "wall_seconds": 10.677793667999936,
+    "max_rss_kib": 7322620,
+    "built": [
+      "OAI.KL.Compatibility.KernelTransport",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Modern",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.ilean.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.trace",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.ilean",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server"
+      ],
+      "ModulePilotProbe.Modern": [
+        ".lake/build/lib/lean/ModulePilotProbe/Modern.trace"
+      ],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "kernel-body-1",
+    "wall_seconds": 10.681371982999963,
+    "max_rss_kib": 7328224,
+    "built": [
+      "OAI.KL.Compatibility.KernelTransport",
+      "ModulePilotProbe.Modern",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.ilean.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.trace",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.ilean",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server"
+      ],
+      "ModulePilotProbe.Modern": [
+        ".lake/build/lib/lean/ModulePilotProbe/Modern.trace"
+      ],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  },
+  {
+    "label": "kernel-body-2",
+    "wall_seconds": 10.707136401999946,
+    "max_rss_kib": 7327980,
+    "built": [
+      "OAI.KL.Compatibility.KernelTransport",
+      "ModulePilotProbe.Modern",
+      "ModulePilotProbe.All",
+      "ModulePilotProbe.Legacy"
+    ],
+    "changed_artifacts": {
+      "ForMathlib.Algebra.BigOperators.SingleCoordinate": [],
+      "ForMathlib.LinearAlgebra.KernelTransport": [],
+      "OAI.KL.Compatibility.KernelTransport": [
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.ilean.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.trace",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.ilean",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.private.hash",
+        ".lake/build/lib/lean/OAI/KL/Compatibility/KernelTransport.olean.server"
+      ],
+      "ModulePilotProbe.Modern": [
+        ".lake/build/lib/lean/ModulePilotProbe/Modern.trace"
+      ],
+      "ModulePilotProbe.Legacy": [
+        ".lake/build/lib/lean/ModulePilotProbe/Legacy.trace"
+      ],
+      "ModulePilotProbe.All": [
+        ".lake/build/lib/lean/ModulePilotProbe/All.trace"
+      ]
+    }
+  }
+]

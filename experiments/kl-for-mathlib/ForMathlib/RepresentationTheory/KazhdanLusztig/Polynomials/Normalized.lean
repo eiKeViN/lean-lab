@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized. Source spans: Model:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -36,10 +39,10 @@ structure NormalizedKL (cs : CoxeterSystem M W) (RP : PolynomialFamilies W) : Pr
       ∑ᶠ z : Interval cs x y, RP.1 x z.val * RP.2 z.val y
 
 /-- The polynomial families selected by their equal-parameter normalization. -/
-noncomputable def klFamilies (cs : CoxeterSystem M W) : PolynomialFamilies W :=
+@[expose] noncomputable def klFamilies (cs : CoxeterSystem M W) : PolynomialFamilies W :=
   Classical.epsilon (NormalizedKL cs)
 
-noncomputable def klPolynomial (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
+@[expose] noncomputable def klPolynomial (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
   (klFamilies cs).2 x y
 
 end KLInvariance

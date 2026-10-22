@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.LinearAlgebra.Reflection.Bilinear
+module
+public import Mathlib
+public import ForMathlib.LinearAlgebra.Reflection.Bilinear
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Realization.Geometric. Source spans: Tits:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -22,7 +25,7 @@ lemma simple_normal_value (i : I) : B (α i) (α i) = 2 := by
   rw [hα]
   simp
 
-noncomputable def geometricSimple (i : I) : V ≃ₗ[ℝ] V :=
+@[expose] noncomputable def geometricSimple (i : I) : V ≃ₗ[ℝ] V :=
   Module.reflection (simple_normal_value B α hα i)
 
 theorem geometricSimple_liftable : M.IsLiftable (geometricSimple B α hα) := by
@@ -43,7 +46,7 @@ theorem geometricSimple_liftable : M.IsLiftable (geometricSimple B α hα) := by
 
 /-- The genuine geometric reflection action. Each relation has been proved;
 this definition does not presuppose a faithful representation. -/
-noncomputable def geometricAction : W →* (V ≃ₗ[ℝ] V) :=
+@[expose] noncomputable def geometricAction : W →* (V ≃ₗ[ℝ] V) :=
   cs.lift ⟨geometricSimple B α hα, geometricSimple_liftable B α hα⟩
 
 @[simp] theorem geometricAction_simple (i : I) :

@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.PairProjection. Source spans: Decomposition:3, Frobenius:26, IntegralPairings:12.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,11 +18,11 @@ variable {R : Type u} [CommRing R]
   (f : M →ₗ[R] X) (g : M →ₗ[R] Y)
 noncomputable section
 
-def relation : Submodule R (X × Y) := LinearMap.range (f.prod g)
+@[expose] def relation : Submodule R (X × Y) := LinearMap.range (f.prod g)
 abbrev Edge := (X × Y) ⧸ relation f g
 
-def lower : X →ₗ[R] Edge f g := (relation f g).mkQ.comp (LinearMap.inl R X Y)
-def upper : Y →ₗ[R] Edge f g := -((relation f g).mkQ.comp (LinearMap.inr R X Y))
+@[expose] def lower : X →ₗ[R] Edge f g := (relation f g).mkQ.comp (LinearMap.inl R X Y)
+@[expose] def upper : Y →ₗ[R] Edge f g := -((relation f g).mkQ.comp (LinearMap.inr R X Y))
 
 theorem diagonal_zero (m : M) : (relation f g).mkQ (f m,g m)=0 := by
   exact (Submodule.Quotient.mk_eq_zero _).mpr ⟨m,rfl⟩

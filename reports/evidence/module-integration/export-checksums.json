@@ -1,0 +1,20 @@
+{
+  "full-types.tsv.gz": {
+    "sha256": "323a0b88121c0ab323e6c1c5d5a426237bfbf1133f1cd34d5dd484831612e592",
+    "compressed_sha256": "5fb34e2b93039c9edd422da47fdd5f421f522658398a1589a4895556137d7804",
+    "bytes": 17167500,
+    "compressed_bytes": 2968771
+  },
+  "public-types.tsv.gz": {
+    "sha256": "9652b00809501f7eaad105984c4c42e572b471608fe91768a0cfcbf624059305",
+    "compressed_sha256": "ef94b1545b06fb34ea5b23138d6df22ffdcdc01ae96b3e8d9a990dd5056724f2",
+    "bytes": 83744,
+    "compressed_bytes": 15890
+  },
+  "semantic-corpus.json.gz": {
+    "sha256": "74e991720a9b7d09f8f80fb1245d7411479941140bae15f13e63d08d0f936b39",
+    "compressed_sha256": "85c66bf5a0a0434768d9db3249f84df210fa444c4718eb84c7a11fb346d10dba",
+    "bytes": 422258,
+    "compressed_bytes": 42891
+  }
+}

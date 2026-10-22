@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension. Source spans: Tits:6.
 See migration.json and MIGRATION.md for exact provenance.
@@ -14,7 +17,7 @@ variable {V : Type u} [AddCommGroup V] [Module ℝ V]
 
 abbrev Extension (B : LinearMap.BilinForm ℝ V) := V × Module.Dual ℝ (LinearMap.ker B)
 
-noncomputable def extensionForm (B : LinearMap.BilinForm ℝ V)
+@[expose] noncomputable def extensionForm (B : LinearMap.BilinForm ℝ V)
     (p : V →ₗ[ℝ] LinearMap.ker B) : LinearMap.BilinForm ℝ (Extension B) where
   toFun x :=
     { toFun := fun y => B x.1 y.1 + x.2 (p y.1) + y.2 (p x.1)

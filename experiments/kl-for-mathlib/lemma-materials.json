@@ -1,0 +1,664 @@
+{
+  "schema": 1,
+  "explanatory_authority": "Lean docstrings; this index stores provenance and lookup keys, not a second formal specification",
+  "entries": [
+    {
+      "candidate": "C1",
+      "declaration": "OAI.KLInvariance.weighted_sum_exchange",
+      "original_site": "S1",
+      "second_sites": [],
+      "keywords": [
+        "finite sums",
+        "bilinear weights",
+        "exchange"
+      ],
+      "reason": "The reindexing calculation is independent of the distinguished coordinate and cancellation hypothesis.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "C2",
+      "declaration": "OAI.KLInvariance.weighted_sum_single",
+      "original_site": "S1",
+      "second_sites": [
+        "S2"
+      ],
+      "keywords": [
+        "finite support",
+        "single coordinate",
+        "normalized weight",
+        "error cancellation"
+      ],
+      "reason": "One statement handles both the character error sum and the coordinate-difference sum.",
+      "applicability_tests": [
+        "Fin 3 with nonzero off-coordinate weights"
+      ]
+    },
+    {
+      "candidate": "C5",
+      "declaration": "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo",
+      "original_site": "S3",
+      "second_sites": [],
+      "keywords": [
+        "positive square root",
+        "open unit interval",
+        "change of variables"
+      ],
+      "reason": "An existential witness separates the analytic substitution from polynomial algebra.",
+      "applicability_tests": [
+        "q = 1/4"
+      ]
+    },
+    {
+      "candidate": "C6",
+      "declaration": "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal",
+      "original_site": "S3",
+      "second_sites": [],
+      "keywords": [
+        "reciprocal evaluation",
+        "clear scaling",
+        "nonzero real point"
+      ],
+      "reason": "The power-cancellation calculation needs nonzero rather than positivity; keep it separate from the square-root choice.",
+      "applicability_tests": [
+        "t = -2, p = X+1, d = 1"
+      ]
+    },
+    {
+      "candidate": "C8",
+      "declaration": "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm",
+      "original_site": "S4",
+      "second_sites": [],
+      "keywords": [
+        "inverse interval isomorphism",
+        "away from bottom",
+        "polynomial equality"
+      ],
+      "reason": "Endpoint bookkeeping is a coherent step, but its contextual signature and explicit include requirement make the extraction less lightweight.",
+      "applicability_tests": [
+        "identity interval isomorphism; interface smoke only"
+      ]
+    },
+    {
+      "candidate": "X1",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply",
+      "original_site": "E1",
+      "second_sites": [],
+      "keywords": [
+        "pre-reflection displacement",
+        "root span",
+        "dependent forms"
+      ],
+      "reason": "Action formula; independence is only needed later for the range reverse inclusion.",
+      "applicability_tests": [
+        "dependent forms on a one-dimensional rational vector space"
+      ]
+    },
+    {
+      "candidate": "X2",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff",
+      "original_site": "E2",
+      "second_sites": [],
+      "keywords": [
+        "normalized plane",
+        "quadratic equation",
+        "no nondegeneracy"
+      ],
+      "reason": "Coordinate normalization equivalence, separate from the reflection operator calculation.",
+      "applicability_tests": [
+        "coincident normalized roots, coordinates (1,0)"
+      ]
+    },
+    {
+      "candidate": "X3",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.triple_root_norm_two",
+      "original_site": "E2",
+      "second_sites": [],
+      "keywords": [
+        "constructed root",
+        "norm two",
+        "triple reflection"
+      ],
+      "reason": "Normalize the constructed reflected root, leaving the operator identity in its client.",
+      "applicability_tests": [
+        "coincident roots, coordinates (1,0)"
+      ]
+    },
+    {
+      "candidate": "X4",
+      "declaration": "OAI.KLInvariance.IntegralSupport.annihilates_of_supported",
+      "original_site": "E3",
+      "second_sites": [],
+      "keywords": [
+        "single support",
+        "integral annihilator",
+        "balanced cuts"
+      ],
+      "reason": "Forward support-to-annihilator implication, not a fraction-field argument.",
+      "applicability_tests": [
+        "arbitrary single-supported section; forward implication"
+      ]
+    },
+    {
+      "candidate": "X5",
+      "declaration": "OAI.KLInvariance.IntegralSupport.supported_of_annihilates",
+      "original_site": "E3",
+      "second_sites": [],
+      "keywords": [
+        "projection kernel",
+        "perfect duality",
+        "torsion-free cut cancellation"
+      ],
+      "reason": "Converse annihilator-to-support implication, including cut vanishing and scalar cancellation.",
+      "applicability_tests": [
+        "arbitrary integral annihilator; converse implication"
+      ]
+    },
+    {
+      "candidate": "X6",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
+      "original_site": "E4",
+      "second_sites": [],
+      "keywords": [
+        "lower kernel image",
+        "inverse edge isomorphism",
+        "commuting square"
+      ],
+      "reason": "Transport lower-image witnesses through the inverse sheaf isomorphism.",
+      "applicability_tests": [
+        "round trip through j.symm"
+      ]
+    },
+    {
+      "candidate": "X7",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm",
+      "original_site": "E4",
+      "second_sites": [],
+      "keywords": [
+        "scaled upper image",
+        "arbitrary scalar",
+        "isomorphism membership"
+      ],
+      "reason": "Transport scalar upper-image witnesses, including scalar zero.",
+      "applicability_tests": [
+        "scalar zero through a nonidentity-allowed isomorphism"
+      ]
+    },
+    {
+      "candidate": "X8",
+      "declaration": "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement",
+      "original_site": "E5",
+      "second_sites": [],
+      "keywords": [
+        "root plane complement",
+        "positive root",
+        "basis witness"
+      ],
+      "reason": "Geometric root choice independent of sheaf and schedule data.",
+      "applicability_tests": [
+        "left basis root gives some distinct complementary root"
+      ]
+    },
+    {
+      "candidate": "Y1",
+      "declaration": "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le",
+      "original_site": "P1",
+      "second_sites": [],
+      "keywords": [
+        "Bruhat path",
+        "source bound",
+        "increasing edges"
+      ],
+      "reason": "Separate monotonicity along a directed Bruhat path from dispatch graph embedding.",
+      "applicability_tests": [
+        "one-edge path without finite generator assumption"
+      ]
+    },
+    {
+      "candidate": "Y2",
+      "declaration": "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+      "original_site": "P2",
+      "second_sites": [],
+      "keywords": [
+        "reflected polynomial",
+        "reciprocal evaluation",
+        "degree bound"
+      ],
+      "reason": "Separate the reflected-polynomial evaluation from the weights of a scaled character.",
+      "applicability_tests": [
+        "negative rational parameter v = -2; polynomial evaluation points 4 and 1/4"
+      ]
+    },
+    {
+      "candidate": "Y3",
+      "declaration": "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term",
+      "original_site": "P2",
+      "second_sites": [],
+      "keywords": [
+        "R-tilde normalization",
+        "scaled stalk",
+        "summand grading"
+      ],
+      "reason": "Package normalization of one R-polynomial summand and addition of grading exponents.",
+      "applicability_tests": [
+        "diagonal term with negative rational parameter v = -2"
+      ]
+    },
+    {
+      "candidate": "Y4",
+      "declaration": "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+      "original_site": "P2",
+      "second_sites": [
+        "P5"
+      ],
+      "keywords": [
+        "inverse square",
+        "integer exponents",
+        "reciprocal weight"
+      ],
+      "reason": "The exact same square-weight identity occurs in two selected proofs; preserve arbitrary field and integer exponents.",
+      "applicability_tests": [
+        "negative rational parameter v and negative integer degrees; equal-degree boundary"
+      ]
+    },
+    {
+      "candidate": "Y5",
+      "declaration": "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+      "original_site": "P3",
+      "second_sites": [],
+      "keywords": [
+        "upper interval",
+        "triangular support",
+        "arbitrary weights"
+      ],
+      "reason": "Restrict a triangular weighted sum to an upper interval independently of the special scaled-stalk weights.",
+      "applicability_tests": [
+        "integer coefficients, arbitrary weights, no finite-generator assumption"
+      ]
+    },
+    {
+      "candidate": "Y6",
+      "declaration": "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
+      "original_site": "P4",
+      "second_sites": [],
+      "keywords": [
+        "costalk evaluation",
+        "incoming label product",
+        "balanced section pairing"
+      ],
+      "reason": "Separate the scaled costalk pairing identity from symmetry and scalar cancellation.",
+      "applicability_tests": [
+        "diagonal costalk pairing, no symmetry or finite sigma assumption"
+      ]
+    },
+    {
+      "candidate": "Y7",
+      "declaration": "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character",
+      "original_site": "P5",
+      "second_sites": [],
+      "keywords": [
+        "full kernel",
+        "Hilbert expression",
+        "reciprocal stalk character"
+      ],
+      "reason": "Expose the raw full-kernel Hilbert expression before normalization; reuse the square-weight identity.",
+      "applicability_tests": [
+        "q=1/4 raw Hilbert expression"
+      ]
+    },
+    {
+      "candidate": "Y8",
+      "declaration": "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free",
+      "original_site": "P6",
+      "second_sites": [],
+      "keywords": [
+        "reverse schedule",
+        "one-edge extension",
+        "kernel freeness"
+      ],
+      "reason": "Expose the one-edge reverse-filtration preservation step, leaving suffix induction to the client.",
+      "applicability_tests": [
+        "one-edge schedule from empty remaining conditions"
+      ]
+    },
+    {
+      "candidate": "G1",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values",
+      "original_site": "L1",
+      "second_sites": [],
+      "keywords": [
+        "finite weights",
+        "annihilating polynomial",
+        "projector values"
+      ],
+      "reason": "Pointwise annihilation/constant values of the projector polynomial, independent of stable lattice membership.",
+      "applicability_tests": [
+        "empty block over \u2124 with Fin 2 coordinates"
+      ]
+    },
+    {
+      "candidate": "G2",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd",
+      "original_site": "L2",
+      "second_sites": [],
+      "keywords": [
+        "prime nondivisibility",
+        "residue congruences",
+        "product"
+      ],
+      "reason": "Prime nondivisibility of the character product, separate from constructing a stable projector.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G3",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum",
+      "original_site": "L3",
+      "second_sites": [],
+      "keywords": [
+        "partition",
+        "common scalar denominator",
+        "diagonal lifts"
+      ],
+      "reason": "The common-denominator partition identity, independent of lattice membership and primeness.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G4",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators",
+      "original_site": "L4",
+      "second_sites": [],
+      "keywords": [
+        "stable character class",
+        "separating tests",
+        "residue"
+      ],
+      "reason": "Stable separating tests for a residue character class before the finite projector argument.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G5",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates",
+      "original_site": "L5",
+      "second_sites": [],
+      "keywords": [
+        "prime scalar relation",
+        "coordinate divisibility",
+        "projective lattice"
+      ],
+      "reason": "Coordinate prime divisibility from a scalar relation, before splitting the projective presentation.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G6",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+      "original_site": "L6",
+      "second_sites": [],
+      "keywords": [
+        "prime denominator cancellation",
+        "local membership",
+        "projectivity"
+      ],
+      "reason": "Cancel one prime denominator using local membership and projectivity, leaving UFD induction to the client.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G7",
+      "declaration": "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal",
+      "original_site": "L7",
+      "second_sites": [],
+      "keywords": [
+        "functional reciprocity",
+        "polynomial reflection",
+        "open unit interval"
+      ],
+      "reason": "Functional reciprocity implies a polynomial identity before strict-degree rigidity.",
+      "applicability_tests": [
+        "p = X + 1 over \u211d, d = 1"
+      ]
+    },
+    {
+      "candidate": "G8",
+      "declaration": "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
+      "original_site": "L8",
+      "second_sites": [],
+      "keywords": [
+        "strict homogeneous piece",
+        "Hilbert value",
+        "dimension defect"
+      ],
+      "reason": "A strict degree-piece rank defect forces a strict convergent Hilbert-value inequality.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G9",
+      "declaration": "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le",
+      "original_site": "L9",
+      "second_sites": [],
+      "keywords": [
+        "homogeneous components",
+        "submodule inclusion",
+        "decomposition",
+        "homogeneous source submodule"
+      ],
+      "reason": "Reconstruct T \u2264 S from componentwise inclusion and homogeneity of the source submodule T; no homogeneity of the target S is required.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G10",
+      "declaration": "OAI.KLInvariance.Hilbert.saturated_kernel_witness",
+      "original_site": "L11",
+      "second_sites": [],
+      "keywords": [
+        "saturation",
+        "kernel",
+        "scalar divisibility witness"
+      ],
+      "reason": "Lift scalar divisibility witnesses inside a saturated submodule.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G11",
+      "declaration": "OAI.KLInvariance.Hilbert.term_image_exact",
+      "original_site": "L12",
+      "second_sites": [],
+      "keywords": [
+        "exact sequence",
+        "degreewise dimensions",
+        "weighted Hilbert term"
+      ],
+      "reason": "Separate weighted degreewise exactness and analytic summability from summing the exact sequence.",
+      "applicability_tests": [],
+      "helper_consumers": [
+        "OAI.KLInvariance.Hilbert.image_terms_summable"
+      ]
+    },
+    {
+      "candidate": "G12",
+      "declaration": "OAI.KLInvariance.Hilbert.image_terms_summable",
+      "original_site": "L12",
+      "second_sites": [],
+      "keywords": [
+        "positive terms",
+        "kernel image series",
+        "summability"
+      ],
+      "reason": "Separate weighted degreewise exactness and analytic summability from summing the exact sequence.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G13",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live",
+      "original_site": "L14",
+      "second_sites": [],
+      "keywords": [
+        "live edges",
+        "image closure",
+        "partial section"
+      ],
+      "reason": "Separate geometric live-edge closure and compatibility of a pushed partial section from flabby extension.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G14",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live",
+      "original_site": "L14",
+      "second_sites": [],
+      "keywords": [
+        "live edge pullback",
+        "pushed section",
+        "compatibility"
+      ],
+      "reason": "Separate geometric live-edge closure and compatibility of a pushed partial section from flabby extension.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G15",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback",
+      "original_site": "L15",
+      "second_sites": [],
+      "keywords": [
+        "pullback",
+        "upward kernel",
+        "unconditional inclusion"
+      ],
+      "reason": "Separate unconditional kernel pullback from the converse requiring live-edge lifting.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G16",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live",
+      "original_site": "L15",
+      "second_sites": [],
+      "keywords": [
+        "live edges",
+        "kernel inclusion",
+        "dead edges"
+      ],
+      "reason": "Separate unconditional kernel pullback from the converse requiring live-edge lifting.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G17",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff",
+      "original_site": "L16",
+      "second_sites": [],
+      "keywords": [
+        "tensor assignments",
+        "finite constraints",
+        "section kernel"
+      ],
+      "reason": "Transport the section constraint through a finite tensor product before using flat exactness.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G18",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend",
+      "original_site": "L17",
+      "second_sites": [],
+      "keywords": [
+        "flabby sections",
+        "tensor extension",
+        "restriction"
+      ],
+      "reason": "Extend already-tensored sections without the finiteness/flatness needed to represent arbitrary sections.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G19",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact",
+      "original_site": "L18",
+      "second_sites": [],
+      "keywords": [
+        "upper quotient",
+        "scalar kernel",
+        "exact sequence"
+      ],
+      "reason": "Expose the scalar-kernel exact sequence before tensoring.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G20",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+      "original_site": "L19",
+      "second_sites": [],
+      "keywords": [
+        "product sheaf",
+        "lower image",
+        "coordinate witnesses"
+      ],
+      "reason": "Product image membership decomposes into its two factors before comparing scaled images.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G21",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff",
+      "original_site": "L19",
+      "second_sites": [],
+      "keywords": [
+        "product sheaf",
+        "scaled upper image",
+        "zero scalar"
+      ],
+      "reason": "Product image membership decomposes into its two factors before comparing scaled images.",
+      "applicability_tests": [
+        "r = 0 in arbitrary commutative-ring sheaves"
+      ]
+    },
+    {
+      "candidate": "G22",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+      "original_site": "L20",
+      "second_sites": [],
+      "keywords": [
+        "product family",
+        "lower image",
+        "choice of witnesses"
+      ],
+      "reason": "Coordinate image membership and choice of witnesses before comparing product sheaves.",
+      "applicability_tests": [
+        "empty index family over an arbitrary graph"
+      ]
+    },
+    {
+      "candidate": "G23",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
+      "original_site": "L20",
+      "second_sites": [],
+      "keywords": [
+        "product family",
+        "scaled upper image",
+        "arbitrary index"
+      ],
+      "reason": "Coordinate image membership and choice of witnesses before comparing product sheaves.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G24",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference",
+      "original_site": "L21",
+      "second_sites": [],
+      "keywords": [
+        "flow down",
+        "correction difference",
+        "outgoing label product"
+      ],
+      "reason": "The correction defect is divisible by the outgoing label product, independent of choosing a flow-down section.",
+      "applicability_tests": []
+    }
+  ],
+  "declined_candidates": [
+    "C3",
+    "C4",
+    "C7",
+    "C9",
+    "C10",
+    "round2: baseChange scalar-action identity in scaledImages_denominator",
+    "round2: lowerCharacter nonnegativity branches",
+    "round2: two scalar coefficient identities inside reflection_triple_in_plane",
+    "round2: unconditional model-sum/localization transport redesign",
+    "round3: upper-suffix kernel set identities",
+    "round3: normalization positivity and simple scalar cancellation",
+    "round3: a chosen homogeneous basis has the stalk polynomial",
+    "round3: modify prior support assumptions or move the complementary-root API"
+  ],
+  "old_production_clients_are_all_within_planned_samples": true
+}

@@ -1,0 +1,55 @@
+{
+  "method": "Nonblank uncommented lines after := by to the next top-level declaration/scope boundary; source-volume units, not tokens.",
+  "clients": [
+    {
+      "sample": "S1",
+      "name": "OAI.KLInvariance.finite_character_cancellation",
+      "before_body_lines": 20,
+      "after_body_lines": 10
+    },
+    {
+      "sample": "S2",
+      "name": "OAI.KLInvariance.Comparison.matrix_difference_single",
+      "before_body_lines": 11,
+      "after_body_lines": 5
+    },
+    {
+      "sample": "S3",
+      "name": "OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal",
+      "before_body_lines": 16,
+      "after_body_lines": 5
+    },
+    {
+      "sample": "S4",
+      "name": "OAI.KLInvariance.BruhatGraph.bottom_eq_of_comparisons",
+      "before_body_lines": 36,
+      "after_body_lines": 28
+    }
+  ],
+  "helpers": [
+    {
+      "name": "OAI.KLInvariance.weighted_sum_exchange",
+      "body_lines": 7
+    },
+    {
+      "name": "OAI.KLInvariance.weighted_sum_single",
+      "body_lines": 6
+    },
+    {
+      "name": "OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo",
+      "body_lines": 2
+    },
+    {
+      "name": "OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal",
+      "body_lines": 8
+    },
+    {
+      "name": "OAI.KLInvariance.BruhatGraph.upper_polynomial_eq_symm",
+      "body_lines": 9
+    }
+  ],
+  "before_client_total": 83,
+  "after_client_total": 48,
+  "helper_total": 32,
+  "after_clients_plus_helpers": 80
+}

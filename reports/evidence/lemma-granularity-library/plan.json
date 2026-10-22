@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "round": 4,
+  "starting_commit": "a0b5b59457f593c86d3054b086da3b820585c282",
+  "samples": [
+    {
+      "id": "L1",
+      "path": "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector",
+      "helpers": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values"
+      ],
+      "file_sha256": "edff801e2bbded7dba743888076d11ef445902af2a9294c94e0b3f076c08a885",
+      "reason": "Pointwise annihilation/constant values of the projector polynomial, independent of stable lattice membership."
+    },
+    {
+      "id": "L2",
+      "path": "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.class_projector",
+      "helpers": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd"
+      ],
+      "file_sha256": "edff801e2bbded7dba743888076d11ef445902af2a9294c94e0b3f076c08a885",
+      "reason": "Prime nondivisibility of the character product, separate from constructing a stable projector."
+    },
+    {
+      "id": "L3",
+      "path": "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+      "helpers": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum"
+      ],
+      "file_sha256": "edff801e2bbded7dba743888076d11ef445902af2a9294c94e0b3f076c08a885",
+      "reason": "The common-denominator partition identity, independent of lattice membership and primeness."
+    },
+    {
+      "id": "L4",
+      "path": "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector",
+      "helpers": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators"
+      ],
+      "file_sha256": "edff801e2bbded7dba743888076d11ef445902af2a9294c94e0b3f076c08a885",
+      "reason": "Stable separating tests for a residue character class before the finite projector argument."
+    },
+    {
+      "id": "L5",
+      "path": "ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation",
+      "helpers": [
+        "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates"
+      ],
+      "file_sha256": "9420743041573b9fad70d6129d7aa0b6fd8c5f1f6104c379359f858b1250e80f",
+      "reason": "Coordinate prime divisibility from a scalar relation, before splitting the projective presentation."
+    },
+    {
+      "id": "L6",
+      "path": "ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+      "helpers": [
+        "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator"
+      ],
+      "file_sha256": "9420743041573b9fad70d6129d7aa0b6fd8c5f1f6104c379359f858b1250e80f",
+      "reason": "Cancel one prime denominator using local membership and projectivity, leaving UFD induction to the client."
+    },
+    {
+      "id": "L7",
+      "path": "ForMathlib/Algebra/Polynomial/Reciprocal.lean",
+      "declaration": "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+      "helpers": [
+        "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal"
+      ],
+      "file_sha256": "0d7725600445544c03dc46a77cc368bf34959df715a258852e5709f55fde4d81",
+      "reason": "Functional reciprocity implies a polynomial identity before strict-degree rigidity."
+    },
+    {
+      "id": "L8",
+      "path": "ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean",
+      "declaration": "OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq",
+      "helpers": [
+        "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt"
+      ],
+      "file_sha256": "6c866e6930abbf045a45bebe3c4e92b343784e44994eda5033f6e24ac9bb31bd",
+      "reason": "A strict degree-piece rank defect forces a strict convergent Hilbert-value inequality."
+    },
+    {
+      "id": "L9",
+      "path": "ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean",
+      "declaration": "OAI.KLInvariance.Hilbert.eq_of_value_eq",
+      "helpers": [
+        "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le"
+      ],
+      "file_sha256": "6c866e6930abbf045a45bebe3c4e92b343784e44994eda5033f6e24ac9bb31bd",
+      "reason": "Reconstruct submodule inclusion from componentwise inclusion and homogeneous target membership."
+    },
+    {
+      "id": "L10",
+      "path": "ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean",
+      "declaration": "OAI.KLInvariance.Hilbert.scalar_value",
+      "helpers": [],
+      "file_sha256": "d49dc4bf38bd97cd26308721c557597c93dc806275c704ecdab70f4a20056c2e",
+      "reason": "Reuse existing hasSum_shift_coeff for scalar-image Hilbert values; no new shift lemma."
+    },
+    {
+      "id": "L11",
+      "path": "ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean",
+      "declaration": "OAI.KLInvariance.Hilbert.imageMap_ker",
+      "helpers": [
+        "OAI.KLInvariance.Hilbert.saturated_kernel_witness"
+      ],
+      "file_sha256": "d49dc4bf38bd97cd26308721c557597c93dc806275c704ecdab70f4a20056c2e",
+      "reason": "Lift scalar divisibility witnesses inside a saturated submodule."
+    },
+    {
+      "id": "L12",
+      "path": "ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean",
+      "declaration": "OAI.KLInvariance.Hilbert.value_image_exact",
+      "helpers": [
+        "OAI.KLInvariance.Hilbert.term_image_exact",
+        "OAI.KLInvariance.Hilbert.image_terms_summable"
+      ],
+      "file_sha256": "67d9b645bed118b07617760b63710fa450248c1f75025f9ddfa94cb5dcfeaa6d",
+      "reason": "Separate weighted degreewise exactness and analytic summability from summing the exact sequence."
+    },
+    {
+      "id": "L13",
+      "path": "ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean",
+      "declaration": "OAI.KLInvariance.Hilbert.shifted_image_value",
+      "helpers": [],
+      "file_sha256": "dc439f9e7bfe150822f52e74ec77084ab03f678bb9f358a1567b30ef6714267f",
+      "reason": "Reuse the same shifted-series lemma; no extra local wrapper."
+    },
+    {
+      "id": "L14",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live",
+        "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live"
+      ],
+      "file_sha256": "7cd6afef5e2eca5bfe247057c1d04a493f5779fb41cc26430ee6082a22f2a292",
+      "reason": "Separate geometric live-edge closure and compatibility of a pushed partial section from flabby extension."
+    },
+    {
+      "id": "L15",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pullback_kernel",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live"
+      ],
+      "file_sha256": "7cd6afef5e2eca5bfe247057c1d04a493f5779fb41cc26430ee6082a22f2a292",
+      "reason": "Separate unconditional kernel pullback from the converse requiring live-edge lifting."
+    },
+    {
+      "id": "L16",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorSections_surjective",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff"
+      ],
+      "file_sha256": "2775bdb55011d8816ef0b0e2369cd9b0fd54c19d08f7769233cb6827e7bf4704",
+      "reason": "Transport the section constraint through a finite tensor product before using flat exactness."
+    },
+    {
+      "id": "L17",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.baseChange_flabby",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend"
+      ],
+      "file_sha256": "2775bdb55011d8816ef0b0e2369cd9b0fd54c19d08f7769233cb6827e7bf4704",
+      "reason": "Extend already-tensored sections without the finiteness/flatness needed to represent arbitrary sections."
+    },
+    {
+      "id": "L18",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.baseChange_upperQuotient",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact"
+      ],
+      "file_sha256": "2775bdb55011d8816ef0b0e2369cd9b0fd54c19d08f7769233cb6827e7bf4704",
+      "reason": "Expose the scalar-kernel exact sequence before tensoring."
+    },
+    {
+      "id": "L19",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledImages",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff"
+      ],
+      "file_sha256": "ee3836174696e84f967d58e7819465cdf4890371cbc6aa2867911d2b68bbb3f2",
+      "reason": "Product image membership decomposes into its two factors before comparing scaled images."
+    },
+    {
+      "id": "L20",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledImages",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff"
+      ],
+      "file_sha256": "ee3836174696e84f967d58e7819465cdf4890371cbc6aa2867911d2b68bbb3f2",
+      "reason": "Coordinate image membership and choice of witnesses before comparing product sheaves."
+    },
+    {
+      "id": "L21",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.flowDown_flabby",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference"
+      ],
+      "file_sha256": "2cca6294a3fb4971e2b63fdb234adb92b44f7d18f4d5875db835f4da5e7398da",
+      "reason": "The correction defect is divisible by the outgoing label product, independent of choosing a flow-down section."
+    }
+  ],
+  "additions": [
+    "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values",
+    "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd",
+    "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum",
+    "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators",
+    "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates",
+    "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+    "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal",
+    "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
+    "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le",
+    "OAI.KLInvariance.Hilbert.saturated_kernel_witness",
+    "OAI.KLInvariance.Hilbert.term_image_exact",
+    "OAI.KLInvariance.Hilbert.image_terms_summable",
+    "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live",
+    "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live",
+    "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live",
+    "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend",
+    "OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact",
+    "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference"
+  ],
+  "helper_sources": {},
+  "extra_calls": [
+    {
+      "parent": "OAI.KLInvariance.Hilbert.image_terms_summable",
+      "child": "OAI.KLInvariance.Hilbert.term_image_exact",
+      "role": "helper-to-helper consumer"
+    }
+  ],
+  "permitted_prefixes": {
+    "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates": "omit [IsDomain R] [UniqueFactorizationMonoid R] in"
+  },
+  "batches": [
+    {
+      "name": "algebra",
+      "paths": [
+        "ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean",
+        "ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean",
+        "ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean",
+        "ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean",
+        "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean",
+        "ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean",
+        "ForMathlib/Algebra/Polynomial/Reciprocal.lean"
+      ]
+    },
+    {
+      "name": "sheaf",
+      "paths": [
+        "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean",
+        "ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean",
+        "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean",
+        "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean"
+      ]
+    }
+  ],
+  "measurement": "Batch command wall/CPU, failure iterations, cache invalidation and concrete before/after roles; no repeated module microbenchmarks or invented token cost.",
+  "queries": [
+    "stable character class separating tests",
+    "finite partition common scalar denominator",
+    "prime scalar relation projective lattice cancellation",
+    "functional reciprocity implies polynomial reflection",
+    "strict homogeneous piece Hilbert value defect",
+    "integer graded sequence shift weighted sum",
+    "live edge pullback partial section compatibility",
+    "flat tensor section constraint kernel",
+    "product sheaf scaled image witnesses",
+    "flow down correction outgoing label product"
+  ],
+  "existing_reuse": [
+    {
+      "parent": "OAI.KLInvariance.Hilbert.scalar_value",
+      "child": "OAI.KLInvariance.Hilbert.hasSum_shift_coeff",
+      "role": "reuse existing sequence-shift API"
+    },
+    {
+      "parent": "OAI.KLInvariance.Hilbert.shifted_image_value",
+      "child": "OAI.KLInvariance.Hilbert.hasSum_shift_coeff",
+      "role": "reuse existing sequence-shift API"
+    }
+  ],
+  "integration_imports": {
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Series": [
+      "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator"
+    ]
+  },
+  "revision": "Post-edit whole-library cross-check found the identical existing hasSum_shift_coeff in Numerator. Withdraw proposed hasSum_shift_weight; reuse existing lemma in two old clients via one explicit same-layer import. The committed pre-reuse-plan.json retains the original screening plan."
+}

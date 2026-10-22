@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Polynomial.Reciprocal. Source spans: Bruhat:7, Comparison:1, Hecke:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -23,27 +26,33 @@ end KLInvariance
 
 namespace KLInvariance.Comparison
 open Polynomial
+/-- Functional reciprocal equality on the open unit interval determines the
+reflected polynomial identity, provided reflection covers the degree. Strict
+midpoint support is used only later for rigidity. -/
+theorem eq_reflect_of_eval_reciprocal (p : ℝ[X]) (d : ℕ) (hp : p.natDegree ≤ d)
+    (h : ∀ q : ℝ, 0 < q → q < 1 → p.eval q = q ^ d * p.eval q⁻¹) : p = reflect d p := by
+  apply p.eq_of_infinite_eval_eq
+  apply (Set.Ioo_infinite (show (0 : ℝ) < 1 by norm_num)).mono
+  intro q hq
+  change p.eval q = (reflect d p).eval q
+  let : Invertible q⁻¹ := invertibleOfNonzero (inv_ne_zero (ne_of_gt hq.1))
+  have hr := eval₂_reflect_mul_pow (RingHom.id ℝ) q⁻¹ d p hp
+  simp only [eval₂_id, invOf_eq_inv, inv_inv] at hr
+  have hr' := congrArg (fun z : ℝ => z * q ^ d) hr
+  have hq0 : q ≠ 0 := ne_of_gt hq.1
+  simp only [mul_assoc, ← mul_pow, inv_mul_cancel₀ hq0, one_pow, mul_one] at hr'
+  calc
+    p.eval q = q ^ d * p.eval q⁻¹ := h q hq.1 hq.2
+    _ = (reflect d p).eval q := by
+      simpa only [mul_comm] using hr'.symm
+
 /-- A polynomial supported strictly below the middle cannot equal its
 reciprocal on an open real interval. This discharges the final rigidity
 step after the source's two comparison inequalities have been combined. -/
 theorem low_degree_zero_of_eval_reciprocal (p : ℝ[X]) (d : ℕ)
     (hp : 2 * p.natDegree < d)
     (h : ∀ q : ℝ, 0 < q → q < 1 → p.eval q = q ^ d * p.eval q⁻¹) : p = 0 := by
-  have heq : p = reflect d p := by
-    apply p.eq_of_infinite_eval_eq
-    apply (Set.Ioo_infinite (show (0 : ℝ) < 1 by norm_num)).mono
-    intro q hq
-    change p.eval q = (reflect d p).eval q
-    let : Invertible q⁻¹ := invertibleOfNonzero (inv_ne_zero (ne_of_gt hq.1))
-    have hr := eval₂_reflect_mul_pow (RingHom.id ℝ) q⁻¹ d p (by omega)
-    simp only [eval₂_id, invOf_eq_inv, inv_inv] at hr
-    have hr' := congrArg (fun z : ℝ => z * q ^ d) hr
-    have hq0 : q ≠ 0 := ne_of_gt hq.1
-    simp only [mul_assoc, ← mul_pow, inv_mul_cancel₀ hq0, one_pow, mul_one] at hr'
-    calc
-      p.eval q = q ^ d * p.eval q⁻¹ := h q hq.1 hq.2
-      _ = (reflect d p).eval q := by
-        simpa only [mul_comm] using hr'.symm
+  have heq := eq_reflect_of_eval_reciprocal p d (by omega) h
   by_contra hp0
   have hc := congrArg (fun f : ℝ[X] => f.coeff p.natDegree) heq.symm
   rw [coeff_reflect, revAt_le (by omega), coeff_eq_zero_of_natDegree_lt (by omega),

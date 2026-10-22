@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.DirectedPaths.Basic
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.DirectedPaths.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.DirectedPaths.Subpaths. Source spans: DyerPaths:17, DyerPaths:19, DyerPaths:20.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -63,10 +66,10 @@ namespace KLInvariance.SchedulePaths
 open scoped BigOperators
 variable {V E R : Type*} (source target : E → V)
 noncomputable section
-local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
 
 /-- The finite set of genuine directed paths selected by an edge schedule. -/
-def subpaths (schedule : List E) (x y : V) : Finset (List E) :=
+@[expose] def subpaths (schedule : List E) (x y : V) : Finset (List E) :=
   schedule.sublists'.toFinset.filter (IsPath source target x y)
 
 @[simp] theorem mem_subpaths (schedule : List E) (x y : V) (p : List E) :
@@ -109,7 +112,7 @@ section
 namespace KLInvariance.SchedulePaths
 variable {V E : Type*} (source target : E → V)
 noncomputable section
-local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
 
 /-- Sorted full schedules select precisely their strictly monotone paths;
 an actual graph map satisfying the adjacent comparison test transports them. -/
