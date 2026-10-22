@@ -27,6 +27,37 @@ Logs and generated consumers go to ignored `results/module-pilot*`; compiled
 artifacts remain in the existing project's `.lake`. The evidence directory contains
 selected measurements and audit output, not a replacement cache.
 
+
+### Harness revision provenance
+
+The script hashes in `run-identity.json` identify the final delivered scripts at
+`5f4f52d7072e7afa4f1db1f6ea0d73ceaa6759b0`, not the earlier in-memory script
+versions that produced the retained measurements. The session edit order confirms
+that `module_pilot.py`'s `pins` preflight and both incremental-script preflights
+(`pins`, `upstream-ready`) were added after their measured runs. Later guard and
+validation refinements were also finalized after the relevant processes had loaded
+the scripts. The full final harness was not replayed. No execution-time script
+snapshot/hash was retained; its exact hash is unknown and is not reconstructed.
+
+`measurements.json` contains 63 recorded commands, starting with `upstream-ready`;
+it has no `pins` row. `incremental-measurements.json` contains 34 commands, starting
+with `single-default-private-build`; it has neither preflight row. The 227.62 s and
+214.63 s totals sum those recorded commands only. The files are records of the
+measured runs, not complete execution transcripts of the final hashed scripts;
+no missing rows or timings have been inserted.
+
+Separate validation is retained in `final-static.json` and `final-static.log`
+(including the `scripts/verify.py` baseline/pin identity stage), `final-ready.json`
+(three restored targets), `final-compat.json`, `final-weighted.json`, and
+`offline-checks.log`. `final-guard-import-rejection.json` records a separate expected
+failure using the final negative-diagnostic guard; it is not a whole-harness replay.
+The complete 27-log canonical type comparison was performed separately after the
+four-grid/kernel run (`type-comparison.json`, backed by `consumer-audits.txt.gz`);
+expected negative diagnostic strings were also checked separately against the
+retained logs (`expected-failures.txt.gz`). These checks support the reported
+results without retroactively establishing that the later preflights ran at entry
+to either measured process.
+
 Allowed transformations are exact, scoped operations: replace the first import
 with the documented candidate imports; optionally prepend `module`, mark those
 imports `public`, and insert `public section`; add `@[expose]` to the six kernel

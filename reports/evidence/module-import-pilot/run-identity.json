@@ -14,5 +14,57 @@
   "sha256": {
     "scripts/module_pilot.py": "3f3ffc829c3b1baf93dd24883836a7da95e0a3d38ba693b0345d9929a0e247fd",
     "scripts/module_pilot_incremental.py": "0e799569ec6f832b1d4c00e3d0f6adc84850956407d76f513bd7cabf465e38d7"
+  },
+  "sha256_scope": "Final delivered scripts at 5f4f52d7072e7afa4f1db1f6ea0d73ceaa6759b0; not execution-time harness hashes.",
+  "harness_provenance": {
+    "final_script_commit": "5f4f52d7072e7afa4f1db1f6ea0d73ceaa6759b0",
+    "executed_harness_sha256": null,
+    "executed_hash_status": "No execution-time script snapshot/hash was retained; exact hashes are unknown and have not been reconstructed.",
+    "full_final_harness_replay": false,
+    "post_run_changes": "Pin/cache preflights and guard/validation refinements were finalized after the relevant measured processes loaded their scripts.",
+    "measured_runs": {
+      "measurements.json": {
+        "command_count": 63,
+        "first_label": "upstream-ready",
+        "final_script_preflights_absent": [
+          "pins"
+        ]
+      },
+      "incremental-measurements.json": {
+        "command_count": 34,
+        "first_label": "single-default-private-build",
+        "final_script_preflights_absent": [
+          "pins",
+          "upstream-ready"
+        ]
+      }
+    },
+    "separate_validation_evidence": {
+      "static_source_and_pin_identity": [
+        "final-static.json",
+        "final-static.log"
+      ],
+      "restored_target_readiness": [
+        "final-ready.json"
+      ],
+      "original_consumer_checks": [
+        "final-compat.json",
+        "final-weighted.json"
+      ],
+      "offline_regressions": [
+        "offline-checks.log"
+      ],
+      "final_negative_diagnostic_guard": [
+        "final-guard-import-rejection.json"
+      ],
+      "post_run_type_comparison": [
+        "type-comparison.json",
+        "consumer-audits.txt.gz"
+      ],
+      "post_run_negative_diagnostic_checks": [
+        "expected-failures.txt.gz"
+      ]
+    },
+    "measurement_rows_backfilled": false
   }
 }
