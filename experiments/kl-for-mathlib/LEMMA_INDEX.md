@@ -205,7 +205,7 @@ Source client: [`OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse`](
 [Original file](https://github.com/eiKeViN/lean-lab/blob/bdcb35071c4790585beb47f7f28798ece8ed58d9/experiments/kl-for-mathlib/OAI/KL/Comparison/Transport.lean) at `bdcb3507`.
 Reason: Separate the reflected-polynomial evaluation from the weights of a scaled character.
 Observed second production sites: none.
-Applicability checks: negative rational evaluation point.
+Applicability checks: negative rational parameter v = -2; polynomial evaluation points 4 and 1/4.
 
 ## Y3 — `scaledStalk_rTilde_term`
 
@@ -218,7 +218,7 @@ Source client: [`OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse`](
 [Original file](https://github.com/eiKeViN/lean-lab/blob/bdcb35071c4790585beb47f7f28798ece8ed58d9/experiments/kl-for-mathlib/OAI/KL/Comparison/Transport.lean) at `bdcb3507`.
 Reason: Package normalization of one R-polynomial summand and addition of grading exponents.
 Observed second production sites: none.
-Applicability checks: diagonal term at a negative rational point.
+Applicability checks: diagonal term with negative rational parameter v = -2.
 
 ## Y4 — `reciprocal_square_weight`
 
@@ -231,7 +231,7 @@ Source client: [`OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse`](
 [Original file](https://github.com/eiKeViN/lean-lab/blob/bdcb35071c4790585beb47f7f28798ece8ed58d9/experiments/kl-for-mathlib/OAI/KL/Comparison/Transport.lean) at `bdcb3507`.
 Reason: The exact same square-weight identity occurs in two selected proofs; preserve arbitrary field and integer exponents.
 Observed second production sites: `OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character` (P5).
-Applicability checks: negative rational point and negative integer degrees; equal-degree boundary.
+Applicability checks: negative rational parameter v and negative integer degrees; equal-degree boundary.
 
 ## Y5 — `rTilde_weighted_sum_upper`
 

@@ -226,7 +226,7 @@
       ],
       "reason": "Separate the reflected-polynomial evaluation from the weights of a scaled character.",
       "applicability_tests": [
-        "negative rational evaluation point"
+        "negative rational parameter v = -2; polynomial evaluation points 4 and 1/4"
       ]
     },
     {
@@ -241,7 +241,7 @@
       ],
       "reason": "Package normalization of one R-polynomial summand and addition of grading exponents.",
       "applicability_tests": [
-        "diagonal term at a negative rational point"
+        "diagonal term with negative rational parameter v = -2"
       ]
     },
     {
@@ -258,7 +258,7 @@
       ],
       "reason": "The exact same square-weight identity occurs in two selected proofs; preserve arbitrary field and integer exponents.",
       "applicability_tests": [
-        "negative rational point and negative integer degrees; equal-degree boundary"
+        "negative rational parameter v and negative integer degrees; equal-degree boundary"
       ]
     },
     {

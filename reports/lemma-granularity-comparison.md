@@ -165,8 +165,9 @@ the prior round and the pairing lemma here each occur twice inside one client.
 Transitive dependence and test examples are not counted as new production reuse.
 
 Nine new applicability examples cover a one-edge path without finite generator
-data; negative rational evaluation; the diagonal normalized summand; a negative
-point/negative degree square weight and equal-degree boundary; integer-valued
+data; negative rational parameter v=-2 (polynomial evaluation points 4 and 1/4);
+the diagonal normalized summand with v=-2; a negative parameter/negative degree
+square weight and equal-degree boundary; integer-valued
 arbitrary weights; a diagonal costalk pairing without symmetry or finite sigma;
 the raw expression at q=1/4; and the one-edge schedule from empty conditions.
 These are interface/edge-condition examples with symbolic data, not independent
@@ -256,8 +257,17 @@ unsafe bypass, global simp registration or custom tactic is introduced.
 The 31 inherited comparator tests, 14 partition tests and cumulative 24 evolution
 tests pass. The 18 root regression tests pass, and both root/evolution suites
 also pass with Python optimization.
-The current mathematical code has not received an independent source review or
-independent rerun. Local cloud validation is separate from GitHub CI.
+The executed Lean/build results above correspond to tested commit
+[`8a7352034c8fa8155e41e45c6047a40357fbcef7`](https://github.com/eiKeViN/lean-lab/commit/8a7352034c8fa8155e41e45c6047a40357fbcef7).
+Independent source review of that commit found no blocking defect in the six
+before/after proofs or eight helpers. Its scope was mathematics/API boundaries
+and consistency of documentation and measurement claims. It did **not** rerun
+Lean or certify the validation infrastructure. This follow-up only clarifies
+parameter-versus-evaluation-point wording in metadata/the generated index/report;
+tested Lean code, validation tooling and execution evidence are unchanged.
+The index is regenerated and checked using the retained compiled-docstring corpus;
+no Lean build is rerun for this wording-only change. Local cloud validation is
+separate from GitHub CI.
 
 Reproduce from the repository root:
 
@@ -344,4 +354,4 @@ outside-sample production reuse, novelty, upstream readiness, minimal assumption
 for every contextual interface, or independent mathematical certification. Generic
 scalar-helper placement and the earlier API debts remain explicit future design
 material. No complete API hierarchy or whole-library architecture pass is attempted.
-The result is ready for independent review on its work branch; it is not merged.
+The work branch has the source-review scope recorded above; it is not merged.
