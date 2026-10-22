@@ -1,0 +1,41 @@
+{
+  "scope": "Observed wall-clock windows and actual subprocess measurements, not model-active time",
+  "token_telemetry": null,
+  "token_note": "No reliable model token telemetry exposed. Characters and guessed tokens are not substituted.",
+  "selection_and_design": {
+    "first_observed_start_utc_approximate": "2026-10-22T02:10:00Z",
+    "plan_commit_utc": "2026-10-22T02:17:32Z",
+    "plan_commit": "c234e512b76201d14d14b1dcecb716a84a8c9dc9",
+    "limit": "Start is an approximate session checkpoint, not a stopwatch or exclusive design time. Later duplicate discovery revised the plan."
+  },
+  "implementation": {
+    "baseline_corpus_started_utc": "2026-10-22T02:18:16.818685+00:00",
+    "initial_two_batches_compiled_utc": "2026-10-22T02:29:37.846516+00:00",
+    "later_revision": "Withdraw duplicate shifted-series helper; one explicit integration import and two existing-API calls, plus wording correction. Final compilation is separate."
+  },
+  "failures_and_rework": [
+    "An unmetered source-edit script partially wrote FiniteCharacters then raised ValueError at a missing ProjectiveLattice end marker; the untouched files were edited separately, with no duplicate insert.",
+    "First FiniteCharacters build: missing DecidableEq binders for finite difference/erase statements; compiler-generated placeholder warnings were not accepted as successful verification.",
+    "First grouped algebra build: same finite binders plus a function-composition change needed in the proposed shift proof.",
+    "Corrected grouped algebra build: HasSum congruence required explicit function-level rewriting in Images/Increment.",
+    "Source scope recorder rejected a leading blank before a new declaration twice (second run added precise diagnostics); whitespace-only edits are now ignored by the span guard, while all code remains bounded and old headers independently compared.",
+    "An attempted migrate.py --index option was unsupported and suppressed in a convenience shell call; the supported no-argument generator was then run and its products checked. No build success depends on the unsupported invocation.",
+    "Whole-library duplicate cross-check found existing hasSum_shift_coeff after the first downstream build had started. The duplicate was removed; the running build was preserved and a final source/cache reconciliation is required.",
+    "A second build was started too early, blocked at the gated lean --githash query, and terminated before compilation to avoid concurrent Lake plans. Its 44.872-second wait, negligible child CPU and -15 exit are retained in the ledger. The original build was not interrupted.",
+    "The initial empty-block applicability example used simpa, whose linter showed the goal could close without elaborating the helper arguments. It was strengthened to an explicit exact application, and an unnecessary tactic sequence in the X+1 example was simplified. This touches PilotChecks only, not library mathematics; the final focused compile is recorded separately after the 32-stage run. The early warning log remains archived.",
+    "The first strengthened harness compile failed because Finset.not_mem_empty was an incorrect spelling. Reading the pinned Mathlib source identified Finset.notMem_empty; only that name was corrected before the final focused rerun. The failed 6.285-second compile is retained."
+  ],
+  "unmetered_successful_checks": [
+    "python3 scripts/test_checks.py: 18 tests, exit 0",
+    "python3 -O scripts/test_checks.py: 18 tests, exit 0",
+    "python3 test_compare_types.py: 31 tests, exit 0",
+    "python3 test_source_partitions.py: 14 tests, exit 0",
+    "Four new targeted evolution negative tests: 4 tests, exit 0",
+    "python3 validate.py --static: 7 stages, exit 0; retained separately"
+  ],
+  "cost_boundary": "Prior three rounds' infrastructure already existed. This round adds only explicit bindings, an exact integration edge, small regression extensions and another search-round selector; it does not charge prior setup to incremental extraction. Phase windows overlap with builds and documentation; command wall/CPU records must not be summed as exclusive assistant work. No new direct-elaboration speed claim or microbenchmark pairs are made.",
+  "final_validation_ended_utc": "2026-10-22T03:14:32.838039+00:00",
+  "final_library_build_ended_utc": "2026-10-22T03:12:07.021933+00:00",
+  "last_mathematical_source_write_utc": "2026-10-22T02:39:40.044694+00:00",
+  "final_harness_ended_utc": "2026-10-22T03:15:00.671828+00:00"
+}

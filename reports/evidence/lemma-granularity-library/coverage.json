@@ -20895,7 +20895,9 @@
       "screening": "declaration inventory and region-level selection only",
       "disposition": "deferred after inventory screening",
       "region": "ForMathlib.Algebra.Module.Graded",
-      "reason": "Not selected in this pass; inventory evidence is not a claim that all proofs were read or no useful extraction exists."
+      "reason": "Not selected in this pass; inventory evidence is not a claim that all proofs were read or no useful extraction exists.",
+      "followup_screening": "Focused reading of hasSum_shift_coeff and its numerator_add_shift use after the pre-edit inventory; no claim of full-file proof audit.",
+      "followup_disposition": "Retain the source unchanged; reuse its existing sequence-shift theorem in scalar_value and shifted_image_value instead of adding a duplicate."
     },
     {
       "module": "ForMathlib.LinearAlgebra.Reflection.Bilinear",

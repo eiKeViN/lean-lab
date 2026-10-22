@@ -287,3 +287,110 @@ run_elab do
     unless info.value.getUsedConstants.contains child do
       throwError "Missing comparison proof dependency: {parent} → {child}"
   Lean.logInfo "Nine comparison relationships verified; square-weight second use is within this round."
+
+-- Library round: compiled documentation and exact direct proof dependencies.
+run_elab do
+  let env ← Lean.getEnv
+  for name in #[`OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values,
+      `OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd,
+      `OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum,
+      `OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators,
+      `OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates,
+      `OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator,
+      `OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal,
+      `OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt,
+      `OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le,
+      `OAI.KLInvariance.Hilbert.saturated_kernel_witness,
+      `OAI.KLInvariance.Hilbert.term_image_exact,
+      `OAI.KLInvariance.Hilbert.image_terms_summable,
+      `OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live,
+      `OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live,
+      `OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback,
+      `OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live,
+      `OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff,
+      `OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend,
+      `OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact,
+      `OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff,
+      `OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff,
+      `OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff,
+      `OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff,
+      `OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference] do
+    let some doc ← Lean.findDocString? env name | throwError "Missing library lemma docstring: {name}"
+    if doc.trimAscii.toString.isEmpty then throwError "Empty library lemma docstring: {name}"
+
+run_elab do
+  let env ← Lean.getEnv
+  for (parent, child) in #[
+      (`OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector, `OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values),
+      (`OAI.KLInvariance.FiniteCharacterLocalization.class_projector, `OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd),
+      (`OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator, `OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum),
+      (`OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector, `OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators),
+      (`OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation, `OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates),
+      (`OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership, `OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator),
+      (`OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal, `OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal),
+      (`OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq, `OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt),
+      (`OAI.KLInvariance.Hilbert.eq_of_value_eq, `OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le),
+      (`OAI.KLInvariance.Hilbert.imageMap_ker, `OAI.KLInvariance.Hilbert.saturated_kernel_witness),
+      (`OAI.KLInvariance.Hilbert.value_image_exact, `OAI.KLInvariance.Hilbert.term_image_exact),
+      (`OAI.KLInvariance.Hilbert.value_image_exact, `OAI.KLInvariance.Hilbert.image_terms_summable),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live, `OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live, `OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.pullback_kernel, `OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.pullback_kernel, `OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.tensorSections_surjective, `OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.baseChange_flabby, `OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.baseChange_upperQuotient, `OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledImages, `OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledImages, `OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledImages, `OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledImages, `OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff),
+      (`OAI.KLInvariance.MomentGraph.Sheaf.flowDown_flabby, `OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference),
+      (`OAI.KLInvariance.Hilbert.scalar_value, `OAI.KLInvariance.Hilbert.hasSum_shift_coeff),
+      (`OAI.KLInvariance.Hilbert.shifted_image_value, `OAI.KLInvariance.Hilbert.hasSum_shift_coeff),
+      (`OAI.KLInvariance.Hilbert.image_terms_summable, `OAI.KLInvariance.Hilbert.term_image_exact)] do
+    let some (.thmInfo info) := env.find? parent | throwError "Missing library parent: {parent}"
+    unless info.value.getUsedConstants.contains child do
+      throwError "Expected direct library dependency missing: {parent} → {child}"
+  Lean.logInfo "27 library proof relationships verified: 24 new-helper original, two existing-API uses, one helper-to-helper."
+
+-- Library applicability: empty projector block, genuine reciprocal polynomial,
+-- zero scalar in a product, and an empty product family. These are tests only.
+example (x : Fin 2) :
+    (∏ y ∈ (∅ : Finset (Fin 2)),
+      (algebraMap ℤ (Fin 2 → ℤ) ((0 : Fin 2 → ℤ) y) - (0 : Fin 2 → ℤ))) x = 1 := by
+  exact (FiniteCharacterLocalization.projector_product_values
+    (∅ : Finset (Fin 2)) (0 : Fin 2 → ℤ) (fun _ _ => rfl)).2 x
+      (Finset.notMem_empty x)
+
+example : (X + 1 : ℝ[X]) = reflect 1 (X + 1 : ℝ[X]) := by
+  apply eq_reflect_of_eval_reciprocal (X + 1) 1 (by simp)
+  intro q hq _
+  simp only [eval_add, eval_X, eval_one, pow_one]
+  field_simp
+  ring
+
+section LibraryProductBoundary
+open OAI.KLInvariance.MomentGraph
+open OAI.KLInvariance.MomentGraph.Sheaf
+variable {R V E : Type} [CommRing R] [PartialOrder V] {G : OrderedGraph V E}
+
+example (B C : Sheaf (R := R) G) (e : E)
+    (H : Set (Outgoing (G := G) (G.target e))) (z : (prod B C).edge e) :
+    (∃ v ∈ (prod B C).upwardKernel (G.target e) H,
+      (0 : R) • (prod B C).upper e v = z) ↔ z = 0 := by
+  rw [prod_scaledUpperImage_iff]
+  simp only [zero_smul]
+  constructor
+  · rintro ⟨⟨_,_,hb⟩,⟨_,_,hc⟩⟩
+    exact Prod.ext hb.symm hc.symm
+  · intro hz
+    subst z
+    exact ⟨⟨0, Submodule.zero_mem _, rfl⟩, ⟨0, Submodule.zero_mem _, rfl⟩⟩
+
+example (B : Empty → Sheaf (R := R) G) (e : E)
+    (F : Set (Outgoing (G := G) (G.source e))) (z : (pi B).edge e) :
+    z ∈ ((pi B).upwardKernel (G.source e) F).map ((pi B).lower e) := by
+  apply (pi_lowerImage_iff B e F z).mpr
+  intro i
+  exact isEmptyElim i
+end LibraryProductBoundary

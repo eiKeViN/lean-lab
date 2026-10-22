@@ -108,13 +108,15 @@ class EvolutionChecks(unittest.TestCase):
         f=self.root/'OAI/KL/Comparison/Transport.lean';text=f.read_text()
         needle='  rw [← transported_entry_eq_rTilde φ x y]'
         self.assertIn(needle,text);f.write_text(text.replace(needle,'  simp only [← transported_entry_eq_rTilde φ x y]',1));self.bind_sources()
-        with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+        with patch.object(ev,'check_prior_source',return_value=None):
+            with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
 
     def test_reject_comparison_old_header_without_scope_mock(self):
         f=self.root/'OAI/KL/Comparison/Transport.lean';text=f.read_text()
         needle='(v : C) (hv : v≠0) (x : Interval cs 1 b) :'
         self.assertIn(needle,text);f.write_text(text.replace(needle,'(v : C) (hv : v=0) (x : Interval cs 1 b) :',1));self.bind_sources()
-        with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+        with patch.object(ev,'check_prior_source',return_value=None):
+            with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_private_axiom(self):
         path=next(iter(ev.policy()['pristine_files']));f=self.root/path;f.write_text(f.read_text()+'\nprivate axiom hidden : False\n');self.bind_sources()
@@ -158,5 +160,38 @@ class EvolutionChecks(unittest.TestCase):
         with self.assertRaises(RuntimeError):ev.check_pilot_axioms('')
         with self.assertRaises(RuntimeError):ev.check_pilot_axioms(good+good.splitlines()[0]+'\n')
         with self.assertRaises(RuntimeError):ev.check_pilot_axioms(good.replace('propext','badAxiom',1))
+
+    def test_reject_rebound_third_round_source(self):
+        f=self.root/'OAI/KL/Comparison/Transport.lean';f.write_text(f.read_text()+'\n');self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'frozen prior-round'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_rebound_third_round_type(self):
+        f=self.root/'additional-types.json';data=json.loads(f.read_text())
+        data[ev.policy()['additions'][13]]['type']='0'*64;f.write_text(json.dumps(data))
+        record=json.loads(ev.MANIFEST.read_text());record['additional_types_sha256']=ev.sha(f.read_bytes());ev.MANIFEST.write_text(json.dumps(record))
+        with self.assertRaisesRegex(RuntimeError,'retained prior-round added types'):self.compare_mock({**OLD,**ADDED})
+
+    def test_reject_library_unsampled_code(self):
+        f=self.root/'ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean';text=f.read_text()
+        self.assertIn('exact smul_comm _ _ _',text)
+        f.write_text(text.replace('exact smul_comm _ _ _','simpa using smul_comm _ _ _',1));self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_library_old_header(self):
+        f=self.root/'ForMathlib/Algebra/Polynomial/Reciprocal.lean';text=f.read_text()
+        needle='(hp : 2 * p.natDegree < d)'
+        self.assertIn(needle,text);f.write_text(text.replace(needle,'(hp : 3 * p.natDegree < d)',1));self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_unlisted_library_import(self):
+        f=self.root/'ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean'
+        f.write_text('import OAI.KL\n'+f.read_text());self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+
+    def test_axiom_free_closures_are_complete_records(self):
+        names=ev.policy()['additions']+ev.policy()['changed_declarations']
+        good=''.join("'"+n+"' does not depend on any axioms\n" for n in names)
+        ev.check_pilot_axioms(good)
+        with self.assertRaises(RuntimeError):ev.check_pilot_axioms(good.replace('does not depend','does depend',1))
 
 if __name__=='__main__':unittest.main()

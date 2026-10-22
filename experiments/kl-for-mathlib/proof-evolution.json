@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "policy_sha256": "63e7df2a6768fcf54c158902b7e039cc1bd51670de080cc64c9e38de17a03095",
+  "policy_sha256": "ea6748a3a3f737112c5873cd4ab1a0243e3bd64a13581e5209a3ebe3fb7fcc86",
   "files": {
     "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean": {
       "pristine_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5",
@@ -41,8 +41,52 @@
     "OAI/KL/Comparison/SuffixFreeness.lean": {
       "pristine_sha256": "584e398f4b9c4f29f0d04333ec9d41b68b8f2bddd817645d942a75b667e4b367",
       "active_sha256": "afcb971b29c76b8e95d72555580a99972d3c6befa97dea96cf16f38f9c76ff97"
+    },
+    "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean": {
+      "pristine_sha256": "edff801e2bbded7dba743888076d11ef445902af2a9294c94e0b3f076c08a885",
+      "active_sha256": "d67eb93ecbb8ae1ffbc2eb79e968f6a2be983f8b81aede6b535c118a38490274"
+    },
+    "ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean": {
+      "pristine_sha256": "9420743041573b9fad70d6129d7aa0b6fd8c5f1f6104c379359f858b1250e80f",
+      "active_sha256": "08231913e42f91f8d5bd367bc11c8c70765f3248221193a70ea543fb22bb39b9"
+    },
+    "ForMathlib/Algebra/Polynomial/Reciprocal.lean": {
+      "pristine_sha256": "0d7725600445544c03dc46a77cc368bf34959df715a258852e5709f55fde4d81",
+      "active_sha256": "fd12d20fb617fed94723540abf9dec19b3acedccb42b20613f03192db390b75c"
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean": {
+      "pristine_sha256": "6c866e6930abbf045a45bebe3c4e92b343784e44994eda5033f6e24ac9bb31bd",
+      "active_sha256": "2f86f8669d6981cc73eb82aac60ad30cef6ffd5ca3733ef137ed429e91265ed8"
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean": {
+      "pristine_sha256": "d49dc4bf38bd97cd26308721c557597c93dc806275c704ecdab70f4a20056c2e",
+      "active_sha256": "672eaa9d3750e38e52bb383ec473e53c8117e906402d59189707916ce43627ef"
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean": {
+      "pristine_sha256": "67d9b645bed118b07617760b63710fa450248c1f75025f9ddfa94cb5dcfeaa6d",
+      "active_sha256": "f18cdba9ba9d923ebfca4d643ce2f8129cc783081d2dcc1333784ebf1d0fa0e5"
+    },
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean": {
+      "pristine_sha256": "dc439f9e7bfe150822f52e74ec77084ab03f678bb9f358a1567b30ef6714267f",
+      "active_sha256": "7c54ab4a7bd329cf1652d58b57dfb80fe63e8f575b8d1e4459c4bfa9487d9c90"
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean": {
+      "pristine_sha256": "7cd6afef5e2eca5bfe247057c1d04a493f5779fb41cc26430ee6082a22f2a292",
+      "active_sha256": "22ee33c3051530b5581c66b929e45f55a3716047c3be6c9a2bac64d6efd3e38a"
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean": {
+      "pristine_sha256": "2775bdb55011d8816ef0b0e2369cd9b0fd54c19d08f7769233cb6827e7bf4704",
+      "active_sha256": "1c2f252209a2c286303429a6b569250291bcf2c8039fa851fa1a594e043ca265"
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean": {
+      "pristine_sha256": "ee3836174696e84f967d58e7819465cdf4890371cbc6aa2867911d2b68bbb3f2",
+      "active_sha256": "af6f21aad2f674a0d658e9d72b4245c37a72516e1cd7d2418b2e2d79a8c2b42c"
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean": {
+      "pristine_sha256": "2cca6294a3fb4971e2b63fdb234adb92b44f7d18f4d5875db835f4da5e7398da",
+      "active_sha256": "d9b52fdb62240dbfd1c569c6548e269c248826a55dadd064e0793dfb9852b71d"
     }
   },
-  "diff_sha256": "e4a152a82d3a1c4ea82917fbf70c8e73516aacfd45ad6415fb2f000f34decaf9",
-  "additional_types_sha256": "5ac38e6c44a65cf80f601f7751f5346690a7976f00a10598819ed7f02dc9a55d"
+  "diff_sha256": "9ac627d419c7f403c2b52b4011f82eea576668d6a7893f057f71501481cf95fb",
+  "additional_types_sha256": "b39deefb8632098e38264682b4eb673ef37869a8ce89cc582de1fdbf6021b33c"
 }

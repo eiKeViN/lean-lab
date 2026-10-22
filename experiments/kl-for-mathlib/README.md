@@ -87,13 +87,16 @@ Changes to file responsibility preserve complete declarations and proofs:
   remain below grading.
 
 The architecture migration rewrote no mathematical statement or proof body.
-The active [comparison-pipeline pilot](../../reports/lemma-granularity-comparison.md)
-now has twenty-one added lemmas and fifteen rewritten proofs across three rounds.
-All 3902 original API types and the previous thirteen added types are preserved;
-eight further types are separately recorded in the cumulative snapshot.
-`proof-evolution.json` binds ten precise source exceptions and their exact diff;
-the previous seven remain additionally frozen to the tested `bdcb350` active
-hashes. All other products remain pristine reconstructions.
+The active [library extraction round](../../reports/lemma-granularity-library.md)
+has forty-five added lemmas and thirty-six rewritten old proofs across four rounds.
+All 3902 original API types and the previous twenty-one added types are preserved;
+twenty-four further types are separately recorded in the cumulative snapshot.
+`proof-evolution.json` binds twenty-one precise source exceptions and their exact diff;
+the previous ten remain additionally frozen to the tested `a0b5b59` active hashes.
+All other products remain pristine reconstructions. One exact same-layer integration
+import, `Hilbert.Series → Hilbert.Numerator`, reuses `hasSum_shift_coeff` in two
+old clients instead of adding a duplicate lemma. This edge is bound by the revised
+library plan and included in dependency checks; the pristine migration is unchanged.
 The earlier 76 explicit
 instance-name annotations and single local instance attribute are inherited.
 `migration.json` and `migrate.py --check` bind all 525 immutable parent units and
@@ -118,7 +121,7 @@ For static checks: add `--static`. With warm OAI and candidate artifacts:
 evidence without running Lean. The old `--refresh-reference` option is retired;
 there is no second project to recompile.
 The unchanged hash-bound reference still covers 3902 old declarations. The active
-pilot requires exactly those types plus the twenty-one explicitly listed theorem types
+pilot requires exactly those types plus the forty-five explicitly listed theorem types
 in `additional-types.json`; it does not replace the old snapshot.
 The comparator and all 31 adversarial tests are inherited byte-for-byte.
 Relative to the original architecture exporter, the sole difference remains the
@@ -171,27 +174,27 @@ docstrings and a small provenance/keyword index. From this project after sourcin
 `../../scripts/env.sh`:
 
 ```bash
-SEMANTIC_CORPUS_OUT="$LAB_ROOT/results/lemma-granularity/comparison-after-corpus.json" python3 pilot_measure.py comparison-after-corpus lake env lean SemanticCorpus.lean
-python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/comparison-after-corpus.json" --check
-python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/comparison-after-corpus.json" --comparison --query "upper interval triangular weighted sum"
+SEMANTIC_CORPUS_OUT="$LAB_ROOT/results/lemma-granularity/library-after-corpus.json" python3 pilot_measure.py library-after-corpus-replay lake env lean SemanticCorpus.lean
+python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/library-after-corpus.json" --check
+python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/library-after-corpus.json" --library --query "flat tensor section constraint kernel"
 ```
 
-`--comparison --ablate-new-docs` removes only the latest eight docstrings, keeping
-the previous thirteen. Queries were committed before editing and are nonblind.
-The earlier `--expansion` and default first-round query options remain available;
+`--library --ablate-new-docs` removes only the latest twenty-four docstrings, keeping
+the previous twenty-one. Queries were committed before editing and are nonblind.
+The earlier `--comparison`, `--expansion` and default first-round query options remain available;
 immutable corpora/results are in their respective reports/evidence directories.
 Regenerating current metadata does not reproduce a historical corpus.
 
-The full checker includes 24 source/API evolution tests, the inherited 31
-comparator tests and 14 partition tests, the original 16 axiom closures and 36
+The full checker includes 30 source/API evolution tests, the inherited 31
+comparator tests and 14 partition tests, the original 16 axiom closures and 81
 pilot closures. Source coverage checks the pristine reconstruction; the separate
-hash/diff/span/header check verifies ten active exceptions and freezes the prior
-seven. Selected old headers are checked literally as well as by complete type
+hash/diff/span/header check verifies twenty-one active exceptions and freezes the prior
+ten. Selected old headers are checked literally as well as by complete type
 exports; their diff alignment can change when proof blocks are extracted.
 The recorder is an explicit reviewed update, not automatic acceptance or a
 production-grade generic proof-evolution framework.
 
-The latest direct benchmark is optional; run only without another active build:
+The previous comparison-round direct benchmark remains optional; run only without another active build:
 
 ```bash
 python3 measure_samples.py --comparison

@@ -11,7 +11,18 @@
     "OAI/KL/Localization/TerminalImages.lean": "724d16f0b20ad5943c4356c7048142d28892222549982c031499965f6df7af8b",
     "OAI/KL/Comparison/Transport.lean": "31a677c4ad9e14a598bc46fca1717ec3620ce0d41737b41f0e317bdb5785a578",
     "OAI/KL/Comparison/Propagation.lean": "c3a51bd3ce596e4a43e37ea6f2fde8ec714cce063ad3f9a351ea47ce8c7ad712",
-    "OAI/KL/Comparison/SuffixFreeness.lean": "584e398f4b9c4f29f0d04333ec9d41b68b8f2bddd817645d942a75b667e4b367"
+    "OAI/KL/Comparison/SuffixFreeness.lean": "584e398f4b9c4f29f0d04333ec9d41b68b8f2bddd817645d942a75b667e4b367",
+    "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean": "edff801e2bbded7dba743888076d11ef445902af2a9294c94e0b3f076c08a885",
+    "ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean": "9420743041573b9fad70d6129d7aa0b6fd8c5f1f6104c379359f858b1250e80f",
+    "ForMathlib/Algebra/Polynomial/Reciprocal.lean": "0d7725600445544c03dc46a77cc368bf34959df715a258852e5709f55fde4d81",
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean": "6c866e6930abbf045a45bebe3c4e92b343784e44994eda5033f6e24ac9bb31bd",
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean": "d49dc4bf38bd97cd26308721c557597c93dc806275c704ecdab70f4a20056c2e",
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean": "67d9b645bed118b07617760b63710fa450248c1f75025f9ddfa94cb5dcfeaa6d",
+    "ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean": "dc439f9e7bfe150822f52e74ec77084ab03f678bb9f358a1567b30ef6714267f",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean": "7cd6afef5e2eca5bfe247057c1d04a493f5779fb41cc26430ee6082a22f2a292",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean": "2775bdb55011d8816ef0b0e2369cd9b0fd54c19d08f7769233cb6827e7bf4704",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean": "ee3836174696e84f967d58e7819465cdf4890371cbc6aa2867911d2b68bbb3f2",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean": "2cca6294a3fb4971e2b63fdb234adb92b44f7d18f4d5875db835f4da5e7398da"
   },
   "changed_declarations": [
     "OAI.KLInvariance.finite_character_cancellation",
@@ -28,7 +39,28 @@
     "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_upper",
     "OAI.KLInvariance.BruhatGraph.costalkEquivDual_symmetric",
     "OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character",
-    "OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq"
+    "OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq",
+    "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector",
+    "OAI.KLInvariance.FiniteCharacterLocalization.class_projector",
+    "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+    "OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector",
+    "OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation",
+    "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+    "OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal",
+    "OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq",
+    "OAI.KLInvariance.Hilbert.eq_of_value_eq",
+    "OAI.KLInvariance.Hilbert.scalar_value",
+    "OAI.KLInvariance.Hilbert.imageMap_ker",
+    "OAI.KLInvariance.Hilbert.value_image_exact",
+    "OAI.KLInvariance.Hilbert.shifted_image_value",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pullback_kernel",
+    "OAI.KLInvariance.MomentGraph.Sheaf.tensorSections_surjective",
+    "OAI.KLInvariance.MomentGraph.Sheaf.baseChange_flabby",
+    "OAI.KLInvariance.MomentGraph.Sheaf.baseChange_upperQuotient",
+    "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledImages",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledImages",
+    "OAI.KLInvariance.MomentGraph.Sheaf.flowDown_flabby"
   ],
   "additions": [
     "OAI.KLInvariance.weighted_sum_exchange",
@@ -51,7 +83,31 @@
     "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
     "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
     "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character",
-    "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free"
+    "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free",
+    "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values",
+    "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd",
+    "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum",
+    "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators",
+    "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates",
+    "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+    "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal",
+    "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
+    "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le",
+    "OAI.KLInvariance.Hilbert.saturated_kernel_witness",
+    "OAI.KLInvariance.Hilbert.term_image_exact",
+    "OAI.KLInvariance.Hilbert.image_terms_summable",
+    "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live",
+    "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live",
+    "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live",
+    "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend",
+    "OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact",
+    "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference"
   ],
   "expansion_plan_sha256": "baeb7f870cba363f9d1b86af0c8f56d033b322df15d7241999fb85c198a49531",
   "prior_active_files": {
@@ -61,11 +117,15 @@
     "ForMathlib/LinearAlgebra/Reflection/Plane.lean": "c7a0b7adf0ca3738690e24faccc0760e8eb3f8010d011ba68b3731f086618998",
     "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean": "8ed0b7725185b40ae26f0c2202bd247c02ffe0eb65993a00fc9a0940d1877d3f",
     "ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean": "81cd1abbc1e76e83882e37c1162b7ed67e8813c76873f3776f5b174b249c1fb3",
-    "OAI/KL/Localization/TerminalImages.lean": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41"
+    "OAI/KL/Localization/TerminalImages.lean": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41",
+    "OAI/KL/Comparison/Transport.lean": "294eb43386cfb9001db92aac262d8605c9735152baab1a88b4c414e0627d1dc3",
+    "OAI/KL/Comparison/Propagation.lean": "c330d6b7bca3c86579e1ebd2db9cefbf968a28bf6644387235cac7ef4e256cbf",
+    "OAI/KL/Comparison/SuffixFreeness.lean": "afcb971b29c76b8e95d72555580a99972d3c6befa97dea96cf16f38f9c76ff97"
   },
   "comparison_plan_sha256": "73dfdc70e047af0bb338454a73ad050414b75ece440acba0186f34e3c27daa74",
   "additional_prefixes": {
     "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le": "omit [Fintype I'] in",
     "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper": "omit [Fintype I] in"
-  }
+  },
+  "library_plan_sha256": "59ca5b99c065af1cd4857e4c36e1a7f87505117510d489fe71479759ffec4100"
 }

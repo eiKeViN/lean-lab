@@ -3,8 +3,10 @@
 See [coverage](lemma-granularity-library-coverage.md) and the exact committed
 [evidence plan](evidence/lemma-granularity-library/plan.json). Twenty-one old proofs
 are selected across finite-character localization, projective prime cancellation,
-polynomial rigidity, graded Hilbert identities and sheaf operations. Twenty-five
-helper statements are chosen for coherent roles, with two explicit sharing edges.
+polynomial rigidity, graded Hilbert identities and sheaf operations. The initial twenty-five-helper proposal is retained as `pre-reuse-plan.json`.
+A later cross-check found the existing `hasSum_shift_coeff`, so the revised plan
+keeps twenty-four new helpers, reuses that API in two old clients, and records
+one helper-to-helper sharing edge. No quota was imposed.
 
 Keep the same branch/project, old 3902 types and previous 21 added types, and ten
 prior active sources. Build foundational edits in two grouped batches, then the

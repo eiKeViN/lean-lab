@@ -1,0 +1,5 @@
+Six production proof references verified; second use is within the four samples.
+Eight expansion original-site references verified; no second production use claimed.
+Nine comparison relationships verified; square-weight second use is within this round.
+27 library proof relationships verified: 24 new-helper original, two existing-API uses, one helper-to-helper.
+PilotChecks.lean:363:7: error(lean.unknownIdentifier): Unknown constant `Finset.not_mem_empty`

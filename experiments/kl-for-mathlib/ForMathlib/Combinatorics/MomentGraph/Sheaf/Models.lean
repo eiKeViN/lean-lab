@@ -173,39 +173,82 @@ theorem pi_upwardKernel_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R
     subst x
     exact funext (fun i => h i ⟨e,rfl⟩ he)
 
+/-- The lower image of a product sheaf is detected in its two coordinates.
+The statement includes the kernel witnesses, so scaled-image arguments can use
+coordinate membership without unpacking product sections again. -/
+theorem prod_lowerImage_iff (B C : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
+    (F : Set (Outgoing (G := G) (G.source e))) (z : (prod B C).edge e) :
+    z ∈ ((prod B C).upwardKernel (G.source e) F).map ((prod B C).lower e) ↔
+      z.1 ∈ (B.upwardKernel (G.source e) F).map (B.lower e) ∧
+      z.2 ∈ (C.upwardKernel (G.source e) F).map (C.lower e) := by
+  constructor
+  · rintro ⟨v,hv,he⟩
+    have hv' := (prod_upwardKernel_iff B C _ F v).mp hv
+    exact ⟨⟨v.1,hv'.1,congrArg Prod.fst he⟩,⟨v.2,hv'.2,congrArg Prod.snd he⟩⟩
+  · rintro ⟨⟨b,hb,hbe⟩,⟨c,hc,hce⟩⟩
+    exact ⟨(b,c),(prod_upwardKernel_iff B C _ F _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
+
+/-- A scalar upper-image witness in a product sheaf is equivalent to one
+witness in each factor. The scalar can be zero; no division or cancellation is
+part of this product decomposition. -/
+theorem prod_scaledUpperImage_iff (B C : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
+    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : (prod B C).edge e) :
+    (∃ v ∈ (prod B C).upwardKernel (G.target e) H, r • (prod B C).upper e v=z) ↔
+      (∃ b ∈ B.upwardKernel (G.target e) H, r • B.upper e b=z.1) ∧
+      (∃ c ∈ C.upwardKernel (G.target e) H, r • C.upper e c=z.2) := by
+  constructor
+  · rintro ⟨v,hv,he⟩
+    have hv' := (prod_upwardKernel_iff B C _ H v).mp hv
+    exact ⟨⟨v.1,hv'.1,congrArg Prod.fst he⟩,⟨v.2,hv'.2,congrArg Prod.snd he⟩⟩
+  · rintro ⟨⟨b,hb,hbe⟩,⟨c,hc,hce⟩⟩
+    exact ⟨(b,c),(prod_upwardKernel_iff B C _ H _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
+
 theorem prod_scaledImages (B C : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
     (F : Set (Outgoing (G := G) (G.source e)))
     (H : Set (Outgoing (G := G) (G.target e))) (r : R)
     (hB : B.ScaledImages e F H r) (hC : C.ScaledImages e F H r) :
     (prod B C).ScaledImages e F H r := by
   intro z
+  exact (prod_lowerImage_iff B C e F z).trans
+    ((and_congr (hB z.1) (hC z.2)).trans (prod_scaledUpperImage_iff B C e H r z).symm)
+
+/-- Lower-image membership in a product family is coordinatewise membership.
+The reverse implication assembles the chosen kernel witnesses, with no finite
+index assumption. -/
+theorem pi_lowerImage_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
+    (F : Set (Outgoing (G := G) (G.source e))) (z : (pi B).edge e) :
+    z ∈ ((pi B).upwardKernel (G.source e) F).map ((pi B).lower e) ↔
+      ∀ i, z i ∈ ((B i).upwardKernel (G.source e) F).map ((B i).lower e) := by
+  classical
   constructor
-  · rintro ⟨v,hv,he⟩
-    have hv' := (prod_upwardKernel_iff B C _ F v).mp hv
-    obtain ⟨b,hb,hbe⟩ := (hB z.1).mp ⟨v.1,hv'.1,congrArg Prod.fst he⟩
-    obtain ⟨c,hc,hce⟩ := (hC z.2).mp ⟨v.2,hv'.2,congrArg Prod.snd he⟩
-    exact ⟨(b,c),(prod_upwardKernel_iff B C _ H _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
-  · rintro ⟨v,hv,he⟩
-    have hv' := (prod_upwardKernel_iff B C _ H v).mp hv
-    obtain ⟨b,hb,hbe⟩ := (hB z.1).mpr ⟨v.1,hv'.1,congrArg Prod.fst he⟩
-    obtain ⟨c,hc,hce⟩ := (hC z.2).mpr ⟨v.2,hv'.2,congrArg Prod.snd he⟩
-    exact ⟨(b,c),(prod_upwardKernel_iff B C _ F _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
+  · rintro ⟨v,hv,he⟩ i
+    exact ⟨v i,(pi_upwardKernel_iff B _ F v).mp hv i,congrFun he i⟩
+  · intro hz
+    choose v hv hve using hz
+    exact ⟨v,(pi_upwardKernel_iff B _ F _).mpr hv,funext hve⟩
+
+/-- Scalar upper-image membership in a product family is coordinatewise.
+Choice assembles the witnesses for an arbitrary index type; the scalar needs no
+inverse and may vanish. -/
+theorem pi_scaledUpperImage_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
+    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : (pi B).edge e) :
+    (∃ v ∈ (pi B).upwardKernel (G.target e) H, r • (pi B).upper e v=z) ↔
+      ∀ i, ∃ w ∈ (B i).upwardKernel (G.target e) H, r • (B i).upper e w=z i := by
+  classical
+  constructor
+  · rintro ⟨v,hv,he⟩ i
+    exact ⟨v i,(pi_upwardKernel_iff B _ H v).mp hv i,congrFun he i⟩
+  · intro hz
+    choose v hv hve using hz
+    exact ⟨v,(pi_upwardKernel_iff B _ H _).mpr hv,funext hve⟩
 
 theorem pi_scaledImages {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
     (F : Set (Outgoing (G := G) (G.source e)))
     (H : Set (Outgoing (G := G) (G.target e))) (r : R)
     (hB : ∀ i, (B i).ScaledImages e F H r) : (pi B).ScaledImages e F H r := by
-  classical
   intro z
-  constructor
-  · rintro ⟨v,hv,he⟩
-    have hv' := (pi_upwardKernel_iff B _ F v).mp hv
-    choose w hw hwe using fun i => (hB i (z i)).mp ⟨v i,hv' i,congrFun he i⟩
-    exact ⟨w,(pi_upwardKernel_iff B _ H _).mpr hw,funext hwe⟩
-  · rintro ⟨v,hv,he⟩
-    have hv' := (pi_upwardKernel_iff B _ H v).mp hv
-    choose w hw hwe using fun i => (hB i (z i)).mpr ⟨v i,hv' i,congrFun he i⟩
-    exact ⟨w,(pi_upwardKernel_iff B _ F _).mpr hw,funext hwe⟩
+  exact (pi_lowerImage_iff B e F z).trans
+    ((forall_congr' (fun i => hB i (z i))).trans (pi_scaledUpperImage_iff B e H r z).symm)
 
 theorem zero_scaledImages (e : E) (F : Set (Outgoing (G := G) (G.source e)))
     (H : Set (Outgoing (G := G) (G.target e))) (r : R) :

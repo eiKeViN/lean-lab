@@ -2,7 +2,10 @@
 
 Baseline `a0b5b59457f593c86d3054b086da3b820585c282`. All 207 implementation
 files (205 migration entries plus two fixed kernel files) have source hashes and
-a mechanical declaration inventory. This is **not** a line-by-line proof audit.
+a mechanical inventory of named theorem/lemma/def/abbrev/structure headings.
+This recognizer is not a full Lean parser or a complete instance/generated-declaration
+list. Another 54 import-only compatibility/umbrella files are checked separately,
+covering all 261 library product modules at the file level. This is **not** a line-by-line proof audit.
 Targeted source reading covers the selected files and the explicitly retained
 files below; all other files are deferred after declaration/region screening.
 
@@ -104,3 +107,13 @@ The basis/generator constructions are similarly deferred to a dedicated proof re
 `coverage.json` lists every file, source hash, declaration/line inventory, actual
 screening level and disposition. `proof-structures.json` will retain the selected
 before/after arguments; prior APIs and active source files remain frozen.
+
+`entrypoints.json` records those import-only files. `coverage-baseline-check.json`
+verifies all 261 file hashes against the starting Git commit. The original mechanical
+inventory is consolidated into `coverage.json`, avoiding a duplicate maintained dump.
+
+Follow-up: a focused cross-check of `Hilbert/Numerator.hasSum_shift_coeff` and
+its `numerator_add_shift` use withdrew the proposed duplicate shift helper. The
+file remains unchanged and two old clients reuse its existing API through one
+explicit same-layer import. This extra focused check is separate from the 20
+preselected targeted-read files; the baseline hashes and inventory are unchanged.

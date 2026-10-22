@@ -1,7 +1,6 @@
 {
   "schema": 1,
   "explanatory_authority": "Lean docstrings; this index stores provenance and lookup keys, not a second formal specification",
-  "production_sites_are_all_within_original_samples": true,
   "entries": [
     {
       "candidate": "C1",
@@ -320,6 +319,329 @@
       "applicability_tests": [
         "one-edge schedule from empty remaining conditions"
       ]
+    },
+    {
+      "candidate": "G1",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values",
+      "original_site": "L1",
+      "second_sites": [],
+      "keywords": [
+        "finite weights",
+        "annihilating polynomial",
+        "projector values"
+      ],
+      "reason": "Pointwise annihilation/constant values of the projector polynomial, independent of stable lattice membership.",
+      "applicability_tests": [
+        "empty block over \u2124 with Fin 2 coordinates"
+      ]
+    },
+    {
+      "candidate": "G2",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd",
+      "original_site": "L2",
+      "second_sites": [],
+      "keywords": [
+        "prime nondivisibility",
+        "residue congruences",
+        "product"
+      ],
+      "reason": "Prime nondivisibility of the character product, separate from constructing a stable projector.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G3",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum",
+      "original_site": "L3",
+      "second_sites": [],
+      "keywords": [
+        "partition",
+        "common scalar denominator",
+        "diagonal lifts"
+      ],
+      "reason": "The common-denominator partition identity, independent of lattice membership and primeness.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G4",
+      "declaration": "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators",
+      "original_site": "L4",
+      "second_sites": [],
+      "keywords": [
+        "stable character class",
+        "separating tests",
+        "residue"
+      ],
+      "reason": "Stable separating tests for a residue character class before the finite projector argument.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G5",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates",
+      "original_site": "L5",
+      "second_sites": [],
+      "keywords": [
+        "prime scalar relation",
+        "coordinate divisibility",
+        "projective lattice"
+      ],
+      "reason": "Coordinate prime divisibility from a scalar relation, before splitting the projective presentation.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G6",
+      "declaration": "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+      "original_site": "L6",
+      "second_sites": [],
+      "keywords": [
+        "prime denominator cancellation",
+        "local membership",
+        "projectivity"
+      ],
+      "reason": "Cancel one prime denominator using local membership and projectivity, leaving UFD induction to the client.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G7",
+      "declaration": "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal",
+      "original_site": "L7",
+      "second_sites": [],
+      "keywords": [
+        "functional reciprocity",
+        "polynomial reflection",
+        "open unit interval"
+      ],
+      "reason": "Functional reciprocity implies a polynomial identity before strict-degree rigidity.",
+      "applicability_tests": [
+        "p = X + 1 over \u211d, d = 1"
+      ]
+    },
+    {
+      "candidate": "G8",
+      "declaration": "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
+      "original_site": "L8",
+      "second_sites": [],
+      "keywords": [
+        "strict homogeneous piece",
+        "Hilbert value",
+        "dimension defect"
+      ],
+      "reason": "A strict degree-piece rank defect forces a strict convergent Hilbert-value inequality.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G9",
+      "declaration": "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le",
+      "original_site": "L9",
+      "second_sites": [],
+      "keywords": [
+        "homogeneous components",
+        "submodule inclusion",
+        "decomposition"
+      ],
+      "reason": "Reconstruct submodule inclusion from componentwise inclusion and homogeneous target membership.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G10",
+      "declaration": "OAI.KLInvariance.Hilbert.saturated_kernel_witness",
+      "original_site": "L11",
+      "second_sites": [],
+      "keywords": [
+        "saturation",
+        "kernel",
+        "scalar divisibility witness"
+      ],
+      "reason": "Lift scalar divisibility witnesses inside a saturated submodule.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G11",
+      "declaration": "OAI.KLInvariance.Hilbert.term_image_exact",
+      "original_site": "L12",
+      "second_sites": [],
+      "keywords": [
+        "exact sequence",
+        "degreewise dimensions",
+        "weighted Hilbert term"
+      ],
+      "reason": "Separate weighted degreewise exactness and analytic summability from summing the exact sequence.",
+      "applicability_tests": [],
+      "helper_consumers": [
+        "OAI.KLInvariance.Hilbert.image_terms_summable"
+      ]
+    },
+    {
+      "candidate": "G12",
+      "declaration": "OAI.KLInvariance.Hilbert.image_terms_summable",
+      "original_site": "L12",
+      "second_sites": [],
+      "keywords": [
+        "positive terms",
+        "kernel image series",
+        "summability"
+      ],
+      "reason": "Separate weighted degreewise exactness and analytic summability from summing the exact sequence.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G13",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live",
+      "original_site": "L14",
+      "second_sites": [],
+      "keywords": [
+        "live edges",
+        "image closure",
+        "partial section"
+      ],
+      "reason": "Separate geometric live-edge closure and compatibility of a pushed partial section from flabby extension.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G14",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live",
+      "original_site": "L14",
+      "second_sites": [],
+      "keywords": [
+        "live edge pullback",
+        "pushed section",
+        "compatibility"
+      ],
+      "reason": "Separate geometric live-edge closure and compatibility of a pushed partial section from flabby extension.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G15",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback",
+      "original_site": "L15",
+      "second_sites": [],
+      "keywords": [
+        "pullback",
+        "upward kernel",
+        "unconditional inclusion"
+      ],
+      "reason": "Separate unconditional kernel pullback from the converse requiring live-edge lifting.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G16",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live",
+      "original_site": "L15",
+      "second_sites": [],
+      "keywords": [
+        "live edges",
+        "kernel inclusion",
+        "dead edges"
+      ],
+      "reason": "Separate unconditional kernel pullback from the converse requiring live-edge lifting.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G17",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff",
+      "original_site": "L16",
+      "second_sites": [],
+      "keywords": [
+        "tensor assignments",
+        "finite constraints",
+        "section kernel"
+      ],
+      "reason": "Transport the section constraint through a finite tensor product before using flat exactness.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G18",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend",
+      "original_site": "L17",
+      "second_sites": [],
+      "keywords": [
+        "flabby sections",
+        "tensor extension",
+        "restriction"
+      ],
+      "reason": "Extend already-tensored sections without the finiteness/flatness needed to represent arbitrary sections.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G19",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.upperQuotient_exact",
+      "original_site": "L18",
+      "second_sites": [],
+      "keywords": [
+        "upper quotient",
+        "scalar kernel",
+        "exact sequence"
+      ],
+      "reason": "Expose the scalar-kernel exact sequence before tensoring.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G20",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+      "original_site": "L19",
+      "second_sites": [],
+      "keywords": [
+        "product sheaf",
+        "lower image",
+        "coordinate witnesses"
+      ],
+      "reason": "Product image membership decomposes into its two factors before comparing scaled images.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G21",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff",
+      "original_site": "L19",
+      "second_sites": [],
+      "keywords": [
+        "product sheaf",
+        "scaled upper image",
+        "zero scalar"
+      ],
+      "reason": "Product image membership decomposes into its two factors before comparing scaled images.",
+      "applicability_tests": [
+        "r = 0 in arbitrary commutative-ring sheaves"
+      ]
+    },
+    {
+      "candidate": "G22",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+      "original_site": "L20",
+      "second_sites": [],
+      "keywords": [
+        "product family",
+        "lower image",
+        "choice of witnesses"
+      ],
+      "reason": "Coordinate image membership and choice of witnesses before comparing product sheaves.",
+      "applicability_tests": [
+        "empty index family over an arbitrary graph"
+      ]
+    },
+    {
+      "candidate": "G23",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
+      "original_site": "L20",
+      "second_sites": [],
+      "keywords": [
+        "product family",
+        "scaled upper image",
+        "arbitrary index"
+      ],
+      "reason": "Coordinate image membership and choice of witnesses before comparing product sheaves.",
+      "applicability_tests": []
+    },
+    {
+      "candidate": "G24",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference",
+      "original_site": "L21",
+      "second_sites": [],
+      "keywords": [
+        "flow down",
+        "correction difference",
+        "outgoing label product"
+      ],
+      "reason": "The correction defect is divisible by the outgoing label product, independent of choosing a flow-down section.",
+      "applicability_tests": []
     }
   ],
   "declined_candidates": [
@@ -336,5 +658,6 @@
     "round3: normalization positivity and simple scalar cancellation",
     "round3: a chosen homogeneous basis has the stalk polynomial",
     "round3: modify prior support assumptions or move the complementary-root API"
-  ]
+  ],
+  "old_production_clients_are_all_within_planned_samples": true
 }

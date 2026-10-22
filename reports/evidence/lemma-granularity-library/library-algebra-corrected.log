@@ -1,0 +1,27 @@
+✔ [8929/8932] Built ForMathlib.Algebra.Module.Graded.Hilbert.Series (7.8s)
+✔ [8930/8932] Built ForMathlib.Algebra.Module.Localization.FiniteCharacters (12s)
+✖ [8931/8932] Building ForMathlib.Algebra.Module.Graded.Hilbert.Images (8.8s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/Hilbert/Images.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/Hilbert/Images.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Graded/Hilbert/Images.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Graded/Hilbert/Images.setup.json --json
+error: ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean:65:10: Type mismatch: After simplification, term
+  Summable.hasSum hs
+ has type
+  HasSum (term 𝓜 ⊤ q) (∑' (b : ℤ), ↑(Module.finrank k ↥(𝓜 b)) * q ^ b)
+but is expected to have type
+  HasSum (fun n => ↑(Module.finrank k ↥(𝓜 n)) * q ^ n) (value 𝓜 ⊤ q)
+✖ [8932/8932] Building ForMathlib.Algebra.Module.Graded.Hilbert.Increment (12s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.setup.json --json
+error: ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean:85:10: Type mismatch: After simplification, term
+  Summable.hasSum hs
+ has type
+  @HasSum ℝ ℤ Real.instAddCommMonoid PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (term 𝓜 (Submodule.restrictScalars k S) q)
+    (∑' (b : ℤ), ↑(Module.finrank k ↥(piece 𝓜 (Submodule.restrictScalars k S) b)) * q ^ b)
+    (SummationFilter.unconditional ℤ)
+but is expected to have type
+  @HasSum ℝ ℤ Real.instAddCommMonoid PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (fun n => ↑(Module.finrank k ↥(piece 𝓜 (Submodule.restrictScalars k S) n)) * q ^ n)
+    (value 𝓜 (Submodule.restrictScalars k S) q) (SummationFilter.unconditional ℤ)
+Some required targets logged failures:
+- ForMathlib.Algebra.Module.Graded.Hilbert.Images
+- ForMathlib.Algebra.Module.Graded.Hilbert.Increment
+error: build failed

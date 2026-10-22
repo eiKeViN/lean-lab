@@ -40,6 +40,19 @@ lemma summable_of_le (𝓜 : ℤ → Submodule k M) [∀ n, Module.Finite k (�
     (hT : Summable (term 𝓜 T q)) : Summable (term 𝓜 S q) :=
   Summable.of_nonneg_of_le (term_nonneg 𝓜 S hq) (term_mono 𝓜 h hq) hT
 
+/-- A strict rank defect in one homogeneous piece makes the convergent
+Hilbert value strictly smaller. Only inclusion and positivity of the evaluation
+parameter are used; neither submodule must itself be homogeneous. -/
+theorem value_lt_of_piece_finrank_lt (𝓜 : ℤ → Submodule k M)
+    [∀ n, Module.Finite k (𝓜 n)] {S T : Submodule k M} (h : S ≤ T)
+    {q : ℝ} (hq : 0 < q) (hT : Summable (term 𝓜 T q)) (n : ℤ)
+    (hlt : Module.finrank k (piece 𝓜 S n) < Module.finrank k (piece 𝓜 T n)) :
+    value 𝓜 S q < value 𝓜 T q := by
+  have hterm : term 𝓜 S q n < term 𝓜 T q n := by
+    apply mul_lt_mul_of_pos_right _ (zpow_pos hq n)
+    exact_mod_cast hlt
+  exact (summable_of_le 𝓜 h hq hT).tsum_lt_tsum (term_mono 𝓜 h hq) hterm hT
+
 /-- Equality at one positive convergent parameter, with actual inclusion,
 forces equality of each homogeneous piece. -/
 theorem pieces_eq_of_value_eq (𝓜 : ℤ → Submodule k M)
@@ -52,12 +65,22 @@ theorem pieces_eq_of_value_eq (𝓜 : ℤ → Submodule k M)
   by_contra hne
   have hlt : Module.finrank k (piece 𝓜 S n) < Module.finrank k (piece 𝓜 T n) :=
     lt_of_le_of_ne (Submodule.finrank_mono (piece_mono 𝓜 h n)) hne
-  have hterm : term 𝓜 S q n < term 𝓜 T q n := by
-    apply mul_lt_mul_of_pos_right _ (zpow_pos hq n)
-    exact_mod_cast hlt
-  have hstrict := (summable_of_le 𝓜 h hq hT).tsum_lt_tsum
-    (term_mono 𝓜 h hq) hterm hT
-  exact (ne_of_lt hstrict) hv
+  exact (ne_of_lt (value_lt_of_piece_finrank_lt 𝓜 h hq hT n hlt)) hv
+
+/-- Componentwise inclusion reconstructs inclusion in a homogeneous target.
+This is the algebraic gluing step after degreewise information has been proved;
+no finiteness or Hilbert convergence hypothesis is needed. -/
+theorem le_of_homogeneous_pieces_le (𝓜 : ℤ → Submodule k M) [DirectSum.Decomposition 𝓜]
+    {S T : Submodule k M}
+    (hhom : ∀ n m, m ∈ T → (DirectSum.decompose 𝓜 m n : M) ∈ T)
+    (hpieces : ∀ n, piece 𝓜 T n ≤ piece 𝓜 S n) : T ≤ S := by
+  classical
+  intro m hm
+  rw [← DirectSum.sum_support_decompose 𝓜 m]
+  apply Submodule.sum_mem
+  intro n hn
+  have hmem : DirectSum.decompose 𝓜 m n ∈ piece 𝓜 T n := hhom n m hm
+  exact hpieces n hmem
 
 /-- No assumption on support codimension is involved. Equality of convergent
 Hilbert values detects equality with a homogeneous target globally. -/
@@ -66,16 +89,8 @@ theorem eq_of_value_eq (𝓜 : ℤ → Submodule k M) [DirectSum.Decomposition �
     (h : S ≤ T) (hhom : ∀ n m, m ∈ T → (DirectSum.decompose 𝓜 m n : M) ∈ T)
     {q : ℝ} (hq : 0 < q) (hT : Summable (term 𝓜 T q))
     (hv : value 𝓜 S q = value 𝓜 T q) : S = T := by
-  classical
   apply le_antisymm h
-  intro m hm
-  rw [← DirectSum.sum_support_decompose 𝓜 m]
-  apply Submodule.sum_mem
-  intro n hn
-  have heq := pieces_eq_of_value_eq 𝓜 h hq hT hv n
-  have hmem : DirectSum.decompose 𝓜 m n ∈ piece 𝓜 T n := hhom n m hm
-  rw [←heq] at hmem
-  exact hmem
+  exact le_of_homogeneous_pieces_le 𝓜 hhom (fun n => (pieces_eq_of_value_eq 𝓜 h hq hT hv n).ge)
 
 lemma value_mono (𝓜 : ℤ → Submodule k M) [∀ n, Module.Finite k (𝓜 n)]
     {S T : Submodule k M} (h : S ≤ T) {q : ℝ} (hq : 0 < q)

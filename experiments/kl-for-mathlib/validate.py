@@ -49,7 +49,8 @@ def static_checks():
  run('classification-and-boundaries',[sys.executable,'analyze.py'])
  run('proof-evolution-source',[sys.executable,'proof_evolution.py','--check'])
  if M.get('expected_public_count')!=3902:raise RuntimeError('Expected fixed coverage of 3902 public declarations')
- modules=M['modules'];legacy=set(M['legacy_shims'])
+ from proof_evolution import active_modules
+ modules=active_modules(M['modules']);legacy=set(M['legacy_shims'])
  policy=snapshot('architecture')
  if policy.commit!=M['publication_checkpoint'] or policy.prefix!=M['policy_git_prefix']:raise RuntimeError('Unexpected policy Git baseline')
  source=snapshot('transport')

@@ -1,4 +1,5 @@
 import Mathlib
+import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
 import ForMathlib.Algebra.Module.Graded.Generators
 import ForMathlib.Algebra.Module.Graded.Hilbert.Basic
 
@@ -500,6 +501,47 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
     (subPieceEquiv 𝓝 (S.map f) n).finrank_eq] at h
   omega
 
+/-- Degreewise exact dimensions give the weighted Hilbert-term identity.
+This algebraic equality holds at every real parameter, before convergence is
+established for the kernel and image series. -/
+theorem term_image_exact
+    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
+    [∀ n, Module.Finite k (𝓜 n)]
+    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
+    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
+    (q : ℝ) (n : ℤ) :
+    term 𝓜 (S.restrictScalars k) q n =
+      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
+      term 𝓝 ((S.map f).restrictScalars k) q n := by
+  unfold term
+  rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
+
+/-- Positivity and the termwise exact identity make both the kernel and image
+Hilbert series summable whenever the ambient restricted series is summable.
+This separates convergence from summing the exact sequence. -/
+theorem image_terms_summable
+    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
+    [∀ n, Module.Finite k (𝓜 n)]
+    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
+    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
+    {q : ℝ} (hq : 0 < q) (hs : Summable (term 𝓜 (S.restrictScalars k) q)) :
+    Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) ∧
+      Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
+  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
+  constructor
+  · apply hs.of_nonneg_of_le
+    · exact fun n => term_nonneg _ _ hq n
+    · intro n
+      rw [ht n]
+      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
+  · apply hs.of_nonneg_of_le
+    · exact fun n => term_nonneg _ _ hq n
+    · intro n
+      rw [ht n]
+      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
+
 /-- Removing a kernel condition adds exactly the Hilbert value of its
 embedded restriction image. No freeness of the source kernel is used. -/
  theorem value_image_exact
@@ -512,23 +554,8 @@ embedded restriction image. No freeness of the source kernel is used. -/
     value 𝓜 (S.restrictScalars k) q =
       value 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q +
       value 𝓝 ((S.map f).restrictScalars k) q := by
-  have ht (n : ℤ) : term 𝓜 (S.restrictScalars k) q n =
-      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
-      term 𝓝 ((S.map f).restrictScalars k) q n := by
-    unfold term
-    rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
-  have hk : Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) := by
-    apply hs.of_nonneg_of_le
-    · exact fun n => term_nonneg _ _ hq n
-    · intro n
-      rw [ht n]
-      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
-  have hi : Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
-    apply hs.of_nonneg_of_le
-    · exact fun n => term_nonneg _ _ hq n
-    · intro n
-      rw [ht n]
-      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
+  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
+  obtain ⟨hk,hi⟩ := image_terms_summable 𝓜 𝓝 S hS f hf hq hs
   unfold value
   rw [show term 𝓜 (S.restrictScalars k) q = _ from funext ht,hk.tsum_add hi]
 

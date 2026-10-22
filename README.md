@@ -35,9 +35,11 @@ and Tits word mathematics is included among the candidates; candidate status doe
 not mean submission-ready. The architecture cleanup preserved the proofs; the
 active extraction pilot below is a subsequent, explicitly checked evolution.
 
-The current tree has 261 Lean product modules. The active [comparison-pipeline lemma pilot](reports/lemma-granularity-comparison.md)
-retains all 3902 baseline public types and the previous thirteen added types,
-with eight further additions (twenty-one total) separately checked.
+The current tree has 261 Lean product modules. The active [library extraction round](reports/lemma-granularity-library.md)
+preserves all 3902 baseline public types and the previous twenty-one added types,
+with twenty-four further additions (forty-five total) checked separately. It rewrites
+21 more old proofs; [coverage](reports/lemma-granularity-library-coverage.md) distinguishes
+whole-library inventory from targeted proof reading.
 The fixed toolchain is Lean 4.34.1; Mathlib is pinned at
 `d13f23b723b8a846827a245b89c10fc7d3f11612`. Dependencies and working artifacts
 are owned by the maintained project's `.lake`, with shared installation/download

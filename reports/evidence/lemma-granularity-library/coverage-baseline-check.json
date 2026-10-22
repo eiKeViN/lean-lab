@@ -1,0 +1,8 @@
+{
+  "baseline": "a0b5b59457f593c86d3054b086da3b820585c282",
+  "implementation_files": 207,
+  "import_only_files": 54,
+  "verified_hashes": 261,
+  "inventory_scope": "Named theorem/lemma/def/abbrev/structure headings; not a full Lean parser or complete generated/instance declaration list.",
+  "passed": true
+}

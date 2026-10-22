@@ -21,7 +21,7 @@
         "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd"
       ],
       "file_sha256": "edff801e2bbded7dba743888076d11ef445902af2a9294c94e0b3f076c08a885",
-      "reason": "Prime-coprimality of the character product, separate from constructing a stable projector."
+      "reason": "Prime nondivisibility of the character product, separate from constructing a stable projector."
     },
     {
       "id": "L3",
@@ -97,11 +97,9 @@
       "id": "L10",
       "path": "ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean",
       "declaration": "OAI.KLInvariance.Hilbert.scalar_value",
-      "helpers": [
-        "OAI.KLInvariance.Hilbert.hasSum_shift_weight"
-      ],
+      "helpers": [],
       "file_sha256": "d49dc4bf38bd97cd26308721c557597c93dc806275c704ecdab70f4a20056c2e",
-      "reason": "Translate a summable integer-graded weighted sequence; shared with homogeneous image transport."
+      "reason": "Reuse existing hasSum_shift_coeff for scalar-image Hilbert values; no new shift lemma."
     },
     {
       "id": "L11",
@@ -227,7 +225,6 @@
     "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal",
     "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
     "OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le",
-    "OAI.KLInvariance.Hilbert.hasSum_shift_weight",
     "OAI.KLInvariance.Hilbert.saturated_kernel_witness",
     "OAI.KLInvariance.Hilbert.term_image_exact",
     "OAI.KLInvariance.Hilbert.image_terms_summable",
@@ -244,15 +241,8 @@
     "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
     "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference"
   ],
-  "helper_sources": {
-    "OAI.KLInvariance.Hilbert.hasSum_shift_weight": "ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean"
-  },
+  "helper_sources": {},
   "extra_calls": [
-    {
-      "parent": "OAI.KLInvariance.Hilbert.shifted_image_value",
-      "child": "OAI.KLInvariance.Hilbert.hasSum_shift_weight",
-      "role": "second existing consumer"
-    },
     {
       "parent": "OAI.KLInvariance.Hilbert.image_terms_summable",
       "child": "OAI.KLInvariance.Hilbert.term_image_exact",
@@ -297,5 +287,23 @@
     "flat tensor section constraint kernel",
     "product sheaf scaled image witnesses",
     "flow down correction outgoing label product"
-  ]
+  ],
+  "existing_reuse": [
+    {
+      "parent": "OAI.KLInvariance.Hilbert.scalar_value",
+      "child": "OAI.KLInvariance.Hilbert.hasSum_shift_coeff",
+      "role": "reuse existing sequence-shift API"
+    },
+    {
+      "parent": "OAI.KLInvariance.Hilbert.shifted_image_value",
+      "child": "OAI.KLInvariance.Hilbert.hasSum_shift_coeff",
+      "role": "reuse existing sequence-shift API"
+    }
+  ],
+  "integration_imports": {
+    "ForMathlib.Algebra.Module.Graded.Hilbert.Series": [
+      "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator"
+    ]
+  },
+  "revision": "Post-edit whole-library cross-check found the identical existing hasSum_shift_coeff in Numerator. Withdraw proposed hasSum_shift_weight; reuse existing lemma in two old clients via one explicit same-layer import. The committed pre-reuse-plan.json retains the original screening plan."
 }

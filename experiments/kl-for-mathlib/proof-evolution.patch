@@ -622,3 +622,790 @@
 -        exact hip p (List.suffix_refl _) x
 +      exact schedule_head_kernels_free cs u b basis hub B e p
 +        (hip p (List.suffix_refl _)) (heq e p (List.suffix_refl _)) x
+--- pristine/ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean
++++ active/ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean
+@@ -48,0 +49,19 @@
++/-- The vanishing polynomial of the finite weights is zero on the chosen
++block and equals their product off that block when the weight vanishes there.
++This pointwise calculation is independent of any stable lattice. -/
++theorem projector_product_values (C : Finset X) (f : X → R)
++    (hz : ∀ x ∉ C, f x = 0) :
++    (∀ x ∈ C, (∏ y ∈ C, (algebraMap R (X → R) (f y)-f)) x = 0) ∧
++    (∀ x ∉ C, (∏ y ∈ C, (algebraMap R (X → R) (f y)-f)) x = ∏ y ∈ C, f y) := by
++  classical
++  constructor
++  · intro x hx
++    rw [Finset.prod_apply]
++    apply Finset.prod_eq_zero hx
++    simp
++  · intro x hx
++    rw [Finset.prod_apply]
++    apply Finset.prod_congr rfl
++    intro y _
++    simp [hz x hx]
++
+@@ -66,4 +85 @@
+-    dsimp [h]
+-    rw [Finset.prod_apply]
+-    apply Finset.prod_eq_zero hx
+-    simp
++    exact (projector_product_values C f hz).1 x hx
+@@ -73,5 +89,18 @@
+-    dsimp [h,d]
+-    rw [Finset.prod_apply]
+-    apply Finset.prod_congr rfl
+-    intro y _
+-    simp [hz x hx]
++    exact (projector_product_values C f hz).2 x hx
++
++/-- The product of separating test values on a residue block is not divisible
++by the prime when each test is nondivisible at the reference point and congruent
++throughout the block. Only coordinate congruences enter this product argument. -/
++theorem class_product_not_dvd [Fintype X] [DecidableEq X] (p : R) (hp : Prime p)
++    (C : Finset X) (x : X) (test : X → X → R)
++    (hunit : ∀ y ∉ C, ¬ p ∣ test y x)
++    (hcongr : ∀ z ∈ C, ∀ y, p ∣ test y z-test y x)
++    (z : X) (hz : z ∈ C) : ¬ p ∣ (∏ y ∈ Finset.univ \ C, test y) z := by
++  classical
++  rw [Finset.prod_apply]
++  apply hp.not_dvd_finsetProd
++  intro y hy
++  have hyC := (Finset.mem_sdiff.mp hy).2
++  intro h
++  apply hunit y hyC
++  simpa only [sub_sub_cancel] using dvd_sub h (hcongr z hz y)
+@@ -93,9 +122,2 @@
+-  have hfu (z : X) (hz : z ∈ C) : ¬ p ∣ f z := by
+-    dsimp [f]
+-    rw [Finset.prod_apply]
+-    apply hp.not_dvd_finsetProd
+-    intro y hy
+-    have hyC := (Finset.mem_sdiff.mp hy).2
+-    intro h
+-    apply hunit y hyC
+-    simpa only [sub_sub_cancel] using dvd_sub h (hcongr z hz y)
++  have hfu (z : X) (hz : z ∈ C) : ¬ p ∣ f z :=
++    class_product_not_dvd p hp C x test hunit hcongr z hz
+@@ -108,0 +131,22 @@
++
++/-- The complementary denominator products assemble disjoint character-block
++lifts into one scalar multiple of the target. Primality and stable lattice
++membership are deliberately absent from this pointwise partition identity. -/
++theorem partition_diagonal_sum {Q : Type*} [Fintype Q] [DecidableEq Q]
++    (q : X → Q) (z : ∀ x, E x) (d : Q → R) (g : Q → X → R)
++    (hgin : ∀ j x, q x=j → g j x=d j)
++    (hgout : ∀ j x, q x≠j → g j x=0)
++    (m : Q → ∀ x, E x) (hmatch : ∀ j x, q x=j → m j x=z x) :
++    (∏ j, d j) • z = ∑ j : Q, (∏ k ∈ Finset.univ.erase j, d k) • diagonal (g j) (m j) := by
++  classical
++  funext x
++  simp only [Pi.smul_apply,Finset.sum_apply]
++  rw [Finset.sum_eq_single (q x)]
++  · change (∏ j, d j) • z x = (∏ k ∈ Finset.univ.erase (q x),d k) •
++      (g (q x) x • m (q x) x)
++    rw [hgin _ _ rfl,hmatch _ _ rfl,← mul_smul,
++      Finset.prod_erase_mul _ _ (Finset.mem_univ _)]
++  · intro j _ hj
++    change (∏ k ∈ Finset.univ.erase j,d k) • (g j x • m j x)=0
++    rw [hgout j x (Ne.symm hj),zero_smul,smul_zero]
++  · simp
+@@ -123,15 +167,2 @@
+-  have hh : (∑ j : Q, (∏ k ∈ Finset.univ.erase j, d k) •
+-      diagonal (g j) (m j)) ∈ L := by
+-    exact L.sum_mem fun j _ => L.smul_mem _ (hg j _ (hm j))
+-  convert hh using 1
+-  funext x
+-  simp only [Pi.smul_apply,Finset.sum_apply]
+-  rw [Finset.sum_eq_single (q x)]
+-  · change (∏ j, d j) • z x = (∏ k ∈ Finset.univ.erase (q x),d k) •
+-      (g (q x) x • m (q x) x)
+-    rw [hgin _ _ rfl,hmatch _ _ rfl,← mul_smul,
+-      Finset.prod_erase_mul _ _ (Finset.mem_univ _)]
+-  · intro j _ hj
+-    change (∏ k ∈ Finset.univ.erase j,d k) • (g j x • m j x)=0
+-    rw [hgout j x (Ne.symm hj),zero_smul,smul_zero]
+-  · simp
++  rw [partition_diagonal_sum q z d g hgin hgout m hmatch]
++  exact L.sum_mem fun j _ => L.smul_mem _ (hg j _ (hm j))
+@@ -143,0 +175,39 @@
++
++/-- A point outside a residue-character class admits a stable test that
++vanishes there and is prime-nondivisible at the reference point. The chosen tests
++remain congruent across the class; finiteness and primeness are not needed here. -/
++theorem exists_character_separators {A : Type*}
++    (L : Submodule R (∀ x, E x)) (p : R) (χ : A → X → R)
++    (hχ : ∀ a, χ a ∈ stabilizer L) (x : X) :
++    ∃ test : X → X → R,
++      (∀ y, test y ∈ stabilizer L) ∧
++      (∀ y, ¬ (residueSetoid p χ).r x y → test y y=0) ∧
++      (∀ y, ¬ (residueSetoid p χ).r x y → ¬ p ∣ test y x) ∧
++      (∀ z, (residueSetoid p χ).r x z → ∀ y, p ∣ test y z-test y x) := by
++  classical
++  have ha : ∀ y : {y : X // ¬ (residueSetoid p χ).r x y}, ∃ a, ¬ p ∣ χ a x-χ a y.val := by
++    intro y
++    exact not_forall.mp y.property
++  choose a ha using ha
++  let test (y : X) : X → R := if hy : ¬ (residueSetoid p χ).r x y then
++    χ (a ⟨y,hy⟩)-algebraMap R (X → R) (χ (a ⟨y,hy⟩) y) else 0
++  refine ⟨test,?_,?_,?_,?_⟩
++  · intro y
++    by_cases hy : ¬ (residueSetoid p χ).r x y
++    · simp only [test,dite_eq_left hy]
++      exact (stabilizer L).sub_mem (hχ _) ((stabilizer L).algebraMap_mem _)
++    · simp only [test,dite_eq_right hy]
++      exact (stabilizer L).zero_mem
++  · intro y hy
++    simp [test,hy]
++  · intro y hy
++    simpa [test,hy] using ha ⟨y,hy⟩
++  · intro z hz y
++    by_cases hy : ¬ (residueSetoid p χ).r x y
++    · simp only [test,dite_eq_left hy]
++      change p ∣ (χ (a ⟨y,hy⟩) z-χ (a ⟨y,hy⟩) y)-
++        (χ (a ⟨y,hy⟩) x-χ (a ⟨y,hy⟩) y)
++      rw [sub_sub_sub_cancel_right]
++      exact (residueSetoid p χ).symm hz _
++    · simp only [test,dite_eq_right hy,Pi.zero_apply,sub_self]
++      exact dvd_zero _
+@@ -154,25 +224,5 @@
+-  have ha : ∀ y : {y : X // y ∉ C}, ∃ a, ¬ p ∣ χ a x-χ a y.val := by
+-    intro y
+-    have hh : ¬ ∀ a, p ∣ χ a x-χ a y.val := fun h => y.property ((hc _).mpr h)
+-    exact not_forall.mp hh
+-  choose a ha using ha
+-  let test (y : X) : X → R := if hy : y ∉ C then
+-    χ (a ⟨y,hy⟩)-algebraMap R (X → R) (χ (a ⟨y,hy⟩) y) else 0
+-  have ht (y : X) : test y ∈ stabilizer L := by
+-    by_cases hy : y ∉ C
+-    · simp only [test,dite_eq_left hy]
+-      exact (stabilizer L).sub_mem (hχ _) ((stabilizer L).algebraMap_mem _)
+-    · simp only [test,dite_eq_right hy]
+-      exact (stabilizer L).zero_mem
+-  have hz (y : X) (hy : y ∉ C) : test y y=0 := by simp [test,hy]
+-  have hu (y : X) (hy : y ∉ C) : ¬ p ∣ test y x := by simpa [test,hy] using ha ⟨y,hy⟩
+-  have hcon (z : X) (hz : z ∈ C) (y : X) : p ∣ test y z-test y x := by
+-    by_cases hy : y ∉ C
+-    · simp only [test,dite_eq_left hy]
+-      change p ∣ (χ (a ⟨y,hy⟩) z-χ (a ⟨y,hy⟩) y)-
+-        (χ (a ⟨y,hy⟩) x-χ (a ⟨y,hy⟩) y)
+-      rw [sub_sub_sub_cancel_right]
+-      exact (residueSetoid p χ).symm ((hc z).mp hz) _
+-    · simp only [test,dite_eq_right hy,Pi.zero_apply,sub_self]
+-      exact dvd_zero _
+-  obtain ⟨d,hd,g,hg,hgc,hgz⟩ := class_projector L p hp C x test ht hz hu hcon
++  obtain ⟨test,ht,hz,hu,hcon⟩ := exists_character_separators L p χ hχ x
++  obtain ⟨d,hd,g,hg,hgc,hgz⟩ := class_projector L p hp C x test ht
++    (fun y hy => hz y (fun h => hy ((hc y).mpr h)))
++    (fun y hy => hu y (fun h => hy ((hc y).mpr h)))
++    (fun z hz y => hcon z ((hc z).mp hz) y)
+--- pristine/ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean
++++ active/ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean
+@@ -27,0 +28,15 @@
++omit [IsDomain R] [UniqueFactorizationMonoid R] in
++/-- A scalar relation forces prime divisibility in every free coordinate when
++the other scalar is not divisible by that prime. No projective splitting is required for this
++coordinate step itself. -/
++theorem prime_dvd_coordinates {P ι : Type*} [AddCommGroup P] [Module R P]
++    (s : P →ₗ[R] (ι →₀ R)) (p a c : R) (hp : Prime p) (ha : ¬ p ∣ a)
++    (m n : P) (h : a • m=(p*c) • n) : ∀ i, p ∣ s m i := by
++  intro i
++  have he := congrArg (fun z : P => s z i) h
++  simp only [map_smul, Finsupp.smul_apply, smul_eq_mul] at he
++  have hm : p ∣ a*s m i := by
++    rw [he]
++    exact dvd_mul_of_dvd_left (dvd_mul_right p c) _
++  exact (hp.dvd_mul.mp hm).resolve_left ha
++
+@@ -35,8 +50 @@
+-  have hdvd : ∀ i, p ∣ s m i := by
+-    intro i
+-    have he := congrArg (fun z : P => s z i) h
+-    simp only [map_smul, Finsupp.smul_apply, smul_eq_mul] at he
+-    have hm : p ∣ a*s m i := by
+-      rw [he]
+-      exact dvd_mul_of_dvd_left (dvd_mul_right p c) _
+-    exact (hp.dvd_mul.mp hm).resolve_left ha
++  have hdvd := prime_dvd_coordinates s p a c hp ha m n h
+@@ -45,0 +54,21 @@
++
++/-- Local membership away from a prime removes one prime factor from a
++projective lattice denominator. This isolates the prime-cancellation argument
++from the subsequent unique-factorization induction. -/
++theorem cancel_prime_denominator
++    {E : Type*} [AddCommGroup E] [Module R E] [Module.IsTorsionFree R E]
++    (M : Submodule R E) [Module.Projective R M] (x : E) (p c : R) (hp : Prime p)
++    (hpcx : (p*c) • x ∈ M) (hlocal : ∃ a : R, ¬ p ∣ a ∧ a • x ∈ M) : c • x ∈ M := by
++  obtain ⟨a,hpa,hax⟩ := hlocal
++  let m : M := ⟨(p*c) • x,hpcx⟩
++  let n : M := ⟨a • x,hax⟩
++  have he : a • m=(p*c) • n := by
++    apply Subtype.ext
++    exact smul_comm a (p*c) x
++  obtain ⟨z,hz⟩ := prime_divide_of_relation p a c hp hpa m n he
++  have hcx : c • x=(z : E) := by
++    apply smul_right_injective E hp.ne_zero
++    have hv := congrArg Subtype.val hz
++    change p • (z : E)=(p*c) • x at hv
++    simpa only [mul_smul] using hv.symm
++  exact hcx ▸ z.property
+@@ -63,13 +92 @@
+-    obtain ⟨a,hpa,hax⟩ := hlocal p hp
+-    let m : M := ⟨(p*c) • x,hpcx⟩
+-    let n : M := ⟨a • x,hax⟩
+-    have he : a • m=(p*c) • n := by
+-      apply Subtype.ext
+-      exact smul_comm a (p*c) x
+-    obtain ⟨z,hz⟩ := prime_divide_of_relation p a c hp hpa m n he
+-    have hcx : c • x=(z : E) := by
+-      apply smul_right_injective E hp.ne_zero
+-      have hv := congrArg Subtype.val hz
+-      change p • (z : E)=(p*c) • x at hv
+-      simpa only [mul_smul] using hv.symm
+-    exact ih hcz (hcx ▸ z.property)
++    exact ih hcz (cancel_prime_denominator M x p c hp hpcx (hlocal p hp))
+--- pristine/ForMathlib/Algebra/Polynomial/Reciprocal.lean
++++ active/ForMathlib/Algebra/Polynomial/Reciprocal.lean
+@@ -25,0 +26,20 @@
++/-- Functional reciprocal equality on the open unit interval determines the
++reflected polynomial identity, provided reflection covers the degree. Strict
++midpoint support is used only later for rigidity. -/
++theorem eq_reflect_of_eval_reciprocal (p : ℝ[X]) (d : ℕ) (hp : p.natDegree ≤ d)
++    (h : ∀ q : ℝ, 0 < q → q < 1 → p.eval q = q ^ d * p.eval q⁻¹) : p = reflect d p := by
++  apply p.eq_of_infinite_eval_eq
++  apply (Set.Ioo_infinite (show (0 : ℝ) < 1 by norm_num)).mono
++  intro q hq
++  change p.eval q = (reflect d p).eval q
++  let : Invertible q⁻¹ := invertibleOfNonzero (inv_ne_zero (ne_of_gt hq.1))
++  have hr := eval₂_reflect_mul_pow (RingHom.id ℝ) q⁻¹ d p hp
++  simp only [eval₂_id, invOf_eq_inv, inv_inv] at hr
++  have hr' := congrArg (fun z : ℝ => z * q ^ d) hr
++  have hq0 : q ≠ 0 := ne_of_gt hq.1
++  simp only [mul_assoc, ← mul_pow, inv_mul_cancel₀ hq0, one_pow, mul_one] at hr'
++  calc
++    p.eval q = q ^ d * p.eval q⁻¹ := h q hq.1 hq.2
++    _ = (reflect d p).eval q := by
++      simpa only [mul_comm] using hr'.symm
++
+@@ -32,15 +52 @@
+-  have heq : p = reflect d p := by
+-    apply p.eq_of_infinite_eval_eq
+-    apply (Set.Ioo_infinite (show (0 : ℝ) < 1 by norm_num)).mono
+-    intro q hq
+-    change p.eval q = (reflect d p).eval q
+-    let : Invertible q⁻¹ := invertibleOfNonzero (inv_ne_zero (ne_of_gt hq.1))
+-    have hr := eval₂_reflect_mul_pow (RingHom.id ℝ) q⁻¹ d p (by omega)
+-    simp only [eval₂_id, invOf_eq_inv, inv_inv] at hr
+-    have hr' := congrArg (fun z : ℝ => z * q ^ d) hr
+-    have hq0 : q ≠ 0 := ne_of_gt hq.1
+-    simp only [mul_assoc, ← mul_pow, inv_mul_cancel₀ hq0, one_pow, mul_one] at hr'
+-    calc
+-      p.eval q = q ^ d * p.eval q⁻¹ := h q hq.1 hq.2
+-      _ = (reflect d p).eval q := by
+-        simpa only [mul_comm] using hr'.symm
++  have heq := eq_reflect_of_eval_reciprocal p d (by omega) h
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean
+@@ -42,0 +43,13 @@
++/-- A strict rank defect in one homogeneous piece makes the convergent
++Hilbert value strictly smaller. Only inclusion and positivity of the evaluation
++parameter are used; neither submodule must itself be homogeneous. -/
++theorem value_lt_of_piece_finrank_lt (𝓜 : ℤ → Submodule k M)
++    [∀ n, Module.Finite k (𝓜 n)] {S T : Submodule k M} (h : S ≤ T)
++    {q : ℝ} (hq : 0 < q) (hT : Summable (term 𝓜 T q)) (n : ℤ)
++    (hlt : Module.finrank k (piece 𝓜 S n) < Module.finrank k (piece 𝓜 T n)) :
++    value 𝓜 S q < value 𝓜 T q := by
++  have hterm : term 𝓜 S q n < term 𝓜 T q n := by
++    apply mul_lt_mul_of_pos_right _ (zpow_pos hq n)
++    exact_mod_cast hlt
++  exact (summable_of_le 𝓜 h hq hT).tsum_lt_tsum (term_mono 𝓜 h hq) hterm hT
++
+@@ -55,6 +68,16 @@
+-  have hterm : term 𝓜 S q n < term 𝓜 T q n := by
+-    apply mul_lt_mul_of_pos_right _ (zpow_pos hq n)
+-    exact_mod_cast hlt
+-  have hstrict := (summable_of_le 𝓜 h hq hT).tsum_lt_tsum
+-    (term_mono 𝓜 h hq) hterm hT
+-  exact (ne_of_lt hstrict) hv
++  exact (ne_of_lt (value_lt_of_piece_finrank_lt 𝓜 h hq hT n hlt)) hv
++
++/-- Componentwise inclusion reconstructs inclusion in a homogeneous target.
++This is the algebraic gluing step after degreewise information has been proved;
++no finiteness or Hilbert convergence hypothesis is needed. -/
++theorem le_of_homogeneous_pieces_le (𝓜 : ℤ → Submodule k M) [DirectSum.Decomposition 𝓜]
++    {S T : Submodule k M}
++    (hhom : ∀ n m, m ∈ T → (DirectSum.decompose 𝓜 m n : M) ∈ T)
++    (hpieces : ∀ n, piece 𝓜 T n ≤ piece 𝓜 S n) : T ≤ S := by
++  classical
++  intro m hm
++  rw [← DirectSum.sum_support_decompose 𝓜 m]
++  apply Submodule.sum_mem
++  intro n hn
++  have hmem : DirectSum.decompose 𝓜 m n ∈ piece 𝓜 T n := hhom n m hm
++  exact hpieces n hmem
+@@ -69 +91,0 @@
+-  classical
+@@ -71,8 +93 @@
+-  intro m hm
+-  rw [← DirectSum.sum_support_decompose 𝓜 m]
+-  apply Submodule.sum_mem
+-  intro n hn
+-  have heq := pieces_eq_of_value_eq 𝓜 h hq hT hv n
+-  have hmem : DirectSum.decompose 𝓜 m n ∈ piece 𝓜 T n := hhom n m hm
+-  rw [←heq] at hmem
+-  exact hmem
++  exact le_of_homogeneous_pieces_le 𝓜 hhom (fun n => (pieces_eq_of_value_eq 𝓜 h hq hT hv n).ge)
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean
+@@ -61 +60,0 @@
+-  have h := (hs.hasSum.mul_left (q^d))
+@@ -64,9 +63,4 @@
+-      (q^d * value 𝓜 ⊤ q) := by
+-    apply (Equiv.addRight d).hasSum_iff.mp
+-    apply h.congr_fun
+-    intro n
+-    rw [term_top]
+-    change (Module.finrank k (𝓜 (n+d-d)) : ℝ)*q^(n+d) =
+-      q^d * ((Module.finrank k (𝓜 n) : ℝ)*q^n)
+-    rw [add_sub_cancel_right,zpow_add₀ hq]
+-    ring
++      (q^d * value 𝓜 ⊤ q) :=
++    hasSum_shift_coeff hq
++      (show HasSum (fun n => (Module.finrank k (𝓜 n) : ℝ) * q^n) _ from
++        by apply hs.hasSum.congr_fun; intro n; rw [term_top]) d
+@@ -119,0 +114,10 @@
++/-- A kernel divisibility witness stays inside a saturated submodule.
++This is the integral witness-lifting step before identifying the kernel of the
++restricted image map with scalar multiplication on that submodule. -/
++theorem saturated_kernel_witness (S : Submodule A M) (f : M →ₗ[A] N) (a : A)
++    (hf : ∀ v, f v = 0 ↔ ∃ w, v = a • w)
++    (hS : ∀ v, a • v ∈ S → v ∈ S) (v : M) (hv : v ∈ S) (hz : f v = 0) :
++    ∃ w ∈ S, v = a • w := by
++  obtain ⟨w,hw⟩ := (hf v).mp hz
++  exact ⟨w,hS w (hw ▸ hv),hw⟩
++
+@@ -128,2 +132 @@
+-    obtain ⟨w,hw⟩ := (hf v.val).mp hz
+-    have hwS : w ∈ S := hS w (hw ▸ v.property)
++    obtain ⟨w,hwS,hw⟩ := saturated_kernel_witness S f a hf hS v.val v.property hz
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean
+@@ -1,0 +2 @@
++import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
+@@ -502,0 +504,41 @@
++/-- Degreewise exact dimensions give the weighted Hilbert-term identity.
++This algebraic equality holds at every real parameter, before convergence is
++established for the kernel and image series. -/
++theorem term_image_exact
++    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
++    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
++    [∀ n, Module.Finite k (𝓜 n)]
++    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
++    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
++    (q : ℝ) (n : ℤ) :
++    term 𝓜 (S.restrictScalars k) q n =
++      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
++      term 𝓝 ((S.map f).restrictScalars k) q n := by
++  unfold term
++  rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
++
++/-- Positivity and the termwise exact identity make both the kernel and image
++Hilbert series summable whenever the ambient restricted series is summable.
++This separates convergence from summing the exact sequence. -/
++theorem image_terms_summable
++    (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
++    [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
++    [∀ n, Module.Finite k (𝓜 n)]
++    (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)
++    (f : M →ₗ[A] N) (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 n)
++    {q : ℝ} (hq : 0 < q) (hs : Summable (term 𝓜 (S.restrictScalars k) q)) :
++    Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) ∧
++      Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
++  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
++  constructor
++  · apply hs.of_nonneg_of_le
++    · exact fun n => term_nonneg _ _ hq n
++    · intro n
++      rw [ht n]
++      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
++  · apply hs.of_nonneg_of_le
++    · exact fun n => term_nonneg _ _ hq n
++    · intro n
++      rw [ht n]
++      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
++
+@@ -515,17 +557,2 @@
+-  have ht (n : ℤ) : term 𝓜 (S.restrictScalars k) q n =
+-      term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q n +
+-      term 𝓝 ((S.map f).restrictScalars k) q n := by
+-    unfold term
+-    rw [finrank_image_exact 𝓜 𝓝 S hS f hf n,Nat.cast_add,add_mul]
+-  have hk : Summable (term 𝓜 ((S ⊓ LinearMap.ker f).restrictScalars k) q) := by
+-    apply hs.of_nonneg_of_le
+-    · exact fun n => term_nonneg _ _ hq n
+-    · intro n
+-      rw [ht n]
+-      exact le_add_of_nonneg_right (term_nonneg _ _ hq n)
+-  have hi : Summable (term 𝓝 ((S.map f).restrictScalars k) q) := by
+-    apply hs.of_nonneg_of_le
+-    · exact fun n => term_nonneg _ _ hq n
+-    · intro n
+-      rw [ht n]
+-      exact le_add_of_nonneg_left (term_nonneg _ _ hq n)
++  have ht := term_image_exact 𝓜 𝓝 S hS f hf q
++  obtain ⟨hk,hi⟩ := image_terms_summable 𝓜 𝓝 S hS f hf hq hs
+--- pristine/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean
++++ active/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean
+@@ -81 +80,0 @@
+-  have ha := hs.hasSum.mul_left (q^d)
+@@ -84,8 +83,4 @@
+-      (q^d * value 𝓜 (S.restrictScalars k) q) := by
+-    apply (Equiv.addRight d).hasSum_iff.mp
+-    apply ha.congr_fun
+-    intro n
+-    change (Module.finrank k (piece 𝓜 (S.restrictScalars k) (n+d-d)) : ℝ)*q^(n+d) =
+-      q^d * ((Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ)*q^n)
+-    rw [add_sub_cancel_right,zpow_add₀ hq]
+-    ring
++      (q^d * value 𝓜 (S.restrictScalars k) q) :=
++    hasSum_shift_coeff hq
++      (show HasSum (fun n => (Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ) * q^n) _ from
++        by apply hs.hasSum.congr_fun; intro n; rfl) d
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
+@@ -78,0 +79,37 @@
++/-- An upper vertex set maps to a live-edge-closed set when every live edge
++out of its image lifts. Injectivity and sheaf flabbiness are not needed for this
++geometric closure argument. -/
++theorem image_closedUnder_live (live : Set F)
++    (hlift : ∀ e ∈ live, ∀ x, f.vertex x = H.source e →
++      ∃ a, f.edge a=e ∧ G.source a=x) (Ω : Set V) (hΩ : IsUpperSet Ω) :
++    B.ClosedUnder live (f.vertex '' Ω) := by
++  intro e he hsource
++  obtain ⟨x,hx,hxe⟩ := hsource
++  obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
++  exact ⟨G.target a,hΩ (G.increasing a).le hx,f.target a⟩
++
++/-- Pushing a compatible partial section along an injective graph map
++preserves compatibility on its image when live edges lift and dead edge modules
++are subsingletons. No extension or finiteness assumption is needed. -/
++theorem push_compatible_live (hi : Function.Injective f.vertex) (live : Set F)
++    (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
++    (hlift : ∀ e ∈ live, ∀ x, f.vertex x = H.source e →
++      ∃ a, f.edge a=e ∧ G.source a=x) (Ω : Set V)
++    (s : (B.pullback f).Assignment) (hs : (B.pullback f).CompatibleOn Ω s) :
++    B.CompatibleOn (f.vertex '' Ω) (B.pushAssignment f s) := by
++  classical
++  intro e hsource htarget
++  by_cases he : e ∈ live
++  · obtain ⟨x,hx,hxe⟩ := hsource
++    obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
++    obtain ⟨y,hy,hye⟩ := htarget
++    have hya : y=G.target a := hi (hye.trans (f.target a).symm)
++    subst y
++    have hh := hs a hx hy
++    rw [← B.pull_push f hi s] at hh
++    change (B.pullback f).lower a (B.pullAssignment f (B.pushAssignment f s) (G.source a)) =
++      (B.pullback f).upper a (B.pullAssignment f (B.pushAssignment f s) (G.target a)) at hh
++    rw [pull_lower,pull_upper] at hh
++    exact hh
++  · exact @Subsingleton.elim _ (hdead e he) _ _
++
+@@ -85,20 +122,2 @@
+-  have hc : B.ClosedUnder live (f.vertex '' Ω) := by
+-    intro e he hsource
+-    obtain ⟨x,hx,hxe⟩ := hsource
+-    obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
+-    exact ⟨G.target a,hΩ (G.increasing a).le hx,f.target a⟩
+-  have hcompat : B.CompatibleOn (f.vertex '' Ω) (B.pushAssignment f s) := by
+-    intro e hsource htarget
+-    by_cases he : e ∈ live
+-    · obtain ⟨x,hx,hxe⟩ := hsource
+-      obtain ⟨a,rfl,rfl⟩ := hlift e he x hxe
+-      obtain ⟨y,hy,hye⟩ := htarget
+-      have hya : y=G.target a := hi (hye.trans (f.target a).symm)
+-      subst y
+-      have hh := hs a hx hy
+-      rw [← B.pull_push f hi s] at hh
+-      change (B.pullback f).lower a (B.pullAssignment f (B.pushAssignment f s) (G.source a)) =
+-        (B.pullback f).upper a (B.pullAssignment f (B.pushAssignment f s) (G.target a)) at hh
+-      rw [pull_lower,pull_upper] at hh
+-      exact hh
+-    · exact @Subsingleton.elim _ (hdead e he) _ _
++  have hc := B.image_closedUnder_live f live hlift Ω hΩ
++  have hcompat := B.push_compatible_live f hi live hdead hlift Ω s hs
+@@ -152,0 +172,41 @@
++/-- An ambient upward-kernel condition always pulls back along a graph map.
++The reverse direction is the one that needs live-edge lifting; this inclusion
++uses only the commuting lower maps. -/
++theorem upwardKernel_le_pullback (x : V) (T : Set F) :
++    B.upwardKernel (f.vertex x) {e | e.val ∈ T} ≤
++      (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} := by
++  intro v hv
++  classical
++  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
++  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
++  have hxs : B.pullAssignment f s x = v := hs
++  intro e he
++  have hh := hv ⟨f.edge e.val,(f.source e.val).symm.trans (congrArg f.vertex e.property)⟩ he
++  rw [← hs,B.stalkMap_assignment s] at hh
++  rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s),B.pull_lower f]
++  exact hh
++
++/-- Lifting live outgoing edges and killing the other edge modules reflect
++upward-kernel conditions back to the ambient graph. The statement isolates the
++hypotheses absent from unconditional kernel pullback. -/
++theorem pullbackKernel_le_of_live (x : V) (T : Set F)
++    (live : Set F) (hdead : ∀ e, e ∉ live → Subsingleton (B.edge e))
++    (hlift : ∀ e ∈ live, f.vertex x = H.source e →
++      ∃ a, f.edge a=e ∧ G.source a=x) :
++    (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} ≤
++      B.upwardKernel (f.vertex x) {e | e.val ∈ T} := by
++  intro v hv
++  classical
++  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
++  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
++  have hxs : B.pullAssignment f s x = v := hs
++  intro e he
++  rw [← hs,B.stalkMap_assignment s]
++  by_cases hl : e.val ∈ live
++  · obtain ⟨a,ha,hax⟩ := hlift e.val hl e.property.symm
++    have hh := hv ⟨a,hax⟩ (show f.edge a ∈ T from ha.symm ▸ he)
++    rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s)] at hh
++    rw [B.pull_lower f] at hh
++    exact (congrArg (fun q : F => B.lower q (s (H.source q)) = 0) ha).mp hh
++  · exact @Subsingleton.elim _ (hdead e.val hl) _ _
++
+@@ -159,21 +219,2 @@
+-  classical
+-  ext v
+-  change B.vertex (f.vertex x) at v
+-  let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
+-  have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
+-  have hxs : B.pullAssignment f s x = v := hs
+-  constructor
+-  · intro hv e he
+-    rw [← hs,B.stalkMap_assignment s]
+-    by_cases hl : e.val ∈ live
+-    · obtain ⟨a,ha,hax⟩ := hlift e.val hl e.property.symm
+-      have hh := hv ⟨a,hax⟩ (show f.edge a ∈ T from ha.symm ▸ he)
+-      rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s)] at hh
+-      rw [B.pull_lower f] at hh
+-      exact (congrArg (fun q : F => B.lower q (s (H.source q)) = 0) ha).mp hh
+-    · exact @Subsingleton.elim _ (hdead e.val hl) _ _
+-  · intro hv e he
+-    have hh := hv ⟨f.edge e.val,(f.source e.val).symm.trans (congrArg f.vertex e.property)⟩ he
+-    rw [← hs,B.stalkMap_assignment s] at hh
+-    rw [← hxs,(B.pullback f).stalkMap_assignment (B.pullAssignment f s),B.pull_lower f]
+-    exact hh
++  exact le_antisymm (B.pullbackKernel_le_of_live f x T live hdead hlift)
++    (B.upwardKernel_le_pullback f x T)
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean
+@@ -107,0 +108,13 @@
++/-- The tensored finite section constraint vanishes exactly on compatible
++tensored assignments. This uses the finite edge product comparison, without
++flatness or a finite vertex set. -/
++theorem tensorAssignments_mem_sections_iff [Finite E] (Ω : Set V)
++    (z : S ⊗[R] B.Assignment) :
++    B.tensorAssignments S z ∈ (B.baseChange S).sections Ω ↔
++      AlgebraTensorModule.lTensor S S (B.constraint Ω) z = 0 := by
++  classical
++  let := Fintype.ofFinite E
++  rw [← (B.baseChange S).ker_constraint Ω,LinearMap.mem_ker,B.constraint_tensorAssignments S]
++  exact (TensorProduct.piRight R S S
++    (fun e : {e : E // G.source e ∈ Ω ∧ G.target e ∈ Ω} => B.edge e.val)).map_eq_zero_iff
++
+@@ -115,10 +128 @@
+-  have hc : (B.baseChange S).constraint Ω (B.tensorAssignments S z) = 0 := by
+-    rw [hz]
+-    apply LinearMap.mem_ker.mp
+-    rw [(B.baseChange S).ker_constraint Ω]
+-    exact f.property
+-  have he : AlgebraTensorModule.lTensor S S (B.constraint Ω) z = 0 := by
+-    apply (TensorProduct.piRight R S S
+-      (fun e : {e : E // G.source e ∈ Ω ∧ G.target e ∈ Ω} => B.edge e.val)).injective
+-    rw [map_zero]
+-    exact (B.constraint_tensorAssignments S Ω z).symm.trans hc
++  have he := (B.tensorAssignments_mem_sections_iff S Ω z).mp (by rw [hz]; exact f.property)
+@@ -149,8 +153,7 @@
+- theorem baseChange_flabby [Finite V] [Finite E] [Module.Flat R S]
+-    (hb : B.Flabby) : (B.baseChange S).Flabby := by
+-  intro Ω hΩ f hf
+-  obtain ⟨z,hz⟩ := B.tensorSections_surjective S Ω ⟨f,hf⟩
+-  suffices ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
+-      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x by
+-    simpa only [hz] using this
+-  clear hz f hf
++/-- A section already represented as a tensor of sections extends globally
++when the original sheaf is flabby. Finiteness and flatness are needed to represent
++arbitrary sections, not for this extension of a given tensor. -/
++theorem tensorSection_extend (hb : B.Flabby) (Ω : Set V) (hΩ : IsUpperSet Ω)
++    (z : S ⊗[R] B.sections Ω) :
++    ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
++      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x := by
+@@ -171,0 +175,9 @@
++ theorem baseChange_flabby [Finite V] [Finite E] [Module.Flat R S]
++    (hb : B.Flabby) : (B.baseChange S).Flabby := by
++  intro Ω hΩ f hf
++  obtain ⟨z,hz⟩ := B.tensorSections_surjective S Ω ⟨f,hf⟩
++  suffices ∃ g : (B.baseChange S).Assignment, (B.baseChange S).IsGlobal g ∧
++      ∀ x ∈ Ω, g x = (B.tensorSections S Ω z).val x by
++    simpa only [hz] using this
++  exact B.tensorSection_extend S hb Ω hΩ z
++
+@@ -192,0 +205,8 @@
++/-- The upper quotient condition is the exact scalar-kernel sequence at an
++edge. This presents the original module relation before any extension of scalars
++or flatness argument. -/
++theorem upperQuotient_exact (α : E → R) (h : B.UpperQuotient α) (e : E) :
++    Function.Exact (DistribSMul.toLinearMap R (B.vertex (G.target e)) (α e)) (B.upper e) := by
++  intro v
++  exact ((h e).2 v).trans (by simp only [Set.mem_range, DistribSMul.toLinearMap_apply,eq_comm])
++
+@@ -197,5 +217 @@
+-  have hs : Function.Exact (DistribSMul.toLinearMap R (B.vertex (G.target e)) (α e))
+-      (B.upper e) := by
+-    intro v
+-    exact ((h e).2 v).trans (by simp only [Set.mem_range, DistribSMul.toLinearMap_apply,
+-      eq_comm])
++  have hs := B.upperQuotient_exact α h e
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean
+@@ -175,0 +176,30 @@
++/-- The lower image of a product sheaf is detected in its two coordinates.
++The statement includes the kernel witnesses, so scaled-image arguments can use
++coordinate membership without unpacking product sections again. -/
++theorem prod_lowerImage_iff (B C : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (F : Set (Outgoing (G := G) (G.source e))) (z : (prod B C).edge e) :
++    z ∈ ((prod B C).upwardKernel (G.source e) F).map ((prod B C).lower e) ↔
++      z.1 ∈ (B.upwardKernel (G.source e) F).map (B.lower e) ∧
++      z.2 ∈ (C.upwardKernel (G.source e) F).map (C.lower e) := by
++  constructor
++  · rintro ⟨v,hv,he⟩
++    have hv' := (prod_upwardKernel_iff B C _ F v).mp hv
++    exact ⟨⟨v.1,hv'.1,congrArg Prod.fst he⟩,⟨v.2,hv'.2,congrArg Prod.snd he⟩⟩
++  · rintro ⟨⟨b,hb,hbe⟩,⟨c,hc,hce⟩⟩
++    exact ⟨(b,c),(prod_upwardKernel_iff B C _ F _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
++
++/-- A scalar upper-image witness in a product sheaf is equivalent to one
++witness in each factor. The scalar can be zero; no division or cancellation is
++part of this product decomposition. -/
++theorem prod_scaledUpperImage_iff (B C : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : (prod B C).edge e) :
++    (∃ v ∈ (prod B C).upwardKernel (G.target e) H, r • (prod B C).upper e v=z) ↔
++      (∃ b ∈ B.upwardKernel (G.target e) H, r • B.upper e b=z.1) ∧
++      (∃ c ∈ C.upwardKernel (G.target e) H, r • C.upper e c=z.2) := by
++  constructor
++  · rintro ⟨v,hv,he⟩
++    have hv' := (prod_upwardKernel_iff B C _ H v).mp hv
++    exact ⟨⟨v.1,hv'.1,congrArg Prod.fst he⟩,⟨v.2,hv'.2,congrArg Prod.snd he⟩⟩
++  · rintro ⟨⟨b,hb,hbe⟩,⟨c,hc,hce⟩⟩
++    exact ⟨(b,c),(prod_upwardKernel_iff B C _ H _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
++
+@@ -182,11 +212,32 @@
+-  constructor
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (prod_upwardKernel_iff B C _ F v).mp hv
+-    obtain ⟨b,hb,hbe⟩ := (hB z.1).mp ⟨v.1,hv'.1,congrArg Prod.fst he⟩
+-    obtain ⟨c,hc,hce⟩ := (hC z.2).mp ⟨v.2,hv'.2,congrArg Prod.snd he⟩
+-    exact ⟨(b,c),(prod_upwardKernel_iff B C _ H _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (prod_upwardKernel_iff B C _ H v).mp hv
+-    obtain ⟨b,hb,hbe⟩ := (hB z.1).mpr ⟨v.1,hv'.1,congrArg Prod.fst he⟩
+-    obtain ⟨c,hc,hce⟩ := (hC z.2).mpr ⟨v.2,hv'.2,congrArg Prod.snd he⟩
+-    exact ⟨(b,c),(prod_upwardKernel_iff B C _ F _).mpr ⟨hb,hc⟩,Prod.ext hbe hce⟩
++  exact (prod_lowerImage_iff B C e F z).trans
++    ((and_congr (hB z.1) (hC z.2)).trans (prod_scaledUpperImage_iff B C e H r z).symm)
++
++/-- Lower-image membership in a product family is coordinatewise membership.
++The reverse implication assembles the chosen kernel witnesses, with no finite
++index assumption. -/
++theorem pi_lowerImage_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (F : Set (Outgoing (G := G) (G.source e))) (z : (pi B).edge e) :
++    z ∈ ((pi B).upwardKernel (G.source e) F).map ((pi B).lower e) ↔
++      ∀ i, z i ∈ ((B i).upwardKernel (G.source e) F).map ((B i).lower e) := by
++  classical
++  constructor
++  · rintro ⟨v,hv,he⟩ i
++    exact ⟨v i,(pi_upwardKernel_iff B _ F v).mp hv i,congrFun he i⟩
++  · intro hz
++    choose v hv hve using hz
++    exact ⟨v,(pi_upwardKernel_iff B _ F _).mpr hv,funext hve⟩
++
++/-- Scalar upper-image membership in a product family is coordinatewise.
++Choice assembles the witnesses for an arbitrary index type; the scalar needs no
++inverse and may vanish. -/
++theorem pi_scaledUpperImage_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
++    (H : Set (Outgoing (G := G) (G.target e))) (r : R) (z : (pi B).edge e) :
++    (∃ v ∈ (pi B).upwardKernel (G.target e) H, r • (pi B).upper e v=z) ↔
++      ∀ i, ∃ w ∈ (B i).upwardKernel (G.target e) H, r • (B i).upper e w=z i := by
++  classical
++  constructor
++  · rintro ⟨v,hv,he⟩ i
++    exact ⟨v i,(pi_upwardKernel_iff B _ H v).mp hv i,congrFun he i⟩
++  · intro hz
++    choose v hv hve using hz
++    exact ⟨v,(pi_upwardKernel_iff B _ H _).mpr hv,funext hve⟩
+@@ -198 +248,0 @@
+-  classical
+@@ -200,9 +250,2 @@
+-  constructor
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (pi_upwardKernel_iff B _ F v).mp hv
+-    choose w hw hwe using fun i => (hB i (z i)).mp ⟨v i,hv' i,congrFun he i⟩
+-    exact ⟨w,(pi_upwardKernel_iff B _ H _).mpr hw,funext hwe⟩
+-  · rintro ⟨v,hv,he⟩
+-    have hv' := (pi_upwardKernel_iff B _ H v).mp hv
+-    choose w hw hwe using fun i => (hB i (z i)).mpr ⟨v i,hv' i,congrFun he i⟩
+-    exact ⟨w,(pi_upwardKernel_iff B _ F _).mpr hw,funext hwe⟩
++  exact (pi_lowerImage_iff B e F z).trans
++    ((forall_congr' (fun i => hB i (z i))).trans (pi_scaledUpperImage_iff B e H r z).symm)
+--- pristine/ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean
++++ active/ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean
+@@ -47,0 +48,28 @@
++/-- Agreement off one vertex makes the remaining correction divisible by
++the outgoing label product. Compatibility and pairwise relative primality suffice;
++choosing a flow-down section and a minimal vertex belongs to the caller. -/
++theorem modelProduct_dvd_difference (a : V)
++    (hrel : (modelOutgoing G c a : Set E).Pairwise (Function.onFun IsRelPrime α))
++    (s : Finset V) (hs : IsUpperSet (s : Set V)) (ha : a ∈ s) (hac : a ≤ c)
++    (f g : (structureSheaf G α c).Assignment)
++    (hf : (structureSheaf G α c).CompatibleOn (s : Set V) f)
++    (hg : (structureSheaf G α c).IsGlobal g)
++    (hgf : ∀ x ∈ s.erase a, g x=f x) :
++    modelProduct G α c a ∣ f a ⟨hac⟩ - g a ⟨hac⟩ := by
++  classical
++  apply Finset.prod_dvd_of_isRelPrime hrel
++  intro e he
++  obtain ⟨hea,hec⟩ := (mem_modelOutgoing G c a e).mp he
++  have hsource : G.source e ∈ s := hea ▸ ha
++  have htarget : G.target e ∈ s.erase a := Finset.mem_erase.mpr
++    ⟨by simpa [← hea] using (G.increasing e).ne',hs (G.increasing e).le hsource⟩
++  have hf' := (structureCompatible_iff G α c (s : Set V) f).mp hf e hsource
++    (Finset.mem_of_mem_erase htarget) ⟨hec⟩
++  have hg' := (structureCompatible_iff G α c Set.univ g).mp hg e
++    (Set.mem_univ _) (Set.mem_univ _) ⟨hec⟩
++  rw [hgf _ htarget] at hg'
++  have hd := dvd_sub hf' hg'
++  rw [sub_sub_sub_cancel_right] at hd
++  subst a
++  exact hd
++
+@@ -81,16 +109 @@
+-    have hdiv : modelProduct G α c a ∣ f a ⟨hac⟩ - g a ⟨hac⟩ := by
+-      apply Finset.prod_dvd_of_isRelPrime (hrel a)
+-      intro e he
+-      obtain ⟨hea,hec⟩ := (mem_modelOutgoing G c a e).mp he
+-      have hsource : G.source e ∈ s := hea ▸ ha
+-      have htarget : G.target e ∈ s.erase a := Finset.mem_erase.mpr
+-        ⟨by simpa [← hea] using (G.increasing e).ne',hs (G.increasing e).le hsource⟩
+-      have hf' := (structureCompatible_iff G α c (s : Set V) f).mp hf e hsource
+-        (Finset.mem_of_mem_erase htarget) ⟨hec⟩
+-      have hg' := (structureCompatible_iff G α c Set.univ g).mp hg e
+-        (Set.mem_univ _) (Set.mem_univ _) ⟨hec⟩
+-      rw [hgf _ htarget] at hg'
+-      have hd := dvd_sub hf' hg'
+-      rw [sub_sub_sub_cancel_right] at hd
+-      subst a
+-      exact hd
++    have hdiv := modelProduct_dvd_difference G α c a (hrel a) s hs ha hac f g hf hg hgf

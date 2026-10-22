@@ -9,7 +9,8 @@ from baseline import snapshot
 HERE=Path(__file__).resolve().parent
 m=json.loads((HERE/'migration.json').read_text())
 a=json.loads((HERE/'upstream-assessment.json').read_text())
-g={n:x['imports'] for n,x in m['modules'].items()}
+from proof_evolution import active_modules
+g={n:x['imports'] for n,x in active_modules(m['modules']).items()}
 for name in ['ForMathlib.LinearAlgebra.KernelTransport','OAI.KL.Compatibility.KernelTransport']:
  g[name]=re.findall(r'^import ((?:OAI|ForMathlib)[.].+)$',(HERE/(name.replace('.','/')+'.lean')).read_text(),re.M)
 candidate={n for n in g if n.startswith('ForMathlib.')};project=set(g)-candidate
@@ -35,7 +36,7 @@ lines=['# Current module guide','','Use `import OAI.KL` for the application theo
  '`OAI.Architecture` imports all implementations for auditing; neither is the',
  'minimal project entrypoint. Compatibility paths are listed separately below.','',
  'The declaration anchors are navigation examples, not an exhaustive API export.',
- 'Public-type validation covers all 3902 declarations. Source spans: MIGRATION.md.','']
+ 'Public-type validation preserves all 3902 baseline declarations and checks every additional type in additional-types.json. Source spans: MIGRATION.md.','']
 groups={}
 for n in sorted(g):
  group='Application / compatibility implementation' if n.startswith('OAI.') else n.split('.')[1]

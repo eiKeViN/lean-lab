@@ -1,0 +1,327 @@
+{
+  "method": "IDF-weighted word overlap; names and docstrings only; alphabetical tie-break",
+  "queries_committed_before_edits": true,
+  "targets_chosen_after_edit": true,
+  "blind_test": false,
+  "after_count": 2627,
+  "baseline_count": 2603,
+  "ablation": "Only 24 new docstrings removed; names and previous 21 docstrings retained; corpus-dependent IDF recomputed by unchanged method.",
+  "limit": "Diagnostic name/doc retrieval, not a user study or measured proof reuse. New-target absence in old corpus is not evidence of better lookup speed. Rank changes can result from names or global IDF as well as the docstrings.",
+  "queries": [
+    {
+      "query": "stable character class separating tests",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector",
+        "OAI.KLInvariance.FiniteCharacterLocalization.class_projector",
+        "OAI.KLInvariance.TitsSpace.prime_character_class",
+        "OAI.KLInvariance.FiniteCharacterLocalization.character_local_denominator",
+        "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators",
+        "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd",
+        "OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector",
+        "OAI.KLInvariance.FiniteCharacterLocalization.class_projector",
+        "OAI.KLInvariance.TitsSpace.prime_character_class"
+      ],
+      "ablation_first_role_rank": 42,
+      "ablation_top5": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector",
+        "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd",
+        "OAI.KLInvariance.FiniteCharacterLocalization.class_projector",
+        "OAI.KLInvariance.TitsSpace.prime_character_class",
+        "OAI.KLInvariance.FiniteCharacterLocalization.character_local_denominator"
+      ]
+    },
+    {
+      "query": "finite partition common scalar denominator",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+        "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector",
+        "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem",
+        "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+        "OAI.KLInvariance.FiniteCharacterLocalization.character_local_denominator"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum",
+        "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+        "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector",
+        "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem",
+        "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership"
+      ],
+      "ablation_first_role_rank": 3,
+      "ablation_top5": [
+        "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator",
+        "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector",
+        "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum",
+        "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem",
+        "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership"
+      ]
+    },
+    {
+      "query": "prime scalar relation projective lattice cancellation",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+        "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation",
+        "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+        "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem",
+        "OAI.KLInvariance.EdgeLattice.mem_of_prime_local_membership",
+        "OAI.KLInvariance.Graded.mem_of_homogeneous_smul"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates",
+        "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+        "OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation",
+        "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+        "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem"
+      ],
+      "ablation_first_role_rank": 2,
+      "ablation_top5": [
+        "OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation",
+        "OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator",
+        "OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership",
+        "OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates",
+        "OAI.KLInvariance.EdgeLattice.exists_denominator_of_localized_mem"
+      ]
+    },
+    {
+      "query": "functional reciprocity implies polynomial reflection",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.TitsSpace.exists_ratioOrder_chamber_height",
+        "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+        "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+        "OAI.KLInvariance.CanonicalP.polynomial_reciprocity",
+        "OAI.KLInvariance.OrdinaryR.polynomial_degree"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal",
+        "OAI.KLInvariance.TitsSpace.exists_ratioOrder_chamber_height",
+        "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+        "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+        "OAI.KLInvariance.CanonicalP.polynomial_reciprocity"
+      ],
+      "ablation_first_role_rank": null,
+      "ablation_top5": [
+        "OAI.KLInvariance.TitsSpace.exists_ratioOrder_chamber_height",
+        "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+        "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+        "OAI.KLInvariance.CanonicalP.polynomial_reciprocity",
+        "OAI.KLInvariance.OrdinaryR.polynomial_degree"
+      ]
+    },
+    {
+      "query": "strict homogeneous piece Hilbert value defect",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.Hilbert.defect_value_pos",
+        "OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq",
+        "OAI.KLInvariance.Hilbert.defect_value_eq_sub",
+        "OAI.KLInvariance.Hilbert.value_subPiece",
+        "OAI.KLInvariance.Hilbert.eq_of_value_eq"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
+        "OAI.KLInvariance.Hilbert.defect_value_pos",
+        "OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq",
+        "OAI.KLInvariance.Hilbert.defect_value_eq_sub",
+        "OAI.KLInvariance.Hilbert.value_subPiece"
+      ],
+      "ablation_first_role_rank": 4,
+      "ablation_top5": [
+        "OAI.KLInvariance.Hilbert.defect_value_pos",
+        "OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq",
+        "OAI.KLInvariance.Hilbert.defect_value_eq_sub",
+        "OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt",
+        "OAI.KLInvariance.Hilbert.value_subPiece"
+      ]
+    },
+    {
+      "query": "integer graded sequence shift weighted sum",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.Hilbert.hasSum_shift_coeff"
+      ],
+      "existing_api_only": true,
+      "before_first_role_rank": 7,
+      "before_top5": [
+        "OAI.KLInvariance.Dihedral.lowerSum_product",
+        "OAI.KLInvariance.Hilbert.hasSum_polynomial",
+        "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+        "OAI.KLInvariance.SchedulePaths.entry_eq_weighted_paths",
+        "OAI.KLInvariance.weighted_sum_exchange"
+      ],
+      "after_first_role_rank": 7,
+      "after_top5": [
+        "OAI.KLInvariance.Dihedral.lowerSum_product",
+        "OAI.KLInvariance.Hilbert.hasSum_polynomial",
+        "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+        "OAI.KLInvariance.SchedulePaths.entry_eq_weighted_paths",
+        "OAI.KLInvariance.weighted_sum_exchange"
+      ],
+      "ablation_first_role_rank": 7,
+      "ablation_top5": [
+        "OAI.KLInvariance.Dihedral.lowerSum_product",
+        "OAI.KLInvariance.Hilbert.hasSum_polynomial",
+        "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+        "OAI.KLInvariance.SchedulePaths.entry_eq_weighted_paths",
+        "OAI.KLInvariance.weighted_sum_exchange"
+      ]
+    },
+    {
+      "query": "live edge pullback partial section compatibility",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.image_closedUnder_live",
+        "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live",
+        "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
+        "OAI.KLInvariance.QuotientEdge.exists_scalar_iso",
+        "OAI.KLInvariance.MomentGraph.GradedSheaf.pullback_edgeFlabby",
+        "OAI.KLInvariance.BruhatGraph.partial_kernel_free_of_image_eq"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.push_compatible_live",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live",
+        "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_le_pullback",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live",
+        "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled"
+      ],
+      "ablation_first_role_rank": 10,
+      "ablation_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.pullbackKernel_le_of_live",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pullback_flabby_live",
+        "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
+        "OAI.KLInvariance.QuotientEdge.exists_scalar_iso",
+        "OAI.KLInvariance.MomentGraph.GradedSheaf.pullback_edgeFlabby"
+      ]
+    },
+    {
+      "query": "flat tensor section constraint kernel",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.kernelConstraint_tensor",
+        "OAI.KLInvariance.MomentGraph.Sheaf.constraint_tensorAssignments",
+        "OAI.KLInvariance.MomentGraph.Sheaf.ker_kernelConstraint",
+        "OAI.KLInvariance.TitsSpace.bottSimpleWall_kernel_projection",
+        "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.tensorAssignments_mem_sections_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.kernelConstraint_tensor",
+        "OAI.KLInvariance.MomentGraph.Sheaf.constraint_tensorAssignments",
+        "OAI.KLInvariance.MomentGraph.Sheaf.ker_kernelConstraint",
+        "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend"
+      ],
+      "ablation_first_role_rank": 16,
+      "ablation_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.kernelConstraint_tensor",
+        "OAI.KLInvariance.MomentGraph.Sheaf.constraint_tensorAssignments",
+        "OAI.KLInvariance.MomentGraph.Sheaf.ker_kernelConstraint",
+        "OAI.KLInvariance.MomentGraph.Sheaf.tensorSection_extend",
+        "OAI.KLInvariance.TitsSpace.bottSimpleWall_kernel_projection"
+      ]
+    },
+    {
+      "query": "product sheaf scaled image witnesses",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
+        "OAI.KLInvariance.MomentGraph.Sheaf.structure_scaledImages",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_smul_upperImage",
+        "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm",
+        "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.prod_lowerImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pi_lowerImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.prod_scaledUpperImage_iff",
+        "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm"
+      ],
+      "ablation_first_role_rank": 5,
+      "ablation_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
+        "OAI.KLInvariance.MomentGraph.Sheaf.structure_scaledImages",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_smul_upperImage",
+        "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm",
+        "OAI.KLInvariance.MomentGraph.Sheaf.pi_scaledUpperImage_iff"
+      ]
+    },
+    {
+      "query": "flow down correction outgoing label product",
+      "posthoc_role_targets": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference"
+      ],
+      "existing_api_only": false,
+      "before_first_role_rank": null,
+      "before_top5": [
+        "OAI.KLInvariance.Dihedral.hasFlowDown",
+        "OAI.KLInvariance.MomentGraph.Sheaf.flowDown_flabby",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct.eq_1",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_dvd",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_smul_mem"
+      ],
+      "after_first_role_rank": 1,
+      "after_top5": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.modelProduct_dvd_difference",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct.eq_1",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_dvd",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_smul_mem",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_smul_upperImage"
+      ],
+      "ablation_first_role_rank": 75,
+      "ablation_top5": [
+        "OAI.KLInvariance.Dihedral.hasFlowDown",
+        "OAI.KLInvariance.MomentGraph.Sheaf.flowDown_flabby",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct.eq_1",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_dvd",
+        "OAI.KLInvariance.MomentGraph.Sheaf.outgoingLabelProduct_smul_mem"
+      ]
+    }
+  ]
+}

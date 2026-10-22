@@ -78,17 +78,12 @@ noncomputable def shiftedImagePieceEquiv
     (hs : Summable (term 𝓜 (S.restrictScalars k) q)) :
     value 𝓝 ((S.map f).restrictScalars k) q =
       q^d * value 𝓜 (S.restrictScalars k) q := by
-  have ha := hs.hasSum.mul_left (q^d)
   have hb : HasSum
       (fun n : ℤ => (Module.finrank k (piece 𝓜 (S.restrictScalars k) (n-d)) : ℝ)*q^n)
-      (q^d * value 𝓜 (S.restrictScalars k) q) := by
-    apply (Equiv.addRight d).hasSum_iff.mp
-    apply ha.congr_fun
-    intro n
-    change (Module.finrank k (piece 𝓜 (S.restrictScalars k) (n+d-d)) : ℝ)*q^(n+d) =
-      q^d * ((Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ)*q^n)
-    rw [add_sub_cancel_right,zpow_add₀ hq]
-    ring
+      (q^d * value 𝓜 (S.restrictScalars k) q) :=
+    hasSum_shift_coeff hq
+      (show HasSum (fun n => (Module.finrank k (piece 𝓜 (S.restrictScalars k) n) : ℝ) * q^n) _ from
+        by apply hs.hasSum.congr_fun; intro n; rfl) d
   apply HasSum.tsum_eq
   apply hb.congr_fun
   intro n

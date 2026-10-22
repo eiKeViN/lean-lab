@@ -222,6 +222,7 @@ node [shape=box, style=filled, fontsize=9];
 "ForMathlib.Algebra.Module.Graded.Hilbert.Series" -> "ForMathlib.Algebra.Module.Graded.Hilbert.Increment";
 "ForMathlib.Algebra.Module.Graded.Generators" -> "ForMathlib.Algebra.Module.Graded.Hilbert.Series";
 "ForMathlib.Algebra.Module.Graded.Hilbert.Basic" -> "ForMathlib.Algebra.Module.Graded.Hilbert.Series";
+"ForMathlib.Algebra.Module.Graded.Hilbert.Numerator" -> "ForMathlib.Algebra.Module.Graded.Hilbert.Series";
 "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv" -> "ForMathlib.Algebra.Module.Graded.HomogeneousDual";
 "ForMathlib.Algebra.Module.Graded.Basis" -> "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv";
 "ForMathlib.Algebra.Module.Graded.Generators" -> "ForMathlib.Algebra.Module.Graded.HomogeneousMul";

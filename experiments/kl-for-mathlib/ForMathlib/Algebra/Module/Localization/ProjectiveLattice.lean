@@ -25,6 +25,21 @@ variable {R : Type*} [CommRing R] [klPreservedInstance15 : IsDomain R] [klPreser
   rw [heq]
   exact Finsupp.sum_single f
 
+omit [IsDomain R] [UniqueFactorizationMonoid R] in
+/-- A scalar relation forces prime divisibility in every free coordinate when
+the other scalar is not divisible by that prime. No projective splitting is required for this
+coordinate step itself. -/
+theorem prime_dvd_coordinates {P ι : Type*} [AddCommGroup P] [Module R P]
+    (s : P →ₗ[R] (ι →₀ R)) (p a c : R) (hp : Prime p) (ha : ¬ p ∣ a)
+    (m n : P) (h : a • m=(p*c) • n) : ∀ i, p ∣ s m i := by
+  intro i
+  have he := congrArg (fun z : P => s z i) h
+  simp only [map_smul, Finsupp.smul_apply, smul_eq_mul] at he
+  have hm : p ∣ a*s m i := by
+    rw [he]
+    exact dvd_mul_of_dvd_left (dvd_mul_right p c) _
+  exact (hp.dvd_mul.mp hm).resolve_left ha
+
 include klPreservedInstance15 klPreservedInstance16 in
  theorem prime_divide_of_relation {P : Type*} [AddCommGroup P] [Module R P]
     [Module.Projective R P] (p a c : R) (hp : Prime p) (ha : ¬p ∣ a)
@@ -32,17 +47,31 @@ include klPreservedInstance15 klPreservedInstance16 in
   have _ := klPreservedInstance15
   have _ := klPreservedInstance16
   obtain ⟨s,hs⟩ := Module.Projective.out (R := R) (P := P)
-  have hdvd : ∀ i, p ∣ s m i := by
-    intro i
-    have he := congrArg (fun z : P => s z i) h
-    simp only [map_smul, Finsupp.smul_apply, smul_eq_mul] at he
-    have hm : p ∣ a*s m i := by
-      rw [he]
-      exact dvd_mul_of_dvd_left (dvd_mul_right p c) _
-    exact (hp.dvd_mul.mp hm).resolve_left ha
+  have hdvd := prime_dvd_coordinates s p a c hp ha m n h
   obtain ⟨z,hz⟩ := finsupp_divide p (s m) hdvd
   refine ⟨Finsupp.linearCombination R id z,?_⟩
   rw [← map_smul,hz,hs]
+
+/-- Local membership away from a prime removes one prime factor from a
+projective lattice denominator. This isolates the prime-cancellation argument
+from the subsequent unique-factorization induction. -/
+theorem cancel_prime_denominator
+    {E : Type*} [AddCommGroup E] [Module R E] [Module.IsTorsionFree R E]
+    (M : Submodule R E) [Module.Projective R M] (x : E) (p c : R) (hp : Prime p)
+    (hpcx : (p*c) • x ∈ M) (hlocal : ∃ a : R, ¬ p ∣ a ∧ a • x ∈ M) : c • x ∈ M := by
+  obtain ⟨a,hpa,hax⟩ := hlocal
+  let m : M := ⟨(p*c) • x,hpcx⟩
+  let n : M := ⟨a • x,hax⟩
+  have he : a • m=(p*c) • n := by
+    apply Subtype.ext
+    exact smul_comm a (p*c) x
+  obtain ⟨z,hz⟩ := prime_divide_of_relation p a c hp hpa m n he
+  have hcx : c • x=(z : E) := by
+    apply smul_right_injective E hp.ne_zero
+    have hv := congrArg Subtype.val hz
+    change p • (z : E)=(p*c) • x at hv
+    simpa only [mul_smul] using hv.symm
+  exact hcx ▸ z.property
 
  theorem mem_of_prime_local_membership
     {E : Type*} [AddCommGroup E] [Module R E] [Module.IsTorsionFree R E]
@@ -60,19 +89,7 @@ include klPreservedInstance15 klPreservedInstance16 in
     simpa using M.smul_mem (↑u⁻¹ : R) hcx
   | h₃ c p hcz hp ih =>
     intro _ hpcx
-    obtain ⟨a,hpa,hax⟩ := hlocal p hp
-    let m : M := ⟨(p*c) • x,hpcx⟩
-    let n : M := ⟨a • x,hax⟩
-    have he : a • m=(p*c) • n := by
-      apply Subtype.ext
-      exact smul_comm a (p*c) x
-    obtain ⟨z,hz⟩ := prime_divide_of_relation p a c hp hpa m n he
-    have hcx : c • x=(z : E) := by
-      apply smul_right_injective E hp.ne_zero
-      have hv := congrArg Subtype.val hz
-      change p • (z : E)=(p*c) • x at hv
-      simpa only [mul_smul] using hv.symm
-    exact ih hcz (hcx ▸ z.property)
+    exact ih hcz (cancel_prime_denominator M x p c hp hpcx (hlocal p hp))
 
 end KLInvariance.ProjectiveLattice
 end

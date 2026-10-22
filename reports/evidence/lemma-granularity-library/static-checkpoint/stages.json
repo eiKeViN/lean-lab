@@ -1,0 +1,99 @@
+[
+  {
+    "label": "baseline-identity",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/verify.py"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "wall_seconds": 0.7082823500004451,
+    "user_seconds": 0.5763400000000001,
+    "system_seconds": 0.132407,
+    "children_max_rss_kib_so_far": 27096
+  },
+  {
+    "label": "baseline-export",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/baseline.py",
+      "--export-out",
+      "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "wall_seconds": 0.15092151800035936,
+    "user_seconds": 0.1016309999999998,
+    "system_seconds": 0.04928500000000002,
+    "children_max_rss_kib_so_far": 50560
+  },
+  {
+    "label": "baseline-snapshot-check",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "compare_types.py",
+      "reference-public-types.json",
+      "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 2.956426031999399,
+    "user_seconds": 2.4819430000000002,
+    "system_seconds": 0.47390299999999996,
+    "children_max_rss_kib_so_far": 309700
+  },
+  {
+    "label": "source-transport",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "migrate.py",
+      "--check"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 1.064061966000736,
+    "user_seconds": 0.9131640000000001,
+    "system_seconds": 0.15062299999999995,
+    "children_max_rss_kib_so_far": 309700
+  },
+  {
+    "label": "source-coverage",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "source_check.py"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.45310857000004034,
+    "user_seconds": 0.4242520000000001,
+    "system_seconds": 0.03049400000000002,
+    "children_max_rss_kib_so_far": 309700
+  },
+  {
+    "label": "classification-and-boundaries",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "analyze.py"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.1023125350002374,
+    "user_seconds": 0.08238900000000005,
+    "system_seconds": 0.019400000000000084,
+    "children_max_rss_kib_so_far": 309700
+  },
+  {
+    "label": "proof-evolution-source",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "proof_evolution.py",
+      "--check"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.7806628360003742,
+    "user_seconds": 0.7271999999999998,
+    "system_seconds": 0.0547089999999999,
+    "children_max_rss_kib_so_far": 309700
+  }
+]
