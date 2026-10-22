@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "round": 2,
+  "starting_commit": "0fb4b2ec594b11fed9cd84fc5b1488fa34122f67",
+  "pristine_base": "a234ae5be6f77763e2014aad2cddd69e6aa50755",
+  "recorded_utc": "2026-10-22T00:32:17Z",
+  "selection": "Independent mathematical responsibility first; second use is a bonus, source length is not the objective.",
+  "samples": [
+    {
+      "id": "E1",
+      "path": "ForMathlib/LinearAlgebra/Reflection/Plane.lean",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.range_preReflection_product_sub_id",
+      "file_sha256": "8f06a57c938d25ed60d26af55fe0118fa14667f4635efc735398d4afbe368598",
+      "helpers": [
+        "OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply"
+      ],
+      "reason": "Separate the action formula, valid without independent forms, from range surjectivity."
+    },
+    {
+      "id": "E2",
+      "path": "ForMathlib/LinearAlgebra/Reflection/Plane.lean",
+      "declaration": "OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane",
+      "file_sha256": "8f06a57c938d25ed60d26af55fe0118fa14667f4635efc735398d4afbe368598",
+      "helpers": [
+        "OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff",
+        "OAI.KLInvariance.ReflectionPlane.triple_root_norm_two"
+      ],
+      "reason": "Separate the normalized plane quadratic and the constructed root norm from the operator identity."
+    },
+    {
+      "id": "E3",
+      "path": "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean",
+      "declaration": "OAI.KLInvariance.IntegralSupport.supported_iff_annihilates",
+      "file_sha256": "108c1533006b65c9d4d5b2596b9a6ac4b0be44fa6907bc99a29bbaa5e8d46ee7",
+      "helpers": [
+        "OAI.KLInvariance.IntegralSupport.annihilates_of_supported",
+        "OAI.KLInvariance.IntegralSupport.supported_of_annihilates"
+      ],
+      "reason": "Expose the two mathematically different directions of integral support/annihilator duality."
+    },
+    {
+      "id": "E4",
+      "path": "ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean",
+      "declaration": "OAI.KLInvariance.MomentGraph.Sheaf.Iso.scaledImages",
+      "file_sha256": "60463e3568e8a659742c0fd212993bad3c3ba79d88c7f26035daab67afc47257",
+      "helpers": [
+        "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
+        "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm"
+      ],
+      "reason": "Move witness and commuting-square bookkeeping into inverse-edge membership interfaces."
+    },
+    {
+      "id": "E5",
+      "path": "OAI/KL/Localization/TerminalImages.lean",
+      "declaration": "OAI.KLInvariance.TitsSpace.PlaneBasis.coset_structure_scaledImages",
+      "file_sha256": "724d16f0b20ad5943c4356c7048142d28892222549982c031499965f6df7af8b",
+      "helpers": [
+        "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement"
+      ],
+      "reason": "Move the geometric complementary-root choice out of the sheaf scaled-image proof."
+    }
+  ],
+  "additions": [
+    "OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply",
+    "OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff",
+    "OAI.KLInvariance.ReflectionPlane.triple_root_norm_two",
+    "OAI.KLInvariance.IntegralSupport.annihilates_of_supported",
+    "OAI.KLInvariance.IntegralSupport.supported_of_annihilates",
+    "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
+    "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm",
+    "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement"
+  ],
+  "permitted_prefixes": {
+    "OAI.KLInvariance.IntegralSupport.annihilates_of_supported": "include hp hbalanced in",
+    "OAI.KLInvariance.IntegralSupport.supported_of_annihilates": "include hp hbalanced in",
+    "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement": "include B in"
+  },
+  "declined": [
+    {
+      "candidate": "baseChange scalar-action identity in scaledImages_denominator",
+      "reason": "A reasonable future general linear-map fact, but requires choosing a general API home; do not broaden this round."
+    },
+    {
+      "candidate": "lowerCharacter nonnegativity branches",
+      "reason": "The existing branches call a direct theorem or simp; no meaningful reasoning is hidden."
+    },
+    {
+      "candidate": "two scalar coefficient identities inside reflection_triple_in_plane",
+      "reason": "Keep the final operator calculation together; separate scalar wrappers would obscure its role."
+    },
+    {
+      "candidate": "unconditional model-sum/localization transport redesign",
+      "reason": "Already has interfaces; a new abstraction is outside lemma extraction."
+    }
+  ],
+  "measurement": {
+    "token_telemetry": "Unavailable unless a real usage tool appears.",
+    "reuse": "Kernel direct-call checks; distinguish original-site and second production consumers.",
+    "cost": "New command ledger labels prefixed expansion; keep old evidence unchanged. Existing infrastructure is reused; new guard/index adaptation documented separately.",
+    "elaboration": "One before/after direct pair per changed module; same current warm dependencies, source input each time. Descriptive only; no speedup claim.",
+    "lookup": "Same deterministic word search with fixed non-name queries; before/after is nonblind, docstrings known at writing time."
+  },
+  "queries": [
+    "two reflection product displacement root span",
+    "normalized root plane quadratic combination norm",
+    "single support annihilator stalk projection kernel",
+    "isomorphism lower image inverse edge membership",
+    "scaled upper image inverse isomorphism scalar",
+    "complementary positive root spans given plane"
+  ]
+}
