@@ -1,0 +1,10 @@
+Serialization guard: identical record and alpha controls accepted; 8 theorem mutations and 3 unsupported definition cases rejected.
+/workspace/lean-lab/research/attach-explicit/RegionTypes.lean:147:2: error: Application type mismatch: The argument
+  __do_lift✝
+has type
+  Option (Array Name)
+but is expected to have type
+  Elab.TermElabM ?m.7
+in the application
+  discard __do_lift✝
+Unique global public types exported with checked serialization copies and compiler-proof propositions.

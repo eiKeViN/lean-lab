@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "research/attach-explicit/compare_region.py",
+    "/workspace/lean-lab/results/attach-explicit/typed-v3-types.tsv",
+    "/workspace/lean-lab/results/attach-explicit/strict-final-v2.json.out"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 4.679627092999908,
+  "user_seconds": 4.502242,
+  "system_seconds": 0.174865,
+  "max_rss_kib": 310416
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake --no-build build ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom && LEAN_TYPES_OUT=/workspace/lean-lab/results/attach-explicit/typed-v3-types.tsv lake env lean /workspace/lean-lab/research/attach-explicit/RegionTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 18.24682128099994,
+  "user_seconds": 17.857845,
+  "system_seconds": 4.897457,
+  "max_rss_kib": 7648532
+}

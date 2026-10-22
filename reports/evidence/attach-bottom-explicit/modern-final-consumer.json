@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean /workspace/lean-lab/research/attach-explicit/ModernAttachConsumer.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.450804120000612,
+  "user_seconds": 3.128134,
+  "system_seconds": 1.479762,
+  "max_rss_kib": 5349216
+}

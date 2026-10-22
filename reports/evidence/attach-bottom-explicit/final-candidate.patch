@@ -1,0 +1,250 @@
+--- a/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean
++++ b/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++module
++public import Mathlib
++
++public section
+ 
+ /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic. Source spans: Sheaves:1, Sheaves:2.
+ See migration.json and MIGRATION.md for exact provenance. -/
+@@ -30,20 +33,20 @@
+ 
+ /-- Exactly the usual section compatibility on edges with both endpoints in
+ `Ω`; coordinates outside `Ω` are ignored and can be chosen arbitrarily. -/
+-def CompatibleOn (Ω : Set V) (f : B.Assignment) : Prop :=
++@[expose] def CompatibleOn (Ω : Set V) (f : B.Assignment) : Prop :=
+   ∀ e, G.source e ∈ Ω → G.target e ∈ Ω →
+     B.lower e (f (G.source e)) = B.upper e (f (G.target e))
+ 
+-def IsGlobal (f : B.Assignment) : Prop := B.CompatibleOn Set.univ f
++@[expose] def IsGlobal (f : B.Assignment) : Prop := B.CompatibleOn Set.univ f
+ 
+ /-- Extension of ordinary sections over ambient upper sets. -/
+-def Flabby : Prop :=
++@[expose] def Flabby : Prop :=
+   ∀ Ω : Set V, IsUpperSet Ω → ∀ f : B.Assignment, B.CompatibleOn Ω f →
+     ∃ g : B.Assignment, B.IsGlobal g ∧ ∀ x ∈ Ω, g x = f x
+ 
+ /-- Closure under the edges whose modules survive, strictly weaker than
+ being an ambient upper set. -/
+-def ClosedUnder (_B : Sheaf (R := R) G) (live : Set E) (Ω : Set V) : Prop :=
++@[expose] def ClosedUnder (_B : Sheaf (R := R) G) (live : Set E) (Ω : Set V) : Prop :=
+   ∀ e ∈ live, G.source e ∈ Ω → G.target e ∈ Ω
+ 
+ theorem compatible_mono {Ω Ω' : Set V} {f : B.Assignment}
+@@ -149,7 +152,7 @@
+ 
+ /-- The actual module of sections on a vertex set. Coordinates outside the
+ set are harmless and ignored by all restriction maps. -/
+-def sections (Ω : Set V) : Submodule R B.Assignment where
++@[expose] def sections (Ω : Set V) : Submodule R B.Assignment where
+   carrier := {f | B.CompatibleOn Ω f}
+   zero_mem' := by intro e hs ht; simp
+   add_mem' := by
+@@ -163,7 +166,7 @@
+     rw [map_smul, map_smul, hf e hs ht]
+ 
+ /-- Generation at a stalk by genuine global sections. -/
+-def Generated : Prop :=
++@[expose] def Generated : Prop :=
+   ∀ x (b : B.vertex x), ∃ f : B.Assignment, B.IsGlobal f ∧ f x = b
+ 
+ abbrev Outgoing (x : V) := {e : E // G.source e = x}
+@@ -171,18 +174,27 @@
+ abbrev Boundary (x : V) := ∀ e : Outgoing (G := G) x, B.edge e.val
+ 
+ /-- The lower-end stalk map on all upward edges. -/
+-def stalkMap (x : V) : B.vertex x →ₗ[R] B.Boundary x where
++@[expose] def stalkMap (x : V) : B.vertex x →ₗ[R] B.Boundary x where
+   toFun b e := B.lower e.val (e.property.symm ▸ b)
+-  map_add' b c := by ext e; cases e with | mk e he => subst x; simp
+-  map_smul' r b := by ext e; cases e with | mk e he => subst x; simp
++  map_add' := (by intro b c; ext e; cases e with | mk e he => subst x; simp :
++    ∀ b c : B.vertex x,
++      @Eq (∀ e : Outgoing (G := G) x, B.edge e.val)
++        (fun e : Outgoing (G := G) x => B.lower e.val (e.property.symm ▸ (b + c)))
++        ((fun e : Outgoing (G := G) x => B.lower e.val (e.property.symm ▸ b)) +
++          (fun e : Outgoing (G := G) x => B.lower e.val (e.property.symm ▸ c))))
++  map_smul' := (by intro r b; ext e; cases e with | mk e he => subst x; simp :
++    ∀ (r : R) (b : B.vertex x),
++      @Eq (∀ e : Outgoing (G := G) x, B.edge e.val)
++        (fun e : Outgoing (G := G) x => B.lower e.val (e.property.symm ▸ (r • b)))
++        ((RingHom.id R r) • (fun e : Outgoing (G := G) x => B.lower e.val (e.property.symm ▸ b))))
+ 
+ /-- Boundary values supplied by sections strictly above a vertex. -/
+-def boundaryMap (x : V) : B.sections (Set.Ioi x) →ₗ[R] B.Boundary x where
++@[expose] def boundaryMap (x : V) : B.sections (Set.Ioi x) →ₗ[R] B.Boundary x where
+   toFun f e := B.upper e.val (f.val (G.target e.val))
+   map_add' f g := by ext e; simp
+   map_smul' r f := by ext e; simp
+ 
+-def boundaryImage (x : V) : Submodule R (B.Boundary x) :=
++@[expose] def boundaryImage (x : V) : Submodule R (B.Boundary x) :=
+   LinearMap.range (B.boundaryMap x)
+ 
+ /-- The precise boundary-image identity in `loc:decomposition`.
+@@ -218,7 +230,7 @@
+ 
+ /-- A sheaf satisfying the two standard section properties gives an actual
+ surjection of its stalk onto the boundary module. -/
+-def stalkCover (hf : B.Flabby) (hg : B.Generated) (x : V) :
++@[expose] def stalkCover (hf : B.Flabby) (hg : B.Generated) (x : V) :
+     B.vertex x →ₗ[R] B.boundaryImage x :=
+   (B.stalkMap x).codRestrict _ (fun b => by
+     rw [← B.range_stalkMap_eq_boundaryImage hf hg x]
+--- a/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean
++++ b/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean
+@@ -1,6 +1,9 @@
+-import Mathlib
+-import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
+-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
++module
++public import Mathlib
++public import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
++public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
++
++public section
+ 
+ /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs. Source spans: GradedSheaves:1.
+ See migration.json and MIGRATION.md for exact provenance.
+@@ -25,7 +28,7 @@
+ namespace GradedSheaf
+ variable {G} (B : GradedSheaf (𝓐 := 𝓐) G)
+ 
+-def forget : Sheaf (R := A) G where
++@[expose] def forget : Sheaf (R := A) G where
+   vertex := fun x => (B.vertex x).obj
+   edge := fun e => (B.edge e).obj
+   lower := fun e => (B.lower e).map
+@@ -33,7 +36,7 @@
+ 
+ /-- Extension for sets closed under actual edges. It implies the source's
+ ordinary flabbiness, and is convenient for the descending construction. -/
+-def EdgeFlabby : Prop :=
++@[expose] def EdgeFlabby : Prop :=
+   ∀ Ω : Set V, B.forget.ClosedUnder Set.univ Ω →
+     ∀ f : B.forget.Assignment, B.forget.CompatibleOn Ω f →
+     ∃ g : B.forget.Assignment, B.forget.IsGlobal g ∧ ∀ x ∈ Ω, g x = f x
+@@ -44,12 +47,12 @@
+ 
+ variable [Fintype V] [Fintype E]
+ 
+-noncomputable def assignments : ModuleData.{uk,ua,um} 𝓐 := ModuleData.pi B.vertex
++@[expose] noncomputable def assignments : ModuleData.{uk,ua,um} 𝓐 := ModuleData.pi B.vertex
+ 
+-noncomputable def lowerGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
++@[expose] noncomputable def lowerGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
+   (B.lower e).comp (ModuleData.projection B.vertex (G.source e))
+ 
+-noncomputable def upperGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
++@[expose] noncomputable def upperGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
+   (B.upper e).comp (ModuleData.projection B.vertex (G.target e))
+ 
+ omit [Fintype E] in
+@@ -61,23 +64,23 @@
+   rw [← (B.lowerGlobal e).component n f, ← (B.upperGlobal e).component n f]
+   exact congrArg (component (B.edge e).piece n) (hf e hs ht)
+ 
+-noncomputable def sections [IsNoetherianRing A] (Ω : Set V) : ModuleData.{uk,ua,um} 𝓐 :=
++@[expose] noncomputable def sections [IsNoetherianRing A] (Ω : Set V) : ModuleData.{uk,ua,um} 𝓐 :=
+   ModuleData.sub B.assignments (B.forget.sections Ω) (B.sections_homogeneous Ω)
+ 
+-noncomputable def boundary (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
++@[expose] noncomputable def boundary (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
+ by
+   classical
+   letI : Fintype (Sheaf.Outgoing (G := G) x) := inferInstanceAs (Fintype {e : E // G.source e = x})
+   exact ModuleData.pi (fun e : Sheaf.Outgoing (G := G) x => B.edge e.val)
+ 
+-noncomputable def boundaryHom [IsNoetherianRing A] (x : V) :
++@[expose] noncomputable def boundaryHom [IsNoetherianRing A] (x : V) :
+     ModuleData.Hom (B.sections (Set.Ioi x)) (B.boundary x) where
+   map := B.forget.boundaryMap x
+   graded := by
+     intro n f hf e _
+     exact (B.upper e.val).graded n (f.val (G.target e.val)) (hf (G.target e.val) (Set.mem_univ _))
+ 
+-noncomputable def boundaryImage [IsNoetherianRing A] (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
++@[expose] noncomputable def boundaryImage [IsNoetherianRing A] (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
+   ModuleData.range (B.boundaryHom x)
+ 
+  theorem exists_boundaryCover [IsNoetherianRing A]
+--- a/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean
++++ b/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean
+@@ -1,5 +1,9 @@
+-import Mathlib
+-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
++module
++public import Mathlib
++public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
++
++
++public section
+ 
+ /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom. Source spans: GradedSheaves:2.
+ See migration.json and MIGRATION.md for exact provenance.
+@@ -17,7 +21,7 @@
+ 
+ /-- Adjoin a vertex below the old vertices, with specified outgoing edges.
+ Only the edge orientations, not the extra comparabilities, enter sections. -/
+-def bottomGraph (τ : D → V) : OrderedGraph (WithBot V) (E ⊕ D) where
++@[expose] def bottomGraph (τ : D → V) : OrderedGraph (WithBot V) (E ⊕ D) where
+   source := Sum.elim (fun e => (G.source e : WithBot V)) (fun _ => ⊥)
+   target := Sum.elim (fun e => (G.target e : WithBot V)) (fun d => (τ d : WithBot V))
+   increasing := by
+@@ -31,17 +35,17 @@
+   [Fintype V] [Fintype D] [IsNoetherianRing A]
+   (τ : D → V) (α : D → A) (hα : ∀ d, α d ∈ 𝓐 1)
+ 
+-noncomputable def attachEdges (d : D) : ModuleData.{uk,ua,um} 𝓐 :=
++@[expose] noncomputable def attachEdges (d : D) : ModuleData.{uk,ua,um} 𝓐 :=
+   (B.vertex (τ d)).scalarQuotient (α d) 1 (hα d)
+ 
+-noncomputable def attachQuotient (d : D) :
++@[expose] noncomputable def attachQuotient (d : D) :
+     ModuleData.Hom (B.vertex (τ d)) (B.attachEdges τ α hα d) :=
+   ModuleData.quotientMap _ _ (scalar_range_homogeneous 𝓐 (B.vertex (τ d)).piece 1 (α d) (hα d))
+ 
+-noncomputable def attachBoundary : ModuleData.{uk,ua,um} 𝓐 :=
++@[expose] noncomputable def attachBoundary : ModuleData.{uk,ua,um} 𝓐 :=
+   ModuleData.pi (B.attachEdges τ α hα)
+ 
+-noncomputable def attachBoundaryMap :
++@[expose] noncomputable def attachBoundaryMap :
+     ModuleData.Hom (B.sections Set.univ) (B.attachBoundary τ α hα) where
+   map := LinearMap.pi fun d => (B.attachQuotient τ α hα d).map.comp
+     ((LinearMap.proj (τ d)).comp (B.forget.sections Set.univ).subtype)
+@@ -49,17 +53,18 @@
+     intro n f hf d _
+     exact (B.attachQuotient τ α hα d).graded n _ (hf (τ d) (Set.mem_univ _))
+ 
+-noncomputable def attachImage : ModuleData.{uk,ua,um} 𝓐 :=
++@[expose] noncomputable def attachImage : ModuleData.{uk,ua,um} 𝓐 :=
+   ModuleData.range (B.attachBoundaryMap τ α hα)
+ 
+ variable (C : ModuleData.MinimalCover (B.attachImage τ α hα))
+ 
+-noncomputable def attachStalkMap : ModuleData.Hom C.source (B.attachBoundary τ α hα) :=
++@[expose] noncomputable def attachStalkMap : ModuleData.Hom C.source (B.attachBoundary τ α hα) :=
+   (ModuleData.subtype (B.attachBoundary τ α hα) _
+-    (range_homogeneous _ _ (B.attachBoundaryMap τ α hα).map 0
++    (range_homogeneous (B.sections Set.univ).piece (B.attachBoundary τ α hα).piece
++      (B.attachBoundaryMap τ α hα).map 0
+       (by simpa using (B.attachBoundaryMap τ α hα).graded))).comp C.hom
+ 
+-noncomputable def extendBottom : GradedSheaf (𝓐 := 𝓐) (bottomGraph G τ) where
++@[expose] noncomputable def extendBottom : GradedSheaf (𝓐 := 𝓐) (bottomGraph G τ) where
+   vertex := WithBot.recBotCoe C.source B.vertex
+   edge := Sum.elim B.edge (B.attachEdges τ α hα)
+   lower := by
+@@ -75,7 +80,7 @@
+     | inl e => exact B.upper e
+     | inr d => exact B.attachQuotient τ α hα d
+ 
+- def attachAssignment (z : C.source) (f : B.forget.Assignment) :
++ @[expose] def attachAssignment (z : C.source) (f : B.forget.Assignment) :
+     (B.extendBottom τ α hα C).forget.Assignment := WithBot.recBotCoe z f
+ 
+  theorem attachAssignment_global (z : C.source) (f : B.forget.Assignment)
