@@ -1,0 +1,35 @@
+{
+  "base": "2a7f8dc51dae6b10bc8344890a32ca0ef323b633",
+  "changed_products": [
+    "ForMathlib/Algebra/Module/Flat/Kernel.lean",
+    "ForMathlib/Algebra/Module/Localization/Membership.lean",
+    "ForMathlib/Algebra/Module/Projective/ReverseFiltration.lean",
+    "ForMathlib/Algebra/Module/Quotient/KernelReduction.lean",
+    "ForMathlib/Algebra/Module/Submodule/ProductScaling.lean",
+    "ForMathlib/Algebra/Polynomial/LowPart.lean",
+    "ForMathlib/LinearAlgebra/Dual/BalancedCut.lean",
+    "ForMathlib/LinearAlgebra/PlaneReduction.lean"
+  ],
+  "unchanged_products": 253,
+  "only_leading_imports_changed": true,
+  "module_scope": 125,
+  "module_expose_public_declaration_strategy_unchanged": true,
+  "previous_12_narrow_headers_unchanged": true,
+  "protected_hashes": {
+    "module-rollout.json": "f8d3a8befe0fa7bc7b39be70ffa4144906176fa5515e22509f50a343e55fa8b5",
+    "module-rollout-types.json": "b4c47fd24af8efb9f69587337733029988fd50901a75a15686aba7cc53f27e87",
+    "module-rollout-aliases.json": "2bb66d2e7594feea4c0eaec7f6cf0f9de28e39b96675054943c8dfe46af24d51",
+    "PublicTypes.lean": "5f457ebe239e2893612b2b254fc66253ceec7c6727f1c417335634658180d270",
+    "PilotChecks.lean": "763c527c1ef16b47d9ecf5b002c90ac083db8b5f3f5d752e6342f97244d9f955",
+    "SemanticCorpus.lean": "4f4227b03cbe8f5be277c66cfabec656f3482b29063c0bbcee3d794df80886fe",
+    "compare_types.py": "37393834ececbf8d487424da41604da018864fe0c088d54c0e951ac31f8a38f2",
+    "reference-public-types.json": "f768fcce2e07369df8a595ac7299370af002e0be48f3ee28af9b0fb4e6de2bc3",
+    "additional-types.json": "b39deefb8632098e38264682b4eb673ef37869a8ce89cc582de1fdbf6021b33c",
+    "proof-evolution.json": "36cc01b5f9dd6cea7d277be538a2e4a2a9f3575b7e3d2848c3f2de9ccf1d4dd8",
+    "proof-evolution.patch": "ef79378d2bec467a1237fbb83f62f966aaf0741635202a935f5d9d49ad7154be",
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "lake-manifest.json": "c4e5502f1da3e2b3a053a967c88bb49a73858ca9bb859d7c4650cbf762ca0bd4",
+    "lakefile.toml": "644cd41aaf44c2f72e6245510f895114ea39a0bc21b534642c603960a540e7d4",
+    "ModernRolloutTypes.lean": "c4cc6b096e4440399d2f3ae5375f9b09d1593de78dad82b461d04273b4447c58"
+  }
+}

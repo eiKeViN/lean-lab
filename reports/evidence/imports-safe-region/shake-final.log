@@ -1,0 +1,12 @@
+All targets up-to-date (1808 jobs).
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Quotient/KernelReduction.lean:
+  remove #[public import Mathlib.Tactic.Ring, public import Mathlib.RingTheory.Regular.Free]
+  add #[import Mathlib.RingTheory.Regular.Free]
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Projective/ReverseFiltration.lean:
+  remove #[public import Mathlib.Tactic.Abel]
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/LowPart.lean:
+  remove #[public import Mathlib.Tactic.Ring, public import Mathlib.Tactic.Linarith]
+/workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Submodule/ProductScaling.lean:
+  remove #[public import Mathlib.Algebra.Algebra.Tower, public import Mathlib.Algebra.BigOperators.Associated]
+  add #[import Mathlib.Algebra.BigOperators.Associated, import Mathlib.Algebra.Algebra.Tower]
+Scoped read-only shake status: 1

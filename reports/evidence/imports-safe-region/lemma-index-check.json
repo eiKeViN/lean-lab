@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/render_lemma_index.py",
+    "/workspace/lean-lab/results/imports-safe/semantic-corpus.json",
+    "--check"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.036716118000185816,
+  "user_seconds": 0.032049999999999995,
+  "system_seconds": 0.004424,
+  "max_rss_kib": 11804
+}

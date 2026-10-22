@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/semantic_search.py",
+    "/workspace/lean-lab/results/imports-safe/semantic-corpus.json",
+    "--out",
+    "/workspace/lean-lab/results/imports-safe/retrieval-original.json"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.13640542999928584,
+  "user_seconds": 0.12447599999999999,
+  "system_seconds": 0.011680999999999999,
+  "max_rss_kib": 15568
+}

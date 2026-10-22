@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/tmp/diagnose_imports8.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 7.954827558998659,
+  "user_seconds": 16.700389,
+  "system_seconds": 2.037294,
+  "max_rss_kib": 3249500
+}

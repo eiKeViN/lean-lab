@@ -1,0 +1,10 @@
+[
+  "ForMathlib/LinearAlgebra/PlaneReduction.lean",
+  "ForMathlib/Algebra/Module/Flat/Kernel.lean",
+  "ForMathlib/LinearAlgebra/Dual/BalancedCut.lean",
+  "ForMathlib/Algebra/Module/Quotient/KernelReduction.lean",
+  "ForMathlib/Algebra/Module/Projective/ReverseFiltration.lean",
+  "ForMathlib/Algebra/Polynomial/LowPart.lean",
+  "ForMathlib/Algebra/Module/Localization/Membership.lean",
+  "ForMathlib/Algebra/Module/Submodule/ProductScaling.lean"
+]

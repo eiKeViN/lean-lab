@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "/tmp/diagnose_imports8.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 28.185881220000738,
+  "user_seconds": 73.753877,
+  "system_seconds": 6.6156749999999995,
+  "max_rss_kib": 8184400
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "SafeImportChecks.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 2.1371586909990583,
+  "user_seconds": 1.4308429999999999,
+  "system_seconds": 0.7200019999999999,
+  "max_rss_kib": 1793144
+}
