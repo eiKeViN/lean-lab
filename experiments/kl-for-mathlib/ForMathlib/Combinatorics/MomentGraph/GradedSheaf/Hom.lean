@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom. Source spans: SheafMorphisms:16, SheafMorphisms:20, SheafMorphisms:11, SheafMorphisms:12, SheafMorphisms:23, SheafMorphisms:13, SheafMorphisms:27, SheafMorphisms:14, SheafMorphisms:28.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -29,7 +26,7 @@ structure Endomorphism (B : GradedSheaf (𝓐 := 𝓐) G) where
 namespace Endomorphism
 variable {B : GradedSheaf (𝓐 := 𝓐) G} (f : Endomorphism B)
 
- @[expose] def complement : Endomorphism B where
+ def complement : Endomorphism B where
   vertex x :=
     { map := LinearMap.id - (f.vertex x).map
       graded := fun n v hv => (B.vertex x).piece n |>.sub_mem hv ((f.vertex x).graded n v hv) }
@@ -116,7 +113,7 @@ structure OnHom (B C : GradedSheaf (𝓐 := 𝓐) G) (U : Set V) where
 namespace Hom
 variable {B C D : GradedSheaf (𝓐 := 𝓐) G}
 
-@[expose] def comp (g : Hom C D) (f : Hom B C) : Hom B D where
+def comp (g : Hom C D) (f : Hom B C) : Hom B D where
   vertex x := (g.vertex x).comp (f.vertex x)
   edge e := (g.edge e).comp (f.edge e)
   lower e v := by
@@ -132,13 +129,13 @@ namespace OnHom
 variable {B C : GradedSheaf (𝓐 := 𝓐) G} {U : Set V} (j : OnHom B C U)
 noncomputable section
 
- @[expose] def ofUniv (j : OnHom B C Set.univ) : Hom B C where
+ def ofUniv (j : OnHom B C Set.univ) : Hom B C where
   vertex x := j.vertex x (Set.mem_univ x)
   edge e := j.edge e (Set.mem_univ _)
   lower e v := j.lower e (Set.mem_univ _) (Set.mem_univ _) v
   upper e v := j.upper e (Set.mem_univ _) v
 
- @[expose] def mapAssignment (x : V) (hx : Set.Ioi x ⊆ U)
+ def mapAssignment (x : V) (hx : Set.Ioi x ⊆ U)
     (f : B.forget.Assignment) : C.forget.Assignment := by
   classical
   exact fun y => if h : x < y then (j.vertex y (hx h)).map (f y) else 0
@@ -164,7 +161,7 @@ noncomputable section
 
 variable [Fintype E]
 
- @[expose] def boundary (x : V) (hx : Set.Ioi x ⊆ U) :
+ def boundary (x : V) (hx : Set.Ioi x ⊆ U) :
     ModuleData.Hom (B.boundary x) (C.boundary x) where
   map := LinearMap.pi fun e =>
     ((j.edge e.val (hx (lt_of_eq_of_lt e.property.symm (G.increasing e.val)))).map).comp
@@ -238,7 +235,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A} {V E : Type um} [PartialOrder V]
   {G : OrderedGraph V E} {B C : GradedSheaf (𝓐 := 𝓐) G}
 
- @[expose] def castVertexHom {x y : V} (h : x=y)
+ def castVertexHom {x y : V} (h : x=y)
     (f : ModuleData.Hom (B.vertex x) (C.vertex x)) :
     ModuleData.Hom (B.vertex y) (C.vertex y) := h ▸ f
 
@@ -246,7 +243,7 @@ namespace OnHom
 variable {U : Set V} (j : OnHom B C U)
 noncomputable section
 
- @[expose] def extend (hU : IsUpperSet U) (x : V) (hx : x ∉ U)
+ def extend (hU : IsUpperSet U) (x : V) (hx : x ∉ U)
     (hmax : Set.Ioi x ⊆ U) (α : E → A)
     (hBq : B.UpperQuotient α) (hCq : C.UpperQuotient α)
     (jv : ModuleData.Hom (B.vertex x) (C.vertex x))
@@ -335,10 +332,10 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {G : OrderedGraph V E}
 noncomputable section
 
- @[expose] def Hom.toEndomorphism {B : GradedSheaf (𝓐 := 𝓐) G} (f : Hom B B) : Endomorphism B :=
+ def Hom.toEndomorphism {B : GradedSheaf (𝓐 := 𝓐) G} (f : Hom B B) : Endomorphism B :=
   ⟨f.vertex,f.edge,f.lower,f.upper⟩
 
- @[expose] def Hom.inverse {B C : GradedSheaf (𝓐 := 𝓐) G} (f : Hom B C)
+ def Hom.inverse {B C : GradedSheaf (𝓐 := 𝓐) G} (f : Hom B C)
     (hv : ∀ x, Function.Bijective (f.vertex x).map)
     (he : ∀ e, Function.Bijective (f.edge e).map) : Hom C B where
   vertex x := (f.vertex x).inverse (hv x)

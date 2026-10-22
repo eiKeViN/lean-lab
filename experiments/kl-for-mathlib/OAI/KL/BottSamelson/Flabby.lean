@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import OAI.KL.BottSamelson.UpperSections
-
-public section
+import Mathlib
+import OAI.KL.BottSamelson.UpperSections
 
 /-! Semantic home: OAI.KL.BottSamelson.Flabby. Source spans: IntegralPairings:29.
 See migration.json and MIGRATION.md for exact provenance.
@@ -26,7 +23,7 @@ noncomputable section
   funext e
   exact (hx (e.property ▸ bottWeight_bruhat cs l hl e.val)).elim
 
- @[expose] def intervalUpperClosure (b : W) (U : Set (Interval cs 1 b)) : Set W :=
+ def intervalUpperClosure (b : W) (U : Set (Interval cs 1 b)) : Set W :=
   {x | ∃ a : Interval cs 1 b, a∈U ∧ BruhatLE cs a.val x}
 
  omit [Fintype I] in
@@ -42,7 +39,7 @@ noncomputable section
   obtain ⟨a,ha,hax⟩ := hx
   exact hU hax ha
 
- @[expose] def bottIntervalExtension (l : List I) (U : Set (Interval cs 1 (cs.wordProd l)))
+ def bottIntervalExtension (l : List I) (U : Set (Interval cs 1 (cs.wordProd l)))
     (f : (bottProjectionSheaf cs l 1 (cs.wordProd l)).Assignment)
     (x : intervalUpperClosure cs (cs.wordProd l) U) : bottStalk cs l x.val := by
   classical

@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback. Source spans: MinimalExtensions:21, MinimalExtensions:22.
 See migration.json and MIGRATION.md for exact provenance.
@@ -27,18 +24,18 @@ variable {R : Type ur} [CommRing R] {G : OrderedGraph V E} {H : OrderedGraph W F
   (B : Sheaf.{ur,uw,uf,um} (R := R) H) (f : GraphMap G H)
 noncomputable section
 
- @[expose] def moduleEq {M N : ModuleCat.{um} R} (h : M=N) : M ≃ₗ[R] N := h ▸ LinearEquiv.refl R M
+ def moduleEq {M N : ModuleCat.{um} R} (h : M=N) : M ≃ₗ[R] N := h ▸ LinearEquiv.refl R M
 
  theorem moduleEq_apply {X : Type*} (M : X → ModuleCat.{um} R) {x y : X} (h : x=y)
     (s : ∀ z, M z) : moduleEq (congrArg M h) (s x) = s y := by subst y; rfl
 
- @[expose] def pullback : Sheaf (R := R) G where
+ def pullback : Sheaf (R := R) G where
   vertex x := B.vertex (f.vertex x)
   edge e := B.edge (f.edge e)
   lower e := (B.lower (f.edge e)).comp (moduleEq (congrArg B.vertex (f.source e))).toLinearMap
   upper e := (B.upper (f.edge e)).comp (moduleEq (congrArg B.vertex (f.target e))).toLinearMap
 
- @[expose] def pullAssignment (s : B.Assignment) : (B.pullback f).Assignment := fun x => s (f.vertex x)
+ def pullAssignment (s : B.Assignment) : (B.pullback f).Assignment := fun x => s (f.vertex x)
 
 @[simp] theorem pull_lower (e : E) (s : B.Assignment) :
     (B.pullback f).lower e (B.pullAssignment f s (G.source e)) =
@@ -61,7 +58,7 @@ noncomputable section
   obtain ⟨s,hs,hx⟩ := hg (f.vertex x) v
   exact ⟨B.pullAssignment f s,B.pull_global f s hs,hx⟩
 
- @[expose] def pushAssignment (s : (B.pullback f).Assignment) : B.Assignment := by
+ def pushAssignment (s : (B.pullback f).Assignment) : B.Assignment := by
   classical
   exact fun y => if h : ∃ x, f.vertex x=y then
     moduleEq (congrArg B.vertex h.choose_spec) (s h.choose) else 0

@@ -1,5 +1,6 @@
 module
-public import Mathlib
+public import Mathlib.LinearAlgebra.Isomorphisms
+public import Mathlib.LinearAlgebra.DFinsupp
 
 public section
 

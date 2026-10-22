@@ -129,7 +129,7 @@ def static_checks():
  combined.update({n:set(ds)-{'Mathlib'} for n,ds in M['legacy_shims'].items()})
  list(graphlib.TopologicalSorter(combined).static_order())
  # No new mathematical declaration can hide in a file outside the deterministic products.
- allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'ImplementationImports.lean','ImplementationPublicTypes.lean','ImplementationSemanticCorpus.lean','LegacyKernelEntryChecks.lean','ModernPublicTypes.lean','ModernCompatChecks.lean','SemanticCorpus.lean','PilotChecks.lean','PilotAudit.lean','StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
+ allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'ModernRolloutTypes.lean','ImplementationImports.lean','ImplementationPublicTypes.lean','ImplementationSemanticCorpus.lean','LegacyKernelEntryChecks.lean','ModernPublicTypes.lean','ModernCompatChecks.lean','SemanticCorpus.lean','PilotChecks.lean','PilotAudit.lean','StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if '.lake' not in p.parts}
  if actual-allowed:raise RuntimeError('Unlisted Lean source: '+str(actual-allowed))
  for p in list((HERE/'OAI').rglob('*.lean'))+list((HERE/'ForMathlib').rglob('*.lean')):
@@ -164,10 +164,14 @@ def main():
  check_axioms((OUT/'Audit.log').read_text())
  from proof_evolution import check_pilot_axioms
  check_pilot_axioms((OUT/'PilotAudit.log').read_text())
+ run('implementation-imports',['lake','env','lean','-o','.lake/build/lib/lean/ImplementationImports.olean','ImplementationImports.lean'],env=env)
  run('migrated-types',['lake','env','lean','ImplementationPublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'migrated-types.tsv')))
  run('type-comparison',[sys.executable,'proof_evolution.py','--compare',str(OUT/'migrated-types.tsv')])
  run('modern-public-types',['lake','env','lean','ModernPublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'modern-public-types.tsv')))
  run('modern-public-comparison',[sys.executable,'module_integration.py','--compare',str(OUT/'modern-public-types.tsv')])
+ run('rollout-public-types',['lake','env','lean','ModernRolloutTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'rollout-public-types.tsv')))
+ run('rollout-public-comparison',[sys.executable,'module_rollout.py','--compare',str(OUT/'rollout-public-types.tsv')])
+ run('rollout-tests',[sys.executable,'test_module_rollout.py'])
  run('module-integration-tests',[sys.executable,'test_module_integration.py'])
  run('comparator-tests',[sys.executable,'test_compare_types.py'])
  run('source-partition-tests',[sys.executable,'test_source_partitions.py'])

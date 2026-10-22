@@ -1,13 +1,10 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.ModuleData.Duality
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
-public import ForMathlib.LinearAlgebra.Dual.BalancedCut
-public import OAI.KL.BottSamelson.AdjointSheaf
-public import OAI.KL.Sheaves.LowerCharacter
-public import OAI.KL.BottSamelson.Flabby
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.ModuleData.Duality
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
+import ForMathlib.LinearAlgebra.Dual.BalancedCut
+import OAI.KL.BottSamelson.AdjointSheaf
+import OAI.KL.Sheaves.LowerCharacter
+import OAI.KL.BottSamelson.Flabby
 
 /-! Semantic home: OAI.KL.BottSamelson.Support. Source spans: Support:3, Support:12, Support:11, Support:2, Support:6, Support:8.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -73,7 +70,7 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidableEq_oAI (a : Type*) : DecidableEq a := Classical.decEq a
+local instance _root_.OAI.KLInvariance.TitsSpace.instDecidableEq_oAI (a : Type*) : DecidableEq a := Classical.decEq a
 
  theorem bottSection_supported_annihilates (l : List I) (hl : cs.IsReduced l)
     (x : Interval cs 1 (cs.wordProd l))
@@ -163,7 +160,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- @[expose] def symmetricLabel (u b : W) (e : Edge cs u b) : SymmetricCoefficient (M := M) :=
+ def symmetricLabel (u b : W) (e : Edge cs u b) : SymmetricCoefficient (M := M) :=
   SymmetricAlgebra.ι ℝ (Extended M) (embed M (BruhatGraph.root cs u b e).val)
 
  theorem symmetricLabel_represents (u b : W) (e : Edge cs u b) :
@@ -176,7 +173,7 @@ noncomputable section
   exact ⟨bottProjectionSheaf_upper_surjective cs l u b e,
     bottProjectionSheaf_upper_kernel cs l u b e (symmetricLabel_represents cs u b e)⟩
 
- @[expose] def bottBoundarySheafTopInclusion (l : List I) (hl : cs.IsReduced l)
+ def bottBoundarySheafTopInclusion (l : List I) (hl : cs.IsReduced l)
     (B : BoundarySheaf (symmetricGrading_negative basis)
       (graph cs 1 (cs.wordProd l)) (symmetricLabel cs 1 (cs.wordProd l))
       ⟨cs.wordProd l,one_bruhat cs _,bruhat_refl cs _⟩) :
@@ -185,7 +182,7 @@ noncomputable section
   (bottTopInvHom cs basis l hl).comp
     ⟨(ModuleData.equivOfEq B.top).toLinearMap,ModuleData.equivOfEq_graded B.top⟩
 
- @[expose] def bottBoundarySheafTopProjection (l : List I) (hl : cs.IsReduced l)
+ def bottBoundarySheafTopProjection (l : List I) (hl : cs.IsReduced l)
     (B : BoundarySheaf (symmetricGrading_negative basis)
       (graph cs 1 (cs.wordProd l)) (symmetricLabel cs 1 (cs.wordProd l))
       ⟨cs.wordProd l,one_bruhat cs _,bruhat_refl cs _⟩) :
@@ -238,7 +235,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- @[expose] def bottPolynomialSheaf (l : List I) (u b : W) :
+ def bottPolynomialSheaf (l : List I) (u b : W) :
     GradedSheaf (𝓐 := polynomialGrading ℝ σ) (graph cs u b) :=
   GradedSheaf.coefficientChange (SymmetricAlgebra.equivMvPolynomial basis)
     (mem_symmetricGrading basis) (bottGradedProjectionSheaf cs basis l u b)

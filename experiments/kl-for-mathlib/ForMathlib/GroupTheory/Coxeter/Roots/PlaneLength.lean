@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Roots.Order
-public import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Roots.Order
+import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength. Source spans: ReflectionSchedules:8, ReflectionSchedules:10, ReflectionSchedules:13.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,11 +14,11 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
 
 /-- The actual finite count of ambient inversions belonging to a root plane.
 No Coxeter presentation of the plane subgroup is assumed here. -/
-@[expose] def planeLength (P : Submodule ℝ (I → ℝ)) (w : W) : ℤ :=
+def planeLength (P : Submodule ℝ (I → ℝ)) (w : W) : ℤ :=
   (inversionVector (M := M) (cs := cs) w).sum (fun a n => if a.val ∈ P then n else 0)
 
 theorem rootPlane_grouped_erase (a b : PositiveRoot M cs) (hab : a ≠ b)
@@ -78,7 +75,7 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_5 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_5 (p : Prop) : Decidable p := Classical.propDecidable p
 
 theorem planeWeight_support_root (x : W) (a : PositiveRoot M cs)
     (P : Submodule ℝ (I → ℝ)) (hP : P ∈ (planeWeight x a).support) :
@@ -93,7 +90,7 @@ theorem planeWeight_support_root (x : W) (a : PositiveRoot M cs)
     exact hb' (ite_eq_right hn)
   exact hh.1.1
 
-@[expose] def planeRoot (x : W) (a : PositiveRoot M cs)
+def planeRoot (x : W) (a : PositiveRoot M cs)
     (P : (planeWeight x a).support) : PositiveRoot M cs :=
   (planeWeight_support_root x a P.val P.property).choose
 
@@ -118,7 +115,7 @@ theorem embed_not_rootLine (a b : PositiveRoot M cs) (hab : b ≠ a) :
 abbrev EdgeCoefficient (a : PositiveRoot M cs) :=
   SymmetricAlgebra ℝ (Extended M) ⧸ rootIdeal (k := ℝ) (embed M a.val)
 
-@[expose] def reducedPlaneRoot (x : W) (a : PositiveRoot M cs)
+def reducedPlaneRoot (x : W) (a : PositiveRoot M cs)
     (P : (planeWeight x a).support) : EdgeCoefficient a :=
   Ideal.Quotient.mk (rootIdeal (k := ℝ) (embed M a.val))
     (SymmetricAlgebra.ι ℝ (Extended M) (embed M (planeRoot x a P).val))
@@ -129,13 +126,13 @@ theorem reducedPlaneRoot_ne_zero (x : W) (a : PositiveRoot M cs)
 
 /-- The manuscript's actual product of reduced root forms, with its proved
 nonnegative integral plane exponents. No abstract invariant is substituted. -/
-@[expose] def edgeFactor (x : W) (a : PositiveRoot M cs) : EdgeCoefficient a :=
+def edgeFactor (x : W) (a : PositiveRoot M cs) : EdgeCoefficient a :=
   ∏ P : (planeWeight x a).support, reducedPlaneRoot x a P ^ (planeWeight x a P.val).toNat
 
-@[expose] def edgeFactorDegree (x : W) (a : PositiveRoot M cs) : ℕ :=
+def edgeFactorDegree (x : W) (a : PositiveRoot M cs) : ℕ :=
   ∑ P : (planeWeight x a).support, (planeWeight x a P.val).toNat
 
-@[expose] def edgePolynomial (a : PositiveRoot M cs) : EdgeCoefficient a ≃ₐ[ℝ]
+def edgePolynomial (a : PositiveRoot M cs) : EdgeCoefficient a ≃ₐ[ℝ]
     MvPolynomial (Fin (Module.finrank ℝ (Extended M ⧸ rootLine (k := ℝ) (embed M a.val)))) ℝ :=
   rootQuotientPolynomial (embed M a.val) (Module.finBasis ℝ _)
 
@@ -197,7 +194,7 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_6 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_6 (p : Prop) : Decidable p := Classical.propDecidable p
 
 theorem embed_mem_span_pair (a b c : I → ℝ) :
     embed M c ∈ Submodule.span ℝ {embed M a,embed M b} ↔

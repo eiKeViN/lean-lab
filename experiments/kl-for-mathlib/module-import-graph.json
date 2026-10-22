@@ -1,53 +1,53 @@
 {
   "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       }
     ]
   },
   "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.Basis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Basis",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.PolynomialMap",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.PolynomialMap",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.HomogeneousMul",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Graded.HomogeneousMul",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 6
       }
     ]
   },
@@ -97,45 +97,45 @@
     ]
   },
   "ForMathlib.Algebra.Module.CoefficientChange.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       }
     ]
   },
   "ForMathlib.Algebra.Module.CoefficientChange.Dual": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Algebra.Module.Cover.Local": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       }
     ]
   },
@@ -167,11 +167,25 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.DFinsupp",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.LinearAlgebra.Basis.Defs",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      },
+      {
+        "module": "Mathlib.RingTheory.Coprime.Lemmas",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
       }
     ]
   },
@@ -266,63 +280,63 @@
     ]
   },
   "ForMathlib.Algebra.Module.Graded.DualAndShift": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.FinitePieces",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.FinitePieces",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.AlgebraMap",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.AlgebraMap",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.PairProjection",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.PairProjection",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 9
       }
     ]
   },
@@ -593,54 +607,54 @@
     ]
   },
   "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -723,35 +737,35 @@
     ]
   },
   "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Cover.Local",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Cover.Local",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
@@ -917,14 +931,14 @@
     ]
   },
   "ForMathlib.Algebra.Module.Localization.FiniteCharacters": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       }
     ]
   },
@@ -980,11 +994,18 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.Algebra.Module.Projective",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.LinearAlgebra.Isomorphisms",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -1046,21 +1067,21 @@
     ]
   },
   "ForMathlib.Algebra.Module.Projective.Transport": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
@@ -1103,59 +1124,59 @@
     ]
   },
   "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Algebra.Module.ReflectionPair.Twist": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.LinearAlgebra.PairProjection",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
@@ -1163,11 +1184,39 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.Algebra.Algebra.Operations",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.RingTheory.Ideal.Defs",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      },
+      {
+        "module": "Mathlib.Tactic.Ring",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
+      },
+      {
+        "module": "Mathlib.LinearAlgebra.Pi",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 5
+      },
+      {
+        "module": "Mathlib.RingTheory.Ideal.Operations",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 6
       }
     ]
   },
@@ -1187,7 +1236,7 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.BilinearMap",
         "public": true,
         "meta": false,
         "all": false,
@@ -1199,11 +1248,39 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.Basic.Real.Basic",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Tactic.NormNum",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      },
+      {
+        "module": "Mathlib.Tactic.Ring",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
+      },
+      {
+        "module": "Mathlib.Tactic.Linarith",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 5
+      },
+      {
+        "module": "Mathlib.Tactic.LinearCombination",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 6
       }
     ]
   },
@@ -1425,151 +1502,151 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Boundary.Extension": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Boundary.Models": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -1680,94 +1757,94 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 7
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Character",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Character",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -1798,235 +1875,235 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.CoefficientChange.Dual",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.CoefficientChange.Dual",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.Adjoint",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Adjoint",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Images",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Transport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Transport",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 7
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Increment",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Increment",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Dual.BalancedCut",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.Dual.BalancedCut",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -2050,125 +2127,125 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
@@ -2270,115 +2347,115 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Cover.Local",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Cover.Local",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Quotient.Transport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.Quotient.Transport",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Cover.Local",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Cover.Local",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Cover.Product",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Algebra.Module.Cover.Product",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Quotient.Transport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.Quotient.Transport",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
@@ -2423,85 +2500,85 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Submodule.PiIdeal",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Submodule.PiIdeal",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
@@ -2591,54 +2668,54 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -2700,54 +2777,54 @@
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels",
-        "public": true,
+        "module": "ForMathlib.Order.Interval.Diamonds",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.Order.Interval.Diamonds",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -2790,120 +2867,120 @@
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Words",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Words",
-        "public": true,
+        "module": "ForMathlib.Order.Interval.Diamonds",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.Order.Interval.Diamonds",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.Dihedral.SignedCount",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.Dihedral.SignedCount",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 6
       }
     ]
   },
@@ -3105,333 +3182,333 @@
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.Basic": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Faithful",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Faithful",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Reflection.Plane",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.Reflection.Plane",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.Order": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Avoidance",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.Avoidance",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.DirectedPaths.Subpaths",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.DirectedPaths.Subpaths",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Avoidance",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.Avoidance",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 6
       }
     ]
   },
   "ForMathlib.GroupTheory.Coxeter.Roots.Splines": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "ForMathlib.LinearAlgebra.Avoidance": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       }
     ]
   },
@@ -3451,7 +3528,7 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.DFinsupp",
         "public": true,
         "meta": false,
         "all": false,
@@ -3463,7 +3540,7 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.Pi",
         "public": true,
         "meta": false,
         "all": false,
@@ -3503,21 +3580,21 @@
     ]
   },
   "ForMathlib.LinearAlgebra.Dual.Frobenius": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
@@ -3537,7 +3614,7 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.DFinsupp",
         "public": true,
         "meta": false,
         "all": false,
@@ -3549,7 +3626,7 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.DFinsupp",
         "public": true,
         "meta": false,
         "all": false,
@@ -3558,35 +3635,35 @@
     ]
   },
   "ForMathlib.LinearAlgebra.KernelCoordinates": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Projective.Transport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Projective.Transport",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.CoordinateProjection",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.CoordinateProjection",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
@@ -3630,11 +3707,18 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.Isomorphisms",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.LinearAlgebra.DFinsupp",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -3721,11 +3805,18 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Algebra.Algebra.Basic",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -3733,58 +3824,65 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 2
-      }
-    ]
-  },
-  "ForMathlib.RepresentationTheory.BottSamelson.TitsWords": {
-    "module": true,
-    "imports": [
-      {
-        "module": "Mathlib",
+        "module": "Mathlib.Order.Hom.Basic",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
+        "module": "Mathlib.Order.Cover",
         "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      }
+    ]
+  },
+  "ForMathlib.RepresentationTheory.BottSamelson.TitsWords": {
+    "module": false,
+    "imports": [
+      {
+        "module": "Mathlib",
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 2
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Dual.Frobenius",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Dual.Frobenius",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.PairProjection",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
-      },
-      {
-        "module": "ForMathlib.LinearAlgebra.PairProjection",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 7
       }
     ]
   },
@@ -3827,169 +3925,169 @@
     ]
   },
   "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.Operators",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.RepresentationTheory.Hecke.Operators",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.DirectedPaths.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.DirectedPaths.Basic",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.DirectedPaths.SortedSchedule",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.DirectedPaths.SortedSchedule",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Defs",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 9
       },
       {
-        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 10
-      },
-      {
-        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 11
       }
     ]
   },
   "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.DirectedPaths.Transfer",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.DirectedPaths.Transfer",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -7089,603 +7187,603 @@
     ]
   },
   "OAI.KL.BottSamelson.AdjointSheaf": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.Adjoint",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Adjoint",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Localization.Lattice",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Localization.Lattice",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.ConjugateRange",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.LinearAlgebra.ConjugateRange",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Dual.TransportPairing",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Dual.TransportPairing",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.UpperSections",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "OAI.KL.BottSamelson.UpperSections",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
   "OAI.KL.BottSamelson.CanonicalPairing": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Character",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "OAI.KL.BottSamelson.Character",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "OAI.KL.BottSamelson.Character": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Models",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Models",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.PositiveWord",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.RepresentationTheory.Hecke.PositiveWord",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Support",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "OAI.KL.BottSamelson.Support",
-        "public": true,
+        "module": "OAI.KL.Sheaves.FreeModel",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "OAI.KL.Sheaves.FreeModel",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.StalkCharacter",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "OAI.KL.BottSamelson.StalkCharacter",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Flabby",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "OAI.KL.BottSamelson.Flabby",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
   "OAI.KL.BottSamelson.CharacterDecomposition": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "OAI.KL.Sheaves.Reciprocity",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "OAI.KL.BottSamelson.Flabby": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "OAI.KL.BottSamelson.UpperSections",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "OAI.KL.BottSamelson.Pairings": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "OAI.KL.BottSamelson.UpperSections",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "OAI.KL.BottSamelson.StalkCharacter",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "OAI.KL.BottSamelson.StalkCharacter",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Flabby",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "OAI.KL.BottSamelson.Flabby",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Projective.Range",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.Algebra.Module.Projective.Range",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
       },
       {
-        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.KernelCoordinates",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 9
       },
       {
-        "module": "ForMathlib.LinearAlgebra.KernelCoordinates",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.PairProjection",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 10
       },
       {
-        "module": "ForMathlib.LinearAlgebra.PairProjection",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Reflection.Classification",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 11
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Reflection.Classification",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.Coefficients",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 12
       },
       {
-        "module": "ForMathlib.RepresentationTheory.Hecke.Coefficients",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Stalks",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 13
-      },
-      {
-        "module": "OAI.KL.BottSamelson.Stalks",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 14
       }
     ]
   },
   "OAI.KL.BottSamelson.StalkCharacter": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Numerator",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.Coefficients",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.RepresentationTheory.Hecke.Coefficients",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Stalks",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "OAI.KL.BottSamelson.Stalks",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "OAI.KL.BottSamelson.Stalks": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.HomogeneousEquiv",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.FinitePieces",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.FinitePieces",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
       },
       {
-        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 9
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 10
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 11
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 12
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 13
       },
       {
-        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 14
       },
       {
-        "module": "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 15
       },
       {
-        "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords",
-        "public": true,
+        "module": "OAI.KL.Compatibility.KernelTransport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 16
-      },
-      {
-        "module": "OAI.KL.Compatibility.KernelTransport",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 17
       }
     ]
   },
   "OAI.KL.BottSamelson.Support": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Duality",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Dual.BalancedCut",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Dual.BalancedCut",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.AdjointSheaf",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "OAI.KL.BottSamelson.AdjointSheaf",
-        "public": true,
+        "module": "OAI.KL.Sheaves.LowerCharacter",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "OAI.KL.Sheaves.LowerCharacter",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Flabby",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "OAI.KL.BottSamelson.Flabby",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
   "OAI.KL.BottSamelson.UpperSections": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Localization.ProjectiveLattice",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Projective.Range",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Projective.Range",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.KernelCoordinates",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.LinearAlgebra.KernelCoordinates",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.PairProjection",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.LinearAlgebra.PairProjection",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Reflection.Classification",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Reflection.Classification",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.Stalks",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 9
-      },
-      {
-        "module": "OAI.KL.BottSamelson.Stalks",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 10
       }
     ]
   },
   "OAI.KL.Comparison.Propagation": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.RegularScalar",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.RegularScalar",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Projective.ScalarKernel",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Projective.ScalarKernel",
-        "public": true,
+        "module": "ForMathlib.Algebra.Order.Field.RealScaling",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Order.Field.RealScaling",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.DirectedPaths.Monotone",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Combinatorics.DirectedPaths.Monotone",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert",
-        "public": true,
+        "module": "OAI.KL.Comparison.Transport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "OAI.KL.Comparison.Transport",
-        "public": true,
+        "module": "OAI.KL.Localization.Ambient",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
-      },
-      {
-        "module": "OAI.KL.Localization.Ambient",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 9
       }
     ]
   },
@@ -7723,56 +7821,56 @@
     ]
   },
   "OAI.KL.Comparison.Transport": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.DirectedPaths.ScalarMap",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.DirectedPaths.ScalarMap",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Extension",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Extension",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.CanonicalPairing",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "OAI.KL.BottSamelson.CanonicalPairing",
-        "public": true,
+        "module": "OAI.KL.Sheaves.StalkReciprocity",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "OAI.KL.Sheaves.StalkReciprocity",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
@@ -7869,28 +7967,28 @@
     ]
   },
   "OAI.KL.Localization.Ambient": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount",
-        "public": true,
+        "module": "OAI.KL.Sheaves.Support",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "OAI.KL.Sheaves.Support",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
@@ -7928,42 +8026,42 @@
     ]
   },
   "OAI.KL.Localization.GraphEmbedding": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.PlaneReduction",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.LinearAlgebra.PlaneReduction",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient",
-        "public": true,
+        "module": "OAI.KL.Localization.Ambient",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
-      },
-      {
-        "module": "OAI.KL.Localization.Ambient",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 6
       }
     ]
   },
@@ -8034,221 +8132,221 @@
     ]
   },
   "OAI.KL.Sheaves.Boundary": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.NonnegativeBasis",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Descent",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
-      },
-      {
-        "module": "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 9
       }
     ]
   },
   "OAI.KL.Sheaves.FreeModel": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.Hecke.OrdinaryR",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.RepresentationTheory.Hecke.OrdinaryR",
-        "public": true,
+        "module": "OAI.KL.Sheaves.LowerCharacter",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "OAI.KL.Sheaves.LowerCharacter",
-        "public": true,
+        "module": "OAI.KL.Sheaves.Support",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
-      },
-      {
-        "module": "OAI.KL.Sheaves.Support",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 7
       }
     ]
   },
   "OAI.KL.Sheaves.LowerCharacter": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
-        "public": true,
+        "module": "OAI.KL.Sheaves.Boundary",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "OAI.KL.Sheaves.Boundary",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "OAI.KL.Sheaves.Reciprocity": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "OAI.KL.BottSamelson.Character",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
   "OAI.KL.Sheaves.StalkReciprocity": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.BigOperators.SingleCoordinate",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.BigOperators.SingleCoordinate",
-        "public": true,
+        "module": "OAI.KL.BottSamelson.CharacterDecomposition",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
-      },
-      {
-        "module": "OAI.KL.BottSamelson.CharacterDecomposition",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 4
       }
     ]
   },
   "OAI.KL.Sheaves.Support": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "Mathlib",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.HomogeneousDual",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.HomogeneousDual",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
-        "public": true,
+        "module": "OAI.KL.Sheaves.Boundary",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
-      },
-      {
-        "module": "OAI.KL.Sheaves.Boundary",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 6
       }
     ]
   },
@@ -9042,145 +9140,145 @@
     ]
   },
   "OAI.RepresentationTheory.KazhdanLusztig.GradedModules": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Algebra.Module.Graded.Generators",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Basic",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Projective.ScalarQuotient",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Projective.ScalarQuotient",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
-      },
-      {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 5
       }
     ]
   },
   "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Algebra.Module.Submodule.PiIdeal",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Submodule.ScaledImage",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Submodule.ScaledImage",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 9
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 10
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
-        "public": true,
+        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 11
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Quotient.Transport",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 12
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Quotient.Transport",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.GradedModules",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 13
       },
       {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.GradedModules",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 14
       },
       {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 15
-      },
-      {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 16
       }
     ]
   },
@@ -9225,21 +9323,21 @@
     ]
   },
   "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Series",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 2
+        "line": 1
       },
       {
         "module": "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves",
-        "public": true,
+        "public": false,
         "meta": false,
         "all": false,
-        "line": 3
+        "line": 2
       }
     ]
   },
@@ -9521,56 +9619,56 @@
     ]
   },
   "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Algebra.Module.Cover.Local",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.Algebra.Module.Graded.Components",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Components",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.Algebra.Module.Graded.Hilbert.Basic",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Localization.Lattice",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.Algebra.Module.Localization.Lattice",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Projective.ReverseFiltration",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.Algebra.Module.Projective.ReverseFiltration",
-        "public": true,
+        "module": "ForMathlib.Algebra.Module.Quotient.KernelReduction",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.Algebra.Module.Quotient.KernelReduction",
-        "public": true,
+        "module": "Mathlib",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
-      },
-      {
-        "module": "Mathlib",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 8
       }
     ]
   },
@@ -9817,91 +9915,91 @@
     ]
   },
   "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.DirectedPaths.Basic",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Avoidance",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Avoidance",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Reflection.Plane",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Reflection.Plane",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 9
       },
       {
-        "module": "ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal",
-        "public": true,
+        "module": "ForMathlib.Order.Interval.Diamonds",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 10
       },
       {
-        "module": "ForMathlib.Order.Interval.Diamonds",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 11
       },
       {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.Tits",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 12
-      },
-      {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.Tits",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 13
       }
     ]
   },
@@ -10197,126 +10295,126 @@
     ]
   },
   "OAI.RepresentationTheory.KazhdanLusztig.Tits": {
-    "module": true,
+    "module": false,
     "imports": [
       {
         "module": "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic",
-        "public": true,
+        "public": false,
+        "meta": false,
+        "all": false,
+        "line": 1
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Parabolic.Standard",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Parabolic.Support",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Parabolic.Support",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Cotangent",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 4
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Cotangent",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Faithful",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 5
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Faithful",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Geometric",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 6
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Geometric",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Positivity",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 7
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Positivity",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Tits",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 8
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Realization.Tits",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 9
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic",
-        "public": true,
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 10
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.Reflection.Bilinear",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 11
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Reflection.Bilinear",
-        "public": true,
+        "module": "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 12
       },
       {
-        "module": "ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension",
-        "public": true,
+        "module": "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 13
       },
       {
-        "module": "ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.Bruhat",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 14
       },
       {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.Bruhat",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.Dihedral",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 15
       },
       {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.Dihedral",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 16
       },
       {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane",
-        "public": true,
+        "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
+        "public": false,
         "meta": false,
         "all": false,
         "line": 17
-      },
-      {
-        "module": "OAI.RepresentationTheory.KazhdanLusztig.Sheaves",
-        "public": true,
-        "meta": false,
-        "all": false,
-        "line": 18
       }
     ]
   }

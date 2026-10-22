@@ -1,16 +1,13 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.DirectedPaths.Basic
-public import ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
-public import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
-public import ForMathlib.GroupTheory.Coxeter.Roots.Basic
-public import ForMathlib.GroupTheory.Coxeter.Roots.Order
-public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
-public import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder
-public import ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted
-public import ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.DirectedPaths.Basic
+import ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
+import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+import ForMathlib.GroupTheory.Coxeter.Roots.Order
+import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder
+import ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted
+import ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder. Source spans: ReflectionOrders:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -24,9 +21,9 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_10 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_10 (p : Prop) : Decidable p := Classical.propDecidable p
 
-@[expose] def lexRootScore (f : Module.Dual ℝ (I → ℝ)) (a : PositiveRoot M cs) : ℝ ×ₗ ℝ :=
+def lexRootScore (f : Module.Dual ℝ (I → ℝ)) (a : PositiveRoot M cs) : ℝ ×ₗ ℝ :=
   toLex (f (normalizedRoot a),geometricSlope a)
 
 theorem lexRootScore_injective (f : Module.Dual ℝ (I → ℝ)) :
@@ -35,7 +32,7 @@ theorem lexRootScore_injective (f : Module.Dual ℝ (I → ℝ)) :
   apply geometricSlope_injective
   exact congrArg (fun p : ℝ ×ₗ ℝ => (ofLex p).2) hab
 
-@[expose] def lexEdgeScore (f : Module.Dual ℝ (I → ℝ)) (e : AdaptedDyer.Edge cs) : ℝ ×ₗ ℝ :=
+def lexEdgeScore (f : Module.Dual ℝ (I → ℝ)) (e : AdaptedDyer.Edge cs) : ℝ ×ₗ ℝ :=
   lexRootScore f (rootLabel cs e)
 
 theorem lexEdgeScore_ties (f : Module.Dual ℝ (I → ℝ)) (e e' : AdaptedDyer.Edge cs)

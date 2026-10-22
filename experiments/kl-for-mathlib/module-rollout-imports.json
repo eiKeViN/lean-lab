@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "method": "Read-only shake data-import suggestions individually selected; broad tactic-registration suggestions discarded; explicit source-used tactic modules retained.",
+  "files": {
+    "ForMathlib/LinearAlgebra/CoordinateProjection.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.Pi"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.Pi\n",
+      "before_sha256": "ca5747869131576fb5828400e40a86f9a11d2594f2e542a6d6cfe9178a80f9c9",
+      "after_sha256": "ad02912203956d0bd7d113e9f8c1d8569d6bfbb6869d5a886d3b7d4c44b63250"
+    },
+    "ForMathlib/LinearAlgebra/ConjugateRange.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.DFinsupp"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.DFinsupp\n",
+      "before_sha256": "6b3ecb5be1fe8b990a5378653f30f9c04fd594bb25d304152e4459d5c3764d0f",
+      "after_sha256": "aeecc42ba8af837703df458e166b55b9800a8a719807924845bb0baa77a02f35"
+    },
+    "ForMathlib/LinearAlgebra/Dual/TransportPairing.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.DFinsupp"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.DFinsupp\n",
+      "before_sha256": "31cf78c97d5312139f6b2ea91f3269b0ccdfcc6f59cb17a2d65f191fc96618a8",
+      "after_sha256": "5b22af24a48777680022fc173991c456911c4b207ed605984f06bfb5920a8ec6"
+    },
+    "ForMathlib/LinearAlgebra/Dual/Summand.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.DFinsupp"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.DFinsupp\n",
+      "before_sha256": "c9e51942df0a3e1f690923b4d467cb90d15c36718ba08ddb3ef937420f6a8cb6",
+      "after_sha256": "7dcb62587974f30fb8650ca52914453cff8e1fa0e8a3f5f7171417380f97dea2"
+    },
+    "ForMathlib/LinearAlgebra/TensorProduct/Coordinates.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.TensorProduct.Defs",
+        "Mathlib.Algebra.Algebra.Basic"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.TensorProduct.Defs\npublic import Mathlib.Algebra.Algebra.Basic\n",
+      "before_sha256": "1a6ed858a5a03e08e32a29aff83a55af1a87973f23f1e771c5d4ddb97c915959",
+      "after_sha256": "f261798ca965edf9248c90b34f783a613f4ca42eacc77792328ca45c725e42c4"
+    },
+    "ForMathlib/LinearAlgebra/Quotient/Transport.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.Isomorphisms",
+        "Mathlib.LinearAlgebra.DFinsupp"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.Isomorphisms\npublic import Mathlib.LinearAlgebra.DFinsupp\n",
+      "before_sha256": "386bec87a028f38048860de14b5e72c591c2f2861282a506e985540bc977bd95",
+      "after_sha256": "472299c3dee2bae3bbed6c827b2405a42832a3cbbf2009f0fed072519943513b"
+    },
+    "ForMathlib/Algebra/Module/Projective/Range.lean": {
+      "imports": [
+        "Mathlib.Algebra.Module.Projective",
+        "Mathlib.LinearAlgebra.Isomorphisms"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Algebra.Module.Projective\npublic import Mathlib.LinearAlgebra.Isomorphisms\n",
+      "before_sha256": "fe175fd88e43afdff49b9a7bb6b9c0157e5a87dda2b644f9aa14c13e7da123f9",
+      "after_sha256": "fab6dc5b98c69e9d45373677a7665d4490e7b5616f50038d3199e05e0fafcb94"
+    },
+    "ForMathlib/Algebra/Module/Submodule/ScaledImage.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.BilinearMap"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.BilinearMap\n",
+      "before_sha256": "bc7407b6f8183f14d01e16a8f3a5dad0654cc3245b794a9d74f371e22a37be6a",
+      "after_sha256": "cee6d1a40928cdb9e69959c67c2acef1085065473025ccd9d109b5c1a0c6dc32"
+    },
+    "ForMathlib/Algebra/Module/Submodule/PiIdeal.lean": {
+      "imports": [
+        "Mathlib.Algebra.Algebra.Operations",
+        "Mathlib.RingTheory.Ideal.Defs",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.LinearAlgebra.Pi",
+        "Mathlib.RingTheory.Ideal.Operations"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Algebra.Algebra.Operations\npublic import Mathlib.RingTheory.Ideal.Defs\npublic import Mathlib.Tactic.Ring\npublic import Mathlib.LinearAlgebra.Pi\npublic import Mathlib.RingTheory.Ideal.Operations\n",
+      "before_sha256": "c2d4756e498706798129b913dc5eca3de27a05b9fd8277befabf11b9d2209074",
+      "after_sha256": "5517148e1f4a25117857ac5de0c1cedf54a3c5f3525e750a563509103f995efc"
+    },
+    "ForMathlib/Order/Interval/Diamonds.lean": {
+      "imports": [
+        "Mathlib.Order.Hom.Basic",
+        "Mathlib.Order.Cover"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Order.Hom.Basic\npublic import Mathlib.Order.Cover\n",
+      "before_sha256": "255916d4fe48eb1361c1e53f52a14d78f7840fb25c74ae8c360fff5f17b219b6",
+      "after_sha256": "45d797961f6bad462b606536a6400a7e34128ab8ef129b19280c0ce93fca92dd"
+    },
+    "ForMathlib/Algebra/Module/Free/ScalarDivisibility.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.DFinsupp",
+        "Mathlib.LinearAlgebra.Basis.Defs",
+        "Mathlib.RingTheory.Coprime.Lemmas"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.DFinsupp\npublic import Mathlib.LinearAlgebra.Basis.Defs\npublic import Mathlib.RingTheory.Coprime.Lemmas\n",
+      "before_sha256": "0d50403ec40fba7b020c7d639c085214b685ecd128f07bb72941fcf434e801ce",
+      "after_sha256": "5ee2509745a94c165169a11df763e40205140e133c8871c7577d9cf37d0e514e"
+    },
+    "ForMathlib/Algebra/Order/Field/RealScaling.lean": {
+      "imports": [
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Basic.Real.Basic\npublic import Mathlib.Tactic.NormNum\npublic import Mathlib.Tactic.Ring\npublic import Mathlib.Tactic.Linarith\npublic import Mathlib.Tactic.LinearCombination\n",
+      "before_sha256": "3eff7a3e129f54e0d88751bb16145dc3ba4b89931661f365bf50c0daee1a51aa",
+      "after_sha256": "c4d0d68bb0be19a4a09433186922b67fe1e58621117b6688ab7432dd63a3908e"
+    }
+  }
+}

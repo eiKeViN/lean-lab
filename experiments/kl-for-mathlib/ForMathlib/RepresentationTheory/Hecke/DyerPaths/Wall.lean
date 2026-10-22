@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder
-public import ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder
+import ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall. Source spans: ReflectionOrders:8, ReflectionOrders:9.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -18,20 +15,20 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.WallDyer.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.WallDyer.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
 
-@[expose] def rootValue (f : Module.Dual ℝ (I → ℝ)) (e : Edge cs) : ℝ :=
+def rootValue (f : Module.Dual ℝ (I → ℝ)) (e : Edge cs) : ℝ :=
   f (normalizedRoot (rootLabel cs e))
 
-@[expose] def rootPlaneTies (f : Module.Dual ℝ (I → ℝ)) : Prop :=
+def rootPlaneTies (f : Module.Dual ℝ (I → ℝ)) : Prop :=
   ∀ a b : PositiveRoot M cs, a ≠ b → f (normalizedRoot a)=f (normalizedRoot b) →
     ∀ c : PositiveRoot M cs, f (normalizedRoot c)=f (normalizedRoot a) ↔
       c.val ∈ rootPlane a b
 
-@[expose] def schedule (f : Module.Dual ℝ (I → ℝ)) (b : W) : List (Edge cs) :=
+def schedule (f : Module.Dual ℝ (I → ℝ)) (b : W) : List (Edge cs) :=
   sortedSchedule (edgeFinset cs b) (lexEdgeScore f)
 
-@[expose] def entry {R : Type*} [Semiring R] (T : R) (f : Module.Dual ℝ (I → ℝ))
+def entry {R : Type*} [Semiring R] (T : R) (f : Module.Dual ℝ (I → ℝ))
     (b x y : W) : R :=
   dispatch (source cs) (target cs) T (fun z => if z=y then 1 else 0) (schedule f b) x
 
@@ -191,7 +188,7 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.WallDyer.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.WallDyer.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
 
 theorem neg_numerator_normalized (O : RatioOrder (M := M) (cs := cs))
     (hh : O.denominator=height) (a : PositiveRoot M cs) :

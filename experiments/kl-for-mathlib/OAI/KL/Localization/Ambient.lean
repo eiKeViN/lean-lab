@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Roots.LaterCount
-public import OAI.KL.Sheaves.Support
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Roots.LaterCount
+import OAI.KL.Sheaves.Support
 
 /-! Semantic home: OAI.KL.Localization.Ambient. Source spans: PlaneLocalization:4, PlaneLocalization:25, PlaneLocalization:29, PlaneLocalization:21.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -37,7 +34,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- @[expose] def polynomialRoot (a : PositiveRoot M cs) : Coefficient (σ := σ) :=
+ def polynomialRoot (a : PositiveRoot M cs) : Coefficient (σ := σ) :=
   SymmetricAlgebra.equivMvPolynomial basis
     (SymmetricAlgebra.ι ℝ (Extended M) (embed M a.val))
 
@@ -70,7 +67,7 @@ omit [Fintype σ] in
   simpa only [map_mul,AlgEquiv.apply_symm_apply,polynomialRoot] using hz
 
 
- @[expose] def edgeFactorLift (x : W) (a : PositiveRoot M cs) : Coefficient (σ := σ) :=
+ def edgeFactorLift (x : W) (a : PositiveRoot M cs) : Coefficient (σ := σ) :=
   ∏ P : (planeWeight x a).support,
     polynomialRoot cs basis (planeRoot x a P) ^ (planeWeight x a P.val).toNat
 
@@ -130,7 +127,7 @@ theorem rootRef_root (e : Edge cs u b) :
   rwa [rootRef_root, label_mul_source] at h
 
 /-- Multiplication by the genuine plane product on the actual edge module. -/
- @[expose] def edgeFactorMap (e : Edge cs u b) : B.sheaf.edge e →ₗ[Coefficient (σ := σ)] B.sheaf.edge e :=
+ def edgeFactorMap (e : Edge cs u b) : B.sheaf.edge e →ₗ[Coefficient (σ := σ)] B.sheaf.edge e :=
   LinearMap.lsmul (Coefficient (σ := σ)) (B.sheaf.edge e)
     (edgeFactorLift cs basis (source cs u b e).val (root cs u b e))
 
@@ -172,11 +169,11 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
 
- @[expose] def upperSource (e : Edge cs 1 b) (hx : BruhatLE cs u (source cs 1 b e).val) : Interval cs u b :=
+ def upperSource (e : Edge cs 1 b) (hx : BruhatLE cs u (source cs 1 b e).val) : Interval cs u b :=
   ⟨(source cs 1 b e).val,hx,(source cs 1 b e).property.2⟩
- @[expose] def upperTarget (e : Edge cs 1 b) (hx : BruhatLE cs u (source cs 1 b e).val) : Interval cs u b :=
+ def upperTarget (e : Edge cs 1 b) (hx : BruhatLE cs u (source cs 1 b e).val) : Interval cs u b :=
   ⟨(target cs 1 b e).val,bruhat_trans cs hx (.single e.property),(target cs 1 b e).property.2⟩
- @[expose] def mappedEdgeRoot (e : Edge cs 1 b) (hx : BruhatLE cs u (source cs 1 b e).val) :
+ def mappedEdgeRoot (e : Edge cs 1 b) (hx : BruhatLE cs u (source cs 1 b e).val) :
      PositiveRoot M' cs' :=
    graphRoot ((intervalIso_bruhatStep_iff_general cs cs' φ (upperSource e hx) (upperTarget e hx)).mpr e.property)
 
@@ -197,7 +194,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
 
- @[expose] def ambientLater (α : PositiveRoot M' cs') : Set (Edge cs 1 b) :=
+ def ambientLater (α : PositiveRoot M' cs') : Set (Edge cs 1 b) :=
   {e | ∃ hx : BruhatLE cs u (source cs 1 b e).val,
     ambientAfterIndicator (φ ⟨(source cs 1 b e).val,hx,(source cs 1 b e).property.2⟩).val α
       (φ ⟨(target cs 1 b e).val,bruhat_trans cs hx (.single e.property),

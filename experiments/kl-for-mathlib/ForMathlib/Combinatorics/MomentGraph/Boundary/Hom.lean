@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Boundary.Hom. Source spans: SheafMorphisms:18, SheafMorphisms:21, SheafMorphisms:24.
 See migration.json and MIGRATION.md for exact provenance. -/

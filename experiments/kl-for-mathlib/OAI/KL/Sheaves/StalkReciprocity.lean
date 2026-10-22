@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.BigOperators.SingleCoordinate
-public import OAI.KL.BottSamelson.CharacterDecomposition
-
-public section
+import Mathlib
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
+import OAI.KL.BottSamelson.CharacterDecomposition
 
 /-! Semantic home: OAI.KL.Sheaves.StalkReciprocity. Source spans: DyerPaths:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -18,8 +15,8 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type u} [Group W] (cs : CoxeterSystem M W)
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_5 (p : Prop) : Decidable p := Classical.propDecidable p
-@[expose] local instance bmpRecInterval (b : W) : Fintype (Interval cs 1 b) := by
+local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_5 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance bmpRecInterval (b : W) : Fintype (Interval cs 1 b) := by
   let := interval_finite cs 1 b
   exact Fintype.ofFinite _
 

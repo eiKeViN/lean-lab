@@ -1,5 +1,6 @@
 module
-public import Mathlib
+public import Mathlib.LinearAlgebra.TensorProduct.Defs
+public import Mathlib.Algebra.Algebra.Basic
 
 public section
 

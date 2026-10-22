@@ -1,10 +1,7 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Cover.Local
-public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
-public import ForMathlib.LinearAlgebra.Quotient.Transport
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Cover.Local
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+import ForMathlib.LinearAlgebra.Quotient.Transport
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso. Source spans: GradedSheaves:7, GradedSheaves:9, GradedSheaves:14.
 See migration.json and MIGRATION.md for exact provenance.
@@ -28,7 +25,7 @@ namespace Iso
 variable {B : Sheaf.{u,v,w,z} (R := R) G} {C : Sheaf.{u,v,w,z'} (R := R) G}
   (j : Iso B C)
 
-@[expose] def symm : Iso C B where
+def symm : Iso C B where
   vertex x := (j.vertex x).symm
   edge e := (j.edge e).symm
   lower e v := by
@@ -38,7 +35,7 @@ variable {B : Sheaf.{u,v,w,z} (R := R) G} {C : Sheaf.{u,v,w,z'} (R := R) G}
     apply (j.edge e).injective
     simp only [LinearEquiv.apply_symm_apply, j.upper]
 
-@[expose] noncomputable def assignments : B.Assignment ≃ₗ[R] C.Assignment :=
+noncomputable def assignments : B.Assignment ≃ₗ[R] C.Assignment :=
   LinearEquiv.piCongrRight j.vertex
 
 theorem compatible_iff (Ω : Set V) (f : B.Assignment) :
@@ -62,10 +59,10 @@ theorem map_sections (Ω : Set V) :
     change C.CompatibleOn Ω g at hg
     simpa using hg
 
-@[expose] noncomputable def sections (Ω : Set V) : B.sections Ω ≃ₗ[R] C.sections Ω :=
+noncomputable def sections (Ω : Set V) : B.sections Ω ≃ₗ[R] C.sections Ω :=
   j.assignments.ofSubmodules _ _ (j.map_sections Ω)
 
-@[expose] noncomputable def boundary (x : V) : B.Boundary x ≃ₗ[R] C.Boundary x :=
+noncomputable def boundary (x : V) : B.Boundary x ≃ₗ[R] C.Boundary x :=
   LinearEquiv.piCongrRight (fun e => j.edge e.val)
 
 theorem stalkMap (x : V) (v : B.vertex x) :
@@ -96,7 +93,7 @@ end Iso
 
 variable (B : Sheaf.{u,v,w,z} (R := R) G)
 
-@[expose] def upwardKernel (x : V) (F : Set (Outgoing (G := G) x)) : Submodule R (B.vertex x) where
+def upwardKernel (x : V) (F : Set (Outgoing (G := G) x)) : Submodule R (B.vertex x) where
   carrier := {v | ∀ e ∈ F, B.stalkMap x v e = 0}
   zero_mem' := by intro e _; simp
   add_mem' := by intro v w hv hw e he; simp [hv e he,hw e he]
@@ -171,7 +168,7 @@ structure AboveIso where
 namespace AboveIso
 variable {B C x} (j : AboveIso B C x)
 
-@[expose] def symm : AboveIso C B x where
+def symm : AboveIso C B x where
   vertex y h := (j.vertex y h).symm
   edge e h := (j.edge e h).symm
   lower e h v := by
@@ -181,7 +178,7 @@ variable {B C x} (j : AboveIso B C x)
     apply (j.edge e h).injective
     simp only [LinearEquiv.apply_symm_apply,j.upper]
 
-@[expose] noncomputable def mapAssignment (f : B.Assignment) : C.Assignment :=
+noncomputable def mapAssignment (f : B.Assignment) : C.Assignment :=
 by
   classical
   exact fun y => if h : x < y then j.vertex y h (f y) else 0
@@ -199,7 +196,7 @@ lemma compatible (f : B.Assignment) (hf : B.CompatibleOn (Set.Ioi x) f) :
   rw [j.mapAssignment_at f _ hs,j.mapAssignment_at f _ ht,← j.lower e hs,← j.upper e ht]
   exact congrArg (j.edge e ht) (hf e hs ht)
 
-@[expose] noncomputable def boundary : B.Boundary x ≃ₗ[R] C.Boundary x :=
+noncomputable def boundary : B.Boundary x ≃ₗ[R] C.Boundary x :=
   LinearEquiv.piCongrRight (fun e => j.edge e.val (lt_of_eq_of_lt e.property.symm (G.increasing e.val)))
 
 lemma boundaryMap (f : B.sections (Set.Ioi x)) :
@@ -284,11 +281,11 @@ variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
   {E : Type w} {G : OrderedGraph V E}
   (B : Sheaf.{u,v,w,z} (R := R) G) (C : Sheaf.{u,v,w,z'} (R := R) G)
 
- @[expose] def UpperQuotient (α : E → R) : Prop :=
+ def UpperQuotient (α : E → R) : Prop :=
   ∀ e, Function.Surjective (B.upper e) ∧
     ∀ v, B.upper e v = 0 ↔ ∃ w, v = α e • w
 
-@[expose] def castStalkIso {x y : V} (h : x=y) (j : B.vertex x ≃ₗ[R] C.vertex x) :
+def castStalkIso {x y : V} (h : x=y) (j : B.vertex x ≃ₗ[R] C.vertex x) :
     B.vertex y ≃ₗ[R] C.vertex y := h ▸ j
 
 structure OnIso (U : Set V) where
@@ -302,13 +299,13 @@ structure OnIso (U : Set V) where
 namespace OnIso
 variable {B C} {U : Set V} (j : OnIso B C U)
 
- @[expose] def above (x : V) (hx : Set.Ioi x ⊆ U) : AboveIso B C x where
+ def above (x : V) (hx : Set.Ioi x ⊆ U) : AboveIso B C x where
   vertex y h := j.vertex y (hx h)
   edge e h := j.edge e (hx h)
   lower e h v := j.lower e (hx h) (hx (h.trans (G.increasing e))) v
   upper e h v := j.upper e (hx h) v
 
- @[expose] def ofUniv (j : OnIso B C Set.univ) : Iso B C where
+ def ofUniv (j : OnIso B C Set.univ) : Iso B C where
   vertex x := j.vertex x (Set.mem_univ x)
   edge e := j.edge e (Set.mem_univ _)
   lower e v := j.lower e (Set.mem_univ _) (Set.mem_univ _) v
@@ -316,7 +313,7 @@ variable {B C} {U : Set V} (j : OnIso B C U)
 
 /-- Given the new stalk and its outgoing commuting squares, all new incoming
 edges are forced by the scalar quotient rule. -/
-@[expose] noncomputable def extend (hU : IsUpperSet U) (x : V) (hx : x ∉ U)
+noncomputable def extend (hU : IsUpperSet U) (x : V) (hx : x ∉ U)
     (hmax : Set.Ioi x ⊆ U) (α : E → R)
     (hBq : B.UpperQuotient α) (hCq : C.UpperQuotient α)
     (jv : B.vertex x ≃ₗ[R] C.vertex x)

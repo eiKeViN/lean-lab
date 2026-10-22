@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.CoefficientChange.Basic
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.CoefficientChange.Basic
 
 /-! Semantic home: ForMathlib.Algebra.Module.CoefficientChange.Dual. Source spans: Support:29.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -19,14 +16,14 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   [Module k M] [IsScalarTower k A M]
 noncomputable section
 
- @[expose] def mapEquiv {N : Type un} [AddCommGroup N] [Module A N] [Module k N]
+ def mapEquiv {N : Type un} [AddCommGroup N] [Module A N] [Module k N]
     [IsScalarTower k A N] (f : M ≃ₗ[A] N) : CoefficientChange e M ≃ₗ[B] CoefficientChange e N where
   toLinearMap := map e f.toLinearMap
   invFun n := mk (f.symm n.val)
   left_inv m := CoefficientChange.ext (f.symm_apply_apply m.val)
   right_inv n := CoefficientChange.ext (f.apply_symm_apply n.val)
 
- @[expose] def dualTo (f : CoefficientChange e (Dual A M)) : Dual B (CoefficientChange e M) where
+ def dualTo (f : CoefficientChange e (Dual A M)) : Dual B (CoefficientChange e M) where
   toFun m := e (f.val m.val)
   map_add' m n := by change e (f.val (m.val+n.val))=_; rw [map_add,map_add]
   map_smul' b m := by
@@ -35,7 +32,7 @@ noncomputable section
     change e (e.symm b * f.val m.val)=_
     rw [map_mul,e.apply_symm_apply]
 
- @[expose] def dualFrom (f : Dual B (CoefficientChange e M)) : Dual A M where
+ def dualFrom (f : Dual B (CoefficientChange e M)) : Dual A M where
   toFun m := e.symm (f (mk m))
   map_add' m n := by
     change e.symm (f (mk m+mk n))=_
@@ -50,7 +47,7 @@ noncomputable section
     change e.symm (e a * f (mk m))=_
     rw [map_mul,e.symm_apply_apply]
 
- @[expose] def dualEquiv : CoefficientChange e (Dual A M) ≃ₗ[B] Dual B (CoefficientChange e M) where
+ def dualEquiv : CoefficientChange e (Dual A M) ≃ₗ[B] Dual B (CoefficientChange e M) where
   toFun := dualTo e
   invFun f := mk (dualFrom e f)
   left_inv f := by
@@ -72,7 +69,7 @@ noncomputable section
     change e (e.symm b * f.val m.val)=b * e (f.val m.val)
     rw [map_mul,e.apply_symm_apply]
 
- @[expose] def pairingEquiv (d : M ≃ₗ[A] Dual A M) :
+ def pairingEquiv (d : M ≃ₗ[A] Dual A M) :
     CoefficientChange e M ≃ₗ[B] Dual B (CoefficientChange e M) :=
   (mapEquiv e d).trans (dualEquiv e)
 

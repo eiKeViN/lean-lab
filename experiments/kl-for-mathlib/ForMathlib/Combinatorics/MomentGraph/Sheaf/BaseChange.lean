@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange. Source spans: MinimalExtensions:15, MinimalExtensions:17, MinimalExtensions:16.
 See migration.json and MIGRATION.md for exact provenance.
@@ -18,13 +15,13 @@ variable {R : Type ur} [CommRing R] (S : Type us) [CommRing S] [Algebra R S]
   {V : Type uv} [PartialOrder V] {E : Type ue} {G : OrderedGraph V E}
   (B : Sheaf.{ur,uv,ue,um} (R := R) G)
 
-@[expose] noncomputable def baseChange : Sheaf (R := S) G where
+noncomputable def baseChange : Sheaf (R := S) G where
   vertex x := ModuleCat.of S (S ⊗[R] B.vertex x)
   edge e := ModuleCat.of S (S ⊗[R] B.edge e)
   lower e := AlgebraTensorModule.lTensor S S (B.lower e)
   upper e := AlgebraTensorModule.lTensor S S (B.upper e)
 
-@[expose] noncomputable def tensorAssignments : S ⊗[R] B.Assignment →ₗ[S] (B.baseChange S).Assignment :=
+noncomputable def tensorAssignments : S ⊗[R] B.Assignment →ₗ[S] (B.baseChange S).Assignment :=
   TensorProduct.piRightHom R S S (fun x => B.vertex x)
 
 @[simp] theorem tensorAssignments_tmul (s : S) (f : B.Assignment) (x : V) :
@@ -36,7 +33,7 @@ lemma baseChange_tmul_compatible (Ω : Set V) (s : S) (f : B.Assignment)
   change s ⊗ₜ[R] B.lower e (f (G.source e)) = s ⊗ₜ[R] B.upper e (f (G.target e))
   rw [hf e hs ht]
 
-@[expose] noncomputable def tensorSections (Ω : Set V) :
+noncomputable def tensorSections (Ω : Set V) :
     S ⊗[R] B.sections Ω →ₗ[S] (B.baseChange S).sections Ω :=
   ((B.tensorAssignments S).comp (AlgebraTensorModule.lTensor S S (B.sections Ω).subtype)).codRestrict
     ((B.baseChange S).sections Ω) (by
@@ -60,7 +57,7 @@ theorem baseChange_generated (h : B.Generated) : (B.baseChange S).Generated := b
     exact ⟨f+g,Submodule.add_mem ((B.baseChange S).sections Set.univ) hf hg,congrArg₂ (·+·) hfv hgw⟩
 
 /-- The finite section constraint whose kernel is the actual section module. -/
-@[expose] noncomputable def constraint (Ω : Set V) : B.Assignment →ₗ[R]
+noncomputable def constraint (Ω : Set V) : B.Assignment →ₗ[R]
     (∀ e : {e : E // G.source e ∈ Ω ∧ G.target e ∈ Ω}, B.edge e.val) :=
   LinearMap.pi (fun e => (B.lower e.val).comp (LinearMap.proj (G.source e.val)) -
     (B.upper e.val).comp (LinearMap.proj (G.target e.val)))
@@ -148,7 +145,7 @@ theorem tensorAssignments_mem_sections_iff [Finite E] (Ω : Set V)
 
 /-- Sections over every vertex subset commute with flat extension of scalars
 for a finite moment graph. No freeness or BMP character input is used. -/
- @[expose] def tensorSectionsEquiv [Finite V] [Finite E] [Module.Flat R S] (Ω : Set V) :
+ def tensorSectionsEquiv [Finite V] [Finite E] [Module.Flat R S] (Ω : Set V) :
     S ⊗[R] B.sections Ω ≃ₗ[S] (B.baseChange S).sections Ω :=
   LinearEquiv.ofBijective (B.tensorSections S Ω)
     ⟨B.tensorSections_injective S Ω,B.tensorSections_surjective S Ω⟩

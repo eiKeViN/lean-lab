@@ -1,13 +1,10 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.Adjoint
-public import ForMathlib.Algebra.Module.Localization.Lattice
-public import ForMathlib.Combinatorics.MomentGraph.Boundary.Summand
-public import ForMathlib.LinearAlgebra.ConjugateRange
-public import ForMathlib.LinearAlgebra.Dual.TransportPairing
-public import OAI.KL.BottSamelson.UpperSections
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.Adjoint
+import ForMathlib.Algebra.Module.Localization.Lattice
+import ForMathlib.Combinatorics.MomentGraph.Boundary.Summand
+import ForMathlib.LinearAlgebra.ConjugateRange
+import ForMathlib.LinearAlgebra.Dual.TransportPairing
+import OAI.KL.BottSamelson.UpperSections
 
 /-! Semantic home: OAI.KL.BottSamelson.AdjointSheaf. Source spans: BalancedPairings:20, BalancedPairings:3, BalancedPairings:5, BalancedPairings:1, BalancedPairings:6, BalancedPairings:2, BalancedPairings:35, BalancedPairings:8, BalancedPairings:11, BalancedPairings:12, BalancedPairings:21, BalancedPairings:24, BalancedPairings:27, BalancedPairings:23, BalancedPairings:30, BalancedPairings:34.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -39,7 +36,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- @[expose] def bottVertexProjection (l : List I) (u b : W) : BottSamelsonModule cs l →ₗ[
+ def bottVertexProjection (l : List I) (u b : W) : BottSamelsonModule cs l →ₗ[
     SymmetricCoefficient (M := M)]
     (∀ x : Interval cs u b, bottStalk cs l x.val) :=
   LinearMap.pi (fun x => bottStalkProjection cs l x.val)
@@ -157,7 +154,7 @@ noncomputable section
   obtain ⟨m,hm⟩ := h
   exact ⟨m,Subtype.ext hm⟩
 
- @[expose] def bottSectionEquiv (l : List I) (hl : cs.IsReduced l) :
+ def bottSectionEquiv (l : List I) (hl : cs.IsReduced l) :
     BottSamelsonModule cs l ≃ₗ[SymmetricCoefficient (M := M)]
       (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ :=
   LinearEquiv.ofBijective (bottSection cs l 1 (cs.wordProd l))
@@ -176,7 +173,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- @[expose] def bottSectionDuality (l : List I) (hl : cs.IsReduced l) :
+ def bottSectionDuality (l : List I) (hl : cs.IsReduced l) :
     (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ ≃ₗ[
       SymmetricCoefficient (M := M)]
       Dual (SymmetricCoefficient (M := M))
@@ -193,7 +190,7 @@ noncomputable section
     ((bottSectionEquiv cs l hl).symm ((bottSectionEquiv cs l hl) n))= _
   simp only [LinearEquiv.symm_apply_apply]
 
- @[expose] def bottSectionRight (l : List I) (hl : cs.IsReduced l)
+ def bottSectionRight (l : List I) (hl : cs.IsReduced l)
     (a : SymmetricCoefficient (M := M)) :
     End (SymmetricCoefficient (M := M))
       ((bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ) :=
@@ -388,7 +385,7 @@ noncomputable section
     rw [bottPairing_dualToSupport] at he
     exact he
 
- @[expose] def bottAdjoint (l : List I) (f : End (SymmetricCoefficient (M := M))
+ def bottAdjoint (l : List I) (f : End (SymmetricCoefficient (M := M))
     (BottSamelsonModule cs l)) := PerfectAdjoint.adjoint (bottSamelsonDuality cs l) f
 
  theorem bottAdjoint_preserves_kernel (l : List I) (x : W)
@@ -455,7 +452,7 @@ omit [Fintype σ] in
   · intro hs
     exact hs ⟨bottFullIndex l,bottWeight_full cs l⟩ (Set.mem_univ _)
 
- @[expose] def bottTopHom : ModuleData.Hom (bottStalkData cs basis l (cs.wordProd l))
+ def bottTopHom : ModuleData.Hom (bottStalkData cs basis l (cs.wordProd l))
     (ModuleData.unit (symmetricGrading_negative basis)) where
   map := LinearMap.pi (fun _ => (bottTopStalkEquiv cs l hl).toLinearMap)
   graded := by
@@ -464,7 +461,7 @@ omit [Fintype σ] in
     simpa only [sub_zero] using
       (bottTopStalkEquiv_homogeneous_iff cs basis l hl n s).mpr hs
 
- @[expose] def bottTopInvHom : ModuleData.Hom (ModuleData.unit (symmetricGrading_negative basis))
+ def bottTopInvHom : ModuleData.Hom (ModuleData.unit (symmetricGrading_negative basis))
     (bottStalkData cs basis l (cs.wordProd l)) where
   map := (bottTopStalkEquiv cs l hl).symm.toLinearMap.comp (LinearMap.proj PUnit.unit)
   graded := by
@@ -501,7 +498,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (l : List I) (hl : cs.IsReduced l)
 noncomputable section
 
- @[expose] def bottEndOfSheaf (h : GradedSheaf.Hom
+ def bottEndOfSheaf (h : GradedSheaf.Hom
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))) :
     End (SymmetricCoefficient (M := M)) (BottSamelsonModule cs l) :=
@@ -569,7 +566,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (l : List I) (hl : cs.IsReduced l)
 noncomputable section
 
- @[expose] def bottAdjointWordHom (h : GradedSheaf.Hom
+ def bottAdjointWordHom (h : GradedSheaf.Hom
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))) :
     ModuleData.Hom (bottWordData cs basis l) (bottWordData cs basis l) where
@@ -586,7 +583,7 @@ noncomputable section
   bottAdjoint_preserves_kernel cs l x.val _
     (bottEndOfSheaf_preserves_support cs basis l hl h x) m hm
 
- @[expose] def bottAdjointSheaf (h : GradedSheaf.Hom
+ def bottAdjointSheaf (h : GradedSheaf.Hom
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))) : GradedSheaf.Hom
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))
@@ -711,12 +708,12 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l)))
 noncomputable section
 
- @[expose] def bottImageSheaf : GradedSheaf (𝓐 := symmetricGrading basis)
+ def bottImageSheaf : GradedSheaf (𝓐 := symmetricGrading basis)
     (graph cs 1 (cs.wordProd l)) := by
   letI := symmetricCoefficientNoetherian basis
   exact h.image
 
- @[expose] def bottImageSectionWordEquiv
+ def bottImageSectionWordEquiv
     (hh : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v) :
     (bottImageSheaf cs basis l h).forget.sections Set.univ ≃ₗ[
       SymmetricCoefficient (M := M)] LinearMap.range (bottEndOfSheaf cs basis l hl h) := by
@@ -724,7 +721,7 @@ noncomputable section
   exact (h.imageSectionEquiv hh Set.univ).trans
     (ConjugateRange.equiv (bottSectionEquiv cs l hl) (h.sectionMap Set.univ))
 
- @[expose] def bottAdjointImageEquivDual
+ def bottAdjointImageEquivDual
     (hh : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v) :
     (bottImageSheaf cs basis l (bottAdjointSheaf cs basis l hl h)).forget.sections Set.univ ≃ₗ[
       SymmetricCoefficient (M := M)]
@@ -921,11 +918,11 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (s : GradedSheaf.SplitIn B (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l)))
 noncomputable section
 
- @[expose] def bottSplitAdjointSheaf : GradedSheaf (𝓐 := symmetricGrading basis)
+ def bottSplitAdjointSheaf : GradedSheaf (𝓐 := symmetricGrading basis)
     (graph cs 1 (cs.wordProd l)) :=
   bottImageSheaf cs basis l (bottAdjointSheaf cs basis l hl s.projector)
 
- @[expose] def bottSplitAdjointEquivDual :
+ def bottSplitAdjointEquivDual :
     (bottSplitAdjointSheaf cs basis l hl B s).forget.sections Set.univ ≃ₗ[
       SymmetricCoefficient (M := M)]
       Dual (SymmetricCoefficient (M := M)) (B.forget.sections Set.univ) := by

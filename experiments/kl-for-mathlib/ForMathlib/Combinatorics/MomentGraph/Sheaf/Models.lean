@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Models. Source spans: CharacterReciprocity:6, CharacterReciprocity:7.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,10 +13,10 @@ variable {R : Type u} [CommRing R] [IsLocalRing R]
   {V : Type v} [PartialOrder V] {E : Type w} {G : OrderedGraph V E}
 
 
-@[expose] instance zeroVertex_subsingleton (x : V) : Subsingleton ((zero (R := R) (G := G)).vertex x) :=
+instance zeroVertex_subsingleton (x : V) : Subsingleton ((zero (R := R) (G := G)).vertex x) :=
   inferInstanceAs (Subsingleton PUnit)
 
-@[expose] instance zeroEdge_subsingleton (e : E) : Subsingleton ((zero (R := R) (G := G)).edge e) :=
+instance zeroEdge_subsingleton (e : E) : Subsingleton ((zero (R := R) (G := G)).edge e) :=
   inferInstanceAs (Subsingleton PUnit)
 
 structure LocalModels (α : E → R) where
@@ -111,7 +108,7 @@ variable {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
   {E : Type ue} {G : OrderedGraph V E}
 
 /-- Equality of embedded images with a scalar on the upper image. -/
-@[expose] def ScaledImages (B : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
+def ScaledImages (B : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
     (F : Set (Outgoing (G := G) (G.source e)))
     (H : Set (Outgoing (G := G) (G.target e))) (r : R) : Prop :=
   ∀ z : B.edge e,

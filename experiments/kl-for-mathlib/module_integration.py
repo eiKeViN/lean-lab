@@ -87,14 +87,14 @@ def imports(text):
 def graph():
     paths=sorted([*(HERE/'ForMathlib').rglob('*.lean'),*(HERE/'OAI').rglob('*.lean'),HERE/'ForMathlib.lean'])
     records={str(p.relative_to(HERE))[:-5].replace('/','.'):imports(p.read_text()) for p in paths}
-    from module_rollout import plan as rollout_plan
+    from module_rollout import plan as rollout_plan, effective_imports
     rollout=rollout_plan()
     for name,record in records.items():
         path=name.replace('.','/')+'.lean'
         if record['module']!=(path in SPEC or path in rollout['files']):raise RuntimeError('Unlisted module migration: '+name)
         spec=SPEC.get(path) or rollout['files'].get(path)
         if spec is not None:
-            want=[dict(module=n,public=True,meta=False,all=False) for n in spec['imports']]
+            want=[dict(module=n,public=True,meta=False,all=False) for n in effective_imports(path,spec['imports'])]
             actual=[{k:v for k,v in e.items() if k!='line'} for e in record['imports']]
             if actual!=want:raise RuntimeError('Changed selected import flags: '+name)
         elif any(e['public'] or e['meta'] or e['all'] for e in record['imports']):

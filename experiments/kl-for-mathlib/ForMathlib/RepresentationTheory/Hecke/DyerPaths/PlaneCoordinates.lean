@@ -1,10 +1,7 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.DirectedPaths.Transfer
-public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport
-public import ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.DirectedPaths.Transfer
+import ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport
+import ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates. Source spans: ReflectionOrders:3.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -20,7 +17,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
   {P : Submodule ℝ (I → ℝ)} (B : PlaneBasis (M := M) (cs := cs) P)
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_2 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_2 (p : Prop) : Decidable p := Classical.propDecidable p
 
 /-- All edges of a plane-labelled path lie in the full induced relative
 interval between its endpoints, with the original ambient labels. -/
@@ -55,7 +52,7 @@ theorem path_coordinates {a₀ : W}
     · obtain ⟨l,r,hl,hr,hhl,hlr,hrk⟩ := hbody f hf
       exact ⟨l,r,hl,hr,(show BruhatLE B.system g h from .single he).trans hhl,hlr,hrk⟩
 
-@[expose] def intervalToAmbient {a₀ : W} {g k : planeSubgroup M cs P}
+def intervalToAmbient {a₀ : W} {g k : planeSubgroup M cs P}
     (z : Interval B.system g k) : W := (z.val:W)*a₀
 
 theorem intervalToAmbient_injective {a₀ : W} {g k : planeSubgroup M cs P} :
@@ -63,7 +60,7 @@ theorem intervalToAmbient_injective {a₀ : W} {g k : planeSubgroup M cs P} :
   intro x y h
   exact Subtype.ext (Subtype.ext (mul_right_cancel h))
 
-@[expose] def edgeToAmbient {a₀ : W}
+def edgeToAmbient {a₀ : W}
     (hmin : ∀ z ∈ planeSubgroup M cs P, cs.length a₀ ≤ cs.length (z*a₀))
     {g k : planeSubgroup M cs P} (e : BruhatGraph.Edge B.system g k) : AdaptedDyer.Edge cs :=
   ⟨(B.intervalToAmbient e.val.1, B.intervalToAmbient e.val.2),

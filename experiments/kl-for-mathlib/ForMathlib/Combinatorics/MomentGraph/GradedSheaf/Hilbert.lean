@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.Hilbert.Increment
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.Hilbert.Increment
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert. Source spans: PositiveTransfer:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -19,14 +16,14 @@ variable {σ : Type us} [Fintype σ]
   (B : GradedSheaf (𝓐 := polynomialGrading ℝ σ) G)
 noncomputable section
 
- @[expose] def kernelHilbert (q : ℝ) (x : V) (F : Set (Sheaf.Outgoing (G := G) x)) : ℝ :=
+ def kernelHilbert (q : ℝ) (x : V) (F : Set (Sheaf.Outgoing (G := G) x)) : ℝ :=
   value (B.vertex x).piece ((B.upwardSubmodule x F).restrictScalars ℝ) q
 
- @[expose] def lowerImage (e : E) (F : Set (Sheaf.Outgoing (G := G) (G.source e))) :
+ def lowerImage (e : E) (F : Set (Sheaf.Outgoing (G := G) (G.source e))) :
     Submodule (MvPolynomial σ ℝ) (B.edge e) :=
   (B.upwardSubmodule (G.source e) F).map (B.lower e).map
 
- @[expose] def upperImage (e : E) (F : Set (Sheaf.Outgoing (G := G) (G.target e))) :
+ def upperImage (e : E) (F : Set (Sheaf.Outgoing (G := G) (G.target e))) :
     Submodule (MvPolynomial σ ℝ) (B.edge e) :=
   (B.upwardSubmodule (G.target e) F).map (B.upper e).map
 

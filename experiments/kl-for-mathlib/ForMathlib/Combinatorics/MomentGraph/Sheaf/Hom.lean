@@ -1,8 +1,5 @@
-module
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
-public import ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
-
-public section
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
+import ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
 
 /-! Compatibility import for the pre-migration module. No declarations live here. -/

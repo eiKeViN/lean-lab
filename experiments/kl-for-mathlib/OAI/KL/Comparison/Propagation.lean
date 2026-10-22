@@ -1,14 +1,11 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.RegularScalar
-public import ForMathlib.Algebra.Module.Projective.ScalarKernel
-public import ForMathlib.Algebra.Order.Field.RealScaling
-public import ForMathlib.Combinatorics.DirectedPaths.Monotone
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert
-public import OAI.KL.Comparison.Transport
-public import OAI.KL.Localization.Ambient
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.RegularScalar
+import ForMathlib.Algebra.Module.Projective.ScalarKernel
+import ForMathlib.Algebra.Order.Field.RealScaling
+import ForMathlib.Combinatorics.DirectedPaths.Monotone
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert
+import OAI.KL.Comparison.Transport
+import OAI.KL.Localization.Ambient
 
 /-! Semantic home: OAI.KL.Comparison.Propagation. Source spans: PositiveTransfer:6, PositiveTransfer:13, PositiveTransfer:1, PositiveTransfer:8, PositiveTransfer:9, PositiveTransfer:10, PositiveTransfer:14, PositiveTransfer:15, PositiveTransfer:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -228,7 +225,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
     (graph cs u b) (polynomialLabel cs u b basis) ⟨b,hub,bruhat_refl cs b⟩)
 noncomputable section
 
- @[expose] def stateScale (t : ℝ) (x : Interval cs u b) : ℝ :=
+ def stateScale (t : ℝ) (x : Interval cs u b) : ℝ :=
   (1-t^2)^(Fintype.card σ) * t^((cs.length x.val : ℤ)-cs.length b)
 
 omit [Fintype I] in
@@ -236,7 +233,7 @@ omit [Fintype I] in
     (x : Interval cs u b) : 0 < stateScale (σ := σ) cs u b t x :=
   Comparison.stateScale_pos ht ht1 _ _
 
- @[expose] def normalizedKernel (t : ℝ) (x : Interval cs u b)
+ def normalizedKernel (t : ℝ) (x : Interval cs u b)
     (F : Set (Sheaf.Outgoing (G := graph cs u b) x)) : ℝ :=
   stateScale (σ := σ) cs u b t x * B.sheaf.kernelHilbert (t^2) x F
 
@@ -464,7 +461,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
     (graph cs u b) (polynomialLabel cs u b basis) ⟨b,hub,bruhat_refl cs b⟩)
 noncomputable section
 
- @[expose] def remainingConditions (p : List (Edge cs u b)) (x : Interval cs u b) :
+ def remainingConditions (p : List (Edge cs u b)) (x : Interval cs u b) :
     Set (Sheaf.Outgoing (G := graph cs u b) x) := {f | f.val ∈ p}
 
 omit [Fintype I] in
@@ -489,7 +486,7 @@ omit [Fintype I] in
     exact hne (he ▸ f.property)
   simp [remainingConditions,hf]
 
- @[expose] def scheduleState (t : ℝ) (p : List (Edge cs u b)) : Interval cs u b → ℝ :=
+ def scheduleState (t : ℝ) (p : List (Edge cs u b)) : Interval cs u b → ℝ :=
   fun x => normalizedKernel cs u b basis hub B t x (remainingConditions cs u b p x)
 
  theorem scheduleState_step (e : Edge cs u b) (p : List (Edge cs u b))
@@ -589,12 +586,12 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {u b : W} {u' b' : W'}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_8 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_8 (p : Prop) : Decidable p := Classical.propDecidable p
 
- @[expose] def transportedSlope (e : Edge cs u b) : ℝ :=
+ def transportedSlope (e : Edge cs u b) : ℝ :=
   geometricSlope (AdaptedDyer.rootLabel cs' (transportedEdge φ e))
 
- @[expose] def chronologicalSchedule : List (Edge cs u b) := (transportedSchedule φ).reverse
+ def chronologicalSchedule : List (Edge cs u b) := (transportedSchedule φ).reverse
 
 omit [Fintype I] in
  theorem transportedScore_eq (e : Edge cs u b) : transportedScore φ e =
@@ -709,11 +706,11 @@ noncomputable section
 
  abbrev ActualBoundary := boundarySheaf cs 1 b basis (one_bruhat cs b)
 
- @[expose] def actualSymmetricPairing : GradedSheaf.SymmetricPerfectPairing
+ def actualSymmetricPairing : GradedSheaf.SymmetricPerfectPairing
     (ActualBoundary cs b basis).sheaf (cs.length b : ℤ) :=
   (boundarySheaf_symmetricPairing cs b basis).some
 
- @[expose] def actualSectionDuality : SectionDuality cs 1 b basis (one_bruhat cs b)
+ def actualSectionDuality : SectionDuality cs 1 b basis (one_bruhat cs b)
     (ActualBoundary cs b basis) := by
   let p := actualSymmetricPairing cs b basis
   let B := ActualBoundary cs b basis
@@ -745,7 +742,7 @@ omit [Fintype (Interval cs 1 b)] in
  theorem costalkFreeObligation : CostalkFreeObligation cs 1 b basis (one_bruhat cs b) :=
   costalk_free_of_duality cs 1 b basis (one_bruhat cs b) _ (actualSectionDuality cs b basis)
 
- @[expose] def localIntersection (x : Interval cs 1 b) :
+ def localIntersection (x : Interval cs 1 b) :
     Dual (Coefficient (σ := σ)) ((ActualBoundary cs b basis).sheaf.vertex x)
       →ₗ[Coefficient (σ := σ)] (ActualBoundary cs b basis).sheaf.vertex x :=
   (LinearMap.ker ((ActualBoundary cs b basis).sheaf.forget.stalkMap x)).subtype.comp

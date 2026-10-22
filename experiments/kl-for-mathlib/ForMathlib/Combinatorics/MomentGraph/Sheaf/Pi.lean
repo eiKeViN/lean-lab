@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
-public import ForMathlib.Algebra.Module.Submodule.PiIdeal
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
+import ForMathlib.Algebra.Module.Submodule.PiIdeal
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi. Source spans: GradedSheaves:10, GradedSheaves:12.
 See migration.json and MIGRATION.md for exact provenance.
@@ -18,7 +15,7 @@ variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
   {E : Type w} {G : OrderedGraph V E} {ι : Type i}
 
 /-- Finite direct sums represented by products, as used in the plane localization. -/
-@[expose] def pi (B : ι → Sheaf.{u,v,w,z} (R := R) G) : Sheaf (R := R) G where
+def pi (B : ι → Sheaf.{u,v,w,z} (R := R) G) : Sheaf (R := R) G where
   vertex x := ModuleCat.of R (∀ i, (B i).vertex x)
   edge e := ModuleCat.of R (∀ i, (B i).edge e)
   lower e := LinearMap.pi (fun i => ((B i).lower e).comp (LinearMap.proj i))

@@ -1,10 +1,7 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Projective.Transport
-public import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
-public import ForMathlib.LinearAlgebra.CoordinateProjection
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Projective.Transport
+import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
+import ForMathlib.LinearAlgebra.CoordinateProjection
 
 /-! Semantic home: ForMathlib.LinearAlgebra.KernelCoordinates. Source spans: IntegralPairings:9, IntegralPairings:16.
 See migration.json and MIGRATION.md for exact provenance. -/

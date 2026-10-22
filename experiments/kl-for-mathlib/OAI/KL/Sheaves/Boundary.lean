@@ -1,14 +1,11 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
-public import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
-public import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
-public import ForMathlib.GroupTheory.Coxeter.Roots.Basic
-public import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
-public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
+import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
+import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
+import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized
 
 /-! Semantic home: OAI.KL.Sheaves.Boundary. Source spans: SheafMorphisms:3, SheafMorphisms:4, SheafMorphisms:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -27,10 +24,10 @@ noncomputable section
 
 abbrev Coefficient := MvPolynomial σ ℝ
 
-@[expose] def root (e : Edge cs u b) : PositiveRoot M cs :=
+def root (e : Edge cs u b) : PositiveRoot M cs :=
   positiveRootEquiv M cs ⟨label cs u b e,label_isReflection cs u b e⟩
 
-@[expose] def polynomialLabel (e : Edge cs u b) : Coefficient (σ := σ) :=
+def polynomialLabel (e : Edge cs u b) : Coefficient (σ := σ) :=
   SymmetricAlgebra.equivMvPolynomial basis
     (SymmetricAlgebra.ι ℝ (Extended M) (embed M (root cs u b e).val))
 
@@ -85,11 +82,11 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (hub : BruhatLE cs u b)
 noncomputable section
 
-@[expose] def boundarySheaf : BoundarySheaf (polynomialGrading_negative ℝ σ)
+def boundarySheaf : BoundarySheaf (polynomialGrading_negative ℝ σ)
     (graph cs u b) (polynomialLabel cs u b basis) ⟨b,hub,bruhat_refl cs b⟩ :=
   (exists_boundarySheaf cs u b basis hub).some
 
-@[expose] def stalkCharacter (x : Interval cs u b) : Polynomial ℤ := by
+def stalkCharacter (x : Interval cs u b) : Polynomial ℤ := by
   let B := boundarySheaf cs u b basis hub
   let := B.free x
   exact Graded.character (σ := σ) (B.sheaf.vertex x).piece (B.sheaf.vertex x).nonneg
@@ -102,11 +99,11 @@ noncomputable section
     (B.sheaf.vertex x).nonneg n
 
 
-@[expose] def StalkCharacterObligation : Prop :=
+def StalkCharacterObligation : Prop :=
   ∀ x : Interval cs u b, stalkCharacter cs u b basis hub x = klPolynomial cs x.val b
 
 
-@[expose] def CostalkFreeObligation : Prop :=
+def CostalkFreeObligation : Prop :=
   ∀ x : Interval cs u b, Module.Free (Coefficient (σ := σ))
     (LinearMap.ker ((boundarySheaf cs u b basis hub).sheaf.forget.stalkMap x))
 
@@ -123,12 +120,12 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type u} [Group W] (cs : CoxeterSystem M W) (b : W)
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
 
  abbrev lowerIdealGraph (c : Interval cs 1 b) :=
   lowerGraph (graph cs 1 b) (Set.Iic c) (isLowerSet_Iic c)
 
- @[expose] def lowerIntervalMap (c : Interval cs 1 b) :
+ def lowerIntervalMap (c : Interval cs 1 b) :
     GraphMap (lowerIdealGraph cs b c) (graph cs 1 c.val) where
   vertex x := ⟨x.val.val,x.val.property.1,x.property⟩
   edge e := ⟨(⟨(source cs 1 b e.val).val,(source cs 1 b e.val).property.1,
@@ -158,14 +155,14 @@ noncomputable section
     exact Prod.ext hx rfl
   · rfl
 
- @[expose] def lowerIntervalBoundary (c : Interval cs 1 b) :
+ def lowerIntervalBoundary (c : Interval cs 1 b) :
     BoundarySheaf (polynomialGrading_negative ℝ σ) (lowerIdealGraph cs b c)
       (fun e => polynomialLabel cs 1 b basis e.val) ⟨c,Set.mem_Iic.mpr le_rfl⟩ :=
   (boundarySheaf cs 1 c.val basis (one_bruhat cs c.val)).pullback
     (lowerIntervalMap cs b c) (lowerIntervalMap_injective cs b c)
     (lowerIntervalMap_outgoing cs b c) ⟨c,Set.mem_Iic.mpr le_rfl⟩ rfl
 
- @[expose] def boundaryModels : GradedSheaf.BoundaryModels (polynomialGrading_negative ℝ σ)
+ def boundaryModels : GradedSheaf.BoundaryModels (polynomialGrading_negative ℝ σ)
     (G := graph cs 1 b) (polynomialLabel cs 1 b basis) where
   sheaf c := (lowerIntervalBoundary cs b basis c).sheaf.lowerExtend
   free c := (lowerIntervalBoundary cs b basis c).sheaf.lowerExtend_free

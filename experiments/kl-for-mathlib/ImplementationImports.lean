@@ -1,227 +1,132 @@
 import OAI.Architecture
-import all ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic
-import all ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis
-import all ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation
-import all ForMathlib.Algebra.BigOperators.SingleCoordinate
-import all ForMathlib.Algebra.Module.CoefficientChange.Basic
-import all ForMathlib.Algebra.Module.CoefficientChange.Dual
-import all ForMathlib.Algebra.Module.Cover.Local
-import all ForMathlib.Algebra.Module.Cover.Product
-import all ForMathlib.Algebra.Module.Flat.Kernel
-import all ForMathlib.Algebra.Module.Free.ScalarDivisibility
-import all ForMathlib.Algebra.Module.Graded.Adjoint
-import all ForMathlib.Algebra.Module.Graded.AlgebraMap
-import all ForMathlib.Algebra.Module.Graded.Basis
-import all ForMathlib.Algebra.Module.Graded.Components
-import all ForMathlib.Algebra.Module.Graded.DualAndShift
-import all ForMathlib.Algebra.Module.Graded.FinitePieces
-import all ForMathlib.Algebra.Module.Graded.Generators
-import all ForMathlib.Algebra.Module.Graded.Hilbert.Basic
-import all ForMathlib.Algebra.Module.Graded.Hilbert.Images
-import all ForMathlib.Algebra.Module.Graded.Hilbert.Increment
-import all ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
-import all ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction
-import all ForMathlib.Algebra.Module.Graded.Hilbert.Series
-import all ForMathlib.Algebra.Module.Graded.HomogeneousDual
-import all ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
-import all ForMathlib.Algebra.Module.Graded.HomogeneousMul
-import all ForMathlib.Algebra.Module.Graded.ModuleData.Basic
-import all ForMathlib.Algebra.Module.Graded.ModuleData.Character
-import all ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual
-import all ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange
-import all ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
-import all ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness
-import all ForMathlib.Algebra.Module.Graded.ModuleData.Duality
-import all ForMathlib.Algebra.Module.Graded.ModuleData.Equality
-import all ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover
-import all ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
-import all ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom
-import all ForMathlib.Algebra.Module.Graded.ModuleData.Range
-import all ForMathlib.Algebra.Module.Graded.ModuleData.Transport
-import all ForMathlib.Algebra.Module.Graded.NonnegativeBasis
-import all ForMathlib.Algebra.Module.Graded.PolynomialMap
-import all ForMathlib.Algebra.Module.Graded.RegularScalar
-import all ForMathlib.Algebra.Module.Localization.FiniteCharacters
-import all ForMathlib.Algebra.Module.Localization.Lattice
-import all ForMathlib.Algebra.Module.Localization.Membership
-import all ForMathlib.Algebra.Module.Localization.Products
-import all ForMathlib.Algebra.Module.Localization.ProjectiveLattice
-import all ForMathlib.Algebra.Module.Projective.Range
-import all ForMathlib.Algebra.Module.Projective.ReverseFiltration
-import all ForMathlib.Algebra.Module.Projective.ScalarKernel
-import all ForMathlib.Algebra.Module.Projective.ScalarQuotient
-import all ForMathlib.Algebra.Module.Projective.Transport
-import all ForMathlib.Algebra.Module.Quotient.KernelReduction
-import all ForMathlib.Algebra.Module.Quotient.ScalarImage
-import all ForMathlib.Algebra.Module.ReflectionPair.TensorDescent
-import all ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
-import all ForMathlib.Algebra.Module.ReflectionPair.Twist
-import all ForMathlib.Algebra.Module.Submodule.PiIdeal
-import all ForMathlib.Algebra.Module.Submodule.ProductScaling
-import all ForMathlib.Algebra.Module.Submodule.ScaledImage
-import all ForMathlib.Algebra.Order.Field.RealScaling
-import all ForMathlib.Algebra.Polynomial.LowPart
-import all ForMathlib.Algebra.Polynomial.Reciprocal
-import all ForMathlib.Algebra.Polynomial.ScaledEvaluation
-import all ForMathlib.Algebra.Polynomial.ScaledReciprocity
-import all ForMathlib.Algebra.Polynomial.TransferEvaluation
-import all ForMathlib.Combinatorics.Dihedral.SignedCount
-import all ForMathlib.Combinatorics.DirectedPaths.Basic
-import all ForMathlib.Combinatorics.DirectedPaths.Monotone
-import all ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer
-import all ForMathlib.Combinatorics.DirectedPaths.ScalarMap
-import all ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
-import all ForMathlib.Combinatorics.DirectedPaths.Subpaths
-import all ForMathlib.Combinatorics.DirectedPaths.Suffix
-import all ForMathlib.Combinatorics.DirectedPaths.Transfer
-import all ForMathlib.Combinatorics.MomentGraph.Boundary.Basic
-import all ForMathlib.Combinatorics.MomentGraph.Boundary.Extension
-import all ForMathlib.Combinatorics.MomentGraph.Boundary.Hom
-import all ForMathlib.Combinatorics.MomentGraph.Boundary.Models
-import all ForMathlib.Combinatorics.MomentGraph.Boundary.Summand
-import all ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness
-import all ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
-import all ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness
-import all ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness
-import all ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero
-import all ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
-import all ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
-import all ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
-import all ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure
-import all ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds
-import all ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
-import all ForMathlib.GroupTheory.Coxeter.Bruhat.Transport
-import all ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds
-import all ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport
-import all ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem
-import all ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords
-import all ForMathlib.GroupTheory.Coxeter.Dihedral.Words
-import all ForMathlib.GroupTheory.Coxeter.Exchange
-import all ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList
-import all ForMathlib.GroupTheory.Coxeter.Parabolic.Standard
-import all ForMathlib.GroupTheory.Coxeter.Parabolic.Support
-import all ForMathlib.GroupTheory.Coxeter.Realization.Cotangent
-import all ForMathlib.GroupTheory.Coxeter.Realization.Faithful
-import all ForMathlib.GroupTheory.Coxeter.Realization.Geometric
-import all ForMathlib.GroupTheory.Coxeter.Realization.Positivity
-import all ForMathlib.GroupTheory.Coxeter.Realization.Tits
-import all ForMathlib.GroupTheory.Coxeter.Roots.Basic
-import all ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder
-import all ForMathlib.GroupTheory.Coxeter.Roots.LaterCount
-import all ForMathlib.GroupTheory.Coxeter.Roots.Order
-import all ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
-import all ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength
-import all ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup
-import all ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport
-import all ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder
-import all ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels
-import all ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder
-import all ForMathlib.GroupTheory.Coxeter.Roots.Splines
-import all ForMathlib.LinearAlgebra.Avoidance
-import all ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension
-import all ForMathlib.LinearAlgebra.ConjugateRange
-import all ForMathlib.LinearAlgebra.CoordinateProjection
-import all ForMathlib.LinearAlgebra.Dual.Adjoint
-import all ForMathlib.LinearAlgebra.Dual.BalancedCut
-import all ForMathlib.LinearAlgebra.Dual.Frobenius
-import all ForMathlib.LinearAlgebra.Dual.IntegralSupport
-import all ForMathlib.LinearAlgebra.Dual.Summand
-import all ForMathlib.LinearAlgebra.Dual.TransportPairing
-import all ForMathlib.LinearAlgebra.KernelCoordinates
-import all ForMathlib.LinearAlgebra.KernelTransport
-import all ForMathlib.LinearAlgebra.PairProjection
-import all ForMathlib.LinearAlgebra.PlaneReduction
-import all ForMathlib.LinearAlgebra.Quotient.Transport
-import all ForMathlib.LinearAlgebra.Reflection.Bilinear
-import all ForMathlib.LinearAlgebra.Reflection.Classification
-import all ForMathlib.LinearAlgebra.Reflection.Forms
-import all ForMathlib.LinearAlgebra.Reflection.Plane
-import all ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient
-import all ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
-import all ForMathlib.LinearAlgebra.TensorProduct.Coordinates
-import all ForMathlib.Order.Interval.Diamonds
-import all ForMathlib.RepresentationTheory.BottSamelson.TitsWords
-import all ForMathlib.RepresentationTheory.Hecke.Coefficients
-import all ForMathlib.RepresentationTheory.Hecke.DualR
-import all ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted
-import all ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder
-import all ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates
-import all ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall
-import all ForMathlib.RepresentationTheory.Hecke.Inverse
-import all ForMathlib.RepresentationTheory.Hecke.Operators
-import all ForMathlib.RepresentationTheory.Hecke.OrdinaryR
-import all ForMathlib.RepresentationTheory.Hecke.PositiveWord
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR
-import all ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique
-import all ForMathlib.RingTheory.Localization.RelativePrime
-import all OAI.KL.BottSamelson.AdjointSheaf
-import all OAI.KL.BottSamelson.CanonicalPairing
-import all OAI.KL.BottSamelson.Character
-import all OAI.KL.BottSamelson.CharacterDecomposition
-import all OAI.KL.BottSamelson.Flabby
-import all OAI.KL.BottSamelson.Pairings
-import all OAI.KL.BottSamelson.StalkCharacter
-import all OAI.KL.BottSamelson.Stalks
-import all OAI.KL.BottSamelson.Support
-import all OAI.KL.BottSamelson.UpperSections
-import all OAI.KL.Comparison.Propagation
-import all OAI.KL.Comparison.Transport
-import all OAI.KL.Compatibility.KernelTransport
-import all OAI.KL.Localization.Ambient
-import all OAI.KL.Localization.GraphEmbedding
-import all OAI.KL.Sheaves.Boundary
-import all OAI.KL.Sheaves.FreeModel
-import all OAI.KL.Sheaves.LowerCharacter
-import all OAI.KL.Sheaves.Reciprocity
-import all OAI.KL.Sheaves.StalkReciprocity
-import all OAI.KL.Sheaves.Support
-import all OAI.LinearAlgebra.KernelTransport
-import all OAI.RepresentationTheory.KazhdanLusztig.Bruhat
-import all OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL
-import all OAI.RepresentationTheory.KazhdanLusztig.Comparison
-import all OAI.RepresentationTheory.KazhdanLusztig.Coxeter
-import all OAI.RepresentationTheory.KazhdanLusztig.Dihedral
-import all OAI.RepresentationTheory.KazhdanLusztig.GradedModules
-import all OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves
-import all OAI.RepresentationTheory.KazhdanLusztig.Hecke
-import all OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries
-import all OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat
-import all OAI.RepresentationTheory.KazhdanLusztig.Model
-import all OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra
-import all OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR
-import all OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane
-import all OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules
-import all OAI.RepresentationTheory.KazhdanLusztig.Sheaves
-import all OAI.RepresentationTheory.KazhdanLusztig.Tits
+import ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation
+import ForMathlib.Algebra.BigOperators.SingleCoordinate
+import ForMathlib.Algebra.Module.Cover.Product
+import ForMathlib.Algebra.Module.Flat.Kernel
+import ForMathlib.Algebra.Module.Free.ScalarDivisibility
+import ForMathlib.Algebra.Module.Graded.Adjoint
+import ForMathlib.Algebra.Module.Graded.AlgebraMap
+import ForMathlib.Algebra.Module.Graded.Basis
+import ForMathlib.Algebra.Module.Graded.Components
+import ForMathlib.Algebra.Module.Graded.FinitePieces
+import ForMathlib.Algebra.Module.Graded.Generators
+import ForMathlib.Algebra.Module.Graded.Hilbert.Basic
+import ForMathlib.Algebra.Module.Graded.Hilbert.Images
+import ForMathlib.Algebra.Module.Graded.Hilbert.Increment
+import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
+import ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction
+import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+import ForMathlib.Algebra.Module.Graded.HomogeneousDual
+import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
+import ForMathlib.Algebra.Module.Graded.HomogeneousMul
+import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+import ForMathlib.Algebra.Module.Graded.ModuleData.Character
+import ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual
+import ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness
+import ForMathlib.Algebra.Module.Graded.ModuleData.Duality
+import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
+import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
+import ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom
+import ForMathlib.Algebra.Module.Graded.ModuleData.Range
+import ForMathlib.Algebra.Module.Graded.ModuleData.Transport
+import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
+import ForMathlib.Algebra.Module.Graded.PolynomialMap
+import ForMathlib.Algebra.Module.Graded.RegularScalar
+import ForMathlib.Algebra.Module.Localization.Lattice
+import ForMathlib.Algebra.Module.Localization.Membership
+import ForMathlib.Algebra.Module.Localization.Products
+import ForMathlib.Algebra.Module.Localization.ProjectiveLattice
+import ForMathlib.Algebra.Module.Projective.Range
+import ForMathlib.Algebra.Module.Projective.ReverseFiltration
+import ForMathlib.Algebra.Module.Projective.ScalarKernel
+import ForMathlib.Algebra.Module.Projective.ScalarQuotient
+import ForMathlib.Algebra.Module.Quotient.KernelReduction
+import ForMathlib.Algebra.Module.Quotient.ScalarImage
+import ForMathlib.Algebra.Module.Submodule.PiIdeal
+import ForMathlib.Algebra.Module.Submodule.ProductScaling
+import ForMathlib.Algebra.Module.Submodule.ScaledImage
+import ForMathlib.Algebra.Order.Field.RealScaling
+import ForMathlib.Algebra.Polynomial.LowPart
+import ForMathlib.Algebra.Polynomial.Reciprocal
+import ForMathlib.Algebra.Polynomial.ScaledEvaluation
+import ForMathlib.Algebra.Polynomial.ScaledReciprocity
+import ForMathlib.Algebra.Polynomial.TransferEvaluation
+import ForMathlib.Combinatorics.Dihedral.SignedCount
+import ForMathlib.Combinatorics.DirectedPaths.Basic
+import ForMathlib.Combinatorics.DirectedPaths.Monotone
+import ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer
+import ForMathlib.Combinatorics.DirectedPaths.ScalarMap
+import ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
+import ForMathlib.Combinatorics.DirectedPaths.Subpaths
+import ForMathlib.Combinatorics.DirectedPaths.Suffix
+import ForMathlib.Combinatorics.DirectedPaths.Transfer
+import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
+import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
+import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+import ForMathlib.GroupTheory.Coxeter.Bruhat.Transport
+import ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+import ForMathlib.GroupTheory.Coxeter.Exchange
+import ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList
+import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard
+import ForMathlib.GroupTheory.Coxeter.Parabolic.Support
+import ForMathlib.GroupTheory.Coxeter.Realization.Cotangent
+import ForMathlib.GroupTheory.Coxeter.Realization.Faithful
+import ForMathlib.GroupTheory.Coxeter.Realization.Geometric
+import ForMathlib.GroupTheory.Coxeter.Realization.Positivity
+import ForMathlib.GroupTheory.Coxeter.Realization.Tits
+import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension
+import ForMathlib.LinearAlgebra.ConjugateRange
+import ForMathlib.LinearAlgebra.CoordinateProjection
+import ForMathlib.LinearAlgebra.Dual.Adjoint
+import ForMathlib.LinearAlgebra.Dual.BalancedCut
+import ForMathlib.LinearAlgebra.Dual.IntegralSupport
+import ForMathlib.LinearAlgebra.Dual.Summand
+import ForMathlib.LinearAlgebra.Dual.TransportPairing
+import ForMathlib.LinearAlgebra.KernelTransport
+import ForMathlib.LinearAlgebra.PairProjection
+import ForMathlib.LinearAlgebra.PlaneReduction
+import ForMathlib.LinearAlgebra.Quotient.Transport
+import ForMathlib.LinearAlgebra.Reflection.Bilinear
+import ForMathlib.LinearAlgebra.Reflection.Classification
+import ForMathlib.LinearAlgebra.Reflection.Forms
+import ForMathlib.LinearAlgebra.Reflection.Plane
+import ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient
+import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
+import ForMathlib.LinearAlgebra.TensorProduct.Coordinates
+import ForMathlib.Order.Interval.Diamonds
+import ForMathlib.RepresentationTheory.Hecke.Coefficients
+import ForMathlib.RepresentationTheory.Hecke.DualR
+import ForMathlib.RepresentationTheory.Hecke.Inverse
+import ForMathlib.RepresentationTheory.Hecke.Operators
+import ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+import ForMathlib.RepresentationTheory.Hecke.PositiveWord
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR
+import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique
+import ForMathlib.RingTheory.Localization.RelativePrime
+import OAI.KL.Compatibility.KernelTransport
+import OAI.LinearAlgebra.KernelTransport
+import OAI.RepresentationTheory.KazhdanLusztig.Bruhat
+import OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL
+import OAI.RepresentationTheory.KazhdanLusztig.Comparison
+import OAI.RepresentationTheory.KazhdanLusztig.Coxeter
+import OAI.RepresentationTheory.KazhdanLusztig.Dihedral
+import OAI.RepresentationTheory.KazhdanLusztig.Hecke
+import OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat
+import OAI.RepresentationTheory.KazhdanLusztig.Model
+import OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR
+import OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane
+import OAI.RepresentationTheory.KazhdanLusztig.Sheaves

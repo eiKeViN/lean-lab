@@ -1,5 +1,7 @@
 module
-public import Mathlib
+public import Mathlib.LinearAlgebra.DFinsupp
+public import Mathlib.LinearAlgebra.Basis.Defs
+public import Mathlib.RingTheory.Coprime.Lemmas
 
 public section
 

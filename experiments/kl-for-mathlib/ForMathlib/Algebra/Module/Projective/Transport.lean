@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.ReflectionPair.Twist
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.ReflectionPair.Twist
 
 /-! Semantic home: ForMathlib.Algebra.Module.Projective.Transport. Source spans: IntegralPairings:15.
 See migration.json and MIGRATION.md for exact provenance. -/

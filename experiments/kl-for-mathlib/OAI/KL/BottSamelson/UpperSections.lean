@@ -1,15 +1,12 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Localization.FiniteCharacters
-public import ForMathlib.Algebra.Module.Localization.ProjectiveLattice
-public import ForMathlib.Algebra.Module.Projective.Range
-public import ForMathlib.Algebra.Module.ReflectionPair.TensorDescent
-public import ForMathlib.LinearAlgebra.KernelCoordinates
-public import ForMathlib.LinearAlgebra.PairProjection
-public import ForMathlib.LinearAlgebra.Reflection.Classification
-public import OAI.KL.BottSamelson.Stalks
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Localization.FiniteCharacters
+import ForMathlib.Algebra.Module.Localization.ProjectiveLattice
+import ForMathlib.Algebra.Module.Projective.Range
+import ForMathlib.Algebra.Module.ReflectionPair.TensorDescent
+import ForMathlib.LinearAlgebra.KernelCoordinates
+import ForMathlib.LinearAlgebra.PairProjection
+import ForMathlib.LinearAlgebra.Reflection.Classification
+import OAI.KL.BottSamelson.Stalks
 
 /-! Semantic home: OAI.KL.BottSamelson.UpperSections. Source spans: IntegralPairings:23, IntegralPairings:24, IntegralPairings:6, IntegralPairings:27, IntegralPairings:10, IntegralPairings:13, IntegralPairings:14, IntegralPairings:19, IntegralPairings:17, IntegralPairings:18, IntegralPairings:21, IntegralPairings:28.
 See migration.json and MIGRATION.md for exact provenance.
@@ -191,11 +188,11 @@ variable {I : Type u} [klPreservedInstance11 : Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- @[expose] def BruhatUpper (U : Set W) : Prop :=
+ def BruhatUpper (U : Set W) : Prop :=
   ∀ {x y}, BruhatLE cs x y → x∈U → y∈U
 
- @[expose] def simpleUnion (i : I) (U : Set W) : Set W := {x | x∈U ∨ cs.simple i*x∈U}
- @[expose] def simpleInter (i : I) (U : Set W) : Set W := {x | x∈U ∧ cs.simple i*x∈U}
+ def simpleUnion (i : I) (U : Set W) : Set W := {x | x∈U ∨ cs.simple i*x∈U}
+ def simpleInter (i : I) (U : Set W) : Set W := {x | x∈U ∧ cs.simple i*x∈U}
 
  omit [Fintype I] in
  theorem BruhatUpper.mem_simpleUnion (U : Set W) (hU : BruhatUpper cs U) (i : I) (x : W) :
@@ -260,24 +257,24 @@ include klPreservedInstance11 in
   by_contra he
   exact hsy (hU (.single (bruhatStep_simple_mul cs hxy i he)) hsx)
 
- @[expose] def bottSetImage (l : List I) (U : Set W) := image (bottStalkProjection cs l) U
- @[expose] instance bottSetImageAddCommGroup (l : List I) (U : Set W) : AddCommGroup (bottSetImage cs l U) :=
+ def bottSetImage (l : List I) (U : Set W) := image (bottStalkProjection cs l) U
+ instance bottSetImageAddCommGroup (l : List I) (U : Set W) : AddCommGroup (bottSetImage cs l U) :=
   Submodule.addCommGroup _
- @[expose] instance bottSetImageModule (l : List I) (U : Set W) : Module (SymmetricCoefficient (M := M)) (bottSetImage cs l U) :=
+ instance bottSetImageModule (l : List I) (U : Set W) : Module (SymmetricCoefficient (M := M)) (bottSetImage cs l U) :=
   Submodule.module _
 
- @[expose] def bottSetProjection (l : List I) (U : Set W) : BottSamelsonModule cs l →ₗ[
+ def bottSetProjection (l : List I) (U : Set W) : BottSamelsonModule cs l →ₗ[
     SymmetricCoefficient (M := M)] bottSetImage cs l U := project (bottStalkProjection cs l) U
 
- @[expose] def BottCompatible (l : List I) (U : Set W) (z : ∀ x : U, bottStalk cs l x.val) : Prop :=
+ def BottCompatible (l : List I) (U : Set W) (z : ∀ x : U, bottStalk cs l x.val) : Prop :=
   ∀ (x y : W) (hx : x∈U) (hy : y∈U), BruhatStep cs x y →
     ∃ m : BottSamelsonModule cs l,
       bottStalkProjection cs l x m=z ⟨x,hx⟩ ∧ bottStalkProjection cs l y m=z ⟨y,hy⟩
 
- @[expose] def BottFlabby (l : List I) : Prop :=
+ def BottFlabby (l : List I) : Prop :=
   ∀ U, BruhatUpper cs U → ∀ z, BottCompatible cs l U z → z∈bottSetImage cs l U
 
- @[expose] def BottProjectiveUpper (l : List I) : Prop :=
+ def BottProjectiveUpper (l : List I) : Prop :=
   ∀ U, BruhatUpper cs U → Module.Projective (SymmetricCoefficient (M := M)) (bottSetImage cs l U)
 
 end
@@ -356,9 +353,9 @@ noncomputable section
     subst y
     exact hm
 
- @[expose] def BottUpperIndex (l : List I) (U : Set W) := {e : BottIndex l // bottWeight cs l e∈U}
+ def BottUpperIndex (l : List I) (U : Set W) := {e : BottIndex l // bottWeight cs l e∈U}
 
- @[expose] def bottIndexSetEval (l : List I) (U : Set W) : BottSamelsonModule cs l →ₗ[
+ def bottIndexSetEval (l : List I) (U : Set W) : BottSamelsonModule cs l →ₗ[
     SymmetricCoefficient (M := M)]
     (∀ e : BottUpperIndex cs l U, bottStalk cs l (bottWeight cs l e.val)) :=
   LinearMap.pi (fun e => bottStalkProjection cs l (bottWeight cs l e.val))
@@ -425,7 +422,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
- @[expose] def simplePull (i : I) (U : Set W) : Set W := {x | cs.simple i*x∈U}
+ def simplePull (i : I) (U : Set W) : Set W := {x | cs.simple i*x∈U}
 
  theorem bottSetProjection_zero_iff (l : List I) (U : Set W) (m : BottSamelsonModule cs l) :
     bottSetProjection cs l U m=0 ↔ ∀ x∈U, bottStalkProjection cs l x m=0 :=
@@ -468,13 +465,13 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
       exact (bottSetProjection_zero_iff cs l (simplePull cs i U) _).mp hq (cs.simple i*x)
         (by simpa only [simplePull,Set.mem_ofPred_eq,cs.simple_mul_simple_cancel_left] using hx)
 
- @[expose] def bottSetFirst (i : I) (l : List I) (U : Set W) : bottSetImage cs (i::l) U →ₗ[
+ def bottSetFirst (i : I) (l : List I) (U : Set W) : bottSetImage cs (i::l) U →ₗ[
     SymmetricCoefficient (M := M)] bottSetImage cs l U :=
   descend (bottSetProjection cs (i::l) U) (bottSetProjection_surjective cs (i::l) U)
     ((bottSetProjection cs l U).comp (bottHeadTail cs i l))
     (fun m hm => ((bottHeadSet_zero_iff cs i l U m).mp hm).1)
 
- @[expose] def bottSetSecond (i : I) (l : List I) (U : Set W) : bottSetImage cs (i::l) U →ₗ[
+ def bottSetSecond (i : I) (l : List I) (U : Set W) : bottSetImage cs (i::l) U →ₗ[
     SymmetricCoefficient (M := M)]
     Twist (coefficientAction cs (cs.simple i)).toRingEquiv (bottSetImage cs l (simplePull cs i U)) :=
   descend (bottSetProjection cs (i::l) U) (bottSetProjection_surjective cs (i::l) U)
@@ -502,7 +499,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
   exact ⟨(bottSetFirst_project cs i l U m).symm.trans hp,
     (congrArg Twist.val (bottSetSecond_project cs i l U m)).symm.trans hq⟩
 
- @[expose] def bottTensorEnd (i : I) (l : List I)
+ def bottTensorEnd (i : I) (l : List I)
     (e : Module.End (SymmetricCoefficient (M := M)) (BottSamelsonModule cs l)) :
     Module.End (SymmetricCoefficient (M := M)) (BottSamelsonModule cs (i::l)) :=
   AlgebraTensorModule.map (LinearMap.id : SymmetricCoefficient (M := M) →ₗ[
@@ -562,7 +559,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
   tensor_difference (coefficientAction cs (cs.simple i)).toRingEquiv (fun c => c.property)
     (simpleRootPolynomial (M := M) i) (simple_divisible cs i) m
 
- @[expose] def bottHeadPatch (i : I) (l : List I) (U : Set W) (m : BottSamelsonModule cs (i::l)) :
+ def bottHeadPatch (i : I) (l : List I) (U : Set W) (m : BottSamelsonModule cs (i::l)) :
     ∀ x : simpleUnion cs i U, bottStalk cs l x.val := by
   classical
   exact fun x => if x.val∈U then bottStalkProjection cs l x.val (bottHeadTail cs i l m)
@@ -631,7 +628,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
- @[expose] def bottSetRestrict (l : List I) {U K : Set W} (h : U⊆K) :
+ def bottSetRestrict (l : List I) {U K : Set W} (h : U⊆K) :
     bottSetImage cs l K →ₗ[SymmetricCoefficient (M := M)] bottSetImage cs l U :=
   restrict (bottStalkProjection cs l) h
 
@@ -646,7 +643,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
     (z : bottSetImage cs l K) : bottSetRestrict cs l h z=0 ↔
       ∀ x hx, x∈U → z.val ⟨x,hx⟩=0 := restrict_zero_iff (bottStalkProjection cs l) h z
 
- @[expose] def bottSeed (i : I) (l : List I) (n : BottSamelsonModule cs l) :
+ def bottSeed (i : I) (l : List I) (n : BottSamelsonModule cs l) :
     BottSamelsonModule cs (i::l) := (1 : SymmetricCoefficient (M := M)) ⊗ₜ[simpleFixed cs i] n
 
  theorem bottSeed_first (i : I) (l : List I) (n : BottSamelsonModule cs l) :
@@ -796,24 +793,24 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- @[expose] def bottInterRestriction (i : I) (l : List I) (U : Set W) :
+ def bottInterRestriction (i : I) (l : List I) (U : Set W) :
     bottSetImage cs l U →ₗ[SymmetricCoefficient (M := M)] bottSetImage cs l (simpleInter cs i U) :=
   bottSetRestrict cs l (fun _ h => h.1)
 
- @[expose] def bottUnionRestriction (i : I) (l : List I) (U : Set W) :
+ def bottUnionRestriction (i : I) (l : List I) (U : Set W) :
     bottSetImage cs l (simpleUnion cs i U) →ₗ[SymmetricCoefficient (M := M)] bottSetImage cs l U :=
   bottSetRestrict cs l (fun _ h => Or.inl h)
 
- @[expose] def bottUnionPullRestriction (i : I) (l : List I) (U : Set W) :
+ def bottUnionPullRestriction (i : I) (l : List I) (U : Set W) :
     bottSetImage cs l (simpleUnion cs i U) →ₗ[SymmetricCoefficient (M := M)]
       bottSetImage cs l (simplePull cs i U) :=
   bottSetRestrict cs l (fun _ h => Or.inr h)
 
- @[expose] def bottCommonKernel (i : I) (l : List I) (U : Set W) :
+ def bottCommonKernel (i : I) (l : List I) (U : Set W) :
     Submodule (SymmetricCoefficient (M := M)) (bottSetImage cs (i::l) U) :=
   LinearMap.ker (bottInterRestriction cs i (i::l) U) ⊓ LinearMap.ker (bottSetFirst cs i l U)
 
- @[expose] def bottCommonSecond (i : I) (l : List I) (U : Set W) :
+ def bottCommonSecond (i : I) (l : List I) (U : Set W) :
     bottCommonKernel cs i l U →ₗ[SymmetricCoefficient (M := M)]
       Twist (coefficientAction cs (cs.simple i)).toRingEquiv (bottSetImage cs l (simplePull cs i U)) :=
   (bottSetSecond cs i l U).comp (bottCommonKernel cs i l U).subtype
@@ -822,7 +819,7 @@ noncomputable section
     Function.Injective (bottCommonSecond cs i l U) :=
   common_kernel_coordinate_injective _ _ _ (bottSetComponents_injective cs i l U)
 
- @[expose] def bottUnionKernelSecond (i : I) (l : List I) (U : Set W) :
+ def bottUnionKernelSecond (i : I) (l : List I) (U : Set W) :
     LinearMap.ker (bottUnionRestriction cs i l U) →ₗ[SymmetricCoefficient (M := M)]
       bottSetImage cs l (simplePull cs i U) :=
   (bottUnionPullRestriction cs i l U).comp (LinearMap.ker (bottUnionRestriction cs i l U)).subtype

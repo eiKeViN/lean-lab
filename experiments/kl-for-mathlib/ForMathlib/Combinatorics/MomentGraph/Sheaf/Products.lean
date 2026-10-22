@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Products. Source spans: MinimalExtensions:6, MinimalExtensions:7.
 See migration.json and MIGRATION.md for exact provenance.
@@ -16,13 +13,13 @@ universe u v w z
 variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
   {E : Type w} {G : OrderedGraph V E}
 
- @[expose] def zero : Sheaf.{u,v,w,z} (R := R) G where
+ def zero : Sheaf.{u,v,w,z} (R := R) G where
   vertex _ := ModuleCat.of R PUnit.{z+1}
   edge _ := ModuleCat.of R PUnit.{z+1}
   lower _ := 0
   upper _ := 0
 
- @[expose] def prod (B C : Sheaf.{u,v,w,z} (R := R) G) : Sheaf.{u,v,w,z} (R := R) G where
+ def prod (B C : Sheaf.{u,v,w,z} (R := R) G) : Sheaf.{u,v,w,z} (R := R) G where
   vertex x := ModuleCat.of R (B.vertex x × C.vertex x)
   edge e := ModuleCat.of R (B.edge e × C.edge e)
   lower e := (B.lower e).prodMap (C.lower e)
@@ -125,7 +122,7 @@ variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
   {E : Type w} {G : OrderedGraph V E}
   {B C : Sheaf.{u,v,w,z} (R := R) G} (D : Sheaf.{u,v,w,z} (R := R) G)
 
-@[expose] noncomputable def addZeroRight (M N : Type z) [AddCommGroup M] [Module R M]
+noncomputable def addZeroRight (M N : Type z) [AddCommGroup M] [Module R M]
     [AddCommGroup N] [Module R N] [Subsingleton N] : M ≃ₗ[R] M × N where
   toFun m := (m,0)
   invFun := Prod.fst
@@ -138,7 +135,7 @@ variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
     [AddCommGroup N] [Module R N] [Subsingleton N] (m : M) :
     addZeroRight (R := R) M N m = (m,0) := rfl
 
-@[expose] noncomputable def OnIso.prodZero {U : Set V} (j : OnIso B C U)
+noncomputable def OnIso.prodZero {U : Set V} (j : OnIso B C U)
     (hV : ∀ x ∈ U, Subsingleton (D.vertex x))
     (hE : ∀ e, G.target e ∈ U → Subsingleton (D.edge e)) : OnIso B (prod C D) U where
   vertex x hx := by

@@ -1,10 +1,7 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
-public import ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder
-public import ForMathlib.RepresentationTheory.Hecke.Operators
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+import ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder
+import ForMathlib.RepresentationTheory.Hecke.Operators
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted. Source spans: DyerPaths:22.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -19,12 +16,12 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.AdaptedDyer.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.AdaptedDyer.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
 
 abbrev Edge := {e : W × W // BruhatStep cs e.1 e.2}
-@[expose] def source (e : Edge cs) : W := e.val.1
-@[expose] def target (e : Edge cs) : W := e.val.2
-@[expose] def rootLabel (e : Edge cs) : PositiveRoot M cs := graphRoot e.property
+def source (e : Edge cs) : W := e.val.1
+def target (e : Edge cs) : W := e.val.2
+def rootLabel (e : Edge cs) : PositiveRoot M cs := graphRoot e.property
 
 @[simp] theorem rootRef_rootLabel (e : Edge cs) :
     rootRef (rootLabel cs e) = target cs e * (source cs e)⁻¹ := by
@@ -45,7 +42,7 @@ theorem rootLabel_ne_of_join (e f : Edge cs) (h : target cs e = source cs f) :
   exact graphRoot_ne_of_path he hf
 
 variable {cs}
-@[expose] def score (O : RatioOrder (M := M) (cs := cs)) (e : Edge cs) : ℝ :=
+def score (O : RatioOrder (M := M) (cs := cs)) (e : Edge cs) : ℝ :=
   O.slope (rootLabel cs e)
 
 theorem score_ties (O : RatioOrder (M := M) (cs := cs)) (e f : Edge cs)
@@ -53,7 +50,7 @@ theorem score_ties (O : RatioOrder (M := M) (cs := cs)) (e f : Edge cs)
   fun hj => rootLabel_ne_of_join cs e f hj (O.slope_injective h)
 
 variable (cs)
-@[expose] def edgeFinset (b : W) : Finset (Edge cs) :=
+def edgeFinset (b : W) : Finset (Edge cs) :=
   let P := ((lowerFinset cs b).product (lowerFinset cs b)).filter
     (fun e => BruhatStep cs e.1 e.2)
   P.attach.image (fun e => (⟨e.val,by
@@ -78,7 +75,7 @@ omit [Fintype I] in
     rfl
 
 variable {cs}
-@[expose] def schedule (O : RatioOrder (M := M) (cs := cs)) (b : W) : List (Edge cs) :=
+def schedule (O : RatioOrder (M := M) (cs := cs)) (b : W) : List (Edge cs) :=
   (edgeFinset cs b).toList.mergeSort (fun e f => score O e ≤ score O f)
 
 @[simp] theorem mem_schedule (O : RatioOrder (M := M) (cs := cs)) (b : W) (e : Edge cs) :
@@ -116,7 +113,7 @@ theorem path_targets_le {x y : W} {p : List (Edge cs)}
     · exact ih hp.2 f hf
 
 variable {cs}
-@[expose] def paths (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Finset (List (Edge cs)) :=
+def paths (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Finset (List (Edge cs)) :=
   subpaths (source cs) (target cs) (schedule O y) x y
 
 @[simp] theorem mem_paths (O : RatioOrder (M := M) (cs := cs)) (x y : W) (p : List (Edge cs)) :
@@ -136,7 +133,7 @@ variable {cs}
     intro e he
     exact (mem_schedule O y e).mpr (path_targets_le cs hp e he)
 
-@[expose] def polynomial (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Polynomial ℤ :=
+def polynomial (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Polynomial ℤ :=
   ∑ p ∈ paths O x y, Polynomial.X ^ p.length
 
 theorem polynomial_dispatch (O : RatioOrder (M := M) (cs := cs)) (x y : W) :
@@ -164,7 +161,7 @@ theorem rootLabel_simple_iff (i : I) (e : Edge cs) :
 /-- On a non-simple-labelled edge this is actual left multiplication by s.
 Simple-labelled edges are fixed merely to make the extension a total involution;
 all path uses below exclude them before applying this map. -/
-@[expose] def rotateEdge (i : I) (e : Edge cs) : Edge cs :=
+def rotateEdge (i : I) (e : Edge cs) : Edge cs :=
   if h : target cs e = cs.simple i * source cs e then e else
     ⟨(cs.simple i * source cs e,cs.simple i * target cs e),
       bruhatStep_simple_mul cs e.property i h⟩
@@ -233,7 +230,7 @@ theorem path_rotate {x y : W} {p : List (Edge cs)} (i : I)
     rotateEdge cs i (rotateEdge cs i e) = e := rotateEdge_involutive cs i e
 
 variable {cs}
-@[expose] def Nonsimple (i : I) (p : List (Edge cs)) : Prop :=
+def Nonsimple (i : I) (p : List (Edge cs)) : Prop :=
   ∀ e ∈ p, rootLabel cs e ≠ simplePositive i
 
 @[simp] theorem nonsimple_map (i : I) {p : List (Edge cs)} (hn : Nonsimple i p) :
@@ -341,7 +338,7 @@ theorem nonsimple_of_least_descent (O : RatioOrder (M := M) (cs := cs)) (i : I)
     · exact he
     · exact nonsimple_tail_of_least O i hmin ho f hf
 
-@[expose] def nonsimplePaths (O : RatioOrder (M := M) (cs := cs)) (i : I) (x y : W) :
+def nonsimplePaths (O : RatioOrder (M := M) (cs := cs)) (i : I) (x y : W) :
     Finset (List (Edge cs)) := (paths O x y).filter (Nonsimple i)
 
 @[simp] theorem mem_nonsimplePaths (O : RatioOrder (M := M) (cs := cs)) (i : I)
@@ -382,7 +379,7 @@ theorem sum_nonsimple_rotate (O O' : RatioOrder (M := M) (cs := cs)) (i : I)
 
 
 variable (cs)
-@[expose] def simpleEdge (i : I) (x : W) (hx : cs.length x < cs.length (cs.simple i*x)) : Edge cs :=
+def simpleEdge (i : I) (x : W) (hx : cs.length x < cs.length (cs.simple i*x)) : Edge cs :=
   ⟨(x,cs.simple i*x),hx,cs.simple i,cs.isReflection_simple i,rfl⟩
 
 omit [Fintype I] in

@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Realization.Faithful
-public import ForMathlib.LinearAlgebra.Reflection.Plane
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Realization.Faithful
+import ForMathlib.LinearAlgebra.Reflection.Plane
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.Basic. Source spans: Tits:18, Tits:19, Tits:20.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -19,10 +16,10 @@ variable {I : Type u} [Fintype I] (M : CoxeterMatrix I)
 noncomputable section
 
 /-- A genuine real root, obtained from a simple root by the Tits action. -/
-@[expose] def IsRoot (a : I → ℝ) : Prop := ∃ w : W, ∃ i : I, a = action M cs w (root i)
+def IsRoot (a : I → ℝ) : Prop := ∃ w : W, ∃ i : I, a = action M cs w (root i)
 
 /-- A normalized real root representing a genuine Coxeter reflection. -/
-@[expose] def Represents (t : W) (a : I → ℝ) : Prop :=
+def Represents (t : W) (a : I → ℝ) : Prop :=
   ∃ w : W, ∃ i : I, t = w * cs.simple i * w⁻¹ ∧ a = action M cs w (root i)
 
 abbrev embed (a : I → ℝ) : Extended M := (a, 0)
@@ -161,9 +158,9 @@ theorem exists_positive_root {t : W} (ht : cs.IsReflection t) :
   · exact ⟨_,hr.neg,fun i => by simpa only [Pi.neg_apply, neg_nonneg] using h i⟩
 
 /-- Genuine positive roots, with their actual coordinate sign. -/
-@[expose] def PositiveRoot := {a : I → ℝ // IsRoot M cs a ∧ ∀ i, 0 ≤ a i}
+def PositiveRoot := {a : I → ℝ // IsRoot M cs a ∧ ∀ i, 0 ≤ a i}
 
-@[expose] def positiveRoot (t : {t : W // cs.IsReflection t}) : PositiveRoot M cs :=
+def positiveRoot (t : {t : W // cs.IsReflection t}) : PositiveRoot M cs :=
   ⟨(exists_positive_root M cs t.property).choose,
     (exists_positive_root M cs t.property).choose_spec.1.isRoot,
     (exists_positive_root M cs t.property).choose_spec.2⟩
@@ -172,7 +169,7 @@ theorem positiveRoot_represents (t : {t : W // cs.IsReflection t}) :
     Represents M cs t.val (positiveRoot M cs t).val :=
   (exists_positive_root M cs t.property).choose_spec.1
 
-@[expose] def rootReflection (a : PositiveRoot M cs) : {t : W // cs.IsReflection t} := by
+def rootReflection (a : PositiveRoot M cs) : {t : W // cs.IsReflection t} := by
   let w := a.property.1.choose
   let i := a.property.1.choose_spec.choose
   exact ⟨w * cs.simple i * w⁻¹, w,i,rfl⟩
@@ -183,7 +180,7 @@ theorem rootReflection_represents (a : PositiveRoot M cs) :
   exact a.property.1.choose_spec.choose_spec
 
 
-@[expose] def positiveRootEquiv : {t : W // cs.IsReflection t} ≃ PositiveRoot M cs where
+def positiveRootEquiv : {t : W // cs.IsReflection t} ≃ PositiveRoot M cs where
   toFun := positiveRoot M cs
   invFun := rootReflection M cs
   left_inv t := Subtype.ext ((rootReflection_represents M cs _).reflection_unique
@@ -256,7 +253,7 @@ theorem Represents.simple_sign {t : W} {a : I → ℝ} (ha : Represents M cs t a
 
 /-- The signed combinatorial reflection action is the actual root sign
 under the faithful Tits representation. -/
-@[expose] def SignedRepresents (p : W × ZMod 2) (a : I → ℝ) : Prop :=
+def SignedRepresents (p : W × ZMod 2) (a : I → ℝ) : Prop :=
   Represents M cs p.1 a ∧
     ((p.2 = 0 ∧ ∀ i, 0 ≤ a i) ∨ (p.2 = 1 ∧ ∀ i, a i ≤ 0))
 
@@ -407,10 +404,10 @@ theorem Represents.plane_eq_of_product_eq {t s r q : W} {a b c d : I → ℝ}
 
 variable (M) (cs)
 /-- The actual positive ambient roots inverted by `w`. -/
-@[expose] def RootInversions (w : W) :=
+def RootInversions (w : W) :=
   {a : PositiveRoot M cs // ∀ i, action M cs w⁻¹ a.val i ≤ 0}
 
-@[expose] def rootInversionEquiv (w : W) : RootInversions M cs w ≃ {t : W // cs.IsLeftInversion w t} where
+def rootInversionEquiv (w : W) : RootInversions M cs w ≃ {t : W // cs.IsLeftInversion w t} where
   toFun a := ⟨(rootReflection M cs a.val).val,
     ((rootReflection_represents M cs a.val).inversion_iff a.val.property.2 w).mp a.property⟩
   invFun t := ⟨positiveRoot M cs ⟨t.val,t.property.1⟩,
@@ -425,7 +422,7 @@ variable (M) (cs)
     exact congrArg (fun r : {r : W // cs.IsReflection r} => r.val)
       ((positiveRootEquiv M cs).symm_apply_apply ⟨t.val,t.property.1⟩)
 
-@[expose] def leftInversionListEquiv {ω : List I} (hω : cs.IsReduced ω) :
+def leftInversionListEquiv {ω : List I} (hω : cs.IsReduced ω) :
     {t : W // cs.IsLeftInversion (cs.wordProd ω) t} ≃ {t : W // t ∈ cs.leftInvSeq ω} where
   toFun t := ⟨t.val,CoxeterSupport.mem_leftInvSeq_of_inversion cs hω t.property⟩
   invFun t := ⟨t.val,cs.isLeftInversion_of_mem_leftInvSeq hω t.property⟩

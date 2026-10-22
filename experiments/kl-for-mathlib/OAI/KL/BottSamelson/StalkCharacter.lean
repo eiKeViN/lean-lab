@@ -1,10 +1,7 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
-public import ForMathlib.RepresentationTheory.Hecke.Coefficients
-public import OAI.KL.BottSamelson.Stalks
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
+import ForMathlib.RepresentationTheory.Hecke.Coefficients
+import OAI.KL.BottSamelson.Stalks
 
 /-! Semantic home: OAI.KL.BottSamelson.StalkCharacter. Source spans: IntegralPairings:2, IntegralPairings:4.
 See migration.json and MIGRATION.md for exact provenance.
@@ -84,7 +81,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type u} [Group W] (cs : CoxeterSystem M W)
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_7 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_7 (p : Prop) : Decidable p := Classical.propDecidable p
 
  theorem bottStalkCharacter_zero (l : List I) (x : W)
     [Subsingleton (bottStalk cs l x)] : bottStalkCharacter cs basis l x=0 := by
@@ -97,7 +94,7 @@ noncomputable section
   · intro q _ _
     simpa only [Module.finrank_zero_of_subsingleton,Nat.cast_zero,zero_mul,Polynomial.eval₂_zero] using (hasSum_zero : HasSum (fun _ : ℤ => (0 : ℝ)) 0)
 
- @[expose] def bottTopPolynomialEquiv (l : List I) (hl : cs.IsReduced l) :
+ def bottTopPolynomialEquiv (l : List I) (hl : cs.IsReduced l) :
     bottStalk cs l (cs.wordProd l) ≃ₗ[ℝ] MvPolynomial σ ℝ :=
   ((bottTopStalkEquiv cs l hl).restrictScalars ℝ).trans
     (SymmetricAlgebra.equivMvPolynomial basis).toLinearEquiv

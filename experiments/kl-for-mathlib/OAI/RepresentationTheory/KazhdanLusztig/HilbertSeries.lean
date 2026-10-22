@@ -1,7 +1,4 @@
-module
-public import ForMathlib.Algebra.Module.Graded.Hilbert.Series
-public import OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves
-
-public section
+import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+import OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves
 
 /-! Compatibility import for the pre-migration module. No declarations live here. -/

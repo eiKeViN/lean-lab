@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder
-public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder
+import ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.LaterCount. Source spans: DihedralIntervals:20, DihedralIntervals:21, DihedralIntervals:22, DihedralIntervals:23.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -18,7 +15,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
   {P : Submodule ℝ (I → ℝ)} (B : PlaneBasis (M := M) (cs := cs) P)
 noncomputable section
-@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_3 (p : Prop) : Decidable p := Classical.propDecidable p
+local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_3 (p : Prop) : Decidable p := Classical.propDecidable p
 
  theorem edgeRoot_same_table {i j z : ℤ}
     (hxy : BruhatStep B.system (indexWord B.system i) (indexWord B.system j))
@@ -58,7 +55,7 @@ noncomputable section
       hij.1 hjz.1 (gz w hw)
   · exact B.edgeRoot_infinite_order hu hxy hyz hij.2 hjz.2 hlabel hlabel'
 
- @[expose] def afterIndicator (x : planeSubgroup M cs P) (α : PositiveRoot M cs)
+ def afterIndicator (x : planeSubgroup M cs P) (α : PositiveRoot M cs)
     (z : planeSubgroup M cs P) : ℕ :=
   if h : BruhatStep B.system x z then
     if geometricSlope α < geometricSlope (B.edgeRoot h) then 1 else 0
@@ -123,7 +120,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {P : Submodule ℝ (I → ℝ)} (B : PlaneBasis (M := M) (cs := cs) P)
 noncomputable section
 
- @[expose] def laterCount (x : planeSubgroup M cs P) (α : PositiveRoot M cs)
+ def laterCount (x : planeSubgroup M cs P) (α : PositiveRoot M cs)
     (c : planeSubgroup M cs P) : ℕ :=
   ∑ z ∈ lowerFinset B.system c, B.afterIndicator x α z
 
@@ -307,7 +304,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
 
- @[expose] def ambientAfterIndicator (x : W) (α : PositiveRoot M cs) (z : W) : ℕ := by
+ def ambientAfterIndicator (x : W) (α : PositiveRoot M cs) (z : W) : ℕ := by
   classical
   exact if h : BruhatStep cs x z then
     if geometricSlope α < geometricSlope (graphRoot h) then 1 else 0

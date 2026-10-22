@@ -1,5 +1,6 @@
 module
-public import Mathlib
+public import Mathlib.Order.Hom.Basic
+public import Mathlib.Order.Cover
 
 public section
 

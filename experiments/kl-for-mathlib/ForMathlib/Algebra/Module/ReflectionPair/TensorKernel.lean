@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.ReflectionPair.Twist
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.ReflectionPair.Twist
 
 /-! Semantic home: ForMathlib.Algebra.Module.ReflectionPair.TensorKernel. Source spans: BottSamelson:7, BottSamelson:10, BottSamelson:18.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,17 +13,17 @@ variable {k : Type uk} [Field k] {R : Type ur} [CommRing R] [Algebra k R]
   (τ : R ≃ₐ[k] R) (Y : Type uy) [AddCommGroup Y] [Module R Y] [Module k Y]
   [IsScalarTower k R Y]
 
-@[expose] instance scalarModule : Module k (Twist τ.toRingEquiv Y) :=
+instance scalarModule : Module k (Twist τ.toRingEquiv Y) :=
   ({ equivVal τ.toRingEquiv Y with map_add' := fun _ _ => rfl } :
     Twist τ.toRingEquiv Y ≃+ Y).module k
 
-@[expose] instance scalarTower : IsScalarTower k R (Twist τ.toRingEquiv Y) where
+instance scalarTower : IsScalarTower k R (Twist τ.toRingEquiv Y) where
   smul_assoc c r y := by
     apply Twist.ext
     change τ (c • r) • y.val=c • (τ r • y.val)
     rw [map_smul,smul_assoc]
 
-@[expose] def scalarEquiv : Twist τ.toRingEquiv Y ≃ₗ[k] Y where
+def scalarEquiv : Twist τ.toRingEquiv Y ≃ₗ[k] Y where
   toFun := val
   invFun := mk
   left_inv _ := rfl
@@ -47,14 +44,14 @@ variable {C : Type uc} [CommRing C] {A : Type ua} [CommRing A] [Algebra C A]
   (τ : A ≃+* A) (hfix : ∀ c : C, τ (algebraMap C A c)=algebraMap C A c)
 noncomputable section
 
- @[expose] def tensorFirst : (A ⊗[C] N) →ₗ[A] N :=
+ def tensorFirst : (A ⊗[C] N) →ₗ[A] N :=
   AlgebraTensorModule.lift ((LinearMap.id : A →ₗ[A] A).smulRight
     (LinearMap.id : N →ₗ[C] N))
 
  @[simp] theorem tensorFirst_tmul (a : A) (n : N) :
     tensorFirst (C := C) (a ⊗ₜ[C] n)=a • n := rfl
 
- @[expose] def tensorSecond : (A ⊗[C] N) →ₗ[A] Twist τ N := by
+ def tensorSecond : (A ⊗[C] N) →ₗ[A] Twist τ N := by
   letI : Module C (Twist τ N) := Module.compHom _ (algebraMap C A)
   letI : IsScalarTower C A (Twist τ N) :=
     IsScalarTower.of_algebraMap_smul fun _ _ => rfl
@@ -70,7 +67,7 @@ noncomputable section
  @[simp] theorem tensorSecond_tmul (a : A) (n : N) :
     tensorSecond τ hfix (a ⊗ₜ[C] n)=Twist.mk (τ a • n) := rfl
 
- @[expose] def twistMap {P : Type*} [AddCommGroup P] [Module A P] (f : N →ₗ[A] P) :
+ def twistMap {P : Type*} [AddCommGroup P] [Module A P] (f : N →ₗ[A] P) :
     Twist τ N →ₗ[A] Twist τ P where
   toFun m := ⟨f m.val⟩
   map_add' m n := Twist.ext (map_add f m.val n.val)
@@ -92,7 +89,7 @@ variable {R : Type u} [CommRing R]
   (hinc : ∀ y : Y, ∃ n : N, f n=0 ∧ g n=α • y)
   (hker : ∀ x : X, (∃ n : N, f n=x ∧ g n=0) ↔ ∃ z : X, x=α • z)
 
- @[expose] def right : lattice f g τ α hdiv hinc →ₗ[R] Twist τ Y :=
+ def right : lattice f g τ α hdiv hinc →ₗ[R] Twist τ Y :=
   (LinearMap.snd R X (Twist τ Y)).comp (lattice f g τ α hdiv hinc).subtype
 
  theorem right_surjective (hg : Function.Surjective g) :
@@ -101,7 +98,7 @@ variable {R : Type u} [CommRing R]
   obtain ⟨n,hn⟩ := hg y.val
   exact ⟨⟨(f n,y),n,rfl,hn⟩,rfl⟩
 
- @[expose] def rightKernelMap : X →ₗ[R] LinearMap.ker (right f g τ α hdiv hinc) where
+ def rightKernelMap : X →ₗ[R] LinearMap.ker (right f g τ α hdiv hinc) where
   toFun x := ⟨⟨(α • x,⟨0⟩),(hker (α • x)).mpr ⟨x,rfl⟩⟩,rfl⟩
   map_add' x y := by
     apply Subtype.ext
@@ -133,7 +130,7 @@ variable {R : Type u} [CommRing R]
   intro x y h
   exact hinj (congrArg (fun p => p.val.val.1) h)
 
- @[expose] noncomputable def rightKernelEquiv (hinj : Function.Injective (fun x : X => α • x)) :
+ noncomputable def rightKernelEquiv (hinj : Function.Injective (fun x : X => α • x)) :
     X ≃ₗ[R] LinearMap.ker (right f g τ α hdiv hinc) :=
   LinearEquiv.ofBijective (rightKernelMap f g τ α hdiv hinc hker)
     ⟨rightKernelMap_injective f g τ α hdiv hinc hker hinj,

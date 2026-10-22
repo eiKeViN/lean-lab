@@ -1,11 +1,8 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Roots.Splines
-public import ForMathlib.LinearAlgebra.PlaneReduction
-public import ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient
-public import OAI.KL.Localization.Ambient
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Roots.Splines
+import ForMathlib.LinearAlgebra.PlaneReduction
+import ForMathlib.LinearAlgebra.SymmetricAlgebra.Quotient
+import OAI.KL.Localization.Ambient
 
 /-! Semantic home: OAI.KL.Localization.GraphEmbedding. Source spans: PlaneLocalization:7, PlaneLocalization:24, PlaneLocalization:27.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -21,7 +18,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- @[expose] def embedLinear : (I → ℝ) →ₗ[ℝ] Extended M where
+ def embedLinear : (I → ℝ) →ₗ[ℝ] Extended M where
   toFun := embed M
   map_add' _ _ := by simp [embed]
   map_smul' _ _ := by simp [embed]
@@ -30,11 +27,11 @@ noncomputable section
   intro a b hab
   exact congrArg Prod.fst hab
 
- @[expose] def planePrime (P : Submodule ℝ (I → ℝ)) : Ideal (MvPolynomial σ ℝ) :=
+ def planePrime (P : Submodule ℝ (I → ℝ)) : Ideal (MvPolynomial σ ℝ) :=
   Ideal.map (SymmetricAlgebra.equivMvPolynomial basis).toRingHom
     (SymmetricPlaneIdeal.ideal (P.map (embedLinear (M := M))))
 
- @[expose] instance planePrime_isPrime (P : Submodule ℝ (I → ℝ)) : (planePrime basis P).IsPrime :=
+ instance planePrime_isPrime (P : Submodule ℝ (I → ℝ)) : (planePrime basis P).IsPrime :=
   Ideal.map_isPrime_of_equiv (SymmetricAlgebra.equivMvPolynomial basis)
 
  theorem linear_mem_planePrime_iff (P : Submodule ℝ (I → ℝ)) (a : I → ℝ) :
@@ -85,17 +82,17 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- @[expose] def localizedLinear (P : Submodule ℝ (I → ℝ)) : (I → ℝ) →ₗ[ℝ] PlaneRing basis P :=
+ def localizedLinear (P : Submodule ℝ (I → ℝ)) : (I → ℝ) →ₗ[ℝ] PlaneRing basis P :=
   (IsScalarTower.toAlgHom ℝ (MvPolynomial σ ℝ) (PlaneRing basis P)).toLinearMap.comp
     ((linearPolynomial basis).comp (embedLinear (M := M)))
 
- @[expose] def localizedEdgeIdeal (P : Submodule ℝ (I → ℝ)) (a : I → ℝ) : Ideal (PlaneRing basis P) :=
+ def localizedEdgeIdeal (P : Submodule ℝ (I → ℝ)) (a : I → ℝ) : Ideal (PlaneRing basis P) :=
   Ideal.span {localizedLinear basis P a}
 
  abbrev LocalizedEdgeRing (P : Submodule ℝ (I → ℝ)) (a : I → ℝ) :=
   PlaneRing basis P ⧸ localizedEdgeIdeal basis P a
 
- @[expose] def localizedReduction (P : Submodule ℝ (I → ℝ)) (a : I → ℝ) :
+ def localizedReduction (P : Submodule ℝ (I → ℝ)) (a : I → ℝ) :
     (I → ℝ) →ₗ[ℝ] LocalizedEdgeRing basis P a :=
   (Ideal.Quotient.mkₐ ℝ (localizedEdgeIdeal basis P a)).toLinearMap.comp
     (localizedLinear basis P)

@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
-
-public section
+import Mathlib
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Boundary.Extension. Source spans: MinimalExtensions:13.
 See migration.json and MIGRATION.md for exact provenance. -/

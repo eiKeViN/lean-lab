@@ -1,5 +1,9 @@
 module
-public import Mathlib
+public import Mathlib.Algebra.Algebra.Operations
+public import Mathlib.RingTheory.Ideal.Defs
+public import Mathlib.Tactic.Ring
+public import Mathlib.LinearAlgebra.Pi
+public import Mathlib.RingTheory.Ideal.Operations
 
 public section
 

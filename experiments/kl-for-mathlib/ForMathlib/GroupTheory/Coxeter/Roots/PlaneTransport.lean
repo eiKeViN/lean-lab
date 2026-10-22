@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds
-public import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds
+import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport. Source spans: DyerPaths:5, DyerPaths:7, DyerPaths:10, DyerPaths:11.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -215,7 +212,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {P : Submodule ℝ (I → ℝ)} (B : PlaneBasis (M := M) (cs := cs) P)
 noncomputable section
 
-@[expose] def cosetIntervalMap {a₀ u b : W}
+def cosetIntervalMap {a₀ u b : W}
     (hmin : ∀ z ∈ planeSubgroup M cs P, cs.length a₀ ≤ cs.length (z*a₀))
     {g k : planeSubgroup M cs P}
     (hlo : BruhatLE cs u ((g : W)*a₀)) (hhi : BruhatLE cs ((k : W)*a₀) b) :

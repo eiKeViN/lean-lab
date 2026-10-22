@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.LinearAlgebra.PairProjection
-
-public section
+import Mathlib
+import ForMathlib.LinearAlgebra.PairProjection
 
 /-! Semantic home: ForMathlib.Algebra.Module.ReflectionPair.Twist. Source spans: Frobenius:28.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -21,21 +18,21 @@ attribute [local instance] RingHomInvPair.of_ringEquiv
   val : Y
 namespace Twist
 variable (τ : R ≃+* R) (Y : Type z) [AddCommGroup Y] [Module R Y]
-@[expose] local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm : RingHomInvPair τ.symm.toRingHom τ.toRingHom :=
+local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm : RingHomInvPair τ.symm.toRingHom τ.toRingHom :=
   RingHomInvPair.of_ringEquiv_symm τ
-@[expose] local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm_1 : RingHomInvPair τ.toRingHom τ.symm.toRingHom :=
+local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm_1 : RingHomInvPair τ.toRingHom τ.symm.toRingHom :=
   RingHomInvPair.of_ringEquiv τ
-@[expose] def equivVal : Twist τ Y ≃ Y where
+def equivVal : Twist τ Y ≃ Y where
   toFun := val
   invFun := mk
   left_inv _ := rfl
   right_inv _ := rfl
-@[expose] instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instAddCommGroup : AddCommGroup (Twist τ Y) := (equivVal τ Y).addCommGroup
-@[expose] instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule : Module R (Twist τ Y) := by
+instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instAddCommGroup : AddCommGroup (Twist τ Y) := (equivVal τ Y).addCommGroup
+instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule : Module R (Twist τ Y) := by
   letI : Module R Y := Module.compHom Y τ.toRingHom
   exact ({ equivVal τ Y with map_add' := fun _ _ => rfl } : Twist τ Y ≃+ Y).module R
 
-@[expose] def equiv : Y ≃ₛₗ[τ.symm.toRingHom] Twist τ Y where
+def equiv : Y ≃ₛₗ[τ.symm.toRingHom] Twist τ Y where
   toFun := mk
   invFun := val
   left_inv _ := rfl
@@ -45,7 +42,7 @@ variable (τ : R ≃+* R) (Y : Type z) [AddCommGroup Y] [Module R Y]
     change mk (r • y) = mk (τ (τ.symm r) • y)
     rw [τ.apply_symm_apply]
 
-@[expose] instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instFree [Module.Free R Y] : Module.Free R (Twist τ Y) :=
+instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instFree [Module.Free R Y] : Module.Free R (Twist τ Y) :=
   Module.Free.of_equiv (equiv τ Y)
 end Twist
 
@@ -58,7 +55,7 @@ variable {N : Type v} [AddCommGroup N] [Module R N]
 
 /-- The old pair relation with the scalar action on its second factor twisted.
 Alpha-annihilation of the old edge is what makes this an R-submodule. -/
-@[expose] def lattice : Submodule R (X × Twist τ Y) where
+def lattice : Submodule R (X × Twist τ Y) where
   carrier := {p | ∃ n : N, f n=p.1 ∧ g n=p.2.val}
   zero_mem' := ⟨0,map_zero _,map_zero _⟩
   add_mem' := by
@@ -99,7 +96,7 @@ theorem lattice_saturated (β : R)
   · exact (lattice f g τ α hdiv hinc).smul_mem β
 
 /-- Surjective projection to the untwisted (lower) stalk. -/
-@[expose] def left : lattice f g τ α hdiv hinc →ₗ[R] X :=
+def left : lattice f g τ α hdiv hinc →ₗ[R] X :=
   (LinearMap.fst R X (Twist τ Y)).comp (lattice f g τ α hdiv hinc).subtype
 
  theorem left_surjective (hf : Function.Surjective f) :
@@ -109,7 +106,7 @@ theorem lattice_saturated (β : R)
   exact ⟨⟨(f n,⟨g n⟩),n,rfl,rfl⟩,rfl⟩
 
 /-- Its kernel is the alpha-multiple of the twisted upper stalk. -/
-@[expose] def kernelMap : Twist τ Y →ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) where
+def kernelMap : Twist τ Y →ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) where
   toFun y := ⟨⟨(0,⟨α • y.val⟩),hinc y.val⟩,rfl⟩
   map_add' y z := by
     apply Subtype.ext
@@ -143,7 +140,7 @@ theorem lattice_saturated (β : R)
   apply Twist.ext
   exact hinj (congrArg (fun p => p.val.val.2.val) h)
 
-@[expose] noncomputable def kernelEquiv (hinj : Function.Injective (fun y : Y => α • y)) :
+noncomputable def kernelEquiv (hinj : Function.Injective (fun y : Y => α • y)) :
     Twist τ Y ≃ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) :=
   LinearEquiv.ofBijective (kernelMap f g τ α hdiv hinc)
     ⟨kernelMap_injective f g τ α hdiv hinc hinj,kernelMap_surjective f g τ α hdiv hinc hker⟩

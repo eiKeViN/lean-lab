@@ -1,8 +1,5 @@
-module
-public import Mathlib
-public import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds
-
-public section
+import Mathlib
+import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem. Source spans: Decomposition:4, Decomposition:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,7 +13,7 @@ noncomputable section
 variable {G : Type*} [Group G]
 
 /-- The matrix of a pair of distinct involutions. -/
-@[expose] def pairMatrix (s t : G) (hs : s * s = 1) (hst : s ≠ t) : CoxeterMatrix Bool where
+def pairMatrix (s t : G) (hs : s * s = 1) (hst : s ≠ t) : CoxeterMatrix Bool where
   M i j := if i = j then 1 else orderOf (s * t)
   isSymm := by
     ext i j
@@ -75,7 +72,7 @@ theorem injective_of_simple_order {N : CoxeterMatrix Bool} {H : Type*} [Group H]
 variable (s t : G) (hs : s * s = 1) (ht : t * t = 1) (hst : s ≠ t)
 
 /-- The map from the genuine presented rank-two Coxeter group. -/
-@[expose] def pairLift : (pairMatrix s t hs hst).Group →* G :=
+def pairLift : (pairMatrix s t hs hst).Group →* G :=
   (pairMatrix s t hs hst).toCoxeterSystem.lift
     ⟨(fun i => if i then t else s), by
       intro i j
@@ -133,7 +130,7 @@ theorem pairLift_range :
       exact ⟨(pairMatrix s t hs hst).toCoxeterSystem.simple true, pairLift_simple _ _ _ _ _ _⟩
 
 /-- An actual Coxeter system on the generated subgroup, not an extra assumption. -/
-@[expose] def pairSystem (hs1 : s ≠ 1) (ht1 : t ≠ 1) :
+def pairSystem (hs1 : s ≠ 1) (ht1 : t ≠ 1) :
     CoxeterSystem (pairMatrix s t hs hst) (Subgroup.closure {s, t}) :=
   (pairMatrix s t hs hst).toCoxeterSystem.map
     ((MulEquiv.ofBijective (pairLift s t hs ht hst).rangeRestrict

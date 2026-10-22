@@ -1,9 +1,6 @@
-module
-public import Mathlib
-public import ForMathlib.Algebra.Module.Graded.ModuleData.Range
-public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
-
-public section
+import Mathlib
+import ForMathlib.Algebra.Module.Graded.ModuleData.Range
+import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand. Source spans: BalancedPairings:26, BalancedPairings:28, BalancedPairings:7, BalancedPairings:14, BalancedPairings:15, BalancedPairings:22, BalancedPairings:31, BalancedPairings:32.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -51,19 +48,19 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A} {V E : Type um} [PartialOrder V] {G : OrderedGraph V E}
   {B C : GradedSheaf (𝓐 := 𝓐) G}
 
- @[expose] def Hom.zero : Hom B C where
+ def Hom.zero : Hom B C where
   vertex x := ⟨0,fun n _ _ => (C.vertex x).piece n |>.zero_mem⟩
   edge e := ⟨0,fun n _ _ => (C.edge e).piece n |>.zero_mem⟩
   lower e v := by simp
   upper e v := by simp
 
- @[expose] def Hom.id (B : GradedSheaf (𝓐 := 𝓐) G) : Hom B B where
+ def Hom.id (B : GradedSheaf (𝓐 := 𝓐) G) : Hom B B where
   vertex x := ModuleData.Hom.id (B.vertex x)
   edge e := ModuleData.Hom.id (B.edge e)
   lower _ _ := rfl
   upper _ _ := rfl
 
- @[expose] def Hom.PrimitiveProjector (p : Hom B B) : Prop :=
+ def Hom.PrimitiveProjector (p : Hom B B) : Prop :=
   p.comp p=p ∧ ∀ f : Hom B B, f.comp f=f → f.comp p=f → p.comp f=f →
     f=Hom.zero ∨ f=p
 
@@ -107,7 +104,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {G : OrderedGraph V E} {B C : GradedSheaf (𝓐 := 𝓐) G}
 noncomputable section
 
- @[expose] def Hom.assignmentMap (h : Hom B C) : B.forget.Assignment →ₗ[A] C.forget.Assignment where
+ def Hom.assignmentMap (h : Hom B C) : B.forget.Assignment →ₗ[A] C.forget.Assignment where
   toFun f x := (h.vertex x).map (f x)
   map_add' f g := by funext x; exact map_add (h.vertex x).map (f x) (g x)
   map_smul' r f := by funext x; exact map_smul (h.vertex x).map r (f x)
@@ -121,7 +118,7 @@ noncomputable section
   exact (h.lower e (f (G.source e))).symm.trans
     ((congrArg (h.edge e).map (hf e hs ht)).trans (h.upper e (f (G.target e))))
 
- @[expose] def Hom.sectionMap (h : Hom B C) (Ω : Set V) :
+ def Hom.sectionMap (h : Hom B C) (Ω : Set V) :
     B.forget.sections Ω →ₗ[A] C.forget.sections Ω :=
   (h.assignmentMap.domRestrict (B.forget.sections Ω)).codRestrict (C.forget.sections Ω)
     (fun f => h.assignmentMap_compatible Ω f.val f.property)
@@ -132,7 +129,7 @@ noncomputable section
 
  variable [Fintype V] [Fintype E] [IsNoetherianRing A]
 
- @[expose] def Hom.gradedSectionMap (h : Hom B C) (Ω : Set V) :
+ def Hom.gradedSectionMap (h : Hom B C) (Ω : Set V) :
     ModuleData.Hom (B.sections Ω) (C.sections Ω) where
   map := h.sectionMap Ω
   graded := by
@@ -162,25 +159,25 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {B : GradedSheaf (𝓐 := 𝓐) G}
 noncomputable section
 
- @[expose] def Hom.image (h : Hom B B) : GradedSheaf (𝓐 := 𝓐) G where
+ def Hom.image (h : Hom B B) : GradedSheaf (𝓐 := 𝓐) G where
   vertex x := ModuleData.range (h.vertex x)
   edge e := ModuleData.range (h.edge e)
   lower e := ModuleData.rangeMap (h.vertex (G.source e)) (h.edge e) (B.lower e) (h.lower e)
   upper e := ModuleData.rangeMap (h.vertex (G.target e)) (h.edge e) (B.upper e) (h.upper e)
 
- @[expose] def Hom.imageInclusion (h : Hom B B) : Hom h.image B where
+ def Hom.imageInclusion (h : Hom B B) : Hom h.image B where
   vertex x := ModuleData.rangeInclusion (h.vertex x)
   edge e := ModuleData.rangeInclusion (h.edge e)
   lower _ _ := rfl
   upper _ _ := rfl
 
- @[expose] def Hom.imageProjection (h : Hom B B) : Hom B h.image where
+ def Hom.imageProjection (h : Hom B B) : Hom B h.image where
   vertex x := ModuleData.rangeProjection (h.vertex x)
   edge e := ModuleData.rangeProjection (h.edge e)
   lower e v := Subtype.ext (h.lower e v)
   upper e v := Subtype.ext (h.upper e v)
 
- @[expose] def Hom.imageSplit (h : Hom B B)
+ def Hom.imageSplit (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
     (he : ∀ e v, (h.edge e).map ((h.edge e).map v)=(h.edge e).map v) : SplitIn h.image B where
   inclusion := h.imageInclusion
@@ -221,7 +218,7 @@ noncomputable section
   change (h.vertex x).map (f.val x).val=(f.val x).val
   rw [← hv',hv]
 
- @[expose] def Hom.imageSectionMap (h : Hom B B)
+ def Hom.imageSectionMap (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
     (Ω : Set V) : h.image.forget.sections Ω →ₗ[A] LinearMap.range (h.sectionMap Ω) :=
   (h.imageInclusion.sectionMap Ω).codRestrict _ (fun f =>
@@ -242,7 +239,7 @@ noncomputable section
     apply Subtype.ext
     rfl
 
- @[expose] def Hom.imageSectionEquiv (h : Hom B B)
+ def Hom.imageSectionEquiv (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
     (Ω : Set V) : h.image.forget.sections Ω ≃ₗ[A] LinearMap.range (h.sectionMap Ω) :=
   LinearEquiv.ofBijective (h.imageSectionMap hv Ω) (h.imageSectionMap_bijective hv Ω)
@@ -262,7 +259,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {B C : GradedSheaf (𝓐 := 𝓐) G} (s : SplitIn B C)
 noncomputable section
 
- @[expose] def SplitIn.projector : Hom C C := s.inclusion.comp s.projection
+ def SplitIn.projector : Hom C C := s.inclusion.comp s.projection
 
 omit [IsNoetherianRing A] in
  theorem SplitIn.projector_vertex (x : V) (v : C.vertex x) :
@@ -280,8 +277,8 @@ omit [IsNoetherianRing A] in
   rw [s.edge_split]
   rfl
 
- @[expose] def SplitIn.imageTo : Hom s.projector.image B := s.projection.comp s.projector.imageInclusion
- @[expose] def SplitIn.toImage : Hom B s.projector.image := s.projector.imageProjection.comp s.inclusion
+ def SplitIn.imageTo : Hom s.projector.image B := s.projection.comp s.projector.imageInclusion
+ def SplitIn.toImage : Hom B s.projector.image := s.projector.imageProjection.comp s.inclusion
 
  theorem SplitIn.imageTo_toImage_vertex (x : V) (v : B.vertex x) :
     (s.imageTo.vertex x).map ((s.toImage.vertex x).map v)=v := by
@@ -325,7 +322,7 @@ omit [IsNoetherianRing A] in
     funext x
     exact s.imageTo_toImage_vertex x (m.val x)
 
- @[expose] def SplitIn.imageSectionEquiv (Ω : Set V) :
+ def SplitIn.imageSectionEquiv (Ω : Set V) :
     s.projector.image.forget.sections Ω ≃ₗ[A] B.forget.sections Ω :=
   LinearEquiv.ofBijective (s.imageTo.sectionMap Ω) (s.imageSection_bijective Ω)
 
@@ -357,7 +354,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {B C : GradedSheaf (𝓐 := 𝓐) G}
 noncomputable section
 
- @[expose] def SplitIn.liftEnd (s : SplitIn B C) (f : Hom B B) : Hom C C :=
+ def SplitIn.liftEnd (s : SplitIn B C) (f : Hom B B) : Hom C C :=
   s.inclusion.comp (f.comp s.projection)
 
  theorem SplitIn.liftEnd_injective (s : SplitIn B C) : Function.Injective s.liftEnd := by
@@ -447,7 +444,7 @@ noncomputable section
     simpa only [s.vertex_split,map_zero] using hh
   · exact he
 
- @[expose] def SplitIn.isoOfProjectorEqId (s : SplitIn B C) (h : s.projector=Hom.id C) : Iso B C where
+ def SplitIn.isoOfProjectorEqId (s : SplitIn B C) (h : s.projector=Hom.id C) : Iso B C where
   vertex x :=
     { toLinearMap := (s.inclusion.vertex x).map
       invFun := (s.projection.vertex x).map
@@ -463,7 +460,7 @@ noncomputable section
   vertex_graded x := (s.inclusion.vertex x).graded
   edge_graded e := (s.inclusion.edge e).graded
 
- @[expose] def SplitIn.isoOfPrimitive (s : SplitIn B C)
+ def SplitIn.isoOfPrimitive (s : SplitIn B C)
     (h : (Hom.id C).PrimitiveProjector)
     (x : V) [Nontrivial (B.vertex x)] : Iso B C :=
   s.isoOfProjectorEqId (s.projector_eq_id_of_primitive h x)
@@ -499,7 +496,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {B C : GradedSheaf (𝓐 := 𝓐) G}
 noncomputable section
 
- @[expose] def SplitIn.downEnd (s : SplitIn B C) (f : Hom C C) : Hom B B :=
+ def SplitIn.downEnd (s : SplitIn B C) (f : Hom C C) : Hom B B :=
   s.projection.comp (f.comp s.inclusion)
 
  theorem SplitIn.lift_down (s : SplitIn B C) (f : Hom C C)
