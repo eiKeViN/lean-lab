@@ -1,5 +1,7 @@
 module
-public import Mathlib
+public import Mathlib.Algebra.Polynomial.Reverse
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.Linarith
 
 public section
 

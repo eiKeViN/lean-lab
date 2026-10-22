@@ -68,7 +68,7 @@ def generated_checks():
     exporter=(HERE/'PublicTypes.lean').read_text().replace('import OAI.Architecture','import ImplementationImports',1)
     corpus=(HERE/'SemanticCorpus.lean').read_text().replace('import OAI.Architecture','import ImplementationImports',1)
     return {'ImplementationImports.lean':full,'ImplementationPublicTypes.lean':exporter,
-            'ImplementationSemanticCorpus.lean':corpus,'ModernRolloutTypes.lean':modern_exporter(), **coordinate_checks()}
+            'ImplementationSemanticCorpus.lean':corpus,'ModernRolloutTypes.lean':modern_exporter(), **coordinate_checks(), **safe_import_checks()}
 
 ALIASES_SHA='2bb66d2e7594feea4c0eaec7f6cf0f9de28e39b96675054943c8dfe46af24d51'
 def modern_exporter():
@@ -150,12 +150,18 @@ def compare_public(path):
     if not result['passed']:raise RuntimeError('Rollout public types changed: '+json.dumps(result))
     return result
 
-NARROW_SHA='56d3fd3bd7fa11bd7ca7ddf53f04717ad2b1148b8580ad7476c76339b61455f5'
+NARROW_SHA='154085c362cd6abfb5fbaebc8075ecd0f0bd02342a333923de11add89e1aac5c'
 def narrow_plan():
     raw=(HERE/'module-rollout-imports.json').read_bytes()
     if sha(raw)!=NARROW_SHA:raise RuntimeError('Unrecorded import narrowing')
     d=json.loads(raw)
-    if len(d['files'])!=12 or not set(d['files'])<=set(plan()['files']):raise RuntimeError('Invalid narrowing scope')
+    if len(d['files'])!=20 or not set(d['files'])<=set(plan()['files']):raise RuntimeError('Invalid narrowing scope')
+    batch=d.get('imports_only_batch',{})
+    if batch.get('base_commit')!='2a7f8dc51dae6b10bc8344890a32ca0ef323b633' or batch.get('module_scope_unchanged')!=125 or len(batch.get('files',[]))!=8:
+        raise RuntimeError('Changed imports-only boundary')
+    original=original_narrow_plan()['files']
+    if any(d['files'].get(p)!=v for p,v in original.items()) or set(d['files'])!=set(original)|set(batch['files']):
+        raise RuntimeError('Changed previous headers or additional import scope')
     return d
 
 def effective_imports(path,original):return narrow_plan()['files'].get(path,{}).get('imports',original)
@@ -194,6 +200,29 @@ run_elab do
 #check MeasureTheory.integral_const
 """
     return {'ModernCoordinateChecks.lean':narrow,'ModernCoordinateMathlibChecks.lean':repaired}
+
+@lru_cache(None)
+def original_narrow_plan():
+    return json.loads(subprocess.check_output(['git','show','2a7f8dc51dae6b10bc8344890a32ca0ef323b633:experiments/kl-for-mathlib/module-rollout-imports.json'],cwd=ROOT))
+
+def safe_import_checks():
+    paths=narrow_plan()['imports_only_batch']['files']
+    owners={p[:-5].replace('/','.') for p in paths}
+    names=[n for n,t in expected_types().items() if t['module'] in owners]
+    header='module\n'+''.join('import '+n+'\n' for n in sorted(owners))+'import Lean\n'
+    body="""open scoped BigOperators
+example (d : ℕ) (p : Polynomial ℤ) :
+    OAI.KLInvariance.CanonicalP.lowPart d p =
+      ∑ n ∈ Finset.range ((d + 1) / 2), Polynomial.monomial n (p.coeff n) := rfl
+run_elab do
+  let env ← Lean.getEnv
+  for n in #[NAMES] do
+    unless env.contains n do throwError "Missing focused owned API: {n}"
+  if env.contains `MeasureTheory.integral_const then
+    throwError "Unexpected unrelated Mathlib re-export"
+  IO.println "Eight focused imports: owned declarations and lowPart rfl preserved; unrelated integral_const absent."
+""".replace('NAMES',', '.join('`'+n for n in names))
+    return {'SafeImportChecks.lean':header+body}
 
 if __name__=='__main__':
     import argparse

@@ -1,5 +1,6 @@
 module
-public import Mathlib
+public import Mathlib.Algebra.Module.LocalizedModule.Submodule
+public import Mathlib.RingTheory.Localization.BaseChange
 
 public section
 

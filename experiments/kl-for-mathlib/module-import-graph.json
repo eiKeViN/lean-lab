@@ -155,7 +155,7 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.RingTheory.Flat.Basic",
         "public": true,
         "meta": false,
         "all": false,
@@ -958,11 +958,18 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.Algebra.Module.LocalizedModule.Submodule",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.RingTheory.Localization.BaseChange",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -1013,11 +1020,18 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.Algebra.Module.Projective",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Tactic.Abel",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -1089,11 +1103,46 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.RingTheory.QuotSMulTop",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Algebra.Module.Torsion.Basic",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      },
+      {
+        "module": "Mathlib.RingTheory.Ideal.Quotient.Operations",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
+      },
+      {
+        "module": "Mathlib.LinearAlgebra.FreeModule.Basic",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 5
+      },
+      {
+        "module": "Mathlib.Tactic.Ring",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 6
+      },
+      {
+        "module": "Mathlib.RingTheory.Regular.Free",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 7
       }
     ]
   },
@@ -1224,11 +1273,39 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.Algebra.Module.Submodule.Pointwise",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Algebra.GroupWithZero.Associated",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      },
+      {
+        "module": "Mathlib.Algebra.Algebra.Defs",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
+      },
+      {
+        "module": "Mathlib.Algebra.Algebra.Tower",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 5
+      },
+      {
+        "module": "Mathlib.Algebra.BigOperators.Associated",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 6
       }
     ]
   },
@@ -1288,11 +1365,25 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.Algebra.Polynomial.Reverse",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Tactic.Ring",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      },
+      {
+        "module": "Mathlib.Tactic.Linarith",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
       }
     ]
   },
@@ -3571,11 +3662,18 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.Dual.Defs",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Algebra.Algebra.Basic",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -3695,11 +3793,32 @@
     "module": true,
     "imports": [
       {
-        "module": "Mathlib",
+        "module": "Mathlib.LinearAlgebra.Span.Defs",
         "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "Mathlib.Algebra.GroupWithZero.Associated",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
+      },
+      {
+        "module": "Mathlib.Algebra.Algebra.Defs",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
+      },
+      {
+        "module": "Mathlib.Algebra.Field.Defs",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 5
       }
     ]
   },

@@ -37,6 +37,20 @@ class RolloutTests(unittest.TestCase):
             with patch('compare_types.load',return_value=data),self.assertRaises(RuntimeError):m.compare_public('unused')
         bad=copy.deepcopy(wanted);n=next(iter(bad));bad[n]['kind']='axiom'
         with patch('compare_types.load',return_value=bad),self.assertRaises(RuntimeError):m.compare_public('unused')
+    def test_imports_only_batch_cannot_change_old_headers_or_module_scope(self):
+        original=m.narrow_plan();region=m.plan()
+        for mutation in ('old_header','module_scope'):
+            data=copy.deepcopy(original)
+            if mutation=='old_header':
+                first=next(iter(m.original_narrow_plan()['files']))
+                data['files'][first]['imports'].append('Mathlib')
+            else:data['imports_only_batch']['module_scope_unchanged']=126
+            raw=(json.dumps(data,indent=2)+'\n').encode()
+            with tempfile.TemporaryDirectory() as td:
+                root=Path(td);(root/'module-rollout-imports.json').write_bytes(raw)
+                with patch.object(m,'HERE',root),patch.object(m,'NARROW_SHA',m.sha(raw)),patch.object(m,'plan',return_value=region):
+                    with self.assertRaises(RuntimeError):m.narrow_plan()
+
     def test_original_implementation_serializer_is_not_changed(self):
         src=(m.HERE/'PublicTypes.lean').read_text()
         full=m.generated_checks()['ImplementationPublicTypes.lean']

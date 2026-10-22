@@ -123,6 +123,109 @@
       "new_header": "module\npublic import Mathlib.Basic.Real.Basic\npublic import Mathlib.Tactic.NormNum\npublic import Mathlib.Tactic.Ring\npublic import Mathlib.Tactic.Linarith\npublic import Mathlib.Tactic.LinearCombination\n",
       "before_sha256": "3eff7a3e129f54e0d88751bb16145dc3ba4b89931661f365bf50c0daee1a51aa",
       "after_sha256": "c4d0d68bb0be19a4a09433186922b67fe1e58621117b6688ab7432dd63a3908e"
+    },
+    "ForMathlib/LinearAlgebra/PlaneReduction.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.Span.Defs",
+        "Mathlib.Algebra.GroupWithZero.Associated",
+        "Mathlib.Algebra.Algebra.Defs",
+        "Mathlib.Algebra.Field.Defs"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.Span.Defs\npublic import Mathlib.Algebra.GroupWithZero.Associated\npublic import Mathlib.Algebra.Algebra.Defs\npublic import Mathlib.Algebra.Field.Defs\n",
+      "before_sha256": "f5785e1987e397c3ba850c3fc2ab499781c54e039d52d9585f6308ccf7f425d5",
+      "after_sha256": "045907c63e56f92d55b84960b81217141770d12bef73de3afe606aa09864010b"
+    },
+    "ForMathlib/Algebra/Module/Flat/Kernel.lean": {
+      "imports": [
+        "Mathlib.RingTheory.Flat.Basic"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.RingTheory.Flat.Basic\n",
+      "before_sha256": "5c2d1caebf4fb94057b6278e502e6ae0869afdfe824ef53443ba53dd5e10fd8b",
+      "after_sha256": "9ffff21e55fce77ff5c3e4d002c0572c6ed330885c641c235a15bf425f144686"
+    },
+    "ForMathlib/LinearAlgebra/Dual/BalancedCut.lean": {
+      "imports": [
+        "Mathlib.LinearAlgebra.Dual.Defs",
+        "Mathlib.Algebra.Algebra.Basic"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.LinearAlgebra.Dual.Defs\npublic import Mathlib.Algebra.Algebra.Basic\n",
+      "before_sha256": "e164e614672766fecf681fb8d3fb83a7687a9d21788f35823095d3a163e7699e",
+      "after_sha256": "433fbc2dfbfc223d2ef9cc1a16651030a1eacee890c9b2965cfdcb7e71c64f12"
+    },
+    "ForMathlib/Algebra/Module/Quotient/KernelReduction.lean": {
+      "imports": [
+        "Mathlib.RingTheory.QuotSMulTop",
+        "Mathlib.Algebra.Module.Torsion.Basic",
+        "Mathlib.RingTheory.Ideal.Quotient.Operations",
+        "Mathlib.LinearAlgebra.FreeModule.Basic",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.RingTheory.Regular.Free"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.RingTheory.QuotSMulTop\npublic import Mathlib.Algebra.Module.Torsion.Basic\npublic import Mathlib.RingTheory.Ideal.Quotient.Operations\npublic import Mathlib.LinearAlgebra.FreeModule.Basic\npublic import Mathlib.Tactic.Ring\npublic import Mathlib.RingTheory.Regular.Free\n",
+      "before_sha256": "99a234f0523a89d3f74c348fb73f7c1aacf5a48836995053ec84ea2b4faf0b88",
+      "after_sha256": "4976748198cacbd4babddfd3d7fc7cc20340a4b7abc0bb2e3e5fabaf076a4b91"
+    },
+    "ForMathlib/Algebra/Module/Projective/ReverseFiltration.lean": {
+      "imports": [
+        "Mathlib.Algebra.Module.Projective",
+        "Mathlib.Tactic.Abel"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Algebra.Module.Projective\npublic import Mathlib.Tactic.Abel\n",
+      "before_sha256": "cd5f5ff365b3b4b743b3f834f12e1a45f83ccd80a23f1664b14e55620245e6bb",
+      "after_sha256": "a722d3c21b45e9b26b7d2eecc8efcf219755b7fa14da571769dc6e74b1c4aece"
+    },
+    "ForMathlib/Algebra/Polynomial/LowPart.lean": {
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Reverse",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Algebra.Polynomial.Reverse\npublic import Mathlib.Tactic.Ring\npublic import Mathlib.Tactic.Linarith\n",
+      "before_sha256": "bf2595f0cca8ea9a95617bbd524dec309e1abd57abf5339658e83f7f2bbb96d9",
+      "after_sha256": "777055e4d6f83a405e9228c97943f7395da43a81afbf974cd5fbf69e9ceee736"
+    },
+    "ForMathlib/Algebra/Module/Localization/Membership.lean": {
+      "imports": [
+        "Mathlib.Algebra.Module.LocalizedModule.Submodule",
+        "Mathlib.RingTheory.Localization.BaseChange"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Algebra.Module.LocalizedModule.Submodule\npublic import Mathlib.RingTheory.Localization.BaseChange\n",
+      "before_sha256": "ae8b8a4759b2f7aecf4e0ae9314c9005ec0f95a0b0846e73ced6dc3c4b54854e",
+      "after_sha256": "93172b5fc7159e74fa001e50ce23f2aebebeeb1304ccc941859273ee43518c58"
+    },
+    "ForMathlib/Algebra/Module/Submodule/ProductScaling.lean": {
+      "imports": [
+        "Mathlib.Algebra.Module.Submodule.Pointwise",
+        "Mathlib.Algebra.GroupWithZero.Associated",
+        "Mathlib.Algebra.Algebra.Defs",
+        "Mathlib.Algebra.Algebra.Tower",
+        "Mathlib.Algebra.BigOperators.Associated"
+      ],
+      "old_header": "module\npublic import Mathlib\n",
+      "new_header": "module\npublic import Mathlib.Algebra.Module.Submodule.Pointwise\npublic import Mathlib.Algebra.GroupWithZero.Associated\npublic import Mathlib.Algebra.Algebra.Defs\npublic import Mathlib.Algebra.Algebra.Tower\npublic import Mathlib.Algebra.BigOperators.Associated\n",
+      "before_sha256": "abd7388f6fb572e92cbc22c574d1283ab68261ec6e9b626b015e9aba389fd4a6",
+      "after_sha256": "c7879b064a11d0169ac30303269a20dfa529b5462555e027e9bce3116c02ed83"
     }
+  },
+  "imports_only_batch": {
+    "base_commit": "2a7f8dc51dae6b10bc8344890a32ca0ef323b633",
+    "files": [
+      "ForMathlib/LinearAlgebra/PlaneReduction.lean",
+      "ForMathlib/Algebra/Module/Flat/Kernel.lean",
+      "ForMathlib/LinearAlgebra/Dual/BalancedCut.lean",
+      "ForMathlib/Algebra/Module/Quotient/KernelReduction.lean",
+      "ForMathlib/Algebra/Module/Projective/ReverseFiltration.lean",
+      "ForMathlib/Algebra/Polynomial/LowPart.lean",
+      "ForMathlib/Algebra/Module/Localization/Membership.lean",
+      "ForMathlib/Algebra/Module/Submodule/ProductScaling.lean"
+    ],
+    "module_scope_unchanged": 125
   }
 }

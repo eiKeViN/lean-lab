@@ -1,5 +1,6 @@
 module
-public import Mathlib
+public import Mathlib.LinearAlgebra.Dual.Defs
+public import Mathlib.Algebra.Algebra.Basic
 
 public section
 

@@ -1,5 +1,6 @@
 module
-public import Mathlib
+public import Mathlib.Algebra.Module.Projective
+public import Mathlib.Tactic.Abel
 
 public section
 

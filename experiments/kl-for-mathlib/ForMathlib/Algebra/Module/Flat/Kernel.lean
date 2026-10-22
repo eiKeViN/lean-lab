@@ -1,5 +1,5 @@
 module
-public import Mathlib
+public import Mathlib.RingTheory.Flat.Basic
 
 public section
 

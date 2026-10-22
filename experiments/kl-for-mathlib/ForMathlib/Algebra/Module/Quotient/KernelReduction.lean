@@ -1,5 +1,10 @@
 module
-public import Mathlib
+public import Mathlib.RingTheory.QuotSMulTop
+public import Mathlib.Algebra.Module.Torsion.Basic
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+public import Mathlib.LinearAlgebra.FreeModule.Basic
+public import Mathlib.Tactic.Ring
+public import Mathlib.RingTheory.Regular.Free
 
 public section
 
