@@ -76,5 +76,53 @@
     "type": "b691704148f478ada4f00d633fb8e65b4d2ea68b7d674b0eff8b76925945b2c2",
     "kind": "theorem",
     "module": "OAI.KL.Localization.TerminalImages"
+  },
+  "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le": {
+    "levels": "\"[`u', `v']\"",
+    "type": "d057351cf9b32e4f43b5c31896317dbb75ceadfbc3999abad49928e34fff2c53",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval": {
+    "levels": "\"[`u, `u_1]\"",
+    "type": "ef54e06a1df4bafd85188955c287b54816a70963d4e14732d8501b0b1c861904",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term": {
+    "levels": "\"[`u, `u_1]\"",
+    "type": "5abdbb0d8edf2155aab05b3ec85c8dcba5674e8ecfab938af1788ad5bd2428cf",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight": {
+    "levels": "\"[`u_1]\"",
+    "type": "5925adc21959ac49720e67abf8b8f02ad963f1e9eb8e6ecd6feb02b34b5793df",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper": {
+    "levels": "\"[`u, `u_1]\"",
+    "type": "1f694f2c4329767c4da65b2a48edca87129ab343f7a53f22e2184a315e59b371",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Transport"
+  },
+  "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "90102cfca4b144922393c543f40c2039dd861e3ab9c5e921f6babdddcc08a28a",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Propagation"
+  },
+  "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "e06d7fcd710b738e9192ec11342595c1f5576f1e5decbc5e043fa84438dee384",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.Propagation"
+  },
+  "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "0e2415446acec1ec5707c737944ec8fa832acdace9033324288e36fd0bc1e104",
+    "kind": "theorem",
+    "module": "OAI.KL.Comparison.SuffixFreeness"
   }
 }

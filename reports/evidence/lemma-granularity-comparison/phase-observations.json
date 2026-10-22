@@ -1,0 +1,17 @@
+{
+  "first_recorded_clock": "2026-10-22T01:40:06Z",
+  "first_module_build": "2026-10-22T01:45:06.948956Z",
+  "module_cleanup_complete": "2026-10-22T01:47:44.735270Z",
+  "downstream_complete": "2026-10-22T01:49:28.954918Z",
+  "full_validation_complete": "2026-10-22T01:54:27.194361Z",
+  "direct_measurements_complete": "2026-10-22T01:55:39.347729Z",
+  "failure": {
+    "action": "proof_evolution.py --record",
+    "target": "OAI/KL/Comparison/Transport.lean",
+    "exit_code": 1,
+    "message": "Edit outside approved proof/declaration spans",
+    "reason": "Reused proof text aligned an unchanged old header as moved. Selected header spans now admitted and separately compared literally, with an actual no-mock negative test.",
+    "timing": "Unmetered by command harness; preserved as a failed verification iteration, not a denial."
+  },
+  "phase_limit": "Selection/design/editing/check adaptation/reporting are interleaved. No invented pure phase durations or model token estimates. Two redundant new premises removed in one successful shared rebuild, not a failed proof attempt."
+}

@@ -168,23 +168,34 @@ omit [Fintype σ] in
     (kernelEquivSingleSupport cs u b basis hub B x k) n
 
 omit [Fintype σ] in
+/-- Multiplying costalk dual evaluation by the incoming label product recovers
+the section pairing on the two single-supported lifts. Symmetry is not needed;
+this is the compatibility identity used before cancelling that product. -/
+theorem costalk_pairing_scaled (d : SectionDuality cs u b basis hub B)
+    (x : Interval cs u b) (k l : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
+    Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x *
+      (costalkEquivDual cs u b basis hub B d x k) l.val =
+    d.pairing (kernelEquivSingleSupport cs u b basis hub B x k).val
+      (kernelEquivSingleSupport cs u b basis hub B x l).val := by
+  let e := costalkEquivDual cs u b basis hub B d x
+  let g := Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x
+  let f := kernelEquivSingleSupport cs u b basis hub B x
+  calc
+    g * (e k) l.val = (e k) (g • l.val) := (map_smul (e k) g l.val).symm
+    _ = (e k) ((f l).val.val x) := congrArg (e k)
+      (kernelEquivSingleSupport_apply cs u b basis hub B x l).symm
+    _ = _ := costalkEquivDual_pairing cs u b basis hub B d x k (f l).val
+
+omit [Fintype σ] in
  theorem costalkEquivDual_symmetric (d : SectionDuality cs u b basis hub B)
     (hsym : ∀ m n, d.pairing m n=d.pairing n m)
     (x : Interval cs u b) (k l : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
     costalkEquivDual cs u b basis hub B d x k l.val=
       costalkEquivDual cs u b basis hub B d x l k.val := by
-  let e := costalkEquivDual cs u b basis hub B d x
-  let g := Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x
-  let f := kernelEquivSingleSupport cs u b basis hub B x
-  have he (k l : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
-      g * (e k) l.val=d.pairing (f k).val (f l).val := calc
-    g * (e k) l.val = (e k) (g • l.val) := (map_smul (e k) g l.val).symm
-    _ = (e k) ((f l).val.val x) := congrArg (e k)
-      (kernelEquivSingleSupport_apply cs u b basis hub B x l).symm
-    _ = _ := costalkEquivDual_pairing cs u b basis hub B d x k (f l).val
   exact mul_left_cancel₀ (Sheaf.incomingProduct_ne_zero
     (polynomialLabel cs u b basis) (polynomialLabel_prime cs u b basis) x)
-    ((he k l).trans ((hsym _ _).trans (he l k).symm))
+    ((costalk_pairing_scaled cs u b basis hub B d x k l).trans
+      ((hsym _ _).trans (costalk_pairing_scaled cs u b basis hub B d x l k).symm))
 
 omit [Fintype σ] in
  theorem costalkEquivDual_inverse_symmetric (d : SectionDuality cs u b basis hub B)
@@ -326,6 +337,32 @@ variable [Fintype (Edge cs 1 b)] [Fintype (Interval cs 1 b)] [DecidableEq (Inter
   (C : BoundarySheaf (polynomialGrading_negative ℝ σ)
     (graph cs 1 b) (polynomialLabel cs 1 b basis) ⟨b,one_bruhat cs b,bruhat_refl cs b⟩)
 
+/-- A homogeneous section duality and stalk-character identification give
+the raw full-kernel Hilbert expression. Basis choice and reciprocal character
+evaluation are handled here, leaving scalar normalization to the caller. -/
+theorem fullKernel_hilbert_of_duality_character
+    (d : SectionDuality cs 1 b basis (one_bruhat cs b) C)
+    (hd : ∀ i j (m n : C.sheaf.sections Set.univ),
+      m ∈ (C.sheaf.sections Set.univ).piece i → n ∈ (C.sheaf.sections Set.univ).piece j →
+      d.pairing m n ∈ polynomialGrading ℝ σ (i+j-(cs.length b : ℤ)))
+    (x : Interval cs 1 b)
+    (hc : stalkCharacter cs 1 b basis (one_bruhat cs b) x = klPolynomial cs x.val b)
+    {q : ℝ} (hq : 0 < q) (hq1 : q < 1) :
+    C.sheaf.kernelHilbert q x Set.univ =
+      q^((cs.length b : ℤ)-cs.length x.val) *
+        Polynomial.eval₂ (Int.castRingHom ℝ) q⁻¹ (klPolynomial cs x.val b) *
+        (1-q)⁻¹ ^ Fintype.card σ := by
+  let _ := C.free x
+  let c := (exists_nonnegativeBasis (σ := σ) (C.sheaf.vertex x).piece
+    (C.sheaf.vertex x).nonneg).some
+  have hcp : c.polynomial = klPolynomial cs x.val b := by
+    rw [← character_eq (C.sheaf.vertex x).piece (C.sheaf.vertex x).nonneg c,
+      ← stalkCharacter_eq_character cs 1 b basis (one_bruhat cs b) C x]
+    exact hc
+  rw [GradedSheaf.kernelHilbert,fullKernel_eq cs 1 b basis (one_bruhat cs b) C x,
+    costalk_hilbert_of_duality cs 1 b basis (one_bruhat cs b) C d (cs.length b) hd x c
+      hq hq1,hcp,incoming_card cs b x]
+
  theorem normalized_fullKernel_of_duality_character
     (d : SectionDuality cs 1 b basis (one_bruhat cs b) C)
     (hd : ∀ i j (m n : C.sheaf.sections Set.univ),
@@ -336,26 +373,11 @@ variable [Fintype (Edge cs 1 b)] [Fintype (Interval cs 1 b)] [DecidableEq (Inter
     {t : ℝ} (ht : 0 < t) (ht1 : t < 1) :
     normalizedKernel cs 1 b basis (one_bruhat cs b) C t x Set.univ =
       scaledKL cs t⁻¹ x.val b := by
-  let _ := C.free x
-  let c := (exists_nonnegativeBasis (σ := σ) (C.sheaf.vertex x).piece
-    (C.sheaf.vertex x).nonneg).some
-  have hcp : c.polynomial = klPolynomial cs x.val b := by
-    rw [← character_eq (C.sheaf.vertex x).piece (C.sheaf.vertex x).nonneg c,
-      ← stalkCharacter_eq_character cs 1 b basis (one_bruhat cs b) C x]
-    exact hc
-  rw [normalizedKernel,GradedSheaf.kernelHilbert,
-    fullKernel_eq cs 1 b basis (one_bruhat cs b) C x,
-    costalk_hilbert_of_duality cs 1 b basis (one_bruhat cs b) C d (cs.length b) hd x c
-      (sq_pos_of_pos ht) (by nlinarith),hcp,incoming_card cs b x]
+  rw [normalizedKernel,fullKernel_hilbert_of_duality_character cs b basis C d hd x hc
+    (sq_pos_of_pos ht) (by nlinarith)]
   dsimp only [stateScale,scaledKL]
-  have hscale : t^((cs.length x.val : ℤ)-cs.length b) *
-      (t^2)^((cs.length b : ℤ)-cs.length x.val) =
-      (t⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
-    rw [show (t^2)^((cs.length b : ℤ)-cs.length x.val) =
-      t^(2*((cs.length b : ℤ)-cs.length x.val)) by rw [zpow_mul]; norm_num,
-      ← zpow_add₀ ht.ne',inv_zpow,← zpow_neg]
-    congr 1
-    omega
+  have hscale := reciprocal_square_weight t ht.ne'
+    (cs.length x.val : ℤ) (cs.length b : ℤ)
   rw [show (t^2)⁻¹=(t⁻¹)^2 by rw [inv_pow]]
   have hne : 1-t^2 ≠ 0 := ne_of_gt (by nlinarith : 0 < 1-t^2)
   calc

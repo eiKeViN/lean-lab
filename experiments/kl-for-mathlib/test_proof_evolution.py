@@ -45,13 +45,13 @@ class EvolutionChecks(unittest.TestCase):
     def test_reject_rebound_first_round_source(self):
         path=next(iter(ev.policy()['prior_active_files']));f=self.root/path
         f.write_text(f.read_text()+'\n');self.bind_sources()
-        with self.assertRaisesRegex(RuntimeError,'frozen first-round'):ev.overlay(dict(PRISTINE))
+        with self.assertRaisesRegex(RuntimeError,'frozen prior-round'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_first_round_type(self):
         f=self.root/'additional-types.json';data=json.loads(f.read_text())
         data[next(iter(data))]['type']='0'*64;f.write_text(json.dumps(data))
         record=json.loads(ev.MANIFEST.read_text());record['additional_types_sha256']=ev.sha(f.read_bytes());ev.MANIFEST.write_text(json.dumps(record))
-        with self.assertRaisesRegex(RuntimeError,'retained first-round added types'):
+        with self.assertRaisesRegex(RuntimeError,'retained prior-round added types'):
             self.compare_mock({**OLD,**ADDED})
 
     def test_reject_unlisted_file(self):
@@ -83,15 +83,38 @@ class EvolutionChecks(unittest.TestCase):
         f=self.root/'ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean';text=f.read_text()
         self.assertIn('simp [h]',text)
         f.write_text(text.replace('simp [h]','simpa [h]',1));self.bind_sources()
-        with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+        with patch.object(ev,'check_prior_source',return_value=None):
+            with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_expansion_statement(self):
         f=self.root/'ForMathlib/LinearAlgebra/Reflection/Plane.lean';text=f.read_text()
         needle='(hfg : LinearIndependent k ![f, g]) :\n    LinearMap.range'
         self.assertIn(needle,text)
         f.write_text(text.replace(needle,'(hfg : LinearIndependent k ![g, f]) :\n    LinearMap.range',1));self.bind_sources()
-        with patch.object(ev,'edit_scope',return_value=None):
+        with patch.object(ev,'edit_scope',return_value=None), patch.object(ev,'check_prior_source',return_value=None):
             with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_rebound_second_round_source(self):
+        f=self.root/'ForMathlib/LinearAlgebra/Reflection/Plane.lean';f.write_text(f.read_text()+'\n');self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'frozen prior-round'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_rebound_second_round_added_type(self):
+        f=self.root/'additional-types.json';data=json.loads(f.read_text())
+        name=ev.policy()['additions'][5];data[name]['type']='0'*64;f.write_text(json.dumps(data))
+        record=json.loads(ev.MANIFEST.read_text());record['additional_types_sha256']=ev.sha(f.read_bytes());ev.MANIFEST.write_text(json.dumps(record))
+        with self.assertRaisesRegex(RuntimeError,'retained prior-round added types'):self.compare_mock({**OLD,**ADDED})
+
+    def test_reject_comparison_unsampled_proof(self):
+        f=self.root/'OAI/KL/Comparison/Transport.lean';text=f.read_text()
+        needle='  rw [← transported_entry_eq_rTilde φ x y]'
+        self.assertIn(needle,text);f.write_text(text.replace(needle,'  simp only [← transported_entry_eq_rTilde φ x y]',1));self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+
+    def test_reject_comparison_old_header_without_scope_mock(self):
+        f=self.root/'OAI/KL/Comparison/Transport.lean';text=f.read_text()
+        needle='(v : C) (hv : v≠0) (x : Interval cs 1 b) :'
+        self.assertIn(needle,text);f.write_text(text.replace(needle,'(v : C) (hv : v=0) (x : Interval cs 1 b) :',1));self.bind_sources()
+        with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_private_axiom(self):
         path=next(iter(ev.policy()['pristine_files']));f=self.root/path;f.write_text(f.read_text()+'\nprivate axiom hidden : False\n');self.bind_sources()

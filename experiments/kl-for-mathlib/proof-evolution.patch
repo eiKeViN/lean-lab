@@ -334,3 +334,291 @@
 -        (B.plane_eq.ge (B.edgeRoot_plane e.property)) (B.plane_eq.ge hβ) hαβ).trans B.plane_eq
 +    obtain ⟨β,hαβ,hplane⟩ := B.exists_root_plane_complement α
 +      (B.edgeRoot_plane e.property)
+--- pristine/OAI/KL/Comparison/Transport.lean
++++ active/OAI/KL/Comparison/Transport.lean
+@@ -174,0 +175,17 @@
++omit [Fintype I'] in
++/-- Every edge source on an increasing Bruhat path lies above its start.
++This is the source-side path bound used when lifting a path into a transported
++interval; it needs no schedule or interval isomorphism. -/
++theorem adapted_path_sources_le {z w : W'} {p : List (AdaptedDyer.Edge cs')}
++    (hp : IsPath (AdaptedDyer.source cs') (AdaptedDyer.target cs') z w p) :
++    ∀ e ∈ p, BruhatLE cs' z (AdaptedDyer.source cs' e) := by
++  induction p generalizing z with
++  | nil => simp
++  | cons e p ih =>
++    intro f hf
++    rcases List.mem_cons.mp hf with rfl | hf
++    · exact hp.1 ▸ bruhat_refl cs' z
++    · rw [← hp.1]
++      exact (show BruhatLE cs' (AdaptedDyer.source cs' e)
++        (AdaptedDyer.target cs' e) from .single e.property).trans (ih hp.2 f hf)
++
+@@ -182,12 +198,0 @@
+-  have hsource {z w : W'} {p : List (AdaptedDyer.Edge cs')}
+-      (hp : IsPath (AdaptedDyer.source cs') (AdaptedDyer.target cs') z w p) :
+-      ∀ e ∈ p, BruhatLE cs' z (AdaptedDyer.source cs' e) := by
+-    induction p generalizing z with
+-    | nil => simp
+-    | cons e p ih =>
+-      intro f hf
+-      rcases List.mem_cons.mp hf with rfl | hf
+-      · exact hp.1 ▸ bruhat_refl cs' z
+-      · rw [← hp.1]
+-        exact (show BruhatLE cs' (AdaptedDyer.source cs' e)
+-          (AdaptedDyer.target cs' e) from .single e.property).trans (ih hp.2 f hf)
+@@ -210 +215 @@
+-    exact transportedEdge_lift φ e ((φ x).property.1.trans (hsource hp e he))
++    exact transportedEdge_lift φ e ((φ x).property.1.trans (adapted_path_sources_le hp e he))
+@@ -341,5 +346,20 @@
+- theorem scaledStalk_reciprocity_inverse {C : Type*} [Field C]
+-    (v : C) (hv : v≠0) (x : Interval cs 1 b) :
+-    scaledStalk cs b basis v⁻¹ x=∑ z : Interval cs 1 b,
+-      eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val)*
+-        scaledStalk cs b basis v z := by
++/-- A squared reciprocal degree weight reverses the grading exponent.
++This field identity is shared by scaled-stalk polynomial reciprocity and the
++normalization of the full-kernel Hilbert expression; no positivity is required. -/
++theorem reciprocal_square_weight {C : Type*} [Field C] (v : C) (hv : v ≠ 0)
++    (m n : ℤ) : v^(m-n) * (v^2)^(n-m) = (v⁻¹)^(m-n) := by
++  rw [show (v^2)^(n-m) = v^(2*(n-m)) by rw [zpow_mul]; norm_num,
++    ← zpow_add₀ hv,inv_zpow,← zpow_neg]
++  congr 1
++  omega
++
++/-- Evaluating polynomial stalk reciprocity at the nonzero square gives a
++reciprocal-point identity before any degree weights are normalized. The degree
++bound justifies evaluating the reflected stalk polynomial. -/
++theorem stalkCharacter_reciprocity_eval {C : Type*} [Field C]
++    (v : C) (hv : v ≠ 0) (x : Interval cs 1 b) :
++    (v^2)^(rankDifference cs x.val b) *
++      eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x) =
++    ∑ z : Interval cs 1 b,
++      eval₂ (Int.castRingHom C) (v^2) (OrdinaryR.polynomial cs x.val z.val) *
++        eval₂ (Int.castRingHom C) (v^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) z) := by
+@@ -355,15 +375,12 @@
+-  have heq := congrArg (fun a : C => v^((cs.length x.val : ℤ)-cs.length b)*a) heval
+-  have hd : (rankDifference cs x.val b : ℤ)=(cs.length b : ℤ)-cs.length x.val := by
+-    simp [rankDifference,Int.ofNat_sub (length_le_of_bruhat cs x.property.2)]
+-  have hscale : v^((cs.length x.val : ℤ)-cs.length b)*(v^2)^(rankDifference cs x.val b)=
+-      (v⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
+-    rw [←pow_mul,←zpow_natCast,←zpow_add₀ hv,inv_zpow,←zpow_neg]
+-    congr 1
+-    push_cast
+-    omega
+-  rw [←mul_assoc,hscale,Finset.mul_sum] at heq
+-  change (v⁻¹)^((cs.length x.val : ℤ)-cs.length b)*
+-    eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)=_
+-  rw [heq]
+-  apply Finset.sum_congr rfl
+-  intro z _
++  exact heval
++
++/-- Each ordinary R-polynomial summand acquires exactly the target stalk's
++weight after normalization. This combines R-tilde normalization and addition of
++the two grading exponents, with no extra comparability hypothesis on the vertices. -/
++theorem scaledStalk_rTilde_term {C : Type*} [Field C]
++    (v : C) (hv : v ≠ 0) (x z : Interval cs 1 b) :
++    v^((cs.length x.val : ℤ)-cs.length b) *
++      (eval₂ (Int.castRingHom C) (v^2) (OrdinaryR.polynomial cs x.val z.val) *
++        eval₂ (Int.castRingHom C) (v^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) z)) =
++    eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val) *
++      scaledStalk cs b basis v z := by
+@@ -382,0 +400,22 @@
++ theorem scaledStalk_reciprocity_inverse {C : Type*} [Field C]
++    (v : C) (hv : v≠0) (x : Interval cs 1 b) :
++    scaledStalk cs b basis v⁻¹ x=∑ z : Interval cs 1 b,
++      eval₂ (Int.castRingHom C) (v-v⁻¹) (Hecke.rTilde cs x.val z.val)*
++        scaledStalk cs b basis v z := by
++  classical
++  have heval := stalkCharacter_reciprocity_eval cs b basis v hv x
++  have heq := congrArg (fun a : C => v^((cs.length x.val : ℤ)-cs.length b)*a) heval
++  have hd : (rankDifference cs x.val b : ℤ)=(cs.length b : ℤ)-cs.length x.val := by
++    simp [rankDifference,Int.ofNat_sub (length_le_of_bruhat cs x.property.2)]
++  have hscale : v^((cs.length x.val : ℤ)-cs.length b)*(v^2)^(rankDifference cs x.val b)=
++      (v⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
++    rw [← zpow_natCast (v^2) (rankDifference cs x.val b),hd]
++    exact reciprocal_square_weight v hv _ _
++  rw [←mul_assoc,hscale,Finset.mul_sum] at heq
++  change (v⁻¹)^((cs.length x.val : ℤ)-cs.length b)*
++    eval₂ (Int.castRingHom C) ((v⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)=_
++  rw [heq]
++  apply Finset.sum_congr rfl
++  intro z _
++  exact scaledStalk_rTilde_term cs b basis v hv x z
++
+@@ -390,6 +429,11 @@
+- theorem scaledStalk_reciprocity_upper {C : Type*} [Field C]
+-    (t : C) (ht : t≠0) (a : W) (x : Interval cs a b) :
+-    scaledStalk cs b basis t ((upperInclusion cs a b).vertex x)=
+-      ∑ᶠ z : Interval cs a b,
+-        eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
+-          scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z) := by
++omit [Fintype I] in
++/-- Triangular R-tilde support restricts any weighted row sum to an upper
++interval. The weights are arbitrary and the coefficient ring need not be a field;
++scaled-stalk reciprocity uses this after its algebraic reciprocal identity. -/
++theorem rTilde_weighted_sum_upper {C : Type*} [CommRing C] (T : C)
++    (a : W) (x : Interval cs a b) (w : Interval cs 1 b → C) :
++    (∑ z : Interval cs 1 b,
++      eval₂ (Int.castRingHom C) T (Hecke.rTilde cs x.val z.val) * w z) =
++    ∑ᶠ z : Interval cs a b,
++      eval₂ (Int.castRingHom C) T (Hecke.rTilde cs x.val z.val) *
++        w ((upperInclusion cs a b).vertex z) := by
+@@ -399 +443 @@
+-  rw [scaledStalk_reciprocity cs b basis t ht, finsum_eq_sum_of_fintype]
++  rw [finsum_eq_sum_of_fintype]
+@@ -403,2 +447,2 @@
+-  let g (z : Interval cs 1 b) :=
+-    eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*scaledStalk cs b basis t⁻¹ z
++  let g (z : Interval cs 1 b) := eval₂ (Int.castRingHom C) T
++    (Hecke.rTilde cs x.val z.val) * w z
+@@ -417,3 +461,12 @@
+-    _ = _ := Equiv.sum_comp e (fun z =>
+-      eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
+-        scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z))
++    _ = _ := Equiv.sum_comp e (fun z => eval₂ (Int.castRingHom C) T
++      (Hecke.rTilde cs x.val z.val) * w ((upperInclusion cs a b).vertex z))
++
++ theorem scaledStalk_reciprocity_upper {C : Type*} [Field C]
++    (t : C) (ht : t≠0) (a : W) (x : Interval cs a b) :
++    scaledStalk cs b basis t ((upperInclusion cs a b).vertex x)=
++      ∑ᶠ z : Interval cs a b,
++        eval₂ (Int.castRingHom C) (t⁻¹-t) (Hecke.rTilde cs x.val z.val)*
++          scaledStalk cs b basis t⁻¹ ((upperInclusion cs a b).vertex z) := by
++  rw [scaledStalk_reciprocity cs b basis t ht]
++  exact rTilde_weighted_sum_upper cs b (t⁻¹-t) a x
++    (fun z => scaledStalk cs b basis t⁻¹ z)
+--- pristine/OAI/KL/Comparison/Propagation.lean
++++ active/OAI/KL/Comparison/Propagation.lean
+@@ -170,0 +171,19 @@
++/-- Multiplying costalk dual evaluation by the incoming label product recovers
++the section pairing on the two single-supported lifts. Symmetry is not needed;
++this is the compatibility identity used before cancelling that product. -/
++theorem costalk_pairing_scaled (d : SectionDuality cs u b basis hub B)
++    (x : Interval cs u b) (k l : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
++    Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x *
++      (costalkEquivDual cs u b basis hub B d x k) l.val =
++    d.pairing (kernelEquivSingleSupport cs u b basis hub B x k).val
++      (kernelEquivSingleSupport cs u b basis hub B x l).val := by
++  let e := costalkEquivDual cs u b basis hub B d x
++  let g := Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x
++  let f := kernelEquivSingleSupport cs u b basis hub B x
++  calc
++    g * (e k) l.val = (e k) (g • l.val) := (map_smul (e k) g l.val).symm
++    _ = (e k) ((f l).val.val x) := congrArg (e k)
++      (kernelEquivSingleSupport_apply cs u b basis hub B x l).symm
++    _ = _ := costalkEquivDual_pairing cs u b basis hub B d x k (f l).val
++
++omit [Fintype σ] in
+@@ -176,9 +194,0 @@
+-  let e := costalkEquivDual cs u b basis hub B d x
+-  let g := Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x
+-  let f := kernelEquivSingleSupport cs u b basis hub B x
+-  have he (k l : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
+-      g * (e k) l.val=d.pairing (f k).val (f l).val := calc
+-    g * (e k) l.val = (e k) (g • l.val) := (map_smul (e k) g l.val).symm
+-    _ = (e k) ((f l).val.val x) := congrArg (e k)
+-      (kernelEquivSingleSupport_apply cs u b basis hub B x l).symm
+-    _ = _ := costalkEquivDual_pairing cs u b basis hub B d x k (f l).val
+@@ -187 +197,2 @@
+-    ((he k l).trans ((hsym _ _).trans (he l k).symm))
++    ((costalk_pairing_scaled cs u b basis hub B d x k l).trans
++      ((hsym _ _).trans (costalk_pairing_scaled cs u b basis hub B d x l k).symm))
+@@ -328,0 +340,26 @@
++/-- A homogeneous section duality and stalk-character identification give
++the raw full-kernel Hilbert expression. Basis choice and reciprocal character
++evaluation are handled here, leaving scalar normalization to the caller. -/
++theorem fullKernel_hilbert_of_duality_character
++    (d : SectionDuality cs 1 b basis (one_bruhat cs b) C)
++    (hd : ∀ i j (m n : C.sheaf.sections Set.univ),
++      m ∈ (C.sheaf.sections Set.univ).piece i → n ∈ (C.sheaf.sections Set.univ).piece j →
++      d.pairing m n ∈ polynomialGrading ℝ σ (i+j-(cs.length b : ℤ)))
++    (x : Interval cs 1 b)
++    (hc : stalkCharacter cs 1 b basis (one_bruhat cs b) x = klPolynomial cs x.val b)
++    {q : ℝ} (hq : 0 < q) (hq1 : q < 1) :
++    C.sheaf.kernelHilbert q x Set.univ =
++      q^((cs.length b : ℤ)-cs.length x.val) *
++        Polynomial.eval₂ (Int.castRingHom ℝ) q⁻¹ (klPolynomial cs x.val b) *
++        (1-q)⁻¹ ^ Fintype.card σ := by
++  let _ := C.free x
++  let c := (exists_nonnegativeBasis (σ := σ) (C.sheaf.vertex x).piece
++    (C.sheaf.vertex x).nonneg).some
++  have hcp : c.polynomial = klPolynomial cs x.val b := by
++    rw [← character_eq (C.sheaf.vertex x).piece (C.sheaf.vertex x).nonneg c,
++      ← stalkCharacter_eq_character cs 1 b basis (one_bruhat cs b) C x]
++    exact hc
++  rw [GradedSheaf.kernelHilbert,fullKernel_eq cs 1 b basis (one_bruhat cs b) C x,
++    costalk_hilbert_of_duality cs 1 b basis (one_bruhat cs b) C d (cs.length b) hd x c
++      hq hq1,hcp,incoming_card cs b x]
++
+@@ -339,11 +376,2 @@
+-  let _ := C.free x
+-  let c := (exists_nonnegativeBasis (σ := σ) (C.sheaf.vertex x).piece
+-    (C.sheaf.vertex x).nonneg).some
+-  have hcp : c.polynomial = klPolynomial cs x.val b := by
+-    rw [← character_eq (C.sheaf.vertex x).piece (C.sheaf.vertex x).nonneg c,
+-      ← stalkCharacter_eq_character cs 1 b basis (one_bruhat cs b) C x]
+-    exact hc
+-  rw [normalizedKernel,GradedSheaf.kernelHilbert,
+-    fullKernel_eq cs 1 b basis (one_bruhat cs b) C x,
+-    costalk_hilbert_of_duality cs 1 b basis (one_bruhat cs b) C d (cs.length b) hd x c
+-      (sq_pos_of_pos ht) (by nlinarith),hcp,incoming_card cs b x]
++  rw [normalizedKernel,fullKernel_hilbert_of_duality_character cs b basis C d hd x hc
++    (sq_pos_of_pos ht) (by nlinarith)]
+@@ -351,8 +379,2 @@
+-  have hscale : t^((cs.length x.val : ℤ)-cs.length b) *
+-      (t^2)^((cs.length b : ℤ)-cs.length x.val) =
+-      (t⁻¹)^((cs.length x.val : ℤ)-cs.length b) := by
+-    rw [show (t^2)^((cs.length b : ℤ)-cs.length x.val) =
+-      t^(2*((cs.length b : ℤ)-cs.length x.val)) by rw [zpow_mul]; norm_num,
+-      ← zpow_add₀ ht.ne',inv_zpow,← zpow_neg]
+-    congr 1
+-    omega
++  have hscale := reciprocal_square_weight t ht.ne'
++    (cs.length x.val : ℤ) (cs.length b : ℤ)
+--- pristine/OAI/KL/Comparison/SuffixFreeness.lean
++++ active/OAI/KL/Comparison/SuffixFreeness.lean
+@@ -35,0 +36,24 @@
++/-- One reverse-schedule edge preserves freeness of all remaining kernels
++when its embedded lower and scaled upper images agree. The source uses the
++previous source and target kernels; every other vertex keeps its old kernel. -/
++theorem schedule_head_kernels_free (e : Edge cs u b) (p : List (Edge cs u b))
++    (hfree : ∀ x : Interval cs u b, Module.Free (Coefficient (σ := σ))
++      (B.sheaf.upwardSubmodule x (remainingConditions cs u b p x)))
++    (heq : B.sheaf.lowerImage e (remainingConditions cs u b p ((graph cs u b).source e)) =
++      (B.sheaf.upperImage e (remainingConditions cs u b p ((graph cs u b).target e))).map
++        (edgeFactorMap cs basis u b hub B e)) (x : Interval cs u b) :
++    Module.Free (Coefficient (σ := σ))
++      (B.sheaf.upwardSubmodule x (remainingConditions cs u b (e::p) x)) := by
++  by_cases hx : source cs u b e = x
++  · subst x
++    rw [remainingConditions_cons_source]
++    let hS : Module.Free (Coefficient (σ := σ))
++        (B.sheaf.upwardSubmodule ((graph cs u b).source e)
++          (remainingConditions cs u b p (source cs u b e))) := hfree _
++    let hT : Module.Free (Coefficient (σ := σ))
++        (B.sheaf.upwardSubmodule ((graph cs u b).target e)
++          (remainingConditions cs u b p ((graph cs u b).target e))) := hfree _
++    exact partial_kernel_free_of_image_eq cs u b basis hub B e _ _ heq
++  · rw [remainingConditions_cons_other cs u b e p x hx]
++    exact hfree x
++
+@@ -57,15 +81,2 @@
+-      by_cases hx : source cs u b e = x
+-      · subst x
+-        rw [remainingConditions_cons_source]
+-        let hS : Module.Free (Coefficient (σ := σ))
+-            (B.sheaf.upwardSubmodule ((graph cs u b).source e)
+-              (remainingConditions cs u b p (source cs u b e))) :=
+-          hip p (List.suffix_refl _) (source cs u b e)
+-        let hT : Module.Free (Coefficient (σ := σ))
+-            (B.sheaf.upwardSubmodule ((graph cs u b).target e)
+-              (remainingConditions cs u b p ((graph cs u b).target e))) :=
+-          hip p (List.suffix_refl _) (target cs u b e)
+-        exact partial_kernel_free_of_image_eq cs u b basis hub B e _ _
+-          (heq e p (List.suffix_refl _))
+-      · rw [remainingConditions_cons_other cs u b e p x hx]
+-        exact hip p (List.suffix_refl _) x
++      exact schedule_head_kernels_free cs u b basis hub B e p
++        (hip p (List.suffix_refl _)) (heq e p (List.suffix_refl _)) x

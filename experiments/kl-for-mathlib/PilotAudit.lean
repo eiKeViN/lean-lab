@@ -24,3 +24,19 @@ import OAI.KL
 #print axioms OAI.KLInvariance.IntegralSupport.supported_iff_annihilates
 #print axioms OAI.KLInvariance.MomentGraph.Sheaf.Iso.scaledImages
 #print axioms OAI.KLInvariance.TitsSpace.PlaneBasis.coset_structure_scaledImages
+
+-- Comparison pipeline: eight helpers and six old clients.
+#print axioms OAI.KLInvariance.BruhatGraph.adapted_path_sources_le
+#print axioms OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval
+#print axioms OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term
+#print axioms OAI.KLInvariance.BruhatGraph.reciprocal_square_weight
+#print axioms OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper
+#print axioms OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled
+#print axioms OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character
+#print axioms OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free
+#print axioms OAI.KLInvariance.BruhatGraph.transported_dispatch_entry
+#print axioms OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse
+#print axioms OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_upper
+#print axioms OAI.KLInvariance.BruhatGraph.costalkEquivDual_symmetric
+#print axioms OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character
+#print axioms OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq

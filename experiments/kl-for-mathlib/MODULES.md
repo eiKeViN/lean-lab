@@ -231,7 +231,7 @@ Public-type validation covers all 3902 declarations. Source spans: MIGRATION.md.
 | [`OAI.KL.BottSamelson.Support`](OAI/KL/BottSamelson/Support.lean) | `symmetricGrading_zero`, `bottSupported_of_stalkSupport`, `bottStalk_supported_annihilates` |
 | [`OAI.KL.BottSamelson.UpperSections`](OAI/KL/BottSamelson/UpperSections.lean) | `reflection_character_congruence_iff`, `reflection_character_separates`, `isReflection_of_prime_character_congruence` |
 | [`OAI.KL.Comparison.Propagation`](OAI/KL/Comparison/Propagation.lean) | `actual_edge_increment_le`, `actual_edge_increment_eq_iff`, `partial_kernel_projective_of_image_eq` |
-| [`OAI.KL.Comparison.SuffixFreeness`](OAI/KL/Comparison/SuffixFreeness.lean) | `no_conditions_free`, `schedule_kernels_free_of_images_eq`, `schedule_kernels_free_of_endpoint_eq` |
+| [`OAI.KL.Comparison.SuffixFreeness`](OAI/KL/Comparison/SuffixFreeness.lean) | `no_conditions_free`, `schedule_head_kernels_free`, `schedule_kernels_free_of_images_eq` |
 | [`OAI.KL.Comparison.Transport`](OAI/KL/Comparison/Transport.lean) | `boundarySheaf_gradedIso`, `stalkCharacter_eq_character`, `upperInclusion` |
 | [`OAI.KL.Compatibility.KernelTransport`](OAI/KL/Compatibility/KernelTransport.lean) | `kernelSourceEquiv`, `kernelTargetEquiv`, `kernelMixedEquiv` |
 | [`OAI.KL.Invariance.Finite`](OAI/KL/Invariance/Finite.lean) | `comparison_of_source02`, `comparison_difference_le`, `upper_polynomial_eq_symm` |

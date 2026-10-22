@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "policy_sha256": "6f501cd9acb38124f9e27eaeacd386b16734cd5bd3bc3f393273076fd60e5c33",
+  "policy_sha256": "63e7df2a6768fcf54c158902b7e039cc1bd51670de080cc64c9e38de17a03095",
   "files": {
     "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean": {
       "pristine_sha256": "f480c4a76dd9c21a69d0e7d12d02452f79d7ba16c5d37ec63fa36b115fccd0a5",
@@ -29,8 +29,20 @@
     "OAI/KL/Localization/TerminalImages.lean": {
       "pristine_sha256": "724d16f0b20ad5943c4356c7048142d28892222549982c031499965f6df7af8b",
       "active_sha256": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41"
+    },
+    "OAI/KL/Comparison/Transport.lean": {
+      "pristine_sha256": "31a677c4ad9e14a598bc46fca1717ec3620ce0d41737b41f0e317bdb5785a578",
+      "active_sha256": "294eb43386cfb9001db92aac262d8605c9735152baab1a88b4c414e0627d1dc3"
+    },
+    "OAI/KL/Comparison/Propagation.lean": {
+      "pristine_sha256": "c3a51bd3ce596e4a43e37ea6f2fde8ec714cce063ad3f9a351ea47ce8c7ad712",
+      "active_sha256": "c330d6b7bca3c86579e1ebd2db9cefbf968a28bf6644387235cac7ef4e256cbf"
+    },
+    "OAI/KL/Comparison/SuffixFreeness.lean": {
+      "pristine_sha256": "584e398f4b9c4f29f0d04333ec9d41b68b8f2bddd817645d942a75b667e4b367",
+      "active_sha256": "afcb971b29c76b8e95d72555580a99972d3c6befa97dea96cf16f38f9c76ff97"
     }
   },
-  "diff_sha256": "5ec58da5ad6ec2766d30ac18fd8f068772b704f74e537eb07cd529130364a240",
-  "additional_types_sha256": "75306176d36cfe22dbfdba991ec7fa784023c3d464b0b55d0098a944271aacdc"
+  "diff_sha256": "e4a152a82d3a1c4ea82917fbf70c8e73516aacfd45ad6415fb2f000f34decaf9",
+  "additional_types_sha256": "5ac38e6c44a65cf80f601f7751f5346690a7976f00a10598819ed7f02dc9a55d"
 }

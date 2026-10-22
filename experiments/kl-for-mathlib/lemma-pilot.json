@@ -8,7 +8,10 @@
     "ForMathlib/LinearAlgebra/Reflection/Plane.lean": "8f06a57c938d25ed60d26af55fe0118fa14667f4635efc735398d4afbe368598",
     "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean": "108c1533006b65c9d4d5b2596b9a6ac4b0be44fa6907bc99a29bbaa5e8d46ee7",
     "ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean": "60463e3568e8a659742c0fd212993bad3c3ba79d88c7f26035daab67afc47257",
-    "OAI/KL/Localization/TerminalImages.lean": "724d16f0b20ad5943c4356c7048142d28892222549982c031499965f6df7af8b"
+    "OAI/KL/Localization/TerminalImages.lean": "724d16f0b20ad5943c4356c7048142d28892222549982c031499965f6df7af8b",
+    "OAI/KL/Comparison/Transport.lean": "31a677c4ad9e14a598bc46fca1717ec3620ce0d41737b41f0e317bdb5785a578",
+    "OAI/KL/Comparison/Propagation.lean": "c3a51bd3ce596e4a43e37ea6f2fde8ec714cce063ad3f9a351ea47ce8c7ad712",
+    "OAI/KL/Comparison/SuffixFreeness.lean": "584e398f4b9c4f29f0d04333ec9d41b68b8f2bddd817645d942a75b667e4b367"
   },
   "changed_declarations": [
     "OAI.KLInvariance.finite_character_cancellation",
@@ -19,7 +22,13 @@
     "OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane",
     "OAI.KLInvariance.IntegralSupport.supported_iff_annihilates",
     "OAI.KLInvariance.MomentGraph.Sheaf.Iso.scaledImages",
-    "OAI.KLInvariance.TitsSpace.PlaneBasis.coset_structure_scaledImages"
+    "OAI.KLInvariance.TitsSpace.PlaneBasis.coset_structure_scaledImages",
+    "OAI.KLInvariance.BruhatGraph.transported_dispatch_entry",
+    "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse",
+    "OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_upper",
+    "OAI.KLInvariance.BruhatGraph.costalkEquivDual_symmetric",
+    "OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character",
+    "OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq"
   ],
   "additions": [
     "OAI.KLInvariance.weighted_sum_exchange",
@@ -34,12 +43,29 @@
     "OAI.KLInvariance.IntegralSupport.supported_of_annihilates",
     "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_lowerImage_iff_symm",
     "OAI.KLInvariance.MomentGraph.Sheaf.Iso.mem_scaledUpperImage_iff_symm",
-    "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement"
+    "OAI.KLInvariance.TitsSpace.PlaneBasis.exists_root_plane_complement",
+    "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le",
+    "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+    "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term",
+    "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+    "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+    "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
+    "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character",
+    "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free"
   ],
   "expansion_plan_sha256": "baeb7f870cba363f9d1b86af0c8f56d033b322df15d7241999fb85c198a49531",
   "prior_active_files": {
     "ForMathlib/Algebra/BigOperators/SingleCoordinate.lean": "ee31f8a1644a0de3001b841a4ce9742b028464fa4c99e287d668b8c0e2327518",
     "ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean": "51faf2d53f498bda85824712134e41a27f22ff89c4dc25a81b2c891fed73d9f9",
-    "OAI/KL/Invariance/Finite.lean": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2"
+    "OAI/KL/Invariance/Finite.lean": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2",
+    "ForMathlib/LinearAlgebra/Reflection/Plane.lean": "c7a0b7adf0ca3738690e24faccc0760e8eb3f8010d011ba68b3731f086618998",
+    "ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean": "8ed0b7725185b40ae26f0c2202bd247c02ffe0eb65993a00fc9a0940d1877d3f",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean": "81cd1abbc1e76e83882e37c1162b7ed67e8813c76873f3776f5b174b249c1fb3",
+    "OAI/KL/Localization/TerminalImages.lean": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41"
+  },
+  "comparison_plan_sha256": "73dfdc70e047af0bb338454a73ad050414b75ece440acba0186f34e3c27daa74",
+  "additional_prefixes": {
+    "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le": "omit [Fintype I'] in",
+    "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper": "omit [Fintype I] in"
   }
 }

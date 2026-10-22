@@ -1,9 +1,9 @@
 # Verification records
 
 Current entrypoints are in the root README and the maintained
-`experiments/kl-for-mathlib/README.md`. The current expanded lemma-granularity pilot is in
-[lemma-granularity-expansion.md](lemma-granularity-expansion.md), following the
-[first pilot](lemma-granularity.md). The prior whole-library refinement is in
+`experiments/kl-for-mathlib/README.md`. The current comparison-pipeline lemma pilot is in
+[lemma-granularity-comparison.md](lemma-granularity-comparison.md), following the
+[expanded pilot](lemma-granularity-expansion.md) and [first pilot](lemma-granularity.md). The prior whole-library refinement is in
 [whole-library-layout.md](whole-library-layout.md); the previous local refinement
 is in [responsibility-boundaries.md](responsibility-boundaries.md). The preceding
 consolidation results are in [project-consolidation.md](project-consolidation.md).

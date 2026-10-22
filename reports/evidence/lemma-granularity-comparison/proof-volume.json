@@ -1,0 +1,46 @@
+{
+  "method": "Nonblank uncommented proof-body lines. Local have signatures are inside clients; top-level signatures/docs excluded. Not tokens or mathematical complexity.",
+  "samples": [
+    {
+      "sample": "P1",
+      "old_client": 30,
+      "new_client": 18,
+      "new_helpers": 9
+    },
+    {
+      "sample": "P2",
+      "old_client": 36,
+      "new_client": 16,
+      "new_helpers": 26
+    },
+    {
+      "sample": "P3",
+      "old_client": 24,
+      "new_client": 3,
+      "new_helpers": 23
+    },
+    {
+      "sample": "P4",
+      "old_client": 12,
+      "new_client": 4,
+      "new_helpers": 8
+    },
+    {
+      "sample": "P5",
+      "old_client": 36,
+      "new_client": 21,
+      "new_helpers": 10
+    },
+    {
+      "sample": "P6",
+      "old_client": 27,
+      "new_client": 14,
+      "new_helpers": 12
+    }
+  ],
+  "old_clients": 165,
+  "new_clients": 76,
+  "new_helpers": 88,
+  "old_whole_files": 1610,
+  "new_whole_files": 1696
+}

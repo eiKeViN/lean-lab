@@ -87,12 +87,13 @@ Changes to file responsibility preserve complete declarations and proofs:
   remain below grading.
 
 The architecture migration rewrote no mathematical statement or proof body.
-The active [expanded lemma-granularity pilot](../../reports/lemma-granularity-expansion.md)
-now has thirteen lemmas and nine rewritten proofs across both rounds. All 3902
-original API types and the first five added types are preserved; eight new types
-are listed separately in the cumulative snapshot. `proof-evolution.json` binds
-seven precise source exceptions and their diff; the first three remain additionally
-frozen to the first-round active hashes. All other products remain pristine reconstructions.
+The active [comparison-pipeline pilot](../../reports/lemma-granularity-comparison.md)
+now has twenty-one added lemmas and fifteen rewritten proofs across three rounds.
+All 3902 original API types and the previous thirteen added types are preserved;
+eight further types are separately recorded in the cumulative snapshot.
+`proof-evolution.json` binds ten precise source exceptions and their exact diff;
+the previous seven remain additionally frozen to the tested `bdcb350` active
+hashes. All other products remain pristine reconstructions.
 The earlier 76 explicit
 instance-name annotations and single local instance attribute are inherited.
 `migration.json` and `migrate.py --check` bind all 525 immutable parent units and
@@ -117,7 +118,7 @@ For static checks: add `--static`. With warm OAI and candidate artifacts:
 evidence without running Lean. The old `--refresh-reference` option is retired;
 there is no second project to recompile.
 The unchanged hash-bound reference still covers 3902 old declarations. The active
-pilot requires exactly those types plus the thirteen explicitly listed theorem types
+pilot requires exactly those types plus the twenty-one explicitly listed theorem types
 in `additional-types.json`; it does not replace the old snapshot.
 The comparator and all 31 adversarial tests are inherited byte-for-byte.
 Relative to the original architecture exporter, the sole difference remains the
@@ -165,39 +166,40 @@ types and named axiom closures are independent checks. The default checker does
 not fetch history or execute the preserved upstream lakefile. Setup can fetch a
 missing pinned commit in a shallow clone; failure stops setup explicitly.
 
-Pilot material lookup uses [LEMMA_INDEX.md](LEMMA_INDEX.md), generated from the
-Lean docstrings and a small provenance/keyword index. Reproduce the metadata:
+Pilot lookup uses [LEMMA_INDEX.md](LEMMA_INDEX.md), generated from compiled Lean
+docstrings and a small provenance/keyword index. From this project after sourcing
+`../../scripts/env.sh`:
 
 ```bash
-# In this project after sourcing ../../scripts/env.sh:
-SEMANTIC_CORPUS_OUT="$LAB_ROOT/results/lemma-granularity/after-corpus.json" lake env lean SemanticCorpus.lean
-python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/after-corpus.json" --check
-python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/after-corpus.json" --query "weighted finite sum single surviving coordinate"
+SEMANTIC_CORPUS_OUT="$LAB_ROOT/results/lemma-granularity/comparison-after-corpus.json" python3 pilot_measure.py comparison-after-corpus lake env lean SemanticCorpus.lean
+python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/comparison-after-corpus.json" --check
+python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/comparison-after-corpus.json" --comparison --query "upper interval triangular weighted sum"
 ```
 
-The full checker includes 20 source/API evolution tests, the original
-31 comparator tests, the original 16 axiom closures and 22 pilot closures.
-`source_check.py` checks pristine source coverage; the hash/diff/span evolution
-check separately verifies the seven active exceptions and the frozen first-round files. The evolution recorder
-requires explicit review of source changes; it is not a general API migration
-framework or a replacement for proof/type/axiom validation.
+`--comparison --ablate-new-docs` removes only the latest eight docstrings, keeping
+the previous thirteen. Queries were committed before editing and are nonblind.
+The earlier `--expansion` and default first-round query options remain available;
+immutable corpora/results are in their respective reports/evidence directories.
+Regenerating current metadata does not reproduce a historical corpus.
 
+The full checker includes 24 source/API evolution tests, the inherited 31
+comparator tests and 14 partition tests, the original 16 axiom closures and 36
+pilot closures. Source coverage checks the pristine reconstruction; the separate
+hash/diff/span/header check verifies ten active exceptions and freezes the prior
+seven. Selected old headers are checked literally as well as by complete type
+exports; their diff alignment can change when proof blocks are extracted.
+The recorder is an explicit reviewed update, not automatic acceptance or a
+production-grade generic proof-evolution framework.
 
-Expansion retrieval uses the same search method and six committed non-name
-queries. `--expansion --ablate-new-docs` removes only the eight expansion docstrings,
-leaving the first round's five intact. For direct measurements, run only when no
-other build is active:
+The latest direct benchmark is optional; run only without another active build:
 
 ```bash
-# In this project after sourcing ../../scripts/env.sh:
-SEMANTIC_CORPUS_OUT="$LAB_ROOT/results/lemma-granularity/expansion-after-corpus.json" python3 pilot_measure.py expansion-after-corpus lake env lean SemanticCorpus.lean
-python3 render_lemma_index.py "$LAB_ROOT/results/lemma-granularity/expansion-after-corpus.json" --check
-python3 semantic_search.py "$LAB_ROOT/results/lemma-granularity/expansion-after-corpus.json" --expansion --query "single support annihilator stalk projection kernel"
-python3 measure_samples.py --expansion
+python3 measure_samples.py --comparison
 ```
 
-The measurement option performs one direct before/after source pair for each of
-the four expansion modules using the same warm active dependencies. It does not
-measure a cold historical build or establish a speedup. Baseline source hashes
-are checked. Prefer the full report's recorded measurements over routinely
-repeating benchmarking commands.
+It elaborates one before/after source pair for each of the three comparison
+modules with the same warm current dependencies and no input `.olean` reuse.
+Baseline source hashes are checked. It is not a cold historical build and cannot
+establish a speedup. Earlier benchmark modes remain available; prefer recorded
+results to routinely repeating them. The current report separates new editing/
+validation work, failed actions, dependency invalidation and already-built tooling.

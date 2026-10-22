@@ -151,3 +151,139 @@ run_elab do
     unless info.value.getUsedConstants.contains child do
       throwError "Missing expansion proof dependency: {parent} → {child}"
   Lean.logInfo "Eight expansion original-site references verified; no second production use claimed."
+
+-- Comparison-round applicability checks. These are interface/edge-condition
+-- examples, not new production consumers or independent mathematical review.
+open OAI.KLInvariance.BruhatGraph OAI.KLInvariance.SchedulePaths
+
+noncomputable section
+local instance comparisonIntervals {I W : Type} {M : CoxeterMatrix I} [Group W]
+    (cs : CoxeterSystem M W) (a b : W) : Fintype (Interval cs a b) := by
+  let := interval_finite cs a b
+  exact Fintype.ofFinite _
+
+example {I W : Type} {M : CoxeterMatrix I} [Group W]
+    (cs : CoxeterSystem M W) (e : AdaptedDyer.Edge cs) :
+    BruhatLE cs (AdaptedDyer.source cs e) (AdaptedDyer.source cs e) := by
+  exact adapted_path_sources_le (cs' := cs)
+    (show IsPath (AdaptedDyer.source cs) (AdaptedDyer.target cs)
+      (AdaptedDyer.source cs e) (AdaptedDyer.target cs e) [e] from ⟨rfl,rfl⟩)
+    e (by simp)
+
+example : (-2 : ℚ)^((-3 : ℤ)-2) * ((-2 : ℚ)^2)^((2 : ℤ)-(-3)) =
+    ((-2 : ℚ)⁻¹)^((-3 : ℤ)-2) :=
+  reciprocal_square_weight (-2) (by norm_num) (-3) 2
+
+example (v : ℚ) (hv : v ≠ 0) (n : ℤ) :
+    v^(n-n) * (v^2)^(n-n) = (v⁻¹)^(n-n) := reciprocal_square_weight v hv n n
+
+section ComparisonStalk
+variable {I W σ : Type} [Fintype I] [Fintype σ] {M : CoxeterMatrix I} [Group W]
+  (cs : CoxeterSystem M W) (b : W) (basis : Module.Basis σ ℝ (TitsSpace.Extended M))
+example (x : Interval cs 1 b) :
+    ((-2 : ℚ)^2)^(rankDifference cs x.val b) *
+      eval₂ (Int.castRingHom ℚ) (((-2 : ℚ)⁻¹)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x) =
+    ∑ z : Interval cs 1 b,
+      eval₂ (Int.castRingHom ℚ) ((-2 : ℚ)^2) (OrdinaryR.polynomial cs x.val z.val) *
+        eval₂ (Int.castRingHom ℚ) ((-2 : ℚ)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) z) :=
+  stalkCharacter_reciprocity_eval cs b basis (-2) (by norm_num) x
+example (x : Interval cs 1 b) :
+    (-2 : ℚ)^((cs.length x.val : ℤ)-cs.length b) *
+      (eval₂ (Int.castRingHom ℚ) ((-2 : ℚ)^2) (OrdinaryR.polynomial cs x.val x.val) *
+        eval₂ (Int.castRingHom ℚ) ((-2 : ℚ)^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)) =
+    eval₂ (Int.castRingHom ℚ) ((-2 : ℚ)-(-2 : ℚ)⁻¹) (Hecke.rTilde cs x.val x.val) *
+      scaledStalk cs b basis (-2 : ℚ) x := scaledStalk_rTilde_term cs b basis (-2) (by norm_num) x x
+end ComparisonStalk
+
+-- Integer coefficients are not a field; the rank of the generator set is
+-- unrestricted here. Arbitrary weights are allowed, not only scaled stalks.
+example {I W : Type} {M : CoxeterMatrix I} [Group W]
+    (cs : CoxeterSystem M W) (a b : W) (x : Interval cs a b)
+    (w : Interval cs 1 b → ℤ) :
+    (∑ z : Interval cs 1 b, eval₂ (Int.castRingHom ℤ) 0 (Hecke.rTilde cs x.val z.val) * w z) =
+    ∑ᶠ z : Interval cs a b, eval₂ (Int.castRingHom ℤ) 0 (Hecke.rTilde cs x.val z.val) *
+      w ((upperInclusion cs a b).vertex z) := rTilde_weighted_sum_upper cs b 0 a x w
+
+section ComparisonDuality
+open Module OAI.KLInvariance.Graded OAI.KLInvariance.MomentGraph
+variable {I W σ : Type} [Fintype I] {M : CoxeterMatrix I} [Group W]
+  (cs : CoxeterSystem M W) (u b : W) (basis : Basis σ ℝ (TitsSpace.Extended M))
+  (hub : BruhatLE cs u b)
+  (B : BoundarySheaf (polynomialGrading_negative ℝ σ)
+    (graph cs u b) (polynomialLabel cs u b basis) ⟨b,hub,bruhat_refl cs b⟩)
+  [Fintype (Edge cs u b)] [DecidableEq (Interval cs u b)]
+example (d : SectionDuality cs u b basis hub B) (x : Interval cs u b)
+    (k : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
+    Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x *
+      (costalkEquivDual cs u b basis hub B d x k) k.val =
+    d.pairing (kernelEquivSingleSupport cs u b basis hub B x k).val
+      (kernelEquivSingleSupport cs u b basis hub B x k).val :=
+  costalk_pairing_scaled cs u b basis hub B d x k k
+end ComparisonDuality
+
+section ComparisonHilbert
+open Module OAI.KLInvariance.Graded OAI.KLInvariance.MomentGraph
+variable {I W σ : Type} [Fintype I] [Fintype σ] {M : CoxeterMatrix I} [Group W]
+  (cs : CoxeterSystem M W) (b : W) (basis : Basis σ ℝ (TitsSpace.Extended M))
+  [Fintype (Edge cs 1 b)] [Fintype (Interval cs 1 b)] [DecidableEq (Interval cs 1 b)]
+  (C : BoundarySheaf (polynomialGrading_negative ℝ σ)
+    (graph cs 1 b) (polynomialLabel cs 1 b basis) ⟨b,one_bruhat cs b,bruhat_refl cs b⟩)
+example (d : SectionDuality cs 1 b basis (one_bruhat cs b) C)
+    (hd : ∀ i j (m n : C.sheaf.sections Set.univ),
+      m ∈ (C.sheaf.sections Set.univ).piece i → n ∈ (C.sheaf.sections Set.univ).piece j →
+      d.pairing m n ∈ polynomialGrading ℝ σ (i+j-(cs.length b : ℤ)))
+    (x : Interval cs 1 b)
+    (hc : stalkCharacter cs 1 b basis (one_bruhat cs b) x = klPolynomial cs x.val b) :
+    C.sheaf.kernelHilbert (1/4) x Set.univ =
+      (1/4 : ℝ)^((cs.length b : ℤ)-cs.length x.val) *
+        eval₂ (Int.castRingHom ℝ) (1/4 : ℝ)⁻¹ (klPolynomial cs x.val b) *
+        (1-(1/4 : ℝ))⁻¹ ^ Fintype.card σ :=
+  fullKernel_hilbert_of_duality_character cs b basis C d hd x hc (by norm_num) (by norm_num)
+end ComparisonHilbert
+
+section ComparisonHead
+open Module OAI.KLInvariance.Graded OAI.KLInvariance.MomentGraph
+variable {I W σ : Type} [Fintype I] [Fintype σ] {M : CoxeterMatrix I} [Group W]
+  (cs : CoxeterSystem M W) (u b : W) (basis : Basis σ ℝ (TitsSpace.Extended M))
+  (hub : BruhatLE cs u b)
+  (B : BoundarySheaf (polynomialGrading_negative ℝ σ)
+    (graph cs u b) (polynomialLabel cs u b basis) ⟨b,hub,bruhat_refl cs b⟩)
+example (e : Edge cs u b)
+    (heq : B.sheaf.lowerImage e (remainingConditions cs u b [] ((graph cs u b).source e)) =
+      (B.sheaf.upperImage e (remainingConditions cs u b [] ((graph cs u b).target e))).map
+        (edgeFactorMap cs basis u b hub B e)) (x : Interval cs u b) :
+    Module.Free (Coefficient (σ := σ))
+      (B.sheaf.upwardSubmodule x (remainingConditions cs u b [e] x)) :=
+  schedule_head_kernels_free cs u b basis hub B e []
+    (fun y => no_conditions_free cs u b basis hub B y) heq x
+end ComparisonHead
+
+run_elab do
+  let env ← Lean.getEnv
+  for name in #[`OAI.KLInvariance.BruhatGraph.adapted_path_sources_le,
+      `OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval,
+      `OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term,
+      `OAI.KLInvariance.BruhatGraph.reciprocal_square_weight,
+      `OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper,
+      `OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled,
+      `OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character,
+      `OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free] do
+    let some doc ← Lean.findDocString? env name | throwError "Missing comparison docstring: {name}"
+    if doc.trimAscii.toString.isEmpty then throwError "Empty comparison docstring: {name}"
+
+run_elab do
+  let env ← Lean.getEnv
+  for (parent, child) in #[
+      (`OAI.KLInvariance.BruhatGraph.transported_dispatch_entry, `OAI.KLInvariance.BruhatGraph.adapted_path_sources_le),
+      (`OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse, `OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval),
+      (`OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse, `OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term),
+      (`OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_inverse, `OAI.KLInvariance.BruhatGraph.reciprocal_square_weight),
+      (`OAI.KLInvariance.BruhatGraph.scaledStalk_reciprocity_upper, `OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper),
+      (`OAI.KLInvariance.BruhatGraph.costalkEquivDual_symmetric, `OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled),
+      (`OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character, `OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character),
+      (`OAI.KLInvariance.BruhatGraph.schedule_kernels_free_of_images_eq, `OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free),
+      (`OAI.KLInvariance.BruhatGraph.normalized_fullKernel_of_duality_character, `OAI.KLInvariance.BruhatGraph.reciprocal_square_weight)] do
+    let some (.thmInfo info) := env.find? parent | throwError "Missing comparison parent: {parent}"
+    unless info.value.getUsedConstants.contains child do
+      throwError "Missing comparison proof dependency: {parent} → {child}"
+  Lean.logInfo "Nine comparison relationships verified; square-weight second use is within this round."

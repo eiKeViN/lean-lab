@@ -198,6 +198,128 @@
       "applicability_tests": [
         "left basis root gives some distinct complementary root"
       ]
+    },
+    {
+      "candidate": "Y1",
+      "declaration": "OAI.KLInvariance.BruhatGraph.adapted_path_sources_le",
+      "original_site": "P1",
+      "second_sites": [],
+      "keywords": [
+        "Bruhat path",
+        "source bound",
+        "increasing edges"
+      ],
+      "reason": "Separate monotonicity along a directed Bruhat path from dispatch graph embedding.",
+      "applicability_tests": [
+        "one-edge path without finite generator assumption"
+      ]
+    },
+    {
+      "candidate": "Y2",
+      "declaration": "OAI.KLInvariance.BruhatGraph.stalkCharacter_reciprocity_eval",
+      "original_site": "P2",
+      "second_sites": [],
+      "keywords": [
+        "reflected polynomial",
+        "reciprocal evaluation",
+        "degree bound"
+      ],
+      "reason": "Separate the reflected-polynomial evaluation from the weights of a scaled character.",
+      "applicability_tests": [
+        "negative rational evaluation point"
+      ]
+    },
+    {
+      "candidate": "Y3",
+      "declaration": "OAI.KLInvariance.BruhatGraph.scaledStalk_rTilde_term",
+      "original_site": "P2",
+      "second_sites": [],
+      "keywords": [
+        "R-tilde normalization",
+        "scaled stalk",
+        "summand grading"
+      ],
+      "reason": "Package normalization of one R-polynomial summand and addition of grading exponents.",
+      "applicability_tests": [
+        "diagonal term at a negative rational point"
+      ]
+    },
+    {
+      "candidate": "Y4",
+      "declaration": "OAI.KLInvariance.BruhatGraph.reciprocal_square_weight",
+      "original_site": "P2",
+      "second_sites": [
+        "P5"
+      ],
+      "keywords": [
+        "inverse square",
+        "integer exponents",
+        "reciprocal weight"
+      ],
+      "reason": "The exact same square-weight identity occurs in two selected proofs; preserve arbitrary field and integer exponents.",
+      "applicability_tests": [
+        "negative rational point and negative integer degrees; equal-degree boundary"
+      ]
+    },
+    {
+      "candidate": "Y5",
+      "declaration": "OAI.KLInvariance.BruhatGraph.rTilde_weighted_sum_upper",
+      "original_site": "P3",
+      "second_sites": [],
+      "keywords": [
+        "upper interval",
+        "triangular support",
+        "arbitrary weights"
+      ],
+      "reason": "Restrict a triangular weighted sum to an upper interval independently of the special scaled-stalk weights.",
+      "applicability_tests": [
+        "integer coefficients, arbitrary weights, no finite-generator assumption"
+      ]
+    },
+    {
+      "candidate": "Y6",
+      "declaration": "OAI.KLInvariance.BruhatGraph.costalk_pairing_scaled",
+      "original_site": "P4",
+      "second_sites": [],
+      "keywords": [
+        "costalk evaluation",
+        "incoming label product",
+        "balanced section pairing"
+      ],
+      "reason": "Separate the scaled costalk pairing identity from symmetry and scalar cancellation.",
+      "applicability_tests": [
+        "diagonal costalk pairing, no symmetry or finite sigma assumption"
+      ]
+    },
+    {
+      "candidate": "Y7",
+      "declaration": "OAI.KLInvariance.BruhatGraph.fullKernel_hilbert_of_duality_character",
+      "original_site": "P5",
+      "second_sites": [],
+      "keywords": [
+        "full kernel",
+        "Hilbert expression",
+        "reciprocal stalk character"
+      ],
+      "reason": "Expose the raw full-kernel Hilbert expression before normalization; reuse the square-weight identity.",
+      "applicability_tests": [
+        "q=1/4 raw Hilbert expression"
+      ]
+    },
+    {
+      "candidate": "Y8",
+      "declaration": "OAI.KLInvariance.BruhatGraph.schedule_head_kernels_free",
+      "original_site": "P6",
+      "second_sites": [],
+      "keywords": [
+        "reverse schedule",
+        "one-edge extension",
+        "kernel freeness"
+      ],
+      "reason": "Expose the one-edge reverse-filtration preservation step, leaving suffix induction to the client.",
+      "applicability_tests": [
+        "one-edge schedule from empty remaining conditions"
+      ]
     }
   ],
   "declined_candidates": [
@@ -209,6 +331,10 @@
     "round2: baseChange scalar-action identity in scaledImages_denominator",
     "round2: lowerCharacter nonnegativity branches",
     "round2: two scalar coefficient identities inside reflection_triple_in_plane",
-    "round2: unconditional model-sum/localization transport redesign"
+    "round2: unconditional model-sum/localization transport redesign",
+    "round3: upper-suffix kernel set identities",
+    "round3: normalization positivity and simple scalar cancellation",
+    "round3: a chosen homogeneous basis has the stalk polynomial",
+    "round3: modify prior support assumptions or move the complementary-root API"
   ]
 }
