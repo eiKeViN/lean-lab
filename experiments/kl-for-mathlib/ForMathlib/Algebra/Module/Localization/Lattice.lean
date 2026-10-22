@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Localization.Lattice. Source spans: ModuleAlgebra:1.
 See migration.json and MIGRATION.md for exact provenance. -/

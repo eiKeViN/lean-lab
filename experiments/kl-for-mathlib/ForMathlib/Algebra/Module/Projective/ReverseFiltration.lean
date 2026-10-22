@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Projective.ReverseFiltration. Source spans: ModuleAlgebra:3.
 See migration.json and MIGRATION.md for exact provenance. -/

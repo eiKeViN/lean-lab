@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom. Source spans: GradedSheaves:2.
 See migration.json and MIGRATION.md for exact provenance.
@@ -17,7 +20,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
 
 /-- Adjoin a vertex below the old vertices, with specified outgoing edges.
 Only the edge orientations, not the extra comparabilities, enter sections. -/
-def bottomGraph (τ : D → V) : OrderedGraph (WithBot V) (E ⊕ D) where
+@[expose] def bottomGraph (τ : D → V) : OrderedGraph (WithBot V) (E ⊕ D) where
   source := Sum.elim (fun e => (G.source e : WithBot V)) (fun _ => ⊥)
   target := Sum.elim (fun e => (G.target e : WithBot V)) (fun d => (τ d : WithBot V))
   increasing := by
@@ -31,17 +34,17 @@ variable {G} (B : GradedSheaf (𝓐 := 𝓐) G)
   [Fintype V] [Fintype D] [IsNoetherianRing A]
   (τ : D → V) (α : D → A) (hα : ∀ d, α d ∈ 𝓐 1)
 
-noncomputable def attachEdges (d : D) : ModuleData.{uk,ua,um} 𝓐 :=
+@[expose] noncomputable def attachEdges (d : D) : ModuleData.{uk,ua,um} 𝓐 :=
   (B.vertex (τ d)).scalarQuotient (α d) 1 (hα d)
 
-noncomputable def attachQuotient (d : D) :
+@[expose] noncomputable def attachQuotient (d : D) :
     ModuleData.Hom (B.vertex (τ d)) (B.attachEdges τ α hα d) :=
   ModuleData.quotientMap _ _ (scalar_range_homogeneous 𝓐 (B.vertex (τ d)).piece 1 (α d) (hα d))
 
-noncomputable def attachBoundary : ModuleData.{uk,ua,um} 𝓐 :=
+@[expose] noncomputable def attachBoundary : ModuleData.{uk,ua,um} 𝓐 :=
   ModuleData.pi (B.attachEdges τ α hα)
 
-noncomputable def attachBoundaryMap :
+@[expose] noncomputable def attachBoundaryMap :
     ModuleData.Hom (B.sections Set.univ) (B.attachBoundary τ α hα) where
   map := LinearMap.pi fun d => (B.attachQuotient τ α hα d).map.comp
     ((LinearMap.proj (τ d)).comp (B.forget.sections Set.univ).subtype)
@@ -49,17 +52,17 @@ noncomputable def attachBoundaryMap :
     intro n f hf d _
     exact (B.attachQuotient τ α hα d).graded n _ (hf (τ d) (Set.mem_univ _))
 
-noncomputable def attachImage : ModuleData.{uk,ua,um} 𝓐 :=
+@[expose] noncomputable def attachImage : ModuleData.{uk,ua,um} 𝓐 :=
   ModuleData.range (B.attachBoundaryMap τ α hα)
 
 variable (C : ModuleData.MinimalCover (B.attachImage τ α hα))
 
-noncomputable def attachStalkMap : ModuleData.Hom C.source (B.attachBoundary τ α hα) :=
+@[expose] noncomputable def attachStalkMap : ModuleData.Hom C.source (B.attachBoundary τ α hα) :=
   (ModuleData.subtype (B.attachBoundary τ α hα) _
     (range_homogeneous _ _ (B.attachBoundaryMap τ α hα).map 0
       (by simpa using (B.attachBoundaryMap τ α hα).graded))).comp C.hom
 
-noncomputable def extendBottom : GradedSheaf (𝓐 := 𝓐) (bottomGraph G τ) where
+@[expose] noncomputable def extendBottom : GradedSheaf (𝓐 := 𝓐) (bottomGraph G τ) where
   vertex := WithBot.recBotCoe C.source B.vertex
   edge := Sum.elim B.edge (B.attachEdges τ α hα)
   lower := by
@@ -75,7 +78,7 @@ noncomputable def extendBottom : GradedSheaf (𝓐 := 𝓐) (bottomGraph G τ) w
     | inl e => exact B.upper e
     | inr d => exact B.attachQuotient τ α hα d
 
- def attachAssignment (z : C.source) (f : B.forget.Assignment) :
+ @[expose] def attachAssignment (z : C.source) (f : B.forget.Assignment) :
     (B.extendBottom τ α hα C).forget.Assignment := WithBot.recBotCoe z f
 
  theorem attachAssignment_global (z : C.source) (f : B.forget.Assignment)

@@ -1,9 +1,12 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models
-import ForMathlib.RepresentationTheory.Hecke.OrdinaryR
-import OAI.KL.Sheaves.LowerCharacter
-import OAI.KL.Sheaves.Support
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models
+public import ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+public import OAI.KL.Sheaves.LowerCharacter
+public import OAI.KL.Sheaves.Support
+
+public section
 
 /-! Semantic home: OAI.KL.Sheaves.FreeModel. Source spans: CharacterReciprocity:1, CharacterReciprocity:4, CharacterReciprocity:5, CharacterReciprocity:11, CharacterReciprocity:36, CharacterReciprocity:37.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -20,7 +23,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 variable [Fintype (Edge cs 1 b)] [Fintype (Interval cs 1 b)] [DecidableEq (Interval cs 1 b)]
 noncomputable section
 
-def SectionDualityObligation : Prop :=
+@[expose] def SectionDualityObligation : Prop :=
   ∃ d : SectionDuality cs 1 b basis (one_bruhat cs b)
     (boundarySheaf cs 1 b basis (one_bruhat cs b)),
     ∀ i j (m n : (boundarySheaf cs 1 b basis (one_bruhat cs b)).sheaf.sections Set.univ),
@@ -82,7 +85,7 @@ namespace FreeSheaf
 variable (B : FreeSheaf cs u b basis)
   [Fintype (Edge cs u b)] [DecidableEq (Interval cs u b)]
 noncomputable section
- def kernelEquivSingleSupport (x : Interval cs u b) :
+ @[expose] def kernelEquivSingleSupport (x : Interval cs u b) :
     LinearMap.ker (B.sheaf.forget.stalkMap x) ≃ₗ[Coefficient (σ := σ)]
       IntegralSupport.supported (B.sheaf.forget.sections Set.univ) x := by
   let _ (x : Interval cs u b) : Module.Free (Coefficient (σ := σ)) (B.sheaf.forget.vertex x) := B.free x
@@ -117,7 +120,7 @@ structure SectionDuality where
         (B.sheaf.forget.labelProduct_annihilates (polynomialLabel cs u b basis)
           (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient))) x n)
 
- def costalkEquivDual (d : SectionDuality cs u b basis B) (x : Interval cs u b) :
+ @[expose] def costalkEquivDual (d : SectionDuality cs u b basis B) (x : Interval cs u b) :
     LinearMap.ker (B.sheaf.forget.stalkMap x) ≃ₗ[Coefficient (σ := σ)]
       Dual (Coefficient (σ := σ)) (B.sheaf.vertex x) := by
   let _ (x : Interval cs u b) : Module.Free (Coefficient (σ := σ)) (B.sheaf.forget.vertex x) := B.free x
@@ -190,7 +193,7 @@ omit [Fintype σ] [Fintype (Interval cs u b)] in
   exact smul_right_injective _ (Sheaf.incomingProduct_ne_zero
     (polynomialLabel cs u b basis) (polynomialLabel_prime cs u b basis) x)
 
- def fullSubmodule (x : Interval cs u b) : Submodule (Coefficient (σ := σ)) (B.sheaf.vertex x) :=
+ @[expose] def fullSubmodule (x : Interval cs u b) : Submodule (Coefficient (σ := σ)) (B.sheaf.vertex x) :=
     LinearMap.ker (B.sheaf.forget.stalkMap x)
 
 omit [Fintype σ] [Fintype (Edge cs u b)] [Fintype (Interval cs u b)]
@@ -202,7 +205,7 @@ omit [Fintype σ] [Fintype (Edge cs u b)] [Fintype (Interval cs u b)]
   simp only [Set.mem_univ,forall_const]
   exact funext_iff.symm
 
- def fullKernel (x : Interval cs u b) : ModuleData (polynomialGrading ℝ σ) :=
+ @[expose] def fullKernel (x : Interval cs u b) : ModuleData (polynomialGrading ℝ σ) :=
   ModuleData.sub (B.sheaf.vertex x) (fullSubmodule cs u b basis B x) (by
     simpa only [fullKernel_eq cs u b basis B x] using
       B.sheaf.upwardKernel_homogeneous x Set.univ)
@@ -250,7 +253,7 @@ omit [Fintype σ] [Fintype (Edge cs u b)] [Fintype (Interval cs u b)]
   rw [zpow_sub₀ hq.ne',zpow_natCast,div_eq_mul_inv,inv_pow]
 
 
- def dualityOfPairing {l : ℤ} (p : GradedSheaf.PerfectPairing B.sheaf l) :
+ @[expose] def dualityOfPairing {l : ℤ} (p : GradedSheaf.PerfectPairing B.sheaf l) :
     SectionDuality cs u b basis B where
   pairing := p.pairing
   balanced := p.cut_balanced
@@ -277,7 +280,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   [Fintype (Edge cs 1 b)] [Fintype (Interval cs 1 b)] [DecidableEq (Interval cs 1 b)]
 noncomputable section
 
- def kernelDual (d : SectionDuality cs 1 b basis B) (x : Interval cs 1 b) :
+ @[expose] def kernelDual (d : SectionDuality cs 1 b basis B) (x : Interval cs 1 b) :
     Dual (Coefficient (σ := σ)) (B.sheaf.vertex x) ≃ₗ[Coefficient (σ := σ)]
       GradedSheaf.kernelData B.sheaf x :=
   (costalkEquivDual cs 1 b basis B d x).symm.trans (B.sheaf.kernelEquivFull x).symm
@@ -330,7 +333,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type u} [Group W] (cs : CoxeterSystem M W) (b : W)
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
-local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_3 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_3 (p : Prop) : Decidable p := Classical.propDecidable p
 
  theorem stalkCharacter_top :
     stalkCharacter cs 1 b basis (one_bruhat cs b) ⟨b,one_bruhat cs b,bruhat_refl cs b⟩=1 := by
@@ -368,12 +371,12 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type u} [Group W] (cs : CoxeterSystem M W) (b : W)
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
-local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
-local instance lowerConvInterval (c : W) : Fintype (Interval cs 1 c) := by
+@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_4 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance lowerConvInterval (c : W) : Fintype (Interval cs 1 c) := by
   let := interval_finite cs 1 c
   exact Fintype.ofFinite _
 
- def lowerIntervalEquiv (c : Interval cs 1 b) : Set.Iic c ≃ Interval cs 1 c.val where
+ @[expose] def lowerIntervalEquiv (c : Interval cs 1 b) : Set.Iic c ≃ Interval cs 1 c.val where
   toFun := (lowerIntervalMap cs b c).vertex
   invFun z := ⟨⟨z.val,z.property.1,bruhat_trans cs z.property.2 c.property.2⟩,z.property.2⟩
   left_inv _ := rfl

@@ -1,9 +1,12 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
-import ForMathlib.GroupTheory.Coxeter.Roots.Basic
-import ForMathlib.LinearAlgebra.Dual.Frobenius
-import ForMathlib.LinearAlgebra.PairProjection
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
+public import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+public import ForMathlib.LinearAlgebra.Dual.Frobenius
+public import ForMathlib.LinearAlgebra.PairProjection
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.BottSamelson.TitsWords. Source spans: Frobenius:1, Frobenius:6, Frobenius:20, Frobenius:13, Frobenius:15, Frobenius:23, Frobenius:16, Frobenius:18, Frobenius:24, Frobenius:19, Frobenius:21, Frobenius:22, Frobenius:25, Frobenius:27.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -20,7 +23,7 @@ noncomputable section
 
  abbrev SymmetricCoefficient := SymmetricAlgebra ℝ (Extended M)
 
- def coefficientAction (w : W) : SymmetricCoefficient (M := M) ≃ₐ[ℝ]
+ @[expose] def coefficientAction (w : W) : SymmetricCoefficient (M := M) ≃ₐ[ℝ]
     SymmetricCoefficient (M := M) := symmetricAction (extendedAction M cs w)
 
 @[simp] theorem coefficientAction_ι (w : W) (v : Extended M) :
@@ -45,7 +48,7 @@ noncomputable section
     simp only [coefficientAction_ι,map_mul,LinearEquiv.mul_apply]
   exact congrArg (fun f : SymmetricCoefficient (M := M) →ₐ[ℝ] SymmetricCoefficient (M := M) => f a) he
 
- def simpleFixed (i : I) : Subalgebra ℝ (SymmetricCoefficient (M := M)) :=
+ @[expose] def simpleFixed (i : I) : Subalgebra ℝ (SymmetricCoefficient (M := M)) :=
   fixed (coefficientAction cs (cs.simple i))
 
  abbrev simpleRootPolynomial (i : I) : SymmetricCoefficient (M := M) :=
@@ -68,22 +71,22 @@ noncomputable section
   rw [coefficientAction_simple]
   exact reflectionAction_divisible _ _ _ a
 
- def simpleCoordinates (i : I) : SymmetricCoefficient (M := M) ≃ₗ[simpleFixed cs i]
+ @[expose] def simpleCoordinates (i : I) : SymmetricCoefficient (M := M) ≃ₗ[simpleFixed cs i]
     (simpleFixed cs i × simpleFixed cs i) :=
   coordinates _ _ (simple_involutive cs i) (simpleRootPolynomial_ne_zero i)
     (simple_anti cs i) (simple_divisible cs i)
 
- instance simpleFixed_free (i : I) : Module.Free (simpleFixed cs i) (SymmetricCoefficient (M := M)) :=
+ @[expose] instance simpleFixed_free (i : I) : Module.Free (simpleFixed cs i) (SymmetricCoefficient (M := M)) :=
   Module.Free.of_equiv (simpleCoordinates cs i).symm
 
- instance simpleFixed_finite (i : I) : Module.Finite (simpleFixed cs i) (SymmetricCoefficient (M := M)) :=
+ @[expose] instance simpleFixed_finite (i : I) : Module.Finite (simpleFixed cs i) (SymmetricCoefficient (M := M)) :=
   Module.Finite.equiv (simpleCoordinates cs i).symm
 
- def simpleTrace (i : I) : SymmetricCoefficient (M := M) →ₗ[simpleFixed cs i] simpleFixed cs i :=
+ @[expose] def simpleTrace (i : I) : SymmetricCoefficient (M := M) →ₗ[simpleFixed cs i] simpleFixed cs i :=
   trace _ _ (simple_involutive cs i) (simpleRootPolynomial_ne_zero i)
     (simple_anti cs i) (simple_divisible cs i)
 
- def simpleDuality (i : I) : SymmetricCoefficient (M := M) ≃ₗ[simpleFixed cs i]
+ @[expose] def simpleDuality (i : I) : SymmetricCoefficient (M := M) ≃ₗ[simpleFixed cs i]
     Dual (simpleFixed cs i) (SymmetricCoefficient (M := M)) :=
   duality _ _ (simple_involutive cs i) (simpleRootPolynomial_ne_zero i)
     (simple_anti cs i) (simple_divisible cs i)
@@ -105,18 +108,18 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- def bottSamelson : List I → PairedBimodule.{u,u} (SymmetricCoefficient (M := M))
+ @[expose] def bottSamelson : List I → PairedBimodule.{u,u} (SymmetricCoefficient (M := M))
   | [] => unitBimodule _
   | i :: l => inducedBimodule (simpleTrace cs i) (simpleDuality cs i)
     (simpleDuality_apply cs i) (bottSamelson l)
 
  abbrev BottSamelsonModule (l : List I) := (bottSamelson cs l).obj
 
- def bottSamelsonDuality (l : List I) : BottSamelsonModule cs l ≃ₗ[SymmetricCoefficient (M := M)]
+ @[expose] def bottSamelsonDuality (l : List I) : BottSamelsonModule cs l ≃ₗ[SymmetricCoefficient (M := M)]
     Dual (SymmetricCoefficient (M := M)) (BottSamelsonModule cs l) :=
   (bottSamelson cs l).obj.pairing
 
- def bottSamelsonRight (l : List I) : SymmetricCoefficient (M := M) →+*
+ @[expose] def bottSamelsonRight (l : List I) : SymmetricCoefficient (M := M) →+*
     End (SymmetricCoefficient (M := M)) (BottSamelsonModule cs l) :=
   (bottSamelson cs l).right
 
@@ -185,7 +188,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def symmetricGrading : ℤ → Submodule ℝ (SymmetricCoefficient (M := M)) :=
+ @[expose] def symmetricGrading : ℤ → Submodule ℝ (SymmetricCoefficient (M := M)) :=
   fun n => (polynomialGrading ℝ σ n).map
     (SymmetricAlgebra.equivMvPolynomial basis).symm.toLinearMap
 
@@ -200,7 +203,7 @@ omit [Fintype σ] in
   · intro h
     exact ⟨_,h,(SymmetricAlgebra.equivMvPolynomial basis).symm_apply_apply a⟩
 
- instance symmetricGrading_decomposition : DirectSum.Decomposition (symmetricGrading basis) := by
+ @[expose] instance symmetricGrading_decomposition : DirectSum.Decomposition (symmetricGrading basis) := by
   apply DirectSum.IsInternal.chooseDecomposition
   apply image_isInternal (polynomialGrading ℝ σ)
     (SymmetricAlgebra.equivMvPolynomial basis).symm.toLinearMap
@@ -211,7 +214,7 @@ omit [Fintype σ] in
   subst p
   simp
 
- instance symmetricGrading_graded : SetLike.GradedMonoid (symmetricGrading basis) where
+ @[expose] instance symmetricGrading_graded : SetLike.GradedMonoid (symmetricGrading basis) where
   one_mem := (mem_symmetricGrading basis 0 1).mpr (by
     rw [map_one]
     exact SetLike.one_mem_graded (polynomialGrading ℝ σ))
@@ -256,17 +259,17 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def BottIndex : List I → Type u
+ @[expose] def BottIndex : List I → Type u
   | [] => PUnit
   | _ :: l => Fin 2 × BottIndex l
 
- instance bottIndex_fintype : (l : List I) → Fintype (BottIndex l)
+ @[expose] instance bottIndex_fintype : (l : List I) → Fintype (BottIndex l)
   | [] => inferInstanceAs (Fintype PUnit)
   | _ :: l => by
       let _ := bottIndex_fintype l
       exact inferInstanceAs (Fintype (Fin 2 × BottIndex l))
 
- def bottDegree : (l : List I) → BottIndex l → ℤ
+ @[expose] def bottDegree : (l : List I) → BottIndex l → ℤ
   | [], _ => 0
   | _ :: l, e => e.1.val + bottDegree l e.2
 
@@ -276,7 +279,7 @@ omit [Fintype I] in
   | nil => exact le_rfl
   | cons i l ih => exact add_nonneg (Int.natCast_nonneg _) (ih e.2)
 
- def bottBasis : (l : List I) → Basis (BottIndex l) (SymmetricCoefficient (M := M))
+ @[expose] def bottBasis : (l : List I) → Basis (BottIndex l) (SymmetricCoefficient (M := M))
     (BottSamelsonModule cs l)
   | [] => Basis.singleton PUnit _
   | i :: l => by
@@ -316,20 +319,20 @@ omit [Fintype I] in
     simp only [List.length_cons,Nat.cast_add,Nat.cast_one,bottDegree]
     convert h using 1; rfl
 
- instance bottRealModule (l : List I) : Module ℝ (BottSamelsonModule cs l) :=
+ @[expose] instance bottRealModule (l : List I) : Module ℝ (BottSamelsonModule cs l) :=
   Module.compHom _ (algebraMap ℝ (SymmetricCoefficient (M := M)))
 
- instance bottRealTower (l : List I) :
+ @[expose] instance bottRealTower (l : List I) :
     IsScalarTower ℝ (SymmetricCoefficient (M := M)) (BottSamelsonModule cs l) :=
   IsScalarTower.of_algebraMap_smul fun _ _ => rfl
 
- def bottPiece (l : List I) : ℤ → Submodule ℝ (BottSamelsonModule cs l) :=
+ @[expose] def bottPiece (l : List I) : ℤ → Submodule ℝ (BottSamelsonModule cs l) :=
   basisPiece (symmetricGrading basis) (bottBasis cs l) (bottDegree l)
 
- instance bottPiece_decomposition (l : List I) : DirectSum.Decomposition (bottPiece cs basis l) :=
+ @[expose] instance bottPiece_decomposition (l : List I) : DirectSum.Decomposition (bottPiece cs basis l) :=
   basisPiece_decomposition _ _ _
 
- instance bottPiece_graded (l : List I) :
+ @[expose] instance bottPiece_graded (l : List I) :
     SetLike.GradedSMul (symmetricGrading basis) (bottPiece cs basis l) :=
   basisPiece_graded _ _ _
 
@@ -403,13 +406,13 @@ noncomputable section
   rw [one_mul] at h
   exact (coefficientAction cs 1).injective h.symm
 
- def bottWeight : (l : List I) → BottIndex l → W
+ @[expose] def bottWeight : (l : List I) → BottIndex l → W
   | [], _ => 1
   | i::l, e => if e.1=0 then bottWeight l e.2 else cs.simple i*bottWeight l e.2
 
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
- def weightFunctional (i : I) (N : PairedModule.{u,un} (SymmetricCoefficient (M := M)))
+ @[expose] def weightFunctional (i : I) (N : PairedModule.{u,un} (SymmetricCoefficient (M := M)))
     (f : N →ₗ[SymmetricCoefficient (M := M)] SymmetricCoefficient (M := M))
     (ε : Fin 2) : N →ₗ[simpleFixed cs i] SymmetricCoefficient (M := M) where
   toFun m := if ε=0 then f m else coefficientAction cs (cs.simple i) (f m)
@@ -425,14 +428,14 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
         (c:SymmetricCoefficient (M:=M))*coefficientAction cs (cs.simple i) (f m)
       rw [map_mul, show coefficientAction cs (cs.simple i) (c:SymmetricCoefficient (M:=M)) = c from c.property]
 
- def inducedFunctional (i : I) (N : PairedModule.{u,un} (SymmetricCoefficient (M := M)))
+ @[expose] def inducedFunctional (i : I) (N : PairedModule.{u,un} (SymmetricCoefficient (M := M)))
     (f : N →ₗ[simpleFixed cs i] SymmetricCoefficient (M := M)) :
     (SymmetricCoefficient (M := M) ⊗[simpleFixed cs i] N) →ₗ[SymmetricCoefficient (M := M)]
       SymmetricCoefficient (M := M) :=
   AlgebraTensorModule.lift ((LinearMap.id : SymmetricCoefficient (M := M) →ₗ[
     SymmetricCoefficient (M := M)] SymmetricCoefficient (M := M)).smulRight f)
 
- def bottEvaluation : (l : List I) → BottIndex l →
+ @[expose] def bottEvaluation : (l : List I) → BottIndex l →
     BottSamelsonModule cs l →ₗ[SymmetricCoefficient (M := M)] SymmetricCoefficient (M := M)
   | [], _ => LinearMap.id
   | i::l, e => inducedFunctional cs i (bottSamelson cs l).obj
@@ -482,7 +485,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
- def bottEvaluationMatrix (l : List I) : Matrix (BottIndex l) (BottIndex l)
+ @[expose] def bottEvaluationMatrix (l : List I) : Matrix (BottIndex l) (BottIndex l)
     (SymmetricCoefficient (M := M)) := fun e j => bottEvaluation cs l e (bottBasis cs l j)
 
  theorem bottEvaluation_expand (l : List I) (e : BottIndex l) (m : BottSamelsonModule cs l) :
@@ -580,7 +583,7 @@ variable {I : Type u} {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- def bottSubword : (l : List I) → BottIndex l → List I
+ @[expose] def bottSubword : (l : List I) → BottIndex l → List I
   | [], _ => []
   | i::l, e => if e.1=0 then bottSubword l e.2 else i::bottSubword l e.2
 
@@ -648,7 +651,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- def bottCoordinateDenominator (l : List I) : SymmetricCoefficient (M := M) := by
+ @[expose] def bottCoordinateDenominator (l : List I) : SymmetricCoefficient (M := M) := by
   classical
   exact (bottEvaluationMatrix cs l).det
 
@@ -682,9 +685,9 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
-local instance _root_.OAI.KLInvariance.TitsSpace.instDecidableEqBottIndex (l : List I) : DecidableEq (BottIndex l) := Classical.decEq _
+@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidableEqBottIndex (l : List I) : DecidableEq (BottIndex l) := Classical.decEq _
 
- def bottWeightSupported (l : List I) (x : W) : Submodule (SymmetricCoefficient (M := M))
+ @[expose] def bottWeightSupported (l : List I) (x : W) : Submodule (SymmetricCoefficient (M := M))
     (BottSamelsonModule cs l) where
   carrier := {m | ∀ e, bottWeight cs l e ≠ x → bottEvaluation cs l e m = 0}
   zero_mem' := by intro e _; exact map_zero _
@@ -729,7 +732,7 @@ local instance _root_.OAI.KLInvariance.TitsSpace.instDecidableEqBottIndex (l : L
       bottSamelsonDuality cs l m n = 0 := by rw [sub_mul,h,sub_self]
   exact (mul_eq_zero.mp he).resolve_left (sub_ne_zero.mpr ha)
 
- def bottCoordinateLift (l : List I) (e : BottIndex l) : BottSamelsonModule cs l := by
+ @[expose] def bottCoordinateLift (l : List I) (e : BottIndex l) : BottSamelsonModule cs l := by
   classical
   exact (bottEvaluation_contains_scaled_coordinates cs l (Pi.single e 1)).choose
 
@@ -772,7 +775,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- def bottWeightProjection (l : List I) (x : W) : BottSamelsonModule cs l →ₗ[
+ @[expose] def bottWeightProjection (l : List I) (x : W) : BottSamelsonModule cs l →ₗ[
     SymmetricCoefficient (M := M)]
     ({e : BottIndex l // bottWeight cs l e=x} → SymmetricCoefficient (M := M)) :=
   LinearMap.pi (fun e => bottEvaluation cs l e.val)
@@ -833,11 +836,11 @@ noncomputable section
       bottWeightProjection cs l x n=0 → bottSamelsonDuality cs l m n=0 :=
   ⟨fun h => bott_supported_annihilates cs l x h,fun h => bott_annihilates_supported cs l x h⟩
 
- def bottStalk (l : List I) (x : W) : Submodule (SymmetricCoefficient (M := M))
+ @[expose] def bottStalk (l : List I) (x : W) : Submodule (SymmetricCoefficient (M := M))
     ({e : BottIndex l // bottWeight cs l e=x} → SymmetricCoefficient (M := M)) :=
   LinearMap.range (bottWeightProjection cs l x)
 
- def bottStalkProjection (l : List I) (x : W) : BottSamelsonModule cs l →ₗ[
+ @[expose] def bottStalkProjection (l : List I) (x : W) : BottSamelsonModule cs l →ₗ[
     SymmetricCoefficient (M := M)] bottStalk cs l x :=
   (bottWeightProjection cs l x).rangeRestrict
 
@@ -850,7 +853,7 @@ noncomputable section
     bottStalkProjection cs l x m=0 ↔ bottWeightProjection cs l x m=0 := by
   exact Subtype.ext_iff
 
- def bottStalkDualToSupport (l : List I) (x : W) :
+ @[expose] def bottStalkDualToSupport (l : List I) (x : W) :
     Dual (SymmetricCoefficient (M := M)) (bottStalk cs l x) →ₗ[SymmetricCoefficient (M := M)]
       bottWeightSupported cs l x :=
   ((bottSamelsonDuality cs l).symm.toLinearMap.comp
@@ -885,7 +888,7 @@ noncomputable section
     change (bottSamelsonDuality cs l).symm ((bottStalkProjection cs l x).dualMap lam)=m.val
     rw [hlam,LinearEquiv.symm_apply_apply]
 
- def bottStalkDuality (l : List I) (x : W) : bottWeightSupported cs l x ≃ₗ[
+ @[expose] def bottStalkDuality (l : List I) (x : W) : bottWeightSupported cs l x ≃ₗ[
     SymmetricCoefficient (M := M)] Dual (SymmetricCoefficient (M := M)) (bottStalk cs l x) :=
   (LinearEquiv.ofBijective (bottStalkDualToSupport cs l x)
     (bottStalkDualToSupport_bijective cs l x)).symm
@@ -913,7 +916,7 @@ noncomputable section
     coefficientAction cs x a * bottEvaluation cs l e.val m
   rw [bottEvaluation_right,e.property]
 
- def bottProjectionSheaf (l : List I) (u b : W) : Sheaf (R := SymmetricCoefficient (M := M))
+ @[expose] def bottProjectionSheaf (l : List I) (u b : W) : Sheaf (R := SymmetricCoefficient (M := M))
     (graph cs u b) where
   vertex x := ModuleCat.of _ (bottStalk cs l x.val)
   edge e := ModuleCat.of _ (PairProjection.Edge
@@ -928,7 +931,7 @@ noncomputable section
     exact PairProjection.upper (bottStalkProjection cs l (source cs u b e).val)
       (bottStalkProjection cs l (target cs u b e).val)
 
- def bottSection (l : List I) (u b : W) : BottSamelsonModule cs l →ₗ[
+ @[expose] def bottSection (l : List I) (u b : W) : BottSamelsonModule cs l →ₗ[
     SymmetricCoefficient (M := M)] (bottProjectionSheaf cs l u b).sections Set.univ where
   toFun m := ⟨fun x => bottStalkProjection cs l x.val m,by
     intro e _ _
@@ -998,7 +1001,7 @@ noncomputable section
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
 /-- The reflection is linear over its actual invariant subalgebra. -/
-def simpleFixedAction (i : I) : SymmetricCoefficient (M := M) →ₗ[simpleFixed cs i]
+@[expose] def simpleFixedAction (i : I) : SymmetricCoefficient (M := M) →ₗ[simpleFixed cs i]
     SymmetricCoefficient (M := M) where
   toFun := coefficientAction cs (cs.simple i)
   map_add' := map_add _
@@ -1009,7 +1012,7 @@ def simpleFixedAction (i : I) : SymmetricCoefficient (M := M) →ₗ[simpleFixed
       (c : SymmetricCoefficient (M := M)) = c from c.property]
 
 /-- Reflect the first tensor factor. It is not asserted to be left A-linear. -/
-def bottSimpleFlip (i : I) (l : List I) : BottSamelsonModule cs (i::l) →ₗ[simpleFixed cs i]
+@[expose] def bottSimpleFlip (i : I) (l : List I) : BottSamelsonModule cs (i::l) →ₗ[simpleFixed cs i]
     BottSamelsonModule cs (i::l) :=
   TensorProduct.map (simpleFixedAction cs i)
     (LinearMap.id : BottSamelsonModule cs l →ₗ[simpleFixed cs i] BottSamelsonModule cs l)
@@ -1038,7 +1041,7 @@ theorem bottSimpleFlip_divisible (i : I) (l : List I) (m : BottSamelsonModule cs
 
 
 /-- Exchange the two branches of the first subexpression slot. -/
-def bottIndexFlip (i : I) (l : List I) (e : BottIndex (i::l)) : BottIndex (i::l) :=
+@[expose] def bottIndexFlip (i : I) (l : List I) (e : BottIndex (i::l)) : BottIndex (i::l) :=
   (1-e.1,e.2)
 
 omit [Fintype I] in

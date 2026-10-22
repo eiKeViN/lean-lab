@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.TensorProduct.Coordinates. Source spans: BottSamelson:1, BottSamelson:12.
 See migration.json and MIGRATION.md for exact provenance. -/

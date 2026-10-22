@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.RepresentationTheory.Hecke.Operators
+module
+public import Mathlib
+public import ForMathlib.RepresentationTheory.Hecke.Operators
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.DualR. Source spans: Dihedral:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,7 +16,7 @@ universe uR vR
 variable {B : Type uR} {W : Type vR} [Group W] {M : CoxeterMatrix B}
 variable {C : Type*} [CommRing C]
 
-noncomputable def dualR (cs : CoxeterSystem M W) (q : Cˣ) (x y : W) : C :=
+@[expose] noncomputable def dualR (cs : CoxeterSystem M W) (q : Cˣ) (x y : W) : C :=
   (-(q : C)) ^ cs.length y * (-(↑q⁻¹ : C)) ^ cs.length x * rValue cs q⁻¹ x y
 
 @[simp] theorem dualR_diagonal (cs : CoxeterSystem M W) (q : Cˣ) (x : W) :

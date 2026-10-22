@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.CoefficientChange.Basic
-import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.CoefficientChange.Basic
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic. Source spans: BottSamelson:28.
 See migration.json and MIGRATION.md for exact provenance.
@@ -17,7 +20,7 @@ variable {k : Type uk} [Field k] {A B : Type ua} [CommRing A] [CommRing B]
   (e : A ≃ₐ[k] B) (he : ∀ n a, a∈𝓐 n ↔ e a∈𝓑 n)
 noncomputable section
 
- def changePiece (M : ModuleData.{uk,ua,um} 𝓐) : ℤ → Submodule k (CoefficientChange e M) :=
+ @[expose] def changePiece (M : ModuleData.{uk,ua,um} 𝓐) : ℤ → Submodule k (CoefficientChange e M) :=
   fun n => (M.piece n).map (CoefficientChange.kEquiv e M).toLinearMap
 
  theorem mem_changePiece (M : ModuleData.{uk,ua,um} 𝓐) (n : ℤ) (m : CoefficientChange e M) :
@@ -29,7 +32,7 @@ noncomputable section
   · intro hm
     exact ⟨m.val,hm,rfl⟩
 
- def change (M : ModuleData.{uk,ua,um} 𝓐) : ModuleData.{uk,ua,um} 𝓑 where
+ @[expose] def change (M : ModuleData.{uk,ua,um} 𝓐) : ModuleData.{uk,ua,um} 𝓑 where
   obj := ModuleCat.of B (CoefficientChange e M)
   kModule := inferInstance
   tower := inferInstance
@@ -52,7 +55,7 @@ noncomputable section
   nonneg n hn := by simp only [changePiece,M.nonneg n hn,Submodule.map_bot]
   finite := inferInstance
 
- def changeHom {M N : ModuleData.{uk,ua,um} 𝓐} (f : Hom M N) :
+ @[expose] def changeHom {M N : ModuleData.{uk,ua,um} 𝓐} (f : Hom M N) :
     Hom (change e he M) (change e he N) where
   map := CoefficientChange.map e f.map
   graded n m hm := (mem_changePiece e N n _).mpr

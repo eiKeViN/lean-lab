@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
-import ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
+public import ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps. Source spans: SheafMorphisms:26, EdgeLocalization:9.
 See migration.json and MIGRATION.md for exact provenance.

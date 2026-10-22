@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
-import ForMathlib.LinearAlgebra.Quotient.Transport
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+public import ForMathlib.LinearAlgebra.Quotient.Transport
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.Transport. Source spans: MinimalExtensions:8, MinimalExtensions:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,7 +16,7 @@ universe uk ua um
 variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A}
 noncomputable section
- def zero : ModuleData.{uk,ua,um} 𝓐 where
+ @[expose] def zero : ModuleData.{uk,ua,um} 𝓐 where
   obj := ModuleCat.of A PUnit.{max ua um+1}
   kModule := inferInstance
   tower := inferInstance
@@ -28,10 +31,10 @@ noncomputable section
   nonneg _ _ := rfl
   finite := inferInstance
 
- def Hom.zero (M N : ModuleData.{uk,ua,um} 𝓐) : Hom M N :=
+ @[expose] def Hom.zero (M N : ModuleData.{uk,ua,um} 𝓐) : Hom M N :=
   ⟨0,fun _ _ _ => Submodule.zero_mem _⟩
 
- def Hom.pi {ι : Type um} [Fintype ι] {M N : ι → ModuleData.{uk,ua,um} 𝓐}
+ @[expose] def Hom.pi {ι : Type um} [Fintype ι] {M N : ι → ModuleData.{uk,ua,um} 𝓐}
     (f : ∀ i, Hom (M i) (N i)) : Hom (ModuleData.pi M) (ModuleData.pi N) where
   map := LinearMap.pi fun i => (f i).map.comp (LinearMap.proj i)
   graded n _ hm i hi := (f i).graded n _ (hm i hi)
@@ -46,7 +49,7 @@ universe uk ua um
 variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A}
 
-def equivOfEq {M N : ModuleData.{uk,ua,um} 𝓐} (h : M=N) : M ≃ₗ[A] N :=
+@[expose] def equivOfEq {M N : ModuleData.{uk,ua,um} 𝓐} (h : M=N) : M ≃ₗ[A] N :=
   h ▸ LinearEquiv.refl A M
 
  theorem equivOfEq_graded {M N : ModuleData.{uk,ua,um} 𝓐} (h : M=N)

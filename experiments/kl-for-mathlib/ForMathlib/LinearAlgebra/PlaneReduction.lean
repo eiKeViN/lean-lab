@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.PlaneReduction. Source spans: PlaneLocalization:23.
 See migration.json and MIGRATION.md for exact provenance. -/

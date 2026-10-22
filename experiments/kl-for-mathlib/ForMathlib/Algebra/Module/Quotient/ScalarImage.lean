@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Free.ScalarDivisibility
-import ForMathlib.LinearAlgebra.Quotient.Transport
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Free.ScalarDivisibility
+public import ForMathlib.LinearAlgebra.Quotient.Transport
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Quotient.ScalarImage. Source spans: TerminalKernels:11, TerminalKernels:16.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,7 +20,7 @@ variable {R : Type ur} [CommRing R]
   {ι : Type ui} [Fintype ι]
 noncomputable section
 
- def coordinateReduction (b : Basis ι R M) (a : R) :
+ @[expose] def coordinateReduction (b : Basis ι R M) (a : R) :
     M →ₗ[R] (ι → R ⧸ Ideal.span {a}) :=
   (LinearMap.pi fun i => (Ideal.span ({a} : Set R)).mkQ.comp
     ((LinearMap.proj i).comp b.equivFun.toLinearMap))
@@ -57,7 +60,7 @@ noncomputable section
         simpa only [algebraMap_smul] using j.map_smul r v }
   exact Module.Free.of_equiv k.symm
 
- def submodule (a : R) [Module (R ⧸ Ideal.span {a}) N]
+ @[expose] def submodule (a : R) [Module (R ⧸ Ideal.span {a}) N]
     [IsScalarTower R (R ⧸ Ideal.span {a}) N] (S : Submodule R N) :
     Submodule (R ⧸ Ideal.span {a}) N where
   carrier := S

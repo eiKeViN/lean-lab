@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
-import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport. Source spans: DyerPaths:6, DyerPaths:13, DyerPaths:16, DyerPaths:8.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -55,7 +58,7 @@ noncomputable section
 
 /-- The genuine diagram automorphism of an arbitrary rank-two Coxeter system,
 including the infinite one. -/
-def swapHom (cs : CoxeterSystem M W) : W →* W :=
+@[expose] def swapHom (cs : CoxeterSystem M W) : W →* W :=
   cs.lift ⟨fun i => cs.simple (!i), by
     intro i j
     have he : M i j = M (!i) (!j) := by
@@ -80,7 +83,7 @@ def swapHom (cs : CoxeterSystem M W) : W →* W :=
   · intro a b ha hb
     simp only [map_mul,ha,hb]
 
-def swap (cs : CoxeterSystem M W) : W ≃* W where
+@[expose] def swap (cs : CoxeterSystem M W) : W ≃* W where
   toFun := swapHom cs
   invFun := swapHom cs
   left_inv := swapHom_involutive cs
@@ -171,11 +174,11 @@ section
 namespace KLInvariance.Dihedral
 variable {W : Type*} [Group W] {M : CoxeterMatrix Bool}
 noncomputable section
-local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_5 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.Dihedral.instDecidable_oAI_5 (p : Prop) : Decidable p := Classical.propDecidable p
 
 /-- Switch the two vertices at every strictly internal rank, leaving all
 other ranks fixed. The diagram involution supplies the intrinsic switch. -/
-def rankFlip (cs : CoxeterSystem M W) (L H : ℕ) (w : W) : W :=
+@[expose] def rankFlip (cs : CoxeterSystem M W) (L H : ℕ) (w : W) : W :=
   if L < cs.length w ∧ cs.length w < H then swap cs w else w
 
 @[simp] theorem length_rankFlip (cs : CoxeterSystem M W) (L H : ℕ) (w : W) :
@@ -206,7 +209,7 @@ def rankFlip (cs : CoxeterSystem M W) (L H : ℕ) (w : W) : W :=
 
 /-- An automorphism of the unlabelled full dihedral interval, fixing its ends.
 It need not arise from a Coxeter-system automorphism at those ends. -/
-def intervalFlip (cs : CoxeterSystem M W) (lo hi : W) :
+@[expose] def intervalFlip (cs : CoxeterSystem M W) (lo hi : W) :
     Interval cs lo hi ≃o Interval cs lo hi where
   toFun x := ⟨rankFlip cs (cs.length lo) (cs.length hi) x.val, by
     constructor
@@ -232,7 +235,7 @@ def intervalFlip (cs : CoxeterSystem M W) (lo hi : W) :
     Function.Involutive (intervalFlip cs lo hi) :=
   fun x => Subtype.ext (rankFlip_involutive cs _ _ x.val)
 
-def edgeFlip (cs : CoxeterSystem M W) (lo hi : W) :
+@[expose] def edgeFlip (cs : CoxeterSystem M W) (lo hi : W) :
     BruhatGraph.Edge cs lo hi ≃ BruhatGraph.Edge cs lo hi where
   toFun e := ⟨(intervalFlip cs lo hi e.val.1, intervalFlip cs lo hi e.val.2),
     (rankFlip_step_iff cs _ _ _ _).mpr e.property⟩

@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.CoordinateProjection. Source spans: IntegralPairings:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,9 +16,9 @@ variable {R : Type ur} [CommRing R] {N : Type un} [AddCommGroup N] [Module R N]
   (f : ∀ x, N →ₗ[R] X x)
 noncomputable section
 
- def eval (U : Set V) : N →ₗ[R] (∀ x : U, X x.val) := LinearMap.pi (fun x => f x.val)
- def image (U : Set V) : Submodule R (∀ x : U, X x.val) := LinearMap.range (eval f U)
- def project (U : Set V) : N →ₗ[R] image f U := (eval f U).rangeRestrict
+ @[expose] def eval (U : Set V) : N →ₗ[R] (∀ x : U, X x.val) := LinearMap.pi (fun x => f x.val)
+ @[expose] def image (U : Set V) : Submodule R (∀ x : U, X x.val) := LinearMap.range (eval f U)
+ @[expose] def project (U : Set V) : N →ₗ[R] image f U := (eval f U).rangeRestrict
 
  theorem project_surjective (U : Set V) : Function.Surjective (project f U) :=
 by
@@ -33,7 +36,7 @@ by
     funext x
     exact h x.val x.property
 
- def restrict {U K : Set V} (h : U⊆K) : image f K →ₗ[R] image f U where
+ @[expose] def restrict {U K : Set V} (h : U⊆K) : image f K →ₗ[R] image f U where
   toFun z := ⟨fun x => z.val ⟨x.val,h x.property⟩,by
     obtain ⟨n,hn⟩ := z.property
     refine ⟨n,?_⟩

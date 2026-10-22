@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.DirectedPaths.Subpaths
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.DirectedPaths.Subpaths
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.DirectedPaths.Transfer. Source spans: ReflectionOrders:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -12,7 +15,7 @@ open scoped BigOperators
 universe u v w
 variable {V : Type u} {E : Type v} {R : Type w}
 noncomputable section
-local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_3 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.SchedulePaths.instDecidable_oAI_3 (p : Prop) : Decidable p := Classical.propDecidable p
 variable (source target : E → V) [Semiring R]
 
 theorem dispatch_append (T : R) (v : V → R) (p q : List E) :

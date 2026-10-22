@@ -34,7 +34,7 @@ class ModuleIntegrationChecks(unittest.TestCase):
                         new.replace(b'  ring\n',b'  apply id\n  ring\n',1),
                         new+b'\nprivate axiom hidden : False\n']:
             self.assertNotEqual(m.legacy_source(m.S,changed),old)
-        untouched='ForMathlib/Algebra/Polynomial/ScaledReciprocity.lean'
+        untouched='ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean'
         self.assertEqual(m.legacy_source(untouched,new),new)
 
     def test_manifest_cannot_expand_or_rebind(self):
@@ -58,7 +58,8 @@ class ModuleIntegrationChecks(unittest.TestCase):
 
     def test_exactly_three_module_nodes(self):
         g=m.graph()
-        self.assertEqual({n.replace('.','/')+'.lean' for n,r in g.items() if r['module']},set(m.SPEC))
+        from module_rollout import plan
+        self.assertEqual({n for n,r in g.items() if r['module']},set(plan()['selected']))
         self.assertEqual(g['OAI.KL.Compatibility.KernelTransport']['imports'][0]['module'],
                          'ForMathlib.LinearAlgebra.KernelTransport')
         self.assertTrue(g['OAI.KL.Compatibility.KernelTransport']['imports'][0]['public'])

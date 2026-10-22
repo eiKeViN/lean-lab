@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
-import ForMathlib.GroupTheory.Coxeter.Exchange
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+public import ForMathlib.GroupTheory.Coxeter.Exchange
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Bruhat.Basic. Source spans: Bruhat:1, Bruhat:3, Bruhat:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -182,11 +185,11 @@ theorem bruhatStep_simple_mul (cs : CoxeterSystem M W) {x y : W}
     simp [mul_assoc]
 
 /-- The smaller of `x` and `s*x` in Bruhat order. -/
-noncomputable def lowerSimple (cs : CoxeterSystem M W) (i : B) (x : W) : W :=
+@[expose] noncomputable def lowerSimple (cs : CoxeterSystem M W) (i : B) (x : W) : W :=
   if cs.length (cs.simple i * x) < cs.length x then cs.simple i * x else x
 
 /-- The larger of `x` and `s*x` in Bruhat order. -/
-noncomputable def upperSimple (cs : CoxeterSystem M W) (i : B) (x : W) : W :=
+@[expose] noncomputable def upperSimple (cs : CoxeterSystem M W) (i : B) (x : W) : W :=
   if cs.length (cs.simple i * x) < cs.length x then x else cs.simple i * x
 
 theorem lowerSimple_le (cs : CoxeterSystem M W) (i : B) (x : W) :

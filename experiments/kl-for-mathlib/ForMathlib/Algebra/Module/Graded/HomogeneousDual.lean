@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.HomogeneousDual. Source spans: Support:25, Support:13.
 See migration.json and MIGRATION.md for exact provenance. -/

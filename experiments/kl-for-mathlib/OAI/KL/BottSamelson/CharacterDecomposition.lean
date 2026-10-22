@@ -1,5 +1,8 @@
-import Mathlib
-import OAI.KL.Sheaves.Reciprocity
+module
+public import Mathlib
+public import OAI.KL.Sheaves.Reciprocity
+
+public section
 
 /-! Semantic home: OAI.KL.BottSamelson.CharacterDecomposition. Source spans: CharacterReciprocity:34.
 See migration.json and MIGRATION.md for exact provenance. -/

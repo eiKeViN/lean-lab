@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
-import ForMathlib.LinearAlgebra.PairProjection
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+public import ForMathlib.LinearAlgebra.PairProjection
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection. Source spans: BottSamelson:20.
 See migration.json and MIGRATION.md for exact provenance.
@@ -26,10 +29,10 @@ noncomputable section
   · rw [← f.component,hm]
   · rw [← g.component,hy,map_zero]
 
- def pairEdgePiece (n : ℤ) : Submodule k (Edge f.map g.map) :=
+ @[expose] def pairEdgePiece (n : ℤ) : Submodule k (Edge f.map g.map) :=
   (X.piece n).map ((lower f.map g.map).restrictScalars k)
 
- def pairEdge (hg : Function.Surjective g.map) : ModuleData.{uk,ua,um} 𝓐 where
+ @[expose] def pairEdge (hg : Function.Surjective g.map) : ModuleData.{uk,ua,um} 𝓐 where
   obj := ModuleCat.of A (Edge f.map g.map)
   kModule := inferInstance
   tower := inferInstance
@@ -45,7 +48,7 @@ noncomputable section
     rw [X.nonneg n hn,Submodule.map_bot]
   finite := Module.Finite.of_surjective (lower f.map g.map) (lower_surjective f.map g.map hg)
 
- def pairLower (hg : Function.Surjective g.map) : Hom X (pairEdge f g hg) where
+ @[expose] def pairLower (hg : Function.Surjective g.map) : Hom X (pairEdge f g hg) where
   map := lower f.map g.map
   graded := fun _ z hz => ⟨z,hz,rfl⟩
 
@@ -56,7 +59,7 @@ noncomputable section
   rw [← g.component,hm]
   exact DirectSum.decompose_of_mem_same Y.piece hy
 
- def pairUpper (hg : Function.Surjective g.map) : Hom Y (pairEdge f g hg) where
+ @[expose] def pairUpper (hg : Function.Surjective g.map) : Hom Y (pairEdge f g hg) where
   map := upper f.map g.map
   graded := by
     intro n y hy

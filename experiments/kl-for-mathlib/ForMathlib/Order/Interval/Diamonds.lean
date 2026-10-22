@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Order.Interval.Diamonds. Source spans: ReflectionSchedules:18.
 See migration.json and MIGRATION.md for exact provenance. -/

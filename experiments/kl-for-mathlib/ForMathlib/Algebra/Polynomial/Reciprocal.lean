@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Polynomial.Reciprocal. Source spans: Bruhat:7, Comparison:1, Hecke:5.
 See migration.json and MIGRATION.md for exact provenance. -/

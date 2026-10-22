@@ -1,5 +1,8 @@
-import Mathlib
-import OAI.KL.BottSamelson.Character
+module
+public import Mathlib
+public import OAI.KL.BottSamelson.Character
+
+public section
 
 /-! Semantic home: OAI.KL.Sheaves.Reciprocity. Source spans: CharacterReciprocity:29, CharacterReciprocity:30, CharacterReciprocity:32.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -52,23 +55,23 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
-local instance finiteInterval : Fintype (Interval cs 1 b) := by
+@[expose] local instance finiteInterval : Fintype (Interval cs 1 b) := by
   let := interval_finite cs 1 b
   exact Fintype.ofFinite _
-local instance finiteEdges : Fintype (Edge cs 1 b) := Fintype.ofFinite _
-local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidableEq_oAI (a : Type*) : DecidableEq a := Classical.decEq a
+@[expose] local instance finiteEdges : Fintype (Edge cs 1 b) := Fintype.ofFinite _
+@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidableEq_oAI (a : Type*) : DecidableEq a := Classical.decEq a
 
- def boundaryFreeSheaf : FreeSheaf cs 1 b basis where
+ @[expose] def boundaryFreeSheaf : FreeSheaf cs 1 b basis where
   sheaf := (boundarySheaf cs 1 b basis (one_bruhat cs b)).sheaf
   free := (boundarySheaf cs 1 b basis (one_bruhat cs b)).free
   quotient := (boundarySheaf cs 1 b basis (one_bruhat cs b)).quotient
   generated := (boundarySheaf cs 1 b basis (one_bruhat cs b)).generated
 
- def boundaryPerfectPairing : GradedSheaf.PerfectPairing
+ @[expose] def boundaryPerfectPairing : GradedSheaf.PerfectPairing
     (boundaryFreeSheaf cs b basis).sheaf (cs.length b : ℤ) :=
   (boundarySheaf_perfectPairing cs b basis).some
 
- def boundaryFreeDuality : FreeSheaf.SectionDuality cs 1 b basis (boundaryFreeSheaf cs b basis) :=
+ @[expose] def boundaryFreeDuality : FreeSheaf.SectionDuality cs 1 b basis (boundaryFreeSheaf cs b basis) :=
   FreeSheaf.dualityOfPairing cs 1 b basis _ (boundaryPerfectPairing cs b basis)
 
  theorem boundaryKernelFree (x : Interval cs 1 b) :
@@ -76,7 +79,7 @@ local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidableEq_oAI (a : Type
       (GradedSheaf.kernelData (boundaryFreeSheaf cs b basis).sheaf x) :=
   FreeSheaf.kernel_free cs b basis _ (boundaryFreeDuality cs b basis) x
 
- def costalkCharacter (x : Interval cs 1 b) : Polynomial ℤ :=
+ @[expose] def costalkCharacter (x : Interval cs 1 b) : Polynomial ℤ :=
   GradedSheaf.freeKernelChar (boundaryFreeSheaf cs b basis).sheaf (boundaryKernelFree cs b basis) x
 
  theorem costalkCharacter_reflect (x : Interval cs 1 b) :
@@ -112,9 +115,9 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type u} [Group W] (cs : CoxeterSystem M W) (b : W)
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
-local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
 
- def lowerKernelEquiv (c x : Interval cs 1 b) (hx : x≤c) :
+ @[expose] def lowerKernelEquiv (c x : Interval cs 1 b) (hx : x≤c) :
     GradedSheaf.kernelData ((boundaryModels cs b basis).sheaf c) x ≃ₗ[Coefficient (σ := σ)]
       GradedSheaf.kernelData (boundaryFreeSheaf cs c.val basis).sheaf ⟨x.val,x.property.1,hx⟩ :=
   ((lowerIntervalBoundary cs b basis c).sheaf.lowerExtendKernelEquiv ⟨x,hx⟩).trans

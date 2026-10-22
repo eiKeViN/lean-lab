@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Polynomial.ScaledEvaluation
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization
+module
+public import Mathlib
+public import ForMathlib.Algebra.Polynomial.ScaledEvaluation
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport. Source spans: Invariance:1, Invariance:4.
 See migration.json and MIGRATION.md for exact provenance. -/

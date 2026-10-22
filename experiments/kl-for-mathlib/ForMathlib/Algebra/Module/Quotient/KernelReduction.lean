@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Quotient.KernelReduction. Source spans: ModuleAlgebra:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -46,7 +49,7 @@ theorem reduced_kernel_injective (f : B →ₗ[A] D) (α : A)
   exact ⟨⟨c, hfc⟩, trivial, Subtype.ext hc⟩
 
 /-- The inclusion after reduction, viewed over the actual factor ring. -/
-def reducedInclusion (f : B →ₗ[A] D) (α : A) :
+@[expose] def reducedInclusion (f : B →ₗ[A] D) (α : A) :
     QuotSMulTop α (LinearMap.ker f) →ₗ[A ⧸ Ideal.span {α}] QuotSMulTop α B :=
   (QuotSMulTop.map α (LinearMap.ker f).subtype).extendScalarsOfSurjective
     Ideal.Quotient.mk_surjective

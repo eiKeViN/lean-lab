@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic
-import ForMathlib.Algebra.Module.Graded.Basis
-import ForMathlib.Algebra.Module.Graded.PolynomialMap
-import ForMathlib.Algebra.Module.Graded.HomogeneousMul
+module
+public import Mathlib
+public import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic
+public import ForMathlib.Algebra.Module.Graded.Basis
+public import ForMathlib.Algebra.Module.Graded.PolynomialMap
+public import ForMathlib.Algebra.Module.Graded.HomogeneousMul
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis. Source spans: Frobenius:17, Frobenius:9, Frobenius:8, Frobenius:12.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,11 +20,11 @@ variable {A : Type ua} [CommRing A] [IsDomain A] [CharZero A]
   {ι : Type ui} [Fintype ι] (τ : A ≃+* A) (α : A)
 noncomputable section
 
- def wallCoordinate (E : Matrix ι ι A) (v : Fin 2 × ι → A) : Fin 2 × ι → A := fun e =>
+ @[expose] def wallCoordinate (E : Matrix ι ι A) (v : Fin 2 × ι → A) : Fin 2 × ι → A := fun e =>
   if e.1=0 then (E *ᵥ (fun j => v (0,j)+α*v (1,j))) e.2
   else ((E.map τ) *ᵥ (fun j => v (0,j)-α*v (1,j))) e.2
 
- def wallMatrix (E : Matrix ι ι A) : Matrix (Fin 2 × ι) (Fin 2 × ι) A := fun e f =>
+ @[expose] def wallMatrix (E : Matrix ι ι A) : Matrix (Fin 2 × ι) (Fin 2 × ι) A := fun e f =>
   if e.1=0 then (if f.1=0 then E e.2 f.2 else α*E e.2 f.2)
   else if f.1=0 then τ (E e.2 f.2) else -α*τ (E e.2 f.2)
 
@@ -87,7 +90,7 @@ variable {k : Type uk} [Field k] [CharZero k]
   (hanti : τ α = -α) (hdiv : ∀ a : A, α ∣ a-τ a)
 noncomputable section
 
- def reflectionBasis : Basis (Fin 2) (fixed τ) A :=
+ @[expose] def reflectionBasis : Basis (Fin 2) (fixed τ) A :=
   (Basis.finTwoProd (fixed τ)).map (coordinates τ α hinv hα hanti hdiv).symm
 
  theorem reflectionBasis_zero : reflectionBasis τ α hinv hα hanti hdiv 0 = 1 := by
@@ -185,7 +188,7 @@ variable {k : Type uk} [Field k] [CharZero k]
   {σ : Type us} [Fintype σ] (basis : Basis σ k V)
 noncomputable section
 
- def polynomialLinear (v : V) : MvPolynomial σ k :=
+ @[expose] def polynomialLinear (v : V) : MvPolynomial σ k :=
   SymmetricAlgebra.equivMvPolynomial basis (SymmetricAlgebra.ι k V v)
 
 omit [CharZero k] in
@@ -200,7 +203,7 @@ omit [CharZero k] in
   exact (polynomialGrading k σ 1).smul_mem _
     (MvPolynomial.isWeightedHomogeneous_X k (fun _ : σ => (1:ℤ)) i)
 
- def polynomialAction (e : V ≃ₗ[k] V) : MvPolynomial σ k ≃ₐ[k] MvPolynomial σ k :=
+ @[expose] def polynomialAction (e : V ≃ₗ[k] V) : MvPolynomial σ k ≃ₐ[k] MvPolynomial σ k :=
   ((SymmetricAlgebra.equivMvPolynomial basis).symm.trans (symmetricAction e)).trans
     (SymmetricAlgebra.equivMvPolynomial basis)
 
@@ -264,7 +267,7 @@ omit [CharZero k] [Fintype σ] in
   simpa [polynomialLinear,polynomialReflection,polynomialAction] using
     congrArg (SymmetricAlgebra.equivMvPolynomial basis) hd
 
- def polynomialTrace : MvPolynomial σ k →ₗ[fixed (polynomialReflection basis root coroot hroot)]
+ @[expose] def polynomialTrace : MvPolynomial σ k →ₗ[fixed (polynomialReflection basis root coroot hroot)]
     fixed (polynomialReflection basis root coroot hroot) :=
   trace _ _ (polynomialReflection_involutive basis root coroot hroot)
     (polynomialLinear_ne_zero basis root coroot hroot)

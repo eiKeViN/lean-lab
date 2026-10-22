@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Polynomial.Reciprocal
-import ForMathlib.RepresentationTheory.Hecke.Inverse
+module
+public import Mathlib
+public import ForMathlib.Algebra.Polynomial.Reciprocal
+public import ForMathlib.RepresentationTheory.Hecke.Inverse
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.OrdinaryR. Source spans: OrdinaryR:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,13 +19,13 @@ universe u v u' v'
 
 variable {B : Type u} {W : Type v} [klPreservedInstance1 : Group W] {M : CoxeterMatrix B}
 
-noncomputable local instance _root_.OAI.KLInvariance.instDecidableEq_oAI_1 : DecidableEq W := Classical.decEq W
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.instDecidableEq_oAI_1 : DecidableEq W := Classical.decEq W
 
 namespace OrdinaryR
 
 open LaurentPolynomial
 
-noncomputable def variableUnit : (LaurentPolynomial ℤ)ˣ :=
+@[expose] noncomputable def variableUnit : (LaurentPolynomial ℤ)ˣ :=
   (LaurentPolynomial.isUnit_T (R := ℤ) 1).unit
 
 @[simp] theorem variableUnit_val : (variableUnit : LaurentPolynomial ℤ) = T 1 :=
@@ -60,7 +63,7 @@ theorem rValue_polynomial (cs : CoxeterSystem M W) (x y : W) :
       · refine ⟨(X - 1) * p + X * r, ?_⟩
         simp [hp, hr]
 
-noncomputable def polynomial (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
+@[expose] noncomputable def polynomial (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
   LaurentPolynomial.trunc (HeckeQ.rValue cs variableUnit x y)
 
 @[simp] theorem toLaurent_polynomial (cs : CoxeterSystem M W) (x y : W) :
@@ -217,7 +220,7 @@ theorem polynomial_kernel (cs : CoxeterSystem M W) (x y : W) :
 
 end OrdinaryR
 
-noncomputable def properIntervalFinset (cs : CoxeterSystem M W) (x y : W) : Finset W := by
+@[expose] noncomputable def properIntervalFinset (cs : CoxeterSystem M W) (x y : W) : Finset W := by
   classical
   exact (lowerFinset cs y).filter (fun z => BruhatLE cs x z ∧ x ≠ z)
 

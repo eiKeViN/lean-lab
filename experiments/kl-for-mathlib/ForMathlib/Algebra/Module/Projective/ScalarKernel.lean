@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Images
-import ForMathlib.Algebra.Module.Projective.ReverseFiltration
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Images
+public import ForMathlib.Algebra.Module.Projective.ReverseFiltration
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Projective.ScalarKernel. Source spans: PositiveTransfer:12.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,7 +20,7 @@ variable {A : Type ua} [CommRing A]
 
 /-- A kernel which is exactly a regular scalar multiple of its domain is
 integrally isomorphic to that domain, not just to its fraction-field span. -/
-noncomputable def scalarKernelEquiv (g : M →ₗ[A] N) (a : A)
+@[expose] noncomputable def scalarKernelEquiv (g : M →ₗ[A] N) (a : A)
     (hk : ∀ v, g v = 0 ↔ ∃ w, v = a • w)
     (ha : Function.Injective (fun v : M => a • v)) :
     M ≃ₗ[A] LinearMap.ker g := by
@@ -44,7 +47,7 @@ noncomputable def scalarKernelEquiv (g : M →ₗ[A] N) (a : A)
     Module.Projective.of_equiv (scalarKernelEquiv g a hk ha)
   exact kernel_projective_of_presentation f g hf hg
 
- def imageMapKernelEquiv (S : Submodule A M) (f : M →ₗ[A] N) :
+ @[expose] def imageMapKernelEquiv (S : Submodule A M) (f : M →ₗ[A] N) :
     ↥(S ⊓ LinearMap.ker f) ≃ₗ[A] LinearMap.ker (Hilbert.imageMap S f) where
   toFun v := ⟨⟨v.val,v.property.1⟩,Subtype.ext v.property.2⟩
   invFun v := ⟨v.val.val,v.val.property,congrArg Subtype.val v.property⟩

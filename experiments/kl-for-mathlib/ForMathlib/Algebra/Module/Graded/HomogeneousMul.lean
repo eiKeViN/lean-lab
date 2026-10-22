@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Generators
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Generators
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.HomogeneousMul. Source spans: Frobenius:7.
 See migration.json and MIGRATION.md for exact provenance.

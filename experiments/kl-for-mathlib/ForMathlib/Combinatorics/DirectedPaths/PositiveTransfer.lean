@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer. Source spans: Comparison:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -11,11 +14,11 @@ section Schedule
 
 variable {V : Type*}
 
-noncomputable local instance _root_.OAI.KLInvariance.Comparison.instDecidableEq_oAI : DecidableEq V := Classical.decEq V
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.Comparison.instDecidableEq_oAI : DecidableEq V := Classical.decEq V
 
 /-- The genuine elementary transfer `id + T E_xy` from the source's edge
 schedule, expressed on vectors rather than with a choice of enumeration. -/
-noncomputable def transfer (T : ℝ) (x y : V) (v : V → ℝ) : V → ℝ :=
+@[expose] noncomputable def transfer (T : ℝ) (x y : V) (v : V → ℝ) : V → ℝ :=
   fun z => v z + if z = x then T * v y else 0
 
 theorem transfer_monotone (T : ℝ) (hT : 0 ≤ T) (x y : V) :
@@ -39,7 +42,7 @@ theorem transfer_injective (T : ℝ) (x y : V) (hxy : x ≠ y) :
     exact add_right_cancel hz
   · exact add_right_cancel hz
 
-noncomputable def idealState (T : ℝ) (edges : ℕ → V × V) (initial : V → ℝ) :
+@[expose] noncomputable def idealState (T : ℝ) (edges : ℕ → V × V) (initial : V → ℝ) :
     ℕ → V → ℝ
   | 0 => initial
   | n + 1 => transfer T (edges n).1 (edges n).2 (idealState T edges initial n)

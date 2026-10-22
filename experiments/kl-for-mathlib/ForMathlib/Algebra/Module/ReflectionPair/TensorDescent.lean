@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.ReflectionPair.TensorDescent. Source spans: IntegralPairings:8, IntegralPairings:11.
 See migration.json and MIGRATION.md for exact provenance. -/

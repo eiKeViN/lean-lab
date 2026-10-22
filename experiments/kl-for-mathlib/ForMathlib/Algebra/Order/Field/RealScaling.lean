@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Order.Field.RealScaling. Source spans: PositiveTransfer:7.
 See migration.json and MIGRATION.md for exact provenance. -/

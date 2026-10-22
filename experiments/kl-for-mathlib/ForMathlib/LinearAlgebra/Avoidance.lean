@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Avoidance. Source spans: ReflectionSchedules:1, ReflectionOrders:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -12,7 +15,7 @@ universe u v
 variable {I : Type u} [Fintype I]
 noncomputable section
 
-def coordinatePolynomial (a : I → ℝ) : ℝ[X] :=
+@[expose] def coordinatePolynomial (a : I → ℝ) : ℝ[X] :=
   ∑ i, Polynomial.monomial (Fintype.equivFin I i).val (a i)
 
 theorem coordinatePolynomial_coeff (a : I → ℝ) (j : I) :
@@ -33,7 +36,7 @@ theorem coordinatePolynomial_injective : Function.Injective (coordinatePolynomia
   simpa only [coordinatePolynomial_coeff] using congrArg (fun p : ℝ[X] => p.coeff
     (Fintype.equivFin I i).val) h
 
-def momentFunctional (t : ℝ) : Module.Dual ℝ (I → ℝ) where
+@[expose] def momentFunctional (t : ℝ) : Module.Dual ℝ (I → ℝ) where
   toFun a := ∑ i, a i * t^(Fintype.equivFin I i).val
   map_add' a b := by simp [add_mul,Finset.sum_add_distrib]
   map_smul' r a := by simp [Finset.mul_sum,mul_assoc]

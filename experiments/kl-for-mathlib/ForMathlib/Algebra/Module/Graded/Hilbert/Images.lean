@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Hilbert.Images. Source spans: Support:19, Support:20.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,7 +19,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   [DirectSum.Decomposition 𝓜] [SetLike.GradedSMul 𝓐 𝓜]
   (a : A) (d : ℤ) (ha : a ∈ 𝓐 d)
 
- def scalarDegreeMap (n : ℤ) : 𝓜 (n-d) →ₗ[k]
+ @[expose] def scalarDegreeMap (n : ℤ) : 𝓜 (n-d) →ₗ[k]
     subPiece 𝓜 (LinearMap.range (LinearMap.lsmul A M a)) n :=
   { toFun := fun m => ⟨⟨a • m.val,⟨m.val,rfl⟩⟩,by
       change a • m.val ∈ 𝓜 n
@@ -45,7 +48,7 @@ omit [DirectSum.Decomposition 𝓜] in
   apply hinj
   exact congrArg (fun t => t.val.val) h
 
-noncomputable def scalarDegreeEquiv
+@[expose] noncomputable def scalarDegreeEquiv
     (hinj : Function.Injective (fun m : M => a • m)) (n : ℤ) :
     𝓜 (n-d) ≃ₗ[k] subPiece 𝓜 (LinearMap.range (LinearMap.lsmul A M a)) n :=
   LinearEquiv.ofBijective (scalarDegreeMap 𝓐 𝓜 a d ha n)
@@ -100,7 +103,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {M : Type um} [AddCommGroup M] [Module k M] [Module A M] [IsScalarTower k A M]
   {N : Type un} [AddCommGroup N] [Module k N] [Module A N] [IsScalarTower k A N]
 
- def imageMap (S : Submodule A M) (f : M →ₗ[A] N) : S →ₗ[A] S.map f where
+ @[expose] def imageMap (S : Submodule A M) (f : M →ₗ[A] N) : S →ₗ[A] S.map f where
   toFun v := ⟨f v.val,Submodule.mem_map.mpr ⟨_,v.property,rfl⟩⟩
   map_add' _ _ := by ext; exact map_add f _ _
   map_smul' _ _ := by ext; exact map_smul f _ _

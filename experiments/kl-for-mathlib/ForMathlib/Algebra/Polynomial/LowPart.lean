@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Polynomial.LowPart. Source spans: CanonicalKL:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -8,7 +11,7 @@ namespace OAI
 namespace KLInvariance.CanonicalP
 open Polynomial
 /-- The strict lower half of a polynomial, used in the KL recursion. -/
-noncomputable def lowPart (d : ℕ) (p : ℤ[X]) : ℤ[X] :=
+@[expose] noncomputable def lowPart (d : ℕ) (p : ℤ[X]) : ℤ[X] :=
   ∑ n ∈ Finset.range ((d + 1) / 2), Polynomial.monomial n (p.coeff n)
 
 @[simp] theorem coeff_lowPart (d : ℕ) (p : ℤ[X]) (n : ℕ) :

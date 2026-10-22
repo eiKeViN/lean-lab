@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Quotient.Transport. Source spans: BalancedPairings:9, GradedSheaves:13, SheafMorphisms:9.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,7 +18,7 @@ variable {R : Type ur} [CommRing R]
   (he : ∀ m, f m=0 → f (e m)=0)
 noncomputable section
 
- def descend : Module.End R X :=
+ @[expose] def descend : Module.End R X :=
   ((LinearMap.ker f).liftQ (f.comp e) he).comp
     (f.quotKerEquivOfSurjective hf).symm.toLinearMap
 
@@ -42,7 +45,7 @@ variable {R M N E F : Type*} [CommRing R]
   [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
 
 /-- The edge isomorphism forced by an upper stalk isomorphism and exact quotient maps. -/
-noncomputable def iso (f : M →ₗ[R] E) (g : N →ₗ[R] F)
+@[expose] noncomputable def iso (f : M →ₗ[R] E) (g : N →ₗ[R] F)
     (hf : Function.Surjective f) (hg : Function.Surjective g)
     (h : M ≃ₗ[R] N) (hk : (LinearMap.ker f).map h.toLinearMap = LinearMap.ker g) : E ≃ₗ[R] F :=
   (f.quotKerEquivOfSurjective hf).symm.trans
@@ -87,7 +90,7 @@ variable {R M N E F : Type*} [CommRing R]
   [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
 noncomputable section
 
- def descend (f : M →ₗ[R] E) (g : N →ₗ[R] F)
+ @[expose] def descend (f : M →ₗ[R] E) (g : N →ₗ[R] F)
     (hf : Function.Surjective f) (h : M →ₗ[R] N)
     (hk : LinearMap.ker f ≤ LinearMap.ker (g.comp h)) : E →ₗ[R] F :=
   ((LinearMap.ker f).liftQ (g.comp h) hk).comp (f.quotKerEquivOfSurjective hf).symm.toLinearMap

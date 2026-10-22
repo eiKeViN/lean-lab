@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.HomogeneousDual
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
-import ForMathlib.GroupTheory.Coxeter.Roots.Order
-import OAI.KL.Sheaves.Boundary
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.HomogeneousDual
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
+public import ForMathlib.GroupTheory.Coxeter.Roots.Order
+public import OAI.KL.Sheaves.Boundary
+
+public section
 
 /-! Semantic home: OAI.KL.Sheaves.Support. Source spans: Support:27, Support:18, Support:22, Support:23, Support:26, Support:28.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,7 +20,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W) (b : W)
 noncomputable section
 
- def incomingEquivInversions (x : Interval cs 1 b) :
+ @[expose] def incomingEquivInversions (x : Interval cs 1 b) :
     {e : Edge cs 1 b // target cs 1 b e = x} ≃ {t : W // cs.IsLeftInversion x.val t} where
   toFun e := ⟨label cs 1 b e.val, label_isReflection cs 1 b e.val, by
     have hx : (target cs 1 b e.val).val = x.val := congrArg Subtype.val e.property
@@ -191,7 +194,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   [Fintype (Edge cs u b)] [DecidableEq (Interval cs u b)]
 noncomputable section
 
- def kernelEquivSingleSupport (x : Interval cs u b) :
+ @[expose] def kernelEquivSingleSupport (x : Interval cs u b) :
     LinearMap.ker (B.sheaf.forget.stalkMap x) ≃ₗ[Coefficient (σ := σ)]
       IntegralSupport.supported (B.sheaf.forget.sections Set.univ) x := by
   let _ (x : Interval cs u b) : Module.Free (Coefficient (σ := σ)) (B.sheaf.forget.vertex x) := B.free x
@@ -226,7 +229,7 @@ structure SectionDuality where
         (B.sheaf.forget.labelProduct_annihilates (polynomialLabel cs u b basis)
           (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient))) x n)
 
- def costalkEquivDual (d : SectionDuality cs u b basis hub B) (x : Interval cs u b) :
+ @[expose] def costalkEquivDual (d : SectionDuality cs u b basis hub B) (x : Interval cs u b) :
     LinearMap.ker (B.sheaf.forget.stalkMap x) ≃ₗ[Coefficient (σ := σ)]
       Dual (Coefficient (σ := σ)) (B.sheaf.vertex x) := by
   let _ (x : Interval cs u b) : Module.Free (Coefficient (σ := σ)) (B.sheaf.forget.vertex x) := B.free x
@@ -343,7 +346,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   [Fintype (Edge cs u b)] [Fintype (Interval cs u b)] [DecidableEq (Interval cs u b)]
 noncomputable section
 
- def fullSubmodule (x : Interval cs u b) : Submodule (Coefficient (σ := σ)) (B.sheaf.vertex x) :=
+ @[expose] def fullSubmodule (x : Interval cs u b) : Submodule (Coefficient (σ := σ)) (B.sheaf.vertex x) :=
     LinearMap.ker (B.sheaf.forget.stalkMap x)
 
 omit [Fintype σ] [Fintype (Edge cs u b)] [Fintype (Interval cs u b)]
@@ -355,7 +358,7 @@ omit [Fintype σ] [Fintype (Edge cs u b)] [Fintype (Interval cs u b)]
   simp only [Set.mem_univ,forall_const]
   exact funext_iff.symm
 
- def fullKernel (x : Interval cs u b) : ModuleData (polynomialGrading ℝ σ) :=
+ @[expose] def fullKernel (x : Interval cs u b) : ModuleData (polynomialGrading ℝ σ) :=
   ModuleData.sub (B.sheaf.vertex x) (fullSubmodule cs u b basis hub B x) (by
     simpa only [fullKernel_eq cs u b basis hub B x] using
       B.sheaf.upwardKernel_homogeneous x Set.univ)

@@ -46,6 +46,8 @@ No private-name, declaration-kind, statement, or proof normalization occurs here
 Legacy bytes remain accepted as inputs to reconstruction/adversarial tests; final
 product equality separately requires the integrated form.
 """
+    from module_rollout import legacy_source as rollout_legacy
+    data=rollout_legacy(path,data)
     if path not in SPEC or not data.startswith(b'module\n'):return data
     spec=SPEC[path]
     prefix=('module\n'+'\n'.join('public import '+n for n in spec['imports'])+'\n\npublic section\n').encode()
@@ -85,11 +87,14 @@ def imports(text):
 def graph():
     paths=sorted([*(HERE/'ForMathlib').rglob('*.lean'),*(HERE/'OAI').rglob('*.lean'),HERE/'ForMathlib.lean'])
     records={str(p.relative_to(HERE))[:-5].replace('/','.'):imports(p.read_text()) for p in paths}
+    from module_rollout import plan as rollout_plan
+    rollout=rollout_plan()
     for name,record in records.items():
         path=name.replace('.','/')+'.lean'
-        if record['module']!=(path in SPEC):raise RuntimeError('Unlisted module migration: '+name)
-        if path in SPEC:
-            want=[dict(module=n,public=True,meta=False,all=False) for n in SPEC[path]['imports']]
+        if record['module']!=(path in SPEC or path in rollout['files']):raise RuntimeError('Unlisted module migration: '+name)
+        spec=SPEC.get(path) or rollout['files'].get(path)
+        if spec is not None:
+            want=[dict(module=n,public=True,meta=False,all=False) for n in spec['imports']]
             actual=[{k:v for k,v in e.items() if k!='line'} for e in record['imports']]
             if actual!=want:raise RuntimeError('Changed selected import flags: '+name)
         elif any(e['public'] or e['meta'] or e['all'] for e in record['imports']):

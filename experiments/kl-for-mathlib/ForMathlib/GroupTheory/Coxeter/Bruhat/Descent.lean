@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Bruhat.Descent. Source spans: SheafMorphisms:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -45,7 +48,7 @@ noncomputable section
     have := cs.length_simple_mul z i
     omega
 
- def externalLower (x c : W) : Finset W := by
+ @[expose] def externalLower (x c : W) : Finset W := by
   classical
   exact (lowerFinset cs c) \ (lowerFinset cs x)
 

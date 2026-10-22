@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Polynomial.Reciprocal
+module
+public import Mathlib
+public import ForMathlib.Algebra.Polynomial.Reciprocal
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Polynomial.ScaledEvaluation. Source spans: SimultaneousInvariance:5/scaled-evaluation.
 See migration.json and MIGRATION.md for exact provenance.
@@ -12,7 +15,7 @@ namespace KLInvariance.Comparison
 open Polynomial
 noncomputable section
 
-def scaledPolynomial (t : ℝ) (d : ℕ) (p : ℤ[X]) : ℝ :=
+@[expose] def scaledPolynomial (t : ℝ) (d : ℕ) (p : ℤ[X]) : ℝ :=
   t ^ (-(d : ℤ)) * p.eval₂ (Int.castRingHom ℝ) (t^2)
 
 /-- A positive real in the open unit interval has a square root in the same

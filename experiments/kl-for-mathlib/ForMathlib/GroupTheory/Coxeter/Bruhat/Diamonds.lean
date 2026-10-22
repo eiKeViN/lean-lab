@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList
-import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList
+public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds. Source spans: Decomposition:8, DyerPaths:4, DyerPaths:9.
 See migration.json and MIGRATION.md for exact provenance. -/

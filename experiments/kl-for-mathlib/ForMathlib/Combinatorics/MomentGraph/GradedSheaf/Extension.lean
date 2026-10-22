@@ -1,9 +1,12 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Series
-import ForMathlib.Algebra.Module.Graded.ModuleData.Transport
-import ForMathlib.Combinatorics.MomentGraph.Boundary.Basic
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Transport
+public import ForMathlib.Combinatorics.MomentGraph.Boundary.Basic
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension. Source spans: MinimalExtensions:1, MinimalExtensions:2, MinimalExtensions:3, MinimalExtensions:5, MinimalExtensions:10, MinimalExtensions:23, MinimalExtensions:9, MinimalExtensions:11, MinimalExtensions:12.
 See migration.json and MIGRATION.md for exact provenance.
@@ -20,7 +23,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {G : OrderedGraph V E} (B : GradedSheaf (𝓐 := 𝓐) G)
 
 /-- The actual lower restriction, with its source explicitly identified. -/
-def lowerAt (x : V) (e : Sheaf.Outgoing (G := G) x) :
+@[expose] def lowerAt (x : V) (e : Sheaf.Outgoing (G := G) x) :
     ModuleData.Hom (B.vertex x) (B.edge e.val) := by
   rcases e with ⟨e,rfl⟩
   exact B.lower e
@@ -31,7 +34,7 @@ def lowerAt (x : V) (e : Sheaf.Outgoing (G := G) x) :
   rfl
 
 /-- The same kernel, typed in the graded stalk so base-field instances are explicit. -/
-def upwardSubmodule (x : V) (F : Set (Sheaf.Outgoing (G := G) x)) :
+@[expose] def upwardSubmodule (x : V) (F : Set (Sheaf.Outgoing (G := G) x)) :
     Submodule A (B.vertex x) := B.forget.upwardKernel x F
 
  theorem upwardKernel_homogeneous (x : V) (F : Set (Sheaf.Outgoing (G := G) x)) :
@@ -43,7 +46,7 @@ def upwardSubmodule (x : V) (F : Set (Sheaf.Outgoing (G := G) x)) :
   rw [B.lowerAt_map,hv e he]
   exact map_zero (component (B.edge e.val).piece n)
 
-noncomputable def upwardKernel [IsNoetherianRing A]
+@[expose] noncomputable def upwardKernel [IsNoetherianRing A]
     (x : V) (F : Set (Sheaf.Outgoing (G := G) x)) : ModuleData.{uk,ua,um} 𝓐 :=
   ModuleData.sub (B.vertex x) (B.upwardSubmodule x F) (B.upwardKernel_homogeneous x F)
 
@@ -89,7 +92,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {G : OrderedGraph V E} [Fintype V] [Fintype E]
   (B : GradedSheaf (𝓐 := 𝓐) G)
 
-noncomputable def stalkHom (x : V) : ModuleData.Hom (B.vertex x) (B.boundary x) where
+@[expose] noncomputable def stalkHom (x : V) : ModuleData.Hom (B.vertex x) (B.boundary x) where
   map := B.forget.stalkMap x
   graded := by
     intro n v hv e _
@@ -195,12 +198,12 @@ structure OnIso (B C : GradedSheaf (𝓐 := 𝓐) G) (U : Set V)
 namespace OnIso
 variable {B C : GradedSheaf (𝓐 := 𝓐) G} {U : Set V} (j : OnIso B C U)
 
- def ofUniv (j : OnIso B C Set.univ) : Iso B C where
+ @[expose] def ofUniv (j : OnIso B C Set.univ) : Iso B C where
   toIso := j.toOnIso.ofUniv
   vertex_graded x := j.vertex_graded x (Set.mem_univ x)
   edge_graded e := j.edge_graded e (Set.mem_univ _)
 
-noncomputable def extend (hU : IsUpperSet U) (x : V) (hx : x ∉ U)
+@[expose] noncomputable def extend (hU : IsUpperSet U) (x : V) (hx : x ∉ U)
     (hmax : Set.Ioi x ⊆ U) (α : E → A)
     (hBq : B.UpperQuotient α) (hCq : C.UpperQuotient α)
     (jv : B.vertex x ≃ₗ[A] C.vertex x)
@@ -242,7 +245,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A} {V E : Type um} [PartialOrder V]
   (G : OrderedGraph V E) (K : Set V) (hK : IsLowerSet K)
 
- def lowerGraph : OrderedGraph K {e : E // G.target e ∈ K} where
+ @[expose] def lowerGraph : OrderedGraph K {e : E // G.target e ∈ K} where
   source e := ⟨G.source e.val,hK (G.increasing e.val).le e.property⟩
   target e := ⟨G.target e.val,e.property⟩
   increasing e := G.increasing e.val
@@ -255,7 +258,7 @@ abbrev Witness (p : Prop) := ULift.{um} (PLift p)
 
 variable {G K hK} (B : GradedSheaf (𝓐 := 𝓐) (lowerGraph G K hK))
 
- def lowerExtend : GradedSheaf (𝓐 := 𝓐) G where
+ @[expose] def lowerExtend : GradedSheaf (𝓐 := 𝓐) G where
   vertex x := ModuleData.pi (fun h : Witness.{um} (x ∈ K) => B.vertex ⟨x,h.down.down⟩)
   edge e := ModuleData.pi (fun h : Witness.{um} (G.target e ∈ K) => B.edge ⟨e,h.down.down⟩)
   lower e :=
@@ -266,7 +269,7 @@ variable {G K hK} (B : GradedSheaf (𝓐 := 𝓐) (lowerGraph G K hK))
     { map := LinearMap.pi (fun h => (B.upper ⟨e,h.down.down⟩).map.comp (LinearMap.proj h))
       graded n _v hv h _ := (B.upper ⟨e,h.down.down⟩).graded n _ (hv _ (Set.mem_univ _)) }
 
- def lowerExtendVertex (x : K) : (B.lowerExtend.vertex x.val) ≃ₗ[A] B.vertex x where
+ @[expose] def lowerExtendVertex (x : K) : (B.lowerExtend.vertex x.val) ≃ₗ[A] B.vertex x where
   toFun f := f ⟨⟨x.property⟩⟩
   invFun v _ := v
   left_inv f := by
@@ -289,10 +292,10 @@ variable {G K hK} (B : GradedSheaf (𝓐 := 𝓐) (lowerGraph G K hK))
   change Module.Free A (∀ h : Witness.{um} (x ∈ K), B.vertex ⟨x,h.down.down⟩)
   infer_instance
 
- def liftLowerAssignment (f : B.forget.Assignment) : B.lowerExtend.forget.Assignment :=
+ @[expose] def liftLowerAssignment (f : B.forget.Assignment) : B.lowerExtend.forget.Assignment :=
   fun x h => f ⟨x,h.down.down⟩
 
- def projectLowerAssignment (f : B.lowerExtend.forget.Assignment) : B.forget.Assignment :=
+ @[expose] def projectLowerAssignment (f : B.lowerExtend.forget.Assignment) : B.forget.Assignment :=
   fun x => f x.val ⟨⟨x.property⟩⟩
 
  theorem projectLower_compatible {U : Set V} {f : B.lowerExtend.forget.Assignment}
@@ -380,7 +383,7 @@ variable (B : GradedSheaf (𝓐 := 𝓐) H) (f : GraphMap G H)
   subst y
   exact hv
 
- def pullback : GradedSheaf (𝓐 := 𝓐) G where
+ @[expose] def pullback : GradedSheaf (𝓐 := 𝓐) G where
   vertex x := B.vertex (f.vertex x)
   edge e := B.edge (f.edge e)
   lower e := ⟨(B.forget.pullback f).lower e,fun n v hv =>
@@ -446,7 +449,7 @@ variable [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐]
   (hlift : ∀ e x, f.vertex x = H.source e → ∃ a, f.edge a=e ∧ G.source a=x)
   (c : V) (hc : f.vertex c=b)
 
- def pullback : BoundarySheaf hneg G (fun e => α (f.edge e)) c where
+ @[expose] def pullback : BoundarySheaf hneg G (fun e => α (f.edge e)) c where
   sheaf := B.sheaf.pullback f
   free x := B.free (f.vertex x)
   quotient := B.sheaf.forget.pullback_quotient f α B.quotient
@@ -469,32 +472,32 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A} {V E : Type um} [PartialOrder V]
   {G : OrderedGraph V E}
 noncomputable section
- def shift (B : GradedSheaf (𝓐 := 𝓐) G) (d : ℕ) : GradedSheaf (𝓐 := 𝓐) G where
+ @[expose] def shift (B : GradedSheaf (𝓐 := 𝓐) G) (d : ℕ) : GradedSheaf (𝓐 := 𝓐) G where
   vertex x := (B.vertex x).shift d
   edge e := (B.edge e).shift d
   lower e := (B.lower e).shift d
   upper e := (B.upper e).shift d
 
- def zero : GradedSheaf (𝓐 := 𝓐) G where
+ @[expose] def zero : GradedSheaf (𝓐 := 𝓐) G where
   vertex _ := ModuleData.zero
   edge _ := ModuleData.zero
   lower _ := ModuleData.Hom.zero _ _
   upper _ := ModuleData.Hom.zero _ _
 
- def prod (B C : GradedSheaf (𝓐 := 𝓐) G) : GradedSheaf (𝓐 := 𝓐) G where
+ @[expose] def prod (B C : GradedSheaf (𝓐 := 𝓐) G) : GradedSheaf (𝓐 := 𝓐) G where
   vertex x := (B.vertex x).prod (C.vertex x)
   edge e := (B.edge e).prod (C.edge e)
   lower e := (B.lower e).prodMap (C.lower e)
   upper e := (B.upper e).prodMap (C.upper e)
 
- def pi {ι : Type um} [Fintype ι] (B : ι → GradedSheaf (𝓐 := 𝓐) G) :
+ @[expose] def pi {ι : Type um} [Fintype ι] (B : ι → GradedSheaf (𝓐 := 𝓐) G) :
     GradedSheaf (𝓐 := 𝓐) G where
   vertex x := ModuleData.pi (fun i => (B i).vertex x)
   edge e := ModuleData.pi (fun i => (B i).edge e)
   lower e := ModuleData.Hom.pi (fun i => (B i).lower e)
   upper e := ModuleData.Hom.pi (fun i => (B i).upper e)
 
- def OnIso.prodZero {B C : GradedSheaf (𝓐 := 𝓐) G} {U : Set V} (j : OnIso B C U)
+ @[expose] def OnIso.prodZero {B C : GradedSheaf (𝓐 := 𝓐) G} {U : Set V} (j : OnIso B C U)
     (D : GradedSheaf (𝓐 := 𝓐) G)
     (hV : ∀ x ∈ U, Subsingleton (D.vertex x))
     (hE : ∀ e, G.target e ∈ U → Subsingleton (D.edge e)) : OnIso B (prod C D) U where
@@ -523,9 +526,9 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   (hneg : ∀ n < 0, 𝓐 n = ⊥)
   {V E : Type um} [PartialOrder V] {G : OrderedGraph V E}
 
-instance zeroVertex_subsingleton (x : V) : Subsingleton ((zero (𝓐 := 𝓐) (G := G)).vertex x) :=
+@[expose] instance zeroVertex_subsingleton (x : V) : Subsingleton ((zero (𝓐 := 𝓐) (G := G)).vertex x) :=
   inferInstanceAs (Subsingleton PUnit.{max ua um+1})
-instance zeroEdge_subsingleton (e : E) : Subsingleton ((zero (𝓐 := 𝓐) (G := G)).edge e) :=
+@[expose] instance zeroEdge_subsingleton (e : E) : Subsingleton ((zero (𝓐 := 𝓐) (G := G)).edge e) :=
   inferInstanceAs (Subsingleton PUnit.{max ua um+1})
 
 structure BoundaryModels (α : E → A) where
@@ -620,12 +623,12 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
 noncomputable section
 attribute [local instance] Classical.propDecidable
 
- def lowerBoundary (c : V) : BoundarySheaf hneg (lowerGraph G (Set.Iic c) (isLowerSet_Iic c))
+ @[expose] def lowerBoundary (c : V) : BoundarySheaf hneg (lowerGraph G (Set.Iic c) (isLowerSet_Iic c))
     (fun e => α e.val) ⟨c,le_rfl⟩ :=
   (exists_boundarySheaf hneg (lowerGraph G (Set.Iic c) (isLowerSet_Iic c)) hscalar
     ⟨c,le_rfl⟩ (fun x => x.property) (fun e => α e.val) (fun e => hα e.val)).some
 
- def actualBoundaryModels : GradedSheaf.BoundaryModels hneg (G := G) α where
+ @[expose] def actualBoundaryModels : GradedSheaf.BoundaryModels hneg (G := G) α where
   sheaf c := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend
   free c := (lowerBoundary hneg hscalar G α hα c).sheaf.lowerExtend_free
     (lowerBoundary hneg hscalar G α hα c).free

@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Components
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Components
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Generators. Source spans: GradedModules:4, GradedModules:1, GradedModules:3, GradedModules:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -75,7 +78,7 @@ variable {k : Type uk} [Field k]
 variable {A : Type ua} [CommRing A] [Algebra k A]
   [Module A M] [IsScalarTower k A M]
 
- def subPiece (𝓜 : ℤ → Submodule k M) (S : Submodule A M) : ℤ → Submodule k S :=
+ @[expose] def subPiece (𝓜 : ℤ → Submodule k M) (S : Submodule A M) : ℤ → Submodule k S :=
   fun i => (𝓜 i).comap (S.subtype.restrictScalars k)
 
  theorem sub_isInternal
@@ -103,7 +106,7 @@ variable {A : Type ua} [CommRing A] [Algebra k A]
     rw [Submodule.coe_sum]
     exact DirectSum.sum_support_decompose 𝓜 (m : M)
 
- def quotientPiece (𝓜 : ℤ → Submodule k M) (S : Submodule A M) :
+ @[expose] def quotientPiece (𝓜 : ℤ → Submodule k M) (S : Submodule A M) :
     ℤ → Submodule k (M ⧸ S) := fun i => (𝓜 i).map (S.mkQ.restrictScalars k)
 
  theorem quotient_isInternal
@@ -116,7 +119,7 @@ variable {A : Type ua} [CommRing A] [Algebra k A]
   apply (Submodule.Quotient.mk_eq_zero S).mpr
   exact hS i m ((Submodule.Quotient.mk_eq_zero S).mp hm)
 
- instance sub_gradedSMul
+ @[expose] instance sub_gradedSMul
     (𝓐 : ℤ → Submodule k A) (𝓜 : ℤ → Submodule k M)
     [SetLike.GradedSMul 𝓐 𝓜] (S : Submodule A M) :
     SetLike.GradedSMul 𝓐 (subPiece 𝓜 S) where
@@ -125,7 +128,7 @@ variable {A : Type ua} [CommRing A] [Algebra k A]
     change a • (m : M) ∈ 𝓜 (i+j)
     exact SetLike.GradedSMul.smul_mem ha (show (m : M) ∈ 𝓜 j from hm)
 
- instance quotient_gradedSMul
+ @[expose] instance quotient_gradedSMul
     (𝓐 : ℤ → Submodule k A) (𝓜 : ℤ → Submodule k M)
     [SetLike.GradedSMul 𝓐 𝓜] (S : Submodule A M) :
     SetLike.GradedSMul 𝓐 (quotientPiece 𝓜 S) where
@@ -145,7 +148,7 @@ variable {A : Type ua} [CommRing A] [Algebra k A]
     (i : ℤ) (h : 𝓜 i = ⊥) : quotientPiece 𝓜 S i = ⊥ := by
   simp [quotientPiece,h]
 
- def shiftedPiece {ι : Type*} (𝓐 : ℤ → Submodule k A) (d : ι → ℤ) :
+ @[expose] def shiftedPiece {ι : Type*} (𝓐 : ℤ → Submodule k A) (d : ι → ℤ) :
     ℤ → Submodule k (ι → A) := fun n =>
   { carrier := {v | ∀ i, v i ∈ 𝓐 (n-d i)}
     zero_mem' := fun _ => Submodule.zero_mem _
@@ -191,7 +194,7 @@ variable {A : Type ua} [CommRing A] [Algebra k A]
     simp only [add_sub_cancel_right]
     exact DirectSum.sum_support_decompose 𝓐 (v i)
 
- instance shifted_gradedSMul {ι : Type*}
+ @[expose] instance shifted_gradedSMul {ι : Type*}
     (𝓐 : ℤ → Submodule k A) [SetLike.GradedMonoid 𝓐] (d : ι → ℤ) :
     SetLike.GradedSMul 𝓐 (shiftedPiece 𝓐 d) where
   smul_mem := by
@@ -531,7 +534,7 @@ theorem exists_homogeneous_basis_of_scalar_mod
 
 /-- The augmentation for a nonnegatively supported integer grading is
 actual degree-zero projection. -/
-noncomputable def nonnegativeAugmentation
+@[expose] noncomputable def nonnegativeAugmentation
     (𝓐 : ℤ → Submodule k A) [DirectSum.Decomposition 𝓐]
     [SetLike.GradedMonoid 𝓐] (hneg : ∀ j < 0, 𝓐 j = ⊥) : A →+* A where
   toFun := component 𝓐 0
@@ -632,11 +635,11 @@ integer degrees as used for shifted stalks. -/
 abbrev polynomialGrading (k : Type*) [Field k] (σ : Type*) :=
   MvPolynomial.weightedHomogeneousSubmodule k (fun _ : σ => (1 : ℤ))
 
-noncomputable instance polynomialGrading_decomposition (k : Type*) [Field k] (σ : Type*) :
+@[expose] noncomputable instance polynomialGrading_decomposition (k : Type*) [Field k] (σ : Type*) :
     DirectSum.Decomposition (polynomialGrading k σ) :=
   MvPolynomial.weightedDecomposition k (fun _ : σ => (1 : ℤ))
 
-instance polynomialGrading_monoid (k : Type*) [Field k] (σ : Type*) :
+@[expose] instance polynomialGrading_monoid (k : Type*) [Field k] (σ : Type*) :
     SetLike.GradedMonoid (polynomialGrading k σ) :=
   MvPolynomial.WeightedHomogeneousSubmodule.gradedMonoid
 
@@ -885,7 +888,7 @@ section Pi
 variable {ι : Type ui} {P : ι → Type um}
   [∀ i, AddCommGroup (P i)] [∀ i, Module k (P i)]
 
- def piPiece (𝓟 : ∀ i, ℤ → Submodule k (P i)) : ℤ → Submodule k (∀ i, P i) :=
+ @[expose] def piPiece (𝓟 : ∀ i, ℤ → Submodule k (P i)) : ℤ → Submodule k (∀ i, P i) :=
   fun n => Submodule.pi Set.univ (fun i => 𝓟 i n)
 
  theorem pi_isInternal [Fintype ι]
@@ -918,7 +921,7 @@ variable {ι : Type ui} {P : ι → Type um}
     rw [← Finset.sum_subset hsub hout]
     exact DirectSum.sum_support_decompose (𝓟 i) (v i)
 
- instance pi_gradedSMul [∀ i, Module A (P i)] [∀ i, IsScalarTower k A (P i)]
+ @[expose] instance pi_gradedSMul [∀ i, Module A (P i)] [∀ i, IsScalarTower k A (P i)]
     (𝓐 : ℤ → Submodule k A) (𝓟 : ∀ i, ℤ → Submodule k (P i))
     [∀ i, SetLike.GradedSMul 𝓐 (𝓟 i)] : SetLike.GradedSMul 𝓐 (piPiece 𝓟) where
   smul_mem := by

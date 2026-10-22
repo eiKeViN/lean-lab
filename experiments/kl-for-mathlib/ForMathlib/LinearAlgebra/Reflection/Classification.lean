@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Reflection.Classification. Source spans: IntegralPairings:22.
 See migration.json and MIGRATION.md for exact provenance. -/

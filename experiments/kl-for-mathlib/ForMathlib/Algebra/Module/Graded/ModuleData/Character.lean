@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
-import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+public import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.Character. Source spans: SheafMorphisms:29, SheafMorphisms:30.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -14,7 +17,7 @@ universe uk us um
 variable {k : Type uk} [Field k] {σ : Type us} [Finite σ]
   {M N : ModuleData.{uk,max uk us,um} (polynomialGrading k σ)}
 
-noncomputable def mapNonnegativeBasis (e : M ≃ₗ[MvPolynomial σ k] N)
+@[expose] noncomputable def mapNonnegativeBasis (e : M ≃ₗ[MvPolynomial σ k] N)
     (he : ∀ n v, v ∈ M.piece n → e v ∈ N.piece n)
     (b : NonnegativeBasis (σ := σ) M.piece) : NonnegativeBasis (σ := σ) N.piece where
   index := b.index
@@ -47,7 +50,7 @@ noncomputable section
  abbrev char [Module.Free (MvPolynomial σ k) M] : Polynomial ℤ :=
   character (σ := σ) M.piece M.nonneg
 
- def shiftedBasis (b : NonnegativeBasis (σ := σ) M.piece) (d : ℕ) :
+ @[expose] def shiftedBasis (b : NonnegativeBasis (σ := σ) M.piece) (d : ℕ) :
     NonnegativeBasis (σ := σ) (M.shift d).piece where
   index := b.index
   finite := b.finite
@@ -57,7 +60,7 @@ noncomputable section
     change b.basis i ∈ M.piece ((b.degree i+d : ℕ)-(d:ℤ))
     simpa only [Nat.cast_add,add_sub_cancel_right] using b.homogeneous i
 
- instance shift_free [Module.Free (MvPolynomial σ k) M] (d : ℕ) :
+ @[expose] instance shift_free [Module.Free (MvPolynomial σ k) M] (d : ℕ) :
     Module.Free (MvPolynomial σ k) (M.shift d) := ‹Module.Free (MvPolynomial σ k) M›
 
  theorem char_shift [Module.Free (MvPolynomial σ k) M] (d : ℕ) :
@@ -67,7 +70,7 @@ noncomputable section
   change (∑ i : b.index, (X : Polynomial ℤ) ^ (b.degree i+d)) = X^d*∑ i, X^b.degree i
   simp only [pow_add,mul_comm,Finset.mul_sum]
 
- def productBasis (b : NonnegativeBasis (σ := σ) M.piece)
+ @[expose] def productBasis (b : NonnegativeBasis (σ := σ) M.piece)
     (c : NonnegativeBasis (σ := σ) N.piece) :
     NonnegativeBasis (σ := σ) (M.prod N).piece where
   index := b.index ⊕ c.index
@@ -87,7 +90,7 @@ noncomputable section
       simpa only [Basis.prod_apply_inr_fst,Basis.prod_apply_inr_snd] using
         And.intro (Submodule.zero_mem (M.piece (c.degree i))) (c.homogeneous i)
 
- instance prod_free [Module.Free (MvPolynomial σ k) M] [Module.Free (MvPolynomial σ k) N] :
+ @[expose] instance prod_free [Module.Free (MvPolynomial σ k) M] [Module.Free (MvPolynomial σ k) N] :
     Module.Free (MvPolynomial σ k) (M.prod N) :=
   (inferInstance : Module.Free (MvPolynomial σ k) (M × N))
 
@@ -101,7 +104,7 @@ noncomputable section
     (∑ i : b.index, X^b.degree i)+(∑ i : c.index, X^c.degree i)
   exact Fintype.sum_sum_type (fun i => (X : Polynomial ℤ)^Sum.elim b.degree c.degree i)
 
- def piBasis {ι : Type um} [Fintype ι]
+ @[expose] def piBasis {ι : Type um} [Fintype ι]
     (F : ι → ModuleData.{uk,max uk us,um} (polynomialGrading k σ))
     (b : ∀ i, NonnegativeBasis (σ := σ) (F i).piece) :
     NonnegativeBasis (σ := σ) (pi F).piece where
@@ -119,7 +122,7 @@ noncomputable section
       simpa only [Pi.single_eq_same] using (b i.1).homogeneous i.2
     · simp only [Pi.single_eq_of_ne h,Submodule.zero_mem]
 
- instance pi_free {ι : Type um} [Fintype ι]
+ @[expose] instance pi_free {ι : Type um} [Fintype ι]
     (F : ι → ModuleData.{uk,max uk us,um} (polynomialGrading k σ))
     [∀ i, Module.Free (MvPolynomial σ k) (F i)] :
     Module.Free (MvPolynomial σ k) (pi F) :=

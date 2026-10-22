@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness. Source spans: EdgeLocalization:11, EdgeLocalization:13.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -46,7 +49,7 @@ noncomputable section
   subst x
   exact f.lower e v
 
- def homIso (f : GradedSheaf.Hom B.sheaf C.sheaf)
+ @[expose] def homIso (f : GradedSheaf.Hom B.sheaf C.sheaf)
     (hb : Function.Bijective (f.vertex b).map) : GradedSheaf.Iso B.sheaf C.sheaf :=
   f.isoOfBijective (hom_vertex_bijective hzero B C f hb)
     (fun e => f.edge_bijective_of_vertex α B.quotient C.quotient e
@@ -86,7 +89,7 @@ noncomputable section
     obtain ⟨v,hv⟩ := hg.2 ((j.vertex x).symm w)
     exact ⟨v,(j.vertex x).symm.injective hv⟩
 
- def homIsoOfIso (j : GradedSheaf.Iso B.sheaf C) (hq : C.UpperQuotient α)
+ @[expose] def homIsoOfIso (j : GradedSheaf.Iso B.sheaf C) (hq : C.UpperQuotient α)
     (f : GradedSheaf.Hom B.sheaf C) (hb : Function.Bijective (f.vertex b).map) :
     GradedSheaf.Iso B.sheaf C :=
   f.isoOfBijective (hom_vertex_bijective_of_iso hzero B j f hb)

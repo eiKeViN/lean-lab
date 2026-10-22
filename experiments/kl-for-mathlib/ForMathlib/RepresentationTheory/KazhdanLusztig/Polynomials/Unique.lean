@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.Polynomial.Reciprocal
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized
+module
+public import Mathlib
+public import ForMathlib.Algebra.Polynomial.Reciprocal
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique. Source spans: Bruhat:4, Bruhat:6.
 See migration.json and MIGRATION.md for exact provenance. -/

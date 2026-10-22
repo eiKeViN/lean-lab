@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization
+module
+public import Mathlib
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity. Source spans: EdgeLocalization:3.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -1,10 +1,13 @@
-import Mathlib
-import ForMathlib.Combinatorics.DirectedPaths.ScalarMap
-import ForMathlib.Combinatorics.MomentGraph.Boundary.Extension
-import ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity
-import OAI.KL.BottSamelson.CanonicalPairing
-import OAI.KL.Sheaves.StalkReciprocity
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.DirectedPaths.ScalarMap
+public import ForMathlib.Combinatorics.MomentGraph.Boundary.Extension
+public import ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity
+public import OAI.KL.BottSamelson.CanonicalPairing
+public import OAI.KL.Sheaves.StalkReciprocity
+
+public section
 
 /-! Semantic home: OAI.KL.Comparison.Transport. Source spans: EdgeLocalization:5, EdgeLocalization:6, EdgeLocalization:1, EdgeLocalization:4, EdgeLocalization:19, EdgeLocalization:7.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -55,7 +58,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W) (u b : W)
 noncomputable section
 
- def upperInclusion : GraphMap (graph cs u b) (graph cs 1 b) where
+ @[expose] def upperInclusion : GraphMap (graph cs u b) (graph cs 1 b) where
   vertex x := ⟨x.val,one_bruhat cs x.val,x.property.2⟩
   edge e := ⟨(⟨(source cs u b e).val,one_bruhat cs _,(source cs u b e).property.2⟩,
     ⟨(target cs u b e).val,one_bruhat cs _,(target cs u b e).property.2⟩),e.property⟩
@@ -87,7 +90,7 @@ variable {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
   (B : BoundarySheaf (polynomialGrading_negative ℝ σ)
     (graph cs 1 b) (polynomialLabel cs 1 b basis) ⟨b,one_bruhat cs b,bruhat_refl cs b⟩)
 
- def restrictBoundary : BoundarySheaf (polynomialGrading_negative ℝ σ)
+ @[expose] def restrictBoundary : BoundarySheaf (polynomialGrading_negative ℝ σ)
     (graph cs u b) (polynomialLabel cs u b basis) ⟨b,hub,bruhat_refl cs b⟩ :=
   B.pullback (upperInclusion cs u b) (upperInclusion_injective cs u b)
     (upperInclusion_outgoing cs u b) ⟨b,hub,bruhat_refl cs b⟩ rfl
@@ -115,9 +118,9 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {u b : W} {u' b' : W'}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
-local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_6 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_6 (p : Prop) : Decidable p := Classical.propDecidable p
 
- def transportedEdge (e : Edge cs u b) : AdaptedDyer.Edge cs' :=
+ @[expose] def transportedEdge (e : Edge cs u b) : AdaptedDyer.Edge cs' :=
   ⟨((φ (source cs u b e)).val,(φ (target cs u b e)).val),
     (intervalIso_bruhatStep_iff_general cs cs' φ _ _).mpr e.property⟩
 
@@ -129,12 +132,12 @@ omit [Fintype I] [Fintype I'] in
   exact Prod.ext (φ.injective (Subtype.ext (congrArg Prod.fst hh)))
     (φ.injective (Subtype.ext (congrArg Prod.snd hh)))
 
- def transportedScore (e : Edge cs u b) : ℝ ×ₗ ℝ :=
+ @[expose] def transportedScore (e : Edge cs u b) : ℝ ×ₗ ℝ :=
   lexEdgeScore (geometricFunctional (M := M') (cs := cs')) (transportedEdge φ e)
 
  /-- Decreasing list, in the convention for the outermost-first matrix
  product. Its reverse is chronological increasing reflection order. -/
- def transportedSchedule : List (Edge cs u b) := by
+ @[expose] def transportedSchedule : List (Edge cs u b) := by
   letI := Fintype.ofFinite (Edge cs u b)
   exact sortedSchedule Finset.univ (transportedScore φ)
 
@@ -241,7 +244,7 @@ variable {I : Type u} {M : CoxeterMatrix I}
   {u b : W} {u' b' : W'}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
-local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_7 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_7 (p : Prop) : Decidable p := Classical.propDecidable p
 
  theorem transported_entry_eval {C : Type*} [CommSemiring C] (T : C)
     (x y : Interval cs u b) (f : ℤ →+* C) :
@@ -322,7 +325,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type u} [Group W] (cs : CoxeterSystem M W) (b : W)
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
-local instance scaledInterval : Fintype (Interval cs 1 b) := by
+@[expose] local instance scaledInterval : Fintype (Interval cs 1 b) := by
   let := interval_finite cs 1 b
   exact Fintype.ofFinite _
 
@@ -339,7 +342,7 @@ local instance scaledInterval : Fintype (Interval cs 1 b) := by
   intro i _
   simpa only [Polynomial.natDegree_X_pow] using stalkBasis_degree_le cs b basis x c i
 
- def scaledStalk {C : Type*} [Field C] (t : C) (x : Interval cs 1 b) : C :=
+ @[expose] def scaledStalk {C : Type*} [Field C] (t : C) (x : Interval cs 1 b) : C :=
   t^((cs.length x.val : ℤ)-cs.length b)*
     eval₂ (Int.castRingHom C) (t^2) (stalkCharacter cs 1 b basis (one_bruhat cs b) x)
 

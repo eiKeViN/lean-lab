@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels
-import ForMathlib.Order.Interval.Diamonds
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels
+public import ForMathlib.Order.Interval.Diamonds
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure. Source spans: ReflectionSchedules:21.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
-import ForMathlib.RepresentationTheory.Hecke.Coefficients
-import ForMathlib.RepresentationTheory.Hecke.DualR
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+public import ForMathlib.RepresentationTheory.Hecke.Coefficients
+public import ForMathlib.RepresentationTheory.Hecke.DualR
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.PositiveWord. Source spans: CharacterReciprocity:13, CharacterReciprocity:14.
 See migration.json and MIGRATION.md for exact provenance. -/

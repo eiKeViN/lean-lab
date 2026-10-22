@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Series
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Hilbert.Increment. Source spans: PositiveTransfer:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -26,7 +29,7 @@ omit [Algebra k A] [IsScalarTower k A M] [IsScalarTower k A N] in
   exact Submodule.mem_map.mpr ⟨component 𝓜 (n-d) w,hS (n-d) w hw,
     (map_component 𝓜 𝓝 f d hf n w).symm⟩
 
- def shiftedImagePieceMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
+ @[expose] def shiftedImagePieceMap (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     (S : Submodule A M) (f : M →ₗ[A] N) (d : ℤ)
     (hf : ∀ n m, m ∈ 𝓜 n → f m ∈ 𝓝 (n+d)) (n : ℤ) :
     subPiece 𝓜 S (n-d) →ₗ[k] subPiece 𝓝 (S.map f) n where
@@ -53,7 +56,7 @@ omit [Algebra k A] [IsScalarTower k A M] [IsScalarTower k A N] in
   rw [← map_component 𝓜 𝓝 f d hf n v]
   exact DirectSum.decompose_of_mem_same 𝓝 hgrad
 
-noncomputable def shiftedImagePieceEquiv
+@[expose] noncomputable def shiftedImagePieceEquiv
     (𝓜 : ℤ → Submodule k M) (𝓝 : ℤ → Submodule k N)
     [DirectSum.Decomposition 𝓜] [DirectSum.Decomposition 𝓝]
     (S : Submodule A M) (hS : ∀ n m, m ∈ S → component 𝓜 n m ∈ S)

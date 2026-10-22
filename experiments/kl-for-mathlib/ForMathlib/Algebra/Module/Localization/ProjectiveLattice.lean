@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Localization.ProjectiveLattice. Source spans: IntegralPairings:26.
 See migration.json and MIGRATION.md for exact provenance. -/

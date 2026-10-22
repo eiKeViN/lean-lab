@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Parabolic.Support
-import ForMathlib.GroupTheory.Coxeter.Realization.Tits
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Parabolic.Support
+public import ForMathlib.GroupTheory.Coxeter.Realization.Tits
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Realization.Positivity. Source spans: Tits:10, Tits:11.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,7 +18,7 @@ variable {I : Type u} [klPreservedInstance5 : Fintype I] (M : CoxeterMatrix I)
 variable {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
-def rootCoeff (i j : I) (n : ℤ) : ℝ :=
+@[expose] def rootCoeff (i j : I) (n : ℤ) : ℝ :=
   (S ℝ n).eval (2 * Real.cos (Real.pi / M i j))
 
 include klPreservedInstance5 in

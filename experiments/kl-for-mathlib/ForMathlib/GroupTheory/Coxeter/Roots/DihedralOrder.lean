@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords
-import ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords
+public import ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder. Source spans: DihedralIntervals:10, DihedralIntervals:13, DihedralIntervals:14.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,10 +19,10 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {P : Submodule ℝ (I → ℝ)} (B : PlaneBasis (M := M) (cs := cs) P)
 noncomputable section
 
- def prefixRoot (w : planeSubgroup M cs P) (n : ℕ) : PositiveRoot M cs :=
+ @[expose] def prefixRoot (w : planeSubgroup M cs P) (n : ℕ) : PositiveRoot M cs :=
   if h : n < B.system.length w then B.edgeRoot (indexWord_step B.system h) else B.left
 
- def negPrefixRoot (w : planeSubgroup M cs P) (n : ℕ) : PositiveRoot M cs :=
+ @[expose] def negPrefixRoot (w : planeSubgroup M cs P) (n : ℕ) : PositiveRoot M cs :=
   if h : n < B.system.length w then B.edgeRoot (neg_indexWord_step B.system h) else B.right
 
  theorem prefixRoot_strictMono (w : planeSubgroup M cs P) :

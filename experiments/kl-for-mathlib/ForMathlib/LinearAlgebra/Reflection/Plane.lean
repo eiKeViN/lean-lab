@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Reflection.Plane. Source spans: ReflectionPlane:1, ReflectionSchedules:15.
 See migration.json and MIGRATION.md for exact provenance. -/

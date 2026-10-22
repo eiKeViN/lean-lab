@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Submodule.PiIdeal. Source spans: GradedSheaves:11.
 See migration.json and MIGRATION.md for exact provenance.

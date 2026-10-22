@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.LinearAlgebra.Dual.Summand
+module
+public import Mathlib
+public import ForMathlib.LinearAlgebra.Dual.Summand
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Dual.Adjoint. Source spans: IntegralPairings:30, BalancedPairings:29, BalancedPairings:18, BalancedPairings:19.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,7 +18,7 @@ variable {R : Type ur} [CommRing R]
   (d : M ≃ₗ[R] Dual R M)
 noncomputable section
 
- def adjoint (f : End R M) : End R M :=
+ @[expose] def adjoint (f : End R M) : End R M :=
   d.symm.toLinearMap.comp (f.dualMap.comp d.toLinearMap)
 
  theorem pairing (f : End R M) (m n : M) : d (adjoint d f m) n=d m (f n) := by
@@ -100,7 +103,7 @@ noncomputable section
   intro m
   rfl
 
- def rangeAdjointEquivDual : LinearMap.range (adjoint d (i.comp p)) ≃ₗ[R] Dual R N :=
+ @[expose] def rangeAdjointEquivDual : LinearMap.range (adjoint d (i.comp p)) ≃ₗ[R] Dual R N :=
   (LinearEquiv.ofEq _ _ (by
     rw [adjoint_projector_eq,AdjointSummandDuality.adjointProjector_range d i p hpi])).trans
     (AdjointSummandDuality.adjointEquivDual d i p hpi)
@@ -129,7 +132,7 @@ include hf in
   change f m.val=m.val
   rw [← hn,hf]
 
- def rangeAdjointEquivDualRange : LinearMap.range (adjoint d f) ≃ₗ[R] Dual R f.range :=
+ @[expose] def rangeAdjointEquivDualRange : LinearMap.range (adjoint d f) ≃ₗ[R] Dual R f.range :=
   rangeAdjointEquivDual d f.range.subtype f.rangeRestrict (range_projector_split f hf)
 
  theorem rangeAdjointEquivDualRange_apply (m : LinearMap.range (adjoint d f)) (n : f.range) :

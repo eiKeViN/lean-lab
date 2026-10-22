@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.Operators. Source spans: Hecke:1, Hecke:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -22,7 +25,7 @@ variable {C : Type*} [CommRing C]
 /-- The standard free module of the actual Coxeter group. -/
 abbrev Space (W C : Type*) [Zero C] := W →₀ C
 
-noncomputable def basis (w : W) : Space W C := Finsupp.single w 1
+@[expose] noncomputable def basis (w : W) : Space W C := Finsupp.single w 1
 
 include klPreservedInstance1 in
 theorem end_ext {f g : Module.End C (Space W C)}
@@ -35,12 +38,12 @@ theorem end_ext {f g : Module.End C (Space W C)}
   rw [hc, map_smul, map_smul, h]
 
 /-- Normalized Hecke multiplication: H_s² = 1 + a H_s. -/
-noncomputable def left (cs : CoxeterSystem M W) (a : C) (i : B) :
+@[expose] noncomputable def left (cs : CoxeterSystem M W) (a : C) (i : B) :
     Module.End C (Space W C) :=
   Finsupp.linearCombination C (fun w => basis (cs.simple i * w) +
     if cs.length (cs.simple i * w) < cs.length w then a • basis w else 0)
 
-noncomputable def right (cs : CoxeterSystem M W) (a : C) (i : B) :
+@[expose] noncomputable def right (cs : CoxeterSystem M W) (a : C) (i : B) :
     Module.End C (Space W C) :=
   Finsupp.linearCombination C (fun w => basis (w * cs.simple i) +
     if cs.length (w * cs.simple i) < cs.length w then a • basis w else 0)
@@ -95,7 +98,7 @@ theorem left_quadratic (cs : CoxeterSystem M W) (a : C) (i : B) :
     simp [hasc, hdesc, smul_add, smul_smul]
 
 /-- Inverse normalized Hecke generator, available without inverting any scalar. -/
-noncomputable def leftInv (cs : CoxeterSystem M W) (a : C) (i : B) :
+@[expose] noncomputable def leftInv (cs : CoxeterSystem M W) (a : C) (i : B) :
     Module.End C (Space W C) := left cs a i - a • 1
 
 theorem left_mul_leftInv (cs : CoxeterSystem M W) (a : C) (i : B) :
@@ -124,7 +127,7 @@ theorem leftInv_mul_left (cs : CoxeterSystem M W) (a : C) (i : B) :
   rw [h]
   abel
 
-noncomputable def leftWord (cs : CoxeterSystem M W) (a : C) (ω : List B) :
+@[expose] noncomputable def leftWord (cs : CoxeterSystem M W) (a : C) (ω : List B) :
     Module.End C (Space W C) := (ω.map (left cs a)).prod
 
 @[simp] theorem leftWord_nil (cs : CoxeterSystem M W) (a : C) :
@@ -148,7 +151,7 @@ theorem leftWord_one (cs : CoxeterSystem M W) (a : C) {ω : List B}
       omega
     simp [Module.End.mul_apply, ih hω', hasc, cs.wordProd_cons]
 
-noncomputable def rightWord (cs : CoxeterSystem M W) (a : C) (ω : List B) :
+@[expose] noncomputable def rightWord (cs : CoxeterSystem M W) (a : C) (ω : List B) :
     Module.End C (Space W C) := (ω.map (right cs a)).prod
 
 @[simp] theorem rightWord_nil (cs : CoxeterSystem M W) (a : C) :
@@ -221,14 +224,14 @@ theorem leftWord_independent (cs : CoxeterSystem M W) (a : C) {ω η : List B}
     (leftWord_commute_right cs a η)
   rw [leftWord_one cs a hω, leftWord_one cs a hη, heq]
 
-noncomputable def unit (cs : CoxeterSystem M W) (a : C) (i : B) :
+@[expose] noncomputable def unit (cs : CoxeterSystem M W) (a : C) (i : B) :
     (Module.End C (Space W C))ˣ where
   val := left cs a i
   inv := leftInv cs a i
   val_inv := left_mul_leftInv cs a i
   inv_val := leftInv_mul_left cs a i
 
-noncomputable def wordUnit (cs : CoxeterSystem M W) (a : C) (ω : List B) :
+@[expose] noncomputable def wordUnit (cs : CoxeterSystem M W) (a : C) (ω : List B) :
     (Module.End C (Space W C))ˣ := (ω.map (unit cs a)).prod
 
 @[simp] theorem wordUnit_val (cs : CoxeterSystem M W) (a : C) (ω : List B) :
@@ -248,7 +251,7 @@ theorem wordUnit_independent (cs : CoxeterSystem M W) (a : C) {ω η : List B}
 
 /-- The genuine normalized standard-basis action, a unit in the regular
 endomorphism algebra. No presentation relations are assumed. -/
-noncomputable def standardUnit (cs : CoxeterSystem M W) (a : C) (w : W) :
+@[expose] noncomputable def standardUnit (cs : CoxeterSystem M W) (a : C) (w : W) :
     (Module.End C (Space W C))ˣ :=
   wordUnit cs a (Classical.choose (cs.exists_isReduced w))
 
@@ -299,7 +302,7 @@ theorem standardUnit_mul_simple (cs : CoxeterSystem M W) (a : C) (i : B) (w : W)
 
 /-- The bar image of an actual standard basis vector; inverse units give
 expression independence before any polynomial coefficients are extracted. -/
-noncomputable def barBasis (cs : CoxeterSystem M W) (a : C) (w : W) : Space W C :=
+@[expose] noncomputable def barBasis (cs : CoxeterSystem M W) (a : C) (w : W) : Space W C :=
   ((standardUnit cs a w⁻¹)⁻¹).val (basis 1)
 
 @[simp] theorem barBasis_one (cs : CoxeterSystem M W) (a : C) :
@@ -335,7 +338,7 @@ theorem leftInv_barBasis (cs : CoxeterSystem M W) (a : C) (i : B) (w : W) :
       omega
     rw [ite_eq_right h, sub_zero, barBasis_simple_mul_ascent cs a i w hasc]
 
-noncomputable def barLinear (cs : CoxeterSystem M W) (a : C) : Module.End C (Space W C) :=
+@[expose] noncomputable def barLinear (cs : CoxeterSystem M W) (a : C) : Module.End C (Space W C) :=
   Finsupp.linearCombination C (barBasis cs a)
 
 @[simp] theorem barLinear_basis (cs : CoxeterSystem M W) (a : C) (w : W) :
@@ -478,7 +481,7 @@ theorem barBasis_zero (cs : CoxeterSystem M W) (a : C) (x y : W)
 
 /-- Normalized R-polynomials, obtained from the bar action rather than
 postulated with an inconsistent choice of descent. -/
-noncomputable def rTilde (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
+@[expose] noncomputable def rTilde (cs : CoxeterSystem M W) (x y : W) : ℤ[X] :=
   barBasis cs (-X : ℤ[X]) y x
 
 @[simp] theorem rTilde_diagonal (cs : CoxeterSystem M W) (x : W) :
@@ -520,14 +523,14 @@ open Hecke (Space basis end_ext)
 variable {C : Type*} [CommRing C]
 
 /-- Unnormalized equal-parameter Hecke multiplication, T_s²=q+(q−1)T_s. -/
-noncomputable def left (cs : CoxeterSystem M W) (q : C) (i : B) :
+@[expose] noncomputable def left (cs : CoxeterSystem M W) (q : C) (i : B) :
     Module.End C (Space W C) :=
   Finsupp.linearCombination C (fun w =>
     if cs.length (cs.simple i * w) < cs.length w then
       q • basis (cs.simple i * w) + (q - 1) • basis w
     else basis (cs.simple i * w))
 
-noncomputable def right (cs : CoxeterSystem M W) (q : C) (i : B) :
+@[expose] noncomputable def right (cs : CoxeterSystem M W) (q : C) (i : B) :
     Module.End C (Space W C) :=
   Finsupp.linearCombination C (fun w =>
     if cs.length (w * cs.simple i) < cs.length w then
@@ -589,7 +592,7 @@ theorem left_quadratic (cs : CoxeterSystem M W) (q : C) (i : B) :
     have hasc : ¬cs.length w < cs.length (cs.simple i * w) := by omega
     simp [hasc, hdesc, smul_add, smul_smul]
 
-noncomputable def leftInv (cs : CoxeterSystem M W) (q : Cˣ) (i : B) :
+@[expose] noncomputable def leftInv (cs : CoxeterSystem M W) (q : Cˣ) (i : B) :
     Module.End C (Space W C) := (↑q⁻¹ : C) • (left cs (q : C) i - ((q : C) - 1) • 1)
 
 theorem leftInv_apply (cs : CoxeterSystem M W) (q : Cˣ) (i : B) (v : Space W C) :
@@ -621,7 +624,7 @@ theorem leftInv_mul_left (cs : CoxeterSystem M W) (q : Cˣ) (i : B) :
   simp [smul_smul]
 
 
-noncomputable def leftWord (cs : CoxeterSystem M W) (q : C) (ω : List B) :
+@[expose] noncomputable def leftWord (cs : CoxeterSystem M W) (q : C) (ω : List B) :
     Module.End C (Space W C) := (ω.map (left cs q)).prod
 
 @[simp] theorem leftWord_nil (cs : CoxeterSystem M W) (q : C) :
@@ -645,7 +648,7 @@ theorem leftWord_one (cs : CoxeterSystem M W) (q : C) {ω : List B}
       omega
     simp [Module.End.mul_apply, ih hω', hasc, cs.wordProd_cons]
 
-noncomputable def rightWord (cs : CoxeterSystem M W) (q : C) (ω : List B) :
+@[expose] noncomputable def rightWord (cs : CoxeterSystem M W) (q : C) (ω : List B) :
     Module.End C (Space W C) := (ω.map (right cs q)).prod
 
 @[simp] theorem rightWord_nil (cs : CoxeterSystem M W) (q : C) :
@@ -718,14 +721,14 @@ theorem leftWord_independent (cs : CoxeterSystem M W) (q : C) {ω η : List B}
     (leftWord_commute_right cs q η)
   rw [leftWord_one cs q hω, leftWord_one cs q hη, heq]
 
-noncomputable def unit (cs : CoxeterSystem M W) (q : Cˣ) (i : B) :
+@[expose] noncomputable def unit (cs : CoxeterSystem M W) (q : Cˣ) (i : B) :
     (Module.End C (Space W C))ˣ where
   val := left cs (q : C) i
   inv := leftInv cs q i
   val_inv := left_mul_leftInv cs q i
   inv_val := leftInv_mul_left cs q i
 
-noncomputable def wordUnit (cs : CoxeterSystem M W) (q : Cˣ) (ω : List B) :
+@[expose] noncomputable def wordUnit (cs : CoxeterSystem M W) (q : Cˣ) (ω : List B) :
     (Module.End C (Space W C))ˣ := (ω.map (unit cs q)).prod
 
 @[simp] theorem wordUnit_val (cs : CoxeterSystem M W) (q : Cˣ) (ω : List B) :
@@ -745,7 +748,7 @@ theorem wordUnit_independent (cs : CoxeterSystem M W) (q : Cˣ) {ω η : List B}
 
 /-- The genuine normalized standard-basis action, a unit in the regular
 endomorphism algebra. No presentation relations are assumed. -/
-noncomputable def standardUnit (cs : CoxeterSystem M W) (q : Cˣ) (w : W) :
+@[expose] noncomputable def standardUnit (cs : CoxeterSystem M W) (q : Cˣ) (w : W) :
     (Module.End C (Space W C))ˣ :=
   wordUnit cs q (Classical.choose (cs.exists_isReduced w))
 
@@ -796,7 +799,7 @@ theorem standardUnit_mul_simple (cs : CoxeterSystem M W) (q : Cˣ) (i : B) (w : 
 
 /-- The bar image of an actual standard basis vector; inverse units give
 expression independence before any polynomial coefficients are extracted. -/
-noncomputable def barBasis (cs : CoxeterSystem M W) (q : Cˣ) (w : W) : Space W C :=
+@[expose] noncomputable def barBasis (cs : CoxeterSystem M W) (q : Cˣ) (w : W) : Space W C :=
   ((standardUnit cs q w⁻¹)⁻¹).val (basis 1)
 
 @[simp] theorem barBasis_one (cs : CoxeterSystem M W) (q : Cˣ) :
@@ -839,7 +842,7 @@ theorem leftInv_barBasis (cs : CoxeterSystem M W) (q : Cˣ) (i : B) (w : W) :
       omega
     rw [ite_eq_right h, barBasis_simple_mul_ascent cs q i w hasc]
 
-noncomputable def barLinear (cs : CoxeterSystem M W) (q : Cˣ) : Module.End C (Space W C) :=
+@[expose] noncomputable def barLinear (cs : CoxeterSystem M W) (q : Cˣ) : Module.End C (Space W C) :=
   Finsupp.linearCombination C (barBasis cs q)
 
 @[simp] theorem barLinear_basis (cs : CoxeterSystem M W) (q : Cˣ) (w : W) :
@@ -992,7 +995,7 @@ theorem barBasis_zero (cs : CoxeterSystem M W) (q : Cˣ) (x y : W)
 
 /-- R-value extracted from the genuine Hecke bar, with the classical sign
 and leading q-power. No recurrence is imposed in this definition. -/
-noncomputable def rValue (cs : CoxeterSystem M W) (q : Cˣ) (x y : W) : C :=
+@[expose] noncomputable def rValue (cs : CoxeterSystem M W) (q : Cˣ) (x y : W) : C :=
   (-1 : C) ^ cs.length x * (-(q : C)) ^ cs.length y * barBasis cs q y x
 
 @[simp] theorem rValue_diagonal (cs : CoxeterSystem M W) (q : Cˣ) (x : W) :

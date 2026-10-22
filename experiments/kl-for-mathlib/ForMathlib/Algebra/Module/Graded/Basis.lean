@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Generators
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Generators
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Basis. Source spans: Frobenius:14.
 See migration.json and MIGRATION.md for exact provenance.
@@ -18,14 +21,14 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {ι : Type ui} [Fintype ι] (b : Basis ι A N) (d : ι → ℤ)
 noncomputable section
 
- def basisPiece (n : ℤ) : Submodule k N :=
+ @[expose] def basisPiece (n : ℤ) : Submodule k N :=
   (shiftedPiece 𝓐 d n).comap (b.equivFun.restrictScalars k).toLinearMap
 
 omit [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐] in
  theorem mem_basisPiece (n : ℤ) (m : N) :
     m ∈ basisPiece 𝓐 b d n ↔ ∀ i, b.repr m i ∈ 𝓐 (n-d i) := Iff.rfl
 
- instance basisPiece_decomposition : DirectSum.Decomposition (basisPiece 𝓐 b d) := by
+ @[expose] instance basisPiece_decomposition : DirectSum.Decomposition (basisPiece 𝓐 b d) := by
   let _ : DirectSum.Decomposition (shiftedPiece 𝓐 d) := (shifted_isInternal 𝓐 d).chooseDecomposition
   apply DirectSum.IsInternal.chooseDecomposition
   have he : basisPiece 𝓐 b d = fun n => (shiftedPiece 𝓐 d n).map
@@ -41,7 +44,7 @@ omit [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐] in
   subst m
   simp
 
- instance basisPiece_graded : SetLike.GradedSMul 𝓐 (basisPiece 𝓐 b d) where
+ @[expose] instance basisPiece_graded : SetLike.GradedSMul 𝓐 (basisPiece 𝓐 b d) where
   smul_mem := by
     intro n m a x ha hx i
     change b.repr (a • x) i ∈ 𝓐 ((n+m)-d i)

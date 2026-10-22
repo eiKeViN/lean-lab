@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList. Source spans: DyerPaths:3.
 See migration.json and MIGRATION.md for exact provenance. -/

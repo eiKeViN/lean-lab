@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness. Source spans: EdgeLocalization:8.
 See migration.json and MIGRATION.md for exact provenance. -/

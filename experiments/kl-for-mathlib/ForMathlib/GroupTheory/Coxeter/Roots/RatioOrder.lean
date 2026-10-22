@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Combinatorics.DirectedPaths.Subpaths
-import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport
-import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.DirectedPaths.Subpaths
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport
+public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder. Source spans: DyerPaths:15, DyerPaths:12, DyerPaths:14, DyerPaths:18, DyerPaths:21.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,9 +18,9 @@ universe u v
 variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] {cs : CoxeterSystem M W}
 noncomputable section
-local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_8 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_8 (p : Prop) : Decidable p := Classical.propDecidable p
 
-def simplePositive (i : I) : PositiveRoot M cs :=
+@[expose] def simplePositive (i : I) : PositiveRoot M cs :=
   ⟨root i, ⟨1,i,by simp⟩, root_nonneg i⟩
 
 @[simp] theorem simplePositive_val (i : I) :
@@ -42,7 +45,7 @@ theorem dual_coordinate_sum (h : Module.Dual ℝ (I → ℝ)) (a : I → ℝ) :
   conv_lhs => rw [← coordinate_sum a]
   simp only [map_sum,map_smul,smul_eq_mul]
 
-def PositiveFunctional (h : Module.Dual ℝ (I → ℝ)) : Prop := ∀ i, 0 < h (root i)
+@[expose] def PositiveFunctional (h : Module.Dual ℝ (I → ℝ)) : Prop := ∀ i, 0 < h (root i)
 
 theorem PositiveFunctional.root_pos {h : Module.Dual ℝ (I → ℝ)}
     (hh : PositiveFunctional h) (a : PositiveRoot M cs) : 0 < h a.val := by
@@ -69,7 +72,7 @@ structure RatioOrder where
 namespace RatioOrder
 variable (O : RatioOrder (M := M) (cs := cs))
 
-def slope (a : PositiveRoot M cs) : ℝ := O.numerator a.val / O.denominator a.val
+@[expose] def slope (a : PositiveRoot M cs) : ℝ := O.numerator a.val / O.denominator a.val
 
 theorem denominator_pos (a : PositiveRoot M cs) : 0 < O.denominator a.val :=
   O.positive.root_pos a
@@ -77,7 +80,7 @@ theorem denominator_pos (a : PositiveRoot M cs) : 0 < O.denominator a.val :=
 theorem slope_injective : Function.Injective O.slope := O.generic
 
 /-- The cut at zero is the genuine inversion set of the upper vertex. -/
-def Adapted (y : W) : Prop := ∀ a : PositiveRoot M cs,
+@[expose] def Adapted (y : W) : Prop := ∀ a : PositiveRoot M cs,
   (O.slope a < 0 ↔ rootInverted y a) ∧ O.slope a ≠ 0
 
 theorem simple_lower_bound (i : I)
@@ -119,7 +122,7 @@ theorem least_simple_descent {y : W} (hy : y ≠ 1) (ha : O.Adapted y) :
 
 /-- A functional in the chamber indexed by y has exactly Inv(y) as its
 negative roots. This is stronger data used only to construct the order. -/
-def Chamber (y : W) : Prop := ∀ i, 0 < O.numerator (action M cs y (root i))
+@[expose] def Chamber (y : W) : Prop := ∀ i, 0 < O.numerator (action M cs y (root i))
 
 theorem adapted_of_chamber {y : W} (hc : O.Chamber y) : O.Adapted y := by
   let f : Module.Dual ℝ (I → ℝ) := O.numerator.comp (action M cs y).toLinearMap
@@ -248,10 +251,10 @@ theorem exists_uniform_pos_lt (v : I → ℝ) (hv : ∀ i, 0 < v i) :
 namespace RatioOrder
 variable (O : RatioOrder (M := M) (cs := cs))
 
-def turnNumerator (i : I) : Module.Dual ℝ (I → ℝ) :=
+@[expose] def turnNumerator (i : I) : Module.Dual ℝ (I → ℝ) :=
   O.numerator.comp (action M cs (cs.simple i)).toLinearMap
 
-def turnDenominator (i : I) (k : ℝ) : Module.Dual ℝ (I → ℝ) :=
+@[expose] def turnDenominator (i : I) (k : ℝ) : Module.Dual ℝ (I → ℝ) :=
   (O.numerator - k • O.denominator).comp (action M cs (cs.simple i)).toLinearMap
 
 theorem exists_turn_parameter (i : I) (hi0 : O.slope (simplePositive i) < 0)
@@ -333,7 +336,7 @@ theorem turn_ratio_injective (i : I) (k : ℝ) (hk : k ≠ 0)
   rw [hval a,hval b] at he
   exact (positiveActionEquiv (cs.simple i)).injective (O.slope_injective he)
 
-def turn (i : I) (k : ℝ) (hk : k ≠ 0)
+@[expose] def turn (i : I) (k : ℝ) (hk : k ≠ 0)
     (hp : PositiveFunctional (O.turnDenominator i k)) : RatioOrder (M := M) (cs := cs) :=
   ⟨O.turnDenominator i k,O.turnNumerator i,hp,O.turn_ratio_injective i k hk hp⟩
 
@@ -574,7 +577,7 @@ theorem simpleRoot_inverted_coset_iff {a₀ : W}
 
 /-- Geometric label of an intrinsic graph edge, taken in the actual ambient
 root plane rather than an abstract alternate representation. -/
-def edgeRoot {x y : planeSubgroup M cs P} (h : BruhatStep B.system x y) :
+@[expose] def edgeRoot {x y : planeSubgroup M cs P} (h : BruhatStep B.system x y) :
     PositiveRoot M cs := graphRoot ((B.bruhatStep_iff x y).mpr h)
 
 theorem edgeRoot_plane {x y : planeSubgroup M cs P} (h : BruhatStep B.system x y) :
@@ -614,7 +617,7 @@ noncomputable section
 namespace PlaneBasis
 variable {P : Submodule ℝ (I → ℝ)} (B : PlaneBasis (M := M) (cs := cs) P)
 open Dihedral BruhatGraph
-local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable (p : Prop) : Decidable p := Classical.propDecidable p
 
 theorem edgeRoot_ne_of_path {x y z : planeSubgroup M cs P}
     (hxy : BruhatStep B.system x y) (hyz : BruhatStep B.system y z) :
@@ -653,7 +656,7 @@ theorem edgeRoot_slopes_rankFlip {x y z top : planeSubgroup M cs P} {L : ℕ}
     exact lt_asymm hlt hi
 
 /-- Restriction of the actual geometric root slope to a full plane interval. -/
-def intervalEdgeSlope (lo hi : planeSubgroup M cs P) (e : Edge B.system lo hi) : ℝ :=
+@[expose] def intervalEdgeSlope (lo hi : planeSubgroup M cs P) (e : Edge B.system lo hi) : ℝ :=
   geometricSlope (B.edgeRoot e.property)
 
 /-- The global edge map reverses the comparison for every composable pair.
@@ -690,7 +693,7 @@ noncomputable section
 namespace PlaneBasis
 variable {P : Submodule ℝ (I → ℝ)} (B : PlaneBasis (M := M) (cs := cs) P)
 open Dihedral BruhatGraph SchedulePaths
-local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_1 (p : Prop) : Decidable p := Classical.propDecidable p
+@[expose] local instance _root_.OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_1 (p : Prop) : Decidable p := Classical.propDecidable p
 
 theorem intervalEdgeSlope_ties {lo hi : planeSubgroup M cs P}
     (e f : Edge B.system lo hi) (heq : B.intervalEdgeSlope lo hi e = B.intervalEdgeSlope lo hi f) :

@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.Hilbert.Basic. Source spans: ModuleAlgebra:7.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -12,13 +15,13 @@ variable {k : Type uk} {M : Type um} [Field k] [AddCommGroup M] [Module k M]
 
 /-- The actual degree-n vector space of a submodule, expressed in the fixed
 ambient homogeneous piece. -/
-def piece (𝓜 : ℤ → Submodule k M) (S : Submodule k M) (n : ℤ) :
+@[expose] def piece (𝓜 : ℤ → Submodule k M) (S : Submodule k M) (n : ℤ) :
     Submodule k (𝓜 n) := S.comap (𝓜 n).subtype
 
-noncomputable def term (𝓜 : ℤ → Submodule k M) (S : Submodule k M)
+@[expose] noncomputable def term (𝓜 : ℤ → Submodule k M) (S : Submodule k M)
     (q : ℝ) (n : ℤ) : ℝ := (Module.finrank k (piece 𝓜 S n) : ℝ)*q^n
 
-noncomputable def value (𝓜 : ℤ → Submodule k M) (S : Submodule k M)
+@[expose] noncomputable def value (𝓜 : ℤ → Submodule k M) (S : Submodule k M)
     (q : ℝ) : ℝ := ∑' n : ℤ, term 𝓜 S q n
 
 lemma piece_mono (𝓜 : ℤ → Submodule k M) {S T : Submodule k M}
@@ -101,7 +104,7 @@ lemma value_mono (𝓜 : ℤ → Submodule k M) [∀ n, Module.Finite k (𝓜 n)
 abbrev defectPiece (𝓜 : ℤ → Submodule k M) (S T : Submodule k M) (n : ℤ) :=
   piece 𝓜 T n ⧸ (piece 𝓜 S n).comap (piece 𝓜 T n).subtype
 
-noncomputable def defectTerm (𝓜 : ℤ → Submodule k M) (S T : Submodule k M)
+@[expose] noncomputable def defectTerm (𝓜 : ℤ → Submodule k M) (S T : Submodule k M)
     (q : ℝ) (n : ℤ) : ℝ := (Module.finrank k (defectPiece 𝓜 S T n) : ℝ)*q^n
 
 lemma defectTerm_eq_sub (𝓜 : ℤ → Submodule k M)

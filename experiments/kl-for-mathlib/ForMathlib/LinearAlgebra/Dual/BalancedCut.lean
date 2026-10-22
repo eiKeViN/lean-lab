@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Dual.BalancedCut. Source spans: CharacterReciprocity:2, Support:10.
 See migration.json and MIGRATION.md for exact provenance. -/

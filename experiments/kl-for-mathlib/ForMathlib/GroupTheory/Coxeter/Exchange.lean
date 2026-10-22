@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Exchange. Source spans: Coxeter:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -14,9 +17,9 @@ universe u v
 variable {B : Type u} {W : Type v} [Group W] {M : CoxeterMatrix B}
 variable (cs : CoxeterSystem M W)
 
-noncomputable local instance _root_.OAI.KLInvariance.CoxeterSupport.instDecidableEq_oAI : DecidableEq W := Classical.decEq W
+@[expose] noncomputable local instance _root_.OAI.KLInvariance.CoxeterSupport.instDecidableEq_oAI : DecidableEq W := Classical.decEq W
 
-noncomputable def simpleAction (i : B) : Equiv.Perm (W × ZMod 2) := by
+@[expose] noncomputable def simpleAction (i : B) : Equiv.Perm (W × ZMod 2) := by
   classical
   let f : W × ZMod 2 → W × ZMod 2 := fun p =>
     (cs.simple i * p.1 * cs.simple i, p.2 + if p.1 = cs.simple i then 1 else 0)
@@ -44,7 +47,7 @@ noncomputable def simpleAction (i : B) : Equiv.Perm (W × ZMod 2) := by
   classical
   rfl
 
-noncomputable def wordAction (ω : List B) : Equiv.Perm (W × ZMod 2) :=
+@[expose] noncomputable def wordAction (ω : List B) : Equiv.Perm (W × ZMod 2) :=
   (ω.map (simpleAction cs)).prod
 
 @[simp] theorem wordAction_nil : wordAction cs [] = 1 := rfl
@@ -138,7 +141,7 @@ theorem simpleAction_liftable : M.IsLiftable (simpleAction cs) := by
   obtain ⟨l, hl⟩ := leftInvSeq_relation_doubled cs i j
   simpa [hw, hl, List.count_append, Nat.cast_add, ZModModule.add_self] using h
 
-noncomputable def reflectionAction : W →* Equiv.Perm (W × ZMod 2) :=
+@[expose] noncomputable def reflectionAction : W →* Equiv.Perm (W × ZMod 2) :=
   cs.lift ⟨simpleAction cs, simpleAction_liftable cs⟩
 
 @[simp] theorem reflectionAction_simple (i : B) :

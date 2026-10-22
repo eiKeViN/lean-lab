@@ -1,10 +1,13 @@
-import Mathlib
-import ForMathlib.Algebra.Module.CoefficientChange.Dual
-import ForMathlib.Algebra.Module.Graded.Adjoint
-import ForMathlib.Algebra.Module.Graded.Hilbert.Images
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
-import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.CoefficientChange.Dual
+public import ForMathlib.Algebra.Module.Graded.Adjoint
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Images
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
+public import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality. Source spans: Support:24, Support:16, Support:21, Support:7, Support:30, Support:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -122,13 +125,13 @@ variable {k : Type uk} [Field k] {A B : Type ua} [CommRing A] [CommRing B]
   {V E : Type um} [PartialOrder V] {G : OrderedGraph V E}
 noncomputable section
 
- def coefficientChange (S : GradedSheaf (𝓐 := 𝓐) G) : GradedSheaf (𝓐 := 𝓑) G where
+ @[expose] def coefficientChange (S : GradedSheaf (𝓐 := 𝓐) G) : GradedSheaf (𝓐 := 𝓑) G where
   vertex x := ModuleData.change e he (S.vertex x)
   edge f := ModuleData.change e he (S.edge f)
   lower f := ModuleData.changeHom e he (S.lower f)
   upper f := ModuleData.changeHom e he (S.upper f)
 
- def Hom.coefficientChange {S T : GradedSheaf (𝓐 := 𝓐) G} (g : Hom S T) :
+ @[expose] def Hom.coefficientChange {S T : GradedSheaf (𝓐 := 𝓐) G} (g : Hom S T) :
     Hom (coefficientChange e he S) (coefficientChange e he T) where
   vertex x := ModuleData.changeHom e he (g.vertex x)
   edge f := ModuleData.changeHom e he (g.edge f)
@@ -181,7 +184,7 @@ noncomputable section
   intro q hs ht
   exact CoefficientChange.ext (hg q hs ht)
 
- def coefficientChangeSections (S : GradedSheaf (𝓐 := 𝓐) G) (U : Set V) :
+ @[expose] def coefficientChangeSections (S : GradedSheaf (𝓐 := 𝓐) G) (U : Set V) :
     CoefficientChange e (S.forget.sections U) ≃ₗ[B] (coefficientChange e he S).forget.sections U where
   toFun m := ⟨fun x => CoefficientChange.mk (m.val.val x),fun q hs ht =>
     CoefficientChange.ext (m.val.property q hs ht)⟩
@@ -216,7 +219,7 @@ noncomputable section
   right_orthogonal : ∀ (x : V) (m n : S.forget.sections Set.univ),
     m.val x=0 → (∀ y, y≠x → n.val y=0) → pairing m n=0
 
- def PerfectPairing.pullback {S T : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
+ @[expose] def PerfectPairing.pullback {S T : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
     (p : PerfectPairing T d) (j : Iso S T) : PerfectPairing S d where
   pairing := (j.toIso.sections Set.univ).trans
     (p.pairing.trans (j.toIso.sections Set.univ).dualMap)
@@ -240,7 +243,7 @@ noncomputable section
  variable {B : Type ua} [CommRing B] [Algebra k B] {𝓑 : ℤ → Submodule k B}
   (e : A ≃ₐ[k] B) (he : ∀ n a, a∈𝓐 n ↔ e a∈𝓑 n)
 
- def PerfectPairing.coefficientChange {S : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
+ @[expose] def PerfectPairing.coefficientChange {S : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
     (p : PerfectPairing S d) : PerfectPairing (coefficientChange e he S) d where
   pairing := (coefficientChangeSections e he S Set.univ).symm.trans
     ((CoefficientChange.pairingEquiv e p.pairing).trans

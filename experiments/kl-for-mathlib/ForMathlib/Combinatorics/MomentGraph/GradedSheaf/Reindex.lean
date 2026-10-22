@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex. Source spans: GradedSheaves:4.
 See migration.json and MIGRATION.md for exact provenance.
@@ -26,13 +29,13 @@ structure GraphEquiv (G : OrderedGraph V E) (H : OrderedGraph W F) where
 namespace GradedSheaf
 variable (B : GradedSheaf (𝓐 := 𝓐) H) (e : GraphEquiv G H)
 
-def reindex : GradedSheaf (𝓐 := 𝓐) G where
+@[expose] def reindex : GradedSheaf (𝓐 := 𝓐) G where
   vertex := fun x => B.vertex (e.vertex x)
   edge := fun a => B.edge (e.edge a)
   lower := fun a => (B.lower (e.edge a)).comp (ModuleData.Hom.ofEq (congrArg B.vertex (e.source a)))
   upper := fun a => (B.upper (e.edge a)).comp (ModuleData.Hom.ofEq (congrArg B.vertex (e.target a)))
 
-def reindexAssignment (f : B.forget.Assignment) : (B.reindex e).forget.Assignment :=
+@[expose] def reindexAssignment (f : B.forget.Assignment) : (B.reindex e).forget.Assignment :=
   fun x => f (e.vertex x)
 
 @[simp] theorem reindex_lower (a : E) (f : B.forget.Assignment) :
@@ -51,7 +54,7 @@ def reindexAssignment (f : B.forget.Assignment) : (B.reindex e).forget.Assignmen
   exact congrArg (B.upper (e.edge a)).map
     (ModuleData.Hom.ofEq_apply B.vertex (e.target a) f)
 
-def unreindexAssignment (f : (B.reindex e).forget.Assignment) : B.forget.Assignment :=
+@[expose] def unreindexAssignment (f : (B.reindex e).forget.Assignment) : B.forget.Assignment :=
   fun y => (ModuleData.Hom.ofEq (congrArg B.vertex (e.vertex.apply_symm_apply y))).map
     (f (e.vertex.symm y))
 

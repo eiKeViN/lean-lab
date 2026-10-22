@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness. Source spans: EdgeLocalization:10, EdgeLocalization:12, EdgeLocalization:17, EdgeLocalization:14.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -33,7 +36,7 @@ noncomputable section
   rw [he]
   exact j.bijective
 
- def Hom.isoOfBijective (f : Hom B C)
+ @[expose] def Hom.isoOfBijective (f : Hom B C)
     (hv : ∀ x, Function.Bijective (f.vertex x).map)
     (he : ∀ e, Function.Bijective (f.edge e).map) : Iso B C where
   vertex x := LinearEquiv.ofBijective (f.vertex x).map (hv x)
@@ -43,7 +46,7 @@ noncomputable section
   vertex_graded x := (f.vertex x).graded
   edge_graded e := (f.edge e).graded
 
- def Hom.aboveIso (f : Hom B C) (x : V)
+ @[expose] def Hom.aboveIso (f : Hom B C) (x : V)
     (hv : ∀ y, x<y → Function.Bijective (f.vertex y).map)
     (he : ∀ e, x<G.target e → Function.Bijective (f.edge e).map) :
     Sheaf.AboveIso B.forget C.forget x where
@@ -66,13 +69,13 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {G : OrderedGraph V E} {B C : GradedSheaf (𝓐 := 𝓐) G}
 noncomputable section
 
- def Iso.hom (j : Iso B C) : Hom B C where
+ @[expose] def Iso.hom (j : Iso B C) : Hom B C where
   vertex x := ⟨(j.vertex x).toLinearMap,j.vertex_graded x⟩
   edge e := ⟨(j.edge e).toLinearMap,j.edge_graded e⟩
   lower := j.lower
   upper := j.upper
 
- def Iso.invHom (j : Iso B C) : Hom C B where
+ @[expose] def Iso.invHom (j : Iso B C) : Hom C B where
   vertex x := ⟨(j.vertex x).symm.toLinearMap,fun n v hv =>
     (j.hom.vertex x).mem_of_map_mem (j.vertex x).injective n _
       (by change j.vertex x ((j.vertex x).symm v) ∈ _
@@ -110,7 +113,7 @@ noncomputable section
     extends PerfectPairing S d where
   symmetric : ∀ m n, pairing m n=pairing n m
 
- def SymmetricPerfectPairing.pullback {S T : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
+ @[expose] def SymmetricPerfectPairing.pullback {S T : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
     (p : SymmetricPerfectPairing T d) (j : Iso S T) : SymmetricPerfectPairing S d where
   toPerfectPairing := p.toPerfectPairing.pullback j
   symmetric _m _n := p.symmetric _ _
@@ -118,7 +121,7 @@ noncomputable section
  variable {B : Type ua} [CommRing B] [Algebra k B] {𝓑 : ℤ → Submodule k B}
   (e : A ≃ₐ[k] B) (he : ∀ n a, a∈𝓐 n ↔ e a∈𝓑 n)
 
- def SymmetricPerfectPairing.coefficientChange {S : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
+ @[expose] def SymmetricPerfectPairing.coefficientChange {S : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
     (p : SymmetricPerfectPairing S d) : SymmetricPerfectPairing (coefficientChange e he S) d where
   toPerfectPairing := p.toPerfectPairing.coefficientChange e he
   symmetric _m _n := congrArg e (p.symmetric _ _)
