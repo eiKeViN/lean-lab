@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "scripts/diagnose_rollout_imports.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 7.776526159999776,
+  "user_seconds": 17.410798,
+  "system_seconds": 1.8536579999999998,
+  "max_rss_kib": 2951516
+}

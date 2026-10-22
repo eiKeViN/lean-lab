@@ -1,0 +1,28 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "build",
+    "ForMathlib.LinearAlgebra.CoordinateProjection",
+    "ForMathlib.LinearAlgebra.ConjugateRange",
+    "ForMathlib.LinearAlgebra.Dual.TransportPairing",
+    "ForMathlib.LinearAlgebra.Dual.Summand",
+    "ForMathlib.LinearAlgebra.TensorProduct.Coordinates",
+    "ForMathlib.LinearAlgebra.Quotient.Transport",
+    "ForMathlib.Algebra.Module.Projective.Range",
+    "ForMathlib.Algebra.Module.Submodule.ScaledImage",
+    "ForMathlib.Algebra.Module.Submodule.PiIdeal",
+    "ForMathlib.Order.Interval.Diamonds",
+    "ForMathlib.LinearAlgebra.Avoidance",
+    "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
+    "ForMathlib.Algebra.Module.Cover.Local",
+    "ForMathlib.Algebra.Order.Field.RealScaling"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 6.943201795000277,
+  "user_seconds": 19.139318,
+  "system_seconds": 4.404463,
+  "max_rss_kib": 1102408
+}

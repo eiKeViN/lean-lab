@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "names": [
+    "OAI.KLInvariance.CoefficientChange.ext.match_1",
+    "OAI.KLInvariance.LocalCover.splitEquiv.match_3",
+    "OAI.KLInvariance.ReflectionFrobenius.wallCoordinate_injective.match_1_2",
+    "OAI.KLInvariance.ReflectionFrobenius.wallMatrix_mulVec.match_1_1",
+    "OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1",
+    "OAI.KLInvariance.TitsSpace.exists_common_transverse.match_1_1"
+  ],
+  "reason": "Compiler-generated matcher auxiliaries: retained in strict complete implementation audit; absent from ordinary modern view."
+}

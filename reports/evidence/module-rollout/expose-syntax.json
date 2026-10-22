@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/ExposeSyntax.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 3.948629986999549,
+  "user_seconds": 2.799581,
+  "system_seconds": 1.158987,
+  "max_rss_kib": 5246448
+}

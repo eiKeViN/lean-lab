@@ -1,0 +1,201 @@
+All targets up-to-date (8923 jobs).
+✔ [8925/9149] Built ForMathlib.Algebra.BigOperators.FiniteCharacterCancellation (1.1s)
+✔ [8926/9149] Built ForMathlib.Algebra.Module.Localization.Membership (4.2s)
+✔ [8927/9149] Built ForMathlib.RingTheory.Localization.RelativePrime (7.6s)
+⚠ [8928/9149] Built ForMathlib.LinearAlgebra.Dual.IntegralSupport (12s)
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8929/9149] Built ForMathlib.Algebra.Order.Field.RealScaling (15s)
+✔ [8930/9149] Built ForMathlib.Algebra.Module.Graded.Hilbert.Basic (15s)
+✔ [8931/9149] Built ForMathlib.Algebra.Polynomial.TransferEvaluation (16s)
+⚠ [8934/9149] Replayed ForMathlib.Combinatorics.Dihedral.SignedCount
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:14:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:171:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:326:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8939/9149] Replayed ForMathlib.Algebra.Module.CoefficientChange.Basic
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:30:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:34:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8941/9149] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8945/9149] Replayed ForMathlib.GroupTheory.Coxeter.Exchange
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8960/9149] Replayed ForMathlib.Combinatorics.DirectedPaths.Basic
+warning: ForMathlib/Combinatorics/DirectedPaths/Basic.lean:16:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8969/9149] Replayed ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer
+warning: ForMathlib/Combinatorics/DirectedPaths/PositiveTransfer.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8971/9149] Built ForMathlib.Algebra.Module.Submodule.ProductScaling (15s)
+✔ [8972/9149] Built ForMathlib.Algebra.Module.Flat.Kernel (15s)
+✔ [8973/9149] Built ForMathlib.Algebra.Module.Quotient.KernelReduction (15s)
+✔ [8974/9149] Built ForMathlib.LinearAlgebra.Dual.BalancedCut (15s)
+✔ [8975/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Sheaves (14s)
+✔ [8976/9149] Built ForMathlib.Algebra.Module.Localization.Products (13s)
+⚠ [8977/9149] Built ForMathlib.Algebra.Module.Graded.Generators (18s)
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8978/9149] Built ForMathlib.Combinatorics.DirectedPaths.ScalarMap (18s)
+warning: ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8979/9149] Built ForMathlib.Combinatorics.DirectedPaths.Subpaths (18s)
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:69:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:115:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8980/9149] Built ForMathlib.Combinatorics.DirectedPaths.Monotone (18s)
+✔ [8981/9149] Built OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane (12s)
+✔ [8982/9149] Built ForMathlib.Algebra.Module.Projective.ScalarQuotient (12s)
+✔ [8984/9149] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality (13s)
+✔ [8985/9149] Built ForMathlib.GroupTheory.Coxeter.Realization.Geometric (14s)
+✔ [8986/9149] Built ForMathlib.LinearAlgebra.Reflection.Forms (14s)
+✔ [8987/9149] Built OAI.LinearAlgebra.KernelTransport (12s)
+✔ [8988/9149] Built ForMathlib.Algebra.Module.Graded.Hilbert.RationalFunction (11s)
+✔ [8989/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Coxeter (10s)
+✔ [8990/9149] Built ForMathlib.Algebra.Module.Cover.Product (10s)
+✔ [8991/9149] Built ForMathlib.Algebra.Module.Quotient.ScalarImage (11s)
+✔ [8992/9149] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso (14s)
+✔ [8993/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalized (15s)
+✔ [8994/9149] Built ForMathlib.GroupTheory.Coxeter.Bruhat.Basic (16s)
+✔ [8995/9149] Built ForMathlib.LinearAlgebra.Dual.Adjoint (15s)
+✔ [8996/9149] Built ForMathlib.Algebra.Module.CoefficientChange.Dual (14s)
+⚠ [8997/9149] Built ForMathlib.Algebra.Module.ReflectionPair.Twist (16s)
+warning: ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:33:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:34:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8998/9149] Built ForMathlib.Algebra.Polynomial.ScaledEvaluation (16s)
+✔ [8999/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Comparison (15s)
+✔ [9000/9149] Built OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra (14s)
+✔ [9001/9149] Built ForMathlib.Algebra.Module.Graded.Hilbert.Series (15s)
+✔ [9002/9149] Built ForMathlib.Algebra.Module.Graded.PolynomialMap (15s)
+✔ [9003/9149] Built ForMathlib.Algebra.Module.Graded.HomogeneousMul (15s)
+⚠ [9004/9149] Built ForMathlib.Algebra.Module.Graded.Basis (17s)
+warning: ForMathlib/Algebra/Module/Graded/Basis.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9005/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.Basic (17s)
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9006/9149] Built ForMathlib.Algebra.Module.Graded.FinitePieces (17s)
+⚠ [9007/9149] Built ForMathlib.Combinatorics.DirectedPaths.Transfer (17s)
+warning: ForMathlib/Combinatorics/DirectedPaths/Transfer.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9008/9149] Built OAI.RepresentationTheory.KazhdanLusztig.KernelTransportCompat (15s)
+✔ [9009/9149] Built ForMathlib.GroupTheory.Coxeter.Realization.Tits (12s)
+✔ [9010/9149] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi (13s)
+✔ [9011/9149] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange (15s)
+✔ [9012/9149] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback (16s)
+✔ [9013/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Model (14s)
+✔ [9014/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.SelectedR (14s)
+✔ [9015/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Unique (12s)
+✔ [9016/9149] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic (11s)
+⚠ [9017/9149] Built ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset (12s)
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean:21:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9018/9149] Built ForMathlib.GroupTheory.Coxeter.Parabolic.Support (12s)
+✔ [9019/9149] Built ForMathlib.GroupTheory.Coxeter.Bruhat.Transport (12s)
+⚠ [9020/9149] Built ForMathlib.GroupTheory.Coxeter.Dihedral.Words (12s)
+warning: ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean:86:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9021/9149] Built ForMathlib.RepresentationTheory.Hecke.Operators (17s)
+✔ [9022/9149] Built ForMathlib.Algebra.Module.Graded.Adjoint (17s)
+⚠ [9023/9149] Built ForMathlib.Algebra.Module.ReflectionPair.TensorKernel (19s)
+warning: ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:19:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9024/9149] Built ForMathlib.Algebra.Module.Projective.Transport (19s)
+✔ [9025/9149] Built ForMathlib.Algebra.Polynomial.ScaledReciprocity (14s)
+✔ [9026/9149] Built ForMathlib.Algebra.Module.Graded.Hilbert.Increment (14s)
+✔ [9027/9149] Built ForMathlib.Algebra.Module.Graded.Hilbert.Images (15s)
+✔ [9028/9149] Built ForMathlib.Algebra.Module.Graded.NonnegativeBasis (17s)
+✔ [9029/9149] Built ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis (19s)
+✔ [9030/9149] Built ForMathlib.Algebra.Module.Graded.HomogeneousEquiv (19s)
+✔ [9031/9149] Built ForMathlib.Algebra.Module.Graded.AlgebraMap (17s)
+✔ [9032/9149] Built OAI.RepresentationTheory.KazhdanLusztig.GradedModules (14s)
+✔ [9033/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic (13s)
+✔ [9034/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection (12s)
+✔ [9035/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.Transport (13s)
+✔ [9036/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoverUniqueness (14s)
+✔ [9037/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.Equality (13s)
+✔ [9038/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom (13s)
+⚠ [9039/9149] Built ForMathlib.Combinatorics.DirectedPaths.SortedSchedule (13s)
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9040/9149] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Products (14s)
+✔ [9041/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Bruhat (13s)
+✔ [9042/9149] Built ForMathlib.GroupTheory.Coxeter.Bruhat.Descent (13s)
+✔ [9043/9149] Built ForMathlib.GroupTheory.Coxeter.Realization.Positivity (14s)
+✔ [9044/9149] Built ForMathlib.RepresentationTheory.Hecke.Inverse (13s)
+✔ [9045/9149] Built ForMathlib.RepresentationTheory.Hecke.Coefficients (15s)
+✔ [9046/9149] Built ForMathlib.RepresentationTheory.Hecke.DualR (14s)
+✔ [9047/9149] Built ForMathlib.Algebra.Module.ReflectionPair.TensorDescent (14s)
+✔ [9048/9149] Built ForMathlib.LinearAlgebra.KernelCoordinates (14s)
+✔ [9049/9149] Built ForMathlib.Algebra.Module.Projective.ScalarKernel (14s)
+✔ [9050/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.Character (15s)
+⚠ [9051/9149] Built ForMathlib.LinearAlgebra.Dual.Frobenius (21s)
+warning: ForMathlib/LinearAlgebra/Dual/Frobenius.lean:144:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/LinearAlgebra/Dual/Frobenius.lean:169:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9052/9149] Built ForMathlib.Algebra.Module.Graded.HomogeneousDual (22s)
+✔ [9053/9149] Built ForMathlib.Algebra.Module.Graded.DualAndShift (20s)
+✔ [9054/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.Range (19s)
+✔ [9055/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover (14s)
+✔ [9056/9149] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs (14s)
+✔ [9057/9149] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Models (16s)
+✔ [9058/9149] Built ForMathlib.GroupTheory.Coxeter.Realization.Faithful (17s)
+✔ [9059/9149] Built ForMathlib.GroupTheory.Coxeter.Realization.Cotangent (16s)
+✔ [9060/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Hecke (15s)
+⚠ [9061/9149] Built ForMathlib.RepresentationTheory.Hecke.OrdinaryR (15s)
+warning: ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean:22:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9062/9149] Built ForMathlib.RepresentationTheory.Hecke.PositiveWord (14s)
+✔ [9063/9149] Built ForMathlib.Algebra.Module.Graded.RegularScalar (14s)
+✔ [9064/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.Duality (16s)
+✖ [9065/9149] Building ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom (15s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean:63:7: tactic execution is stuck, goal contains metavariables
+  ∀ (i : ℤ), ∀ m ∈ ?m.99 i, (B.attachBoundaryMap τ α hα).map m ∈ (B.attachBoundary τ α hα).piece (i + 0)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean:103:2: Type mismatch
+  congrArg (fun t => ↑t d) hz
+has type
+  ↑(C.hom.map z) d = ↑v d
+but is expected to have type
+  (B.attachStalkMap τ α hα C).map z d = (B.attachQuotient τ α hα d).map (f (τ d))
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean:115:4: Type mismatch
+  Eq.symm (congrFun hs d)
+has type
+  ↑(C.hom.map z) d = (B.attachBoundaryMap τ α hα).map s d
+but is expected to have type
+  (B.attachStalkMap τ α hα C).map z d = (B.attachQuotient τ α hα d).map (↑s (τ d))
+✔ [9066/9149] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex (14s)
+✔ [9067/9149] Built ForMathlib.GroupTheory.Coxeter.Roots.Basic (15s)
+✔ [9070/9149] Built ForMathlib.GroupTheory.Coxeter.Parabolic.Standard (14s)
+⚠ [9071/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical (15s)
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean:23:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9074/9149] Built OAI.RepresentationTheory.KazhdanLusztig.OrdinaryR (14s)
+✔ [9075/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual (13s)
+✔ [9076/9149] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange (13s)
+⚠ [9077/9149] Built ForMathlib.RepresentationTheory.BottSamelson.TitsWords (41s)
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:206:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:266:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:322:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:332:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:688:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [9081/9149] Building ForMathlib.GroupTheory.Coxeter.Roots.Order (43s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/Order.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/GroupTheory/Coxeter/Roots/Order.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/GroupTheory/Coxeter/Roots/Order.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/GroupTheory/Coxeter/Roots/Order.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/GroupTheory/Coxeter/Roots/Order.setup.json --json
+warning: ForMathlib/GroupTheory/Coxeter/Roots/Order.lean:237:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/GroupTheory/Coxeter/Roots/Order.lean:318:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/GroupTheory/Coxeter/Roots/Order.lean:448:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/GroupTheory/Coxeter/Roots/Order.lean:514:2: `@[expose]` has no effect; this declaration would be exposed by default
+error: ForMathlib/GroupTheory/Coxeter/Roots/Order.lean:523:21: unexpected token '@['; expected 'lemma'
+warning: ForMathlib/GroupTheory/Coxeter/Roots/Order.lean:524:0: Definition `OAI.KLInvariance.TitsSpace.geometricOrder` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+✔ [9082/9149] Built ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup (43s)
+✔ [9083/9149] Built ForMathlib.GroupTheory.Coxeter.Roots.Splines (43s)
+✔ [9084/9149] Built ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList (14s)
+✔ [9089/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic (13s)
+⚠ [9102/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral (14s)
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:110:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:215:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:303:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9138/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Normalization (14s)
+✔ [9139/9149] Built OAI.RepresentationTheory.KazhdanLusztig.CanonicalKL (13s)
+✔ [9140/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction (13s)
+✔ [9141/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport (8.7s)
+✔ [9142/9149] Built ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.ScaledReciprocity (11s)
+✔ [9145/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Dihedral (11s)
+✔ [9146/9149] Built OAI.RepresentationTheory.KazhdanLusztig.Tits (2.8s)
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
+- ForMathlib.GroupTheory.Coxeter.Roots.Order
+error: build failed

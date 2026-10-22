@@ -1,0 +1,17 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "/workspace/lean-lab/experiments/kl-for-mathlib",
+    "SEMANTIC_CORPUS_OUT=/workspace/lean-lab/results/module-rollout/semantic-corpus.json",
+    "lake",
+    "env",
+    "lean",
+    "ImplementationSemanticCorpus.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 8.443499319000694,
+  "user_seconds": 6.829962,
+  "system_seconds": 1.622415,
+  "max_rss_kib": 7745784
+}

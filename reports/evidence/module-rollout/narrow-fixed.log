@@ -1,0 +1,106 @@
+All targets up-to-date (8923 jobs).
+⚠ [8930/8960] Replayed ForMathlib.Combinatorics.Dihedral.SignedCount
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:14:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:171:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:326:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8934/8960] Replayed ForMathlib.Algebra.Module.CoefficientChange.Basic
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:30:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:34:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8935/8960] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8936/8960] Replayed ForMathlib.GroupTheory.Coxeter.Exchange
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8948/8960] Replayed ForMathlib.Combinatorics.DirectedPaths.Basic
+warning: ForMathlib/Combinatorics/DirectedPaths/Basic.lean:16:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [8955/8964] Building ForMathlib.LinearAlgebra.Avoidance (1.3s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Avoidance.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/Avoidance.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/Avoidance.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/LinearAlgebra/Avoidance.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/LinearAlgebra/Avoidance.setup.json --json
+error: ForMathlib/LinearAlgebra/Avoidance.lean:64:63: Unknown constant `Polynomial.finite_setOfPred_isRoot`
+error: ForMathlib/LinearAlgebra/Avoidance.lean:70:10: failed to synthesize instance of type class
+  Uncountable ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: ForMathlib/LinearAlgebra/Avoidance.lean:105:15: Unknown constant `Polynomial.finite_setOfPred_isRoot`
+error: ForMathlib/LinearAlgebra/Avoidance.lean:111:10: failed to synthesize instance of type class
+  Uncountable ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+⚠ [8958/8964] Replayed ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer
+warning: ForMathlib/Combinatorics/DirectedPaths/PositiveTransfer.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [8959/8978] Building ForMathlib.Algebra.Module.Submodule.PiIdeal (2.5s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Submodule/PiIdeal.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Submodule/PiIdeal.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Submodule/PiIdeal.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Submodule/PiIdeal.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Submodule/PiIdeal.setup.json --json
+error: ForMathlib/Algebra/Module/Submodule/PiIdeal.lean:29:10: Unknown constant `Submodule.map_smul''`
+⚠ [8968/8978] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8971/8978] Replayed ForMathlib.Algebra.Module.ReflectionPair.Twist
+warning: ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:33:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:34:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8973/8988] Built ForMathlib.Algebra.Module.Free.ScalarDivisibility (3.7s)
+✖ [8983/9001] Building ForMathlib.Algebra.Module.Cover.Local (4.9s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Cover/Local.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Cover/Local.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/Cover/Local.setup.json --json
+error: ForMathlib/Algebra/Module/Cover/Local.lean:33:5: Unknown constant `IsLocalRing.maximalIdeal_le_jacobson`
+error: ForMathlib/Algebra/Module/Cover/Local.lean:92:43: Unknown constant `Module.free_of_flat_of_isLocalRing`
+⚠ [8986/9001] Replayed ForMathlib.Combinatorics.DirectedPaths.ScalarMap
+warning: ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8987/9001] Replayed ForMathlib.Combinatorics.DirectedPaths.Subpaths
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:69:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:115:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8990/9001] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8996/9028] Built ForMathlib.Order.Interval.Diamonds (4.0s)
+⚠ [8998/9028] Replayed ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
+warning: ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:19:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9002/9028] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean:21:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9006/9028] Replayed ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+warning: ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean:86:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9011/9028] Replayed ForMathlib.Combinatorics.DirectedPaths.Transfer
+warning: ForMathlib/Combinatorics/DirectedPaths/Transfer.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9014/9028] Replayed ForMathlib.Algebra.Module.Graded.Basis
+warning: ForMathlib/Algebra/Module/Graded/Basis.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9015/9028] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9022/9030] Built ForMathlib.LinearAlgebra.Dual.Adjoint (7.8s)
+✔ [9024/9040] Built ForMathlib.Algebra.Module.Quotient.ScalarImage (10s)
+⚠ [9030/9040] Replayed ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9035/9044] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality (13s)
+✔ [9039/9057] Built ForMathlib.LinearAlgebra.KernelCoordinates (16s)
+⚠ [9045/9057] Replayed ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+warning: ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean:22:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9050/9057] Replayed ForMathlib.LinearAlgebra.Dual.Frobenius
+warning: ForMathlib/LinearAlgebra/Dual/Frobenius.lean:144:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/LinearAlgebra/Dual/Frobenius.lean:169:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9052/9057] Built ForMathlib.Algebra.Module.Graded.Adjoint (16s)
+⚠ [9060/9104] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean:23:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9066/9104] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:110:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:215:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:303:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9070/9104] Replayed ForMathlib.RepresentationTheory.BottSamelson.TitsWords
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:206:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:266:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:322:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:332:3: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean:688:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9099/9104] Built ForMathlib.Algebra.Module.Graded.ModuleData.Transport (15s)
+✔ [9100/9104] Built ForMathlib.Algebra.Module.Graded.ModuleData.QuotientHom (13s)
+✔ [9101/9104] Built ForMathlib.Algebra.Module.Graded.ModuleData.Range (14s)
+✔ [9102/9104] Built ForMathlib.Algebra.Module.Graded.ModuleData.Duality (11s)
+✔ [9103/9104] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange (4.6s)
+✔ [9104/9104] Built ForMathlib.Algebra.Module.Graded.ModuleData.CharacterDual (8.2s)
+Some required targets logged failures:
+- ForMathlib.LinearAlgebra.Avoidance
+- ForMathlib.Algebra.Module.Submodule.PiIdeal
+- ForMathlib.Algebra.Module.Cover.Local
+error: build failed

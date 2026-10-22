@@ -1,0 +1,46 @@
+{
+  "PublicVisibility.lean": {
+    "sha256": "7afe5c5f1b991120859d13b2dff6c43c1038bafc5c8cce2d91eeb55e306129b5",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "RolloutFullTypes.lean": {
+    "sha256": "8024734df23d99da23ac746c0d99269246445a68b81872dca559efe7406409ae",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "StrictRegionTypes.lean": {
+    "sha256": "a50337e81572cea795163bbe069cfd2bd58a4d5e52e6402a3e8e2cfb25b0c23f",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "AttachProbe-defs.lean": {
+    "sha256": "202374ecf869ee07002eb54a98215635de7994003d578564d26b9bfe02fac1d7",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "AttachProbe-no-expose.lean": {
+    "sha256": "ea21da21923b380f16d2f650e5a7112de0fd0cadc5e5c214a8d1c5878d0f94ce",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "AttachProbe-basic.lean": {
+    "sha256": "d3c2a9ce31093a9794415af7a2675317613408279c5b48a86ee7acb5523ca102",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "AttachProbe-generators.lean": {
+    "sha256": "a00e9756e67b660764d03c16e5ceeba724f669d61bbb0c2365eb13949ad80cc7",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "AttachProbe-upstream-all.lean": {
+    "sha256": "00d8a3d69b8217e21fcfd7c8e1da739417f29e588d925101402097172e8d57fd",
+    "identity_capture": "after execution; not claimed as recorded pre-execution identity"
+  },
+  "diagnose-rollout-imports-executed.py": {
+    "sha256": "e7679a87588e44d2c69921a546d48c48e25c1f5431f03747e29c6dd1b9485cef",
+    "identity_capture": "retained after execution; hash verified against actual shake-focused.inputs.json execution identity"
+  },
+  "RestoredPropertiesTypes.lean": {
+    "sha256": "bd55de59bb906c1a0b5508c2a52df87d4601b0a065ff6509bd8ca808453adb38",
+    "identity_capture": "pre-execution absolute input hash captured in restored-properties-types.inputs.json; retained copy hash verified"
+  },
+  "build_properties.py": {
+    "sha256": "8c82b570c450cfdba5bdd70b1be78a082485145836e51eb883dfd9f5df6a977d",
+    "identity_capture": "pre-execution absolute input hash captured in properties-restored.inputs.json; retained copy hash verified"
+  }
+}

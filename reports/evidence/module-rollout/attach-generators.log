@@ -1,0 +1,14 @@
+/workspace/lean-lab/experiments/kl-for-mathlib/.lake/AttachProbe-generators.lean:65:7: error: tactic execution is stuck, goal contains metavariables
+  ∀ (i : ℤ), ∀ m ∈ ?m.99 i, (B.attachBoundaryMap τ α hα).map m ∈ (B.attachBoundary τ α hα).piece (i + 0)
+/workspace/lean-lab/experiments/kl-for-mathlib/.lake/AttachProbe-generators.lean:105:2: error: Type mismatch
+  congrArg (fun t => ↑t d) hz
+has type
+  ↑(C.hom.map z) d = ↑v d
+but is expected to have type
+  (B.attachStalkMap τ α hα C).map z d = (B.attachQuotient τ α hα d).map (f (τ d))
+/workspace/lean-lab/experiments/kl-for-mathlib/.lake/AttachProbe-generators.lean:117:4: error: Type mismatch
+  Eq.symm (congrFun hs d)
+has type
+  ↑(C.hom.map z) d = (B.attachBoundaryMap τ α hα).map s d
+but is expected to have type
+  (B.attachStalkMap τ α hα C).map z d = (B.attachQuotient τ α hα d).map (↑s (τ d))

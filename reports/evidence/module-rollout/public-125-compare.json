@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python",
+    "experiments/kl-for-mathlib/module_rollout.py",
+    "--compare",
+    "results/module-rollout/public-125.tsv"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.39015914599986,
+  "user_seconds": 1.251984,
+  "system_seconds": 0.139825,
+  "max_rss_kib": 94160
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/proof_evolution.py", line 268, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/proof_evolution.py", line 266, in main
+    elif args.compare:print(json.dumps(compare_export(args.compare),indent=2))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/proof_evolution.py", line 235, in compare_export
+    raise RuntimeError('Old API or explicit added types changed: '+json.dumps([result, additions]))
+RuntimeError: Old API or explicit added types changed: [{"old_count": 3902, "new_count": 3902, "missing": [], "added": [], "changed": [{"name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1", "field": "type", "old": {"kind": "theorem", "levels": "\"[`u, `v, `w, `z]\"", "module": "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves", "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4"}, "new": {"levels": "\"[`u, `v, `w, `z]\"", "type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84", "kind": "theorem", "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"}}], "relocated": 3902, "passed": false}, {"old_count": 45, "new_count": 45, "missing": [], "added": [], "changed": [], "relocated": 0, "passed": true}]

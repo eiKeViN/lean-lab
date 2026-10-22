@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "-C",
+    "experiments/kl-for-mathlib",
+    "lake",
+    "env",
+    "lean",
+    "ModernCoordinateChecks.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.6332756650008378,
+  "user_seconds": 1.116169,
+  "system_seconds": 0.5439419999999999,
+  "max_rss_kib": 1362332
+}

@@ -38,12 +38,12 @@ Applicability checks: Fin 3 with nonzero off-coordinate weights.
 
 ## C5 — `exists_pos_sq_eq_of_mem_Ioo`
 
-[`OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L20)
+[`OAI.KLInvariance.Comparison.exists_pos_sq_eq_of_mem_Ioo`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L23)
 
 A positive real in the open unit interval has a square root in the same interval. Use the witness to change variables without carrying a concrete sqrt.
 
 Keywords: positive square root, open unit interval, change of variables.
-Source client: [`OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L43) (S3).
+Source client: [`OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L46) (S3).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a234ae5be6f77763e2014aad2cddd69e6aa50755/experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean) at `a234ae5b`.
 Reason: An existential witness separates the analytic substitution from polynomial algebra.
 Observed second production sites: none.
@@ -51,12 +51,12 @@ Applicability checks: q = 1/4.
 
 ## C6 — `eval_difference_of_scaled_reciprocal`
 
-[`OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L27)
+[`OAI.KLInvariance.Comparison.eval_difference_of_scaled_reciprocal`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L30)
 
 Clear reciprocal polynomial evaluation scaling at a nonzero real point. Use this algebraic step before changing variables; positivity is not required.
 
 Keywords: reciprocal evaluation, clear scaling, nonzero real point.
-Source client: [`OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L43) (S3).
+Source client: [`OAI.KLInvariance.Comparison.eq_of_scaled_difference_reciprocal`](ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean#L46) (S3).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a234ae5be6f77763e2014aad2cddd69e6aa50755/experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean) at `a234ae5b`.
 Reason: The power-cancellation calculation needs nonzero rather than positivity; keep it separate from the square-root choice.
 Observed second production sites: none.
@@ -77,12 +77,12 @@ Applicability checks: identity interval isomorphism; interface smoke only.
 
 ## X1 — `preReflection_product_sub_id_apply`
 
-[`OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L42)
+[`OAI.KLInvariance.ReflectionPlane.preReflection_product_sub_id_apply`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L45)
 
 The displacement of a product of two pre-reflections is a combination of its two roots. No independence or root normalization is needed for this action formula; the range theorem supplies independence only for the reverse inclusion.
 
 Keywords: pre-reflection displacement, root span, dependent forms.
-Source client: [`OAI.KLInvariance.ReflectionPlane.range_preReflection_product_sub_id`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L51) (E1).
+Source client: [`OAI.KLInvariance.ReflectionPlane.range_preReflection_product_sub_id`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L54) (E1).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/0fb4b2ec594b11fed9cd84fc5b1488fa34122f67/experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Reflection/Plane.lean) at `0fb4b2ec`.
 Reason: Action formula; independence is only needed later for the range reverse inclusion.
 Observed second production sites: none.
@@ -90,12 +90,12 @@ Applicability checks: dependent forms on a one-dimensional rational vector space
 
 ## X2 — `plane_combination_norm_two_iff`
 
-[`OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L107)
+[`OAI.KLInvariance.ReflectionPlane.plane_combination_norm_two_iff`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L110)
 
 A vector in a normalized root plane has norm two exactly when its coordinates satisfy the associated quadratic equation. Symmetry and the two root norms are the only inputs; no nondegeneracy of the plane is required.
 
 Keywords: normalized plane, quadratic equation, no nondegeneracy.
-Source client: [`OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L132) (E2).
+Source client: [`OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L135) (E2).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/0fb4b2ec594b11fed9cd84fc5b1488fa34122f67/experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Reflection/Plane.lean) at `0fb4b2ec`.
 Reason: Coordinate normalization equivalence, separate from the reflection operator calculation.
 Observed second production sites: none.
@@ -103,12 +103,12 @@ Applicability checks: coincident normalized roots, coordinates (1,0).
 
 ## X3 — `triple_root_norm_two`
 
-[`OAI.KLInvariance.ReflectionPlane.triple_root_norm_two`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L120)
+[`OAI.KLInvariance.ReflectionPlane.triple_root_norm_two`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L123)
 
 The root constructed from normalized plane coordinates again has norm two. This isolates the normalization needed to form the final reflection in a triple product, without asserting the operator identity itself.
 
 Keywords: constructed root, norm two, triple reflection.
-Source client: [`OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L132) (E2).
+Source client: [`OAI.KLInvariance.ReflectionPlane.reflection_triple_in_plane`](ForMathlib/LinearAlgebra/Reflection/Plane.lean#L135) (E2).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/0fb4b2ec594b11fed9cd84fc5b1488fa34122f67/experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Reflection/Plane.lean) at `0fb4b2ec`.
 Reason: Normalize the constructed reflected root, leaving the operator identity in its client.
 Observed second production sites: none.
@@ -116,12 +116,12 @@ Applicability checks: coincident roots, coordinates (1,0).
 
 ## X4 — `annihilates_of_supported`
 
-[`OAI.KLInvariance.IntegralSupport.annihilates_of_supported`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L62)
+[`OAI.KLInvariance.IntegralSupport.annihilates_of_supported`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L65)
 
 A single-supported section pairs to zero with the kernel of its stalk projection. Balanced cuts and a nonzero scalar give this integrally, without passing to a fraction field.
 
 Keywords: single support, integral annihilator, balanced cuts.
-Source client: [`OAI.KLInvariance.IntegralSupport.supported_iff_annihilates`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L88) (E3).
+Source client: [`OAI.KLInvariance.IntegralSupport.supported_iff_annihilates`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L91) (E3).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/0fb4b2ec594b11fed9cd84fc5b1488fa34122f67/experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean) at `0fb4b2ec`.
 Reason: Forward support-to-annihilator implication, not a fraction-field argument.
 Observed second production sites: none.
@@ -129,12 +129,12 @@ Applicability checks: arbitrary single-supported section; forward implication.
 
 ## X5 — `supported_of_annihilates`
 
-[`OAI.KLInvariance.IntegralSupport.supported_of_annihilates`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L73)
+[`OAI.KLInvariance.IntegralSupport.supported_of_annihilates`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L76)
 
 Annihilating the stalk-projection kernel forces single support. Perfectness kills each other balanced cut, and torsion-freeness removes its nonzero scalar; this is the integral converse to the supported-section pairing argument.
 
 Keywords: projection kernel, perfect duality, torsion-free cut cancellation.
-Source client: [`OAI.KLInvariance.IntegralSupport.supported_iff_annihilates`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L88) (E3).
+Source client: [`OAI.KLInvariance.IntegralSupport.supported_iff_annihilates`](ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean#L91) (E3).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/0fb4b2ec594b11fed9cd84fc5b1488fa34122f67/experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean) at `0fb4b2ec`.
 Reason: Converse annihilator-to-support implication, including cut vanishing and scalar cancellation.
 Observed second production sites: none.
@@ -337,12 +337,12 @@ Applicability checks: no separate example in this pilot.
 
 ## G5 — `prime_dvd_coordinates`
 
-[`OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L32)
+[`OAI.KLInvariance.ProjectiveLattice.prime_dvd_coordinates`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L35)
 
 A scalar relation forces prime divisibility in every free coordinate when the other scalar is not divisible by that prime. No projective splitting is required for this coordinate step itself.
 
 Keywords: prime scalar relation, coordinate divisibility, projective lattice.
-Source client: [`OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L44) (L5).
+Source client: [`OAI.KLInvariance.ProjectiveLattice.prime_divide_of_relation`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L47) (L5).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean) at `a0b5b594`.
 Reason: Coordinate prime divisibility from a scalar relation, before splitting the projective presentation.
 Observed second production sites: none.
@@ -350,12 +350,12 @@ Applicability checks: no separate example in this pilot.
 
 ## G6 — `cancel_prime_denominator`
 
-[`OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L58)
+[`OAI.KLInvariance.ProjectiveLattice.cancel_prime_denominator`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L61)
 
 Local membership away from a prime removes one prime factor from a projective lattice denominator. This isolates the prime-cancellation argument from the subsequent unique-factorization induction.
 
 Keywords: prime denominator cancellation, local membership, projectivity.
-Source client: [`OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L76) (L6).
+Source client: [`OAI.KLInvariance.ProjectiveLattice.mem_of_prime_local_membership`](ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean#L79) (L6).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean) at `a0b5b594`.
 Reason: Cancel one prime denominator using local membership and projectivity, leaving UFD induction to the client.
 Observed second production sites: none.
@@ -363,12 +363,12 @@ Applicability checks: no separate example in this pilot.
 
 ## G7 — `eq_reflect_of_eval_reciprocal`
 
-[`OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal`](ForMathlib/Algebra/Polynomial/Reciprocal.lean#L29)
+[`OAI.KLInvariance.Comparison.eq_reflect_of_eval_reciprocal`](ForMathlib/Algebra/Polynomial/Reciprocal.lean#L32)
 
 Functional reciprocal equality on the open unit interval determines the reflected polynomial identity, provided reflection covers the degree. Strict midpoint support is used only later for rigidity.
 
 Keywords: functional reciprocity, polynomial reflection, open unit interval.
-Source client: [`OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal`](ForMathlib/Algebra/Polynomial/Reciprocal.lean#L49) (L7).
+Source client: [`OAI.KLInvariance.Comparison.low_degree_zero_of_eval_reciprocal`](ForMathlib/Algebra/Polynomial/Reciprocal.lean#L52) (L7).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/Reciprocal.lean) at `a0b5b594`.
 Reason: Functional reciprocity implies a polynomial identity before strict-degree rigidity.
 Observed second production sites: none.
@@ -376,12 +376,12 @@ Applicability checks: p = X + 1 over ℝ, d = 1.
 
 ## G8 — `value_lt_of_piece_finrank_lt`
 
-[`OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L46)
+[`OAI.KLInvariance.Hilbert.value_lt_of_piece_finrank_lt`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L49)
 
 A strict rank defect in one homogeneous piece makes the convergent Hilbert value strictly smaller. Only inclusion and positivity of the evaluation parameter are used; neither submodule must itself be homogeneous.
 
 Keywords: strict homogeneous piece, Hilbert value, dimension defect.
-Source client: [`OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L58) (L8).
+Source client: [`OAI.KLInvariance.Hilbert.pieces_eq_of_value_eq`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L61) (L8).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean) at `a0b5b594`.
 Reason: A strict degree-piece rank defect forces a strict convergent Hilbert-value inequality.
 Observed second production sites: none.
@@ -389,12 +389,12 @@ Applicability checks: no separate example in this pilot.
 
 ## G9 — `le_of_homogeneous_pieces_le`
 
-[`OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L73)
+[`OAI.KLInvariance.Hilbert.le_of_homogeneous_pieces_le`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L76)
 
 Componentwise inclusion reconstructs T ≤ S when the source submodule T is homogeneous. This algebraic gluing step needs neither finiteness nor Hilbert convergence, and makes no homogeneity assumption on the target S.
 
 Keywords: homogeneous components, submodule inclusion, decomposition, homogeneous source submodule.
-Source client: [`OAI.KLInvariance.Hilbert.eq_of_value_eq`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L87) (L9).
+Source client: [`OAI.KLInvariance.Hilbert.eq_of_value_eq`](ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean#L90) (L9).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean) at `a0b5b594`.
 Reason: Reconstruct T ≤ S from componentwise inclusion and homogeneity of the source submodule T; no homogeneity of the target S is required.
 Observed second production sites: none.
@@ -402,12 +402,12 @@ Applicability checks: no separate example in this pilot.
 
 ## G10 — `saturated_kernel_witness`
 
-[`OAI.KLInvariance.Hilbert.saturated_kernel_witness`](ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean#L117)
+[`OAI.KLInvariance.Hilbert.saturated_kernel_witness`](ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean#L120)
 
 A kernel divisibility witness stays inside a saturated submodule. This is the integral witness-lifting step before identifying the kernel of the restricted image map with scalar multiplication on that submodule.
 
 Keywords: saturation, kernel, scalar divisibility witness.
-Source client: [`OAI.KLInvariance.Hilbert.imageMap_ker`](ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean#L124) (L11).
+Source client: [`OAI.KLInvariance.Hilbert.imageMap_ker`](ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean#L127) (L11).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean) at `a0b5b594`.
 Reason: Lift scalar divisibility witnesses inside a saturated submodule.
 Observed second production sites: none.
@@ -415,12 +415,12 @@ Applicability checks: no separate example in this pilot.
 
 ## G11 — `term_image_exact`
 
-[`OAI.KLInvariance.Hilbert.term_image_exact`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L507)
+[`OAI.KLInvariance.Hilbert.term_image_exact`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L510)
 
 Degreewise exact dimensions give the weighted Hilbert-term identity. This algebraic equality holds at every real parameter, before convergence is established for the kernel and image series.
 
 Keywords: exact sequence, degreewise dimensions, weighted Hilbert term.
-Source client: [`OAI.KLInvariance.Hilbert.value_image_exact`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L547) (L12).
+Source client: [`OAI.KLInvariance.Hilbert.value_image_exact`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L550) (L12).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean) at `a0b5b594`.
 Reason: Separate weighted degreewise exactness and analytic summability from summing the exact sequence.
 Observed helper consumers: `OAI.KLInvariance.Hilbert.image_terms_summable`.
@@ -429,12 +429,12 @@ Applicability checks: no separate example in this pilot.
 
 ## G12 — `image_terms_summable`
 
-[`OAI.KLInvariance.Hilbert.image_terms_summable`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L523)
+[`OAI.KLInvariance.Hilbert.image_terms_summable`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L526)
 
 Positivity and the termwise exact identity make both the kernel and image Hilbert series summable whenever the ambient restricted series is summable. This separates convergence from summing the exact sequence.
 
 Keywords: positive terms, kernel image series, summability.
-Source client: [`OAI.KLInvariance.Hilbert.value_image_exact`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L547) (L12).
+Source client: [`OAI.KLInvariance.Hilbert.value_image_exact`](ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean#L550) (L12).
 [Original file](https://github.com/eiKeViN/lean-lab/blob/a0b5b59457f593c86d3054b086da3b820585c282/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean) at `a0b5b594`.
 Reason: Separate weighted degreewise exactness and analytic summability from summing the exact sequence.
 Observed second production sites: none.
