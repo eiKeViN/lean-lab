@@ -1,0 +1,13 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && LEAN_TYPES_OUT=/workspace/lean-lab/results/module-next/region-safe-types.tsv lake env lean /workspace/lean-lab/results/module-next/RegionTypes.lean",
+    "/workspace/lean-lab/results/module-next/RegionTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 18.63682036299724,
+  "user_seconds": 15.516858,
+  "system_seconds": 3.292844,
+  "max_rss_kib": 7199056
+}

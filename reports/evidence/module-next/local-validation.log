@@ -1,0 +1,109 @@
+OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_lower.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua} [CommRing A]
+  [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E W F : Type um} [PartialOrder V] [PartialOrder W] {G : OrderedGraph V E}
+  {H : OrderedGraph W F} (B : GradedSheaf H) (e : GraphEquiv G H) (a : E) (f : B.forget.Assignment) :
+  ((B.reindex e).forget.lower a) (B.reindexAssignment e f (G.source a)) =
+    (B.forget.lower (e.edge a)) (f (H.source (e.edge a)))
+OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_upper.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua} [CommRing A]
+  [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E W F : Type um} [PartialOrder V] [PartialOrder W] {G : OrderedGraph V E}
+  {H : OrderedGraph W F} (B : GradedSheaf H) (e : GraphEquiv G H) (a : E) (f : B.forget.Assignment) :
+  ((B.reindex e).forget.upper a) (B.reindexAssignment e f (G.target a)) =
+    (B.forget.upper (e.edge a)) (f (H.target (e.edge a)))
+OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_edgeFlabby.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua}
+  [CommRing A] [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E W F : Type um} [PartialOrder V] [PartialOrder W]
+  {G : OrderedGraph V E} {H : OrderedGraph W F} (B : GradedSheaf H) (e : GraphEquiv G H) (hb : B.EdgeFlabby) :
+  (B.reindex e).EdgeFlabby
+OAI.KLInvariance.MomentGraph.Sheaf.kernelEquivSingleStalk.{ur, uv, ue, um, ui} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} {G : OrderedGraph V E} (B : Sheaf G) [Fintype E] [DecidableEq V] [IsDomain R]
+  (α : E → R) (hα : ∀ (e : E), Prime (α e))
+  (hk : ∀ (e : E) (v : ↑(B.vertex (G.target e))), (B.upper e) v = 0 ↔ ∃ w, v = α e • w) {ι : V → Type ui}
+  [(x : V) → Fintype (ι x)] (bs : (x : V) → Module.Basis (ι x) R ↑(B.vertex x)) [DecompositionMonoid R] (x : V)
+  (hrel : (↑(Sheaf.incoming x)).Pairwise (Function.onFun IsRelPrime α))
+  (hreg : ∀ (e : E), G.source e = x → Function.Injective fun v => Sheaf.incomingProduct α x • v) :
+  ↥(B.stalkMap x).ker ≃ₗ[R] ↥(B.singleStalk x)
+Ordinary modern graph/reindex/duality consumers: rfl, simp, inverse and body access pass.
+Serialization guard: identical record and alpha controls accepted; 8 theorem mutations and 3 unsupported definition cases rejected.
+PUBLIC OAI.KLInvariance.BruhatGraph.Edge: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.endpoints_disjoint_of_label_eq: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.eq_of_label_source_eq: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.eq_of_label_target_eq: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.graph: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.instFiniteEdge: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.label: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.label.eq_1: visible=theorem; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.label_isReflection: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.label_mul_source: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.label_mul_target: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.source: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.source.eq_1: visible=theorem; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.source_ne_target_of_label_eq: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.target: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.BruhatGraph.target.eq_1: visible=theorem; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindex: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindexAssignment: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_edgeFlabby: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_generated: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_global: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_lower: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_unreindexAssignment: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_upper: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.unreindexAssignment: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GradedSheaf.unreindex_reindexAssignment: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv: visible=inductive; original=inductive; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.casesOn: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.ctorIdx: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.edge: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.mk: visible=constructor; original=constructor; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.mk.inj: visible=axiom; original=theorem; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.mk.injEq: visible=axiom; original=theorem; axioms=#[propext, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.mk.noConfusion: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.mk.sizeOf_spec: visible=axiom; original=theorem; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.noConfusion: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.noConfusionType: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.rec: visible=recursor; original=recursor; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.recOn: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.source: visible=axiom; original=theorem; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.target: visible=axiom; original=theorem; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.GraphEquiv.vertex: visible=def; original=def; axioms=#[Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.incoming: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.incoming.eq_1: visible=theorem; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.incomingProduct: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.incomingProduct.eq_1: visible=theorem; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.incomingProduct_ne_zero: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.kernelEquivSingleStalk: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.labelProduct: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.labelProduct_annihilates: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.labelProduct_ne_zero: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.mem_incoming: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.outgoing_product_regular: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.projection_surjective: visible=axiom; original=theorem; axioms=#[propext, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.scaled_single_section: visible=axiom; original=theorem; axioms=#[propext, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.singleStalk: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.singleStalkEquivSupport: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.singleSupportEquivDual: visible=def; original=def; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.single_section_iff: visible=axiom; original=theorem; axioms=#[propext, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.single_section_iff_prod: visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+PUBLIC OAI.KLInvariance.MomentGraph.Sheaf.stalkMap_eq_zero_iff: visible=axiom; original=theorem; axioms=#[propext, Quot.sound]
+{
+  "old_count": 61,
+  "new_count": 61,
+  "missing": [],
+  "added": [],
+  "changed": [],
+  "relocated": 0,
+  "passed": true
+}
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.072s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 4.685s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.757s
+
+OK

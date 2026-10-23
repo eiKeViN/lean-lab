@@ -1,0 +1,23 @@
+All targets up-to-date (8923 jobs).
+⚠ [8926/8939] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8927/8939] Replayed ForMathlib.GroupTheory.Coxeter.Exchange
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8929/8939] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8931/8939] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8932/8939] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8936/8939] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic (4.4s)
+✔ [8937/8939] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex (6.7s)
+✔ [8938/8939] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality (8.3s)
+✔ [8939/8939] Built ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion (5.0s)
+Build completed successfully (8939 jobs).

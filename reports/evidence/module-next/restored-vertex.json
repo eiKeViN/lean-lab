@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake build ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 17.677976552000473,
+  "user_seconds": 17.149428,
+  "system_seconds": 6.912576,
+  "max_rss_kib": 6899940
+}

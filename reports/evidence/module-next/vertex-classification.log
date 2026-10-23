@@ -1,0 +1,74 @@
+{
+  "OAI.KLInvariance.MomentGraph.splitVertex.eq_1": {
+    "constructor": "`Equiv.mk",
+    "fields": {
+      "domain": {
+        "canonical_equal": true,
+        "old_tag": "bvar",
+        "new_tag": "bvar"
+      },
+      "codomain": {
+        "canonical_equal": true,
+        "old_tag": "app",
+        "new_tag": "app"
+      },
+      "toFun": {
+        "canonical_equal": true,
+        "old_tag": "lam",
+        "new_tag": "lam"
+      },
+      "invFun": {
+        "canonical_equal": true,
+        "old_tag": "lam",
+        "new_tag": "lam"
+      },
+      "left_inv": {
+        "canonical_equal": false,
+        "old_tag": "app",
+        "new_tag": "app"
+      },
+      "right_inv": {
+        "canonical_equal": false,
+        "old_tag": "app",
+        "new_tag": "app"
+      }
+    },
+    "interpretation": "Only proof-field representations differ; no live defeq or ordinary historical-type acceptance was performed. VertexDeletion restored legacy."
+  },
+  "OAI.KLInvariance.MomentGraph.splitEdge.eq_1": {
+    "constructor": "`Equiv.mk",
+    "fields": {
+      "domain": {
+        "canonical_equal": true,
+        "old_tag": "bvar",
+        "new_tag": "bvar"
+      },
+      "codomain": {
+        "canonical_equal": true,
+        "old_tag": "app",
+        "new_tag": "app"
+      },
+      "toFun": {
+        "canonical_equal": true,
+        "old_tag": "lam",
+        "new_tag": "lam"
+      },
+      "invFun": {
+        "canonical_equal": true,
+        "old_tag": "app",
+        "new_tag": "app"
+      },
+      "left_inv": {
+        "canonical_equal": false,
+        "old_tag": "app",
+        "new_tag": "app"
+      },
+      "right_inv": {
+        "canonical_equal": false,
+        "old_tag": "app",
+        "new_tag": "app"
+      }
+    },
+    "interpretation": "Only proof-field representations differ; no live defeq or ordinary historical-type acceptance was performed. VertexDeletion restored legacy."
+  }
+}

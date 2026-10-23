@@ -231,3 +231,8 @@ explicit grading arguments. `attach-module.json` binds these exact source edits.
 pair only after a live ordinary modern historical-type/rw/simp witness; the
 complete raw difference and original baselines are preserved. Every other
 record and the three-axiom limit remain checked.
+
+The [next graph/sheaf module batch](../../reports/module-next-region.md) adds Bruhat.Basic,
+Sheaf.Duality and GradedSheaf.Reindex (131 modern products). Its complete
+3947-record comparison against accepted main has no new differences;
+VertexDeletion remains legacy with its two rejected equation deltas retained.

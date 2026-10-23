@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "results/module-next/classify_vertex.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.2680048139991413,
+  "user_seconds": 3.048559,
+  "system_seconds": 0.218415,
+  "max_rss_kib": 288292
+}

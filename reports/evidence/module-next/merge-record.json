@@ -1,0 +1,20 @@
+{
+  "pr": "https://github.com/eiKeViN/lean-lab/pull/8",
+  "workflow": [
+    "draft",
+    "ready",
+    "merge"
+  ],
+  "merge_method": "merge",
+  "authorized_head": "d35dd1b879f34f371065f77375d73de84b5b3d14",
+  "main": "7e28e636991b2205d14199377f33bd025b348b2d",
+  "parents": [
+    "bc7cc147e9742f8f6c77a53785813dbdd6960311",
+    "d35dd1b879f34f371065f77375d73de84b5b3d14"
+  ],
+  "merge_tree": "605376e41bbe00f3d5f38c70ae8bf3b2013e63e0",
+  "accepted_tree": "605376e41bbe00f3d5f38c70ae8bf3b2013e63e0",
+  "tree_equal": true,
+  "recorded_after_execution_unix": 1792767787.4844308,
+  "network_note": "Direct gh read-only API returned Forbidden; connected GitHub tools completed authorized mutations."
+}

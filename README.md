@@ -74,3 +74,8 @@ The [three sheaf module integration](reports/attach-bottom-module.md) brings the
 modern region to 128 modules. Its two explicit grading arguments and one
 version/hash-bound `stalkMap.eq_1` representation acceptance are recorded
 separately; raw differences and the original snapshots remain visible.
+
+The [next graph/sheaf module batch](reports/module-next-region.md) adds Bruhat.Basic,
+Sheaf.Duality and GradedSheaf.Reindex (131 modern products). Its complete
+3947-record comparison against accepted main has no new differences;
+VertexDeletion remains legacy with its two rejected equation deltas retained.

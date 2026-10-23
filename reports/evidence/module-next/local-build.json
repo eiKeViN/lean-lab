@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake --no-build build Mathlib && lake build ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 27.218194085002324,
+  "user_seconds": 40.836214,
+  "system_seconds": 11.038655,
+  "max_rss_kib": 3071696
+}

@@ -1,0 +1,42 @@
+{
+  "old_count": 379,
+  "new_count": 379,
+  "missing": [],
+  "added": [],
+  "changed": [
+    {
+      "name": "OAI.KLInvariance.MomentGraph.splitEdge.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`um]\"",
+        "type": "1584e8805d76bb88e0e066182a02cdf8181141336082a9b0c9a53edcf099f40a",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+      },
+      "new": {
+        "levels": "\"[`um]\"",
+        "type": "93dcd676c6ddd201fd3679f9e8f9ab10087070fc408c88b6cefdfe2c0dfb7763",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.MomentGraph.splitVertex.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`um]\"",
+        "type": "0b7862d103f3c1ee9eb529ea02de00b2efe8e8a999a9adb50ed866aa308a7cda",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+      },
+      "new": {
+        "levels": "\"[`um]\"",
+        "type": "d26b083b999b5e04dbb9ef51316d007ebb13f17ac3234d390512bc57a894bbca",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+      }
+    }
+  ],
+  "relocated": 0,
+  "passed": false
+}

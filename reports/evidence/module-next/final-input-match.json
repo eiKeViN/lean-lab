@@ -1,0 +1,9 @@
+{
+  "checkpoint": "82b154b9b52a7026e54d105e6b5fde40be68c423",
+  "checked_inputs": 1509,
+  "changed_after_validation": [
+    "README.md",
+    "experiments/kl-for-mathlib/README.md"
+  ],
+  "executed_lean_and_checker_changes": []
+}

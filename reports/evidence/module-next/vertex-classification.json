@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "/workspace/lean-lab/results/module-next/classify_vertex.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.920548817000963,
+  "user_seconds": 3.6712730000000002,
+  "system_seconds": 0.247699,
+  "max_rss_kib": 288284
+}

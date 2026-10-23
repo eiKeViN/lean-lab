@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean ModernNextConsumer.lean && LEAN_TYPES_OUT=/workspace/lean-lab/results/module-next/public-final-types.tsv lake env lean ModernNextTypes.lean && python3 module_next.py --compare-public /workspace/lean-lab/results/module-next/public-final-types.tsv && python3 test_module_next.py && python3 test_module_rollout.py && python3 test_module_integration.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 22.276487732000533,
+  "user_seconds": 16.975279,
+  "system_seconds": 5.884673,
+  "max_rss_kib": 3968084
+}

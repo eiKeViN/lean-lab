@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean ModernNextConsumer.lean && LEAN_TYPES_OUT=/workspace/lean-lab/results/module-next/public-types.tsv lake env lean ModernNextTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 20.581121179002366,
+  "user_seconds": 15.533868,
+  "system_seconds": 5.823735,
+  "max_rss_kib": 3978368
+}

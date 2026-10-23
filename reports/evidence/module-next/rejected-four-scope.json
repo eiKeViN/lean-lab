@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "base_commit": "7e28e636991b2205d14199377f33bd025b348b2d",
+  "files": {
+    "ForMathlib/Combinatorics/MomentGraph/Bruhat/Basic.lean": {
+      "before_sha256": "8d7e80cbd893165d1b80bd270690b0ec9305e77fe93e8047247ef7466e813b17",
+      "after_sha256": "fd4e63a8abfd3a4c419ee3a3d23e619ac66053672e027656ca0b3bb80ae674d6",
+      "edits": [
+        {
+          "start": 0,
+          "old": "",
+          "new": "module\npublic "
+        },
+        {
+          "start": 15,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 71,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 121,
+          "old": "",
+          "new": "\n\npublic section"
+        },
+        {
+          "start": 609,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 848,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 906,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 965,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1324,
+          "old": "",
+          "new": "@[expose] "
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean": {
+      "before_sha256": "3feb0bec28d97c2f2ab7d6b0a6fff245062cfc69dcf4130750eaa90436140d2f",
+      "after_sha256": "37a94763a8ceed13d72684356d8ddaa254662c2484be22c7dc1cec9f3cf1a602",
+      "edits": [
+        {
+          "start": 0,
+          "old": "",
+          "new": "module\npublic "
+        },
+        {
+          "start": 15,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 72,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 128,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 180,
+          "old": "",
+          "new": "\n\npublic section"
+        },
+        {
+          "start": 984,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2171,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 4248,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 4442,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 7187,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 7317,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 8579,
+          "old": "",
+          "new": "@[expose] "
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Reindex.lean": {
+      "before_sha256": "6cc7577477a647b2bf9439122df6766f6ee375565289e7f2e48bea2315bed548",
+      "after_sha256": "4f4e4e10ff4ebeaa7d53d431203c8bda48c6eade74160a5804a73a7630249e1a",
+      "edits": [
+        {
+          "start": 0,
+          "old": "",
+          "new": "module\npublic "
+        },
+        {
+          "start": 15,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 75,
+          "old": "",
+          "new": "\n\npublic section"
+        },
+        {
+          "start": 1113,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1439,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2419,
+          "old": "",
+          "new": "@[expose] "
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean": {
+      "before_sha256": "24b140315f0fc0d84b8545eb4c5d8274105d5ef32ea9c9703b94a37f294eb046",
+      "after_sha256": "9b27b01a8373f1c2822aafe7ccac7c71e7edd2c7d79d62879268d35b51846cb6",
+      "edits": [
+        {
+          "start": 0,
+          "old": "",
+          "new": "module\npublic "
+        },
+        {
+          "start": 15,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 79,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 147,
+          "old": "",
+          "new": "\n\npublic section"
+        },
+        {
+          "start": 637,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 877,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1019,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1445,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2198,
+          "old": "",
+          "new": "@[expose] "
+        }
+      ]
+    }
+  },
+  "scope": "Headers/exposure only; declaration and proof bodies unchanged."
+}

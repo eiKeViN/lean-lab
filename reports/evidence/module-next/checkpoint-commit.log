@@ -1,0 +1,8 @@
+[codex/module-next-region 82b154b] Migrate graph, duality and graded reindex interfaces with strict next-batch checks
+ 17 files changed, 986 insertions(+), 63 deletions(-)
+ create mode 100644 experiments/kl-for-mathlib/ModernNextConsumer.lean
+ create mode 100644 experiments/kl-for-mathlib/ModernNextTypes.lean
+ create mode 100644 experiments/kl-for-mathlib/module-next-types.json
+ create mode 100644 experiments/kl-for-mathlib/module-next.json
+ create mode 100644 experiments/kl-for-mathlib/module_next.py
+ create mode 100644 experiments/kl-for-mathlib/test_module_next.py
