@@ -1,0 +1,12 @@
+Serialization guard: identical record and alpha controls accepted; 8 theorem mutations and 3 unsupported definition cases rejected.
+Public view: OAI.KLInvariance.weighted_sum_exchange; visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+Public view: OAI.KLInvariance.weighted_sum_single; visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+Public view: OAI.KLInvariance.finite_character_cancellation; visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+Public view: OAI.KLInvariance.Comparison.matrix_difference_single; visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+Public view: OAI.KLInvariance.Comparison.matrix_difference_le; visible=axiom; original=theorem; axioms=#[propext, Classical.choice, Quot.sound]
+Public view: OAI.LinearEquiv.kernelSourceEquiv; visible=def; original=def; axioms=#[propext, Quot.sound]
+Public view: OAI.LinearEquiv.kernelTargetEquiv; visible=def; original=def; axioms=#[propext, Quot.sound]
+Public view: OAI.LinearEquiv.kernelMixedEquiv; visible=def; original=def; axioms=#[propext, Quot.sound]
+Public view: OAI.KLInvariance.kernelSourceEquiv; visible=def; original=def; axioms=#[propext, Quot.sound]
+Public view: OAI.KLInvariance.kernelTargetEquiv; visible=def; original=def; axioms=#[propext, Quot.sound]
+Public view: OAI.KLInvariance.kernelMixedEquiv; visible=def; original=def; axioms=#[propext, Quot.sound]

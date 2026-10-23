@@ -231,9 +231,11 @@ def compare_export(path):
         raise RuntimeError('Missing old API or unlisted new public declaration')
     result = compare(old, {k:all_types[k] for k in old})
     additions = compare(expected, {k:all_types[k] for k in expected})
-    if not result['passed'] or not additions['passed']:
-        raise RuntimeError('Old API or explicit added types changed: '+json.dumps([result, additions]))
-    return dict(old_api=result, additions=additions, passed=True)
+    if not additions['passed']:raise RuntimeError('Old API or explicit added types changed: '+json.dumps([result,additions]))
+    from attach_module import accept_change
+    try:accepted=[] if result['passed'] else [accept_change(result)]
+    except RuntimeError as e:raise RuntimeError('Old API or explicit added types changed: '+str(e)) from e
+    return dict(old_api=result, additions=additions, accepted_representation_changes=accepted, passed=True)
 
 def check_pilot_axioms(text):
     p = policy(); expected = set(p['additions'] + p['changed_declarations'])

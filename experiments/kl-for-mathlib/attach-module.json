@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "base_commit": "bc7cc147e9742f8f6c77a53785813dbdd6960311",
+  "files": {
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean": {
+      "before_sha256": "35c857b7c32cf35ad052d7630a39b83e27165580c4f748cf468565cbfcbbb574",
+      "after_sha256": "284a845f07afd4581d6fc7ab6c12ea613cf968c3cfb3093542dc52974c93ef46",
+      "edits": [
+        {
+          "start": 0,
+          "old": "",
+          "new": "module\npublic "
+        },
+        {
+          "start": 14,
+          "old": "",
+          "new": "\n\npublic section"
+        },
+        {
+          "start": 953,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1113,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1245,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1499,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 6104,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 6656,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 6922,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 7239,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 7435,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 8905,
+          "old": "",
+          "new": "@[expose] "
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean": {
+      "before_sha256": "ea8312cb8666a3a137c6b934f27bc57bc92c8f57b39a5552392756f0b4fcb5fa",
+      "after_sha256": "36b49556d3f2b9fec42f8f1dbb1126134182f499057f6d599ea08afd5d647af3",
+      "edits": [
+        {
+          "start": 0,
+          "old": "",
+          "new": "module\npublic "
+        },
+        {
+          "start": 15,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 75,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 130,
+          "old": "",
+          "new": "\n\npublic section"
+        },
+        {
+          "start": 959,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1289,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1677,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1760,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1909,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2513,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2683,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2937,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 3231,
+          "old": "",
+          "new": "@[expose] "
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean": {
+      "before_sha256": "f0e763d0001475a05b9c53994bb2c691150f61682dea86c85c32ee465cd956db",
+      "after_sha256": "f0c866ff9e128d1135168539064242057bd6f3ad9b5fc5c26c705e0c06f6a6d0",
+      "edits": [
+        {
+          "start": 0,
+          "old": "",
+          "new": "module\npublic "
+        },
+        {
+          "start": 15,
+          "old": "",
+          "new": "public "
+        },
+        {
+          "start": 75,
+          "old": "",
+          "new": "\n\npublic section"
+        },
+        {
+          "start": 769,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1310,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1427,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1631,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 1733,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2097,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2268,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 2429,
+          "old": "_",
+          "new": "(B.sections"
+        },
+        {
+          "start": 2431,
+          "old": "_",
+          "new": "Set.univ).piece (B.attachBoundary \u03c4 \u03b1 h\u03b1).piece\n     "
+        },
+        {
+          "start": 2541,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 3029,
+          "old": "",
+          "new": " @[expose]"
+        }
+      ]
+    }
+  },
+  "body_changes": [
+    "attachStalkMap: two explicit grading arguments; original stalkMap proofs retained"
+  ]
+}

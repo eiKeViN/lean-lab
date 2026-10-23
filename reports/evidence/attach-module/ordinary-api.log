@@ -1,0 +1,32 @@
+old auxiliaries installed
+new type found
+defeq passed
+historical term installed
+3 actual legacy auxiliary proofs kernel-checked under fresh names; both actual equation types well-formed; stored expressions differ; definitional equality passes; Nat/Bool negative control passes; three-axiom bound passes
+OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1.{u, v, w, z} {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
+  {E : Type w} {G : OrderedGraph V E} (B : Sheaf G) (x : V) :
+  B.stalkMap x = { toFun := fun b e => (B.lower ↑e) (⋯ ▸ b), map_add' := ⋯, map_smul' := ⋯ }
+StalkEquationCompat.lean:148:62: error: unsolved goals
+R : Type u
+inst✝¹ : CommRing R
+V : Type v
+inst✝ : PartialOrder V
+E : Type w
+G : OrderedGraph V E
+B : Sheaf G
+x : V
+b : ↑(B.vertex x)
+e : Sheaf.Outgoing x
+⊢ { toFun := fun b e => (B.lower ↑e) (⋯ ▸ b), map_add' := ⋯, map_smul' := ⋯ } b e = (B.lower ↑e) (⋯ ▸ b)
+StalkEquationCompat.lean:151:62: error: unsolved goals
+R : Type u
+inst✝¹ : CommRing R
+V : Type v
+inst✝ : PartialOrder V
+E : Type w
+G : OrderedGraph V E
+B : Sheaf G
+x : V
+b : ↑(B.vertex x)
+e : Sheaf.Outgoing x
+⊢ { toFun := fun b e => (B.lower ↑e) (⋯ ▸ b), map_add' := ⋯, map_smul' := ⋯ } b e = (B.lower ↑e) (⋯ ▸ b)

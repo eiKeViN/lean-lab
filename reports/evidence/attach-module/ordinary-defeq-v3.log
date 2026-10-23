@@ -1,0 +1,4 @@
+old auxiliaries installed
+equations=some ([_private.StalkEquationCompat.0.OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1])
+eq present=false
+StalkEquationCompat.lean:84:0: error(lean.unknownIdentifier): Unknown constant `OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1`

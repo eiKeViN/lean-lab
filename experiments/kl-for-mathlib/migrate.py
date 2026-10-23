@@ -94,7 +94,8 @@ def products():
  from proof_evolution import overlay
  from module_integration import overlay as modules
  from module_rollout import overlay as rollout
- return rollout(modules(overlay(pristine_products())))
+ from attach_module import overlay as attach
+ return attach(rollout(modules(overlay(pristine_products()))))
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args();files=products()

@@ -222,3 +222,12 @@ validation work, failed actions, dependency invalidation and already-built tooli
 The earlier proof-only timing scripts now encounter module/import changes in the
 selected files; their historical timing interpretation does not carry over to
 current runs. Use the recorded integration checks for current acceptance.
+
+The [three sheaf module integration](../../reports/attach-bottom-module.md) adds
+Sheaf.Basic, GradedSheaf.Defs and GradedSheaf.AttachBottom to the modern region
+(128 products). Original stalkMap proofs stay intact; AttachBottom records two
+explicit grading arguments. `attach-module.json` binds these exact source edits.
+`stalk-equation-compat.json` permits one exact old/new equation representation
+pair only after a live ordinary modern historical-type/rw/simp witness; the
+complete raw difference and original baselines are preserved. Every other
+record and the three-axiom limit remain checked.

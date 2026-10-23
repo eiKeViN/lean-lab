@@ -1,0 +1,14 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env bash -c 'export LEAN_PATH=/workspace/lean-lab/results/attach-module/oldattr:$LEAN_PATH; lean -R /workspace/lean-lab/results/attach-module/oldattr -o /workspace/lean-lab/results/attach-module/oldattr/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.olean /workspace/lean-lab/results/attach-module/oldattr/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean && lean /workspace/lean-lab/results/attach-module/OldAttrs.lean'",
+    "/workspace/lean-lab/results/attach-module/OldAttrs.lean",
+    "/workspace/lean-lab/results/attach-module/oldattr/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 19.614506541998708,
+  "user_seconds": 11.177885,
+  "system_seconds": 5.496416,
+  "max_rss_kib": 7168268
+}

@@ -1,0 +1,3 @@
+OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1.{u, v, w, z} {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
+  {E : Type w} {G : OrderedGraph V E} (B : Sheaf G) (x : V) :
+  B.stalkMap x = { toFun := fun b e => (B.lower ↑e) (⋯ ▸ b), map_add' := ⋯, map_smul' := ⋯ }

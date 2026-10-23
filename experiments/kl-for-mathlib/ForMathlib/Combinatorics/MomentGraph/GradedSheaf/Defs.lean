@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs. Source spans: GradedSheaves:1.
 See migration.json and MIGRATION.md for exact provenance.
@@ -25,7 +28,7 @@ structure GradedSheaf where
 namespace GradedSheaf
 variable {G} (B : GradedSheaf (𝓐 := 𝓐) G)
 
-def forget : Sheaf (R := A) G where
+@[expose] def forget : Sheaf (R := A) G where
   vertex := fun x => (B.vertex x).obj
   edge := fun e => (B.edge e).obj
   lower := fun e => (B.lower e).map
@@ -33,7 +36,7 @@ def forget : Sheaf (R := A) G where
 
 /-- Extension for sets closed under actual edges. It implies the source's
 ordinary flabbiness, and is convenient for the descending construction. -/
-def EdgeFlabby : Prop :=
+@[expose] def EdgeFlabby : Prop :=
   ∀ Ω : Set V, B.forget.ClosedUnder Set.univ Ω →
     ∀ f : B.forget.Assignment, B.forget.CompatibleOn Ω f →
     ∃ g : B.forget.Assignment, B.forget.IsGlobal g ∧ ∀ x ∈ Ω, g x = f x
@@ -44,12 +47,12 @@ def EdgeFlabby : Prop :=
 
 variable [Fintype V] [Fintype E]
 
-noncomputable def assignments : ModuleData.{uk,ua,um} 𝓐 := ModuleData.pi B.vertex
+@[expose] noncomputable def assignments : ModuleData.{uk,ua,um} 𝓐 := ModuleData.pi B.vertex
 
-noncomputable def lowerGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
+@[expose] noncomputable def lowerGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
   (B.lower e).comp (ModuleData.projection B.vertex (G.source e))
 
-noncomputable def upperGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
+@[expose] noncomputable def upperGlobal (e : E) : ModuleData.Hom B.assignments (B.edge e) :=
   (B.upper e).comp (ModuleData.projection B.vertex (G.target e))
 
 omit [Fintype E] in
@@ -61,23 +64,23 @@ omit [Fintype E] in
   rw [← (B.lowerGlobal e).component n f, ← (B.upperGlobal e).component n f]
   exact congrArg (component (B.edge e).piece n) (hf e hs ht)
 
-noncomputable def sections [IsNoetherianRing A] (Ω : Set V) : ModuleData.{uk,ua,um} 𝓐 :=
+@[expose] noncomputable def sections [IsNoetherianRing A] (Ω : Set V) : ModuleData.{uk,ua,um} 𝓐 :=
   ModuleData.sub B.assignments (B.forget.sections Ω) (B.sections_homogeneous Ω)
 
-noncomputable def boundary (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
+@[expose] noncomputable def boundary (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
 by
   classical
   letI : Fintype (Sheaf.Outgoing (G := G) x) := inferInstanceAs (Fintype {e : E // G.source e = x})
   exact ModuleData.pi (fun e : Sheaf.Outgoing (G := G) x => B.edge e.val)
 
-noncomputable def boundaryHom [IsNoetherianRing A] (x : V) :
+@[expose] noncomputable def boundaryHom [IsNoetherianRing A] (x : V) :
     ModuleData.Hom (B.sections (Set.Ioi x)) (B.boundary x) where
   map := B.forget.boundaryMap x
   graded := by
     intro n f hf e _
     exact (B.upper e.val).graded n (f.val (G.target e.val)) (hf (G.target e.val) (Set.mem_univ _))
 
-noncomputable def boundaryImage [IsNoetherianRing A] (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
+@[expose] noncomputable def boundaryImage [IsNoetherianRing A] (x : V) : ModuleData.{uk,ua,um} 𝓐 :=
   ModuleData.range (B.boundaryHom x)
 
  theorem exists_boundaryCover [IsNoetherianRing A]

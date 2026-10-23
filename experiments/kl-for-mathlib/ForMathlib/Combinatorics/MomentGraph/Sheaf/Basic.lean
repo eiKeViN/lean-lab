@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic. Source spans: Sheaves:1, Sheaves:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -30,20 +33,20 @@ abbrev Assignment := ∀ x, B.vertex x
 
 /-- Exactly the usual section compatibility on edges with both endpoints in
 `Ω`; coordinates outside `Ω` are ignored and can be chosen arbitrarily. -/
-def CompatibleOn (Ω : Set V) (f : B.Assignment) : Prop :=
+@[expose] def CompatibleOn (Ω : Set V) (f : B.Assignment) : Prop :=
   ∀ e, G.source e ∈ Ω → G.target e ∈ Ω →
     B.lower e (f (G.source e)) = B.upper e (f (G.target e))
 
-def IsGlobal (f : B.Assignment) : Prop := B.CompatibleOn Set.univ f
+@[expose] def IsGlobal (f : B.Assignment) : Prop := B.CompatibleOn Set.univ f
 
 /-- Extension of ordinary sections over ambient upper sets. -/
-def Flabby : Prop :=
+@[expose] def Flabby : Prop :=
   ∀ Ω : Set V, IsUpperSet Ω → ∀ f : B.Assignment, B.CompatibleOn Ω f →
     ∃ g : B.Assignment, B.IsGlobal g ∧ ∀ x ∈ Ω, g x = f x
 
 /-- Closure under the edges whose modules survive, strictly weaker than
 being an ambient upper set. -/
-def ClosedUnder (_B : Sheaf (R := R) G) (live : Set E) (Ω : Set V) : Prop :=
+@[expose] def ClosedUnder (_B : Sheaf (R := R) G) (live : Set E) (Ω : Set V) : Prop :=
   ∀ e ∈ live, G.source e ∈ Ω → G.target e ∈ Ω
 
 theorem compatible_mono {Ω Ω' : Set V} {f : B.Assignment}
@@ -149,7 +152,7 @@ variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V] {E : Type w}
 
 /-- The actual module of sections on a vertex set. Coordinates outside the
 set are harmless and ignored by all restriction maps. -/
-def sections (Ω : Set V) : Submodule R B.Assignment where
+@[expose] def sections (Ω : Set V) : Submodule R B.Assignment where
   carrier := {f | B.CompatibleOn Ω f}
   zero_mem' := by intro e hs ht; simp
   add_mem' := by
@@ -163,7 +166,7 @@ def sections (Ω : Set V) : Submodule R B.Assignment where
     rw [map_smul, map_smul, hf e hs ht]
 
 /-- Generation at a stalk by genuine global sections. -/
-def Generated : Prop :=
+@[expose] def Generated : Prop :=
   ∀ x (b : B.vertex x), ∃ f : B.Assignment, B.IsGlobal f ∧ f x = b
 
 abbrev Outgoing (x : V) := {e : E // G.source e = x}
@@ -171,18 +174,18 @@ abbrev Outgoing (x : V) := {e : E // G.source e = x}
 abbrev Boundary (x : V) := ∀ e : Outgoing (G := G) x, B.edge e.val
 
 /-- The lower-end stalk map on all upward edges. -/
-def stalkMap (x : V) : B.vertex x →ₗ[R] B.Boundary x where
+@[expose] def stalkMap (x : V) : B.vertex x →ₗ[R] B.Boundary x where
   toFun b e := B.lower e.val (e.property.symm ▸ b)
   map_add' b c := by ext e; cases e with | mk e he => subst x; simp
   map_smul' r b := by ext e; cases e with | mk e he => subst x; simp
 
 /-- Boundary values supplied by sections strictly above a vertex. -/
-def boundaryMap (x : V) : B.sections (Set.Ioi x) →ₗ[R] B.Boundary x where
+@[expose] def boundaryMap (x : V) : B.sections (Set.Ioi x) →ₗ[R] B.Boundary x where
   toFun f e := B.upper e.val (f.val (G.target e.val))
   map_add' f g := by ext e; simp
   map_smul' r f := by ext e; simp
 
-def boundaryImage (x : V) : Submodule R (B.Boundary x) :=
+@[expose] def boundaryImage (x : V) : Submodule R (B.Boundary x) :=
   LinearMap.range (B.boundaryMap x)
 
 /-- The precise boundary-image identity in `loc:decomposition`.
@@ -218,7 +221,7 @@ theorem range_stalkMap_eq_boundaryImage
 
 /-- A sheaf satisfying the two standard section properties gives an actual
 surjection of its stalk onto the boundary module. -/
-def stalkCover (hf : B.Flabby) (hg : B.Generated) (x : V) :
+@[expose] def stalkCover (hf : B.Flabby) (hg : B.Generated) (x : V) :
     B.vertex x →ₗ[R] B.boundaryImage x :=
   (B.stalkMap x).codRestrict _ (fun b => by
     rw [← B.range_stalkMap_eq_boundaryImage hf hg x]

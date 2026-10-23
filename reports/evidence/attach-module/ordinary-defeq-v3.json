@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean StalkEquationCompat.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 6.358353367999371,
+  "user_seconds": 5.024003,
+  "system_seconds": 1.783737,
+  "max_rss_kib": 3933580
+}

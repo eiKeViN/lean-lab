@@ -1,0 +1,9 @@
+{
+  "execution_head": "424bcdf25e746d12573af9a410e8e25ae6018fcf",
+  "captured_files": 1386,
+  "post_validation_changes": [
+    "README.md",
+    "experiments/kl-for-mathlib/README.md"
+  ],
+  "interpretation": "README navigation only; Lean, checker code, policies, pins and proof data unchanged"
+}

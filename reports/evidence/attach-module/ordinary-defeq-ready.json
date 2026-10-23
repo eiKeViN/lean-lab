@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake --no-build build ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom && lake env lean StalkEquationCompat.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 15.476521356000376,
+  "user_seconds": 13.793521,
+  "system_seconds": 5.723744,
+  "max_rss_kib": 3911668
+}
