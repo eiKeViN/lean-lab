@@ -46,6 +46,8 @@ No private-name, declaration-kind, statement, or proof normalization occurs here
 Legacy bytes remain accepted as inputs to reconstruction/adversarial tests; final
 product equality separately requires the integrated form.
 """
+    from attach_module import legacy_source as attach_legacy
+    data=attach_legacy(path,data)
     from module_rollout import legacy_source as rollout_legacy
     data=rollout_legacy(path,data)
     if path not in SPEC or not data.startswith(b'module\n'):return data
@@ -89,10 +91,16 @@ def graph():
     records={str(p.relative_to(HERE))[:-5].replace('/','.'):imports(p.read_text()) for p in paths}
     from module_rollout import plan as rollout_plan, effective_imports
     rollout=rollout_plan()
+    from attach_module import PATHS as attach_paths, plan as attach_plan
+    attach=attach_plan()
     for name,record in records.items():
         path=name.replace('.','/')+'.lean'
-        if record['module']!=(path in SPEC or path in rollout['files']):raise RuntimeError('Unlisted module migration: '+name)
+        if record['module']!=(path in SPEC or path in rollout['files'] or path in attach_paths):raise RuntimeError('Unlisted module migration: '+name)
         spec=SPEC.get(path) or rollout['files'].get(path)
+        if path in attach_paths:
+            if any(e['all'] or e['meta'] or not e['public'] for e in record['imports']):raise RuntimeError('Changed attach-module flags')
+            if (HERE/path).read_bytes()!=__import__('attach_module').convert(path,__import__('attach_module').baseline(path)):raise RuntimeError('Changed attach-module source')
+            continue
         if spec is not None:
             want=[dict(module=n,public=True,meta=False,all=False) for n in effective_imports(path,spec['imports'])]
             actual=[{k:v for k,v in e.items() if k!='line'} for e in record['imports']]

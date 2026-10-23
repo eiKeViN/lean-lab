@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "levels": "\"[`u, `v, `w, `z]\"",
+  "kind": "theorem",
+  "old_type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+  "new_type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+  "current_owner": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+  "old_dag_sha256": "05a9ac1b3c64f2fc4d16341b492ecb74f9573f3abf77a566fd3705fe44eeff35",
+  "witness": "StalkEquationCompat.lean",
+  "scope": "Exactly one type-expression difference; raw differences remain reported. No general defeq exception.",
+  "attributes": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "old_attribute_source_sha256": "35c857b7c32cf35ad052d7630a39b83e27165580c4f748cf468565cbfcbbb574"
+}

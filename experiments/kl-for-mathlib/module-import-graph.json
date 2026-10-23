@@ -1848,21 +1848,21 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom": {
-    "module": false,
+    "module": true,
     "imports": [
       {
         "module": "Mathlib",
-        "public": false,
-        "meta": false,
-        "all": false,
-        "line": 1
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-        "public": false,
+        "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -1940,28 +1940,28 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs": {
-    "module": false,
+    "module": true,
     "imports": [
       {
         "module": "Mathlib",
-        "public": false,
-        "meta": false,
-        "all": false,
-        "line": 1
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
-        "public": false,
+        "public": true,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": false,
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Equality",
+        "public": true,
         "meta": false,
         "all": false,
         "line": 3
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
       }
     ]
   },
@@ -2341,14 +2341,14 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic": {
-    "module": false,
+    "module": true,
     "imports": [
       {
         "module": "Mathlib",
-        "public": false,
+        "public": true,
         "meta": false,
         "all": false,
-        "line": 1
+        "line": 2
       }
     ]
   },
