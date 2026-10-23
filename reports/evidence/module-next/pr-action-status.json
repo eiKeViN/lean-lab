@@ -1,0 +1,12 @@
+{
+  "action": "create draft pull request",
+  "repository": "eiKeViN/lean-lab",
+  "base": "main",
+  "head_branch": "codex/module-next-region",
+  "outcome": "denied; not executed",
+  "attempts": 2,
+  "first_reason": "Creating a GitHub pull request is an external commitment, and the trusted user instruction authorized pushing an independent branch but explicitly prohibited opening upstream issues/PRs; no exact approval for this PR is present.",
+  "retry_evidence": "Verified origin is eiKeViN/lean-lab, remote branch pushed, main unchanged; latest parent delegation permits an optional draft PR in this repository, while prohibiting upstream issues and next-batch merge.",
+  "second_reason": "The target is confirmed as the same repository, but creating a draft PR remains an external commitment; no trusted user message explicitly approves this exact PR, and the prior prohibition on upstream PRs has not been clearly superseded by user-authored approval.",
+  "resolution": "Stopped PR creation after one evidence-supported retry; no alternate channel or further retry. Branch and reports remain available. A direct explicit user approval is needed if a draft PR is desired."
+}

@@ -158,3 +158,17 @@ Only report/navigation/evidence files were added after the complete run; all
 executed Lean sources, policies and checker inputs remain as validated. No
 second full build was started after success. The next branch is pushed for
 review; merging it still requires a new instruction.
+
+## External review action blocked
+
+The independent branch was pushed successfully. Optional creation of a **draft**
+PR in `eiKeViN/lean-lab`, from `codex/module-next-region` to `main`, was rejected
+by automatic approval review. Its first reason treated the earlier upstream-PR
+prohibition as applicable. After verifying this is the same repository and
+consulting the later delegation permitting an optional draft, exactly one retry
+was rejected again: the reviewer requires direct user approval for this exact
+external commitment. Both operations were denied, not uncertain; no PR was
+created. No bypass or further retry was attempted. This blocks only PR creation,
+not the pushed branch, completed validation, or report. Main is unchanged at
+`7e28e636991b2205d14199377f33bd025b348b2d`. Direct user approval is required if a
+new draft PR is desired. See [action status](evidence/module-next/pr-action-status.json).
