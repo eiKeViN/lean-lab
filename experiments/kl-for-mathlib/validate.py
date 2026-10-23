@@ -51,10 +51,12 @@ def static_checks():
  from module_integration import policy as module_policy, generated_checks
  from module_rollout import policy as rollout_policy, generated_checks as rollout_checks
  from attach_module import policy as attach_policy, generated_checks as attach_checks
+ from module_next import policy as next_policy, generated_checks as next_checks
+ next_policy()
  attach_policy()
  rollout_policy()
  module_policy()
- for path,text in {**generated_checks(),**rollout_checks(),**attach_checks()}.items():
+ for path,text in {**generated_checks(),**rollout_checks(),**attach_checks(),**next_checks()}.items():
   if (HERE/path).read_text()!=text:raise RuntimeError('Changed generated module audit: '+path)
  if M.get('expected_public_count')!=3902:raise RuntimeError('Expected fixed coverage of 3902 public declarations')
  from proof_evolution import active_modules
@@ -131,7 +133,7 @@ def static_checks():
  combined.update({n:set(ds)-{'Mathlib'} for n,ds in M['legacy_shims'].items()})
  list(graphlib.TopologicalSorter(combined).static_order())
  # No new mathematical declaration can hide in a file outside the deterministic products.
- allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'StalkEquationCompat.lean','ModernAttachTypes.lean','ModernAttachConsumer.lean','SafeImportChecks.lean','ModernCoordinateChecks.lean','ModernCoordinateMathlibChecks.lean','ModernRolloutTypes.lean','ImplementationImports.lean','ImplementationPublicTypes.lean','ImplementationSemanticCorpus.lean','LegacyKernelEntryChecks.lean','ModernPublicTypes.lean','ModernCompatChecks.lean','SemanticCorpus.lean','PilotChecks.lean','PilotAudit.lean','StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
+ allowed={M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'ModernNextTypes.lean','ModernNextConsumer.lean','StalkEquationCompat.lean','ModernAttachTypes.lean','ModernAttachConsumer.lean','SafeImportChecks.lean','ModernCoordinateChecks.lean','ModernCoordinateMathlibChecks.lean','ModernRolloutTypes.lean','ImplementationImports.lean','ImplementationPublicTypes.lean','ImplementationSemanticCorpus.lean','LegacyKernelEntryChecks.lean','ModernPublicTypes.lean','ModernCompatChecks.lean','SemanticCorpus.lean','PilotChecks.lean','PilotAudit.lean','StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if '.lake' not in p.parts}
  if actual-allowed:raise RuntimeError('Unlisted Lean source: '+str(actual-allowed))
  for p in list((HERE/'OAI').rglob('*.lean'))+list((HERE/'ForMathlib').rglob('*.lean')):
@@ -161,7 +163,7 @@ def main():
  run('mathlib-ready',['lake','--no-build','build','Mathlib'],env=env)
  if args.checks_only:run('oai-ready',['lake','--no-build','build','ForMathlib','OAI'],env=env)
  else:run('library-build',['lake','build','ForMathlib','OAI'],env=env)
- for file in ('PilotChecks','PilotAudit','StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','ModernCompatChecks','ModernCoordinateChecks','ModernCoordinateMathlibChecks','SafeImportChecks','ModernAttachConsumer','LegacyKernelEntryChecks','BoundaryChecks','Audit'):
+ for file in ('PilotChecks','PilotAudit','StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','ModernCompatChecks','ModernCoordinateChecks','ModernCoordinateMathlibChecks','SafeImportChecks','ModernAttachConsumer','ModernNextConsumer','LegacyKernelEntryChecks','BoundaryChecks','Audit'):
   run(file,['lake','env','lean',file+'.lean'],env=env)
  check_axioms((OUT/'Audit.log').read_text())
  from proof_evolution import check_pilot_axioms
@@ -173,6 +175,10 @@ def main():
  run('attach-modern-types',['lake','env','lean','ModernAttachTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'attach-modern-types.tsv')))
  run('attach-modern-comparison',[sys.executable,'attach_checks.py',str(OUT/'attach-modern-types.tsv')])
  run('attach-regressions',[sys.executable,'test_attach_module.py'])
+ run('next-full-records',[sys.executable,'module_next.py','--compare-full',str(OUT/'migrated-types.tsv')])
+ run('next-modern-types',['lake','env','lean','ModernNextTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'next-modern-types.tsv')))
+ run('next-modern-comparison',[sys.executable,'module_next.py','--compare-public',str(OUT/'next-modern-types.tsv')])
+ run('next-regressions',[sys.executable,'test_module_next.py'])
  run('modern-public-types',['lake','env','lean','ModernPublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'modern-public-types.tsv')))
  run('modern-public-comparison',[sys.executable,'module_integration.py','--compare',str(OUT/'modern-public-types.tsv')])
  run('rollout-public-types',['lake','env','lean','ModernRolloutTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'rollout-public-types.tsv')))

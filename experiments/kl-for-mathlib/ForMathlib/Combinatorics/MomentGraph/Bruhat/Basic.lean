@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic. Source spans: Tits:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,17 +19,17 @@ variable {B : Type u} {W : Type v} [Group W] {M : CoxeterMatrix B}
 
 /-- Actual finite directed moment-graph edges, including the non-cover
 reflection edges. No reconstruction from the abstract poset is assumed. -/
-def Edge := {p : Interval cs u b × Interval cs u b // BruhatStep cs p.1.val p.2.val}
+@[expose] def Edge := {p : Interval cs u b × Interval cs u b // BruhatStep cs p.1.val p.2.val}
 
 instance _root_.OAI.KLInvariance.BruhatGraph.instFiniteEdge : Finite (Edge cs u b) := by
   let := interval_finite cs u b
   unfold Edge
   infer_instance
 
-def source (e : Edge cs u b) : Interval cs u b := e.val.1
-def target (e : Edge cs u b) : Interval cs u b := e.val.2
+@[expose] def source (e : Edge cs u b) : Interval cs u b := e.val.1
+@[expose] def target (e : Edge cs u b) : Interval cs u b := e.val.2
 
-def graph : MomentGraph.OrderedGraph (Interval cs u b) (Edge cs u b) where
+@[expose] def graph : MomentGraph.OrderedGraph (Interval cs u b) (Edge cs u b) where
   source := source cs u b
   target := target cs u b
   increasing e := by
@@ -35,7 +38,7 @@ def graph : MomentGraph.OrderedGraph (Interval cs u b) (Edge cs u b) where
     exact (not_lt_of_ge (length_le_of_bruhat cs h)) e.property.1
 
 /-- Genuine left reflection label; uniquely determined by the endpoints. -/
-def label (e : Edge cs u b) : W := (target cs u b e).val * (source cs u b e).val⁻¹
+@[expose] def label (e : Edge cs u b) : W := (target cs u b e).val * (source cs u b e).val⁻¹
 
 theorem label_isReflection (e : Edge cs u b) : cs.IsReflection (label cs u b e) := by
   obtain ⟨t, ht, htx⟩ := e.property.2

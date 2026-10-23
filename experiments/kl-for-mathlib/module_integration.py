@@ -46,6 +46,8 @@ No private-name, declaration-kind, statement, or proof normalization occurs here
 Legacy bytes remain accepted as inputs to reconstruction/adversarial tests; final
 product equality separately requires the integrated form.
 """
+    from module_next import legacy_source as next_legacy
+    data=next_legacy(path,data)
     from attach_module import legacy_source as attach_legacy
     data=attach_legacy(path,data)
     from module_rollout import legacy_source as rollout_legacy
@@ -93,10 +95,16 @@ def graph():
     rollout=rollout_plan()
     from attach_module import PATHS as attach_paths, plan as attach_plan
     attach=attach_plan()
+    from module_next import PATHS as next_paths, policy as next_policy
+    next_policy()
     for name,record in records.items():
         path=name.replace('.','/')+'.lean'
-        if record['module']!=(path in SPEC or path in rollout['files'] or path in attach_paths):raise RuntimeError('Unlisted module migration: '+name)
+        if record['module']!=(path in SPEC or path in rollout['files'] or path in attach_paths or path in next_paths):raise RuntimeError('Unlisted module migration: '+name)
         spec=SPEC.get(path) or rollout['files'].get(path)
+        if path in next_paths:
+            if any(e['all'] or e['meta'] or not e['public'] for e in record['imports']):raise RuntimeError('Changed next-module import flags')
+            if (HERE/path).read_bytes()!=__import__('module_next').convert(path,__import__('module_next').baseline(path)):raise RuntimeError('Changed next-module source')
+            continue
         if path in attach_paths:
             if any(e['all'] or e['meta'] or not e['public'] for e in record['imports']):raise RuntimeError('Changed attach-module flags')
             if (HERE/path).read_bytes()!=__import__('attach_module').convert(path,__import__('attach_module').baseline(path)):raise RuntimeError('Changed attach-module source')

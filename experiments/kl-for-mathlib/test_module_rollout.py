@@ -21,13 +21,13 @@ class RolloutTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):m.legacy_source(path,after.replace(b'public import',b'import',1))
     def test_no_private_escape_in_production(self):
         import module_integration as pilot
-        g=pilot.graph();self.assertEqual({n for n,r in g.items() if r['module']},set(m.plan()['selected']) | set(__import__('attach_module').OWNERS))
+        g=pilot.graph();self.assertEqual({n for n,r in g.items() if r['module']},set(m.plan()['selected']) | set(__import__('attach_module').OWNERS) | set(__import__('module_next').OWNERS))
         for n in m.plan()['selected']:
             self.assertFalse(any(e['all'] for e in g[n]['imports']))
         for p in m.plan()['files']:
             self.assertNotIn('backward.privateInPublic',(m.HERE/p).read_text())
     def test_held_boundaries_unchanged(self):
-        for name in set(m.plan()['held']) - set(__import__('attach_module').OWNERS):
+        for name in set(m.plan()['held']) - set(__import__('attach_module').OWNERS) - set(__import__('module_next').OWNERS):
             path=name.replace('.','/')+'.lean'
             self.assertEqual((m.HERE/path).read_bytes(),m.baseline(path))
     def test_public_policy_is_finite_and_strict(self):

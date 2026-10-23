@@ -1742,28 +1742,28 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic": {
-    "module": false,
+    "module": true,
     "imports": [
       {
         "module": "Mathlib",
-        "public": false,
-        "meta": false,
-        "all": false,
-        "line": 1
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": false,
+        "public": true,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
-        "public": false,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": true,
         "meta": false,
         "all": false,
         "line": 3
+      },
+      {
+        "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Basic",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 4
       }
     ]
   },
@@ -2199,21 +2199,21 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex": {
-    "module": false,
+    "module": true,
     "imports": [
       {
         "module": "Mathlib",
-        "public": false,
-        "meta": false,
-        "all": false,
-        "line": 1
-      },
-      {
-        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
-        "public": false,
+        "public": true,
         "meta": false,
         "all": false,
         "line": 2
+      },
+      {
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 3
       }
     ]
   },
@@ -2353,35 +2353,35 @@
     ]
   },
   "ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality": {
-    "module": false,
+    "module": true,
     "imports": [
       {
         "module": "Mathlib",
-        "public": false,
-        "meta": false,
-        "all": false,
-        "line": 1
-      },
-      {
-        "module": "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
-        "public": false,
+        "public": true,
         "meta": false,
         "all": false,
         "line": 2
       },
       {
-        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
-        "public": false,
+        "module": "ForMathlib.Algebra.Module.Free.ScalarDivisibility",
+        "public": true,
         "meta": false,
         "all": false,
         "line": 3
       },
       {
-        "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
-        "public": false,
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic",
+        "public": true,
         "meta": false,
         "all": false,
         "line": 4
+      },
+      {
+        "module": "ForMathlib.LinearAlgebra.Dual.IntegralSupport",
+        "public": true,
+        "meta": false,
+        "all": false,
+        "line": 5
       }
     ]
   },

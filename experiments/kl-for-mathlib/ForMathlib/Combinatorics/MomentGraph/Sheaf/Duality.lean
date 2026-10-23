@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Free.ScalarDivisibility
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
-import ForMathlib.LinearAlgebra.Dual.IntegralSupport
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Free.ScalarDivisibility
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+public import ForMathlib.LinearAlgebra.Dual.IntegralSupport
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality. Source spans: Support:15, Support:17.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -24,7 +27,7 @@ integral endomorphisms of the section module. -/
 
 variable [Fintype E] (α : E → R)
 
-def labelProduct : R := ∏ e, α e
+@[expose] def labelProduct : R := ∏ e, α e
 
  theorem labelProduct_ne_zero [IsDomain R] (hα : ∀ e, α e ≠ 0) : labelProduct α ≠ 0 := by
   exact Finset.prod_ne_zero_iff.mpr (fun e _ => hα e)
@@ -52,7 +55,7 @@ variable [DecidableEq V] [IsDomain R] [∀ x, Module.IsTorsionFree R (B.vertex x
       (B.scaled_single_section (B.labelProduct_annihilates α ha)) x n))
 
 
-noncomputable def singleSupportEquivDual (hg : B.Generated) (x : V) :
+@[expose] noncomputable def singleSupportEquivDual (hg : B.Generated) (x : V) :
     IntegralSupport.supported (B.sections Set.univ) x ≃ₗ[R] Module.Dual R (B.vertex x) :=
   IntegralSupport.supportEquivDual (B.sections Set.univ) (labelProduct α)
     (B.scaled_single_section (B.labelProduct_annihilates α ha))
@@ -105,12 +108,12 @@ variable {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
 
 variable [Fintype E] [DecidableEq V]
 
-def incoming (x : V) : Finset E := Finset.univ.filter (fun e => G.target e = x)
+@[expose] def incoming (x : V) : Finset E := Finset.univ.filter (fun e => G.target e = x)
 
 @[simp] theorem mem_incoming (x : V) (e : E) : e ∈ incoming (G := G) x ↔ G.target e = x := by
   simp [incoming]
 
-def incomingProduct (α : E → R) (x : V) : R := ∏ e ∈ incoming (G := G) x, α e
+@[expose] def incomingProduct (α : E → R) (x : V) : R := ∏ e ∈ incoming (G := G) x, α e
 
 variable [IsDomain R] (α : E → R)
   (hα : ∀ e, Prime (α e))
@@ -175,10 +178,10 @@ product divisibility, and they are regular at every upward edge. -/
       exact ⟨r • w, by rw [incomingProduct,hr,mul_smul]⟩
 
 /-- The single-support part as an actual submodule of its stalk. -/
-def singleStalk (x : V) : Submodule R (B.vertex x) :=
+@[expose] def singleStalk (x : V) : Submodule R (B.vertex x) :=
   (B.sections Set.univ).comap (LinearMap.single R (fun y => B.vertex y) x)
 
-noncomputable def singleStalkEquivSupport (x : V) :
+@[expose] noncomputable def singleStalkEquivSupport (x : V) :
     B.singleStalk x ≃ₗ[R] IntegralSupport.supported (B.sections Set.univ) x := by
   let f : B.singleStalk x →ₗ[R] IntegralSupport.supported (B.sections Set.univ) x :=
     { toFun := fun v => ⟨⟨Pi.single x v.val,v.property⟩,by
@@ -204,7 +207,7 @@ noncomputable def singleStalkEquivSupport (x : V) :
     · apply Subtype.ext; apply Subtype.ext; exact he
 
 
-noncomputable def kernelEquivSingleStalk [DecompositionMonoid R] (x : V)
+@[expose] noncomputable def kernelEquivSingleStalk [DecompositionMonoid R] (x : V)
     (hrel : (incoming (G := G) x : Set E).Pairwise (Function.onFun IsRelPrime α))
     (hreg : ∀ e, G.source e = x → Function.Injective
       (fun v : B.edge e => incomingProduct (G := G) α x • v)) :
