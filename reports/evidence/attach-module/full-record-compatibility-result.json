@@ -1,0 +1,39 @@
+{
+  "raw": {
+    "old_count": 3947,
+    "new_count": 3947,
+    "missing": [],
+    "added": [],
+    "changed": [
+      {
+        "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u, `v, `w, `z]\"",
+          "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+        },
+        "new": {
+          "levels": "\"[`u, `v, `w, `z]\"",
+          "type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+        }
+      }
+    ],
+    "relocated": 0,
+    "passed": false
+  },
+  "accepted_representation_changes": [
+    {
+      "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+      "old_type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+      "new_type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+      "witness": "StalkEquationCompat.lean",
+      "policy_sha256": "c3b90ce64206d1f621978b0c3c3b68314ed24ca25983e76960ea575919922454",
+      "raw_difference_retained": true
+    }
+  ],
+  "passed": true
+}

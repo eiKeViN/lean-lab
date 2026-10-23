@@ -1,0 +1,12 @@
+[codex/attach-bottom-module 424bcdf] Migrate three sheaf modules with a bound stalk equation compatibility witness
+ 22 files changed, 1446 insertions(+), 68 deletions(-)
+ create mode 100644 experiments/kl-for-mathlib/ModernAttachConsumer.lean
+ create mode 100644 experiments/kl-for-mathlib/ModernAttachTypes.lean
+ create mode 100644 experiments/kl-for-mathlib/StalkEquationCompat.lean
+ create mode 100644 experiments/kl-for-mathlib/attach-module-types.json
+ create mode 100644 experiments/kl-for-mathlib/attach-module.json
+ create mode 100644 experiments/kl-for-mathlib/attach_checks.py
+ create mode 100644 experiments/kl-for-mathlib/attach_module.py
+ create mode 100644 experiments/kl-for-mathlib/stalk-equation-compat.json
+ create mode 100644 experiments/kl-for-mathlib/stalk-equation-old.json
+ create mode 100644 experiments/kl-for-mathlib/test_attach_module.py

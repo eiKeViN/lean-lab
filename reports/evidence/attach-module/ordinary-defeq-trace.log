@@ -1,0 +1,6 @@
+OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1.{u, v, w, z} {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
+  {E : Type w} {G : OAI.KLInvariance.MomentGraph.OrderedGraph V E} (B : OAI.KLInvariance.MomentGraph.Sheaf G) (x : V) :
+  B.stalkMap x = { toFun := fun b e => (B.lower ↑e) (⋯ ▸ b), map_add' := ⋯, map_smul' := ⋯ }
+old auxiliaries installed
+eq present=false
+StalkEquationCompat.lean:85:0: error(lean.unknownIdentifier): Unknown constant `OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1`

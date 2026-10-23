@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake --no-build build Mathlib && lake build ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 63.225831833000484,
+  "user_seconds": 41.57256,
+  "system_seconds": 19.918301,
+  "max_rss_kib": 3051128
+}

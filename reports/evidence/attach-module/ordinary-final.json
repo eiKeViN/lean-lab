@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean StalkEquationCompat.lean && lake env lean ModernAttachConsumer.lean && LEAN_TYPES_OUT=/workspace/lean-lab/results/attach-module/modern-types.tsv lake env lean ModernAttachTypes.lean && python3 attach_checks.py /workspace/lean-lab/results/attach-module/modern-types.tsv"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 22.631993479999437,
+  "user_seconds": 17.161407,
+  "system_seconds": 6.374422,
+  "max_rss_kib": 3973908
+}

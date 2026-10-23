@@ -1,0 +1,13 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env bash -c 'export LEAN_PATH=/workspace/lean-lab/results/attach-module/oldattr:$LEAN_PATH; lean /workspace/lean-lab/results/attach-module/OldAPIControls.lean'",
+    "/workspace/lean-lab/results/attach-module/OldAPIControls.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 6.729306163999354,
+  "user_seconds": 4.239802,
+  "system_seconds": 2.560645,
+  "max_rss_kib": 7165048
+}

@@ -1,0 +1,1 @@
+StalkEquationCompat.lean:1:0: error: object file '/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.olean' of module ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic does not exist

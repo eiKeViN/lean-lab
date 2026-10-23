@@ -69,3 +69,8 @@ source anchors, and [historical reports](reports/README.md) for earlier stages.
 Current source/type/axiom checks stay strict. An intentional future baseline or
 public-API change should update its documented evidence and policy explicitly,
 without creating another experiment copy or silently weakening acceptance.
+
+The [three sheaf module integration](reports/attach-bottom-module.md) brings the
+modern region to 128 modules. Its two explicit grading arguments and one
+version/hash-bound `stalkMap.eq_1` representation acceptance are recorded
+separately; raw differences and the original snapshots remain visible.

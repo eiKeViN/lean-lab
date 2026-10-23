@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && python3 test_attach_module.py && python3 test_module_rollout.py && python3 test_module_integration.py && python3 test_proof_evolution.py"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 13.829512423999404,
+  "user_seconds": 12.966051,
+  "system_seconds": 0.87017,
+  "max_rss_kib": 37860
+}

@@ -1,0 +1,53 @@
+ordinary implementation name=_private.StalkEquationCompat.0.OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1; defeq=false; backward_defeq=true
+3 actual legacy auxiliary proofs kernel-checked under fresh names; both actual equation types well-formed; stored expressions differ; definitional equality passes; Nat/Bool negative control passes; three-axiom bound passes
+OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1.{u, v, w, z} {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
+  {E : Type w} {G : OrderedGraph V E} (B : Sheaf G) (x : V) :
+  B.stalkMap x = { toFun := fun b e => (B.lower ↑e) (⋯ ▸ b), map_add' := ⋯, map_smul' := ⋯ }
+{
+  "old_api": {
+    "old_count": 3902,
+    "new_count": 3902,
+    "missing": [],
+    "added": [],
+    "changed": [
+      {
+        "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+        "field": "type",
+        "old": {
+          "kind": "theorem",
+          "levels": "\"[`u, `v, `w, `z]\"",
+          "module": "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves",
+          "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4"
+        },
+        "new": {
+          "levels": "\"[`u, `v, `w, `z]\"",
+          "type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+        }
+      }
+    ],
+    "relocated": 3902,
+    "passed": false
+  },
+  "additions": {
+    "old_count": 45,
+    "new_count": 45,
+    "missing": [],
+    "added": [],
+    "changed": [],
+    "relocated": 0,
+    "passed": true
+  },
+  "accepted_representation_changes": [
+    {
+      "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+      "old_type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+      "new_type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+      "witness": "StalkEquationCompat.lean",
+      "policy_sha256": "c3b90ce64206d1f621978b0c3c3b68314ed24ca25983e76960ea575919922454",
+      "raw_difference_retained": true
+    }
+  ],
+  "passed": true
+}
