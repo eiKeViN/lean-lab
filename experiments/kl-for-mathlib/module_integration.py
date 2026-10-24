@@ -119,7 +119,7 @@ def graph():
             continue
         if path in next_paths:
             if any(e['all'] or e['meta'] or not e['public'] for e in record['imports']):raise RuntimeError('Changed next-module import flags')
-            if (HERE/path).read_bytes()!=__import__('module_next').convert(path,__import__('module_next').baseline(path)):raise RuntimeError('Changed next-module source')
+            if __import__('api_support').prior_source(path,(HERE/path).read_bytes())!=__import__('module_next').convert(path,__import__('module_next').baseline(path)):raise RuntimeError('Changed next-module source')
             continue
         if path in attach_paths:
             if any(e['all'] or e['meta'] or not e['public'] for e in record['imports']):raise RuntimeError('Changed attach-module flags')

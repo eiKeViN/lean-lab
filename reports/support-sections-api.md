@@ -126,6 +126,11 @@ this is separate from accepting the final seven-file overlay. Regression checks
 reject extra bytes, altered/missing records and applying the overlay to that
 historical fixture. The round-4 source roundtrip test compares its exact view
 through the new bounded inverse; registry isolation mocks only the newer layer.
+The first full-check run stopped at classification because the earlier three-module
+`Sheaf.Duality` source assertion had no API inverse view. Its graph assertion and
+source-roundtrip test now use this exact seven-file inverse. The old 61-name
+public scope and immutable next-module plan/types are unchanged. All 33 next-module
+and proof-evolution regressions pass; the failed run is retained.
 
 ## Costs and reproduction
 
