@@ -73,6 +73,42 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   lower _ _ := rfl
   upper _ _ := rfl
 
+/-- Composition of graded sheaf morphisms is associative. -/
+theorem Hom.comp_assoc {D F : GradedSheaf (𝓐 := 𝓐) G}
+    (f : Hom B C) (g : Hom C D) (h : Hom D F) :
+    (h.comp g).comp f = h.comp (g.comp f) := by
+  apply Hom.eq_of_maps <;> intros <;> rfl
+
+/-- The identity acts on the left of a graded sheaf morphism. -/
+@[simp] theorem Hom.id_comp (f : Hom B C) : (Hom.id C).comp f = f := by
+  apply Hom.eq_of_maps <;> intros <;> rfl
+
+/-- The identity acts on the right of a graded sheaf morphism. -/
+@[simp] theorem Hom.comp_id (f : Hom B C) : f.comp (Hom.id B) = f := by
+  apply Hom.eq_of_maps <;> intros <;> rfl
+
+/-- A pointwise bijective sheaf morphism has a left inverse as a sheaf morphism. -/
+@[simp] theorem Hom.inverse_comp (f : Hom B C)
+    (hv : ∀ x, Function.Bijective (f.vertex x).map)
+    (he : ∀ e, Function.Bijective (f.edge e).map) :
+    (f.inverse hv he).comp f = Hom.id B := by
+  apply Hom.eq_of_maps
+  · intro x v
+    exact (f.vertex x).inverse_map (hv x) v
+  · intro e v
+    exact (f.edge e).inverse_map (he e) v
+
+/-- The same inverse is also a right inverse. -/
+@[simp] theorem Hom.comp_inverse (f : Hom B C)
+    (hv : ∀ x, Function.Bijective (f.vertex x).map)
+    (he : ∀ e, Function.Bijective (f.edge e).map) :
+    f.comp (f.inverse hv he) = Hom.id C := by
+  apply Hom.eq_of_maps
+  · intro x v
+    exact (f.vertex x).map_inverse (hv x) v
+  · intro e v
+    exact (f.edge e).map_inverse (he e) v
+
  @[expose] def Hom.PrimitiveProjector (p : Hom B B) : Prop :=
   p.comp p=p ∧ ∀ f : Hom B B, f.comp f=f → f.comp p=f → p.comp f=f →
     f=Hom.zero ∨ f=p
@@ -222,6 +258,15 @@ noncomputable section
   lower e v := (ModuleData.rangeMap_projection (h.vertex _) (h.edge e) (B.lower e) (h.lower e) v).symm
   upper e v := (ModuleData.rangeMap_projection (h.vertex _) (h.edge e) (B.upper e) (h.upper e) v).symm
 
+/-- Inclusion after projection is the canonical factorization of an endomorphism. -/
+theorem Hom.imageInclusion_comp_imageProjection (h : Hom B B) :
+    h.imageInclusion.comp h.imageProjection = h := by
+  apply Hom.eq_of_maps
+  · intro x v
+    exact (ModuleData.rangeInclusion_apply _ _).trans (ModuleData.rangeProjection_val _ _)
+  · intro e v
+    exact (ModuleData.rangeInclusion_apply _ _).trans (ModuleData.rangeProjection_val _ _)
+
  @[expose] def Hom.imageSplit (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
     (he : ∀ e v, (h.edge e).map ((h.edge e).map v)=(h.edge e).map v) : SplitIn h.image B where
@@ -270,6 +315,12 @@ noncomputable section
   (h.imageInclusion.sectionMap Ω).codRestrict _ (fun f =>
     ⟨h.imageInclusion.sectionMap Ω f,h.imageSection_fixed hv Ω f⟩)
 
+/-- The canonical map from image sections to the section-map range is image inclusion. -/
+@[simp] theorem Hom.imageSectionMap_val (h : Hom B B)
+    (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
+    (Ω : Set V) (m : h.image.forget.sections Ω) :
+    (h.imageSectionMap hv Ω m).val = h.imageInclusion.sectionMap Ω m := by rfl
+
  theorem Hom.imageSectionMap_bijective (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
     (Ω : Set V) : Function.Bijective (h.imageSectionMap hv Ω) := by
@@ -278,12 +329,15 @@ noncomputable section
     apply Subtype.ext
     funext x
     apply Subtype.ext
-    exact congrFun (congrArg Subtype.val (congrArg Subtype.val hfg)) x
+    have he := congrArg Subtype.val hfg
+    rw [h.imageSectionMap_val, h.imageSectionMap_val] at he
+    exact congrFun (congrArg Subtype.val he) x
   · rintro ⟨s,m,rfl⟩
     refine ⟨h.imageProjection.sectionMap Ω m,?_⟩
     apply Subtype.ext
-    apply Subtype.ext
-    rfl
+    rw [h.imageSectionMap_val]
+    change ((h.imageInclusion.sectionMap Ω).comp (h.imageProjection.sectionMap Ω)) m = _
+    rw [← Hom.sectionMap_comp, h.imageInclusion_comp_imageProjection]
 
  @[expose] def Hom.imageSectionEquiv (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
@@ -294,7 +348,8 @@ noncomputable section
 @[simp] theorem Hom.imageSectionEquiv_val (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
     (Ω : Set V) (m : h.image.forget.sections Ω) :
-    (h.imageSectionEquiv hv Ω m).val = h.imageInclusion.sectionMap Ω m := by rfl
+    (h.imageSectionEquiv hv Ω m).val = h.imageInclusion.sectionMap Ω m :=
+  h.imageSectionMap_val hv Ω m
 
 end
 end KLInvariance.MomentGraph.GradedSheaf
@@ -312,6 +367,13 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
 noncomputable section
 
  @[expose] def SplitIn.projector : Hom C C := s.inclusion.comp s.projection
+
+/-- The splitting of an idempotent image recovers the original projector. -/
+@[simp] theorem Hom.imageSplit_projector (h : Hom B B)
+    (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
+    (he : ∀ e v, (h.edge e).map ((h.edge e).map v)=(h.edge e).map v) :
+    (h.imageSplit hv he).projector = h := by
+  exact h.imageInclusion_comp_imageProjection
 
 omit [IsNoetherianRing A] in
 /-- The projector of a splitting is inclusion after projection at each vertex. -/
@@ -340,29 +402,33 @@ omit [IsNoetherianRing A] in
 
  theorem SplitIn.imageTo_toImage_vertex (x : V) (v : B.vertex x) :
     (s.imageTo.vertex x).map ((s.toImage.vertex x).map v)=v := by
-  change (s.projection.vertex x).map ((s.inclusion.vertex x).map
-    ((s.projection.vertex x).map ((s.inclusion.vertex x).map v)))=v
-  rw [s.vertex_split,s.vertex_split]
+  change (s.projection.vertex x).map
+    ((s.projector.imageInclusion.comp s.projector.imageProjection).vertex x |>.map
+      ((s.inclusion.vertex x).map v)) = v
+  rw [Hom.imageInclusion_comp_imageProjection, s.projector_apply_vertex,
+    s.vertex_split, s.vertex_split]
 
  theorem SplitIn.toImage_imageTo_vertex (x : V) (v : s.projector.image.vertex x) :
     (s.toImage.vertex x).map ((s.imageTo.vertex x).map v)=v := by
   apply Subtype.ext
-  obtain ⟨m,hm⟩ := v.property
   change (s.projector.vertex x).map ((s.projector.vertex x).map v.val)=v.val
-  rw [s.projector_vertex,← hm,s.projector_vertex]
+  exact (s.projector_vertex x v.val).trans
+    (ModuleData.range_fixed (s.projector.vertex x) (s.projector_vertex x) v)
 
  theorem SplitIn.imageTo_toImage_edge (e : E) (v : B.edge e) :
     (s.imageTo.edge e).map ((s.toImage.edge e).map v)=v := by
-  change (s.projection.edge e).map ((s.inclusion.edge e).map
-    ((s.projection.edge e).map ((s.inclusion.edge e).map v)))=v
-  rw [s.edge_split,s.edge_split]
+  change (s.projection.edge e).map
+    ((s.projector.imageInclusion.comp s.projector.imageProjection).edge e |>.map
+      ((s.inclusion.edge e).map v)) = v
+  rw [Hom.imageInclusion_comp_imageProjection, s.projector_apply_edge,
+    s.edge_split, s.edge_split]
 
  theorem SplitIn.toImage_imageTo_edge (e : E) (v : s.projector.image.edge e) :
     (s.toImage.edge e).map ((s.imageTo.edge e).map v)=v := by
   apply Subtype.ext
-  obtain ⟨m,hm⟩ := v.property
   change (s.projector.edge e).map ((s.projector.edge e).map v.val)=v.val
-  rw [s.projector_edge,← hm,s.projector_edge]
+  exact (s.projector_edge e v.val).trans
+    (ModuleData.range_fixed (s.projector.edge e) (s.projector_edge e) v)
 
  theorem SplitIn.imageSection_bijective (Ω : Set V) :
     Function.Bijective (s.imageTo.sectionMap Ω) := by
@@ -499,10 +565,8 @@ theorem SplitIn.compress_liftEnd (s : SplitIn B C) (f : Hom B B) :
     apply Hom.eq_of_maps
     · exact s.projector_vertex
     · exact s.projector_edge
-  have hl : s.projector.comp (Hom.id C)=s.projector := by
-    apply Hom.eq_of_maps <;> intros <;> rfl
-  have hr : (Hom.id C).comp s.projector=s.projector := by
-    apply Hom.eq_of_maps <;> intros <;> rfl
+  have hl : s.projector.comp (Hom.id C)=s.projector := s.projector.comp_id
+  have hr : (Hom.id C).comp s.projector=s.projector := s.projector.id_comp
   rcases h.2 s.projector hi hl hr with hz | he
   · obtain ⟨v,hv⟩ := exists_ne (0 : B.vertex x)
     exfalso
@@ -547,8 +611,7 @@ theorem SplitIn.compress_liftEnd (s : SplitIn B C) (f : Hom B B) :
     intro e v
     exact congrArg (fun q : Hom B B => (q.edge e).map v) hp.1
   let s := p.imageSplit hv he
-  have hs : s.projector=p := by
-    apply Hom.eq_of_maps <;> intros <;> rfl
+  have hs : s.projector=p := p.imageSplit_projector hv he
   apply s.primitive_id_of_projector
   rw [hs]
   exact hp
@@ -570,19 +633,30 @@ noncomputable section
  @[expose] def SplitIn.downEnd (s : SplitIn B C) (f : Hom C C) : Hom B B :=
   s.projection.comp (f.comp s.inclusion)
 
+/-- Multiplying compressions inserts the ambient projector between the two maps. -/
+theorem SplitIn.downEnd_comp (s : SplitIn B C) (f g : Hom C C) :
+    (s.downEnd f).comp (s.downEnd g) = s.downEnd (f.comp (s.projector.comp g)) := by
+  change (s.projection.comp (f.comp s.inclusion)).comp
+    (s.projection.comp (g.comp s.inclusion)) =
+    s.projection.comp ((f.comp ((s.inclusion.comp s.projection).comp g)).comp s.inclusion)
+  simp only [Hom.comp_assoc]
+
+/-- Extending a compression cuts an ambient endomorphism by the projector on both sides. -/
+theorem SplitIn.liftEnd_downEnd (s : SplitIn B C) (f : Hom C C) :
+    s.liftEnd (s.downEnd f) = s.projector.comp (f.comp s.projector) := by
+  change s.inclusion.comp ((s.projection.comp (f.comp s.inclusion)).comp s.projection) =
+    (s.inclusion.comp s.projection).comp (f.comp (s.inclusion.comp s.projection))
+  simp only [Hom.comp_assoc]
+
  theorem SplitIn.lift_down (s : SplitIn B C) (f : Hom C C)
     (hf : f.comp s.projector=f) (hf' : s.projector.comp f=f) :
     s.liftEnd (s.downEnd f)=f := by
-  have heq : s.liftEnd (s.downEnd f)=s.projector.comp (f.comp s.projector) := by
-    apply Hom.eq_of_maps <;> intros <;> rfl
-  rw [heq,hf,hf']
+  rw [s.liftEnd_downEnd, hf, hf']
 
  theorem SplitIn.downEnd_idempotent (s : SplitIn B C) (f : Hom C C)
     (hf : f.comp f=f) (hf' : s.projector.comp f=f) :
     (s.downEnd f).comp (s.downEnd f)=s.downEnd f := by
-  have heq : (s.downEnd f).comp (s.downEnd f)=s.downEnd (f.comp (s.projector.comp f)) := by
-    apply Hom.eq_of_maps <;> intros <;> rfl
-  rw [heq,hf',hf]
+  rw [s.downEnd_comp, hf', hf]
 
  theorem SplitIn.primitive_projector_of_id (s : SplitIn B C)
     (h : (Hom.id B).PrimitiveProjector) : s.projector.PrimitiveProjector := by
@@ -592,16 +666,13 @@ noncomputable section
     · exact s.projector_edge
   · intro f hf hfp hpf
     have hg := s.downEnd_idempotent f hf hpf
-    have hl : (s.downEnd f).comp (Hom.id B)=s.downEnd f := by
-      apply Hom.eq_of_maps <;> intros <;> rfl
-    have hr : (Hom.id B).comp (s.downEnd f)=s.downEnd f := by
-      apply Hom.eq_of_maps <;> intros <;> rfl
+    have hl : (s.downEnd f).comp (Hom.id B)=s.downEnd f := (s.downEnd f).comp_id
+    have hr : (Hom.id B).comp (s.downEnd f)=s.downEnd f := (s.downEnd f).id_comp
     rcases h.2 (s.downEnd f) hg hl hr with hz | he
     · left
       exact (s.lift_down f hfp hpf).symm.trans ((congrArg s.liftEnd hz).trans s.liftEnd_zero)
     · right
-      have hi : s.liftEnd (Hom.id B)=s.projector := by
-        apply Hom.eq_of_maps <;> intros <;> rfl
+      have hi : s.liftEnd (Hom.id B)=s.projector := s.liftEnd_id
       exact (s.lift_down f hfp hpf).symm.trans ((congrArg s.liftEnd he).trans hi)
 
 end

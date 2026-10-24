@@ -87,6 +87,55 @@ end
 
 section
 namespace KLInvariance.Graded.ModuleData
+universe uk ua um
+variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
+  {𝓐 : ℤ → Submodule k A} [IsNoetherianRing A]
+  {M N P : ModuleData.{uk,ua,um} 𝓐}
+noncomputable section
+
+/-- Induction on ranges preserves the identity commuting square. -/
+@[simp] theorem rangeMap_id (e : Hom M M) :
+    rangeMap e e (Hom.id M) (fun _ => rfl) = Hom.id (range e) := by
+  apply Hom.eq_of_map_eq
+  apply LinearMap.ext
+  intro v
+  apply Subtype.ext
+  exact rangeMap_val _ _ _ _ v
+
+/-- Composing commuting squares composes their induced maps on ranges. -/
+theorem rangeMap_comp (e : Hom M M) (f : Hom N N) (q : Hom P P)
+    (g : Hom M N) (h : Hom N P)
+    (hg : ∀ m, f.map (g.map m)=g.map (e.map m))
+    (hh : ∀ n, q.map (h.map n)=h.map (f.map n)) :
+    rangeMap e q (h.comp g) (fun m => (hh (g.map m)).trans (congrArg h.map (hg m))) =
+      (rangeMap f q h hh).comp (rangeMap e f g hg) := by
+  apply Hom.eq_of_map_eq
+  apply LinearMap.ext
+  intro v
+  apply Subtype.ext
+  change ((rangeMap e q (h.comp g) _).map v).val =
+    ((rangeMap f q h hh).map ((rangeMap e f g hg).map v)).val
+  exact (rangeMap_val _ _ _ _ v).trans
+    ((congrArg h.map (rangeMap_val e f g hg v)).symm.trans
+      (rangeMap_val f q h hh ((rangeMap e f g hg).map v)).symm)
+
+/-- The inclusion of a range intertwines its induced map with the original map. -/
+theorem rangeInclusion_comp_rangeMap (e : Hom M M) (f : Hom N N) (g : Hom M N)
+    (hg : ∀ m, f.map (g.map m)=g.map (e.map m)) :
+    (rangeInclusion f).comp (rangeMap e f g hg) = g.comp (rangeInclusion e) := by
+  apply Hom.eq_of_map_eq
+  apply LinearMap.ext
+  intro v
+  exact (rangeInclusion_apply _ _).trans ((rangeMap_val _ _ _ _ v).trans
+    (congrArg g.map (rangeInclusion_apply _ v)).symm)
+
+end
+end KLInvariance.Graded.ModuleData
+end
+
+
+section
+namespace KLInvariance.Graded.ModuleData
 open PairProjection LinearDescent
 universe uk ua um
 variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]

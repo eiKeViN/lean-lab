@@ -1,6 +1,6 @@
 # Graded / reflection API discovery
 
-This index covers the fourth and fifth experiments. Definitions remain exposed. Existing
+This index covers the fourth through sixth experiments. Definitions remain exposed. Existing
 APIs from the earlier experiments are linked from the project README.
 
 | Operation | Semantic entry points | Real clients |
@@ -50,3 +50,23 @@ Coordinate formulas and the identity corner extension are `simp` rules; pairing,
 degree transport and compression remain explicit. No new `ext` or instances.
 General tensor naturality already covers the inspected use sites; this round does
 not claim a new cross-object tensor application.
+
+## Morphism, range and image/corner laws (round 6)
+
+These are completions of existing families, with no new structures or instances.
+
+| Family | Entry points | Use and evidence |
+| --- | --- | --- |
+| Morphism algebra and inverse | `Hom.comp_assoc`, `id_comp`, `comp_id`, `inverse_comp`, `comp_inverse` | Association and units support corner/primitive proofs. Inverse laws support future cancellation of pointwise bijective sheaf maps; ordinary-import example composes distinct objects and takes sections. |
+| Functorial ranges | `ModuleData.rangeMap_id`, `rangeMap_comp`, `rangeInclusion_comp_rangeMap` | Identity, composition and inclusion square for arbitrary commuting maps, without idempotence assumptions. Future-facing saturation; no new production cross-object application claimed. |
+| Image factorization and sections | `Hom.imageInclusion_comp_imageProjection`, `imageSplit_projector`, `imageSectionMap_val` | Section-map bijectivity, `imageSectionEquiv_val`, splitting-to-image roundtrips, and `primitive_image` compose these with earlier range and section APIs. |
+| Corner compression | `SplitIn.downEnd_comp`, `liftEnd_downEnd` | Compression multiplies with an intermediate projector; extension of compression is two-sided projector multiplication. `downEnd_idempotent` and `lift_down` use these explicitly; `compress_liftEnd` already supplies the retraction. |
+
+Sources are [ModuleData.Range](ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean)
+and [GradedSheaf.Summand](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean).
+The locked mathlib patterns and selection decisions are documented in
+[round 6 report](../../reports/api-saturation.md). Units, inverse cancellation,
+range identity and image-split projector simplify by
+removing operations. Associativity, composition/naturality, factorization and
+projector sandwiches remain explicit, avoiding a global expansion normal form.
+Existing extensionality mechanisms suffice. All definitions retain `expose`.
