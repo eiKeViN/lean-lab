@@ -238,7 +238,7 @@ Sheaf.Duality and GradedSheaf.Reindex (131 modern products). Its complete
 VertexDeletion remains legacy with its two rejected equation deltas retained.
 
 
-The [semantic API experiment](../../reports/semantic-api-experiment.md) adds six
+The first-round (historical, `31f05da`) [semantic API experiment](../../reports/semantic-api-experiment.md) adds six
 mathematical theorems in seven exact producer/client source exceptions, plus one
 separately registered generated congruence declaration. It hides only
 `Sheaf.quotientPullback`; `LocalCover.splitEquiv`, `CoefficientChange.map` and
@@ -249,3 +249,12 @@ source/type baselines. `SemanticApiChecks.lean` uses ordinary modern imports.
 The isolated actual producer/client trials are `semantic_api_split_trial.py`
 (with `--map` or `--quotient` for the two additional controls); run them only
 without another active build. See the report for acceptance status and costs.
+
+
+Round 2, [coefficient API evolution](../../reports/coefficient-api-evolution.md),
+retains the six earlier APIs and restores quotientPullback exposure. Its former
+opaque-definition exporter allowance and private historical audit copies are
+removed. Nine evaluation/transport theorems support real graded/sheaf/pairing
+clients. The bounded layer is `api_evolution.py`; the equivalent-implementation
+trial is `api_evolution_trial.py`. Old round-1 hiding trials belong to the original
+31f05da checkout. No bulk exposure or formatting migration is performed here.

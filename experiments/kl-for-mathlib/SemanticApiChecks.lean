@@ -10,18 +10,14 @@ open Lean Elab Command
 
 run_elab do
   let env ← getEnv
-  for n in #[`OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback] do
-    unless getOriginalConstKind? env n == some .defn do
-      throwError "Expected an original definition: {n}"
-    unless (env.find? n).any (fun ci => match ci with | .axiomInfo _ => true | _ => false) do
-      throwError "Implementation unexpectedly visible: {n}"
   for n in #[`OAI.KLInvariance.LocalCover.splitEquiv,
       `OAI.KLInvariance.CoefficientChange.equivVal,
       `OAI.KLInvariance.CoefficientChange.map,
-      `OAI.KLInvariance.MomentGraph.Sheaf.baseChangeQuotient] do
+      `OAI.KLInvariance.MomentGraph.Sheaf.baseChangeQuotient,
+      `OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback] do
     unless (env.find? n).any (fun ci => ci.hasValue) do
       throwError "Lost transparent computation control: {n}"
-  logInfo "quotientPullback body hidden; splitEquiv/equivVal/map/baseChangeQuotient computation controls visible."
+  logInfo "Round 2: all selected computation interfaces exposed."
 
 section
 variable {R B P : Type*} [CommRing R] [IsLocalRing R]
@@ -84,7 +80,6 @@ example (a : R) (p q t : Prop) (h : q → p) (j : t → q)
 
 example (a : R) (p q : Prop) (h : q → p) (v : PLift p → R) (x : PLift q) :
     quotientPullback a p q h v x = Ideal.Quotient.mk _ (v ⟨h x.down⟩) := by
-  fail_if_success exact rfl
   exact quotientPullback_apply a p q h v x
 
 -- The generic equivalence API derives the inverse formula from the existing

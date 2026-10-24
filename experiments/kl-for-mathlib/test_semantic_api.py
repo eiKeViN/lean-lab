@@ -19,14 +19,14 @@ class BoundedApi(unittest.TestCase):
         additions={**a.added_types(),**a.generated_types()}
         old={'historical':{'type':'old'}}
         records={**old,**additions}
-        with patch('compare_types.load',return_value=records):
+        with patch('api_evolution.strip_additions',side_effect=lambda r:r),patch('compare_types.load',return_value=records):
             self.assertEqual(a.prior_export('unused',1),old)
         for n in additions:
             bad={**records,n:{**records[n],'kind':'axiom'}}
-            with patch('compare_types.load',return_value=bad):
+            with patch('api_evolution.strip_additions',side_effect=lambda r:r),patch('compare_types.load',return_value=bad):
                 with self.assertRaises(RuntimeError):a.prior_export('unused',1)
         for bad in ({**records,'unlisted':{}},dict(list(records.items())[:-1])):
-            with patch('compare_types.load',return_value=bad):
+            with patch('api_evolution.strip_additions',side_effect=lambda r:r),patch('compare_types.load',return_value=bad):
                 with self.assertRaises(RuntimeError):a.prior_export('unused',1)
 
 if __name__=='__main__':unittest.main()

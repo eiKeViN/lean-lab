@@ -32,6 +32,7 @@ def convert(path,data):
     if sha(s.encode())!=d['after_sha256']:raise RuntimeError('Changed final105 output')
     return s.encode()
 def legacy_source(path,data):
+    data=__import__('api_evolution').prior_source(path,data)
     from semantic_api import prior_source
     data=prior_source(path,data)
     if path not in PATHS:return data
@@ -83,7 +84,7 @@ def prior_view(actual):
 
 def contract_summary():
     c=registry()
-    return {'actual_export_count':3947,'accepted_main_export_count':3940,
+    return {'actual_export_count':3947+len(__import__('api_evolution').additions()),'accepted_main_export_count':3940,
       'semantic_api_additions':__import__('semantic_api').added_types(),
       'semantic_api_generated':__import__('semantic_api').generated_types(),'prior_contract_view_count':3947,
       'comparison_view':'retained declarations plus historical records ONLY for the eight explicitly retired names; not an availability assertion',
@@ -117,7 +118,7 @@ def compare_full(path):
     actual=__import__('semantic_api').prior_export(path,3940);old=baseline_types();raw=compare(old,actual)
     view=prior_view(actual);r=compare(old,view);left,accepted=accept_type(r)
     if not left['passed'] or left['relocated']:raise RuntimeError('New unaccepted final105 difference: '+json.dumps(raw))
-    return {'raw':compare(old,__import__('compare_types').load(path,3947)),
+    return {'raw':compare(old,__import__('compare_types').load(path)),
       'historical_policy_raw':raw,'semantic_api_additions':__import__('semantic_api').added_types(),
       'semantic_api_generated':__import__('semantic_api').generated_types(),
       'explicit_generated_contract_breaks':registry()['removed'],'classified_generated_additions':registry()['generated_added'],'accepted_representation_changes':accepted,'passed':True,'fully_source_compatible':False}

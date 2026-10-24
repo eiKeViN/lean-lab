@@ -99,7 +99,8 @@ def products():
  from module_final import overlay as final_modules
  from module_all import overlay as all_modules
  from semantic_api import overlay as semantic_api
- return semantic_api(all_modules(final_modules(next_modules(attach(rollout(modules(overlay(pristine_products()))))))))
+ from api_evolution import overlay as evolution
+ return evolution(semantic_api(all_modules(final_modules(next_modules(attach(rollout(modules(overlay(pristine_products())))))))))
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args();files=products()

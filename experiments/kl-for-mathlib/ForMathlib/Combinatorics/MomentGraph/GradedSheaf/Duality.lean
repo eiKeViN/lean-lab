@@ -131,12 +131,55 @@ noncomputable section
   lower f := ModuleData.changeHom e he (S.lower f)
   upper f := ModuleData.changeHom e he (S.upper f)
 
+ /-- Coefficient transport preserves the lower edge map on underlying vectors. -/
+ @[simp] theorem coefficientChange_lower_val (S : GradedSheaf (𝓐 := 𝓐) G)
+     (f : E) (m : (coefficientChange e he S).vertex (G.source f)) :
+     ((coefficientChange e he S).forget.lower f m).val = S.forget.lower f m.val := by
+   exact ModuleData.val_changeHom e he (S.lower f) m
+
+ /-- Coefficient transport preserves the upper edge map on underlying vectors. -/
+ @[simp] theorem coefficientChange_upper_val (S : GradedSheaf (𝓐 := 𝓐) G)
+     (f : E) (m : (coefficientChange e he S).vertex (G.target f)) :
+     ((coefficientChange e he S).forget.upper f m).val = S.forget.upper f m.val := by
+   exact ModuleData.val_changeHom e he (S.upper f) m
+
+ /-- Compatibility is invariant under pointwise coefficient transport. -/
+ theorem coefficientChange_compatibleOn_iff (S : GradedSheaf (𝓐 := 𝓐) G)
+     (U : Set V) (a : (coefficientChange e he S).forget.Assignment) :
+     (coefficientChange e he S).forget.CompatibleOn U a ↔
+       S.forget.CompatibleOn U (fun x => (a x).val) := by
+   constructor
+   · intro ha f hs ht
+     exact (coefficientChange_lower_val e he S f _).symm.trans
+       ((congrArg CoefficientChange.val (ha f hs ht)).trans
+         (coefficientChange_upper_val e he S f _))
+   · intro ha f hs ht
+     apply CoefficientChange.ext
+     exact (coefficientChange_lower_val e he S f _).trans
+       ((ha f hs ht).trans (coefficientChange_upper_val e he S f _).symm)
+
  @[expose] def Hom.coefficientChange {S T : GradedSheaf (𝓐 := 𝓐) G} (g : Hom S T) :
     Hom (coefficientChange e he S) (coefficientChange e he T) where
   vertex x := ModuleData.changeHom e he (g.vertex x)
   edge f := ModuleData.changeHom e he (g.edge f)
-  lower f m := CoefficientChange.ext (g.lower f m.val)
-  upper f m := CoefficientChange.ext (g.upper f m.val)
+  lower f m := by
+    apply CoefficientChange.ext
+    calc
+      _ = (g.edge f).map ((S.lower f).map m.val) :=
+        (ModuleData.val_changeHom e he (g.edge f) _).trans
+          (congrArg (g.edge f).map (coefficientChange_lower_val e he S f m))
+      _ = (T.lower f).map ((g.vertex (G.source f)).map m.val) := g.lower f m.val
+      _ = _ := ((coefficientChange_lower_val e he T f _).trans
+        (congrArg (T.lower f).map (ModuleData.val_changeHom e he (g.vertex _) m))).symm
+  upper f m := by
+    apply CoefficientChange.ext
+    calc
+      _ = (g.edge f).map ((S.upper f).map m.val) :=
+        (ModuleData.val_changeHom e he (g.edge f) _).trans
+          (congrArg (g.edge f).map (coefficientChange_upper_val e he S f m))
+      _ = (T.upper f).map ((g.vertex (G.target f)).map m.val) := g.upper f m.val
+      _ = _ := ((coefficientChange_upper_val e he T f _).trans
+        (congrArg (T.upper f).map (ModuleData.val_changeHom e he (g.vertex _) m))).symm
 
  theorem coefficientChange_free (S : GradedSheaf (𝓐 := 𝓐) G) (hS : S.FreeStalks) :
     (coefficientChange e he S).FreeStalks := by
@@ -153,26 +196,32 @@ noncomputable section
   · intro m
     constructor
     · intro hm
-      have hz : (S.upper f).map m.val=0 := congrArg CoefficientChange.val hm
+      have hz : (S.upper f).map m.val=0 :=
+        (coefficientChange_upper_val e he S f m).symm.trans
+          ((congrArg CoefficientChange.val hm).trans (CoefficientChange.val_zero e _))
       obtain ⟨n,hn⟩ := (hS f).2 m.val |>.mp hz
       refine ⟨CoefficientChange.mk n,CoefficientChange.ext ?_⟩
-      change m.val=e.symm (e (α f)) • n
-      simpa only [e.symm_apply_apply] using hn
+      calc
+        m.val = α f • n := hn
+        _ = e.symm (e (α f)) • n := congrArg (fun a : A => a • n) (e.symm_apply_apply _).symm
+        _ = _ := (CoefficientChange.val_smul e (S.vertex (G.target f)) (e (α f)) (CoefficientChange.mk n)).symm
     · rintro ⟨n,rfl⟩
       apply CoefficientChange.ext
-      change (S.upper f).map (e.symm (e (α f)) • n.val)=0
-      rw [e.symm_apply_apply]
-      exact ((hS f).2 _).mpr ⟨n.val,rfl⟩
+      calc
+        _ = (S.upper f).map ((e (α f) • n).val) := coefficientChange_upper_val e he S f _
+        _ = (S.upper f).map (α f • n.val) := congrArg (S.upper f).map
+          ((CoefficientChange.val_smul e (S.vertex (G.target f)) (e (α f)) n).trans
+            (congrArg (fun a : A => a • n.val) (e.symm_apply_apply _)))
+        _ = 0 := ((hS f).2 _).mpr ⟨n.val,rfl⟩
+        _ = _ := (CoefficientChange.val_zero e _).symm
 
  theorem coefficientChange_flabby (S : GradedSheaf (𝓐 := 𝓐) G) (hS : S.forget.Flabby) :
     (coefficientChange e he S).forget.Flabby := by
   intro U hU f hf
-  have hf' : S.forget.CompatibleOn U (fun x => (f x).val) := fun q hs ht =>
-    congrArg CoefficientChange.val (hf q hs ht)
+  have hf' := (coefficientChange_compatibleOn_iff e he S U f).mp hf
   obtain ⟨g,hg,hgf⟩ := hS U hU (fun x => (f x).val) hf'
   refine ⟨fun x => CoefficientChange.mk (g x),?_,?_⟩
-  · intro q hs ht
-    exact CoefficientChange.ext (hg q hs ht)
+  · exact (coefficientChange_compatibleOn_iff e he S Set.univ _).mpr hg
   · intro x hx
     exact CoefficientChange.ext (hgf x hx)
 
@@ -181,19 +230,24 @@ noncomputable section
   intro x m
   obtain ⟨g,hg,hgx⟩ := hS x m.val
   refine ⟨fun x => CoefficientChange.mk (g x),?_,CoefficientChange.ext hgx⟩
-  intro q hs ht
-  exact CoefficientChange.ext (hg q hs ht)
+  exact (coefficientChange_compatibleOn_iff e he S Set.univ _).mpr hg
 
  @[expose] def coefficientChangeSections (S : GradedSheaf (𝓐 := 𝓐) G) (U : Set V) :
     CoefficientChange e (S.forget.sections U) ≃ₗ[B] (coefficientChange e he S).forget.sections U where
-  toFun m := ⟨fun x => CoefficientChange.mk (m.val.val x),fun q hs ht =>
-    CoefficientChange.ext (m.val.property q hs ht)⟩
-  invFun m := CoefficientChange.mk ⟨fun x => (m.val x).val,fun q hs ht =>
-    congrArg CoefficientChange.val (m.property q hs ht)⟩
+  toFun m := ⟨fun x => CoefficientChange.mk (m.val.val x),
+    (coefficientChange_compatibleOn_iff e he S U (fun x => CoefficientChange.mk (m.val.val x))).mpr m.val.property⟩
+  invFun m := CoefficientChange.mk ⟨fun x => (m.val x).val,
+    (coefficientChange_compatibleOn_iff e he S U m.val).mp m.property⟩
   left_inv _ := rfl
   right_inv _ := rfl
   map_add' _ _ := rfl
   map_smul' _ _ := rfl
+
+ /-- The inverse section transport preserves each underlying stalk value. -/
+ @[simp] theorem coefficientChangeSections_symm_val_apply
+     (S : GradedSheaf (𝓐 := 𝓐) G) (U : Set V)
+     (m : (coefficientChange e he S).forget.sections U) (x : V) :
+     ((coefficientChangeSections e he S U).symm m).val.val x = (m.val x).val := by rfl
 
 end
 end KLInvariance.MomentGraph.GradedSheaf
@@ -249,24 +303,50 @@ noncomputable section
     ((CoefficientChange.pairingEquiv e p.pairing).trans
       (coefficientChangeSections e he S Set.univ).symm.dualMap)
   homogeneous i j m n hm hn := by
+    change CoefficientChange.pairingEquiv e p.pairing
+      ((coefficientChangeSections e he S Set.univ).symm m)
+      ((coefficientChangeSections e he S Set.univ).symm n) ∈ _
+    rw [CoefficientChange.pairingEquiv_apply]
     apply (he (i+j-d) _).mp
-    exact p.homogeneous i j _ _
-      (fun x => (ModuleData.mem_changePiece e (S.vertex x) i (m.val x)).mp (hm x))
-      (fun x => (ModuleData.mem_changePiece e (S.vertex x) j (n.val x)).mp (hn x))
+    apply p.homogeneous i j
+    · intro x
+      rw [coefficientChangeSections_symm_val_apply]
+      exact (ModuleData.mem_changePiece e (S.vertex x) i (m.val x)).mp (hm x)
+    · intro x
+      rw [coefficientChangeSections_symm_val_apply]
+      exact (ModuleData.mem_changePiece e (S.vertex x) j (n.val x)).mp (hn x)
   left_orthogonal x m n hm hn := by
-    change e (p.pairing _ _)=0
+    change CoefficientChange.pairingEquiv e p.pairing
+      ((coefficientChangeSections e he S Set.univ).symm m)
+      ((coefficientChangeSections e he S Set.univ).symm n) = 0
+    rw [CoefficientChange.pairingEquiv_apply]
     apply (congrArg e ?_).trans (map_zero e)
     apply p.left_orthogonal x
     · intro y hy
-      exact congrArg (fun v : CoefficientChange e (S.vertex y) => v.val) (hm y hy)
-    · exact congrArg (fun v : CoefficientChange e (S.vertex x) => v.val) hn
+      rw [coefficientChangeSections_symm_val_apply]
+      exact (congrArg (fun v : CoefficientChange e (S.vertex y) => v.val) (hm y hy)).trans (CoefficientChange.val_zero e (S.vertex y))
+    · rw [coefficientChangeSections_symm_val_apply]
+      exact (congrArg (fun v : CoefficientChange e (S.vertex x) => v.val) (hn)).trans (CoefficientChange.val_zero e (S.vertex x))
   right_orthogonal x m n hm hn := by
-    change e (p.pairing _ _)=0
+    change CoefficientChange.pairingEquiv e p.pairing
+      ((coefficientChangeSections e he S Set.univ).symm m)
+      ((coefficientChangeSections e he S Set.univ).symm n) = 0
+    rw [CoefficientChange.pairingEquiv_apply]
     apply (congrArg e ?_).trans (map_zero e)
     apply p.right_orthogonal x
-    · exact congrArg (fun v : CoefficientChange e (S.vertex x) => v.val) hm
+    · rw [coefficientChangeSections_symm_val_apply]
+      exact (congrArg (fun v : CoefficientChange e (S.vertex x) => v.val) (hm)).trans (CoefficientChange.val_zero e (S.vertex x))
     · intro y hy
-      exact congrArg (fun v : CoefficientChange e (S.vertex y) => v.val) (hn y hy)
+      rw [coefficientChangeSections_symm_val_apply]
+      exact (congrArg (fun v : CoefficientChange e (S.vertex y) => v.val) (hn y hy)).trans (CoefficientChange.val_zero e (S.vertex y))
+
+ /-- Pairing transport is coefficient transport after inverse section transport. -/
+ theorem PerfectPairing.coefficientChange_apply {S : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
+     (p : PerfectPairing S d) (m n : (GradedSheaf.coefficientChange e he S).forget.sections Set.univ) :
+     (p.coefficientChange e he).pairing m n =
+       e (p.pairing ((coefficientChangeSections e he S Set.univ).symm m).val
+         ((coefficientChangeSections e he S Set.univ).symm n).val) := by
+   exact CoefficientChange.pairingEquiv_apply e p.pairing _ _
 
 end
 end KLInvariance.MomentGraph.GradedSheaf

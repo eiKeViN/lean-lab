@@ -137,7 +137,7 @@ def static_checks():
  combined.update({n:set(ds)-{'Mathlib'} for n,ds in M['legacy_shims'].items()})
  list(graphlib.TopologicalSorter(combined).static_order())
  # No new mathematical declaration can hide in a file outside the deterministic products.
- allowed={'SemanticApiChecks.lean'}|{M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'ModernAllTypes.lean','ModernAllCompat.lean','ModernAllConsumer.lean','ModernOrdinaryAllCompat.lean','ModernStructureCompat.lean','ModernFinalTypes.lean','ModernFinalCompat.lean','ModernNextTypes.lean','ModernNextConsumer.lean','StalkEquationCompat.lean','ModernAttachTypes.lean','ModernAttachConsumer.lean','SafeImportChecks.lean','ModernCoordinateChecks.lean','ModernCoordinateMathlibChecks.lean','ModernRolloutTypes.lean','ImplementationImports.lean','ImplementationPublicTypes.lean','ImplementationSemanticCorpus.lean','LegacyKernelEntryChecks.lean','ModernPublicTypes.lean','ModernCompatChecks.lean','SemanticCorpus.lean','PilotChecks.lean','PilotAudit.lean','StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
+ allowed={'SemanticApiChecks.lean','ApiEvolutionChecks.lean'}|{M['fixed_destinations'].get(p,p) for p in M['fixed']}|{n.replace('.','/')+'.lean' for n in modules}|{n.replace('.','/')+'.lean' for n in legacy}|{n.replace('.','/')+'.lean' for n in M['entrypoints']}|{'ModernAllTypes.lean','ModernAllCompat.lean','ModernAllConsumer.lean','ModernOrdinaryAllCompat.lean','ModernStructureCompat.lean','ModernFinalTypes.lean','ModernFinalCompat.lean','ModernNextTypes.lean','ModernNextConsumer.lean','StalkEquationCompat.lean','ModernAttachTypes.lean','ModernAttachConsumer.lean','SafeImportChecks.lean','ModernCoordinateChecks.lean','ModernCoordinateMathlibChecks.lean','ModernRolloutTypes.lean','ImplementationImports.lean','ImplementationPublicTypes.lean','ImplementationSemanticCorpus.lean','LegacyKernelEntryChecks.lean','ModernPublicTypes.lean','ModernCompatChecks.lean','SemanticCorpus.lean','PilotChecks.lean','PilotAudit.lean','StalkCharacterImportChecks.lean','CoreSheafImportChecks.lean','GradedSupportImportChecks.lean','ProjectEntryChecks.lean','WeightedSumImportChecks.lean','ScaledEvaluationImportChecks.lean','ResponsibilityCompatChecks.lean','OAI/Architecture.lean','PublicTypes.lean','ImportChecks.lean','DomainImportChecks.lean','ForMathlibChecks.lean','ForMathlib.lean'}
  actual={str(p.relative_to(HERE)) for p in HERE.rglob('*.lean') if '.lake' not in p.parts}
  if actual-allowed:raise RuntimeError('Unlisted Lean source: '+str(actual-allowed))
  for p in list((HERE/'OAI').rglob('*.lean'))+list((HERE/'ForMathlib').rglob('*.lean')):
@@ -167,20 +167,20 @@ def main():
  run('mathlib-ready',['lake','--no-build','build','Mathlib'],env=env)
  if args.checks_only:run('oai-ready',['lake','--no-build','build','ForMathlib','OAI'],env=env)
  else:run('library-build',['lake','build','ForMathlib','OAI'],env=env)
- for file in ('SemanticApiChecks','PilotChecks','PilotAudit','StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','ModernCompatChecks','ModernCoordinateChecks','ModernCoordinateMathlibChecks','SafeImportChecks','ModernAttachConsumer','ModernNextConsumer','ModernFinalCompat','ModernAllCompat','ModernAllConsumer','ModernStructureCompat','LegacyKernelEntryChecks','BoundaryChecks','Audit'):
-  if file == 'ModernStructureCompat':
-   from semantic_api import structure_audit
-   path=structure_audit(OUT/'semantic-api-structure-compat.lean')
-  else:path=file+'.lean'
-  run(file,['lake','env','lean',path],env=env)
+ for file in ('ApiEvolutionChecks','SemanticApiChecks','PilotChecks','PilotAudit','StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','ModernCompatChecks','ModernCoordinateChecks','ModernCoordinateMathlibChecks','SafeImportChecks','ModernAttachConsumer','ModernNextConsumer','ModernFinalCompat','ModernAllCompat','ModernAllConsumer','ModernStructureCompat','LegacyKernelEntryChecks','BoundaryChecks','Audit'):
+  run(file,['lake','env','lean',file+'.lean'],env=env)
  from semantic_api import check_axioms as semantic_axioms
  semantic_axioms((OUT/'SemanticApiChecks.log').read_text())
+ from api_evolution import check_axioms as evolution_axioms
+ evolution_axioms((OUT/'ApiEvolutionChecks.log').read_text())
  run('semantic-api-regressions',[sys.executable,'test_semantic_api.py'])
+ run('api-evolution-regressions',[sys.executable,'test_api_evolution.py'])
  check_axioms((OUT/'Audit.log').read_text())
  from proof_evolution import check_pilot_axioms
  check_pilot_axioms((OUT/'PilotAudit.log').read_text())
  run('implementation-imports',['lake','env','lean','-o','.lake/build/lib/lean/ImplementationImports.olean','ImplementationImports.lean'],env=env)
  run('migrated-types',['lake','env','lean','ImplementationPublicTypes.lean'],env=dict(env,LEAN_TYPES_OUT=str(OUT/'migrated-types.tsv')))
+ run('api-evolution-full-records',[sys.executable,'api_evolution.py',str(OUT/'migrated-types.tsv')])
  run('semantic-api-main-comparison',[sys.executable,'semantic_api.py',str(OUT/'migrated-types.tsv')])
  run('final105-full-records',[sys.executable,'module_all.py',str(OUT/'migrated-types.tsv')])
  from semantic_api import modern_exporter

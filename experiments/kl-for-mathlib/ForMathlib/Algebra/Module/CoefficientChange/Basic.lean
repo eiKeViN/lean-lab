@@ -42,6 +42,15 @@ variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module
  local instance _root_.OAI.KLInvariance.CoefficientChange.instRingHomInvPairToRingHomToRingEquivSymm : RingHomInvPair e.symm.toRingHom e.toRingHom := RingHomInvPair.of_ringEquiv_symm e.toRingEquiv
  local instance _root_.OAI.KLInvariance.CoefficientChange.instRingHomInvPairToRingHomToRingEquivSymm_1 : RingHomInvPair e.toRingHom e.symm.toRingHom := RingHomInvPair.of_ringEquiv e.toRingEquiv
 
+ omit [Module A M] [Module k M] [IsScalarTower k A M] in
+ /-- The zero vector is unchanged by restriction of scalars. -/
+ @[simp] theorem val_zero : (0 : CoefficientChange e M).val = 0 := by rfl
+
+ omit [Module k M] [IsScalarTower k A M] in
+ /-- The new scalar acts through the inverse coefficient equivalence. -/
+ @[simp] theorem val_smul (b : B) (m : CoefficientChange e M) :
+     (b • m).val = e.symm b • m.val := by rfl
+
  @[expose] def equiv : M ≃ₛₗ[e.toRingHom] CoefficientChange e M where
    toFun := mk
    invFun := val

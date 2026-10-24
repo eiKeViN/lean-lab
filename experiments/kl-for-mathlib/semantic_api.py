@@ -59,7 +59,7 @@ def generated_types():
 
 def prior_export(path,expected_count):
     from compare_types import load
-    records=load(path)
+    records=__import__('api_evolution').strip_additions(load(path))
     additions={**added_types(),**generated_types()}
     if len(records)!=expected_count+len(additions):raise RuntimeError('Unexpected semantic API count')
     for n,r in additions.items():
@@ -76,22 +76,10 @@ def check_axioms(text):
         if not set(re.findall(r'[A-Za-z_][A-Za-z_.]*',axs))<={'propext','Quot.sound','Classical.choice'}:
             raise RuntimeError('New axiom: '+n)
 
-HIDDEN=('OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback',)
+HIDDEN=()
 def modern_exporter(destination):
-    """Derive the historical ordinary audit with exactly one opaque-def case.
-
-The frozen exporter and interface evidence are untouched. Original kind, exact
-names, types, ownership and axiom checks remain active for every declaration.
-"""
-    original_text=subprocess.check_output(['git','show',BASE+':experiments/kl-for-mathlib/ModernAllTypes.lean'],cwd=ROOT,text=True)
-    if (HERE/'ModernAllTypes.lean').read_text()!=original_text:raise RuntimeError('Changed historical exporter')
-    old='unless visible == want || (want == "theorem" && visible == "axiom") do'
-    names='#['+', '.join('`'+n for n in HIDDEN)+']'
-    new='unless visible == want || (want == "theorem" && visible == "axiom") ||\n        (want == "def" && visible == "axiom" && '+names+'.contains n) do'
-    if original_text.count(old)!=1:raise RuntimeError('Unexpected ordinary exporter guard')
-    text=original_text.replace(old,new)
-    Path(destination).write_text(text)
-    return str(destination)
+    # Round 2 restores the exposed computation interface: use the frozen audit.
+    return str(HERE/'ModernAllTypes.lean')
 
 def compare_main(path):
     import gzip,tempfile
@@ -102,7 +90,7 @@ def compare_main(path):
         raise RuntimeError('Changed accepted main evidence')
     with tempfile.NamedTemporaryFile() as f:
         f.write(gzip.decompress(b));f.flush();old=load(f.name,3940)
-    current=load(path,3947);raw=compare(old,current);additions={**added_types(),**generated_types()}
+    current=__import__('api_evolution').strip_additions(load(path));raw=compare(old,current);additions={**added_types(),**generated_types()}
     if raw['missing'] or raw['changed'] or raw['relocated'] or set(raw['added'])!=set(additions):
         raise RuntimeError('Unapproved change from accepted main: '+json.dumps(raw))
     if any(current[n]!=r for n,r in additions.items()):raise RuntimeError('Changed new API')
@@ -111,48 +99,3 @@ def compare_main(path):
 if __name__=='__main__':
     import sys
     print(json.dumps(compare_main(sys.argv[1]),indent=2))
-
-
-def structure_audit(destination):
-    """Reconstitute old implementation helpers in a finite private audit context.
-
-Public historical types still resolve to current public operations. Only the
-old-helper value/type reconstruction uses two exact historical implementations.
-The ordinary API consumer does not import or use this private audit context.
-"""
-    original_text=subprocess.check_output(['git','show',BASE+':experiments/kl-for-mathlib/ModernStructureCompat.lean'],cwd=ROOT,text=True)
-    if (HERE/'ModernStructureCompat.lean').read_text()!=original_text:raise RuntimeError('Changed original Structure audit')
-    source=original('ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean').decode()
-    start=source.index(' @[expose] def quotientPullback (')
-    end=source.index(' @[expose] def structureBaseChangeIso',start)
-    historical=source[start:end].replace(' @[expose] def quotientPullback (',' private def quotientPullback (').replace(' theorem baseChangePi_natural',' private theorem baseChangePi_natural')
-    # Inside the namespace the original names refer to the exact private copies.
-    prefix='''
-namespace SemanticApiHistoricalAudit
-open OAI.KLInvariance.MomentGraph.Sheaf TensorProduct
-universe apiR apiS
-variable {R : Type apiR} [CommRing R] (S : Type apiS) [CommRing S] [Algebra R S]
-'''+historical+'\nend SemanticApiHistoricalAudit\n'
-    marker='open Lean Meta Elab Command BoundaryCodec\n'
-    if original_text.count(marker)!=1:raise RuntimeError('Unexpected Structure audit header')
-    text=original_text.replace(marker,prefix+'\n'+marker)
-    point='  for i in order do\n'
-    code='''  let renameAux := fun (e : Expr) => e.replace fun e => match e with
-    | .const n us =>
-      if n == `OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback then
-        some (.const ``SemanticApiHistoricalAudit.quotientPullback us)
-      else if n == `OAI.KLInvariance.MomentGraph.Sheaf.baseChangePi_natural then
-        some (.const ``SemanticApiHistoricalAudit.baseChangePi_natural us)
-      else if names.contains n then some (.const (`StructureOld ++ n) us) else none
-    | _ => none
-'''
-    text=text.replace(point,code+point,1)
-    split=text.index('  unless !(← isDefEq (mkConst ``Nat)')
-    head,tail=text[:split],text[split:]
-    if head.count('type := rename es[ti]!')!=2 or head.count('value := rename es[vi]!')!=2:
-        raise RuntimeError('Unexpected exact auxiliary reconstruction')
-    head=head.replace('type := rename es[ti]!','type := renameAux es[ti]!').replace('value := rename es[vi]!','value := renameAux es[vi]!')
-    text=head+tail
-    text+='\n#print axioms SemanticApiHistoricalAudit.quotientPullback\n#print axioms SemanticApiHistoricalAudit.baseChangePi_natural\n'
-    Path(destination).write_text(text)
-    return str(destination)

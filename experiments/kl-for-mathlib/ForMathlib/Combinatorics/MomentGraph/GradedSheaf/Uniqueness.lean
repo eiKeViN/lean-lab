@@ -124,7 +124,10 @@ noncomputable section
  @[expose] def SymmetricPerfectPairing.coefficientChange {S : GradedSheaf (𝓐 := 𝓐) G} {d : ℤ}
     (p : SymmetricPerfectPairing S d) : SymmetricPerfectPairing (coefficientChange e he S) d where
   toPerfectPairing := p.toPerfectPairing.coefficientChange e he
-  symmetric _m _n := congrArg e (p.symmetric _ _)
+  symmetric m n := by
+    exact (PerfectPairing.coefficientChange_apply e he p.toPerfectPairing m n).trans
+      ((congrArg e (p.symmetric _ _)).trans
+        (PerfectPairing.coefficientChange_apply e he p.toPerfectPairing n m).symm)
 
 end
 end KLInvariance.MomentGraph.GradedSheaf

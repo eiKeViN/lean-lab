@@ -30,6 +30,13 @@ noncomputable section
     apply CoefficientChange.ext
     exact (val_map e f.toLinearMap (mk (f.symm n.val))).trans (f.apply_symm_apply n.val)
 
+ omit [Module k M] [IsScalarTower k A M] in
+ /-- Transporting an equivalence applies it to the underlying vector. -/
+ @[simp] theorem val_mapEquiv {N : Type un} [AddCommGroup N] [Module A N]
+     [Module k N] [IsScalarTower k A N]
+     (f : M ≃ₗ[A] N) (m : CoefficientChange e M) :
+     (mapEquiv e f m).val = f m.val := by rfl
+
  @[expose] def dualTo (f : CoefficientChange e (Dual A M)) : Dual B (CoefficientChange e M) where
   toFun m := e (f.val m.val)
   map_add' m n := by change e (f.val (m.val+n.val))=_; rw [map_add,map_add]
@@ -83,9 +90,8 @@ noncomputable section
  omit [Module k M] [IsScalarTower k A M] in
  theorem pairingEquiv_apply (d : M ≃ₗ[A] Dual A M) (m n : CoefficientChange e M) :
     pairingEquiv e d m n=e (d m.val n.val) := by
-   change e ((map e d.toLinearMap m).val n.val) = _
-   rw [val_map]
-   rfl
+   change e ((mapEquiv e d m).val n.val) = _
+   rw [val_mapEquiv]
 
 end
 end KLInvariance.CoefficientChange

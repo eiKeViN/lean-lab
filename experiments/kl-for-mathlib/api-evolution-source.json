@@ -1,0 +1,706 @@
+{
+  "base_commit": "31f05da2d4ff1d80f2ceed3f8e1f3ac86fcb933b",
+  "files": {
+    "ForMathlib/Algebra/Module/CoefficientChange/Basic.lean": {
+      "before_sha256": "52216c30d1c1424c874372e835fbb7efe51c0c5dae94398fcebab9a4c68c0812",
+      "after_sha256": "c8e1f493232abed8d4f02e4122367ddd01920c622bdb071913c21b5d5cfe203f",
+      "edits": [
+        {
+          "start": 1997,
+          "old": "",
+          "new": "\n\n omit [Module A M] [Module k M] [IsScalarTower k A M] in\n /-- The zero vector is unchanged by restriction of scalars. -/\n @[simp] theorem val_zero : (0 : CoefficientChange e M).val = 0 := by rfl\n\n omit [Module k M] [IsScalarTower k A M] in\n /-- The new scalar acts through the inverse coefficient equivalence. -/\n @[simp] theorem val_smul (b : B) (m : CoefficientChange e M) :\n     (b \u2022 m).val = e.symm b \u2022 m.val := by rfl"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/CoefficientChange/Dual.lean": {
+      "before_sha256": "20b80e2ddf973084e9e8c319955765e34a4b49a8f86a009a4ba9c72f189a6605",
+      "after_sha256": "989c5b004d74575d7ce91b5f9075e38a4f52bb61d5877a87dd823f5ab19fcee2",
+      "edits": [
+        {
+          "start": 1136,
+          "old": "",
+          "new": "\n\n omit [Module k M] [IsScalarTower k A M] in\n /-- Transporting an equivalence applies it to the underlying vector. -/\n @[simp] theorem val_mapEquiv {N : Type un} [AddCommGroup N] [Module A N]\n     [Module k N] [IsScalarTower k A N]\n     (f : M \u2243\u2097[A] N) (m : CoefficientChange e M) :\n     (mapEquiv e f m).val = f m.val := by rfl"
+        },
+        {
+          "start": 3026,
+          "old": "",
+          "new": "Equiv"
+        },
+        {
+          "start": 3030,
+          "old": ".toLinearMap",
+          "new": ""
+        },
+        {
+          "start": 3075,
+          "old": "",
+          "new": "Equiv"
+        },
+        {
+          "start": 3076,
+          "old": "\n   rfl",
+          "new": ""
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange/Basic.lean": {
+      "before_sha256": "cfb15700e8de53b75cd41be1f1e5f8af34a835109e7ae1ce0ad87faa792b3e16",
+      "after_sha256": "57d8738b6a8ac63607a901607eaa57ddc204db6639a0c26ad95b5f1c4e474fda",
+      "edits": [
+        {
+          "start": 2508,
+          "old": "",
+          "new": "/-- Graded coefficient transport evaluates through the original homomorphism. -/\n @[simp] theorem val_changeHom {M N : ModuleData.{uk,ua,um} \ud835\udcd0} (f : Hom M N)\n     (m : change e he M) : (changeHom e he f |>.map m).val = f.map m.val := by\n   exact CoefficientChange.val_map e f.map m\n\n "
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean": {
+      "before_sha256": "744aec7d63a7c12f07150dddd0ba6658f871acaf2c84ce0947f637f99d0c6e8a",
+      "after_sha256": "3f975ba93e08c45fb4afab80da21fa29cedd01836444acc4cca2460852236845",
+      "edits": [
+        {
+          "start": 5720,
+          "old": "",
+          "new": "/-- Coefficient transport preserves the lower edge map on underlying vectors. -/\n @[simp] theorem coefficientChange_lower_val (S : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G)\n     (f : E) (m : (coefficientChange e he S).vertex (G.source f)) :\n     ((coefficientChange e he S).forget.lower f m).val = S.forget.lower f m.val := by\n   exact ModuleData.val_changeHom e he (S.lower f) m\n\n /-- Coefficient transport preserves the upper edge map on underlying vectors. -/\n @[simp] theorem coefficientChange_upper_val (S : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G)\n     (f : E) (m : (coefficientChange e he S).vertex (G.target f)) :\n     ((coefficientChange e he S).forget.upper f m).val = S.forget.upper f m.val := by\n   exact ModuleData.val_changeHom e he (S.upper f) m\n\n /-- Compatibility is invariant under pointwise coefficient transport. -/\n theorem coefficientChange_compatibleOn_iff (S : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G)\n     (U : Set V) (a : (coefficientChange e he S).forget.Assignment) :\n     (coefficientChange e he S).forget.CompatibleOn U a \u2194\n       S.forget.CompatibleOn U (fun x => (a x).val) := by\n   constructor\n   \u00b7 intro ha f hs ht\n     exact (coefficientChange_lower_val e he S f _).symm.trans\n       ((congrArg CoefficientChange.val (ha f hs ht)).trans\n         (coefficientChange_upper_val e he S f _))\n   \u00b7 intro ha f hs ht\n     apply CoefficientChange.ext\n     exact (coefficientChange_lower_val e he S f _).trans\n       ((ha f hs ht).trans (coefficientChange_upper_val e he S f _).symm)\n\n "
+        },
+        {
+          "start": 5988,
+          "old": "CoefficientChange.ext (g.lower f m.val)",
+          "new": "by"
+        },
+        {
+          "start": 6030,
+          "old": "u",
+          "new": "  a"
+        },
+        {
+          "start": 6033,
+          "old": "er f m :=",
+          "new": "ly"
+        },
+        {
+          "start": 6064,
+          "old": "",
+          "new": "\n    calc\n      _ ="
+        },
+        {
+          "start": 6066,
+          "old": "",
+          "new": "g.edge f).map ((S.lower f).map m.val) :=\n        (ModuleData.val_changeHom e he (g.edge f) _).trans\n          (congrArg (g.edge f).map (coefficientChange_lower_val e he S f m))\n      _ = (T.lower f).map ((g.vertex (G.source f)).map m.val) := g.lower f m.val\n      _ = _ := ((coefficientChange_lower_val e he T f _).trans\n        (congrArg (T.lower f).map (ModuleData.val_changeHom e he (g.vertex _) m))).symm\n  upper f m := by\n    apply CoefficientChange.ext\n    calc\n      _ = (g.edge f).map ((S.upper f).map m.val) :=\n        (ModuleData.val_changeHom e he (g.edge f) _).trans\n          (congrArg (g.edge f).map (coefficientChange_upper_val e he S f m))\n      _ = (T.upper f).map ((g.vertex (G.target f)).map m.val) := "
+        },
+        {
+          "start": 6081,
+          "old": "",
+          "new": "\n      _ = _ := ((coefficientChange_upper_val e he T f _"
+        },
+        {
+          "start": 6082,
+          "old": "",
+          "new": ".trans\n        (congrArg (T.upper f).map (ModuleData.val_changeHom e he (g.vertex _) m))).symm"
+        },
+        {
+          "start": 6637,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "start": 6638,
+          "old": "",
+          "new": "       (coefficientChange_upper_val e he S f m).symm.trans\n          (("
+        },
+        {
+          "start": 6671,
+          "old": "",
+          "new": ").trans (CoefficientChange.val_zero e _))"
+        },
+        {
+          "start": 6789,
+          "old": "h",
+          "new": ""
+        },
+        {
+          "start": 6791,
+          "old": "nge",
+          "new": "lc\n       "
+        },
+        {
+          "start": 6800,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 6801,
+          "old": "",
+          "new": " \u03b1 f \u2022 n := hn\n        _ = "
+        },
+        {
+          "start": 6821,
+          "old": "\n",
+          "new": ""
+        },
+        {
+          "start": 6823,
+          "old": "",
+          "new": ":="
+        },
+        {
+          "start": 6824,
+          "old": "",
+          "new": "congrArg"
+        },
+        {
+          "start": 6825,
+          "old": "",
+          "new": "(fun"
+        },
+        {
+          "start": 6826,
+          "old": "  simp",
+          "new": ""
+        },
+        {
+          "start": 6834,
+          "old": "o",
+          "new": ": A => a \u2022 "
+        },
+        {
+          "start": 6836,
+          "old": "ly",
+          "new": ")"
+        },
+        {
+          "start": 6839,
+          "old": "[",
+          "new": "("
+        },
+        {
+          "start": 6858,
+          "old": "]",
+          "new": ""
+        },
+        {
+          "start": 6860,
+          "old": "u",
+          "new": "_)."
+        },
+        {
+          "start": 6862,
+          "old": "",
+          "new": "ymm\n        _ = _ := (Coeff"
+        },
+        {
+          "start": 6863,
+          "old": "",
+          "new": "cientCha"
+        },
+        {
+          "start": 6865,
+          "old": "",
+          "new": "e.val_smul"
+        },
+        {
+          "start": 6866,
+          "old": "",
+          "new": "e (S.vertex (G.target f)) (e (\u03b1 f)) (CoefficientC"
+        },
+        {
+          "start": 6867,
+          "old": "",
+          "new": "a"
+        },
+        {
+          "start": 6868,
+          "old": "",
+          "new": "ge.mk n)).symm"
+        },
+        {
+          "start": 6931,
+          "old": "h",
+          "new": ""
+        },
+        {
+          "start": 6933,
+          "old": "nge",
+          "new": "lc\n        _ ="
+        },
+        {
+          "start": 6954,
+          "old": "",
+          "new": "(e (\u03b1 f) \u2022 n).val) := coefficientChange_upper_val e he S f _\n        _ = (S.upper f).map (\u03b1 f \u2022 n.val) := congrArg (S.upper f).map\n          ((CoefficientChang"
+        },
+        {
+          "start": 6956,
+          "old": "",
+          "new": "val_"
+        },
+        {
+          "start": 6957,
+          "old": "y",
+          "new": ""
+        },
+        {
+          "start": 6959,
+          "old": "m",
+          "new": "ul e (S.vertex (G.target f))"
+        },
+        {
+          "start": 6971,
+          "old": "",
+          "new": "n).trans\n            (congrArg (fun a : A => a "
+        },
+        {
+          "start": 6979,
+          "old": "=0\n",
+          "new": ""
+        },
+        {
+          "start": 6983,
+          "old": "     rw [",
+          "new": "("
+        },
+        {
+          "start": 7010,
+          "old": "]",
+          "new": " _)))"
+        },
+        {
+          "start": 7018,
+          "old": "exact",
+          "new": "  _ = 0 :="
+        },
+        {
+          "start": 7052,
+          "old": "",
+          "new": "\n        _ = _ := (CoefficientChange.val_zero e _).symm"
+        },
+        {
+          "start": 7223,
+          "old": " S.forget.CompatibleOn U",
+          "new": "="
+        },
+        {
+          "start": 7249,
+          "old": "fun x => (f x).val) := fun q hs ht =>\n    ",
+          "new": ""
+        },
+        {
+          "start": 7292,
+          "old": "ongrArg C",
+          "new": ""
+        },
+        {
+          "start": 7317,
+          "old": "",
+          "new": "_compatibleOn_iff e he S U f)"
+        },
+        {
+          "start": 7318,
+          "old": "val",
+          "new": "mp"
+        },
+        {
+          "start": 7322,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "start": 7325,
+          "old": " q hs ht)",
+          "new": ""
+        },
+        {
+          "start": 7448,
+          "old": "intro q hs ht\n    ",
+          "new": ""
+        },
+        {
+          "start": 7472,
+          "old": "C",
+          "new": "(c"
+        },
+        {
+          "start": 7489,
+          "old": "",
+          "new": "_compatibleOn_iff e he S Set"
+        },
+        {
+          "start": 7490,
+          "old": "ext",
+          "new": "univ"
+        },
+        {
+          "start": 7494,
+          "old": "(",
+          "new": "_).mpr "
+        },
+        {
+          "start": 7497,
+          "old": " q hs ht)",
+          "new": ""
+        },
+        {
+          "start": 7838,
+          "old": "intro q hs ht\n  ",
+          "new": ""
+        },
+        {
+          "start": 7860,
+          "old": "C",
+          "new": "(c"
+        },
+        {
+          "start": 7877,
+          "old": "",
+          "new": "_compatibleOn_iff e he S Set"
+        },
+        {
+          "start": 7878,
+          "old": "ext",
+          "new": "univ"
+        },
+        {
+          "start": 7882,
+          "old": "(",
+          "new": "_).mpr "
+        },
+        {
+          "start": 7885,
+          "old": " q hs ht)",
+          "new": ""
+        },
+        {
+          "start": 8141,
+          "old": "",
+          "new": "\n    (coefficientChange_compatibleOn_iff e he S U ("
+        },
+        {
+          "start": 8145,
+          "old": "q hs ht",
+          "new": "x"
+        },
+        {
+          "start": 8155,
+          "old": "\n   ",
+          "new": ""
+        },
+        {
+          "start": 8178,
+          "old": "ext",
+          "new": "mk"
+        },
+        {
+          "start": 8183,
+          "old": "",
+          "new": "m.val.val x))).mpr "
+        },
+        {
+          "start": 8197,
+          "old": " q hs ht)",
+          "new": ""
+        },
+        {
+          "start": 8267,
+          "old": "fun q hs ht =>",
+          "new": ""
+        },
+        {
+          "start": 8286,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 8287,
+          "old": "ongrArg C",
+          "new": ""
+        },
+        {
+          "start": 8312,
+          "old": "",
+          "new": "_compatibleOn_iff e he S U m"
+        },
+        {
+          "start": 8316,
+          "old": "",
+          "new": ").mp"
+        },
+        {
+          "start": 8317,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "start": 8328,
+          "old": " q hs ht)",
+          "new": ""
+        },
+        {
+          "start": 8420,
+          "old": "",
+          "new": " rfl\n\n /-- The inverse section transport preserves each underlying stalk value. -/\n @[simp] theorem coefficientChangeSections_symm_val_apply\n     (S : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G) (U : Set V)\n     (m : (coefficientChange e he S).forget.sections U) (x : V) :\n     ((coefficientChangeSections e he S U).symm m).val.val x = (m.val x).val := by"
+        },
+        {
+          "start": 10653,
+          "old": "",
+          "new": "change CoefficientChange.pairingEquiv e p.pairing\n      ((coefficientChangeSections e he S Set.univ).symm m)\n      ((coefficientChangeSections e he S Set.univ).symm n) \u2208 _\n    rw [CoefficientChange.pairingEquiv_apply]\n    "
+        },
+        {
+          "start": 10681,
+          "old": "ex",
+          "new": ""
+        },
+        {
+          "start": 10684,
+          "old": "ct",
+          "new": "pply"
+        },
+        {
+          "start": 10704,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "start": 10705,
+          "old": "_",
+          "new": ""
+        },
+        {
+          "start": 10707,
+          "old": "_",
+          "new": "  \u00b7 intro x"
+        },
+        {
+          "start": 10715,
+          "old": "(",
+          "new": "rw [coe"
+        },
+        {
+          "start": 10717,
+          "old": "u",
+          "new": "ficie"
+        },
+        {
+          "start": 10719,
+          "old": "",
+          "new": "tChangeSections_symm_val_apply]\n"
+        },
+        {
+          "start": 10720,
+          "old": "",
+          "new": "     e"
+        },
+        {
+          "start": 10721,
+          "old": " =>",
+          "new": "act"
+        },
+        {
+          "start": 10790,
+          "old": ")",
+          "new": "\n    \u00b7 intro x"
+        },
+        {
+          "start": 10798,
+          "old": "(",
+          "new": "rw [coe"
+        },
+        {
+          "start": 10800,
+          "old": "u",
+          "new": "ficie"
+        },
+        {
+          "start": 10802,
+          "old": "",
+          "new": "tChangeSections_symm_val_apply]\n"
+        },
+        {
+          "start": 10803,
+          "old": "",
+          "new": "     e"
+        },
+        {
+          "start": 10804,
+          "old": " =>",
+          "new": "act"
+        },
+        {
+          "start": 10873,
+          "old": ")",
+          "new": ""
+        },
+        {
+          "start": 10922,
+          "old": "",
+          "new": "CoefficientChange.pairingEquiv "
+        },
+        {
+          "start": 10924,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "start": 10934,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "start": 10935,
+          "old": "",
+          "new": "     ((coefficientChangeSections e he S Set.univ).symm m)\n      ((coefficientChangeSections e he S Set.univ).symm n) = 0\n    rw [CoefficientChange.pairingEquiv"
+        },
+        {
+          "start": 10936,
+          "old": " _)=0",
+          "new": "apply]"
+        },
+        {
+          "start": 11040,
+          "old": "",
+          "new": "rw [coefficientChangeSections_symm_val_apply]\n      "
+        },
+        {
+          "start": 11046,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 11116,
+          "old": "",
+          "new": ").trans (CoefficientChange.val_zero e (S.vertex y))"
+        },
+        {
+          "start": 11123,
+          "old": "",
+          "new": "rw [coefficientChangeSections_symm_val_apply]\n      "
+        },
+        {
+          "start": 11129,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 11190,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 11192,
+          "old": "",
+          "new": ")).trans (CoefficientChange.val_zero e (S.vertex x))"
+        },
+        {
+          "start": 11241,
+          "old": "",
+          "new": "CoefficientChange.pairingEquiv "
+        },
+        {
+          "start": 11243,
+          "old": "(",
+          "new": ""
+        },
+        {
+          "start": 11253,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "start": 11254,
+          "old": "",
+          "new": "     ((coefficientChangeSections e he S Set.univ).symm m)\n      ((coefficientChangeSections e he S Set.univ).symm n) = 0\n    rw [CoefficientChange.pairingEquiv"
+        },
+        {
+          "start": 11255,
+          "old": " _)=0",
+          "new": "apply]"
+        },
+        {
+          "start": 11343,
+          "old": "",
+          "new": "rw [coefficientChangeSections_symm_val_apply]\n      "
+        },
+        {
+          "start": 11349,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 11410,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 11412,
+          "old": "",
+          "new": ")).trans (CoefficientChange.val_zero e (S.vertex x))"
+        },
+        {
+          "start": 11436,
+          "old": "",
+          "new": "rw [coefficientChangeSections_symm_val_apply]\n      "
+        },
+        {
+          "start": 11442,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 11512,
+          "old": "",
+          "new": ").trans (CoefficientChange.val_zero e (S.vertex y))\n\n /-- Pairing transport is coefficient transport after inverse section transport. -/\n theorem PerfectPairing.coefficientChange_apply {S : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G} {d : \u2124}\n     (p : PerfectPairing S d) (m n : (GradedSheaf.coefficientChange e he S).forget.sections Set.univ) :\n     (p.coefficientChange e he).pairing m n =\n       e (p.pairing ((coefficientChangeSections e he S Set.univ).symm m).val\n         ((coefficientChangeSections e he S Set.univ).symm n).val) := by\n   exact CoefficientChange.pairingEquiv_apply e p.pairing _ _"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Uniqueness.lean": {
+      "before_sha256": "e104fc3d55f34839ed937fedf919011ac4dfcec58fb42341979a7de8733c019a",
+      "after_sha256": "c198e87c9a1bc8869dcfe634bfbbfe9388d9f2d05bf02400c56fd97934bbee9e",
+      "edits": [
+        {
+          "start": 5021,
+          "old": "_",
+          "new": ""
+        },
+        {
+          "start": 5024,
+          "old": "_",
+          "new": ""
+        },
+        {
+          "start": 5030,
+          "old": "",
+          "new": "by\n    exact (PerfectPairing.coefficientChange_apply e he p.toPerfectPairing m n).trans\n      (("
+        },
+        {
+          "start": 5057,
+          "old": "",
+          "new": ")).trans\n        (PerfectPairing.coefficientChange_apply e he p.toPerfectPairing n m).symm"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": {
+      "before_sha256": "1208c7265a8f2c50f18d28bee6e1b17093e6d14236102f3612ce29b8aa24c15c",
+      "after_sha256": "c520c93bc7a0e0a535b760b5aed3301e71310bed32656ffe183284ca8183ba68",
+      "edits": [
+        {
+          "start": 7400,
+          "old": "",
+          "new": "@[expose] "
+        },
+        {
+          "start": 8841,
+          "old": "y\n    have hR : (structureSheaf G \u03b1 c).lower e =\n        quotientPullback (\u03b1 e) (G.source e \u2264 c) (G.target e \u2264 c)\n          ((G.increasing e).le.trans \u00b7) := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (\u03b1 e) (G.source e \u2264 c) (G.target e \u2264 c)\n        ((G.increasing e).le.trans \u00b7) x t).symm\n    have hS : (structureSheaf G (fun e => algebraMap R S (\u03b1 e)) c).lower e =\n        quotientPullback (algebraMap R S (\u03b1 e)) (G.source e \u2264 c) (G.target e \u2264 c)\n          ((G.increasing e).le.trans \u00b7) := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (algebraMap R S (\u03b1 e)) (G.source e \u2264 c)\n        (G.target e \u2264 c) ((G.increasing e).le.trans \u00b7) x t).symm\n    change baseChangePiQuotient S (\u03b1 e) (G.target e \u2264 c)\n      (AlgebraTensorModule.lTensor S S ((structureSheaf G \u03b1 c).lower e) v) = _\n    erw [hR, hS]\n    exact b",
+          "new": ""
+        },
+        {
+          "start": 9811,
+          "old": "  ",
+          "new": ""
+        },
+        {
+          "start": 9859,
+          "old": " by\n    have hR : (structureSheaf G \u03b1 c).upper e =\n        quotientPullback (\u03b1 e) (G.target e \u2264 c) (G.target e \u2264 c) id := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (\u03b1 e) (G.target e \u2264 c) (G.target e \u2264 c) id x t).symm\n    have hS : (structureSheaf G (fun e => algebraMap R S (\u03b1 e)) c).upper e =\n        quotientPullback (algebraMap R S (\u03b1 e)) (G.target e \u2264 c) (G.target e \u2264 c) id := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (algebraMap R S (\u03b1 e)) (G.target e \u2264 c)\n        (G.target e \u2264 c) id x t).symm\n    change baseChangePiQuotient S (\u03b1 e) (G.target e \u2264 c)\n      (AlgebraTensorModule.lTensor S S ((structureSheaf G \u03b1 c).upper e) v) = _\n    erw [hR, hS]\n    exact",
+          "new": ""
+        }
+      ]
+    }
+  }
+}

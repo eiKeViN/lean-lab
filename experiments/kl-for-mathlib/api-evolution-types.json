@@ -1,0 +1,59 @@
+{
+  "mathematical": {
+    "OAI.KLInvariance.CoefficientChange.val_mapEquiv": {
+      "levels": "\"[`uk, `ua, `ub, `um, `un]\"",
+      "type": "5656851925107a8dd724c061cca2e54b798a4a6b8836003e708a9b704e821020",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.CoefficientChange.Dual"
+    },
+    "OAI.KLInvariance.CoefficientChange.val_smul": {
+      "levels": "\"[`uk, `ua, `ub, `um]\"",
+      "type": "89bf5561328763cab4b39238d2fa21001254fc12281e53859f832c73da7cb4b7",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic"
+    },
+    "OAI.KLInvariance.CoefficientChange.val_zero": {
+      "levels": "\"[`uk, `ua, `ub, `um]\"",
+      "type": "1726b7800fae81f4efe20c5d689c85f2923c8d99fd8cf593b881854cdd59ec91",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic"
+    },
+    "OAI.KLInvariance.Graded.ModuleData.val_changeHom": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "50d25ef2821466303fac39629ccd8a8fc471ff10e341dc697556295d8d9921e6",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.PerfectPairing.coefficientChange_apply": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "91c9890af2177bf6731567cfbfe8298e6c595c399288e01100746fb3c8a0400c",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChangeSections_symm_val_apply": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "404d4bf3a54f39e3ccded0b0d5618c3c563f23437d908ede417796d3cc71a2c0",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_compatibleOn_iff": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "bf3eff42145cc86ef34393bd98b50c3a02400b89a854e98a1cd891637384868b",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_lower_val": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "854c3e54d385ca2d7fc4287683f31e25e3e16bcfd550bf57f44b0c92f67eb780",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_upper_val": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "758782ffe2cd3330a0c2b27863f30cfb5a1aa434d9ac237cf9613a77178b50c7",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality"
+    }
+  },
+  "generated": {}
+}
