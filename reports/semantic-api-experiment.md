@@ -163,7 +163,7 @@ python3 semantic_api_split_trial.py --quotient
 | 最终完整69阶段 | 456.662 | 7781104 | 全部通过 |
 
 [证据manifest](evidence/semantic-api/manifest.json) 记录每项原文/存储SHA与复用位置；
-[最终阶段](evidence/semantic-api/accepted/stages.json) 与
+[最终阶段](evidence/semantic-api/accepted/stages.json.gz) 与
 [最终输入](evidence/semantic-api/accepted-inputs.json) 固定397个当前项目、脚本、溯源/指令输入及精确pins。
 完整原始导出、旧新类型比较、三个试验的真实命令/退出码、normal import派生setup、恢复hash、
 原始失败及有界Structure审计源码均保留。相同的完整导出和已有冻结基线按manifest引用复用，不重复存储。
