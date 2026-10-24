@@ -1,0 +1,8 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean:234:28: error: Application type mismatch: The argument
+  Eq.symm (Pi.single_eq_same ?m.154 ?m.158)
+has type
+  ?m.158 = Pi.single ?m.154 ?m.158 ?m.154
+but is expected to have type
+  ↑v = Pi.single x (↑v) x
+in the application
+  Eq.trans hx (Eq.symm (Pi.single_eq_same ?m.154 ?m.158))

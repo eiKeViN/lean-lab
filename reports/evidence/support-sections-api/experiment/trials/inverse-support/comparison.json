@@ -1,0 +1,10 @@
+{
+  "old_exit_codes": {
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean": 0,
+    "OAI/KL/Sheaves/Support.lean": 1,
+    "OAI/KL/Sheaves/FreeModel.lean": 1,
+    "OAI/KL/Comparison/Propagation.lean": 0
+  },
+  "all_frozen_new_clients_passed": true,
+  "axiom_closures_checked": 18
+}

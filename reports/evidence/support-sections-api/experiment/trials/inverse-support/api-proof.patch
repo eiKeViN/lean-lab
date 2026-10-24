@@ -1,0 +1,18 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean
+@@ -226,7 +226,14 @@
+ omit [Fintype E] [IsDomain R] in
+ /-- The support equivalence sends a stalk vector to the section supported at that vertex. -/
+ @[simp] theorem singleStalkEquivSupport_val (x : V) (v : B.singleStalk x) :
+-    (B.singleStalkEquivSupport x v).val.val = Pi.single x v.val := by rfl
++    (B.singleStalkEquivSupport x v).val.val = Pi.single x v.val := by
++  have hx : (B.singleStalkEquivSupport x v).val.val x = v.val :=
++    congrArg Subtype.val ((B.singleStalkEquivSupport x).symm_apply_apply v)
++  funext y
++  by_cases hy : y=x
++  · subst y; simpa only [Pi.single_eq_same] using hx
++  · rw [(B.singleStalkEquivSupport x v).property y hy, Pi.single_eq_of_ne hy]
++
+ 
+ omit [Fintype E] [IsDomain R] in
+ /-- Evaluation at the supporting vertex recovers the original stalk vector. -/

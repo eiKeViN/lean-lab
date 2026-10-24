@@ -1,0 +1,144 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.5618651200020395,
+    "source_sha256": "478f827fe2f853da1d1ac5ff6d50e275b54d0497ae4e8dac06b38ea3d866ab07"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.99348578900026,
+    "source_sha256": "15d9b60c627f16b2b6c89901a5648c5bcacae9ee8db0063c5dd729da10c4d0f8"
+  },
+  {
+    "label": "frozen-new-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/frozen-new-0.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 6.392129139996541,
+    "source_sha256": "8d40bae05a44c9922dddcba4cb45ab8930a42995c0a06d30633617068d26c29d"
+  },
+  {
+    "label": "frozen-new-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/Sheaves/Support.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/frozen-new-1.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/artifacts/OAI/KL/Sheaves/Support.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 9.644276582999737,
+    "source_sha256": "d6b85f676d26e83f72ed2920610195e7bb06ae5502d3d2309f44835944d5dac9"
+  },
+  {
+    "label": "frozen-new-2",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/Sheaves/FreeModel.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/frozen-new-2.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/artifacts/OAI/KL/Sheaves/FreeModel.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 8.912704799000494,
+    "source_sha256": "1e2ec05c27f4168bcf3711d59386326c8b9b3227d328c0e24a000c59c3cf06da"
+  },
+  {
+    "label": "frozen-new-3",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/Comparison/Propagation.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/frozen-new-3.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/artifacts/OAI/KL/Comparison/Propagation.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 9.68334102800145,
+    "source_sha256": "5cd723de4dad26368afd4cf7530817d733b2f851bbdc11b252f77665622fc38f"
+  },
+  {
+    "label": "ordinary-api-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "SupportSectionsChecks.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/ordinary-api-client.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.8563324039969302,
+    "source_sha256": "6021eeb87ae4b26a64d5eb3efd4a888bb4a373cb052ae1f6a1042873cd2f0062"
+  },
+  {
+    "label": "old-client-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/old-client-0.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.354674239002634,
+    "source_sha256": "3f975ba93e08c45fb4afab80da21fa29cedd01836444acc4cca2460852236845"
+  },
+  {
+    "label": "old-client-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/Sheaves/Support.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/old-client-1.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 8.006274164999923,
+    "source_sha256": "a2ee18c1e2c6e346dba224e99cd1739a73b0022b374256f2e117c8e1303aed0f"
+  },
+  {
+    "label": "old-client-2",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/Sheaves/FreeModel.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/old-client-2.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 7.085323568000604,
+    "source_sha256": "448fe3bb3a6ce4ff582ce34224d540860e317bcd1aa9f16d1e4ba1147bf2f3fc"
+  },
+  {
+    "label": "old-client-3",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/Comparison/Propagation.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/old-client-3.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 8.32067723900036,
+    "source_sha256": "9e93ebc8ac9c06a5153c6cb5329a526e151af7d1285a4efd73fd5b65dda89302"
+  }
+]

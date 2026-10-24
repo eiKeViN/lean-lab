@@ -1,0 +1,53 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean
+@@ -199,28 +199,29 @@
+ 
+ @[expose] noncomputable def singleStalkEquivSupport (x : V) :
+     B.singleStalk x ≃ₗ[R] IntegralSupport.supported (B.sections Set.univ) x := by
+-  let f : B.singleStalk x →ₗ[R] IntegralSupport.supported (B.sections Set.univ) x :=
+-    { toFun := fun v => ⟨⟨Pi.single x v.val,v.property⟩,by
+-                        intro y hy; exact Pi.single_eq_of_ne hy _⟩
+-      map_add' := by intro v w; apply Subtype.ext; apply Subtype.ext; exact Pi.single_add _ _ _
+-      map_smul' := by intro r v; apply Subtype.ext; apply Subtype.ext; exact Pi.single_smul _ _ _ }
+-  apply LinearEquiv.ofBijective f
+-  constructor
+-  · intro v w hvw
+-    apply Subtype.ext
+-    have hv := congrArg (fun s : IntegralSupport.supported (B.sections Set.univ) x => s.val.val x) hvw
+-    change (Pi.single x v.val : B.Assignment) x = (Pi.single x w.val : B.Assignment) x at hv
+-    simpa only [Pi.single_eq_same] using hv
+-  · intro m
+-    have he : Pi.single x (m.val.val x) = m.val.val := by
+-      funext y
++  let f : IntegralSupport.supported (B.sections Set.univ) x →ₗ[R] B.singleStalk x := {
++    toFun := fun m => ⟨m.val.val x, by
++      change Pi.single x (m.val.val x) ∈ B.sections Set.univ
++      have he : Pi.single x (m.val.val x) = m.val.val := by
++        funext y
++        by_cases hy : y=x
++        · subst y; exact Pi.single_eq_same _ _
++        · rw [Pi.single_eq_of_ne hy,m.property y hy]
++      rw [he]
++      exact m.val.property⟩
++    map_add' := by intro m n; rfl
++    map_smul' := by intro r m; rfl }
++  exact (LinearEquiv.ofBijective f (by
++    constructor
++    · intro m n h
++      apply Subtype.ext; apply Subtype.ext; funext y
+       by_cases hy : y=x
+-      · subst y; simp only [Pi.single_eq_same]
+-      · rw [Pi.single_eq_of_ne hy, m.property y hy]
+-    refine ⟨⟨m.val.val x,?_⟩,?_⟩
+-    · change Pi.single x (m.val.val x) ∈ B.sections Set.univ
+-      rw [he]; exact m.val.property
+-    · apply Subtype.ext; apply Subtype.ext; exact he
++      · subst y; exact congrArg Subtype.val h
++      · rw [m.property y hy,n.property y hy]
++    · intro v
++      refine ⟨⟨⟨Pi.single x v.val,v.property⟩,?_⟩,?_⟩
++      · intro y hy; exact Pi.single_eq_of_ne hy _
++      · apply Subtype.ext; exact Pi.single_eq_same _ _)).symm
+ 
+ omit [Fintype E] [IsDomain R] in
+ /-- The support equivalence sends a stalk vector to the section supported at that vertex. -/

@@ -1,0 +1,4 @@
+OAI/KL/Sheaves/FreeModel.lean:148:2: error: 'change' tactic failed, pattern
+  Pi.single x (Sheaf.incomingProduct (polynomialLabel cs u b basis) x • ↑v) x = ?m.160
+is not definitionally equal to target
+  ↑↑((kernelEquivSingleSupport cs u b basis B x) v) x = Sheaf.incomingProduct (polynomialLabel cs u b basis) x • ↑v
