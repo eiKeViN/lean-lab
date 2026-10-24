@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; subprocess.run([\"lake\",\"build\",\"ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality\",\"ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness\"],env=validate.serial_environment(),check=True)"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 14.509751104000316,
+  "user_seconds": 16.408112,
+  "system_seconds": 3.387087,
+  "max_rss_kib": 3177676
+}

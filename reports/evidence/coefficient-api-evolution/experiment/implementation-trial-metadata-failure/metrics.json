@@ -1,0 +1,82 @@
+[
+  {
+    "label": "changed-implementation-old-api-proof",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/CoefficientChange/Dual.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/changed-implementation-old-api-proof.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.78842634800003,
+    "source_sha256": "d4516b38b43a68e1a39d4dcc10db76b8e4104c3c61664baeb2e0ebd370d605dd"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/CoefficientChange/Dual.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/artifacts/ForMathlib/Algebra/Module/CoefficientChange/Dual.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.17144600499978,
+    "source_sha256": "37086b8bdd8d67e42ae210f7a1f576e26a3b9a6e9271a514707b6397758387fb"
+  },
+  {
+    "label": "frozen-new-client-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange/Basic.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/frozen-new-client-0.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/artifacts/ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange/Basic.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.346161553999991,
+    "source_sha256": "57d8738b6a8ac63607a901607eaa57ddc204db6639a0c26ad95b5f1c4e474fda"
+  },
+  {
+    "label": "frozen-new-client-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/frozen-new-client-1.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.7700921800005744,
+    "source_sha256": "3f975ba93e08c45fb4afab80da21fa29cedd01836444acc4cca2460852236845"
+  },
+  {
+    "label": "frozen-new-client-2",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Uniqueness.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/frozen-new-client-2.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Uniqueness.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.736466702999678,
+    "source_sha256": "c198e87c9a1bc8869dcfe634bfbbfe9388d9f2d05bf02400c56fd97934bbee9e"
+  },
+  {
+    "label": "ordinary-api-consumer",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ApiEvolutionChecks.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-evolution/implementation-trial/ordinary-api-consumer.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 2.872045801999775,
+    "source_sha256": "dec93abd8c89235178631713902d738b7d583cbd0fbab17a9c2679427ceed358"
+  }
+]

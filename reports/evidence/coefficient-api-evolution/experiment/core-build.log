@@ -1,0 +1,48 @@
+⚠ [8925/8929] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8926/8929] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8927/8929] Built ForMathlib.Algebra.Module.CoefficientChange.Basic (5.0s)
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:46:9: automatically included section variable(s) unused in theorem `OAI.KLInvariance.CoefficientChange.val_zero`:
+  [Module A M]
+  [Module k M]
+  [IsScalarTower k A M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module A M] [Module k M] [IsScalarTower k A M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:49:9: automatically included section variable(s) unused in theorem `OAI.KLInvariance.CoefficientChange.val_smul`:
+  [Module k M]
+  [IsScalarTower k A M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module k M] [IsScalarTower k A M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✖ [8928/8929] Building ForMathlib.Algebra.Module.CoefficientChange.Dual (4.3s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/CoefficientChange/Dual.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/CoefficientChange/Dual.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/CoefficientChange/Dual.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/CoefficientChange/Dual.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/CoefficientChange/Dual.setup.json --json
+error: ForMathlib/Algebra/Module/CoefficientChange/Dual.lean:33:72: unexpected token 'omit'; expected 'lemma'
+error: ForMathlib/Algebra/Module/CoefficientChange/Dual.lean:37:6: failed to synthesize instance of type class
+  Module k N
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: ForMathlib/Algebra/Module/CoefficientChange/Dual.lean:90:9: declaration uses `sorry`
+warning: ForMathlib/Algebra/Module/CoefficientChange/Dual.lean:94:3: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ForMathlib/Algebra/Module/CoefficientChange/Dual.lean:93:3: Unused tactic linter: `rw [val_mapEquiv]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ForMathlib/Algebra/Module/CoefficientChange/Dual.lean:94:3: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [8929/8929] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic (7.5s)
+Some required targets logged failures:
+- ForMathlib.Algebra.Module.CoefficientChange.Dual
+error: build failed
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'build', 'ForMathlib.Algebra.Module.CoefficientChange.Dual', 'ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic']' returned non-zero exit status 1.

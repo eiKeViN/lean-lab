@@ -1,0 +1,19 @@
+{
+  "old_count": 3947,
+  "new_count": 3956,
+  "missing": [],
+  "added": [
+    "OAI.KLInvariance.CoefficientChange.val_mapEquiv",
+    "OAI.KLInvariance.CoefficientChange.val_smul",
+    "OAI.KLInvariance.CoefficientChange.val_zero",
+    "OAI.KLInvariance.Graded.ModuleData.val_changeHom",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.PerfectPairing.coefficientChange_apply",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChangeSections_symm_val_apply",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_compatibleOn_iff",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_lower_val",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_upper_val"
+  ],
+  "changed": [],
+  "relocated": 0,
+  "passed": false
+}

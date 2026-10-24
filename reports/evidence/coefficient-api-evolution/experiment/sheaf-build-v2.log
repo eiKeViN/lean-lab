@@ -1,0 +1,116 @@
+⚠ [8929/8968] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8936/8968] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8962/8968] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8964/8968] Built ForMathlib.Algebra.Module.CoefficientChange.Basic (4.7s)
+✔ [8965/8968] Built ForMathlib.Algebra.Module.CoefficientChange.Dual (4.4s)
+✔ [8966/8968] Built ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic (7.8s)
+✖ [8967/8968] Building ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality (5.2s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:204:6: Type mismatch: After simplification, term
+  hn
+ has type
+  m.val = α f • n
+but is expected to have type
+  m.val = (e (α f) • { val := n }).val
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:209:14: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (((coefficientChange ?e ?he ?S).forget.upper ?f) ?m).val
+in the target expression
+  (((coefficientChange e he S).upper f).map ((fun f => e (α f)) f • n)).val = (S.upper f).map (α f • n.val)
+
+k : Type uk
+inst✝⁵ : Field k
+A B : Type ua
+inst✝⁴ : CommRing A
+inst✝³ : CommRing B
+inst✝² : Algebra k A
+inst✝¹ : Algebra k B
+𝓐 : ℤ → Submodule k A
+𝓑 : ℤ → Submodule k B
+e : A ≃ₐ[k] B
+he : ∀ (n : ℤ) (a : A), a ∈ 𝓐 n ↔ e a ∈ 𝓑 n
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+S : GradedSheaf G
+α : E → A
+hS : S.UpperQuotient α
+f : E
+n : ↑((coefficientChange e he S).vertex (G.target f)).obj
+⊢ (((coefficientChange e he S).upper f).map ((fun f => e (α f)) f • n)).val = (S.upper f).map (α f • n.val)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ((coefficientChange e he S).upper f).map ((fun f => e (α f)) f • n)
+  has type
+    ↑((coefficientChange e he S).edge f).obj
+  but is expected to have type
+    CoefficientChange e ↑(S.edge f).obj
+  in the application
+    (((coefficientChange e he S).upper f).map ((fun f => e (α f)) f • n)).val
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:233:56: Application type mismatch: The argument
+  m.val.property
+has type
+  ↑m.val ∈ S.forget.sections U
+but is expected to have type
+  S.forget.CompatibleOn U fun x => CoefficientChange.val (?m.154 x)
+in the application
+  (coefficientChange_compatibleOn_iff e he S U ?m.154).mpr m.val.property
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:322:6: Type mismatch: After simplification, term
+  congrArg (fun v => v.val) (hm y hy)
+ has type
+  @Eq (↑(S.vertex y).obj) (↑m y).val (CoefficientChange.val 0)
+but is expected to have type
+  @Eq (↑(S.forget.vertex y)) (↑m y).val 0
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:324:6: Type mismatch: After simplification, term
+  congrArg (fun v => v.val) hn
+ has type
+  @Eq (↑(S.vertex x).obj) (↑n x).val (CoefficientChange.val 0)
+but is expected to have type
+  @Eq (↑(S.forget.vertex x)) (↑n x).val 0
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:333:6: Type mismatch: After simplification, term
+  congrArg (fun v => v.val) hm
+ has type
+  @Eq (↑(S.vertex x).obj) (↑m x).val (CoefficientChange.val 0)
+but is expected to have type
+  @Eq (↑(S.forget.vertex x)) (↑m x).val 0
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:336:6: Type mismatch: After simplification, term
+  congrArg (fun v => v.val) (hn y hy)
+ has type
+  @Eq (↑(S.vertex y).obj) (↑n y).val (CoefficientChange.val 0)
+but is expected to have type
+  @Eq (↑(S.forget.vertex y)) (↑n y).val 0
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:340:61: Application type mismatch: The argument
+  S
+has type
+  GradedSheaf G
+but is expected to have type
+  PerfectPairing ?m.58 ?m.59
+in the application
+  coefficientChange e he S
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:340:61: Application type mismatch: The argument
+  S
+has type
+  GradedSheaf G
+but is expected to have type
+  PerfectPairing ?m.74 ?m.75
+in the application
+  coefficientChange e he S
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
+error: build failed
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'build', 'ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality', 'ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness']' returned non-zero exit status 1.

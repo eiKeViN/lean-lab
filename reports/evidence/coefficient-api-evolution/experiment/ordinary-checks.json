@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "ApiEvolutionChecks.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 3.869065330000012,
+  "user_seconds": 2.661832,
+  "system_seconds": 1.239179,
+  "max_rss_kib": 5356928
+}

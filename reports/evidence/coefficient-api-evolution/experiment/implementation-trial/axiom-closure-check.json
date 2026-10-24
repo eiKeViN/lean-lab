@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "closures": 17,
+  "allowed": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

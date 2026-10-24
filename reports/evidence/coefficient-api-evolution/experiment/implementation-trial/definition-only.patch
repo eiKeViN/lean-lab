@@ -1,0 +1,21 @@
+--- production/ForMathlib/Algebra/Module/CoefficientChange/Dual.lean
++++ variant/ForMathlib/Algebra/Module/CoefficientChange/Dual.lean
+@@ -20,15 +20,9 @@
+ noncomputable section
+ 
+  @[expose] def mapEquiv {N : Type un} [AddCommGroup N] [Module A N] [Module k N]
+-    [IsScalarTower k A N] (f : M ≃ₗ[A] N) : CoefficientChange e M ≃ₗ[B] CoefficientChange e N where
+-  toLinearMap := map e f.toLinearMap
+-  invFun n := mk (f.symm n.val)
+-  left_inv m := by
+-    apply CoefficientChange.ext
+-    exact (congrArg f.symm (val_map e f.toLinearMap m)).trans (f.symm_apply_apply m.val)
+-  right_inv n := by
+-    apply CoefficientChange.ext
+-    exact (val_map e f.toLinearMap (mk (f.symm n.val))).trans (f.apply_symm_apply n.val)
++    [IsScalarTower k A N] (f : M ≃ₗ[A] N) : CoefficientChange e M ≃ₗ[B] CoefficientChange e N :=
++   (LinearEquiv.ofBijective (map e f.symm.toLinearMap)
++     ⟨map_injective e _ f.symm.injective, map_surjective e _ f.symm.surjective⟩).symm
+ 
+  omit [Module k M] [IsScalarTower k A M] in
+  /-- Transporting an equivalence applies it to the underlying vector. -/
