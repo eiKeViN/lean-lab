@@ -102,7 +102,8 @@ def products():
  from api_evolution import overlay as evolution
  from api_families import overlay as families
  from api_reflection import overlay as reflection
- return reflection(families(evolution(semantic_api(all_modules(final_modules(next_modules(attach(rollout(modules(overlay(pristine_products())))))))))))
+ from api_support import overlay as support
+ return support(reflection(families(evolution(semantic_api(all_modules(final_modules(next_modules(attach(rollout(modules(overlay(pristine_products()))))))))))))
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args();files=products()

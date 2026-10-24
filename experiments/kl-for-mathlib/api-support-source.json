@@ -1,0 +1,147 @@
+{
+  "base_commit": "d655bbdf5d09ddc26324f997e4f9a1987309a6a7",
+  "files": {
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean": {
+      "before_sha256": "3f975ba93e08c45fb4afab80da21fa29cedd01836444acc4cca2460852236845",
+      "after_sha256": "8d40bae05a44c9922dddcba4cb45ab8930a42995c0a06d30633617068d26c29d",
+      "edits": [
+        {
+          "start": 2274,
+          "old": "",
+          "new": "  apply perfect_inverse_of_homogeneous_functional \ud835\udcd0 (B.sections Set.univ).piece p l hp r\n  intro j n hn\n  exact hlam j (n.val x) (hn x (Set.mem_univ x))\n\n/-- A homogeneous stalk functional gives a supported section in the complementary degree.\nThis formulation uses only the pairing characterization of single-support duality. -/\ntheorem singleSupportEquivDual_symm_homogeneous (hg : B.forget.Generated) (l : \u2124)\n    (hp : \u2200 i j (m n : B.sections Set.univ),\n      m \u2208 (B.sections Set.univ).piece i \u2192 n \u2208 (B.sections Set.univ).piece j \u2192\n      p m n \u2208 \ud835\udcd0 (i+j-l))\n    (x : V) (r : \u2124) (lam : Dual A (B.vertex x))\n    (hlam : \u2200 j (v : B.vertex x), v \u2208 (B.vertex x).piece j \u2192 lam v \u2208 \ud835\udcd0 (j+r)) :\n    ((B.forget.singleSupportEquivDual \u03b1 h\u03b1 ha p hbalanced hg x).symm lam).val \u2208\n      (B.sections Set.univ).piece (r+l) := by\n  have he : ((B.forget.singleSupportEquivDual \u03b1 h\u03b1 ha p hbalanced hg x).symm lam).val =\n      p.symm ((IntegralSupport.projection (B.forget.sections Set.univ) x).dualMap lam) := by\n    apply p.injective\n    apply LinearMap.ext\n    intro n\n    exact (B.forget.singleSupportEquivDual_symm_pairing \u03b1 h\u03b1 ha p hbalanced hg x lam n).trans\n      (congrArg (fun f : Dual A (B.forget.sections Set.univ) => f n)\n        (p.apply_symm_apply ((IntegralSupport.projection (B.forget.sections Set.univ) x).dualMap lam))).symm\n  rw [he]\n"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean": {
+      "before_sha256": "fbf00a7a1032c4c424977f4d1fa88353aa35d776435eed89b96db17f389939c7",
+      "after_sha256": "44fa425cd9055cfef79a41e5728de62749f0813e976bf23dafe2bfb300349b8f",
+      "edits": [
+        {
+          "start": 11604,
+          "old": "",
+          "new": "/-- The section equivalence onto the range has the canonical image-inclusion map. -/\n@[simp] theorem Hom.imageSectionEquiv_val (h : Hom B B)\n    (hv : \u2200 x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)\n    (\u03a9 : Set V) (m : h.image.forget.sections \u03a9) :\n    (h.imageSectionEquiv hv \u03a9 m).val = h.imageInclusion.sectionMap \u03a9 m := by rfl\n\n"
+        },
+        {
+          "start": 16491,
+          "old": "",
+          "new": "/-- Extending an endomorphism to a split ambient sheaf acts by projection, then inclusion. -/\n@[simp] theorem SplitIn.liftEnd_vertex_apply (s : SplitIn B C) (f : Hom B B)\n    (x : V) (v : C.vertex x) :\n    ((s.liftEnd f).vertex x).map v =\n      (s.inclusion.vertex x).map ((f.vertex x).map ((s.projection.vertex x).map v)) := by\n  exact (Hom.comp_vertex_apply _ _ x v).trans\n    (congrArg (s.inclusion.vertex x).map (Hom.comp_vertex_apply _ _ x v))\n\n/-- The same corner extension convention holds on edges. -/\n@[simp] theorem SplitIn.liftEnd_edge_apply (s : SplitIn B C) (f : Hom B B)\n    (e : E) (v : C.edge e) :\n    ((s.liftEnd f).edge e).map v =\n      (s.inclusion.edge e).map ((f.edge e).map ((s.projection.edge e).map v)) := by\n  exact (Hom.comp_edge_apply _ _ e v).trans\n    (congrArg (s.inclusion.edge e).map (Hom.comp_edge_apply _ _ e v))\n\n/-- Compressing a corner extension recovers the original endomorphism. -/\ntheorem SplitIn.compress_liftEnd (s : SplitIn B C) (f : Hom B B) :\n    s.projection.comp ((s.liftEnd f).comp s.inclusion) = f := by\n  apply Hom.eq_of_maps\n  \u00b7 intro x v\n    simp only [Hom.comp_vertex_apply, s.liftEnd_vertex_apply, s.vertex_split]\n  \u00b7 intro e v\n    simp only [Hom.comp_edge_apply, s.liftEnd_edge_apply, s.edge_split]\n\n/-- The identity on the summand extends to its ambient projector. -/\n@[simp] theorem SplitIn.liftEnd_id (s : SplitIn B C) :\n    s.liftEnd (Hom.id B) = s.projector := by\n  apply Hom.eq_of_maps\n  \u00b7 intro x v\n    rw [s.liftEnd_vertex_apply, s.projector_apply_vertex]\n    rfl\n  \u00b7 intro e v\n    rw [s.liftEnd_edge_apply, s.projector_apply_edge]\n    rfl\n\n"
+        },
+        {
+          "start": 16595,
+          "old": "  apply Hom.eq_of_maps\n  \u00b7 intro x v\n    have hh := congrArg (fun q : Hom C C => (s.projection.vertex x).map\n      ((q.vertex x).map ((s.inclusion.vertex x).map v))) h\n    change (s.projection.vertex x).map ((s.inclusion.vertex x).map\n      ((f.vertex x).map ((s.projection.vertex x).map ((s.inclusion.vertex x).map v))))=\n      (s.projection.vertex x).map ((s.inclusion.vertex x).map\n      ((g.vertex x).map ((s.projection.vertex x).map ((s.inclusion.vertex x).map v)))) at hh\n    simpa only [s.vertex_split] using hh\n  \u00b7 intro e v\n    have hh := congrArg (fun q : Hom C C => (s.projection.edge e).map\n      ((q.edge e).map ((s.inclusion.edge e).map v))) h\n    change (s.projection.edge e).map ((s.inclusion.edge e).map\n      ((f.edge e).map ((s.projection.edge e).map ((s.inclusion.edge e).map v))))=\n      (s.projection.edge e).map ((s.inclusion.edge e).map\n      ((g.edge e).map ((s.projection.edge e).map ((s.inclusion.edge e).map v)))) at hh\n    simpa only [s.edge_split] using hh\n",
+          "new": "  exact (s.compress_liftEnd f).symm.trans\n    ((congrArg (fun q : Hom C C => s.projection.comp (q.comp s.inclusion)) h).trans\n      (s.compress_liftEnd g))\n"
+        },
+        {
+          "start": 17750,
+          "old": "    change (s.inclusion.vertex x).map ((f.vertex x).map ((g.vertex x).map\n      ((s.projection.vertex x).map v)))=\n      (s.inclusion.vertex x).map ((f.vertex x).map ((s.projection.vertex x).map\n      ((s.inclusion.vertex x).map ((g.vertex x).map ((s.projection.vertex x).map v)))))\n    rw [s.vertex_split]\n",
+          "new": "    simp only [Hom.comp_vertex_apply, s.liftEnd_vertex_apply, s.vertex_split]\n"
+        },
+        {
+          "start": 18071,
+          "old": "    change (s.inclusion.edge e).map ((f.edge e).map ((g.edge e).map\n      ((s.projection.edge e).map v)))=\n      (s.inclusion.edge e).map ((f.edge e).map ((s.projection.edge e).map\n      ((s.inclusion.edge e).map ((g.edge e).map ((s.projection.edge e).map v)))))\n    rw [s.edge_split]\n",
+          "new": "    simp only [Hom.comp_edge_apply, s.liftEnd_edge_apply, s.edge_split]\n"
+        },
+        {
+          "start": 18958,
+          "old": "    have hi : s.liftEnd (Hom.id B)=s.projector := by\n      apply Hom.eq_of_maps <;> intros <;> rfl\n",
+          "new": "    have hi : s.liftEnd (Hom.id B)=s.projector := s.liftEnd_id\n"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean": {
+      "before_sha256": "37a94763a8ceed13d72684356d8ddaa254662c2484be22c7dc1cec9f3cf1a602",
+      "after_sha256": "f71f3b84c6e8a4972a7be8c4dd7687bd2f746ef703401980314f94f75f3938a4",
+      "edits": [
+        {
+          "start": 2617,
+          "old": "",
+          "new": "\n/-- The single-support duality evaluates on a stalk by lifting to any global section. -/\ntheorem singleSupportEquivDual_pairing (hg : B.Generated) (x : V)\n    (m : IntegralSupport.supported (B.sections Set.univ) x)\n    (n : B.sections Set.univ) :\n    B.singleSupportEquivDual \u03b1 h\u03b1 ha d hbalanced hg x m (n.val x) = d m.val n := by\n  exact IntegralSupport.supportEquivDual_pairing _ _ _ _ _ _ _ _ m n\n\n/-- Inverse single-support duality is characterized by its pairing with sections. -/\ntheorem singleSupportEquivDual_symm_pairing (hg : B.Generated) (x : V)\n    (lam : Module.Dual R (B.vertex x)) (n : B.sections Set.univ) :\n    d ((B.singleSupportEquivDual \u03b1 h\u03b1 ha d hbalanced hg x).symm lam).val n =\n      lam (n.val x) := by\n  exact ((B.singleSupportEquivDual_pairing \u03b1 h\u03b1 ha d hbalanced hg x _ n).symm.trans\n    (congrArg (fun f : Module.Dual R (B.vertex x) => f (n.val x))\n      ((B.singleSupportEquivDual \u03b1 h\u03b1 ha d hbalanced hg x).apply_symm_apply lam)))\n"
+        },
+        {
+          "start": 8689,
+          "old": "",
+          "new": "omit [Fintype E] [IsDomain R] in\n/-- The support equivalence sends a stalk vector to the section supported at that vertex. -/\n@[simp] theorem singleStalkEquivSupport_val (x : V) (v : B.singleStalk x) :\n    (B.singleStalkEquivSupport x v).val.val = Pi.single x v.val := by rfl\n\nomit [Fintype E] [IsDomain R] in\n/-- Evaluation at the supporting vertex recovers the original stalk vector. -/\n@[simp] theorem singleStalkEquivSupport_apply_self (x : V) (v : B.singleStalk x) :\n    (B.singleStalkEquivSupport x v).val.val x = v.val := by\n  rw [B.singleStalkEquivSupport_val]\n  exact Pi.single_eq_same _ _\n\nomit [Fintype E] [IsDomain R] in\n/-- The inverse support equivalence is evaluation at the supporting vertex. -/\n@[simp] theorem singleStalkEquivSupport_symm_val (x : V)\n    (m : IntegralSupport.supported (B.sections Set.univ) x) :\n    ((B.singleStalkEquivSupport x).symm m).val = m.val.val x := by\n  exact (B.singleStalkEquivSupport_apply_self x _).symm.trans\n    (congrArg (fun n : IntegralSupport.supported (B.sections Set.univ) x => n.val.val x)\n      ((B.singleStalkEquivSupport x).apply_symm_apply m))\n\n"
+        },
+        {
+          "start": 9734,
+          "old": "",
+          "new": "/-- The costalk-to-single-stalk map multiplies by the product of incoming labels. -/\n@[simp] theorem kernelEquivSingleStalk_val [DecompositionMonoid R] (x : V)\n    (hrel : (incoming (G := G) x : Set E).Pairwise (Function.onFun IsRelPrime \u03b1))\n    (hreg : \u2200 e, G.source e = x \u2192 Function.Injective\n      (fun v : B.edge e => incomingProduct (G := G) \u03b1 x \u2022 v))\n    (v : LinearMap.ker (B.stalkMap x)) :\n    (B.kernelEquivSingleStalk \u03b1 h\u03b1 hk bs x hrel hreg v).val =\n      incomingProduct (G := G) \u03b1 x \u2022 v.val := by rfl\n\n"
+        }
+      ]
+    },
+    "OAI/KL/BottSamelson/AdjointSheaf.lean": {
+      "before_sha256": "e7a67daff9c94a44a245411444922085ed63843723d1ee252b73896754839ed6",
+      "after_sha256": "180c559006a27b0cff80834ede03db87af20461b50b93e817f05100238c90c7a",
+      "edits": [
+        {
+          "start": 33442,
+          "old": "  exact congrArg (fun s : (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ =>\n",
+          "new": "  exact (congrArg (fun s : (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ =>\n"
+        },
+        {
+          "start": 33592,
+          "old": "      (h.imageInclusion.sectionMap Set.univ m))\n",
+          "new": "      (h.imageSectionEquiv hh Set.univ m).val)).trans\n        (congrArg (fun s : (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ =>\n          s.val x) (h.imageSectionEquiv_val hh Set.univ m))\n"
+        }
+      ]
+    },
+    "OAI/KL/Comparison/Propagation.lean": {
+      "before_sha256": "9e93ebc8ac9c06a5153c6cb5329a526e151af7d1285a4efd73fd5b65dda89302",
+      "after_sha256": "5cd723de4dad26368afd4cf7530817d733b2f851bbdc11b252f77665622fc38f",
+      "edits": [
+        {
+          "start": 7598,
+          "old": "  exact IntegralSupport.supportEquivDual_pairing (B.sheaf.forget.sections Set.univ)\n    (Sheaf.labelProduct (polynomialLabel cs u b basis))\n    (B.sheaf.forget.scaled_single_section\n      (B.sheaf.forget.labelProduct_annihilates (polynomialLabel cs u b basis)\n        (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient)))\n    (Sheaf.labelProduct_ne_zero _ (polynomialLabel_ne_zero cs u b basis))\n    d.pairing d.balanced x (B.sheaf.forget.projection_surjective B.generated x)\n",
+          "new": "  exact B.sheaf.forget.singleSupportEquivDual_pairing\n    (polynomialLabel cs u b basis) (polynomialLabel_ne_zero cs u b basis)\n    (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient)\n    d.pairing d.balanced B.generated x\n"
+        },
+        {
+          "start": 8137,
+          "old": "",
+          "new": "\n"
+        }
+      ]
+    },
+    "OAI/KL/Sheaves/FreeModel.lean": {
+      "before_sha256": "448fe3bb3a6ce4ff582ce34224d540860e317bcd1aa9f16d1e4ba1147bf2f3fc",
+      "after_sha256": "1e2ec05c27f4168bcf3711d59386326c8b9b3227d328c0e24a000c59c3cf06da",
+      "edits": [
+        {
+          "start": 6903,
+          "old": "  change (Pi.single x\n    (Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x \u2022 v.val) :\n      B.sheaf.forget.Assignment) x = _\n  exact Pi.single_eq_same _ _\n",
+          "new": "  let _ (y : Interval cs u b) : Module.Free (Coefficient (\u03c3 := \u03c3)) (B.sheaf.forget.vertex y) := B.free y\n  let _ (y : Interval cs u b) : Module.Finite (Coefficient (\u03c3 := \u03c3)) (B.sheaf.forget.vertex y) :=\n    (B.sheaf.vertex y).finite\n  let _ (y : Interval cs u b) : Fintype (Module.Free.ChooseBasisIndex\n      (Coefficient (\u03c3 := \u03c3)) (B.sheaf.forget.vertex y)) := Fintype.ofFinite _\n  exact (B.sheaf.forget.singleStalkEquivSupport_apply_self x _).trans\n    (B.sheaf.forget.kernelEquivSingleStalk_val _ _ _ _ x _ _ v)\n"
+        },
+        {
+          "start": 8273,
+          "old": "    exact B.sheaf.dualToSupport_homogeneous (polynomialLabel cs u b basis)\n",
+          "new": "    exact B.sheaf.singleSupportEquivDual_symm_homogeneous (polynomialLabel cs u b basis)\n"
+        },
+        {
+          "start": 8458,
+          "old": "      d.pairing d.balanced l hd x r lam hlam\n",
+          "new": "      d.pairing d.balanced B.generated l hd x r lam hlam\n"
+        }
+      ]
+    },
+    "OAI/KL/Sheaves/Support.lean": {
+      "before_sha256": "a2ee18c1e2c6e346dba224e99cd1739a73b0022b374256f2e117c8e1303aed0f",
+      "after_sha256": "d6b85f676d26e83f72ed2920610195e7bb06ae5502d3d2309f44835944d5dac9",
+      "edits": [
+        {
+          "start": 13047,
+          "old": "  change (Pi.single x\n    (Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x \u2022 v.val) :\n      B.sheaf.forget.Assignment) x = _\n  exact Pi.single_eq_same _ _\n",
+          "new": "  let _ (y : Interval cs u b) : Module.Free (Coefficient (\u03c3 := \u03c3)) (B.sheaf.forget.vertex y) := B.free y\n  let _ (y : Interval cs u b) : Module.Finite (Coefficient (\u03c3 := \u03c3)) (B.sheaf.forget.vertex y) :=\n    (B.sheaf.vertex y).finite\n  let _ (y : Interval cs u b) : Fintype (Module.Free.ChooseBasisIndex\n      (Coefficient (\u03c3 := \u03c3)) (B.sheaf.forget.vertex y)) := Fintype.ofFinite _\n  exact (B.sheaf.forget.singleStalkEquivSupport_apply_self x _).trans\n    (B.sheaf.forget.kernelEquivSingleStalk_val _ _ _ _ x _ _ v)\n"
+        },
+        {
+          "start": 14425,
+          "old": "    exact B.sheaf.dualToSupport_homogeneous (polynomialLabel cs u b basis)\n",
+          "new": "    exact B.sheaf.singleSupportEquivDual_symm_homogeneous (polynomialLabel cs u b basis)\n"
+        },
+        {
+          "start": 14610,
+          "old": "      d.pairing d.balanced l hd x r lam hlam\n",
+          "new": "      d.pairing d.balanced B.generated l hd x r lam hlam\n"
+        }
+      ]
+    }
+  }
+}

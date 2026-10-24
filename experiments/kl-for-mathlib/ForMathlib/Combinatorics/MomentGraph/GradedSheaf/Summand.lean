@@ -290,6 +290,12 @@ noncomputable section
     (Ω : Set V) : h.image.forget.sections Ω ≃ₗ[A] LinearMap.range (h.sectionMap Ω) :=
   LinearEquiv.ofBijective (h.imageSectionMap hv Ω) (h.imageSectionMap_bijective hv Ω)
 
+/-- The section equivalence onto the range has the canonical image-inclusion map. -/
+@[simp] theorem Hom.imageSectionEquiv_val (h : Hom B B)
+    (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
+    (Ω : Set V) (m : h.image.forget.sections Ω) :
+    (h.imageSectionEquiv hv Ω m).val = h.imageInclusion.sectionMap Ω m := by rfl
+
 end
 end KLInvariance.MomentGraph.GradedSheaf
 end
@@ -409,41 +415,55 @@ noncomputable section
  @[expose] def SplitIn.liftEnd (s : SplitIn B C) (f : Hom B B) : Hom C C :=
   s.inclusion.comp (f.comp s.projection)
 
- theorem SplitIn.liftEnd_injective (s : SplitIn B C) : Function.Injective s.liftEnd := by
-  intro f g h
+/-- Extending an endomorphism to a split ambient sheaf acts by projection, then inclusion. -/
+@[simp] theorem SplitIn.liftEnd_vertex_apply (s : SplitIn B C) (f : Hom B B)
+    (x : V) (v : C.vertex x) :
+    ((s.liftEnd f).vertex x).map v =
+      (s.inclusion.vertex x).map ((f.vertex x).map ((s.projection.vertex x).map v)) := by
+  exact (Hom.comp_vertex_apply _ _ x v).trans
+    (congrArg (s.inclusion.vertex x).map (Hom.comp_vertex_apply _ _ x v))
+
+/-- The same corner extension convention holds on edges. -/
+@[simp] theorem SplitIn.liftEnd_edge_apply (s : SplitIn B C) (f : Hom B B)
+    (e : E) (v : C.edge e) :
+    ((s.liftEnd f).edge e).map v =
+      (s.inclusion.edge e).map ((f.edge e).map ((s.projection.edge e).map v)) := by
+  exact (Hom.comp_edge_apply _ _ e v).trans
+    (congrArg (s.inclusion.edge e).map (Hom.comp_edge_apply _ _ e v))
+
+/-- Compressing a corner extension recovers the original endomorphism. -/
+theorem SplitIn.compress_liftEnd (s : SplitIn B C) (f : Hom B B) :
+    s.projection.comp ((s.liftEnd f).comp s.inclusion) = f := by
   apply Hom.eq_of_maps
   · intro x v
-    have hh := congrArg (fun q : Hom C C => (s.projection.vertex x).map
-      ((q.vertex x).map ((s.inclusion.vertex x).map v))) h
-    change (s.projection.vertex x).map ((s.inclusion.vertex x).map
-      ((f.vertex x).map ((s.projection.vertex x).map ((s.inclusion.vertex x).map v))))=
-      (s.projection.vertex x).map ((s.inclusion.vertex x).map
-      ((g.vertex x).map ((s.projection.vertex x).map ((s.inclusion.vertex x).map v)))) at hh
-    simpa only [s.vertex_split] using hh
+    simp only [Hom.comp_vertex_apply, s.liftEnd_vertex_apply, s.vertex_split]
   · intro e v
-    have hh := congrArg (fun q : Hom C C => (s.projection.edge e).map
-      ((q.edge e).map ((s.inclusion.edge e).map v))) h
-    change (s.projection.edge e).map ((s.inclusion.edge e).map
-      ((f.edge e).map ((s.projection.edge e).map ((s.inclusion.edge e).map v))))=
-      (s.projection.edge e).map ((s.inclusion.edge e).map
-      ((g.edge e).map ((s.projection.edge e).map ((s.inclusion.edge e).map v)))) at hh
-    simpa only [s.edge_split] using hh
+    simp only [Hom.comp_edge_apply, s.liftEnd_edge_apply, s.edge_split]
+
+/-- The identity on the summand extends to its ambient projector. -/
+@[simp] theorem SplitIn.liftEnd_id (s : SplitIn B C) :
+    s.liftEnd (Hom.id B) = s.projector := by
+  apply Hom.eq_of_maps
+  · intro x v
+    rw [s.liftEnd_vertex_apply, s.projector_apply_vertex]
+    rfl
+  · intro e v
+    rw [s.liftEnd_edge_apply, s.projector_apply_edge]
+    rfl
+
+ theorem SplitIn.liftEnd_injective (s : SplitIn B C) : Function.Injective s.liftEnd := by
+  intro f g h
+  exact (s.compress_liftEnd f).symm.trans
+    ((congrArg (fun q : Hom C C => s.projection.comp (q.comp s.inclusion)) h).trans
+      (s.compress_liftEnd g))
 
  theorem SplitIn.liftEnd_comp (s : SplitIn B C) (f g : Hom B B) :
     s.liftEnd (f.comp g)=(s.liftEnd f).comp (s.liftEnd g) := by
   apply Hom.eq_of_maps
   · intro x v
-    change (s.inclusion.vertex x).map ((f.vertex x).map ((g.vertex x).map
-      ((s.projection.vertex x).map v)))=
-      (s.inclusion.vertex x).map ((f.vertex x).map ((s.projection.vertex x).map
-      ((s.inclusion.vertex x).map ((g.vertex x).map ((s.projection.vertex x).map v)))))
-    rw [s.vertex_split]
+    simp only [Hom.comp_vertex_apply, s.liftEnd_vertex_apply, s.vertex_split]
   · intro e v
-    change (s.inclusion.edge e).map ((f.edge e).map ((g.edge e).map
-      ((s.projection.edge e).map v)))=
-      (s.inclusion.edge e).map ((f.edge e).map ((s.projection.edge e).map
-      ((s.inclusion.edge e).map ((g.edge e).map ((s.projection.edge e).map v)))))
-    rw [s.edge_split]
+    simp only [Hom.comp_edge_apply, s.liftEnd_edge_apply, s.edge_split]
 
  theorem SplitIn.liftEnd_zero (s : SplitIn B C) : s.liftEnd Hom.zero=Hom.zero := by
   apply Hom.eq_of_maps
@@ -461,8 +481,7 @@ noncomputable section
   · intro f hf _ _
     have hc : (s.liftEnd f).comp (s.liftEnd f)=s.liftEnd f :=
       (s.liftEnd_comp f f).symm.trans (congrArg s.liftEnd hf)
-    have hi : s.liftEnd (Hom.id B)=s.projector := by
-      apply Hom.eq_of_maps <;> intros <;> rfl
+    have hi : s.liftEnd (Hom.id B)=s.projector := s.liftEnd_id
     have hleft : (s.liftEnd f).comp s.projector=s.liftEnd f := by
       rw [← hi,← s.liftEnd_comp]
       congr 1

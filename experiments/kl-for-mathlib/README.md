@@ -273,3 +273,6 @@ trial is `api_evolution_trial.py`. Old round-1 hiding trials belong to the origi
 and tensor laws to real consumers. See the [experiment report](../../reports/graded-reflection-api.md).
 The isolated script `graded_reflection_trial.py` must run without any concurrent
 build. The experiment keeps all computational definitions exposed.
+
+Round 5 supported-sections/costalk and split-operation API experiment:
+[report](../../reports/support-sections-api.md), [discovery index](API-GUIDE.md).

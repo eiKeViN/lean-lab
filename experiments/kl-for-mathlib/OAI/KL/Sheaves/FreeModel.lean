@@ -145,10 +145,13 @@ omit [Fintype σ] [Fintype (Interval cs u b)] in
     (v : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
     ((kernelEquivSingleSupport cs u b basis B x) v).val.val x =
       Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x • v.val := by
-  change (Pi.single x
-    (Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x • v.val) :
-      B.sheaf.forget.Assignment) x = _
-  exact Pi.single_eq_same _ _
+  let _ (y : Interval cs u b) : Module.Free (Coefficient (σ := σ)) (B.sheaf.forget.vertex y) := B.free y
+  let _ (y : Interval cs u b) : Module.Finite (Coefficient (σ := σ)) (B.sheaf.forget.vertex y) :=
+    (B.sheaf.vertex y).finite
+  let _ (y : Interval cs u b) : Fintype (Module.Free.ChooseBasisIndex
+      (Coefficient (σ := σ)) (B.sheaf.forget.vertex y)) := Fintype.ofFinite _
+  exact (B.sheaf.forget.singleStalkEquivSupport_apply_self x _).trans
+    (B.sheaf.forget.kernelEquivSingleStalk_val _ _ _ _ x _ _ v)
 
  theorem costalkEquivDual_inverse_homogeneous
     (d : SectionDuality cs u b basis B) (l : ℤ)
@@ -170,10 +173,10 @@ omit [Fintype σ] [Fintype (Interval cs u b)] in
     (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient)
     d.pairing d.balanced B.generated x
   have hs : (S.symm lam).val ∈ (B.sheaf.sections Set.univ).piece (r+l) := by
-    exact B.sheaf.dualToSupport_homogeneous (polynomialLabel cs u b basis)
+    exact B.sheaf.singleSupportEquivDual_symm_homogeneous (polynomialLabel cs u b basis)
       (polynomialLabel_ne_zero cs u b basis)
       (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient)
-      d.pairing d.balanced l hd x r lam hlam
+      d.pairing d.balanced B.generated l hd x r lam hlam
   have hv := hs x (Set.mem_univ x)
   have he : (S.symm lam).val.val x =
       Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x •

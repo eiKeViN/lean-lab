@@ -61,6 +61,22 @@ variable [DecidableEq V] [IsDomain R] [∀ x, Module.IsTorsionFree R (B.vertex x
     (B.scaled_single_section (B.labelProduct_annihilates α ha))
     (labelProduct_ne_zero α hα) d hbalanced x (B.projection_surjective hg x)
 
+/-- The single-support duality evaluates on a stalk by lifting to any global section. -/
+theorem singleSupportEquivDual_pairing (hg : B.Generated) (x : V)
+    (m : IntegralSupport.supported (B.sections Set.univ) x)
+    (n : B.sections Set.univ) :
+    B.singleSupportEquivDual α hα ha d hbalanced hg x m (n.val x) = d m.val n := by
+  exact IntegralSupport.supportEquivDual_pairing _ _ _ _ _ _ _ _ m n
+
+/-- Inverse single-support duality is characterized by its pairing with sections. -/
+theorem singleSupportEquivDual_symm_pairing (hg : B.Generated) (x : V)
+    (lam : Module.Dual R (B.vertex x)) (n : B.sections Set.univ) :
+    d ((B.singleSupportEquivDual α hα ha d hbalanced hg x).symm lam).val n =
+      lam (n.val x) := by
+  exact ((B.singleSupportEquivDual_pairing α hα ha d hbalanced hg x _ n).symm.trans
+    (congrArg (fun f : Module.Dual R (B.vertex x) => f (n.val x))
+      ((B.singleSupportEquivDual α hα ha d hbalanced hg x).apply_symm_apply lam)))
+
 end KLInvariance.MomentGraph.Sheaf
 end
 
@@ -206,6 +222,27 @@ product divisibility, and they are regular at every upward edge. -/
       rw [he]; exact m.val.property
     · apply Subtype.ext; apply Subtype.ext; exact he
 
+omit [Fintype E] [IsDomain R] in
+/-- The support equivalence sends a stalk vector to the section supported at that vertex. -/
+@[simp] theorem singleStalkEquivSupport_val (x : V) (v : B.singleStalk x) :
+    (B.singleStalkEquivSupport x v).val.val = Pi.single x v.val := by rfl
+
+omit [Fintype E] [IsDomain R] in
+/-- Evaluation at the supporting vertex recovers the original stalk vector. -/
+@[simp] theorem singleStalkEquivSupport_apply_self (x : V) (v : B.singleStalk x) :
+    (B.singleStalkEquivSupport x v).val.val x = v.val := by
+  rw [B.singleStalkEquivSupport_val]
+  exact Pi.single_eq_same _ _
+
+omit [Fintype E] [IsDomain R] in
+/-- The inverse support equivalence is evaluation at the supporting vertex. -/
+@[simp] theorem singleStalkEquivSupport_symm_val (x : V)
+    (m : IntegralSupport.supported (B.sections Set.univ) x) :
+    ((B.singleStalkEquivSupport x).symm m).val = m.val.val x := by
+  exact (B.singleStalkEquivSupport_apply_self x _).symm.trans
+    (congrArg (fun n : IntegralSupport.supported (B.sections Set.univ) x => n.val.val x)
+      ((B.singleStalkEquivSupport x).apply_symm_apply m))
+
 
 @[expose] noncomputable def kernelEquivSingleStalk [DecompositionMonoid R] (x : V)
     (hrel : (incoming (G := G) x : Set E).Pairwise (Function.onFun IsRelPrime α))
@@ -227,6 +264,15 @@ product divisibility, and they are regular at every upward edge. -/
   · intro v
     obtain ⟨w,hw,hz⟩ := (B.single_section_iff_prod α hk bs x hrel hreg v.val).mp v.property
     exact ⟨⟨w,hz⟩,Subtype.ext hw.symm⟩
+
+/-- The costalk-to-single-stalk map multiplies by the product of incoming labels. -/
+@[simp] theorem kernelEquivSingleStalk_val [DecompositionMonoid R] (x : V)
+    (hrel : (incoming (G := G) x : Set E).Pairwise (Function.onFun IsRelPrime α))
+    (hreg : ∀ e, G.source e = x → Function.Injective
+      (fun v : B.edge e => incomingProduct (G := G) α x • v))
+    (v : LinearMap.ker (B.stalkMap x)) :
+    (B.kernelEquivSingleStalk α hα hk bs x hrel hreg v).val =
+      incomingProduct (G := G) α x • v.val := by rfl
 
 end KLInvariance.MomentGraph.Sheaf
 end

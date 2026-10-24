@@ -1,6 +1,6 @@
 # Graded / reflection API discovery
 
-This index covers the fourth experiment. Definitions remain exposed. Existing
+This index covers the fourth and fifth experiments. Definitions remain exposed. Existing
 APIs from the earlier experiments are linked from the project README.
 
 | Operation | Semantic entry points | Real clients |
@@ -30,3 +30,23 @@ The tensor naturality family extends existing endomorphism laws; its current
 production consumers retain those names as compatibility entry points. The
 ordinary import check also verifies a composition with different source/target
 modules. This is not a claim of a new cross-object production application.
+
+## Supported sections, costalks and split operations (round 5)
+
+This batch keeps exposed definitions and adds the following semantic boundaries.
+
+| Family | Entry points | Production consumers |
+| --- | --- | --- |
+| Single support and costalk coordinates (new) | `Sheaf.singleStalkEquivSupport_val`, `apply_self`, `symm_val`; `Sheaf.kernelEquivSingleStalk_val` | Both boundary and free-model `kernelEquivSingleSupport_apply` |
+| Supported duality and degree transport (new) | `Sheaf.singleSupportEquivDual_pairing`, `symm_pairing`; `GradedSheaf.singleSupportEquivDual_symm_homogeneous` | `Propagation.costalkEquivDual_pairing`, both inverse-homogeneity proofs |
+| Image-section range (completion) | `Hom.imageSectionEquiv_val` | `bottImageSectionWordEquiv_coordinates` |
+| Split corner algebra (completion) | `SplitIn.liftEnd_vertex_apply`, `edge_apply`, `compress_liftEnd`, `liftEnd_id` | Injectivity, composition, primitive-projector transfer in `Summand` |
+
+The first family separates a support equivalence from multiplication by
+incoming labels. Supported duality uses the section pairing for its characterization;
+it does not prescribe an inverse construction. The range formula specifies the
+image inclusion, while compression is a retraction law for corner extension.
+Coordinate formulas and the identity corner extension are `simp` rules; pairing,
+degree transport and compression remain explicit. No new `ext` or instances.
+General tensor naturality already covers the inspected use sites; this round does
+not claim a new cross-object tensor application.

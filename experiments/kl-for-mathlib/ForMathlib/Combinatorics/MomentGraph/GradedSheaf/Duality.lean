@@ -47,6 +47,29 @@ noncomputable section
   intro j n hn
   exact hlam j (n.val x) (hn x (Set.mem_univ x))
 
+/-- A homogeneous stalk functional gives a supported section in the complementary degree.
+This formulation uses only the pairing characterization of single-support duality. -/
+theorem singleSupportEquivDual_symm_homogeneous (hg : B.forget.Generated) (l : ℤ)
+    (hp : ∀ i j (m n : B.sections Set.univ),
+      m ∈ (B.sections Set.univ).piece i → n ∈ (B.sections Set.univ).piece j →
+      p m n ∈ 𝓐 (i+j-l))
+    (x : V) (r : ℤ) (lam : Dual A (B.vertex x))
+    (hlam : ∀ j (v : B.vertex x), v ∈ (B.vertex x).piece j → lam v ∈ 𝓐 (j+r)) :
+    ((B.forget.singleSupportEquivDual α hα ha p hbalanced hg x).symm lam).val ∈
+      (B.sections Set.univ).piece (r+l) := by
+  have he : ((B.forget.singleSupportEquivDual α hα ha p hbalanced hg x).symm lam).val =
+      p.symm ((IntegralSupport.projection (B.forget.sections Set.univ) x).dualMap lam) := by
+    apply p.injective
+    apply LinearMap.ext
+    intro n
+    exact (B.forget.singleSupportEquivDual_symm_pairing α hα ha p hbalanced hg x lam n).trans
+      (congrArg (fun f : Dual A (B.forget.sections Set.univ) => f n)
+        (p.apply_symm_apply ((IntegralSupport.projection (B.forget.sections Set.univ) x).dualMap lam))).symm
+  rw [he]
+  apply perfect_inverse_of_homogeneous_functional 𝓐 (B.sections Set.univ).piece p l hp r
+  intro j n hn
+  exact hlam j (n.val x) (hn x (Set.mem_univ x))
+
 end
 end KLInvariance.MomentGraph.GradedSheaf
 end

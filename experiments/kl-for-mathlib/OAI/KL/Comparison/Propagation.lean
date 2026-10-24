@@ -161,14 +161,12 @@ omit [Fintype σ] in
       (B.sheaf.forget.vertex y) := B.free y
   let _ (y : Interval cs u b) : Module.IsTorsionFree (Coefficient (σ := σ))
       (B.sheaf.forget.vertex y) := inferInstance
-  exact IntegralSupport.supportEquivDual_pairing (B.sheaf.forget.sections Set.univ)
-    (Sheaf.labelProduct (polynomialLabel cs u b basis))
-    (B.sheaf.forget.scaled_single_section
-      (B.sheaf.forget.labelProduct_annihilates (polynomialLabel cs u b basis)
-        (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient)))
-    (Sheaf.labelProduct_ne_zero _ (polynomialLabel_ne_zero cs u b basis))
-    d.pairing d.balanced x (B.sheaf.forget.projection_surjective B.generated x)
+  exact B.sheaf.forget.singleSupportEquivDual_pairing
+    (polynomialLabel cs u b basis) (polynomialLabel_ne_zero cs u b basis)
+    (GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient)
+    d.pairing d.balanced B.generated x
     (kernelEquivSingleSupport cs u b basis hub B x k) n
+
 
 omit [Fintype σ] in
 /-- Multiplying costalk dual evaluation by the incoming label product recovers

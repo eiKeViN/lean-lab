@@ -84,7 +84,7 @@ def prior_view(actual):
 
 def contract_summary():
     c=registry()
-    return {'actual_export_count':3947+len(__import__('api_evolution').additions())+len(__import__('api_families').additions())+len(__import__('api_reflection').additions()),'accepted_main_export_count':3940,
+    return {'actual_export_count':3947+len(__import__('api_evolution').additions())+len(__import__('api_families').additions())+len(__import__('api_reflection').additions())+len(__import__('api_support').additions()),'accepted_main_export_count':3940,
       'semantic_api_additions':__import__('semantic_api').added_types(),
       'semantic_api_generated':__import__('semantic_api').generated_types(),'prior_contract_view_count':3947,
       'comparison_view':'retained declarations plus historical records ONLY for the eight explicitly retired names; not an availability assertion',
