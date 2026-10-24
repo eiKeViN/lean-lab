@@ -168,7 +168,11 @@ def main():
  if args.checks_only:run('oai-ready',['lake','--no-build','build','ForMathlib','OAI'],env=env)
  else:run('library-build',['lake','build','ForMathlib','OAI'],env=env)
  for file in ('SemanticApiChecks','PilotChecks','PilotAudit','StalkCharacterImportChecks','CoreSheafImportChecks','GradedSupportImportChecks','ProjectEntryChecks','WeightedSumImportChecks','ScaledEvaluationImportChecks','ResponsibilityCompatChecks','ForMathlibChecks','ImportChecks','DomainImportChecks','KernelChecks','CompatChecks','ModernCompatChecks','ModernCoordinateChecks','ModernCoordinateMathlibChecks','SafeImportChecks','ModernAttachConsumer','ModernNextConsumer','ModernFinalCompat','ModernAllCompat','ModernAllConsumer','ModernStructureCompat','LegacyKernelEntryChecks','BoundaryChecks','Audit'):
-  run(file,['lake','env','lean',file+'.lean'],env=env)
+  if file == 'ModernStructureCompat':
+   from semantic_api import structure_audit
+   path=structure_audit(OUT/'semantic-api-structure-compat.lean')
+  else:path=file+'.lean'
+  run(file,['lake','env','lean',path],env=env)
  from semantic_api import check_axioms as semantic_axioms
  semantic_axioms((OUT/'SemanticApiChecks.log').read_text())
  run('semantic-api-regressions',[sys.executable,'test_semantic_api.py'])

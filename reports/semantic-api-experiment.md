@@ -104,6 +104,16 @@ simp 使用触发，未手写兼容包装、不算第七条数学 API，也不�
 kind、owner、公理和 12 个已有精确 type-pair 约束沿用。派生源码保存在本轮证据中。
 这不是所有定义可改成 axiom 的放宽；普通消费者必须证明相应语义且验证隐藏，原始 kind 仍为 def。
 
+原 `ModernStructureCompat` 的旧私有 Iso 构造辅助值在当前 opaque quotientPullback 下确实不能
+原样重建：它把 quotientPullback 的自然性证明靠定义相等直接接到 structureSheaf.lower。
+该失败保留，不冒称旧实现体在当前 opaque 环境仍可编译。冻结的原消费者/JSON 不改；
+本轮派生的历史实现审计仅在辅助值的重建中，将两个精确名字 quotientPullback 和
+baseChangePi_natural 指向由 Git 178ccf2 原文提取的两个私有审计副本。20个旧辅助值仍完整
+内核检查，135个公共历史名字/type/levels/属性检查仍用实际当前公共名字，没有名字跳过、
+通配归一化或公理放宽。真实普通 API 消费者不包含这些审计定义，仍验证 quotientPullback
+正文不可见和 rfl 失败。这将“历史实现重建”与“当前公共数学接口/下游”分开，属于本轮
+明确记录的有界审计上下文变化，不是完全定义体兼容的声明。
+
 ```sh
 bash scripts/setup.sh
 bash scripts/check.sh static
