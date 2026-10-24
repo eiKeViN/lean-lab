@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "-d",
+    "experiments/kl-for-mathlib",
+    "build",
+    "ForMathlib",
+    "OAI"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 0.004112948000056349,
+  "user_seconds": 8.953505,
+  "system_seconds": 0.037533,
+  "max_rss_kib": 13696
+}

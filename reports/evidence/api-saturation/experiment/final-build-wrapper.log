@@ -1,0 +1,1 @@
+{"label": "round6-final-build", "command": ["lake", "build", "ForMathlib", "OAI"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 331.9587808760002, "user_seconds": 448.378967, "system_seconds": 37.552136, "children_max_rss_kib_so_far": 3329396}

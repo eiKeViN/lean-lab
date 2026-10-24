@@ -1,0 +1,47 @@
+{
+  "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "files": {
+    "Mathlib/Algebra/Module/LinearMap/Defs.lean": {
+      "sha256": "aea1c354ffc798aaa5397f2f58124bc2ed7b29d24227ae568d3f5745f839570d",
+      "declarations": {
+        "comp_assoc": 511,
+        "id_comp": 508,
+        "comp_id": 504
+      }
+    },
+    "Mathlib/Algebra/Module/Equiv/Defs.lean": {
+      "sha256": "1d2ee6d4117937f5b25a4d32cad71e63481acd8ae4ede1e761f96aec6670ec9e",
+      "declarations": {
+        "comp_symm": 361,
+        "symm_comp": 364
+      }
+    },
+    "Mathlib/Algebra/Module/Submodule/LinearMap.lean": {
+      "sha256": "51b927c0a53b41f443cb053f81d6c065e0e462f1a016ea813111a0ecfa81f145",
+      "declarations": {
+        "restrict_comp": 236,
+        "subtype_comp_restrict": 255,
+        "codRestrict_apply": 163
+      }
+    },
+    "Mathlib/Algebra/Module/Submodule/Range.lean": {
+      "sha256": "dfde1ba66beaeae084182d880e917e1a3969a487208ac1eda5088e2204ae7b9f",
+      "declarations": {
+        "subtype_comp_rangeRestrict": 469
+      }
+    },
+    "Mathlib/LinearAlgebra/Quotient/Basic.lean": {
+      "sha256": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312",
+      "declarations": {
+        "mapQ_comp": 192,
+        "mapQ_id": 201
+      }
+    },
+    "Mathlib/LinearAlgebra/Projection.lean": {
+      "sha256": "5c8e2b690d8cb47efad4faca87bf784f33b8602d7784754ba4da3678796db69b",
+      "declarations": {
+        "projectionOnto_comp_subtype": 221
+      }
+    }
+  }
+}

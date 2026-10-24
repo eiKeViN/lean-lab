@@ -3,8 +3,10 @@
 基线 `78cdaf405dbf1dcf07eed5490469b7a8704c93f0`，独立分支
 `experiment/api-saturation-20261024`。环境已从该远端基线恢复，初始工作区干净。
 唯一维护的 Lean 项目仍是 `experiments/kl-for-mathlib`。旧分支保留，不创建 PR、不合并、不强推。
-代码检查点已通过完整构建、普通导入、19 项公理闭包及精确接口/8 项相关回归检查。
-逆向实现试验已完成；全量验收待完成。执行 SHA 与验收证据在完成后补入。
+状态：完成。完整构建、逆向实现试验及 **84/84 阶段验收全部通过**，含 121 项 Python 回归。
+执行代码与 426 项输入绑定：`70b7bcc161be904259cc9e54194ed0577c4c61c2`；
+数学源码与已推送检查点 `be92e1e30df2beeee92d4d721fcb71f9822d1255` 相同。
+后续提交仅报告/证据。
 
 本轮选取四组相邻的**已有家族补齐**，不是四个新领域；新增 13 条数学定理，
 仅改两个生产文件，没有新结构、实例或模块迁移，全部定义保留 expose。
@@ -43,8 +45,9 @@
 ```
 
 旧 `Hom.primitive_image` 的 `s.projector=p` 由逐点 rfl 得出；现在使用
-`p.imageSplit_projector hv he`。分裂像的 vertex/edge 往返也经过 image 分解和旧
-projector 求值/split 规律，不再展开 range 投影实现。
+`p.imageSplit_projector hv he`。`imageTo_toImage_vertex/edge` 使用 image 分解和旧
+projector 求值/split 规律，不展开 range 投影实现；反向 `toImage_imageTo_*` 复用
+`range_fixed` 替代成员见证拆解，但仍用 `change` 连接公开坐标，此处表示依赖尚未完全消除。
 
 旧 `SplitIn.lift_down` 为每次使用临时证明一个逐点 sandwich 等式；现在是：
 
@@ -58,6 +61,9 @@ projector 求值/split 规律，不再展开 range 投影实现。
 `liftEnd_downEnd` 通过整体结合律证明；primitive 的两组单位证明复用单位规则，
 且复用第五轮 `liftEnd_id`。不是所有证明都变短；明确的转换有时多于 rfl。
 本轮收益是提取可组合规律，仍保留 vertex/edge、subtype 和底层向量作为公开计算契约。
+7 条新 simp 规则消去单位、双侧逆、range 恒等、image-split projector 和 section 值；其余 6 条规律显式使用。
+沿用 `Hom.eq_of_maps`、`ModuleData.Hom.eq_of_map_eq`、`LinearMap.ext`、`Subtype.ext` 和 funext，
+不增加 ext 属性或实例。
 
 ## 实现变化与冻结对照
 
@@ -65,7 +71,7 @@ projector 求值/split 规律，不再展开 range 投影实现。
 代替原先 inclusion 的 codRestrict 构造。仅重证 `Hom.imageSectionMap_val`：由逆恒等式及
 image 因子分解恢复相同的 inclusion 值，对所有输入成立；其后从
 `Hom.imageSectionMap_bijective` 起至文件结尾的整段生产源码保持字节相同，并重新 elaboration 通过。
-该段有 SHA256 绑定；**不是声称整个 producer 文件冻结**。
+冻结对象是这个 SHA256 绑定的尾段；producer 定义和一条 API 证明为试验修改。
 
 另两份整文件冻结的 `Models`、`AdjointSheaf` 和普通导入/19 项公理闭包均通过。
 旧模块使用同一逆向实现并补入同样的两条 API 边界，保留旧证明正文；它在 bijectivity 的
@@ -83,11 +89,17 @@ image 因子分解恢复相同的 inclusion 值，对所有输入成立；其后
 变体从 range 上的投影先构造双射，再取逆，代替从 image inclusion 正向构造 section-range map。
 这两种由同一分裂诱导的等价，正向计算路径不同；变体不进入生产实现。
 所有正式源码、冻结客户端字节及所记录正常 `.olean*` 工件均在 finally 中恢复且哈希相同。
+变体只检查所列尾段、两份文件和普通入口，未在变体下全库重编译或复验全部历史生成名称；
+正式版本另行通过完整 84 阶段验收。
 
 ## 验收与成本
 
 当前完整构建通过，原始接口 4001→4014：恰好 13 条数学定理新增，零生成新增，
-无旧声明缺失、类型或归属变化。全量历史兼容与回归验收待完成。
+无旧声明缺失、类型或归属变化。84/84 阶段验收全部通过；19 项本轮/消费者公理闭包
+仅使用 `propext`、`Classical.choice`、`Quot.sound`。所有适用历史兼容与回归检查通过，
+没有放宽旧公开契约。历史检查比较当前结果与不可变记录，不是重编退休的历史项目。
+原始比较器因新增返回 `passed=false`；精确核对器要求这 13 条完整记录与登记完全一致，
+且旧记录零变化，才接受本轮增量。
 首次原始导出为 4020 条：13 条数学定理之外，还多出 `ModuleData.rangeMap.congr_simp`
 及 `SplitIn.downEnd.eq_1`、`imageTo.eq_1`、`liftEnd.eq_1`、`projector.eq_1`、`toImage.eq_1`。
 精确检查拒绝这六条未登记的生成声明；没有扩大豁免。它们来自新证明中 `simp` 展开定义与
@@ -98,6 +110,9 @@ image 因子分解恢复相同的 inclusion 值，对所有输入成立；其后
 
 新 source/type 层只登记本轮两个文件与精确声明，不刷新前五轮记录、不作前缀豁免。
 历史输入仅允许明确 Git 提交和哈希；当前完整产品仍要求等于新 overlay。
+本轮逆向视图只允许两个生产文件的已登记精确增量和三个已列明历史源码哈希；
+回归拒绝额外字节、缺失或变化的声明记录。原各轮基准与记录不刷新。
+数学源码差异为两个文件 +152/−32 行（净 +120）；这是文本规模，不是复杂度或质量指标。
 
 保存环境最初缺失 `.lake` 与 Lean 工具链缓存，按 `scripts/setup.sh` 恢复固定版本和官方缓存，
 没有更新 pins、重跑前五轮试验或全编 mathlib。复现：
@@ -109,7 +124,35 @@ cd experiments/kl-for-mathlib
 python3 api_saturation_trial.py  # 不与构建并行
 ```
 
-token 遥测不可用，不估算 token 或性能收益。
+
+| 实测操作 | 墙钟秒 | 范围 |
+| --- | ---: | --- |
+| 恢复后首次完整构建 | 2202.355 | 9186 目标；初稿随后消除六条生成辅助声明；最大子进程 RSS 3372272 KiB |
+| 最终完整增量构建 | 331.959 | 9186 目标；当前数学源码；最大子进程 RSS 3329396 KiB |
+| 最终全量验收 | 685.888 | 84 阶段；121 项回归；最大子进程 RSS 7781988 KiB |
+| 最终预检完整接口导出 | 20.471 | 导入工件与序列化两条命令 |
+| 成功冻结实现试验 | 145.018 | 8 次 Lean 调用；最大子进程 RSS 3316716 KiB |
+| 两份保留的失败原型 | 51.510 | 不计同型重复启动的未保存时间；不是 API 收益 |
+
+最终热构建 7.260 秒。setup 和全部局部命令没有单独完整计时；这些行不是总会话成本，
+也不能与旧环境直接作性能比较。token 遥测不可用，不估算 token 或性能收益。
+
+固定证据：
+
+- [执行输入绑定](evidence/api-saturation/accepted-inputs.json)、[核对摘要](evidence/api-saturation/verification.json)、[最终完整性核对](evidence/api-saturation/final-integrity.json)、
+  [84 阶段完整命令/退出码](evidence/api-saturation/accepted/stages.json)、[全量验收指标](evidence/api-saturation/experiment/full-checks.json)。
+- [最终构建指标](evidence/api-saturation/experiment/final-build.json)、[完整构建日志](evidence/api-saturation/experiment/final-build.log)、
+  [原始接口差异](evidence/api-saturation/experiment/raw-interface-diff.json)、[精确登记核对](evidence/api-saturation/accepted/api-saturation-full-records.log)。
+- [试验对照](evidence/api-saturation/experiment/trial/comparison.json)、[一条 API 修补](evidence/api-saturation/experiment/trial/api-proof.patch)、
+  [冻结 producer 尾段](evidence/api-saturation/experiment/trial/frozen-producer-client-tail.json)、[旧证明语义失败](evidence/api-saturation/experiment/trial/old-module-clients.log)、
+  [恢复哈希](evidence/api-saturation/experiment/trial/restoration.json)。
+- [未接受的六条生成声明](evidence/api-saturation/experiment/first-export-generated/raw-interface-diff.json)、
+  [锁定 mathlib 参照与哈希](evidence/api-saturation/experiment/mathlib-patterns.json)、
+  [main 及前五轮分支远端记录](evidence/api-saturation/experiment/remote-refs-before-final.log)、[归档清单](evidence/api-saturation/manifest.json)。
+
+已核对代码输入与执行提交、全部归档哈希/压缩往返、报告链接及正常工件恢复记录。
+main 仍为 `178ccf2`，前五轮分支保留；没有 PR、合并、强推或未解决验收阻塞。
+
 
 ## 后续停止边界
 
@@ -117,4 +160,4 @@ token 遥测不可用，不估算 token 或性能收益。
 目前逆规律与三个 range 整体规律已经属于面向未来的补齐；其余逆排列可由两侧消去推导，
 更多加法/标量规律又会涉及尚未建立的 Hom 代数结构。此次已经找到的实际重复集中于
 image/corner 的组合，这支持有界完成当前家族，而不支持再凑一轮等量声明。
-这不是否定未来扩展；下一次优先依据新生产证明和明确的结构设计重新评估。
+下一次优先依据新生产证明和明确的结构设计重新评估。

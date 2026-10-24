@@ -1,0 +1,25 @@
+{
+  "source_restored": true,
+  "frozen_downstream_unchanged": true,
+  "lake_artifacts_unchanged": true,
+  "artifacts": {
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean.private": "2e887b91fa2e384791c7c7782617aa23e9b98cbc7ad20769d674dacfc1dd5369",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean.private.hash": "15fc5636b21c7d7edb6ae00323e0a0f6e0c05fbe484444de0df61dcdbd1b66f3",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean.server.hash": "1440f4ffa601ee6143bba6bf2850c04f28f209abb9c807f6ca277997da8e4290",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean.server": "8eab577e7a9a97921ceaf78d86757d33811d54913cce260cb02966dfe1a55cd8",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean.hash": "3f17116bcc0a56656a1662bc095c716d85adfa8f5191d0d0e9cf6ada503cbef1",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean": "ea96f2bea84cec2860e1b507335185f0a7cf08428cf2e72a69ec01646466e76b",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean.server": "45de89177e77d7f33e714ba410104ac5421042641a75f17ddf36ba3d570c728b",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean.private.hash": "61b684ba32772b254d7f5db7b2f231aacf3e8f1397c2aaf7cea3782ac42c0420",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean.hash": "7b711533fb017f7ebfb6d3094c65e2a389cd7e9ce6e203242bdb2800777d12bf",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean": "68e54a8be8efd911e0e4a7b000036f4c3e9d10d2558438c07abe7564d58e1898",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean.private": "0dc33de759c1c1d5d2ed60b2ec26b2afd357032940e52ff5cebaa087977b8daa",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean.server.hash": "7b67030452e113f790b5a998190e814a34fd3e0722034547c26b02f989171371",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean.hash": "6809f77bb77202f4d93d52e4b1ce8dd80fe34a2384db8694baeff863e52c789a",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean.server": "44e86e92b844b53dc47844a7ddfcf3697406711815a97ed9ee7d0817e8b888af",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean": "99e51101fc4283f505e1fc443bdcafaa5f907b202dd6ab7d77d0d9c0a7a97e15",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean.private": "167f2c0e80347917fc5e50ecace919e10aa73af2da105ba760ee47217f73d9b4",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean.private.hash": "b44b43f0b9c0c332551f92a6d799e2d2a3cdacbd1f2a1d67402ad92030fe7dd2",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean.server.hash": "a4bceb4c96d2df0a19b9a88a072c2c0a829249f1a5204e6fefb488ab689eaa68"
+  }
+}

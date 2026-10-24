@@ -1,0 +1,30 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 6.6964422239998385,
+    "max_rss_kib_so_far": 3152992,
+    "source_sha256": "f5a709bffc099bc23dbae4ff844b8c4bbe28d11d85eb04053c8663e4eee50698"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-saturation/trial/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 6.012348462000318,
+    "max_rss_kib_so_far": 3158584,
+    "source_sha256": "5b1cb6d7d8faedff3dfe01990df144de35c1c1fe81afc22e557c4dc02febb64e"
+  }
+]

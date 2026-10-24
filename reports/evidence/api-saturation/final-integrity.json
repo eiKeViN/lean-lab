@@ -1,0 +1,8 @@
+{
+  "code_checkpoint": "70b7bcc161be904259cc9e54194ed0577c4c61c2",
+  "archive_entries_verified": 172,
+  "gzip_roundtrips_verified": true,
+  "report_and_discovery_links_valid": true,
+  "artifact_hashes_still_match_after_full_validation": true,
+  "code_inputs_verified_against_git_by_archiver": 426
+}

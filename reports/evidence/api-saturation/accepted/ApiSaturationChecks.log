@@ -1,0 +1,41 @@
+'OAI.KLInvariance.Graded.ModuleData.rangeMap_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Graded.ModuleData.rangeMap_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Graded.ModuleData.rangeInclusion_comp_rangeMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.id_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.inverse_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageInclusion_comp_imageProjection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionMap_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSplit_projector' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.downEnd_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_downEnd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionMap_bijective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionEquiv_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.imageTo_toImage_vertex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.imageTo_toImage_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.primitive_projector_of_id' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.lift_down' depends on axioms: [propext, Classical.choice, Quot.sound]

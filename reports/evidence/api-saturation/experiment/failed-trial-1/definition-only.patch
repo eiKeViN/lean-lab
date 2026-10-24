@@ -1,0 +1,40 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean
+@@ -311,9 +311,34 @@
+ 
+  @[expose] def Hom.imageSectionMap (h : Hom B B)
+     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
+-    (Ω : Set V) : h.image.forget.sections Ω →ₗ[A] LinearMap.range (h.sectionMap Ω) :=
+-  (h.imageInclusion.sectionMap Ω).codRestrict _ (fun f =>
+-    ⟨h.imageInclusion.sectionMap Ω f,h.imageSection_fixed hv Ω f⟩)
++    (Ω : Set V) : h.image.forget.sections Ω →ₗ[A] LinearMap.range (h.sectionMap Ω) := by
++  let F : h.image.forget.sections Ω →ₗ[A] LinearMap.range (h.sectionMap Ω) :=
++    (h.imageInclusion.sectionMap Ω).codRestrict _ (fun f =>
++      ⟨h.imageInclusion.sectionMap Ω f,h.imageSection_fixed hv Ω f⟩)
++  let P : LinearMap.range (h.sectionMap Ω) →ₗ[A] h.image.forget.sections Ω :=
++    (h.imageProjection.sectionMap Ω).domRestrict _
++  have hPF (f : h.image.forget.sections Ω) : P (F f) = f := by
++    apply Subtype.ext
++    funext x
++    apply Subtype.ext
++    change ((h.imageProjection.sectionMap Ω (h.imageInclusion.sectionMap Ω f)).val x).val = _
++    rw [Hom.sectionMap_apply, Hom.sectionMap_apply]
++    exact (ModuleData.rangeProjection_val _ _).trans
++      ((congrArg (h.vertex x).map (ModuleData.rangeInclusion_apply _ _)).trans
++        (ModuleData.range_fixed (h.vertex x) (hv x) (f.val x)))
++  have hFP (m : LinearMap.range (h.sectionMap Ω)) : F (P m) = m := by
++    obtain ⟨_,s,rfl⟩ := m
++    apply Subtype.ext
++    change ((h.imageInclusion.sectionMap Ω).comp (h.imageProjection.sectionMap Ω))
++      (h.sectionMap Ω s) = h.sectionMap Ω s
++    rw [← Hom.sectionMap_comp, h.imageInclusion_comp_imageProjection]
++    apply Subtype.ext
++    funext x
++    simp only [Hom.sectionMap_apply]
++    exact hv x (s.val x)
++  exact (LinearEquiv.ofBijective P ⟨fun m n he =>
++    (hFP m).symm.trans ((congrArg F he).trans (hFP n)),
++    fun f => ⟨F f,hPF f⟩⟩).symm.toLinearMap
+ 
+ /-- The canonical map from image sections to the section-map range is image inclusion. -/
+ @[simp] theorem Hom.imageSectionMap_val (h : Hom B B)

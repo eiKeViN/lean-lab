@@ -1,0 +1,28 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean
+@@ -344,7 +344,24 @@
+ @[simp] theorem Hom.imageSectionMap_val (h : Hom B B)
+     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
+     (Ω : Set V) (m : h.image.forget.sections Ω) :
+-    (h.imageSectionMap hv Ω m).val = h.imageInclusion.sectionMap Ω m := by rfl
++    (h.imageSectionMap hv Ω m).val = h.imageInclusion.sectionMap Ω m := by
++  have he : h.imageProjection.sectionMap Ω (h.imageSectionMap hv Ω m).val = m := by
++    exact (LinearEquiv.ofBijective
++      ((h.imageProjection.sectionMap Ω).domRestrict
++        (LinearMap.range (h.sectionMap Ω))) _).apply_symm_apply m
++  have hf : h.sectionMap Ω (h.imageSectionMap hv Ω m).val =
++      (h.imageSectionMap hv Ω m).val := by
++    obtain ⟨s,hs⟩ := (h.imageSectionMap hv Ω m).property
++    rw [← hs]
++    apply Subtype.ext
++    funext x
++    simp only [Hom.sectionMap_apply]
++    exact hv x (s.val x)
++  have hi := congrArg (h.imageInclusion.sectionMap Ω) he
++  change ((h.imageInclusion.sectionMap Ω).comp (h.imageProjection.sectionMap Ω))
++    (h.imageSectionMap hv Ω m).val = h.imageInclusion.sectionMap Ω m at hi
++  rw [← Hom.sectionMap_comp, h.imageInclusion_comp_imageProjection, hf] at hi
++  exact hi
+ 
+  theorem Hom.imageSectionMap_bijective (h : Hom B B)
+     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)

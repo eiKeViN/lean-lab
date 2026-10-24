@@ -1,0 +1,47 @@
+[
+  {
+    "label": "round6-regressions",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "test_api_saturation",
+      "test_api_support",
+      "test_api_reflection"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 0.5454243750000387,
+    "user_seconds": 0.385849,
+    "system_seconds": 0.156756,
+    "children_max_rss_kib_so_far": 19576
+  },
+  {
+    "label": "round6-records",
+    "command": [
+      "python3",
+      "api_saturation.py",
+      "/workspace/lean-lab/results/api-saturation/preflight-types.tsv"
+    ],
+    "cwd": "experiments/kl-for-mathlib",
+    "exit_code": 0,
+    "wall_seconds": 9.702373060000355,
+    "user_seconds": 9.208551,
+    "system_seconds": 0.49868899999999994,
+    "children_max_rss_kib_so_far": 340740
+  },
+  {
+    "label": "round6-static",
+    "command": [
+      "bash",
+      "scripts/check.sh",
+      "static"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "wall_seconds": 16.526953049999975,
+    "user_seconds": 13.161929999999998,
+    "system_seconds": 3.1188230000000003,
+    "children_max_rss_kib_so_far": 340740
+  }
+]

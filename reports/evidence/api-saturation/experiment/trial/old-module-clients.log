@@ -1,0 +1,49 @@
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:364:4: error: Type mismatch
+  congrFun (congrArg Subtype.val (congrArg Subtype.val hfg)) x
+has type
+  ↑↑((h.imageSectionMap hv Ω) f) x = ↑↑((h.imageSectionMap hv Ω) g) x
+but is expected to have type
+  ↑(↑f x) = ↑(↑g x)
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:369:4: error: Tactic `rfl` failed: The left-hand side
+  ↑↑((h.imageSectionMap hv Ω) ((h.imageProjection.sectionMap Ω) m))
+is not definitionally equal to the right-hand side
+  ↑↑⟨(h.sectionMap Ω) m, ⋯⟩
+
+case right
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (h.vertex x).map ((h.vertex x).map v) = (h.vertex x).map v
+Ω : Set V
+m : ↥(B.forget.sections Ω)
+⊢ ↑↑((h.imageSectionMap hv Ω) ((h.imageProjection.sectionMap Ω) m)) = ↑↑⟨(h.sectionMap Ω) m, ⋯⟩
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:380:77: error: Tactic `rfl` failed: The left-hand side
+  ↑((h.imageSectionEquiv hv Ω) m)
+is not definitionally equal to the right-hand side
+  (h.imageInclusion.sectionMap Ω) m
+
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (h.vertex x).map ((h.vertex x).map v) = (h.vertex x).map v
+Ω : Set V
+m : ↥(h.image.forget.sections Ω)
+⊢ ↑((h.imageSectionEquiv hv Ω) m) = (h.imageInclusion.sectionMap Ω) m

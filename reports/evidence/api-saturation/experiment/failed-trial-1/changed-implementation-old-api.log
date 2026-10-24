@@ -1,0 +1,21 @@
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:347:75: error: Tactic `rfl` failed: The left-hand side
+  ↑((h.imageSectionMap hv Ω) m)
+is not definitionally equal to the right-hand side
+  (h.imageInclusion.sectionMap Ω) m
+
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (h.vertex x).map ((h.vertex x).map v) = (h.vertex x).map v
+Ω : Set V
+m : ↥(h.image.forget.sections Ω)
+⊢ ↑((h.imageSectionMap hv Ω) m) = (h.imageInclusion.sectionMap Ω) m
