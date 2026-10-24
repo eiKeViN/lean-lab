@@ -10,6 +10,14 @@ class EvolutionPolicy(unittest.TestCase):
    self.assertEqual(a.prior_source(p,new),old)
    with self.assertRaises(RuntimeError):a.prior_source(p,new+b'\n')
    with self.assertRaises(RuntimeError):a.apply(p,old+b'\n')
+ def test_exact_historical_inputs(self):
+  self.assertEqual(len(a.HISTORICAL_INPUTS),2)
+  for p,(commit,digest) in a.HISTORICAL_INPUTS.items():
+   old=a.before(p,commit)
+   self.assertEqual(a.sha(old),digest)
+   self.assertEqual(a.prior_source(p,old),old)
+   with self.assertRaises(RuntimeError):a.apply(p,old)
+   with self.assertRaises(RuntimeError):a.prior_source(p,old+b'\n')
  def test_exact_registry(self):
   records=a.additions();self.assertEqual(a.strip_additions(records),{})
   for n in records:

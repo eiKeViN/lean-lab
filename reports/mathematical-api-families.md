@@ -6,6 +6,8 @@
 `experiment/mathematical-api-families-20261024`。第一阶段检查点`15ccdc5`已推送。
 保留前两轮完整结果，main不变，不建PR、不合并。
 
+[本轮与上轮的原样源码摘录](mathematical-api-gallery.md)列出固定SHA、行号与真实消费者。
+
 ## 选择与数学边界
 
 本轮覆盖四组操作模式，不以定理数量、expose数量或行数下降衡量；也不宣称覆盖四个独立数学领域。
@@ -108,6 +110,15 @@ api_families逐条登记本轮新增声明，另对完整当前接口与bdb逐�
 前一轮单元测试以显式mock隔离其原记录边界，新一轮另检查源码/声明mutants。
 完整接口/源保护不按前缀忽略声明，不放宽全局门禁。
 
+首次整轮验收到第74阶段proof-evolution-tests失败（前73阶段通过），耗时464.458秒。
+原因是该旧回归先把当前源码逆转为module迁移前的输入，再让proof_evolution检查旧守卫；
+新源码层此前只识别bdb/31f/178的现代输入。所需交集恰为Models与Pullback两个文件。
+修复仅在api_families.HISTORICAL_INPUTS登记Git 382d29d的两个精确字节SHA，并再次核对Git字节；
+不泛化为任意旧header。当前产品仍必须等于七文件overlay，旧字节不能作为overlay输入。
+新增回归验证旧输入可读、增添一个换行即拒绝、不能作为当前overlay起点；
+修复后新旧两组33项单元测试通过。数学源码、API类型、两类扰动及六文件冻结均不改变。
+失败整轮日志留存，最终再跑完整门禁，区别于重编译未变生产模块。
+
 ```sh
 source scripts/env.sh
 bash scripts/check.sh static
@@ -117,7 +128,9 @@ cd experiments/kl-for-mathlib
 python3 api_families_trial.py
 ```
 
-完整构建334.920秒，最大子进程RSS 3315808 KiB；
+完整构建334.920秒，最大子进程RSS 3315808 KiB。
+使用增量依赖缓存，日志记录69个模块重编译；未重新编译UpperSections或Stalks，
+不是对所有9186项从零重编译；详见build-coverage.json。
 完整接口3956→3967，恰有11条新数学定理，无新生成声明，旧声明无missing/changed/relocated。
 原始比较器因任何新增而显示passed=false；本轮核对器只有精确11条新增均符合登记才接受。
 最终全部门禁与完整证据待完成后归档。

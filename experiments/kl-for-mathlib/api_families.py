@@ -9,6 +9,13 @@ SOURCE_SHA='701ce877f749910d95455ca84bc371c732d0ca05fe8ea5595cb0f9ebbe8c7d9b'
 TYPES_SHA='db107aacfcbe766fd86d0444790eff71a7a92117c6b1980ad947c3424971b2d2'
 NAMES=tuple('OAI.KLInvariance.MomentGraph.Sheaf.'+n for n in ('Iso.assignments_apply', 'Iso.assignments_symm_apply', 'Iso.sections_val_apply', 'Iso.boundary_apply', 'mem_upwardKernel_iff', 'upwardKernel_univ', 'pi_stalkMap_apply', 'prod_stalkMap_apply', 'prod_compatible_iff', 'restrict_extendAssignment', 'restrict_compatible_iff'))
 GENERATED=()
+# Two immutable pre-module inputs used by the inherited proof-evolution tests.
+# The final product check still requires the current seven-file overlay exactly.
+HISTORICAL_INPUTS={
+ 'ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean':
+  ('382d29d94aaa8e32bcdeb24633f070d29695dcc3','af6f21aad2f674a0d658e9d72b4245c37a72516e1cd7d2418b2e2d79a8c2b42c'),
+ 'ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean':
+  ('382d29d94aaa8e32bcdeb24633f070d29695dcc3','22ee33c3051530b5581c66b929e45f55a3716047c3be6c9a2bac64d6efd3e38a')}
 def sha(b):return hashlib.sha256(b).hexdigest()
 def before(path,commit=BASE):return subprocess.check_output(['git','show',commit+':experiments/kl-for-mathlib/'+path],cwd=ROOT)
 def plan():
@@ -29,6 +36,11 @@ def apply(path,b):
  return s.encode()
 def prior_source(path,b):
  if path not in plan()['files']:return b
+ if path in HISTORICAL_INPUTS:
+  commit,digest=HISTORICAL_INPUTS[path]
+  if sha(b)==digest:
+   if b!=before(path,commit):raise RuntimeError('Changed historical input identity')
+   return b
  old=before(path);new=apply(path,old)
  if b==new:return old
  if b==old or b in (before(path,'31f05da2d4ff1d80f2ceed3f8e1f3ac86fcb933b'),before(path,'178ccf2a9fa1f0bff04d6b029db1361f881fef33')):return b
