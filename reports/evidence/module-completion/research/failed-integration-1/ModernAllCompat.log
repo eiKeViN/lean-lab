@@ -1,0 +1,8 @@
+Historical names/types/levels/attributes/kernel/defeq/axioms: 1; unavailable=[]; actual old helpers=0
+ModernAllCompat.lean:133:8: warning: Variable name `env` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _env
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ModernAllCompat.lean:171:0: error(lean.unknownIdentifier): Unknown constant `OAI.KLInvariance.LocalCover.splitEquiv.match_6`

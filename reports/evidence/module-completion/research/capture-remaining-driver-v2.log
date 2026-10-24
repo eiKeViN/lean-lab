@@ -1,0 +1,10 @@
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/OAI.KL.BottSamelson.CanonicalPairing.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 14.250519602999702, "user_seconds": 18.359536, "system_seconds": 2.780772, "max_rss_kib": 7336092}
+OAI.KL.BottSamelson.CanonicalPairing 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/OAI.KL.BottSamelson.Stalks.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 99.33486749700023, "user_seconds": 194.228125, "system_seconds": 3.486881, "max_rss_kib": 7422920}
+OAI.KL.BottSamelson.Stalks 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/OAI.KL.BottSamelson.AdjointSheaf.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 26.713466524997784, "user_seconds": 67.345724, "system_seconds": 2.647072, "max_rss_kib": 7399648}
+OAI.KL.BottSamelson.AdjointSheaf 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/OAI.KL.BottSamelson.Character.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 19.683447552997677, "user_seconds": 27.612101, "system_seconds": 2.887914, "max_rss_kib": 7333100}
+OAI.KL.BottSamelson.Character 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/OAI.KL.Localization.Edge.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 9.157622983999318, "user_seconds": 9.905947, "system_seconds": 1.999158, "max_rss_kib": 7281460}
+OAI.KL.Localization.Edge 0

@@ -1,0 +1,9 @@
+Old matcher OAI.KLInvariance.CoefficientChange.ext.match_1: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+Old matcher OAI.KLInvariance.LocalCover.splitEquiv.match_3: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+Old matcher OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_1: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+Old matcher OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_3: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+Old matcher OAI.KLInvariance.ReflectionFrobenius.wallCoordinate_injective.match_1_2: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+Old matcher OAI.KLInvariance.ReflectionFrobenius.wallMatrix_mulVec.match_1_1: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+Old matcher OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+Old matcher OAI.KLInvariance.TitsSpace.exists_common_transverse.match_1_1: reducibility=Lean.ReducibilityStatus.instanceReducible; equations=none
+24

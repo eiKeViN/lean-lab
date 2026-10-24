@@ -1,0 +1,3 @@
+/workspace/lean-lab/results/matcher-compat/OrdinaryLibrary.lean:57:61: error(lean.unknownIdentifier): Unknown identifier `rolloutProofOwners.contains`
+Serialization guard: identical record and alpha controls accepted; 8 theorem mutations and 3 unsupported definition cases rejected.
+/workspace/lean-lab/results/matcher-compat/OrdinaryLibrary.lean:161:0: error: cannot evaluate code because '_private._stdin.0.dumpType' uses 'sorry' and/or contains errors

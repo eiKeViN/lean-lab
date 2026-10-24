@@ -1,0 +1,17 @@
+...E......
+======================================================================
+ERROR: test_exact_twelve_ordinary_pairs_reject_other_changes (test_module_all.AllPolicyTests.test_exact_twelve_ordinary_pairs_reject_other_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_module_all.py", line 49, in test_exact_twelve_ordinary_pairs_reject_other_changes
+    self.assertTrue(m.compare_public('unused')['passed'])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_all.py", line 121, in compare_public
+    if c['lean_commit'] not in subprocess.check_output(['lean','--version'],cwd=HERE,text=True):raise RuntimeError('Wrong ordinary compiler')
+                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Wrong ordinary compiler
+
+----------------------------------------------------------------------
+Ran 10 tests in 35.326s
+
+FAILED (errors=1)

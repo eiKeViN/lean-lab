@@ -1,0 +1,3 @@
+Boundary.ext.match_1_1 (motive : Option Nat → Prop) (x✝ : Option Nat) (h_1 : ∀ (_ : Unit), motive none)
+  (h_2 : ∀ (val : Nat), motive (some val)) : motive x✝
+/workspace/lean-lab/results/matcher-compat/prototype/Promote.lean:12:0: error: missing helper

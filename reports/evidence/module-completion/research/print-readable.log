@@ -1,0 +1,122 @@
+@[instance_reducible] def OAI.KLInvariance.CoefficientChange.ext.match_1.{u_1, u_2, u_3, u_4} : ∀ {k : Type u_1}
+  {inst : Field.{u_1} k} {A : Type u_2} {inst_1 : CommRing.{u_2} A} {inst_2 : Algebra.{u_1, u_2} k A} {B : Type u_3}
+  {inst_3 : CommRing.{u_3} B} {inst_4 : Algebra.{u_1, u_3} k B} {_e : AlgEquiv.{u_1, u_2, u_3} k A B} {M : Type u_4}
+  (motive : OAI.KLInvariance.CoefficientChange.{u_1, u_2, u_3, u_4} _e M → Prop)
+  (h : OAI.KLInvariance.CoefficientChange.{u_1, u_2, u_3, u_4} _e M),
+  (∀ (val : M), motive (OAI.KLInvariance.CoefficientChange.mk.{u_1, u_2, u_3, u_4} val)) → motive h :=
+fun {k} {inst} {A} {inst_1} {inst_2} {B} {inst_3} {inst_4} {_e} {M} motive h h_1 =>
+  OAI.KLInvariance.CoefficientChange.casesOn.{0, u_1, u_2, u_3, u_4} h fun val => h_1 val
+/workspace/lean-lab/results/matcher-compat/PrintReadable.lean:8:7: warning: `OAI.KLInvariance.CoefficientChange.ext.match_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+@[instance_reducible] def OAI.KLInvariance.LocalCover.splitEquiv.match_3.{u_1, u_2, u_3} : ∀ {R : Type u_3}
+  {B : Type u_2} {P : Type u_1} [inst : CommRing.{u_3} R] [inst_1 : AddCommGroup.{u_2} B]
+  [inst_2 : Module.{u_3, u_2} R B] [inst_3 : AddCommGroup.{u_1} P] [inst_4 : Module.{u_3, u_1} R P]
+  (g : LinearMap.{u_3, u_3, u_2, u_1} (RingHom.id.{u_3} R) B P)
+  (motive : Prod.{u_1, u_2} P ↥(LinearMap.ker.{u_3, u_3, u_2, u_1} g) → Prop)
+  (x : Prod.{u_1, u_2} P ↥(LinearMap.ker.{u_3, u_3, u_2, u_1} g)),
+  (∀ (p : P) (b : ↥(LinearMap.ker.{u_3, u_3, u_2, u_1} g)), motive (Prod.mk.{u_1, u_2} p b)) → motive x :=
+fun {R} {B} {P} [CommRing.{u_3} R] [AddCommGroup.{u_2} B] [Module.{u_3, u_2} R B] [AddCommGroup.{u_1} P]
+    [Module.{u_3, u_1} R P] g motive x h_1 =>
+  Prod.casesOn.{0, u_1, u_2} x fun fst snd => h_1 fst snd
+/workspace/lean-lab/results/matcher-compat/PrintReadable.lean:9:7: warning: `OAI.KLInvariance.LocalCover.splitEquiv.match_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+@[instance_reducible] def OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_1.{u_1, u_2, u_3} : ∀
+  {k : Type u_3} [inst : Field.{u_3} k] {A : Type u_1} [inst_1 : CommRing.{u_1} A] [inst_2 : Algebra.{u_3, u_1} k A]
+  {𝓐 : ℤ → Submodule.{u_3, u_1} k A} {V E : Type u_2} [inst_3 : PartialOrder.{u_2} V]
+  {G : OAI.KLInvariance.MomentGraph.OrderedGraph.{u_2, u_2} V E} {D : Type u_2} [inst_4 : Fintype.{u_2} V]
+  [inst_5 : Fintype.{u_2} D] [inst_6 : IsNoetherianRing.{u_1} A]
+  (B : OAI.KLInvariance.MomentGraph.GradedSheaf.{u_3, u_1, u_2} G) (τ : D → V) (α : D → A)
+  (hα : ∀ (d : D), Membership.mem.{u_1, u_1} (𝓐 1) (α d))
+  (C :
+    OAI.KLInvariance.Graded.ModuleData.MinimalCover.{u_3, u_1, u_2}
+      (OAI.KLInvariance.MomentGraph.GradedSheaf.attachImage.{u_3, u_1, u_2} B τ α hα))
+  (d : D)
+  (v :
+    ↑(OAI.KLInvariance.Graded.ModuleData.obj.{u_3, u_1, u_2}
+        (OAI.KLInvariance.MomentGraph.GradedSheaf.vertex.{u_3, u_1, u_2}
+          (OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom.{u_3, u_1, u_2} B τ α hα C)
+          (OAI.KLInvariance.MomentGraph.OrderedGraph.target.{u_2, u_2}
+            (OAI.KLInvariance.MomentGraph.bottomGraph.{u_2} G τ) (Sum.inr.{u_2, u_2} d)))))
+  (motive : (∃ w, Eq.{max (u_1 + 1) (u_2 + 1)} (HSMul.hSMul.{u_1, max u_1 u_2, max u_1 u_2} (α d) w) v) → Prop)
+  (x : ∃ w, Eq.{max (u_1 + 1) (u_2 + 1)} (HSMul.hSMul.{u_1, max u_1 u_2, max u_1 u_2} (α d) w) v),
+  (∀
+      (w :
+        ↑(OAI.KLInvariance.Graded.ModuleData.obj.{u_3, u_1, u_2}
+            (OAI.KLInvariance.MomentGraph.GradedSheaf.vertex.{u_3, u_1, u_2}
+              (OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom.{u_3, u_1, u_2} B τ α hα C)
+              (OAI.KLInvariance.MomentGraph.OrderedGraph.target.{u_2, u_2}
+                (OAI.KLInvariance.MomentGraph.bottomGraph.{u_2} G τ) (Sum.inr.{u_2, u_2} d)))))
+      (hw : Eq.{max (u_1 + 1) (u_2 + 1)} (HSMul.hSMul.{u_1, max u_1 u_2, max u_1 u_2} (α d) w) v),
+      motive (Exists.intro.{max (u_1 + 1) (u_2 + 1)} w hw)) →
+    motive x :=
+fun {k} [Field.{u_3} k] {A} [CommRing.{u_1} A] [Algebra.{u_3, u_1} k A] {𝓐} {V E} [PartialOrder.{u_2} V] {G} {D}
+    [Fintype.{u_2} V] [Fintype.{u_2} D] [IsNoetherianRing.{u_1} A] B τ α hα C d v motive x h_1 =>
+  Exists.casesOn.{max (u_1 + 1) (u_2 + 1)} x fun w h => h_1 w h
+@[instance_reducible] def OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_3.{u_1, u_2, u_3} : ∀
+  {k : Type u_3} [inst : Field.{u_3} k] {A : Type u_1} [inst_1 : CommRing.{u_1} A] [inst_2 : Algebra.{u_3, u_1} k A]
+  {𝓐 : ℤ → Submodule.{u_3, u_1} k A} {V E : Type u_2} [inst_3 : PartialOrder.{u_2} V]
+  {G : OAI.KLInvariance.MomentGraph.OrderedGraph.{u_2, u_2} V E} {D : Type u_2} [inst_4 : Fintype.{u_2} V]
+  [inst_5 : Fintype.{u_2} D] [inst_6 : IsNoetherianRing.{u_1} A]
+  (B : OAI.KLInvariance.MomentGraph.GradedSheaf.{u_3, u_1, u_2} G) (τ : D → V) (α : D → A)
+  (hα : ∀ (d : D), Membership.mem.{u_1, u_1} (𝓐 1) (α d))
+  (C :
+    OAI.KLInvariance.Graded.ModuleData.MinimalCover.{u_3, u_1, u_2}
+      (OAI.KLInvariance.MomentGraph.GradedSheaf.attachImage.{u_3, u_1, u_2} B τ α hα))
+  (d : D)
+  (v :
+    ↑(OAI.KLInvariance.Graded.ModuleData.obj.{u_3, u_1, u_2}
+        (OAI.KLInvariance.MomentGraph.GradedSheaf.vertex.{u_3, u_1, u_2}
+          (OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom.{u_3, u_1, u_2} B τ α hα C)
+          (OAI.KLInvariance.MomentGraph.OrderedGraph.target.{u_2, u_2}
+            (OAI.KLInvariance.MomentGraph.bottomGraph.{u_2} G τ) (Sum.inr.{u_2, u_2} d)))))
+  (motive : (∃ w, Eq.{max (u_1 + 1) (u_2 + 1)} v (HSMul.hSMul.{u_1, max u_1 u_2, max u_1 u_2} (α d) w)) → Prop)
+  (x : ∃ w, Eq.{max (u_1 + 1) (u_2 + 1)} v (HSMul.hSMul.{u_1, max u_1 u_2, max u_1 u_2} (α d) w)),
+  (∀
+      (w :
+        ↑(OAI.KLInvariance.Graded.ModuleData.obj.{u_3, u_1, u_2}
+            (OAI.KLInvariance.MomentGraph.GradedSheaf.vertex.{u_3, u_1, u_2}
+              (OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom.{u_3, u_1, u_2} B τ α hα C)
+              (OAI.KLInvariance.MomentGraph.OrderedGraph.target.{u_2, u_2}
+                (OAI.KLInvariance.MomentGraph.bottomGraph.{u_2} G τ) (Sum.inr.{u_2, u_2} d)))))
+      (hw : Eq.{max (u_1 + 1) (u_2 + 1)} v (HSMul.hSMul.{u_1, max u_1 u_2, max u_1 u_2} (α d) w)),
+      motive (Exists.intro.{max (u_1 + 1) (u_2 + 1)} w hw)) →
+    motive x :=
+fun {k} [Field.{u_3} k] {A} [CommRing.{u_1} A] [Algebra.{u_3, u_1} k A] {𝓐} {V E} [PartialOrder.{u_2} V] {G} {D}
+    [Fintype.{u_2} V] [Fintype.{u_2} D] [IsNoetherianRing.{u_1} A] B τ α hα C d v motive x h_1 =>
+  Exists.casesOn.{max (u_1 + 1) (u_2 + 1)} x fun w h => h_1 w h
+@[instance_reducible] def OAI.KLInvariance.ReflectionFrobenius.wallCoordinate_injective.match_1_2.{u_1} : ∀
+  {ι : Type u_1} (motive : Prod.{0, u_1} (Fin 2) ι → Prop) (h : Prod.{0, u_1} (Fin 2) ι),
+  (∀ (ε : Fin 2) (j : ι), motive (Prod.mk.{0, u_1} ε j)) → motive h :=
+fun {ι} motive h h_1 => Prod.casesOn.{0, 0, u_1} h fun fst snd => h_1 fst snd
+@[instance_reducible] def OAI.KLInvariance.ReflectionFrobenius.wallMatrix_mulVec.match_1_1.{u_1} : ∀ {ι : Type u_1}
+  (motive : Prod.{0, u_1} (Fin 2) ι → Prop) (h : Prod.{0, u_1} (Fin 2) ι),
+  (∀ (r : Fin 2) (j : ι), motive (Prod.mk.{0, u_1} r j)) → motive h :=
+fun {ι} motive h h_1 => Prod.casesOn.{0, 0, u_1} h fun fst snd => h_1 fst snd
+@[instance_reducible] def OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1.{u_1, u_2} : ∀ {R : Type u_1}
+  {inst : CommRing.{u_1} R} {_τ : RingEquiv.{u_1, u_1} R R} {Y : Type u_2}
+  (motive : OAI.KLInvariance.ReflectionPairTranslation.Twist.{u_1, u_2} _τ Y → Prop)
+  (h : OAI.KLInvariance.ReflectionPairTranslation.Twist.{u_1, u_2} _τ Y),
+  (∀ (val : Y), motive (OAI.KLInvariance.ReflectionPairTranslation.Twist.mk.{u_1, u_2} val)) → motive h :=
+fun {R} {inst} {_τ} {Y} motive h h_1 =>
+  OAI.KLInvariance.ReflectionPairTranslation.Twist.casesOn.{0, u_1, u_2} h fun val => h_1 val
+/workspace/lean-lab/results/matcher-compat/PrintReadable.lean:14:7: warning: `OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+@[instance_reducible] def OAI.KLInvariance.TitsSpace.exists_common_transverse.match_1_1.{u_1, u_2} : (E : Type u_2) →
+  let A := Sum.{u_2, u_2} (Prod.{u_2, u_2} E E) (Prod.{0, u_2} Bool (Prod.{u_2, u_2} E (Prod.{u_2, u_2} E E)));
+  (motive : A → Sort u_1) →
+    (x : A) →
+      ((a b : E) → motive (Sum.inl.{u_2, u_2} (Prod.mk.{u_2, u_2} a b))) →
+        ((i : Bool) →
+            (a b c : E) →
+              motive (Sum.inr.{u_2, u_2} (Prod.mk.{0, u_2} i (Prod.mk.{u_2, u_2} a (Prod.mk.{u_2, u_2} b c))))) →
+          motive x :=
+fun E =>
+  let A := Sum.{u_2, u_2} (Prod.{u_2, u_2} E E) (Prod.{0, u_2} Bool (Prod.{u_2, u_2} E (Prod.{u_2, u_2} E E)));
+  fun motive x h_1 h_2 =>
+  Sum.casesOn.{u_1, u_2, u_2} x (fun val => Prod.casesOn.{u_1, u_2, u_2} val fun fst snd => h_1 fst snd) fun val =>
+    Prod.casesOn.{u_1, 0, u_2} val fun fst snd =>
+      Prod.casesOn.{u_1, u_2, u_2} snd fun fst_1 snd =>
+        Prod.casesOn.{u_1, u_2, u_2} snd fun fst_2 snd => h_2 fst fst_1 fst_2 snd

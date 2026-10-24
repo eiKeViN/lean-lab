@@ -1,0 +1,26 @@
+{"label": "implementation-imports", "command": ["lake", "env", "lean", "-o", ".lake/build/lib/lean/ImplementationImports.olean", "ImplementationImports.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 5.852846354002395, "user_seconds": 3.520825, "system_seconds": 2.3193230000000002, "children_max_rss_kib_so_far": 6980064}
+{"label": "actual-full", "command": ["lake", "env", "lean", "ImplementationPublicTypes.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 15.366775549999147, "user_seconds": 13.35988, "system_seconds": 2.184405, "children_max_rss_kib_so_far": 7328860}
+{"label": "full-comparison", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "module_all.py", "/workspace/lean-lab/results/matcher-compat/focused/actual-full.tsv"], "cwd": "experiments/kl-for-mathlib", "exit_code": 1, "wall_seconds": 18.191084335998312, "user_seconds": 15.935927999999997, "system_seconds": 2.720179, "children_max_rss_kib_so_far": 7328860}
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 22, in run
+    print((OUT/(label+'.log')).read_text()[-6000:]);raise RuntimeError('Failed stage: '+label)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Failed stage: full-comparison
+Historical names/types/levels/attributes/kernel/defeq/axioms: 1; unavailable=[]; actual old helpers=0
+ModernAllCompat.lean:134:8: warning: Variable name `env` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _env
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+LocalCover new match_6 has old match_3 type/value; classified compiler generation, not a new semantic operation.
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_all.py", line 127, in <module>
+    policy();print(json.dumps(compare_full(sys.argv[1]),indent=2))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_all.py", line 112, in compare_full
+    if not left['passed'] or left['relocated']:raise RuntimeError('New unaccepted final105 difference: '+json.dumps(raw))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: New unaccepted final105 difference: {"old_count": 3947, "new_count": 3940, "missing": ["OAI.KLInvariance.CoefficientChange.ext.match_1", "OAI.KLInvariance.LocalCover.splitEquiv.match_3", "OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_1", "OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_3", "OAI.KLInvariance.ReflectionFrobenius.wallCoordinate_injective.match_1_2", "OAI.KLInvariance.ReflectionFrobenius.wallMatrix_mulVec.match_1_1", "OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1", "OAI.KLInvariance.TitsSpace.exists_common_transverse.match_1_1"], "added": ["OAI.KLInvariance.LocalCover.splitEquiv.match_6"], "changed": [{"name": "OAI.KLInvariance.TitsSpace.bottHeadPairCoordinates.eq_1", "field": "type", "old": {"levels": "\"[`u, `v]\"", "type": "40ec50e779a747a824863ebe7dc56ff2355501d0437081e1204098209a2ec8f3", "kind": "theorem", "module": "OAI.KL.BottSamelson.Stalks"}, "new": {"levels": "\"[`u, `v]\"", "type": "8f83323b3321c9b2cf34c25afaf73774b6b92f43f253007b33c255557e4ebd9a", "kind": "theorem", "module": "OAI.KL.BottSamelson.Stalks"}}, {"name": "OAI.KLInvariance.TitsSpace.coefficientAction_reflection", "field": "type", "old": {"levels": "\"[`u, `v]\"", "type": "5b6c1815ad797df63d2acdcf6b292610069ef1486c6e1a9b194d66cd4b6c1186", "kind": "theorem", "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"}, "new": {"levels": "\"[`u, `v]\"", "type": "9776e80a08445499a0894dacca861220d5c6930cc30456eaddc097889eb3e652", "kind": "theorem", "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"}}, {"name": "OAI.KLInvariance.TitsSpace.embedLinear.eq_1", "field": "type", "old": {"levels": "\"[`u]\"", "type": "b309f0cf6a3057c0502da152a37ee0d7bf7d72f1d7fe22da22a8d2cad1d3e824", "kind": "theorem", "module": "OAI.KL.Localization.Edge"}, "new": {"levels": "\"[`u]\"", "type": "5d2b2d3e6f8ece54715371ee4ddd48bad57886b975220b27d40ec02b0a2e955f", "kind": "theorem", "module": "OAI.KL.Localization.Edge"}}], "relocated": 0, "passed": false}
+

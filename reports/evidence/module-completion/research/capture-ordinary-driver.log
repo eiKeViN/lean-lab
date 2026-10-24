@@ -1,0 +1,18 @@
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 9.99900311700003, "user_seconds": 10.033338, "system_seconds": 3.373279, "max_rss_kib": 7243028}
+ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 8.639974235999034, "user_seconds": 7.007232, "system_seconds": 2.352879, "max_rss_kib": 7204828}
+ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 11.239080116998593, "user_seconds": 14.177942, "system_seconds": 2.050266, "max_rss_kib": 7291124}
+ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 9.20091779500035, "user_seconds": 9.668782, "system_seconds": 2.113412, "max_rss_kib": 7247944}
+ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 8.179701422001017, "user_seconds": 9.065817, "system_seconds": 1.892086, "max_rss_kib": 7226204}
+ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 8.35169001399845, "user_seconds": 10.942962, "system_seconds": 2.061965, "max_rss_kib": 7237736}
+ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis 0
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.RepresentationTheory.BottSamelson.TitsWords.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 43.70447913300086, "user_seconds": 89.077686, "system_seconds": 3.307656, "max_rss_kib": 7377948}
+ForMathlib.RepresentationTheory.BottSamelson.TitsWords 0
+already modern baseline ForMathlib.GroupTheory.Coxeter.Roots.Basic
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/matcher-compat/ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder.ordinary-old.lean"], "exit_code": 0, "wall_seconds": 7.433693683000456, "user_seconds": 7.294123, "system_seconds": 2.003372, "max_rss_kib": 7241340}
+ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder 0
+already modern baseline ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder

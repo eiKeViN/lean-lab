@@ -1,0 +1,397 @@
+⚠ [8950/9120] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8951/9120] Replayed ForMathlib.Algebra.Module.Graded.Basis
+warning: ForMathlib/Algebra/Module/Graded/Basis.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8963/9120] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8974/9120] Replayed ForMathlib.Combinatorics.Dihedral.SignedCount
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:14:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:171:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:326:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8975/9120] Replayed ForMathlib.Combinatorics.DirectedPaths.Basic
+warning: ForMathlib/Combinatorics/DirectedPaths/Basic.lean:16:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8977/9120] Replayed ForMathlib.Combinatorics.DirectedPaths.PositiveTransfer
+warning: ForMathlib/Combinatorics/DirectedPaths/PositiveTransfer.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8978/9120] Replayed ForMathlib.Combinatorics.DirectedPaths.ScalarMap
+warning: ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8979/9120] Replayed ForMathlib.Combinatorics.DirectedPaths.Subpaths
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:69:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:115:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8980/9120] Replayed ForMathlib.Combinatorics.DirectedPaths.Transfer
+warning: ForMathlib/Combinatorics/DirectedPaths/Transfer.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8981/9120] Replayed ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8984/9120] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8986/9120] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8987/9120] Replayed ForMathlib.GroupTheory.Coxeter.Exchange
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8990/9120] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean:21:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9000/9120] Replayed ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+warning: ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean:86:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [9017/9120] Building ForMathlib.Algebra.Module.CoefficientChange.Basic (9.1s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/CoefficientChange/Basic.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/CoefficientChange/Basic.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/CoefficientChange/Basic.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/CoefficientChange/Basic.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/CoefficientChange/Basic.setup.json --json
+info: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:93:0: PANIC at _private.Lean.Environment.0.Lean.AsyncConsts.add Lean.Environment:463:4: duplicate normalized declaration name OAI.KLInvariance.CoefficientChange.ext.match_1 vs. _private.ForMathlib.Algebra.Module.CoefficientChange.Basic.0.OAI.KLInvariance.CoefficientChange.ext.match_1
+backtrace:
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x9907ad5) [0x7f532af7cad5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ff037) [0x7f532af74037]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_panic_fn_borrowed+0x2b) [0x7f532af7411b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.AsyncConsts.add [private]+0x439) [0x7f53251af209]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Environment.addConstAsync+0x69f) [0x7f53251bb42f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore [private]+0x6043) [0x7f532572b093]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDecl+0x36) [0x7f532572d2b6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDecl [boxed]+0x15) [0x7f532572d4e5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9de3) [0x7f532af5ede3]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f532af5ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eb13e) [0x7f532af6013e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eae87) [0x7f532af5fe87]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ead2d) [0x7f532af5fd2d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/7>+0x84f) [0x7f532af8a64f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_apply_n+0x257) [0x7f532af83787]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9445) [0x7f532af5e445]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f532af5ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f532af5ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f532af5ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eb13e) [0x7f532af6013e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eae87) [0x7f532af5fe87]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ead2d) [0x7f532af5fd2d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/7>+0xecb) [0x7f532af8accb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withSavedPartialInfoContext [arity↓, private] spec at Lean.Elab.withSaveInfoContext spec at Lean.Elab.Command.liftTermElabM+0x147) [0x7f5326b1ea97]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [λ, arity↓]+0x38) [0x7f5326b1f448]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [boxed, λ, arity↓]+0x28) [0x7f5326b1f8d8]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/7>+0x941) [0x7f532af8a741]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Term.TermElabM.run [arity↓]+0x224) [0x7f5326a1b944]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [λ, arity↓]+0x42) [0x7f5326b1fa32]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [boxed, λ, arity↓]+0x1d) [0x7f5326b1fc2d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xb5b) [0x7f532af843fb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.runCore [arity↓, private]+0xd2a) [0x7f5326a9579a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [arity↓]+0x25b) [0x7f5326b1fefb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [boxed, arity↓]+0xf) [0x7f5326b2037f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9de3) [0x7f532af5ede3]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f532af5ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f532af5d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eb13e) [0x7f532af6013e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e4a77) [0x7f532af59a77]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eae87) [0x7f532af5fe87]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eaa99) [0x7f532af5fa99]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabEvalCoreUnsafe._elam_0 [λ, arity↓] spec at Lean.Elab.Command.elabEvalCoreUnsafe[λ] spec at Lean.Elab.Command.elabEvalCoreUnsafe+0xf) [0x7f532a69e78f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xaf1) [0x7f532af84391]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabEvalCoreUnsafe [λ]+0x1a6) [0x7f532a6aadb6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xaf1) [0x7f532af84391]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x52) [0x7f532a6ab782]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x1b) [0x7f532a6abb3b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x52) [0x7f532a6abcc2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x1b) [0x7f532a6ac07b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdin [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x52) [0x7f532a6ab2c2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.FS.withIsolatedStreams [arity↓] spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x106) [0x7f532a6ac1d6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabEvalCoreUnsafe+0x48f) [0x7f532a6aed5f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabRunElab+0x47e) [0x7f532a6b401e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabRunElab [boxed]+0xf) [0x7f532a6b43cf]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xaf1) [0x7f532af84391]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [arity↓] spec at Lean.Elab.Command.elabCommandUsing+0xd5) [0x7f5326afa0b5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [boxed] spec at Lean.Elab.Command.elabCommandUsing+0x1b) [0x7f5326afa63b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommandUsing [private]+0x25e) [0x7f5326afb3de]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f5326b133ef]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f532af8419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x34c) [0x7f5326afe25c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f5326afe95f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f532af8419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withLogging spec at Lean.Elab.Command.elabCommand.go+0x41) [0x7f5326afdd61]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand+0x13) [0x7f5326b06463]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Array.foldlMUnsafe.fold [private] spec at Lean.Elab.Command.elabCommand.go+0xa9) [0x7f5326b10609]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0x1d) [0x7f5326b107bd]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f5326b133ef]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f532af8419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x34c) [0x7f5326afe25c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f5326afe95f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f532af8419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withLogging spec at Lean.Elab.Command.elabCommand.go+0x41) [0x7f5326afdd61]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand+0x13) [0x7f5326b06463]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x71) [0x7f5326b0ec41]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0x2e) [0x7f5326b1011e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xe81) [0x7f532af84721]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.withMacroExpansion [boxed, λ, arity↓]+0x9) [0x7f5326afbea9]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [arity↓] spec at Lean.Elab.Command.elabCommandUsing+0xd5) [0x7f5326afa0b5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0x33) [0x7f5326b10503]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x115c) [0x7f532af849fc]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [arity↓] spec at Lean.Elab.Command.elabCommandUsing+0xd5) [0x7f5326afa0b5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f5326b133ef]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f532af8419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x34c) [0x7f5326afe25c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f5326afe95f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f532af8419f]
+info: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:93:0: PANIC at _private.Lean.Environment.0.Lean.AsyncConsts.add Lean.Environment:463:4: duplicate normalized declaration name OAI.KLInvariance.CoefficientChange.ext.match_1 vs. _private.ForMathlib.Algebra.Module.CoefficientChange.Basic.0.OAI.KLInvariance.CoefficientChange.ext.match_1
+backtrace:
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x9907ad5) [0x7f532af7cad5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ff037) [0x7f532af74037]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_panic_fn_borrowed+0x2b) [0x7f532af7411b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.AsyncConsts.add [private]+0x439) [0x7f53251af209]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(List.forIn'.loop [arity↓] spec at Lean.Environment.addDeclCore+0x5a4) [0x7f53251b2f34]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Environment.addDeclCore+0x50f) [0x7f53251b39df]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore.doAdd [λ, private]+0x4be) [0x7f532571c13e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore.doAdd [boxed, λ, private]+0x1a) [0x7f532571d46a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0xe2e) [0x7f532af80a3e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.profileitIOUnsafe [λ, arity↓]+0xb) [0x7f532529ea4b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0xb5a) [0x7f532af8076a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0xb5a) [0x7f532af8076a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_profileit+0x83) [0x7f532af510b3]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.profileitIOUnsafe [arity↓]+0x82) [0x7f532529ec12]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore [λ, private]+0x3c) [0x7f532571da0c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore [boxed, λ, private]+0x13) [0x7f532571dd83]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/4>+0x11d1) [0x7f532af86671]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [λ, arity↓]+0x43a) [0x7f53253abada]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x52) [0x7f53253aca02]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x1b) [0x7f53253acdbb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x52) [0x7f53253ad3f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x1b) [0x7f53253ad7ab]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdin [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x52) [0x7f53253acf42]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.FS.withIsolatedStreams [arity↓] spec at Lean.Core.wrapAsyncAsSnapshot+0x106) [0x7f53253ad916]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [boxed, λ, arity↓]+0x7d) [0x7f53253ade1d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/4>+0x1194) [0x7f532af86634]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsync [boxed, λ, arity↓]+0x34) [0x7f532539fcb4]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f532af84210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.withCurrHeartbeats [arity↓] spec at Lean.Core.wrapAsync+0x6) [0x7f532539fa46]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsync [λ, arity↓]+0x468) [0x7f53253a0158]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsync [boxed, λ, arity↓]+0x6a) [0x7f53253a06ca]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/2>+0x305) [0x7f532af81be5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [λ, arity↓]+0x1b) [0x7f53253ade9b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [boxed, λ, arity↓]+0x9) [0x7f53253ae229]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/2>+0x1293) [0x7f532af82b73]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x992b87b) [0x7f532afa087b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0x120b) [0x7f532af80e1b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0x11a6) [0x7f532af80db6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x990954e) [0x7f532af7e54e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x990a681) [0x7f532af7f681]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98fd055) [0x7f532af72055]
+/lib/x86_64-linux-gnu/libc.so.6(+0x928bb) [0x7f53214f08bb]
+/lib/x86_64-linux-gnu/libc.so.6(+0x110538) [0x7f532156e538]
+error: ForMathlib/Algebra/Module/CoefficientChange/Basic.lean:93:0: Unknown constant `OAI.KLInvariance.CoefficientChange.ext.match_1`
+✔ [9019/9120] Built ForMathlib.Algebra.Module.Cover.Local (9.1s)
+⚠ [9042/9120] Replayed ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+warning: ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean:22:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9044/9120] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean:23:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9047/9120] Built ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis (11s)
+⚠ [9052/9120] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Dihedral
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:110:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:215:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean:303:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [9055/9120] Building ForMathlib.Algebra.Module.ReflectionPair.Twist (11s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Algebra/Module/ReflectionPair/Twist.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/ReflectionPair/Twist.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Algebra/Module/ReflectionPair/Twist.setup.json --json
+info: ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:198:0: PANIC at _private.Lean.Environment.0.Lean.AsyncConsts.add Lean.Environment:463:4: duplicate normalized declaration name OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1 vs. _private.ForMathlib.Algebra.Module.ReflectionPair.Twist.0.OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1
+backtrace:
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x9907ad5) [0x7f08d1a5cad5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ff037) [0x7f08d1a54037]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_panic_fn_borrowed+0x2b) [0x7f08d1a5411b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.AsyncConsts.add [private]+0x439) [0x7f08cbc8f209]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Environment.addConstAsync+0x69f) [0x7f08cbc9b42f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore [private]+0x6043) [0x7f08cc20b093]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDecl+0x36) [0x7f08cc20d2b6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDecl [boxed]+0x15) [0x7f08cc20d4e5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9de3) [0x7f08d1a3ede3]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f08d1a3ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eb13e) [0x7f08d1a4013e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eae87) [0x7f08d1a3fe87]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ead2d) [0x7f08d1a3fd2d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/7>+0x84f) [0x7f08d1a6a64f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_apply_n+0x257) [0x7f08d1a63787]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9445) [0x7f08d1a3e445]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f08d1a3ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f08d1a3ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f08d1a3ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eb13e) [0x7f08d1a4013e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eae87) [0x7f08d1a3fe87]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ead2d) [0x7f08d1a3fd2d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/7>+0xecb) [0x7f08d1a6accb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withSavedPartialInfoContext [arity↓, private] spec at Lean.Elab.withSaveInfoContext spec at Lean.Elab.Command.liftTermElabM+0x147) [0x7f08cd5fea97]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [λ, arity↓]+0x38) [0x7f08cd5ff448]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [boxed, λ, arity↓]+0x28) [0x7f08cd5ff8d8]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/7>+0x941) [0x7f08d1a6a741]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Term.TermElabM.run [arity↓]+0x224) [0x7f08cd4fb944]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [λ, arity↓]+0x42) [0x7f08cd5ffa32]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [boxed, λ, arity↓]+0x1d) [0x7f08cd5ffc2d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xb5b) [0x7f08d1a643fb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.runCore [arity↓, private]+0xd2a) [0x7f08cd57579a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [arity↓]+0x25b) [0x7f08cd5ffefb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.liftTermElabM [boxed, arity↓]+0xf) [0x7f08cd60037f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9de3) [0x7f08d1a3ede3]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e9f96) [0x7f08d1a3ef96]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e82f2) [0x7f08d1a3d2f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eb13e) [0x7f08d1a4013e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98e4a77) [0x7f08d1a39a77]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eae87) [0x7f08d1a3fe87]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98eaa99) [0x7f08d1a3fa99]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabEvalCoreUnsafe._elam_0 [λ, arity↓] spec at Lean.Elab.Command.elabEvalCoreUnsafe[λ] spec at Lean.Elab.Command.elabEvalCoreUnsafe+0xf) [0x7f08d117e78f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xaf1) [0x7f08d1a64391]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabEvalCoreUnsafe [λ]+0x1a6) [0x7f08d118adb6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xaf1) [0x7f08d1a64391]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x52) [0x7f08d118b782]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x1b) [0x7f08d118bb3b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x52) [0x7f08d118bcc2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x1b) [0x7f08d118c07b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdin [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x52) [0x7f08d118b2c2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.FS.withIsolatedStreams [arity↓] spec at Lean.Elab.Command.elabEvalCoreUnsafe+0x106) [0x7f08d118c1d6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabEvalCoreUnsafe+0x48f) [0x7f08d118ed5f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabRunElab+0x47e) [0x7f08d119401e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabRunElab [boxed]+0xf) [0x7f08d11943cf]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xaf1) [0x7f08d1a64391]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [arity↓] spec at Lean.Elab.Command.elabCommandUsing+0xd5) [0x7f08cd5da0b5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [boxed] spec at Lean.Elab.Command.elabCommandUsing+0x1b) [0x7f08cd5da63b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommandUsing [private]+0x25e) [0x7f08cd5db3de]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f08cd5f33ef]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f08d1a6419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x34c) [0x7f08cd5de25c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f08cd5de95f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f08d1a6419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withLogging spec at Lean.Elab.Command.elabCommand.go+0x41) [0x7f08cd5ddd61]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand+0x13) [0x7f08cd5e6463]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Array.foldlMUnsafe.fold [private] spec at Lean.Elab.Command.elabCommand.go+0xa9) [0x7f08cd5f0609]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0x1d) [0x7f08cd5f07bd]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f08cd5f33ef]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f08d1a6419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x34c) [0x7f08cd5de25c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f08cd5de95f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f08d1a6419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withLogging spec at Lean.Elab.Command.elabCommand.go+0x41) [0x7f08cd5ddd61]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand+0x13) [0x7f08cd5e6463]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x71) [0x7f08cd5eec41]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0x2e) [0x7f08cd5f011e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0xe81) [0x7f08d1a64721]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.withMacroExpansion [boxed, λ, arity↓]+0x9) [0x7f08cd5dbea9]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [arity↓] spec at Lean.Elab.Command.elabCommandUsing+0xd5) [0x7f08cd5da0b5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0x33) [0x7f08cd5f0503]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x115c) [0x7f08d1a649fc]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.withInfoTreeContext [arity↓] spec at Lean.Elab.Command.elabCommandUsing+0xd5) [0x7f08cd5da0b5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f08cd5f33ef]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f08d1a6419f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [λ, private]+0x34c) [0x7f08cd5de25c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Elab.Command.elabCommand.go [boxed, λ, private]+0xf) [0x7f08cd5de95f]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x8ff) [0x7f08d1a6419f]
+info: ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:198:0: PANIC at _private.Lean.Environment.0.Lean.AsyncConsts.add Lean.Environment:463:4: duplicate normalized declaration name OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1 vs. _private.ForMathlib.Algebra.Module.ReflectionPair.Twist.0.OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1
+backtrace:
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x9907ad5) [0x7f08d1a5cad5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98ff037) [0x7f08d1a54037]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_panic_fn_borrowed+0x2b) [0x7f08d1a5411b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.AsyncConsts.add [private]+0x439) [0x7f08cbc8f209]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(List.forIn'.loop [arity↓] spec at Lean.Environment.addDeclCore+0x5a4) [0x7f08cbc92f34]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Environment.addDeclCore+0x50f) [0x7f08cbc939df]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore.doAdd [λ, private]+0x4be) [0x7f08cc1fc13e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore.doAdd [boxed, λ, private]+0x1a) [0x7f08cc1fd46a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0xe2e) [0x7f08d1a60a3e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.profileitIOUnsafe [λ, arity↓]+0xb) [0x7f08cbd7ea4b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0xb5a) [0x7f08d1a6076a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0xb5a) [0x7f08d1a6076a]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(lean_profileit+0x83) [0x7f08d1a310b3]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.profileitIOUnsafe [arity↓]+0x82) [0x7f08cbd7ec12]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore [λ, private]+0x3c) [0x7f08cc1fda0c]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.addDeclCore [boxed, λ, private]+0x13) [0x7f08cc1fdd83]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/4>+0x11d1) [0x7f08d1a66671]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [λ, arity↓]+0x43a) [0x7f08cbe8bada]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x52) [0x7f08cbe8ca02]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStderr [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x1b) [0x7f08cbe8cdbb]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x52) [0x7f08cbe8d3f2]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdout [boxed] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x1b) [0x7f08cbe8d7ab]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.withStdin [arity↓] spec at IO.FS.withIsolatedStreams spec at Lean.Core.wrapAsyncAsSnapshot+0x52) [0x7f08cbe8cf42]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(IO.FS.withIsolatedStreams [arity↓] spec at Lean.Core.wrapAsyncAsSnapshot+0x106) [0x7f08cbe8d916]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [boxed, λ, arity↓]+0x7d) [0x7f08cbe8de1d]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/4>+0x1194) [0x7f08d1a66634]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsync [boxed, λ, arity↓]+0x34) [0x7f08cbe7fcb4]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/3>+0x970) [0x7f08d1a64210]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.withCurrHeartbeats [arity↓] spec at Lean.Core.wrapAsync+0x6) [0x7f08cbe7fa46]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsync [λ, arity↓]+0x468) [0x7f08cbe80158]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsync [boxed, λ, arity↓]+0x6a) [0x7f08cbe806ca]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/2>+0x305) [0x7f08d1a61be5]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [λ, arity↓]+0x1b) [0x7f08cbe8de9b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(Lean.Core.wrapAsyncAsSnapshot [boxed, λ, arity↓]+0x9) [0x7f08cbe8e229]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/2>+0x1293) [0x7f08d1a62b73]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x992b87b) [0x7f08d1a8087b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0x120b) [0x7f08d1a60e1b]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(<apply/1>+0x11a6) [0x7f08d1a60db6]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x990954e) [0x7f08d1a5e54e]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x990a681) [0x7f08d1a5f681]
+/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/../lib/lean/libleanshared.so(+0x98fd055) [0x7f08d1a52055]
+/lib/x86_64-linux-gnu/libc.so.6(+0x928bb) [0x7f08c7fd08bb]
+/lib/x86_64-linux-gnu/libc.so.6(+0x110538) [0x7f08c804e538]
+error: ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:198:0: Unknown constant `OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1`
+✔ [9061/9120] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties (8.1s)
+✔ [9067/9120] Built ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover (10s)
+✔ [9075/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso (14s)
+✔ [9079/9120] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic (4.8s)
+✔ [9080/9120] Built ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder (9.7s)
+✔ [9081/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi (7.8s)
+✔ [9082/9120] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Basic (8.7s)
+✔ [9085/9120] Built ForMathlib.LinearAlgebra.Dual.Frobenius (21s)
+✔ [9086/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback (7.9s)
+✔ [9087/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism (5.2s)
+✔ [9088/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Products (8.7s)
+✔ [9089/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange (9.6s)
+✔ [9090/9120] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder (7.6s)
+✔ [9091/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Models (8.0s)
+✔ [9092/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero (5.0s)
+✔ [9093/9120] Built ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall (17s)
+✔ [9094/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure (18s)
+✔ [9095/9120] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension (27s)
+✔ [9096/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown (5.7s)
+✔ [9097/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction (6.2s)
+✔ [9098/9120] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps (10s)
+✔ [9099/9120] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Extension (10s)
+✔ [9100/9120] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel (13s)
+✔ [9101/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization (12s)
+✔ [9102/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension (8.1s)
+✔ [9103/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom (5.5s)
+✔ [9104/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness (8.6s)
+✔ [9105/9120] Built ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel (7.4s)
+✔ [9106/9120] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom (22s)
+✔ [9107/9120] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages (10s)
+✔ [9108/9120] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Hom (6.7s)
+✔ [9109/9120] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character (6.9s)
+✔ [9110/9120] Built ForMathlib.RepresentationTheory.BottSamelson.TitsWords (82s)
+✔ [9111/9120] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand (9.1s)
+✔ [9117/9120] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Summand (3.0s)
+Some required targets logged failures:
+- ForMathlib.Algebra.Module.CoefficientChange.Basic
+- ForMathlib.Algebra.Module.ReflectionPair.Twist
+error: build failed

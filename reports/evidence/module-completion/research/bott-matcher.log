@@ -1,0 +1,125 @@
+def OAI.KLInvariance.TitsSpace.bottDegree.{u} : {I : Type u} →
+  (l : List I) → OAI.KLInvariance.TitsSpace.BottIndex l → ℤ :=
+fun {I} x x_1 =>
+  List.brecOn (motive := fun x => OAI.KLInvariance.TitsSpace.BottIndex x → ℤ) x OAI.KLInvariance.TitsSpace.bottDegree._f
+    x_1
+@[instance_reducible] def OAI.KLInvariance.TitsSpace.bottDegree.match_1.{u_1, u_2} : {I : Type u_1} →
+  (motive : (x : List I) → OAI.KLInvariance.TitsSpace.BottIndex x → Sort u_2) →
+    (x : List I) →
+      (x_1 : OAI.KLInvariance.TitsSpace.BottIndex x) →
+        ((x : OAI.KLInvariance.TitsSpace.BottIndex []) → motive [] x) →
+          ((head : I) → (l : List I) → (e : OAI.KLInvariance.TitsSpace.BottIndex (head :: l)) → motive (head :: l) e) →
+            motive x x_1 :=
+fun {I} motive x x_1 h_1 h_2 =>
+  List.casesOn (motive := fun x => (x_2 : OAI.KLInvariance.TitsSpace.BottIndex x) → motive x x_2) x (fun x => h_1 x)
+    (fun head tail x => h_2 head tail x) x_1
+/workspace/lean-lab/results/matcher-compat/BottMatcher.lean:7:7: warning: `OAI.KLInvariance.TitsSpace.bottDegree.match_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+theorem OAI.KLInvariance.TitsSpace.bottWeight.eq_def.{u, v} : ∀ {I : Type u} {M : CoxeterMatrix I} {W : Type v}
+  [inst : Group W] (cs : CoxeterSystem M W) (x : List I) (x_1 : OAI.KLInvariance.TitsSpace.BottIndex x),
+  OAI.KLInvariance.TitsSpace.bottWeight cs x x_1 =
+    match x, x_1 with
+    | [], x => 1
+    | i :: l, e =>
+      if e.1 = 0 then OAI.KLInvariance.TitsSpace.bottWeight cs l e.2
+      else cs.simple i * OAI.KLInvariance.TitsSpace.bottWeight cs l e.2 :=
+fun {I} {M} {W} [Group W] cs x x_1 =>
+  id
+    (let r :=
+      (List.brecOn.go (motive := fun x => OAI.KLInvariance.TitsSpace.BottIndex x → W) x
+          (OAI.KLInvariance.TitsSpace.bottWeight._f cs)).2;
+    Eq.mpr
+      (id
+        (congrArg
+          (fun x_2 =>
+            x_2 x_1 =
+              match x, x_1 with
+              | [], x => 1
+              | i :: l, e =>
+                if e.1 = 0 then OAI.KLInvariance.TitsSpace.bottWeight cs l e.2
+                else cs.simple i * OAI.KLInvariance.TitsSpace.bottWeight cs l e.2)
+          (List.brecOn.eq (motive := fun x => OAI.KLInvariance.TitsSpace.BottIndex x → W) x
+            (OAI.KLInvariance.TitsSpace.bottWeight._f cs))))
+      (id
+        (id
+          (OAI.KLInvariance.TitsSpace.bottDegree.match_1.splitter✝
+            (fun x_2 x_1_1 =>
+              x = x_2 →
+                x_1 ≍ x_1_1 →
+                  (match (motive :=
+                        (x : List I) →
+                          OAI.KLInvariance.TitsSpace.BottIndex x →
+                            List.rec PUnit.{max (u + 1) (v + 1)}
+                                (fun head tail tail_ih => (OAI.KLInvariance.TitsSpace.BottIndex tail → W) ×' tail_ih)
+                                x →
+                              W)
+                        x, x_1 with
+                      | [], x => fun x => 1
+                      | i :: l, e => fun x => if e.1 = 0 then x.1 e.2 else cs.simple i * x.1 e.2)
+                      r =
+                    match x, x_1 with
+                    | [], x => 1
+                    | i :: l, e =>
+                      if e.1 = 0 then OAI.KLInvariance.TitsSpace.bottWeight cs l e.2
+                      else cs.simple i * OAI.KLInvariance.TitsSpace.bottWeight cs l e.2)
+            x x_1
+            (fun x_2 h =>
+              Eq.ndrec (motive := fun x =>
+                ∀ (x_3 : OAI.KLInvariance.TitsSpace.BottIndex x),
+                  let r :=
+                    (List.brecOn.go (motive := fun x => OAI.KLInvariance.TitsSpace.BottIndex x → W) x
+                        (OAI.KLInvariance.TitsSpace.bottWeight._f cs)).2;
+                  x_3 ≍ x_2 →
+                    (match (motive :=
+                          (x : List I) →
+                            OAI.KLInvariance.TitsSpace.BottIndex x →
+                              List.rec PUnit.{max (u + 1) (v + 1)}
+                                  (fun head tail tail_ih => (OAI.KLInvariance.TitsSpace.BottIndex tail → W) ×' tail_ih)
+                                  x →
+                                W)
+                          x, x_3 with
+                        | [], x => fun x => 1
+                        | i :: l, e => fun x => if e.1 = 0 then x.1 e.2 else cs.simple i * x.1 e.2)
+                        r =
+                      match x, x_3 with
+                      | [], x => 1
+                      | i :: l, e =>
+                        if e.1 = 0 then OAI.KLInvariance.TitsSpace.bottWeight cs l e.2
+                        else cs.simple i * OAI.KLInvariance.TitsSpace.bottWeight cs l e.2)
+                (fun x =>
+                  let r :=
+                    (List.brecOn.go (motive := fun x => OAI.KLInvariance.TitsSpace.BottIndex x → W) []
+                        (OAI.KLInvariance.TitsSpace.bottWeight._f cs)).2;
+                  fun h => Eq.symm (eq_of_heq h) ▸ id (Eq.refl 1))
+                (Eq.symm h) x_1)
+            (fun head l e h =>
+              Eq.ndrec (motive := fun x =>
+                ∀ (x_2 : OAI.KLInvariance.TitsSpace.BottIndex x),
+                  let r :=
+                    (List.brecOn.go (motive := fun x => OAI.KLInvariance.TitsSpace.BottIndex x → W) x
+                        (OAI.KLInvariance.TitsSpace.bottWeight._f cs)).2;
+                  x_2 ≍ e →
+                    (match (motive :=
+                          (x : List I) →
+                            OAI.KLInvariance.TitsSpace.BottIndex x →
+                              List.rec PUnit.{max (u + 1) (v + 1)}
+                                  (fun head tail tail_ih => (OAI.KLInvariance.TitsSpace.BottIndex tail → W) ×' tail_ih)
+                                  x →
+                                W)
+                          x, x_2 with
+                        | [], x => fun x => 1
+                        | i :: l, e => fun x => if e.1 = 0 then x.1 e.2 else cs.simple i * x.1 e.2)
+                        r =
+                      match x, x_2 with
+                      | [], x => 1
+                      | i :: l, e =>
+                        if e.1 = 0 then OAI.KLInvariance.TitsSpace.bottWeight cs l e.2
+                        else cs.simple i * OAI.KLInvariance.TitsSpace.bottWeight cs l e.2)
+                (fun x =>
+                  let r :=
+                    (List.brecOn.go (motive := fun x => OAI.KLInvariance.TitsSpace.BottIndex x → W) (head :: l)
+                        (OAI.KLInvariance.TitsSpace.bottWeight._f cs)).2;
+                  fun h => Eq.symm (eq_of_heq h) ▸ id (Eq.refl (if e.1 = 0 then r.1 e.2 else cs.simple head * r.1 e.2)))
+                (Eq.symm h) x_1)
+            (Eq.refl x) (HEq.refl x_1)))))

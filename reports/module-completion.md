@@ -1,5 +1,7 @@
 # 剩余 105 个 module 迁移与生成名契约调整
 
+**已完成：261/261 modern，0 legacy。验收代码提交为 `01430c8cd9fceaf6bf91e95a82a2087c020c0fed`；完整66阶段验收通过。后续提交仅归档证据/报告，不改维护项目内Lean或检查器。**
+
 本轮从已验收的 `382d29d94aaa8e32bcdeb24633f070d29695dcc3` 延续
 `codex/module-next-region`，不创建 PR、不合并 main。`8769a93203b1324ad7c47dde972d278dff86f146`
 只交付过声明清单；该清单中的八项公共兼容定义提案已撤回，未作为生产补丁提交。
@@ -72,15 +74,48 @@ Structure 的135个历史名/类型、20个旧 helper 的内核重建，以及 v
 
 ## 完整验收与重跑
 
-当前为可审阅的代码/局部证据检查点：9186-job 完整构建、261生产源绑定、静态保护已通过；完整集成验收仍待最终重跑，不能把检查点称为交付完成。
+`01430c8cd9fceaf6bf91e95a82a2087c020c0fed` 上的最终 `scripts/check.sh warm`
+**66阶段全部通过**（610.310秒）。完整9186-job构建此前已成功，本次首先用 `--no-build`
+检查官方Mathlib与全部生产工件就绪，再运行完整接口/公理/回归，最后warm build通过。
+261个生产Lean文件与实际完整构建的输入SHA一致；最终审计的378个项目输入也逐字未变。
 
-完整原始3947→3940导出还有两项仅在OAI范围出现的type pair：bottHeadPairCoordinates.eq_1（40ec50e7…→8f83323b…）与embedLinear.eq_1（b309f0cf…→5d2b2d3e…）。三项完整pair和十二项普通pair均登记在 [固定接口登记](../experiments/kl-for-mathlib/module-all-interface.json)。
+| 项目 | 结果 |
+| --- | --- |
+| 全部模块 | 261 modern / 261，总计0 legacy |
+| 生产正文 | 仅Structure两处私有计算调用内联；其余105范围正文还原比较一致 |
+| 实际完整导出 | 3947→3940；8 missing、1 generated added、3 type pairs、0 owner changes |
+| 普通现代完整导出 | 3940条；准确名字/kind/universes/owner/三公理通过；12个固定type pairs |
+| 实际旧类型 | 120/120与旧完整指纹匹配；普通现代历史类型使用、kernel、isDefEq通过 |
+| 实际旧helper | 53个类型/正文在新审计名字下通过kernel检查 |
+| 定向方程 | 10项rw/simp实际用了对应规则；新增OAI属性、OnHom属性和Structure历史属性通过 |
+| 公共计算 | 两个包装结构、splitEquiv正反向、Structure及base-change、rootDifference/wallVector、bottDegree/bottWeight、embedLinear、bottHeadPairCoordinates的rfl控制通过 |
+| 继承约束 | 原历史/追加声明、stalkMap单项、25模块单项记录、原比较器与源保护、所有既有回归通过 |
+| 提交动作 | 仅独立分支；没有创建PR或合并main |
 
-补取5项OAI实际旧类型后，合计120/120指纹匹配旧基线；53个旧helper、120项普通现代旧类型使用以及10项实际用规则的rw/simp已通过。OAI五项的原defeq/backward_defeq属性及OnHom equation属性通过比较。embedLinear的旧方程由旧GraphEmbedding生产者生成，历史owner仍固定为Edge；没有owner豁免。embedLinear及bottHeadPairCoordinates的实际toFun另有普通消费者rfl控制。
+三项完整表示差异逐项固定如下；完整64位hash、levels、kind、owner与实际表达式/见证hash均在
+[接口登记](../experiments/kl-for-mathlib/module-all-interface.json) 中。它们不是通配defeq豁免。
 
-本次检查点的完整集成失败是新增检查漏导入Cover.Local，已修正；初次新单测还因mock覆盖了编译器版本查询而失败，已修正并通过定向变异测试。这些失败不是生产API证明，通过记录与原失败均将随最终证据归档。
+| `OAI.KLInvariance.TitsSpace.` 下的名字 | 旧/新完整type hash前缀 | 证据 |
+| --- | --- | --- |
+| `coefficientAction_reflection` | 5b6c1815… / 9776e80a… | 实际旧类型使用、kernel、rw/simp |
+| `bottHeadPairCoordinates.eq_1` | 40ec50e7… / 8f83323b… | 同上，原equation属性及实际toFun rfl |
+| `embedLinear.eq_1` | b309f0cf… / 5d2b2d3e… | 同上；旧GraphEmbedding生产者生成，历史Edge owner不变，embed rfl |
 
-在已初始化仓库执行：
+隔离的 `ProofLocations-v2.lean` 使用ExprStructEq、共享binder上下文，逐层检查实际旧新类型：
+三个目标均未发现非proof部分的结构差异；proof-valued子表达式的类型另经定义相等检查。
+这个诊断包括重复出现和审计重命名，计数不是独立改动数量。它不修改导出器，也不参与全局归一化。
+最终接受仍依赖固定旧新记录、实际旧表达式、普通消费者、kernel、属性与公理。
+
+证据入口：[manifest](evidence/module-completion/manifest.json)、
+[完整66阶段](evidence/module-completion/accepted/stages.json.gz)、
+[最终命令成本](evidence/module-completion/research/full-acceptance-v2.json.gz)、
+[最终输入身份](evidence/module-completion/research/full-acceptance-v2.inputs.json.gz)、
+[源码和版本绑定](evidence/module-completion/research/final-source-and-pins.json.gz)。
+完整原始TSV与差异、旧源提取、失败控制及撤回补丁都保留，压缩文件的原始/存储SHA在manifest中。
+[普通实际旧类型见证](../experiments/kl-for-mathlib/ModernOrdinaryAllCompat.lean) 和
+[计算消费者](../experiments/kl-for-mathlib/ModernAllConsumer.lean) 可直接重跑。
+
+在已初始化、工件就绪的仓库运行：
 
 ```sh
 source scripts/env.sh
@@ -88,9 +123,34 @@ scripts/check.sh static
 scripts/check.sh warm
 ```
 
-新机器先执行 `scripts/setup.sh` 获取固定版本和官方 cache。`warm` 要求已有 ForMathlib/OAI 工件就绪，
-不是用旧日志代替编译。完整构建与审计输入身份、实际日志、失败控制、原始 TSV/差异和成本见 `reports/evidence/module-completion/`。
-历史快照比较属于证据回放；本轮源提取说明了哪些旧表达式另行真实 elaboration，不声称重编了完整历史环境。
+新机器先运行 `scripts/setup.sh` 获取固定版本与官方cache，再用 `scripts/check.sh all`
+构建和审计唯一维护项目。没有重新初始化或全编Mathlib来代替本轮诊断。
 
-检查范围包括完整记录与公理、普通 module 名称和原 kind、历史类型、定向归约、全部实际 OAI 下游以及原有回归。
-它不能证明任意未知外部脚本从不引用生成名；上述八项外部源码破坏是明确交付边界。
+## 成本、失败与限制
+
+以下为独立命令墙钟，存在并行，不能相加当作总经过时间；RSS是最大子进程RSS，不是容器聚合峰值。
+
+| 命令/阶段 | 秒 | 最大子进程RSS KiB | 结果 |
+| --- | ---: | ---: | --- |
+| 未交付的公共补名候选54根 | 130.739 | 3236488 | CoefficientChange/Twist名称解析失败；方案撤回 |
+| 撤回后54根 | 163.701 | 3242796 | 通过 |
+| 完整ForMathlib/OAI构建 | 1506.101 | 3322556 | 9186 jobs通过 |
+| 首次集成检查 | 150.422 | 7321836 | 新检查缺少Cover.Local import；已修正 |
+| 最终完整验收 | 610.310 | 7328312 | 66阶段通过 |
+
+其他实测命令、CPU时间、局部旧源提取及失败成本见research下相应metrics。13次成功的旧类型提取命令墙钟累计275.888秒（存在并行，非总经过时间），其中旧Stalks提取99.335秒。
+新单测首次mock覆盖版本查询的失败已保留，修正后针对12个普通pair的字段/名称变异测试通过；
+最终全量也重新执行这些回归。OnHom属性输出曾与计时JSON同名，日志保留原值，改用独立输出名后重新提取通过。
+
+完整旧历史环境没有重新构建：冻结旧完整导出用于基线；120项旧表达式另由固定旧生产者源提取，
+其指纹逐项匹配基线，再在真实普通现代环境中使用。部分提取使用完整单个生产者文件，尤其Stalks，
+不声称是最小复现，也没有启动全历史项目或全Mathlib构建。
+
+初始54根列表由命令内读取，未被recorder作为单独参数枚举执行时hash；生成脚本与列表完整保留。
+最终完整构建直接指定ForMathlib/OAI，不依赖该列表，261个生产输入另逐项核实。
+初始化未重跑，fresh初始化成本本轮不可得；token无遥测，不可得。
+
+剩余研究限制：把保留的bottDegree matcher换成新审计名字后，默认Meta isDefEq的失败未进一步最小化；
+补可归约性标记也未解除该隔离失败。它没有被当作生产API失败或豁免：实际旧名字被保留，其旧正文比较、
+普通rfl调用和按原名字的旧类型使用均通过。任意未知外部脚本/旧二进制没有逐个验证；外部若直接引用上述八名，
+必须改用标准消去或现有数学接口。本轮因此明确不声称完全源码或二进制兼容。

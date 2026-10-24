@@ -1,0 +1,2 @@
+/workspace/lean-lab/results/matcher-compat/OAI.KL.BottSamelson.CanonicalPairing.ordinary-old.lean:257:139: error(lean.unknownIdentifier): Unknown identifier `Lean.Meta.defeqAttr.hasTag`
+/workspace/lean-lab/results/matcher-compat/OAI.KL.BottSamelson.CanonicalPairing.ordinary-old.lean:257:182: error(lean.unknownIdentifier): Unknown identifier `Lean.Meta.backwardDefeqAttr.hasTag`

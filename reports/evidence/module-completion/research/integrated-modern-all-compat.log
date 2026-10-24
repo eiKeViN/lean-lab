@@ -1,0 +1,8 @@
+Historical names/types/levels/attributes/kernel/defeq/axioms: 1; unavailable=[]; actual old helpers=0
+/workspace/lean-lab/experiments/kl-for-mathlib/ModernAllCompat.lean:134:8: warning: Variable name `env` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _env
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+LocalCover new match_6 has old match_3 type/value; classified compiler generation, not a new semantic operation.

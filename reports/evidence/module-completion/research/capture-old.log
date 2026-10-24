@@ -1,0 +1,2 @@
+/workspace/lean-lab/results/matcher-compat/CaptureOld.lean:93:18: error(lean.unknownIdentifier): Unknown identifier `Lean.Meta.Match.getMatcherInfo?`
+24

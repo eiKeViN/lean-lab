@@ -1,0 +1,4 @@
+Exactly eight historical generated names unavailable; semantic names available in ordinary module imports.
+/workspace/lean-lab/results/matcher-compat/AllConsumer-v2.lean:76:4: warning: `bottDegree.match_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`

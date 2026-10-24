@@ -1,0 +1,59 @@
+................E..............FF..............F........
+======================================================================
+ERROR: test_proof_and_statement_edits_not_erased (test_module_integration.ModuleIntegrationChecks.test_proof_and_statement_edits_not_erased)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_module_integration.py", line 38, in test_proof_and_statement_edits_not_erased
+    self.assertEqual(m.legacy_source(untouched,new),new)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_integration.py", line 50, in legacy_source
+    data=all_legacy(path,data)
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_all.py", line 37, in legacy_source
+    if data not in (old,convert(path,old)):raise RuntimeError('Source outside final105 transport: '+path)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Source outside final105 transport: ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean
+
+======================================================================
+FAIL: test_reject_comparison_old_header_without_scope_mock (test_proof_evolution.EvolutionChecks.test_reject_comparison_old_header_without_scope_mock)
+----------------------------------------------------------------------
+RuntimeError: Source outside final105 transport: OAI/KL/Comparison/Transport.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 120, in test_reject_comparison_old_header_without_scope_mock
+    with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Changed old theorem statement" does not match "Source outside final105 transport: OAI/KL/Comparison/Transport.lean"
+
+======================================================================
+FAIL: test_reject_comparison_unsampled_proof (test_proof_evolution.EvolutionChecks.test_reject_comparison_unsampled_proof)
+----------------------------------------------------------------------
+RuntimeError: Source outside final105 transport: OAI/KL/Comparison/Transport.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 113, in test_reject_comparison_unsampled_proof
+    with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "outside approved" does not match "Source outside final105 transport: OAI/KL/Comparison/Transport.lean"
+
+======================================================================
+FAIL: test_reject_rebound_third_round_source (test_proof_evolution.EvolutionChecks.test_reject_rebound_third_round_source)
+----------------------------------------------------------------------
+RuntimeError: Source outside final105 transport: OAI/KL/Comparison/Transport.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 167, in test_reject_rebound_third_round_source
+    with self.assertRaisesRegex(RuntimeError,'frozen prior-round'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "frozen prior-round" does not match "Source outside final105 transport: OAI/KL/Comparison/Transport.lean"
+
+----------------------------------------------------------------------
+Ran 56 tests in 55.183s
+
+FAILED (failures=3, errors=1)
