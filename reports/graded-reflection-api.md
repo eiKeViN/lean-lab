@@ -1,6 +1,6 @@
 # Graded / reflection API experiment（第四轮）
 
-状态：六文件局部编译、普通导入与两种隔离试验通过；完整构建运行中，最终接口/全量门禁待验收。
+状态：局部及完整9186-job构建、两种隔离试验、完整接口核对通过；最终全量门禁待验收。
 基点`a797fbc1300142c56c18ebfaa0ae84b357bc4b3d`，分支
 `experiment/graded-reflection-api-20261024`。main及先前三轮分支保留，不建PR、不合并。
 [发现索引](../experiments/kl-for-mathlib/API-GUIDE.md)列出完整命名、语义及来源。
@@ -54,7 +54,7 @@ retraction、range_fixed、成员iff和一般张量自然性保持显式调用�
 第一种不是加零或换binder：从restriction改为quotient诱导，API方块直接表达两者相同的数学操作。
 第二种是image见证与fiber-product关系两种自然表述；copy保留线性闭合性证据，
 不声称重新构造了完整范畴pullback。两条API分别对所有输入/所有lattice向量给出原语义。
-每次均冻结整文件SHA、重新elaboration，确认源码、冻结客户端及正常Lake工件hash恢复。
+每次均冻结整文件SHA、重新elaboration，确认源码、冻结客户端及所记录的正常.olean*工件hash恢复。
 试验只覆盖所列链，未全库重编译变体或承诺所有生成eq_1/helper兼容；正式实现另做全库验收。
 
 直接压力收益落在range交换方块和lattice成员边界。截面、projector、一般张量自然性有真实调用，
@@ -78,6 +78,8 @@ cd experiments/kl-for-mathlib
 python3 graded_reflection_trial.py
 ```
 
-完整构建、接口差异、全量门禁与最终输入绑定待完成后补齐。
+完整构建1134.338秒，最大子进程RSS 3373500 KiB；增量构建实际重编译49个模块。
+接口3967→3989，精确新增22条数学定理，无生成新增、旧声明删除、类型或归属变化。
+最终全量门禁与输入绑定待完成后补齐。
 复用固定Lean4.34.1/5045d005与Mathlib d13f23b7的已初始化缓存，未全编Mathlib或更新pins。
 记录阶段墙钟与RSS，包含编译锁等待；不估造冷构建或性能收益。token无遥测，不估造。

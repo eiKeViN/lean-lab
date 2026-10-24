@@ -6,7 +6,7 @@ import hashlib,json,subprocess,gzip,tempfile,re
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 BASE='a797fbc1300142c56c18ebfaa0ae84b357bc4b3d'
 SOURCE_SHA='86bdcb4267e385d669649cab49c0778b1552ab30d5be81154d25ff82d99d2ea7'
-TYPES_SHA='PENDING'
+TYPES_SHA='7a3bfd411066f2b45a92eca69c8582d616308171ae4763d33e2bc480bc02fcb9'
 NAMES=tuple('OAI.KLInvariance.'+n for n in ('Graded.ModuleData.rangeMap_val', 'Graded.ModuleData.rangeMap_projection', 'Graded.ModuleData.rangeProjection_val', 'Graded.ModuleData.rangeInclusion_apply', 'Graded.ModuleData.range_fixed', 'MomentGraph.GradedSheaf.Hom.comp_vertex_apply', 'MomentGraph.GradedSheaf.Hom.comp_edge_apply', 'MomentGraph.GradedSheaf.Hom.sectionMap_comp', 'MomentGraph.GradedSheaf.Hom.sectionMap_id', 'MomentGraph.GradedSheaf.SplitIn.projection_comp_inclusion', 'MomentGraph.GradedSheaf.SplitIn.projector_apply_vertex', 'MomentGraph.GradedSheaf.SplitIn.projector_apply_edge', 'ReflectionPairTranslation.Twist.val_add', 'ReflectionPairTranslation.Twist.val_smul', 'ReflectionPairTranslation.mem_lattice_iff', 'ReflectionPairTranslation.left_apply', 'ReflectionPairTranslation.kernelMap_snd_val', 'ReflectionPairTranslation.twistMap_val', 'ReflectionPairTranslation.right_apply', 'ReflectionPairTranslation.rightKernelMap_fst', 'ReflectionPairTranslation.tensorFirst_natural', 'ReflectionPairTranslation.tensorSecond_natural'))
 GENERATED=()
 def sha(b):return hashlib.sha256(b).hexdigest()
