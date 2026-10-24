@@ -1,0 +1,18 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "test_module_rollout",
+    "test_module_integration",
+    "test_compare_types",
+    "test_source_partitions",
+    "test_proof_evolution",
+    "test_api_reflection"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 11.56980720700085,
+  "user_seconds": 10.673166,
+  "system_seconds": 0.967318,
+  "max_rss_kib": 89440
+}
