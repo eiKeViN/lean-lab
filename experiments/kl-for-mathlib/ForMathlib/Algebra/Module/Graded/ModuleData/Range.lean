@@ -33,6 +33,25 @@ noncomputable section
   map := e.map.rangeRestrict
   graded n m hm := e.graded n m hm
 
+/-- The map induced on ranges agrees with the original commuting map. -/
+@[simp] theorem rangeMap_val (e : Hom M M) (f : Hom N N) (g : Hom M N)
+    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (v : range e) :
+    ((rangeMap e f g h).map v).val = g.map v.val := by rfl
+
+/-- The range factorization of an endomorphism retains its value. -/
+@[simp] theorem rangeProjection_val (e : Hom M M) (v : M) :
+    ((rangeProjection e).map v).val = e.map v := by rfl
+
+/-- Inclusion of a range is its underlying vector. -/
+@[simp] theorem rangeInclusion_apply (e : Hom M M) (v : range e) :
+    (rangeInclusion e).map v = v.val := by rfl
+
+/-- An idempotent acts as the identity on its range. -/
+theorem range_fixed (e : Hom M M) (he : ∀ v, e.map (e.map v)=e.map v)
+    (v : range e) : e.map v.val = v.val := by
+  obtain ⟨m,hm⟩ := v.property
+  rw [← hm,he]
+
 end
 end KLInvariance.Graded.ModuleData
 end

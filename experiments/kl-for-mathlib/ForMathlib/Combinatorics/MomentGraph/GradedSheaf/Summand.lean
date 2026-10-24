@@ -31,6 +31,16 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   cases he'
   rfl
 
+/-- Composition of graded sheaf maps is pointwise composition at vertices. -/
+@[simp] theorem Hom.comp_vertex_apply {D : GradedSheaf (𝓐 := 𝓐) G}
+    (g : Hom C D) (f : Hom B C) (x : V) (v : B.vertex x) :
+    ((g.comp f).vertex x).map v = (g.vertex x).map ((f.vertex x).map v) := by rfl
+
+/-- Composition on edges has the same evaluation convention. -/
+@[simp] theorem Hom.comp_edge_apply {D : GradedSheaf (𝓐 := 𝓐) G}
+    (g : Hom C D) (f : Hom B C) (e : E) (v : B.edge e) :
+    ((g.comp f).edge e).map v = (g.edge e).map ((f.edge e).map v) := by rfl
+
  theorem Hom.eq_of_vertex (f g : Hom B C)
     (hs : ∀ e, Function.Surjective (B.lower e).map)
     (hv : ∀ x v, (f.vertex x).map v=(g.vertex x).map v) : f=g := by
@@ -130,6 +140,34 @@ noncomputable section
     (f : B.forget.sections Ω) (x : V) :
     (h.sectionMap Ω f).val x=(h.vertex x).map (f.val x) := rfl
 
+/-- Taking sections preserves composition of sheaf maps. -/
+theorem Hom.sectionMap_comp {D : GradedSheaf (𝓐 := 𝓐) G}
+    (g : Hom C D) (f : Hom B C) (Ω : Set V) :
+    (g.comp f).sectionMap Ω = (g.sectionMap Ω).comp (f.sectionMap Ω) := by
+  apply LinearMap.ext
+  intro m
+  apply Subtype.ext
+  funext x
+  simp only [LinearMap.comp_apply, Hom.sectionMap_apply]
+  exact Hom.comp_vertex_apply g f x (m.val x)
+
+/-- Taking sections preserves the identity map. -/
+@[simp] theorem Hom.sectionMap_id (B : GradedSheaf (𝓐 := 𝓐) G) (Ω : Set V) :
+    (Hom.id B).sectionMap Ω = LinearMap.id := by
+  apply LinearMap.ext
+  intro m
+  apply Subtype.ext
+  rfl
+
+/-- The two maps of a splitting compose to the identity sheaf map. -/
+theorem SplitIn.projection_comp_inclusion (s : SplitIn B C) :
+    s.projection.comp s.inclusion = Hom.id B := by
+  apply Hom.eq_of_maps
+  · intro x v
+    exact (Hom.comp_vertex_apply _ _ x v).trans (s.vertex_split x v)
+  · intro e v
+    exact (Hom.comp_edge_apply _ _ e v).trans (s.edge_split e v)
+
  variable [Fintype V] [Fintype E] [IsNoetherianRing A]
 
  @[expose] def Hom.gradedSectionMap (h : Hom B C) (Ω : Set V) :
@@ -143,9 +181,9 @@ omit [Fintype V] [Fintype E] [IsNoetherianRing A] in
  theorem SplitIn.sections_split (s : SplitIn B C) (Ω : Set V)
     (f : B.forget.sections Ω) :
     s.projection.sectionMap Ω (s.inclusion.sectionMap Ω f)=f := by
-  apply Subtype.ext
-  funext x
-  exact s.vertex_split x (f.val x)
+  change ((s.projection.sectionMap Ω).comp (s.inclusion.sectionMap Ω)) f = f
+  rw [← Hom.sectionMap_comp, s.projection_comp_inclusion, Hom.sectionMap_id]
+  rfl
 
 end
 end KLInvariance.MomentGraph.GradedSheaf
@@ -171,14 +209,28 @@ noncomputable section
  @[expose] def Hom.imageInclusion (h : Hom B B) : Hom h.image B where
   vertex x := ModuleData.rangeInclusion (h.vertex x)
   edge e := ModuleData.rangeInclusion (h.edge e)
-  lower _ _ := rfl
-  upper _ _ := rfl
+  lower e v := (ModuleData.rangeInclusion_apply (h.edge e) _).trans
+    ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.lower e) (h.lower e) v).trans
+      (congrArg (B.lower e).map (ModuleData.rangeInclusion_apply (h.vertex _) v)).symm)
+  upper e v := (ModuleData.rangeInclusion_apply (h.edge e) _).trans
+    ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.upper e) (h.upper e) v).trans
+      (congrArg (B.upper e).map (ModuleData.rangeInclusion_apply (h.vertex _) v)).symm)
 
  @[expose] def Hom.imageProjection (h : Hom B B) : Hom B h.image where
   vertex x := ModuleData.rangeProjection (h.vertex x)
   edge e := ModuleData.rangeProjection (h.edge e)
-  lower e v := Subtype.ext (h.lower e v)
-  upper e v := Subtype.ext (h.upper e v)
+  lower e v := by
+    apply Subtype.ext
+    exact (ModuleData.rangeProjection_val (h.edge e) _).trans
+      ((h.lower e v).trans
+        ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.lower e) (h.lower e) _).trans
+          (congrArg (B.lower e).map (ModuleData.rangeProjection_val (h.vertex _) v))).symm)
+  upper e v := by
+    apply Subtype.ext
+    exact (ModuleData.rangeProjection_val (h.edge e) _).trans
+      ((h.upper e v).trans
+        ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.upper e) (h.upper e) _).trans
+          (congrArg (B.upper e).map (ModuleData.rangeProjection_val (h.vertex _) v))).symm)
 
  @[expose] def Hom.imageSplit (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
@@ -186,15 +238,15 @@ noncomputable section
   inclusion := h.imageInclusion
   projection := h.imageProjection
   vertex_split x v := by
-    obtain ⟨m,hm⟩ := v.property
     apply Subtype.ext
-    change (h.vertex x).map v.val=v.val
-    rw [← hm,hv]
+    exact (ModuleData.rangeProjection_val (h.vertex x) _).trans
+      ((congrArg (h.vertex x).map (ModuleData.rangeInclusion_apply (h.vertex x) v)).trans
+        (ModuleData.range_fixed (h.vertex x) (hv x) v))
   edge_split e v := by
-    obtain ⟨m,hm⟩ := v.property
     apply Subtype.ext
-    change (h.edge e).map v.val=v.val
-    rw [← hm,he]
+    exact (ModuleData.rangeProjection_val (h.edge e) _).trans
+      ((congrArg (h.edge e).map (ModuleData.rangeInclusion_apply (h.edge e) v)).trans
+        (ModuleData.range_fixed (h.edge e) (he e) v))
 
 end
 end KLInvariance.MomentGraph.GradedSheaf
@@ -217,9 +269,10 @@ noncomputable section
     h.sectionMap Ω (h.imageInclusion.sectionMap Ω f)=h.imageInclusion.sectionMap Ω f := by
   apply Subtype.ext
   funext x
-  obtain ⟨v,hv'⟩ := (f.val x).property
-  change (h.vertex x).map (f.val x).val=(f.val x).val
-  rw [← hv',hv]
+  rw [Hom.sectionMap_apply, Hom.sectionMap_apply]
+  exact (congrArg (h.vertex x).map (ModuleData.rangeInclusion_apply (h.vertex x) (f.val x))).trans
+    ((ModuleData.range_fixed (h.vertex x) (hv x) (f.val x)).trans
+      (ModuleData.rangeInclusion_apply (h.vertex x) (f.val x)).symm)
 
  @[expose] def Hom.imageSectionMap (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)
@@ -265,20 +318,26 @@ noncomputable section
  @[expose] def SplitIn.projector : Hom C C := s.inclusion.comp s.projection
 
 omit [IsNoetherianRing A] in
+/-- The projector of a splitting is inclusion after projection at each vertex. -/
+@[simp] theorem SplitIn.projector_apply_vertex (x : V) (v : C.vertex x) :
+    (s.projector.vertex x).map v = (s.inclusion.vertex x).map ((s.projection.vertex x).map v) := by
+  exact Hom.comp_vertex_apply _ _ x v
+
+omit [IsNoetherianRing A] in
+/-- The same projector convention holds at every edge. -/
+@[simp] theorem SplitIn.projector_apply_edge (e : E) (v : C.edge e) :
+    (s.projector.edge e).map v = (s.inclusion.edge e).map ((s.projection.edge e).map v) := by
+  exact Hom.comp_edge_apply _ _ e v
+
+omit [IsNoetherianRing A] in
  theorem SplitIn.projector_vertex (x : V) (v : C.vertex x) :
     (s.projector.vertex x).map ((s.projector.vertex x).map v)=(s.projector.vertex x).map v := by
-  change (s.inclusion.vertex x).map ((s.projection.vertex x).map
-    ((s.inclusion.vertex x).map ((s.projection.vertex x).map v)))=_
-  rw [s.vertex_split]
-  rfl
+  simp only [s.projector_apply_vertex, s.vertex_split]
 
 omit [IsNoetherianRing A] in
  theorem SplitIn.projector_edge (e : E) (v : C.edge e) :
     (s.projector.edge e).map ((s.projector.edge e).map v)=(s.projector.edge e).map v := by
-  change (s.inclusion.edge e).map ((s.projection.edge e).map
-    ((s.inclusion.edge e).map ((s.projection.edge e).map v)))=_
-  rw [s.edge_split]
-  rfl
+  simp only [s.projector_apply_edge, s.edge_split]
 
  @[expose] def SplitIn.imageTo : Hom s.projector.image B := s.projection.comp s.projector.imageInclusion
  @[expose] def SplitIn.toImage : Hom B s.projector.image := s.projector.imageProjection.comp s.inclusion
