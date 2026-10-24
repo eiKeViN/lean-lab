@@ -4,7 +4,7 @@
 `experiment/api-saturation-20261024`。环境已从该远端基线恢复，初始工作区干净。
 唯一维护的 Lean 项目仍是 `experiments/kl-for-mathlib`。旧分支保留，不创建 PR、不合并、不强推。
 代码检查点已通过完整构建、普通导入、19 项公理闭包及精确接口/8 项相关回归检查。
-实现试验与全量验收待完成；执行 SHA 与验收证据在完成后补入。
+逆向实现试验已完成；全量验收待完成。执行 SHA 与验收证据在完成后补入。
 
 本轮选取四组相邻的**已有家族补齐**，不是四个新领域；新增 13 条数学定理，
 仅改两个生产文件，没有新结构、实例或模块迁移，全部定义保留 expose。
@@ -61,10 +61,28 @@ projector 求值/split 规律，不再展开 range 投影实现。
 
 ## 实现变化与冻结对照
 
-待试验完成后记录结果。脚本 `api_saturation_trial.py` 使用正常 module setup 的 scratch
+结果：逆向构造先把 section-map range 上的 image projection 证明为双射，再取其逆，
+代替原先 inclusion 的 codRestrict 构造。仅重证 `Hom.imageSectionMap_val`：由逆恒等式及
+image 因子分解恢复相同的 inclusion 值，对所有输入成立；其后从
+`Hom.imageSectionMap_bijective` 起至文件结尾的整段生产源码保持字节相同，并重新 elaboration 通过。
+该段有 SHA256 绑定；**不是声称整个 producer 文件冻结**。
+
+另两份整文件冻结的 `Models`、`AdjointSheaf` 和普通导入/19 项公理闭包均通过。
+旧模块使用同一逆向实现并补入同样的两条 API 边界，保留旧证明正文；它在 bijectivity 的
+`congrFun` 类型衔接、满射证明的 `rfl` 和旧 `imageSectionEquiv_val` 的 `rfl` 三处失败。
+日志没有缺失工件或可见性错误。两个外部旧文件均通过（它们本轮未改），不算区分收益。
+直接压力证据落在同一 producer 内的真实 image-section 客户端，不延伸为所有四族的稳定性承诺。
+
+初稿先遇到 ring/map 推断问题，补类型后又显露缺少 bijectivity 证明；正式试验改为显式局部
+等价及其逆恒等式。失败原型日志与成功恢复记录保留；一次路径错误重复启动了未修正原型，
+没有新增语义信息，不作 API 收益，早先那一次的独立时间未保存。API 修补的证明比原 rfl 长，
+本轮不宣称行数或运行性能节省。
+
+脚本 `api_saturation_trial.py` 使用正常 module setup 的 scratch
 工件，不提供选定 producer 的 `.olean.private`；与构建互斥，在 finally 恢复正式源码与工件。
 变体从 range 上的投影先构造双射，再取逆，代替从 image inclusion 正向构造 section-range map。
 这两种由同一分裂诱导的等价，正向计算路径不同；变体不进入生产实现。
+所有正式源码、冻结客户端字节及所记录正常 `.olean*` 工件均在 finally 中恢复且哈希相同。
 
 ## 验收与成本
 

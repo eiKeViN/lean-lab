@@ -44,7 +44,8 @@ IMPLEMENTATION=''' := by
 '''
 REPAIR=''' := by
   have he : h.imageProjection.sectionMap Ω (h.imageSectionMap hv Ω m).val = m := by
-    exact (LinearEquiv.ofBijective _ _).apply_symm_apply m
+    change e (e.symm m) = m
+    exact e.apply_symm_apply m
   have hf : h.sectionMap Ω (h.imageSectionMap hv Ω m).val =
       (h.imageSectionMap hv Ω m).val := by
     obtain ⟨s,hs⟩ := (h.imageSectionMap hv Ω m).property
@@ -60,6 +61,10 @@ REPAIR=''' := by
   exact hi
 
 '''
+# Repeat the local inverse construction inside this one API proof, with an
+# explicitly typed equivalence. No unresolved ring/map/bijectivity placeholders.
+INVERSE_SETUP = IMPLEMENTATION.split('  exact (LinearEquiv.ofBijective P',1)[0].removeprefix(' := by\n')
+REPAIR = REPAIR.replace(' := by\n', ' := by\n'+INVERSE_SETUP+"  let e := LinearEquiv.ofBijective P ⟨fun u v he =>\n    (hFP u).symm.trans ((congrArg F he).trans (hFP v)),\n    fun f => ⟨F f,hPF f⟩⟩\n",1)
 def block(s,start,end):return s[s.index(start):s.index(end,s.index(start))]
 def variant(s,repair):
  i=s.index(' @[expose] def Hom.imageSectionMap');j=s.index('/-- The canonical map from image sections',i)
