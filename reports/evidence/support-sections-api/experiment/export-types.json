@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "ImplementationPublicTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 10.614609341999312,
+  "user_seconds": 9.127511,
+  "system_seconds": 1.604937,
+  "max_rss_kib": 7779108
+}

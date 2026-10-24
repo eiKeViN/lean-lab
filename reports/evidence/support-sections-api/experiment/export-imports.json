@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/ImplementationImports.olean",
+    "ImplementationImports.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.4656360230001155,
+  "user_seconds": 2.953601,
+  "system_seconds": 1.504472,
+  "max_rss_kib": 7426792
+}

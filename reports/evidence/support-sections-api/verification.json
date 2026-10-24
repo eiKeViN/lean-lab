@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "code_checkpoint": "bca2caeb5f7a0269dbcef57da13bcc86c7d4f69a",
+  "mathematical_source_checkpoint": "ee87640e3b144cfb71036221329e55c791450841",
+  "input_files_verified_against_worktree_and_git": 420,
+  "evidence_files_raw_and_stored_hashes_verified": 176,
+  "frozen_client_files_verified": 6,
+  "successful_full_check_stages": 81,
+  "old_interface_changes": 0,
+  "new_theorems": 12,
+  "new_generated_declarations": 0,
+  "previous_branches_preserved": true,
+  "accepted_inputs_sha256": "d0e3f86174c9cef523427adc5d46b726ad1488dc11f56d00f93084326d1e3e36",
+  "manifest_sha256": "787f7dbafa8b62fca34d7a5fc7157b5a289a44eae9cdec44bbc085c618c426fe"
+}

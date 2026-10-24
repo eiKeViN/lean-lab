@@ -2,7 +2,12 @@
 
 Base: `d655bbdf5d09ddc26324f997e4f9a1987309a6a7` (round 4).
 Branch: `experiment/support-sections-api-20261024`. Main and earlier branches are
-preserved; no PR or merge. Lean and mathlib pins are unchanged. Definitions retain
+preserved; no PR or merge. Mathematical source checkpoint:
+`ee87640e3b144cfb71036221329e55c791450841`; verified input checkpoint:
+`bca2caeb5f7a0269dbcef57da13bcc86c7d4f69a`. The successful full checks started
+from `883e0a3` with identical executable code; `bca2cae` only adds the generated
+module index and line metrics. Every one of the 420 bound input files matches both
+the accepted working tree and that Git checkpoint. Lean and mathlib pins are unchanged. Definitions retain
 `expose`; this is an interface experiment, not a transparency migration.
 
 ## Scope and actual use
@@ -48,6 +53,31 @@ The two costalk clients previously used `change (Pi.single x …) x = _` and
 instances as the costalk construction, then composes the support coordinate and
 incoming-label multiplication APIs; those instances are not new global instances.
 
+Previous body (verbatim):
+
+```lean
+  change (Pi.single x
+    (Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x • v.val) :
+      B.sheaf.forget.Assignment) x = _
+  exact Pi.single_eq_same _ _
+```
+
+Current declaration and body (section variables omitted):
+
+```lean
+theorem kernelEquivSingleSupport_apply (x : Interval cs u b)
+    (v : LinearMap.ker (B.sheaf.forget.stalkMap x)) :
+    ((kernelEquivSingleSupport cs u b basis hub B x) v).val.val x =
+      Sheaf.incomingProduct (G := graph cs u b) (polynomialLabel cs u b basis) x • v.val := by
+  let _ (y : Interval cs u b) : Module.Free (Coefficient (σ := σ)) (B.sheaf.forget.vertex y) := B.free y
+  let _ (y : Interval cs u b) : Module.Finite (Coefficient (σ := σ)) (B.sheaf.forget.vertex y) :=
+    (B.sheaf.vertex y).finite
+  let _ (y : Interval cs u b) : Fintype (Module.Free.ChooseBasisIndex
+      (Coefficient (σ := σ)) (B.sheaf.forget.vertex y)) := Fintype.ofFinite _
+  exact (B.sheaf.forget.singleStalkEquivSupport_apply_self x _).trans
+    (B.sheaf.forget.kernelEquivSingleStalk_val _ _ _ _ x _ _ v)
+```
+
 ```lean
 theorem SplitIn.compress_liftEnd (s : SplitIn B C) (f : Hom B B) :
     s.projection.comp ((s.liftEnd f).comp s.inclusion) = f := by
@@ -63,6 +93,11 @@ theorem SplitIn.liftEnd_injective (s : SplitIn B C) : Function.Injective s.liftE
     ((congrArg (fun q : Hom C C => s.projection.comp (q.comp s.inclusion)) h).trans
       (s.compress_liftEnd g))
 ```
+
+The costalk proof becomes longer because using the generic scalar-lift API needs
+its locally chosen finite-basis instances made explicit. This batch does not
+simplify that instance setup. Its demonstrated benefit is that the two clients
+survive the inverse-first support implementation unchanged.
 
 Previously injectivity expanded both vertex and edge nested record maps. Now
 it applies the same compression law to an equality of corner extensions.
@@ -113,7 +148,9 @@ research or unrelated changes were needed.
 The complete 9,186-target incremental build passed (85.782 s after local
 compilation). The raw full interface grew from 3,989 to 4,001 records: exactly
 12 theorem additions, zero generated additions, and no missing, changed or
-relocated old declarations. Full checks are still pending. Local production compilation and ordinary
+relocated old declarations. The complete **81/81 validation stages passed**, including 118 reported unittest
+cases, precise source/interface comparisons, historical compatibility, axiom
+checks, and the final cached build. Local production compilation and ordinary
 imports already pass; 18 new/consumer axiom closures use only `propext`,
 `Classical.choice`, `Quot.sound`.
 
@@ -134,14 +171,42 @@ and proof-evolution regressions pass; the failed run is retained.
 
 ## Costs and reproduction
 
-PENDING measured build/check costs. Mathematical source delta: seven production
-files, +143/-49 lines. The batch is evaluated by the mathematical boundary and
+Measured costs (warm dependency cache):
+
+| Recorded operation | Wall seconds | Notes |
+| --- | ---: | --- |
+| Final complete incremental build | 85.782 | 9,186 targets; 21 fresh `Built` entries; max RSS 3,235,540 KiB; follows local compilation |
+| Ordinary full interface export | 15.080 | Import artifact plus serialization, two commands |
+| Successful full validation | 511.723 | 81 stages; max RSS 7,781,244 KiB; final cached build 3.612 s |
+| Accepted inverse-support trial | 75.811 | Sum of 11 recorded Lean invocations |
+| Corner reassociation control | 83.783 | Sum of 7 recorded Lean invocations; no distinguishing benefit |
+| Failed inverse prototype | 9.328 | Two invocations; restored sources/artifacts |
+| First full-check failure | 6.852 | Classification/source-view adapter; no production rebuild |
+
+Local development build wall time was not separately measured; compiler logs are
+retained. These rows are not a claimed total session time or a performance
+comparison against earlier rounds. Mathematical source delta: seven production
+files, +143/-49 lines (net +94). The batch is evaluated by the mathematical boundary and
 actual consumers, not declaration count or line reduction. Token telemetry is
 unavailable; no token estimate is supplied.
 
 Commands: `scripts/check.sh` for the full build/check workflow, or after a recorded
 successful complete build `scripts/check.sh warm`; `python support_sections_trial.py`
-for the isolated changes. Trial patches, frozen hashes, outcomes, restoration,
-ordinary-import logs, development failures, build/check metrics and accepted
-input bindings will be linked here after final archival. Earlier reports remain
-unchanged.
+for the isolated changes. Earlier reports remain unchanged. Final evidence:
+
+- [Accepted input binding](evidence/support-sections-api/accepted-inputs.json) and
+  [independent hash verification summary](evidence/support-sections-api/verification.json).
+- [81 stage records](evidence/support-sections-api/accepted/stages.json.gz),
+  [build metrics](evidence/support-sections-api/experiment/full-build.json),
+  [validation metrics](evidence/support-sections-api/experiment/full-checks.json),
+  [raw interface difference](evidence/support-sections-api/experiment/raw-interface-diff.json).
+- [Inverse-support comparison](evidence/support-sections-api/experiment/trials/inverse-support/comparison.json),
+  [single API proof repair](evidence/support-sections-api/experiment/trials/inverse-support/api-proof.patch),
+  [four frozen clients](evidence/support-sections-api/experiment/trials/inverse-support/frozen-downstream.json),
+  [old boundary failure](evidence/support-sections-api/experiment/trials/inverse-support/old-client-1.log).
+- [Corner control](evidence/support-sections-api/experiment/trials/associated-corner/comparison.json),
+  [two frozen clients](evidence/support-sections-api/experiment/trials/associated-corner/frozen-downstream.json),
+  [archive manifest](evidence/support-sections-api/manifest.json) covering all 176 evidence files.
+
+No unresolved validation blocker remains. The absence of separate discriminating
+pressure tests for the other three families remains an explicit evidence limit.

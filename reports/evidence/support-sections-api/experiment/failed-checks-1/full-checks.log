@@ -1,0 +1,27 @@
+{"label": "baseline-identity", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/verify.py"], "cwd": ".", "exit_code": 0, "wall_seconds": 0.31161840400091023, "user_seconds": 0.22286799999999998, "system_seconds": 0.08947999999999999, "children_max_rss_kib_so_far": 14492}
+{"label": "baseline-export", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/baseline.py", "--export-out", "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"], "cwd": ".", "exit_code": 0, "wall_seconds": 0.12031128500166233, "user_seconds": 0.088365, "system_seconds": 0.03181600000000001, "children_max_rss_kib_so_far": 50688}
+{"label": "baseline-snapshot-check", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "compare_types.py", "reference-public-types.json", "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 2.7762646010014578, "user_seconds": 2.637247, "system_seconds": 0.13853499999999996, "children_max_rss_kib_so_far": 309584}
+{"label": "source-transport", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "migrate.py", "--check"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 1.828460589000315, "user_seconds": 1.5477480000000003, "system_seconds": 0.289865, "children_max_rss_kib_so_far": 309584}
+{"label": "source-coverage", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "source_check.py"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 0.49689984200085746, "user_seconds": 0.46321499999999993, "system_seconds": 0.035144000000000064, "children_max_rss_kib_so_far": 309584}
+{"label": "classification-and-boundaries", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "analyze.py"], "cwd": "experiments/kl-for-mathlib", "exit_code": 1, "wall_seconds": 1.2624235389994283, "user_seconds": 1.0564109999999998, "system_seconds": 0.2147079999999999, "children_max_rss_kib_so_far": 309584}
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/analyze.py", line 14, in <module>
+    import_graph=graph()
+                 ^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_integration.py", line 122, in graph
+    if (HERE/path).read_bytes()!=__import__('module_next').convert(path,__import__('module_next').baseline(path)):raise RuntimeError('Changed next-module source')
+                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Changed next-module source
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 223, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 161, in main
+    static_checks()
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 49, in static_checks
+    run('classification-and-boundaries',[sys.executable,'analyze.py'])
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 22, in run
+    print((OUT/(label+'.log')).read_text()[-6000:]);raise RuntimeError('Failed stage: '+label)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Failed stage: classification-and-boundaries

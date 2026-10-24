@@ -1,0 +1,11 @@
+{
+  "command": [
+    "lake",
+    "build"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 85.78227949099892,
+  "user_seconds": 98.074048,
+  "system_seconds": 13.182922,
+  "max_rss_kib": 3235540
+}

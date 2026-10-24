@@ -1,0 +1,1237 @@
+{
+  "code_checkpoint": "bca2caeb5f7a0269dbcef57da13bcc86c7d4f69a",
+  "evidence": {
+    "experiment/classification-recheck.log": {
+      "source": "results/support-sections/classification-recheck.log",
+      "raw_sha256": "068d3e1505c2081f25780a020925da832fa67c6176dc64d95cb555835f48d660",
+      "stored_sha256": "068d3e1505c2081f25780a020925da832fa67c6176dc64d95cb555835f48d660",
+      "raw_bytes": 459,
+      "stored_bytes": 459
+    },
+    "experiment/current-types.tsv.gz": {
+      "source": "results/support-sections/current-types.tsv",
+      "raw_sha256": "5ea8bf13accf785188948d4f85083d1133ec0c2d5d89f861d80d7d2ffb97aa61",
+      "stored_sha256": "01981c32a694cd2cf88d9c1a5abbc89895f44db834e8d514ef312ead967460a0",
+      "raw_bytes": 17491192,
+      "stored_bytes": 3022704
+    },
+    "experiment/development/support-clients.log": {
+      "source": "results/support-sections/development/support-clients.log",
+      "raw_sha256": "2c47e14addb066134cddf381e38bca02c138d2112a3bb71c4d08246e86072d6b",
+      "stored_sha256": "2c47e14addb066134cddf381e38bca02c138d2112a3bb71c4d08246e86072d6b",
+      "raw_bytes": 9650,
+      "stored_bytes": 9650
+    },
+    "experiment/development/support-clients2.log": {
+      "source": "results/support-sections/development/support-clients2.log",
+      "raw_sha256": "ff5e1b0a7911649544be8a5241a730e9d954e9d1afcd805b7d7843ac691af018",
+      "stored_sha256": "ff5e1b0a7911649544be8a5241a730e9d954e9d1afcd805b7d7843ac691af018",
+      "raw_bytes": 9109,
+      "stored_bytes": 9109
+    },
+    "experiment/development/support-clients3-run.log": {
+      "source": "results/support-sections/development/support-clients3-run.log",
+      "raw_sha256": "512191250e9eeafe367c2d18fa83b22162c0d10d64e9d934ce65bca2ef98bdf9",
+      "stored_sha256": "512191250e9eeafe367c2d18fa83b22162c0d10d64e9d934ce65bca2ef98bdf9",
+      "raw_bytes": 9171,
+      "stored_bytes": 9171
+    },
+    "experiment/development/support-clients4-run.log": {
+      "source": "results/support-sections/development/support-clients4-run.log",
+      "raw_sha256": "88d936c162e3a0e4e52ec907d6124229ad2b8b5c3ca64f604f74efdf0573f43a",
+      "stored_sha256": "88d936c162e3a0e4e52ec907d6124229ad2b8b5c3ca64f604f74efdf0573f43a",
+      "raw_bytes": 7117,
+      "stored_bytes": 7117
+    },
+    "experiment/development/support-clients5-run.log": {
+      "source": "results/support-sections/development/support-clients5-run.log",
+      "raw_sha256": "5a34e0a607f66e014fa4a115de70eb8d1ccd6f001c8153526fa96d027a0db2fa",
+      "stored_sha256": "5a34e0a607f66e014fa4a115de70eb8d1ccd6f001c8153526fa96d027a0db2fa",
+      "raw_bytes": 5136,
+      "stored_bytes": 5136
+    },
+    "experiment/development/support-local.log": {
+      "source": "results/support-sections/development/support-local.log",
+      "raw_sha256": "102524bc86e920a3729ac1c014ea252b051349d0bdd9d57d48dc79c2fed8f8b5",
+      "stored_sha256": "102524bc86e920a3729ac1c014ea252b051349d0bdd9d57d48dc79c2fed8f8b5",
+      "raw_bytes": 4458,
+      "stored_bytes": 4458
+    },
+    "experiment/development/support-local2.log": {
+      "source": "results/support-sections/development/support-local2.log",
+      "raw_sha256": "12af6b6c2aa58235e70edd70b256fcc9233f7e0ceb2be2cd97709eae69b29dd1",
+      "stored_sha256": "12af6b6c2aa58235e70edd70b256fcc9233f7e0ceb2be2cd97709eae69b29dd1",
+      "raw_bytes": 1882,
+      "stored_bytes": 1882
+    },
+    "experiment/development/support-ordinary.log": {
+      "source": "results/support-sections/development/support-ordinary.log",
+      "raw_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "stored_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "raw_bytes": 2381,
+      "stored_bytes": 2381
+    },
+    "experiment/development/support-source-check.log": {
+      "source": "results/support-sections/development/support-source-check.log",
+      "raw_sha256": "95d9ab4205de66d553f58ab458a9d1399979d3ecb2b57b5f77d1311649e10e73",
+      "stored_sha256": "95d9ab4205de66d553f58ab458a9d1399979d3ecb2b57b5f77d1311649e10e73",
+      "raw_bytes": 84,
+      "stored_bytes": 84
+    },
+    "experiment/export-imports.json": {
+      "source": "results/support-sections/export-imports.json",
+      "raw_sha256": "42af80fa5ddb5db48623ca86e9b4498c7adad5c4699b742102adb7530c51c07c",
+      "stored_sha256": "42af80fa5ddb5db48623ca86e9b4498c7adad5c4699b742102adb7530c51c07c",
+      "raw_bytes": 297,
+      "stored_bytes": 297
+    },
+    "experiment/export-imports.log": {
+      "source": "results/support-sections/export-imports.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/export-types.json": {
+      "source": "results/support-sections/export-types.json",
+      "raw_sha256": "8e083ea589c844ef542611428553cd53f722870424073fe1ba527769988afc1f",
+      "stored_sha256": "8e083ea589c844ef542611428553cd53f722870424073fe1ba527769988afc1f",
+      "raw_bytes": 235,
+      "stored_bytes": 235
+    },
+    "experiment/export-types.log": {
+      "source": "results/support-sections/export-types.log",
+      "raw_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "stored_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "raw_bytes": 235,
+      "stored_bytes": 235
+    },
+    "experiment/failed-checks-1/classification-and-boundaries.log": {
+      "source": "results/support-sections/failed-checks-1/classification-and-boundaries.log",
+      "raw_sha256": "0f499599edce0fa45f9a4eca0d9a817d9d1f4256d75bac01d5d8082d62ed4127",
+      "stored_sha256": "0f499599edce0fa45f9a4eca0d9a817d9d1f4256d75bac01d5d8082d62ed4127",
+      "raw_bytes": 639,
+      "stored_bytes": 639
+    },
+    "experiment/failed-checks-1/full-checks.json": {
+      "source": "results/support-sections/failed-checks-1/full-checks.json",
+      "raw_sha256": "155941ca8827a0c88505d2a3cc59eb751004634dafda3c24c1c022bdef6313a5",
+      "stored_sha256": "155941ca8827a0c88505d2a3cc59eb751004634dafda3c24c1c022bdef6313a5",
+      "raw_bytes": 206,
+      "stored_bytes": 206
+    },
+    "experiment/failed-checks-1/full-checks.log": {
+      "source": "results/support-sections/failed-checks-1/full-checks.log",
+      "raw_sha256": "3ed5d5f771744172b12e2321a23b53aed64fac0ada4da5ccfc85bf63b55130f9",
+      "stored_sha256": "3ed5d5f771744172b12e2321a23b53aed64fac0ada4da5ccfc85bf63b55130f9",
+      "raw_bytes": 3613,
+      "stored_bytes": 3613
+    },
+    "experiment/failed-checks-1/stages.json": {
+      "source": "results/support-sections/failed-checks-1/stages.json",
+      "raw_sha256": "3fca8591bfd4e9a5da3c56010ae84dc234cb1dad5310e31a0b5095ac3fcd8b15",
+      "stored_sha256": "3fca8591bfd4e9a5da3c56010ae84dc234cb1dad5310e31a0b5095ac3fcd8b15",
+      "raw_bytes": 2546,
+      "stored_bytes": 2546
+    },
+    "experiment/full-build.json": {
+      "source": "results/support-sections/full-build.json",
+      "raw_sha256": "ae20792fd1d604f09dfc00a2b07fffce566d4311fb628ff9a18f0c6b6daf581d",
+      "stored_sha256": "ae20792fd1d604f09dfc00a2b07fffce566d4311fb628ff9a18f0c6b6daf581d",
+      "raw_bytes": 188,
+      "stored_bytes": 188
+    },
+    "experiment/full-build.log": {
+      "source": "results/support-sections/full-build.log",
+      "raw_sha256": "cff1c6bd57b84154824e66973009172472d66fb704e3b5accd7c039d990f53a8",
+      "stored_sha256": "cff1c6bd57b84154824e66973009172472d66fb704e3b5accd7c039d990f53a8",
+      "raw_bytes": 7603,
+      "stored_bytes": 7603
+    },
+    "experiment/full-checks.json": {
+      "source": "results/support-sections/full-checks.json",
+      "raw_sha256": "54f012dffd368ccfd2d98e0ff73d7cdf15419e4e700cd320d540ce95e6c65877",
+      "stored_sha256": "54f012dffd368ccfd2d98e0ff73d7cdf15419e4e700cd320d540ce95e6c65877",
+      "raw_bytes": 197,
+      "stored_bytes": 197
+    },
+    "experiment/full-checks.log.gz": {
+      "source": "results/support-sections/full-checks.log",
+      "raw_sha256": "f635065985f95e674fee2864c863cdd3bfbb3e7cef423f97674fe01c3189e3d1",
+      "stored_sha256": "eb04e90613ff61226391eb6b434b52f0fda970e16ea94d355831459e036613ae",
+      "raw_bytes": 27274,
+      "stored_bytes": 3951
+    },
+    "experiment/historical-regressions.log": {
+      "source": "results/support-sections/historical-regressions.log",
+      "raw_sha256": "f9b279f60f41172619859ae2c8a3e3bd00ab0339034dd6b2c31f169717b1c630",
+      "stored_sha256": "f9b279f60f41172619859ae2c8a3e3bd00ab0339034dd6b2c31f169717b1c630",
+      "raw_bytes": 132,
+      "stored_bytes": 132
+    },
+    "experiment/policy-regressions.log": {
+      "source": "results/support-sections/policy-regressions.log",
+      "raw_sha256": "7e02a1c7e192d4c356943a6e6e4b3bb03c0bd470cfd5d0757328d29b7a5abf91",
+      "stored_sha256": "7e02a1c7e192d4c356943a6e6e4b3bb03c0bd470cfd5d0757328d29b7a5abf91",
+      "raw_bytes": 109,
+      "stored_bytes": 109
+    },
+    "experiment/raw-interface-diff.json": {
+      "source": "results/support-sections/raw-interface-diff.json",
+      "raw_sha256": "c3155beb6a43ca1827c75d71efce3697ec858732c88c69b6fad5c9a8651e285a",
+      "stored_sha256": "c3155beb6a43ca1827c75d71efce3697ec858732c88c69b6fad5c9a8651e285a",
+      "raw_bytes": 1029,
+      "stored_bytes": 1029
+    },
+    "experiment/registered-interface-check.json": {
+      "source": "results/support-sections/registered-interface-check.json",
+      "raw_sha256": "3d1b5d933fb673ed45959a63f2e0ab9d64766f24dd27d24bf951edc97531cb62",
+      "stored_sha256": "3d1b5d933fb673ed45959a63f2e0ab9d64766f24dd27d24bf951edc97531cb62",
+      "raw_bytes": 4970,
+      "stored_bytes": 4970
+    },
+    "experiment/trials/associated-corner/api-proof.patch": {
+      "source": "results/support-sections/trials/associated-corner/api-proof.patch",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/associated-corner/changed-implementation-old-api.log": {
+      "source": "results/support-sections/trials/associated-corner/changed-implementation-old-api.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/associated-corner/changed-implementation-old-api.setup.json.gz": {
+      "source": "results/support-sections/trials/associated-corner/changed-implementation-old-api.setup.json",
+      "raw_sha256": "c2e6e21de4aea5287b867543e5c06be20a35c61676d95c6acef1ac3e26a15a54",
+      "stored_sha256": "c6be44f70d6789e1d2703bbe1b8f0190735b55aa7ca378478a691d17bb2c03c8",
+      "raw_bytes": 5586092,
+      "stored_bytes": 210416
+    },
+    "experiment/trials/associated-corner/changed-implementation-repaired-api.log": {
+      "source": "results/support-sections/trials/associated-corner/changed-implementation-repaired-api.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/associated-corner/changed-implementation-repaired-api.setup.json.gz": {
+      "source": "results/support-sections/trials/associated-corner/changed-implementation-repaired-api.setup.json",
+      "raw_sha256": "c2e6e21de4aea5287b867543e5c06be20a35c61676d95c6acef1ac3e26a15a54",
+      "stored_sha256": "c6be44f70d6789e1d2703bbe1b8f0190735b55aa7ca378478a691d17bb2c03c8",
+      "raw_bytes": 5586092,
+      "stored_bytes": 210416
+    },
+    "experiment/trials/associated-corner/comparison.json": {
+      "source": "results/support-sections/trials/associated-corner/comparison.json",
+      "raw_sha256": "3ee928f2760695d5a9c5fa45a5a6e922c9d68b882a081644e26032a2a229a3ad",
+      "stored_sha256": "3ee928f2760695d5a9c5fa45a5a6e922c9d68b882a081644e26032a2a229a3ad",
+      "raw_bytes": 221,
+      "stored_bytes": 221
+    },
+    "experiment/trials/associated-corner/definition-only.patch": {
+      "source": "results/support-sections/trials/associated-corner/definition-only.patch",
+      "raw_sha256": "ef578854dde32b6eac4ad4cf0f8b4d7bae561b8b11492dd15b584449e8baaaf2",
+      "stored_sha256": "ef578854dde32b6eac4ad4cf0f8b4d7bae561b8b11492dd15b584449e8baaaf2",
+      "raw_bytes": 526,
+      "stored_bytes": 526
+    },
+    "experiment/trials/associated-corner/frozen-downstream.json": {
+      "source": "results/support-sections/trials/associated-corner/frozen-downstream.json",
+      "raw_sha256": "4ffb12b90dd9e29c17bf0823ccf64c701315d64ea3433bcae198f3bdecf180ed",
+      "stored_sha256": "4ffb12b90dd9e29c17bf0823ccf64c701315d64ea3433bcae198f3bdecf180ed",
+      "raw_bytes": 248,
+      "stored_bytes": 248
+    },
+    "experiment/trials/associated-corner/frozen-new-0.log": {
+      "source": "results/support-sections/trials/associated-corner/frozen-new-0.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/associated-corner/frozen-new-0.setup.json.gz": {
+      "source": "results/support-sections/trials/associated-corner/frozen-new-0.setup.json",
+      "raw_sha256": "47faeeb4a11eea4e3e1245a5fefc9b44cef88c504f54c036da873d2028e1085a",
+      "stored_sha256": "f6f62bdbf2b1221d1de6691bb261199b089268cb9fa69fd5592993fcc49396d1",
+      "raw_bytes": 5586139,
+      "stored_bytes": 210464
+    },
+    "experiment/trials/associated-corner/frozen-new-1.log": {
+      "source": "results/support-sections/trials/associated-corner/frozen-new-1.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/associated-corner/frozen-new-1.setup.json.gz": {
+      "source": "results/support-sections/trials/associated-corner/frozen-new-1.setup.json",
+      "raw_sha256": "958238a079f636d61bb955ef4a34b7c1faa6aa3c9e56eac7d7119aa81149559e",
+      "stored_sha256": "7758c188d45fed21fa06a1f975807fface9854214fb66de59626e865b8e30ef5",
+      "raw_bytes": 5586164,
+      "stored_bytes": 210450
+    },
+    "experiment/trials/associated-corner/metrics.json": {
+      "source": "results/support-sections/trials/associated-corner/metrics.json",
+      "raw_sha256": "ff44d68f9218d257d69d0de870d97773a66b58ac6c838be941a491e414884e8a",
+      "stored_sha256": "ff44d68f9218d257d69d0de870d97773a66b58ac6c838be941a491e414884e8a",
+      "raw_bytes": 3801,
+      "stored_bytes": 3801
+    },
+    "experiment/trials/associated-corner/modified-producer.lean.gz": {
+      "source": "results/support-sections/trials/associated-corner/modified-producer.lean",
+      "raw_sha256": "8b8d88fc75a66546dab9a47bea4f4a0f12c835b311923bc8424f7edc2d7595ec",
+      "stored_sha256": "1b0418f59e53661681eb1b4f85fadf1163e5e0fda4247dbfb3a24b6447ed8a40",
+      "raw_bytes": 25098,
+      "stored_bytes": 4773
+    },
+    "experiment/trials/associated-corner/old-client-0.log": {
+      "source": "results/support-sections/trials/associated-corner/old-client-0.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/associated-corner/old-client-0.setup.json.gz": {
+      "source": "results/support-sections/trials/associated-corner/old-client-0.setup.json",
+      "raw_sha256": "4fef083f42b2ce413f387623a3e9b3142fdcdfc7db7501d539b4168b59158d84",
+      "stored_sha256": "6b89cc66e43437bae3b7f4b072018c6cbdee215cf6acf5e61d7cebb9b0776c55",
+      "raw_bytes": 5586235,
+      "stored_bytes": 210510
+    },
+    "experiment/trials/associated-corner/old-client-1.log": {
+      "source": "results/support-sections/trials/associated-corner/old-client-1.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/associated-corner/old-client-1.setup.json.gz": {
+      "source": "results/support-sections/trials/associated-corner/old-client-1.setup.json",
+      "raw_sha256": "2274c32bffa3216486a4555b390933c9c3203350232a98c7d85ba38da093f114",
+      "stored_sha256": "5592336b651546478472677403dd998b4d91051455f798d1e85a7f9d80994393",
+      "raw_bytes": 5586212,
+      "stored_bytes": 210490
+    },
+    "experiment/trials/associated-corner/ordinary-api-client.log": {
+      "source": "results/support-sections/trials/associated-corner/ordinary-api-client.log",
+      "raw_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "stored_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "raw_bytes": 2381,
+      "stored_bytes": 2381
+    },
+    "experiment/trials/associated-corner/ordinary-api-client.setup.json.gz": {
+      "source": "results/support-sections/trials/associated-corner/ordinary-api-client.setup.json",
+      "raw_sha256": "ff0fb42ef11a391f5ed65363bca10cdfee32a76039aeb6121e7cd9c524528c6d",
+      "stored_sha256": "2bef53e7fb538c45c3969a87fc3623adb0aa3df4b6b2e178f75df3f85feb971d",
+      "raw_bytes": 5586201,
+      "stored_bytes": 210485
+    },
+    "experiment/trials/associated-corner/restoration.json": {
+      "source": "results/support-sections/trials/associated-corner/restoration.json",
+      "raw_sha256": "965a0ac82ff1093ff88d582f3d4cf4018b17419c442b7751cdf459928b273707",
+      "stored_sha256": "965a0ac82ff1093ff88d582f3d4cf4018b17419c442b7751cdf459928b273707",
+      "raw_bytes": 3819,
+      "stored_bytes": 3819
+    },
+    "experiment/trials/failed-inverse-support-prototype/api-proof.patch": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/api-proof.patch",
+      "raw_sha256": "525f01301f85fc2ac7ded7539f761531a6e1418a2f6739efdab98a627190d32f",
+      "stored_sha256": "525f01301f85fc2ac7ded7539f761531a6e1418a2f6739efdab98a627190d32f",
+      "raw_bytes": 938,
+      "stored_bytes": 938
+    },
+    "experiment/trials/failed-inverse-support-prototype/changed-implementation-old-api.log": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/changed-implementation-old-api.log",
+      "raw_sha256": "a0089871c3ae86fdee515de4821ebce01282fb4bfe83a9e51ff35ac1316aff6a",
+      "stored_sha256": "a0089871c3ae86fdee515de4821ebce01282fb4bfe83a9e51ff35ac1316aff6a",
+      "raw_bytes": 461,
+      "stored_bytes": 461
+    },
+    "experiment/trials/failed-inverse-support-prototype/changed-implementation-old-api.setup.json.gz": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/changed-implementation-old-api.setup.json",
+      "raw_sha256": "b1849487f35563d92a0947280c31a1e19ae7ab6535bc0750aa337816b859ef69",
+      "stored_sha256": "82df3018c9ab7b06ccea963998e11d937b546faf786fe153877662588adaac1b",
+      "raw_bytes": 5586086,
+      "stored_bytes": 210413
+    },
+    "experiment/trials/failed-inverse-support-prototype/changed-implementation-repaired-api.log": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/changed-implementation-repaired-api.log",
+      "raw_sha256": "4d2af75d14f0e6ac3ea914042bcf421e9ebf9cc1ff126c981979d0742ef018f1",
+      "stored_sha256": "4d2af75d14f0e6ac3ea914042bcf421e9ebf9cc1ff126c981979d0742ef018f1",
+      "raw_bytes": 342,
+      "stored_bytes": 342
+    },
+    "experiment/trials/failed-inverse-support-prototype/changed-implementation-repaired-api.setup.json.gz": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/changed-implementation-repaired-api.setup.json",
+      "raw_sha256": "b1849487f35563d92a0947280c31a1e19ae7ab6535bc0750aa337816b859ef69",
+      "stored_sha256": "82df3018c9ab7b06ccea963998e11d937b546faf786fe153877662588adaac1b",
+      "raw_bytes": 5586086,
+      "stored_bytes": 210413
+    },
+    "experiment/trials/failed-inverse-support-prototype/definition-only.patch": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/definition-only.patch",
+      "raw_sha256": "8e9455c73169e160164f4f51c00496bea09906eb71322a81d0dd9e89643c3c39",
+      "stored_sha256": "8e9455c73169e160164f4f51c00496bea09906eb71322a81d0dd9e89643c3c39",
+      "raw_bytes": 2565,
+      "stored_bytes": 2565
+    },
+    "experiment/trials/failed-inverse-support-prototype/frozen-downstream.json": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/frozen-downstream.json",
+      "raw_sha256": "ca0666e7185ab96352219bc5e5b355fbd9067092f55edbd00e0ce7d6b9c8e7c0",
+      "stored_sha256": "ca0666e7185ab96352219bc5e5b355fbd9067092f55edbd00e0ce7d6b9c8e7c0",
+      "raw_bytes": 450,
+      "stored_bytes": 450
+    },
+    "experiment/trials/failed-inverse-support-prototype/metrics.json": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/metrics.json",
+      "raw_sha256": "648d4b8fc6e40c465eca1cb3aab7dfcb5d6fa94b509e8dd59845c2101ad7e3b0",
+      "stored_sha256": "648d4b8fc6e40c465eca1cb3aab7dfcb5d6fa94b509e8dd59845c2101ad7e3b0",
+      "raw_bytes": 1174,
+      "stored_bytes": 1174
+    },
+    "experiment/trials/failed-inverse-support-prototype/modified-producer.lean": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/modified-producer.lean",
+      "raw_sha256": "4be83b0c2e2714e07d489e712c004ae30183c10bad10a65418227ca88fd099d0",
+      "stored_sha256": "4be83b0c2e2714e07d489e712c004ae30183c10bad10a65418227ca88fd099d0",
+      "raw_bytes": 12830,
+      "stored_bytes": 12830
+    },
+    "experiment/trials/failed-inverse-support-prototype/restoration.json": {
+      "source": "results/support-sections/trials/failed-inverse-support-prototype/restoration.json",
+      "raw_sha256": "fa0aa19a43ad7b95398a133b50dbd78c6c05a601a805f24e9e55cfc9f64e7a89",
+      "stored_sha256": "fa0aa19a43ad7b95398a133b50dbd78c6c05a601a805f24e9e55cfc9f64e7a89",
+      "raw_bytes": 5937,
+      "stored_bytes": 5937
+    },
+    "experiment/trials/inverse-support/api-proof.patch": {
+      "source": "results/support-sections/trials/inverse-support/api-proof.patch",
+      "raw_sha256": "edb6b17b6d691ba71aa92ef388cbfb9e099ca982cdaa682cbe7a0da5f4c1eff3",
+      "stored_sha256": "edb6b17b6d691ba71aa92ef388cbfb9e099ca982cdaa682cbe7a0da5f4c1eff3",
+      "raw_bytes": 934,
+      "stored_bytes": 934
+    },
+    "experiment/trials/inverse-support/changed-implementation-old-api.log": {
+      "source": "results/support-sections/trials/inverse-support/changed-implementation-old-api.log",
+      "raw_sha256": "a0089871c3ae86fdee515de4821ebce01282fb4bfe83a9e51ff35ac1316aff6a",
+      "stored_sha256": "a0089871c3ae86fdee515de4821ebce01282fb4bfe83a9e51ff35ac1316aff6a",
+      "raw_bytes": 461,
+      "stored_bytes": 461
+    },
+    "experiment/trials/inverse-support/changed-implementation-old-api.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/changed-implementation-old-api.setup.json",
+      "raw_sha256": "b1849487f35563d92a0947280c31a1e19ae7ab6535bc0750aa337816b859ef69",
+      "stored_sha256": "82df3018c9ab7b06ccea963998e11d937b546faf786fe153877662588adaac1b",
+      "raw_bytes": 5586086,
+      "stored_bytes": 210413
+    },
+    "experiment/trials/inverse-support/changed-implementation-repaired-api.log": {
+      "source": "results/support-sections/trials/inverse-support/changed-implementation-repaired-api.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/inverse-support/changed-implementation-repaired-api.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/changed-implementation-repaired-api.setup.json",
+      "raw_sha256": "b1849487f35563d92a0947280c31a1e19ae7ab6535bc0750aa337816b859ef69",
+      "stored_sha256": "82df3018c9ab7b06ccea963998e11d937b546faf786fe153877662588adaac1b",
+      "raw_bytes": 5586086,
+      "stored_bytes": 210413
+    },
+    "experiment/trials/inverse-support/comparison.json": {
+      "source": "results/support-sections/trials/inverse-support/comparison.json",
+      "raw_sha256": "4a35794de3f451fb95e5745dab21adb8d91aa243a2005af76578382f0d882f75",
+      "stored_sha256": "4a35794de3f451fb95e5745dab21adb8d91aa243a2005af76578382f0d882f75",
+      "raw_bytes": 297,
+      "stored_bytes": 297
+    },
+    "experiment/trials/inverse-support/definition-only.patch": {
+      "source": "results/support-sections/trials/inverse-support/definition-only.patch",
+      "raw_sha256": "8e9455c73169e160164f4f51c00496bea09906eb71322a81d0dd9e89643c3c39",
+      "stored_sha256": "8e9455c73169e160164f4f51c00496bea09906eb71322a81d0dd9e89643c3c39",
+      "raw_bytes": 2565,
+      "stored_bytes": 2565
+    },
+    "experiment/trials/inverse-support/frozen-downstream.json": {
+      "source": "results/support-sections/trials/inverse-support/frozen-downstream.json",
+      "raw_sha256": "ca0666e7185ab96352219bc5e5b355fbd9067092f55edbd00e0ce7d6b9c8e7c0",
+      "stored_sha256": "ca0666e7185ab96352219bc5e5b355fbd9067092f55edbd00e0ce7d6b9c8e7c0",
+      "raw_bytes": 450,
+      "stored_bytes": 450
+    },
+    "experiment/trials/inverse-support/frozen-new-0.log": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-0.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/inverse-support/frozen-new-0.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-0.setup.json",
+      "raw_sha256": "2a11d0129936f47632d9581979d20d0ba0f139971e8bbd24ff29a2f7b822aaa0",
+      "stored_sha256": "2148c35a25b638d7a5b35a67dda02a3643ed97cf1485fb20daee236e393daad1",
+      "raw_bytes": 5586132,
+      "stored_bytes": 210461
+    },
+    "experiment/trials/inverse-support/frozen-new-1.log": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-1.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/inverse-support/frozen-new-1.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-1.setup.json",
+      "raw_sha256": "aab1dab1d0851b410b3e1fdb190a2919cf6a5b57f423e55d15c24f5623a473e8",
+      "stored_sha256": "58f08cdb024fd716133435ba31a86b520eda313aea0bbb59a865a764811f07c0",
+      "raw_bytes": 5586138,
+      "stored_bytes": 210426
+    },
+    "experiment/trials/inverse-support/frozen-new-2.log": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-2.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/inverse-support/frozen-new-2.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-2.setup.json",
+      "raw_sha256": "dbe78fa722be5f9a243439e8d7f85c3c00d759d006e34d3e2a285cb554f8f9af",
+      "stored_sha256": "dde22586bd7840d8a59bbcb6f9ef0616bb652fe83e1ee891d27adf59dce66a9d",
+      "raw_bytes": 5586180,
+      "stored_bytes": 210470
+    },
+    "experiment/trials/inverse-support/frozen-new-3.log": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-3.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/inverse-support/frozen-new-3.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/frozen-new-3.setup.json",
+      "raw_sha256": "1b01ba502c28ef0ff608e5e5a8d2907e52b49af00a4dd6cf08fa71d71f9b625a",
+      "stored_sha256": "53f145f2682f8ebb23b649e271c1694d4c16310082526436867a596d30dbb7c5",
+      "raw_bytes": 5586225,
+      "stored_bytes": 210481
+    },
+    "experiment/trials/inverse-support/metrics.json": {
+      "source": "results/support-sections/trials/inverse-support/metrics.json",
+      "raw_sha256": "0e9792a63c67effdc44b95adfd043e48a99bb7bf9d82fdf7fb0bb45a08669254",
+      "stored_sha256": "0e9792a63c67effdc44b95adfd043e48a99bb7bf9d82fdf7fb0bb45a08669254",
+      "raw_bytes": 5768,
+      "stored_bytes": 5768
+    },
+    "experiment/trials/inverse-support/modified-producer.lean": {
+      "source": "results/support-sections/trials/inverse-support/modified-producer.lean",
+      "raw_sha256": "15d9b60c627f16b2b6c89901a5648c5bcacae9ee8db0063c5dd729da10c4d0f8",
+      "stored_sha256": "15d9b60c627f16b2b6c89901a5648c5bcacae9ee8db0063c5dd729da10c4d0f8",
+      "raw_bytes": 12826,
+      "stored_bytes": 12826
+    },
+    "experiment/trials/inverse-support/old-client-0.log": {
+      "source": "results/support-sections/trials/inverse-support/old-client-0.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/inverse-support/old-client-0.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/old-client-0.setup.json",
+      "raw_sha256": "461e4db9b838d2b2c9259c9e2137dff866fa9c9938009984e8da1a62bfcbf4cf",
+      "stored_sha256": "53743f1ad5da45767c79fc40bfbca5041194a29a9626650ae2ecdbf091d603d6",
+      "raw_bytes": 5586292,
+      "stored_bytes": 210518
+    },
+    "experiment/trials/inverse-support/old-client-1.log": {
+      "source": "results/support-sections/trials/inverse-support/old-client-1.log",
+      "raw_sha256": "2374bd6f60cb72b096b563abd2cbfe2c394aaebd80040a0609b61064b2dc11d4",
+      "stored_sha256": "2374bd6f60cb72b096b563abd2cbfe2c394aaebd80040a0609b61064b2dc11d4",
+      "raw_bytes": 331,
+      "stored_bytes": 331
+    },
+    "experiment/trials/inverse-support/old-client-1.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/old-client-1.setup.json",
+      "raw_sha256": "4720347b730a8f5f3d8b45c0f45aecb06a52a8c41d2caa3254ef09f402f33f09",
+      "stored_sha256": "e4bc641c5621997e5190b8ff19c242c74713fe751fdaea969e4492c8a8f6af83",
+      "raw_bytes": 5586258,
+      "stored_bytes": 210476
+    },
+    "experiment/trials/inverse-support/old-client-2.log": {
+      "source": "results/support-sections/trials/inverse-support/old-client-2.log",
+      "raw_sha256": "10a5ae986377bc5255b33ee62745d8c821eab81bba587bd0bbd69a18c4494918",
+      "stored_sha256": "10a5ae986377bc5255b33ee62745d8c821eab81bba587bd0bbd69a18c4494918",
+      "raw_bytes": 329,
+      "stored_bytes": 329
+    },
+    "experiment/trials/inverse-support/old-client-2.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/old-client-2.setup.json",
+      "raw_sha256": "21ff8c1f16520f4d993f1c39c98c44e39f6b1d5d0efb1ba536f7554678fd1995",
+      "stored_sha256": "9b3f561ebbec7f0ef05a4168a6d3f7d303adce7198c080c0e2f71267f7c205c7",
+      "raw_bytes": 5586260,
+      "stored_bytes": 210480
+    },
+    "experiment/trials/inverse-support/old-client-3.log": {
+      "source": "results/support-sections/trials/inverse-support/old-client-3.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/trials/inverse-support/old-client-3.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/old-client-3.setup.json",
+      "raw_sha256": "229f33387379102975d81dba8d2d1a130dc78a800d754687965cedb2c7aaac10",
+      "stored_sha256": "935d22ea49a79705b09cf2cf6f9648740cae3c0b11b8091907b48de2618a7b7b",
+      "raw_bytes": 5586265,
+      "stored_bytes": 210487
+    },
+    "experiment/trials/inverse-support/ordinary-api-client.log": {
+      "source": "results/support-sections/trials/inverse-support/ordinary-api-client.log",
+      "raw_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "stored_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "raw_bytes": 2381,
+      "stored_bytes": 2381
+    },
+    "experiment/trials/inverse-support/ordinary-api-client.setup.json.gz": {
+      "source": "results/support-sections/trials/inverse-support/ordinary-api-client.setup.json",
+      "raw_sha256": "39a56194e6ae9911294d49ac2c1d9edd7063a59d45e017e8a5dd36a945f9de7f",
+      "stored_sha256": "8657c33ab29b1a28a0a99d1a2720555b193e6b6e615c893537f632fb1351b440",
+      "raw_bytes": 5586257,
+      "stored_bytes": 210487
+    },
+    "experiment/trials/inverse-support/restoration.json": {
+      "source": "results/support-sections/trials/inverse-support/restoration.json",
+      "raw_sha256": "fa0aa19a43ad7b95398a133b50dbd78c6c05a601a805f24e9e55cfc9f64e7a89",
+      "stored_sha256": "fa0aa19a43ad7b95398a133b50dbd78c6c05a601a805f24e9e55cfc9f64e7a89",
+      "raw_bytes": 5937,
+      "stored_bytes": 5937
+    },
+    "accepted/ApiEvolutionChecks.log": {
+      "source": "results/for-mathlib/ApiEvolutionChecks.log",
+      "raw_sha256": "0a82a274fd03ca13846410014331f6d6072a57a769145cefb1f524639a9ce0b8",
+      "stored_sha256": "0a82a274fd03ca13846410014331f6d6072a57a769145cefb1f524639a9ce0b8",
+      "raw_bytes": 2215,
+      "stored_bytes": 2215
+    },
+    "accepted/ApiFamiliesChecks.log": {
+      "source": "results/for-mathlib/ApiFamiliesChecks.log",
+      "raw_sha256": "b81dad1cc85b9da9c6e3ae05f4b7352fe2c133caa2206542bf36ad502ab50336",
+      "stored_sha256": "b81dad1cc85b9da9c6e3ae05f4b7352fe2c133caa2206542bf36ad502ab50336",
+      "raw_bytes": 2577,
+      "stored_bytes": 2577
+    },
+    "accepted/Audit.log": {
+      "source": "results/for-mathlib/Audit.log",
+      "raw_sha256": "7974ad421cca9129ff0cac16375cdd97e8f47a17b5ed4d70d1bf765f1ec2edc9",
+      "stored_sha256": "7974ad421cca9129ff0cac16375cdd97e8f47a17b5ed4d70d1bf765f1ec2edc9",
+      "raw_bytes": 1588,
+      "stored_bytes": 1588
+    },
+    "accepted/BoundaryChecks.log": {
+      "source": "results/for-mathlib/BoundaryChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/CompatChecks.log": {
+      "source": "results/for-mathlib/CompatChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/CoreSheafImportChecks.log": {
+      "source": "results/for-mathlib/CoreSheafImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/DomainImportChecks.log": {
+      "source": "results/for-mathlib/DomainImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ForMathlibChecks.log": {
+      "source": "results/for-mathlib/ForMathlibChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/GradedReflectionChecks.log": {
+      "source": "results/for-mathlib/GradedReflectionChecks.log",
+      "raw_sha256": "6e2287754850f4e2a9d58d194cb88196e96343b7e95aade20445ed53e0388243",
+      "stored_sha256": "6e2287754850f4e2a9d58d194cb88196e96343b7e95aade20445ed53e0388243",
+      "raw_bytes": 4408,
+      "stored_bytes": 4408
+    },
+    "accepted/GradedSupportImportChecks.log": {
+      "source": "results/for-mathlib/GradedSupportImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ImportChecks.log": {
+      "source": "results/for-mathlib/ImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/KernelChecks.log": {
+      "source": "results/for-mathlib/KernelChecks.log",
+      "raw_sha256": "fda30e29892695fca4a0e393102479d6de7b1e4d0c66a91bfcaca25635c77fe4",
+      "stored_sha256": "fda30e29892695fca4a0e393102479d6de7b1e4d0c66a91bfcaca25635c77fe4",
+      "raw_bytes": 363,
+      "stored_bytes": 363
+    },
+    "accepted/LegacyKernelEntryChecks.log": {
+      "source": "results/for-mathlib/LegacyKernelEntryChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ModernAllCompat.log": {
+      "source": "results/for-mathlib/ModernAllCompat.log",
+      "raw_sha256": "6ce3aedd286227e1bd030138a7f3ed6e5122928bb84bf13c2c3fc0f4d3916349",
+      "stored_sha256": "6ce3aedd286227e1bd030138a7f3ed6e5122928bb84bf13c2c3fc0f4d3916349",
+      "raw_bytes": 545,
+      "stored_bytes": 545
+    },
+    "accepted/ModernAllConsumer.log": {
+      "source": "results/for-mathlib/ModernAllConsumer.log",
+      "raw_sha256": "6038629484ce78cddcd1e1aec7d98cff9a3174be39dde1cd20866a3d4b750fd0",
+      "stored_sha256": "6038629484ce78cddcd1e1aec7d98cff9a3174be39dde1cd20866a3d4b750fd0",
+      "raw_bytes": 368,
+      "stored_bytes": 368
+    },
+    "accepted/ModernAttachConsumer.log": {
+      "source": "results/for-mathlib/ModernAttachConsumer.log",
+      "raw_sha256": "160b61c18fca61106d31010e64a0550193061e637703ee9151fd6f4871271bd9",
+      "stored_sha256": "160b61c18fca61106d31010e64a0550193061e637703ee9151fd6f4871271bd9",
+      "raw_bytes": 1597,
+      "stored_bytes": 1597
+    },
+    "accepted/ModernCompatChecks.log": {
+      "source": "results/for-mathlib/ModernCompatChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ModernCoordinateChecks.log": {
+      "source": "results/for-mathlib/ModernCoordinateChecks.log",
+      "raw_sha256": "9cc5016756c91b703d44c923538c764981ae1725a750196ac49727e2a912d08a",
+      "stored_sha256": "9cc5016756c91b703d44c923538c764981ae1725a750196ac49727e2a912d08a",
+      "raw_bytes": 79,
+      "stored_bytes": 79
+    },
+    "accepted/ModernCoordinateMathlibChecks.log": {
+      "source": "results/for-mathlib/ModernCoordinateMathlibChecks.log",
+      "raw_sha256": "4092e6128bf07e0d154235ec6eae18171ebcb355d6ee6ef7de31263a16acd44c",
+      "stored_sha256": "4092e6128bf07e0d154235ec6eae18171ebcb355d6ee6ef7de31263a16acd44c",
+      "raw_bytes": 602,
+      "stored_bytes": 602
+    },
+    "accepted/ModernFinalCompat.log": {
+      "source": "results/for-mathlib/ModernFinalCompat.log",
+      "raw_sha256": "8a7d7e919a065cef038c66f0af063f64cf15b2a40c61f58c68633491f690fd25",
+      "stored_sha256": "8a7d7e919a065cef038c66f0af063f64cf15b2a40c61f58c68633491f690fd25",
+      "raw_bytes": 4655,
+      "stored_bytes": 4655
+    },
+    "accepted/ModernNextConsumer.log": {
+      "source": "results/for-mathlib/ModernNextConsumer.log",
+      "raw_sha256": "3a5a7019a89397d581682423f0940e7771a81ee0985e33bec27589c90fe4a39c",
+      "stored_sha256": "3a5a7019a89397d581682423f0940e7771a81ee0985e33bec27589c90fe4a39c",
+      "raw_bytes": 2165,
+      "stored_bytes": 2165
+    },
+    "accepted/ModernStructureCompat.log": {
+      "source": "results/for-mathlib/ModernStructureCompat.log",
+      "raw_sha256": "8ec29be5ad01fcf5f59b7fa7591a87e55084001515c7ad53434de88a437710de",
+      "stored_sha256": "8ec29be5ad01fcf5f59b7fa7591a87e55084001515c7ad53434de88a437710de",
+      "raw_bytes": 2590,
+      "stored_bytes": 2590
+    },
+    "accepted/PilotAudit.log": {
+      "source": "results/for-mathlib/PilotAudit.log",
+      "raw_sha256": "68a2798ce4d9603ffa27db3c15811193f94820a8d6a4c2995e3e433b8bbdf9f7",
+      "stored_sha256": "68a2798ce4d9603ffa27db3c15811193f94820a8d6a4c2995e3e433b8bbdf9f7",
+      "raw_bytes": 9434,
+      "stored_bytes": 9434
+    },
+    "accepted/PilotChecks.log": {
+      "source": "results/for-mathlib/PilotChecks.log",
+      "raw_sha256": "4ddbdec805f2f806fd4306b315826298654526403697be961d1a54fb0e8ba26d",
+      "stored_sha256": "4ddbdec805f2f806fd4306b315826298654526403697be961d1a54fb0e8ba26d",
+      "raw_bytes": 363,
+      "stored_bytes": 363
+    },
+    "accepted/ProjectEntryChecks.log": {
+      "source": "results/for-mathlib/ProjectEntryChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ResponsibilityCompatChecks.log": {
+      "source": "results/for-mathlib/ResponsibilityCompatChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/SafeImportChecks.log": {
+      "source": "results/for-mathlib/SafeImportChecks.log",
+      "raw_sha256": "6eac3bdc5871e6065d14a41462f00e049d456d5ca9697f5aa1fc034f20c6d9bd",
+      "stored_sha256": "6eac3bdc5871e6065d14a41462f00e049d456d5ca9697f5aa1fc034f20c6d9bd",
+      "raw_bytes": 102,
+      "stored_bytes": 102
+    },
+    "accepted/ScaledEvaluationImportChecks.log": {
+      "source": "results/for-mathlib/ScaledEvaluationImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/SemanticApiChecks.log": {
+      "source": "results/for-mathlib/SemanticApiChecks.log",
+      "raw_sha256": "cbe9bd5ce91750c27f3ace28aee9bc691f9d1d1da825ec6e5eb69dd66a3a3a76",
+      "stored_sha256": "cbe9bd5ce91750c27f3ace28aee9bc691f9d1d1da825ec6e5eb69dd66a3a3a76",
+      "raw_bytes": 1626,
+      "stored_bytes": 1626
+    },
+    "accepted/StalkCharacterImportChecks.log": {
+      "source": "results/for-mathlib/StalkCharacterImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/SupportSectionsChecks.log": {
+      "source": "results/for-mathlib/SupportSectionsChecks.log",
+      "raw_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "stored_sha256": "61d9e746748919163f116092da11dc016273645cb1759eff3fc7401c55965058",
+      "raw_bytes": 2381,
+      "stored_bytes": 2381
+    },
+    "accepted/WeightedSumImportChecks.log": {
+      "source": "results/for-mathlib/WeightedSumImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/all-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/all-modern-types.tsv",
+      "raw_sha256": "aecb27a928ef0d91c0fd690cb9ddffd888c8e164d50ad173fdc56f801dd290f9",
+      "stored_sha256": "e6a99caa1fb8a34039efcf81a94cca716d78324c83e5f5c674038f86d90ab134",
+      "raw_bytes": 17067567,
+      "stored_bytes": 2946251
+    },
+    "accepted/api-evolution-full-records.log": {
+      "source": "results/for-mathlib/api-evolution-full-records.log",
+      "raw_sha256": "f912dc3aece560a1a672233f6083d1a78ca36494f68f4b8b8e17be0ccc17ffff",
+      "stored_sha256": "f912dc3aece560a1a672233f6083d1a78ca36494f68f4b8b8e17be0ccc17ffff",
+      "raw_bytes": 3704,
+      "stored_bytes": 3704
+    },
+    "accepted/api-evolution-regressions.log": {
+      "source": "results/for-mathlib/api-evolution-regressions.log",
+      "raw_sha256": "f70b0d257d89d9572bffe8681edcda88c771a5d502b515a8dffc8effdaa63ba0",
+      "stored_sha256": "f70b0d257d89d9572bffe8681edcda88c771a5d502b515a8dffc8effdaa63ba0",
+      "raw_bytes": 100,
+      "stored_bytes": 100
+    },
+    "accepted/api-families-full-records.log": {
+      "source": "results/for-mathlib/api-families-full-records.log",
+      "raw_sha256": "398bb18c4a9601512419ff6cfd11abd3191c7dd0ecd50b31a1830ea75cc252bd",
+      "stored_sha256": "398bb18c4a9601512419ff6cfd11abd3191c7dd0ecd50b31a1830ea75cc252bd",
+      "raw_bytes": 4293,
+      "stored_bytes": 4293
+    },
+    "accepted/api-families-regressions.log": {
+      "source": "results/for-mathlib/api-families-regressions.log",
+      "raw_sha256": "65b6ad8b0703d718db215035d5adee1d8ed9c4d37af7f7fc7145bbc733112fec",
+      "stored_sha256": "65b6ad8b0703d718db215035d5adee1d8ed9c4d37af7f7fc7145bbc733112fec",
+      "raw_bytes": 101,
+      "stored_bytes": 101
+    },
+    "accepted/api-reflection-full-records.log": {
+      "source": "results/for-mathlib/api-reflection-full-records.log",
+      "raw_sha256": "daa9300ae9a2dff59fa7ae65d7686badeb38418f97e60c5228ea6f84a3374648",
+      "stored_sha256": "daa9300ae9a2dff59fa7ae65d7686badeb38418f97e60c5228ea6f84a3374648",
+      "raw_bytes": 8455,
+      "stored_bytes": 8455
+    },
+    "accepted/api-reflection-regressions.log": {
+      "source": "results/for-mathlib/api-reflection-regressions.log",
+      "raw_sha256": "522597959ccc5756c9d89b89390fbe3478d2bae7855d68affc350e87ea6c465b",
+      "stored_sha256": "522597959ccc5756c9d89b89390fbe3478d2bae7855d68affc350e87ea6c465b",
+      "raw_bytes": 100,
+      "stored_bytes": 100
+    },
+    "accepted/api-support-full-records.log": {
+      "source": "results/for-mathlib/api-support-full-records.log",
+      "raw_sha256": "3d1b5d933fb673ed45959a63f2e0ab9d64766f24dd27d24bf951edc97531cb62",
+      "stored_sha256": "3d1b5d933fb673ed45959a63f2e0ab9d64766f24dd27d24bf951edc97531cb62",
+      "raw_bytes": 4970,
+      "stored_bytes": 4970
+    },
+    "accepted/api-support-regressions.log": {
+      "source": "results/for-mathlib/api-support-regressions.log",
+      "raw_sha256": "1415b4f3d8ec00a5c7c3ae4dba69db4bdab0208fb01ff463c02b75eea50fd01c",
+      "stored_sha256": "1415b4f3d8ec00a5c7c3ae4dba69db4bdab0208fb01ff463c02b75eea50fd01c",
+      "raw_bytes": 101,
+      "stored_bytes": 101
+    },
+    "accepted/attach-modern-comparison.log": {
+      "source": "results/for-mathlib/attach-modern-comparison.log",
+      "raw_sha256": "5e66e8570b11ac7e8bd9594ba446584dbbd98c28aaa46cfed56f4fd2368458f6",
+      "stored_sha256": "5e66e8570b11ac7e8bd9594ba446584dbbd98c28aaa46cfed56f4fd2368458f6",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/attach-modern-types.log": {
+      "source": "results/for-mathlib/attach-modern-types.log",
+      "raw_sha256": "a0bb9df070870e1db57bf8e35b471242bea5afeb7cb2c4bd07d99880b4c0b3e6",
+      "stored_sha256": "a0bb9df070870e1db57bf8e35b471242bea5afeb7cb2c4bd07d99880b4c0b3e6",
+      "raw_bytes": 11163,
+      "stored_bytes": 11163
+    },
+    "accepted/attach-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/attach-modern-types.tsv",
+      "raw_sha256": "f5fe714f1f0cfad74e2aaed35758db3831c5b86bd659cc7ce2eb374083e7d087",
+      "stored_sha256": "e3018971e8d2291788fda76e17c7d513be5b43fe3620fd8790a450620bfcb738",
+      "raw_bytes": 257431,
+      "stored_bytes": 43968
+    },
+    "accepted/attach-regressions.log": {
+      "source": "results/for-mathlib/attach-regressions.log",
+      "raw_sha256": "ed0770e91399d03f49edafc1bc5dba54194da2d7ac1bc29e9794edff19552db7",
+      "stored_sha256": "ed0770e91399d03f49edafc1bc5dba54194da2d7ac1bc29e9794edff19552db7",
+      "raw_bytes": 102,
+      "stored_bytes": 102
+    },
+    "accepted/baseline-export.log": {
+      "source": "results/for-mathlib/baseline-export.log",
+      "raw_sha256": "adcd3422378624a9cec1ae01916aad52289079aede0ecded0dfb9b65345ddc57",
+      "stored_sha256": "adcd3422378624a9cec1ae01916aad52289079aede0ecded0dfb9b65345ddc57",
+      "raw_bytes": 86,
+      "stored_bytes": 86
+    },
+    "accepted/baseline-identity.log": {
+      "source": "results/for-mathlib/baseline-identity.log",
+      "raw_sha256": "a384e20bdad4d705df3fce6d4ebc81ef1081c3369563320b69f2524777407296",
+      "stored_sha256": "a384e20bdad4d705df3fce6d4ebc81ef1081c3369563320b69f2524777407296",
+      "raw_bytes": 112,
+      "stored_bytes": 112
+    },
+    "accepted/baseline-snapshot-check.log": {
+      "source": "results/for-mathlib/baseline-snapshot-check.log",
+      "raw_sha256": "7d211d5dd1a09755660105ddfee276ef47e24a920278ce33da0ce795f3285e99",
+      "stored_sha256": "7d211d5dd1a09755660105ddfee276ef47e24a920278ce33da0ce795f3285e99",
+      "raw_bytes": 130,
+      "stored_bytes": 130
+    },
+    "accepted/classification-and-boundaries.log": {
+      "source": "results/for-mathlib/classification-and-boundaries.log",
+      "raw_sha256": "068d3e1505c2081f25780a020925da832fa67c6176dc64d95cb555835f48d660",
+      "stored_sha256": "068d3e1505c2081f25780a020925da832fa67c6176dc64d95cb555835f48d660",
+      "raw_bytes": 459,
+      "stored_bytes": 459
+    },
+    "accepted/comparator-tests.log": {
+      "source": "results/for-mathlib/comparator-tests.log",
+      "raw_sha256": "d3235cb7ff54ba50a1894584fe1e6b38d07f0a8c0cb41731f2777fdcbc2f2d9b",
+      "stored_sha256": "d3235cb7ff54ba50a1894584fe1e6b38d07f0a8c0cb41731f2777fdcbc2f2d9b",
+      "raw_bytes": 130,
+      "stored_bytes": 130
+    },
+    "accepted/final-full-records.log.gz": {
+      "source": "results/for-mathlib/final-full-records.log",
+      "raw_sha256": "fc9c673df606a53e66b310c1c7a70f8ef4c267b15ff142288f6e05c2bbd8886a",
+      "stored_sha256": "bf2657d9fd727d05faf44f7ac408443c3c55369f11399bc748a889ee8867de31",
+      "raw_bytes": 41883,
+      "stored_bytes": 6040
+    },
+    "accepted/final-modern-comparison.log": {
+      "source": "results/for-mathlib/final-modern-comparison.log",
+      "raw_sha256": "345c248e42d87aab100d422687e4070c168be783097cc682800aa078abc83685",
+      "stored_sha256": "345c248e42d87aab100d422687e4070c168be783097cc682800aa078abc83685",
+      "raw_bytes": 14192,
+      "stored_bytes": 14192
+    },
+    "accepted/final-modern-types.log.gz": {
+      "source": "results/for-mathlib/final-modern-types.log",
+      "raw_sha256": "22a830de6ec2f9ea62ed2a5ea251b4b1d2f9c951f5757e758cddc931b8b12a50",
+      "stored_sha256": "9c82c9b8caccae2ad9f9f085372d5beb29a72c28180f010b284ec40f6067c74b",
+      "raw_bytes": 89919,
+      "stored_bytes": 5049
+    },
+    "accepted/final-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/final-modern-types.tsv",
+      "raw_sha256": "5992c19325f8887d212188137f8e608200b26b6ce83712cbe8291b71ec352afd",
+      "stored_sha256": "ae08217af5ae00e234f77f928dde7201ed94c591e7e3896b4a7473e01ea57b26",
+      "raw_bytes": 1687577,
+      "stored_bytes": 292993
+    },
+    "accepted/final-regressions.log": {
+      "source": "results/for-mathlib/final-regressions.log",
+      "raw_sha256": "bd6ae78d01831837d273d5670faf54561bb9c76a528e729d77d0a99986c6f765",
+      "stored_sha256": "bd6ae78d01831837d273d5670faf54561bb9c76a528e729d77d0a99986c6f765",
+      "raw_bytes": 102,
+      "stored_bytes": 102
+    },
+    "accepted/final105-full-records.log.gz": {
+      "source": "results/for-mathlib/final105-full-records.log",
+      "raw_sha256": "5c22dfc8cb46215140bad0ac5ff20fb413143fee6ff2c1a03ff8357d49232250",
+      "stored_sha256": "7036243478998bd91eb482c8531cf116a9d2052d15e5bcde5be4a8ff0d4b7db3",
+      "raw_bytes": 36068,
+      "stored_bytes": 4398
+    },
+    "accepted/final105-modern-comparison.log.gz": {
+      "source": "results/for-mathlib/final105-modern-comparison.log",
+      "raw_sha256": "e9c5af49d62d38b0834273f88eb93ad5227d793b2040f827c677e5fc0ef0567e",
+      "stored_sha256": "4a77ed3d97404520d151b4ed6096ea445747a4ca772ff3d360876a61e37a7c5d",
+      "raw_bytes": 39312,
+      "stored_bytes": 4704
+    },
+    "accepted/final105-modern-types.log.gz": {
+      "source": "results/for-mathlib/final105-modern-types.log",
+      "raw_sha256": "0b6e27f460d8561a800ab0adafb293187d70c1d12b1697d3b85707fba9d6add5",
+      "stored_sha256": "bfeac038059bc4d0725502f17f44e43724aba625fd0d64dacddb8fca6c5648b4",
+      "raw_bytes": 532632,
+      "stored_bytes": 27334
+    },
+    "accepted/final105-regressions.log": {
+      "source": "results/for-mathlib/final105-regressions.log",
+      "raw_sha256": "3529f6286e2c700e233548377a94d6fe2741eac1d632666fe54e18badc75370f",
+      "stored_sha256": "3529f6286e2c700e233548377a94d6fe2741eac1d632666fe54e18badc75370f",
+      "raw_bytes": 105,
+      "stored_bytes": 105
+    },
+    "accepted/full-record-compatibility.log.gz": {
+      "source": "results/for-mathlib/full-record-compatibility.log",
+      "raw_sha256": "8250854a7cdeb14c0489692e6650b785371bca52782938fc081ee30c96729219",
+      "stored_sha256": "36bc60c0703629bec425d20953cb8ad8a08e79f4e877ce64d4fc3ab3b5b727cc",
+      "raw_bytes": 43604,
+      "stored_bytes": 6466
+    },
+    "accepted/implementation-imports.log": {
+      "source": "results/for-mathlib/implementation-imports.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/lean-version.log": {
+      "source": "results/for-mathlib/lean-version.log",
+      "raw_sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "stored_sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "raw_bytes": 106,
+      "stored_bytes": 106
+    },
+    "accepted/mathlib-ready.log": {
+      "source": "results/for-mathlib/mathlib-ready.log",
+      "raw_sha256": "c158dbc0e7feea9b3707e2151351d155b11e6e8fc7974b60b100ba4957b3bcfd",
+      "stored_sha256": "c158dbc0e7feea9b3707e2151351d155b11e6e8fc7974b60b100ba4957b3bcfd",
+      "raw_bytes": 36,
+      "stored_bytes": 36
+    },
+    "accepted/migrated-types.log": {
+      "source": "results/for-mathlib/migrated-types.log",
+      "raw_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "stored_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "raw_bytes": 235,
+      "stored_bytes": 235
+    },
+    "accepted/migrated-types.tsv.gz": {
+      "source": "results/for-mathlib/migrated-types.tsv",
+      "raw_sha256": "5ea8bf13accf785188948d4f85083d1133ec0c2d5d89f861d80d7d2ffb97aa61",
+      "stored_sha256": "01981c32a694cd2cf88d9c1a5abbc89895f44db834e8d514ef312ead967460a0",
+      "raw_bytes": 17491192,
+      "stored_bytes": 3022704
+    },
+    "accepted/modern-public-comparison.log": {
+      "source": "results/for-mathlib/modern-public-comparison.log",
+      "raw_sha256": "1a95bb7591aa6abf0eac135526c1a119b35ec90a61f9b7aed8c685b00cb7162f",
+      "stored_sha256": "1a95bb7591aa6abf0eac135526c1a119b35ec90a61f9b7aed8c685b00cb7162f",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/modern-public-types.log": {
+      "source": "results/for-mathlib/modern-public-types.log",
+      "raw_sha256": "da215c3e68903544e30acaca20156f6b884963067f4fbd397f37a0cf9238ec0a",
+      "stored_sha256": "da215c3e68903544e30acaca20156f6b884963067f4fbd397f37a0cf9238ec0a",
+      "raw_bytes": 1463,
+      "stored_bytes": 1463
+    },
+    "accepted/modern-public-types.tsv.gz": {
+      "source": "results/for-mathlib/modern-public-types.tsv",
+      "raw_sha256": "9652b00809501f7eaad105984c4c42e572b471608fe91768a0cfcbf624059305",
+      "stored_sha256": "ef94b1545b06fb34ea5b23138d6df22ffdcdc01ae96b3e8d9a990dd5056724f2",
+      "raw_bytes": 83744,
+      "stored_bytes": 15890
+    },
+    "accepted/module-integration-tests.log": {
+      "source": "results/for-mathlib/module-integration-tests.log",
+      "raw_sha256": "93c9b0a6176f4f2d1aa5ba5c402624552979c19b537e4808db081c333d72aa57",
+      "stored_sha256": "93c9b0a6176f4f2d1aa5ba5c402624552979c19b537e4808db081c333d72aa57",
+      "raw_bytes": 105,
+      "stored_bytes": 105
+    },
+    "accepted/next-full-records.log.gz": {
+      "source": "results/for-mathlib/next-full-records.log",
+      "raw_sha256": "fc9c673df606a53e66b310c1c7a70f8ef4c267b15ff142288f6e05c2bbd8886a",
+      "stored_sha256": "bf2657d9fd727d05faf44f7ac408443c3c55369f11399bc748a889ee8867de31",
+      "raw_bytes": 41883,
+      "stored_bytes": 6040
+    },
+    "accepted/next-modern-comparison.log": {
+      "source": "results/for-mathlib/next-modern-comparison.log",
+      "raw_sha256": "2ccab14d1fceb4efe9c8d0073d4d2c5053997a2abce7a46f725ffe1265057381",
+      "stored_sha256": "2ccab14d1fceb4efe9c8d0073d4d2c5053997a2abce7a46f725ffe1265057381",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/next-modern-types.log": {
+      "source": "results/for-mathlib/next-modern-types.log",
+      "raw_sha256": "6357c7a04316103393f7ed333da58fd13f4a065a84fc51868063593676a4fe3c",
+      "stored_sha256": "6357c7a04316103393f7ed333da58fd13f4a065a84fc51868063593676a4fe3c",
+      "raw_bytes": 8057,
+      "stored_bytes": 8057
+    },
+    "accepted/next-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/next-modern-types.tsv",
+      "raw_sha256": "3f32b8857ce546b830eaf286112fdfbaaf3b2ae7f7c04e79a3a17fa2da0324a5",
+      "stored_sha256": "7e162a929c552f257d8cf79706480c8d5a89e23e86b729dfb34426ad1ff65f79",
+      "raw_bytes": 243207,
+      "stored_bytes": 43753
+    },
+    "accepted/next-regressions.log": {
+      "source": "results/for-mathlib/next-regressions.log",
+      "raw_sha256": "4717f13866ed86c152aea00baa1351a2bdcb3b855d9a83637a52f45dde3acb90",
+      "stored_sha256": "4717f13866ed86c152aea00baa1351a2bdcb3b855d9a83637a52f45dde3acb90",
+      "raw_bytes": 101,
+      "stored_bytes": 101
+    },
+    "accepted/oai-ready.log": {
+      "source": "results/for-mathlib/oai-ready.log",
+      "raw_sha256": "5abf97eb3a48c2be266f502335fd385d9e9278d43cdd858e13f89abbb887bc2f",
+      "stored_sha256": "5abf97eb3a48c2be266f502335fd385d9e9278d43cdd858e13f89abbb887bc2f",
+      "raw_bytes": 6104,
+      "stored_bytes": 6104
+    },
+    "accepted/proof-evolution-source.log": {
+      "source": "results/for-mathlib/proof-evolution-source.log",
+      "raw_sha256": "ef937619bb078a7d6574b35128218d070f7276ff2bae7fb0f361d3b25049930c",
+      "stored_sha256": "ef937619bb078a7d6574b35128218d070f7276ff2bae7fb0f361d3b25049930c",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/proof-evolution-tests.log": {
+      "source": "results/for-mathlib/proof-evolution-tests.log",
+      "raw_sha256": "5182423de5f78676c69f12054f679071c358677a5041006b7d935bcd3da2c0a4",
+      "stored_sha256": "5182423de5f78676c69f12054f679071c358677a5041006b7d935bcd3da2c0a4",
+      "raw_bytes": 129,
+      "stored_bytes": 129
+    },
+    "accepted/rollout-public-comparison.log": {
+      "source": "results/for-mathlib/rollout-public-comparison.log",
+      "raw_sha256": "ca7636b606968e63cedbe5f690b478c8fd3c9e9f5fc148daaac14a76b5609785",
+      "stored_sha256": "ca7636b606968e63cedbe5f690b478c8fd3c9e9f5fc148daaac14a76b5609785",
+      "raw_bytes": 130,
+      "stored_bytes": 130
+    },
+    "accepted/rollout-public-types.log.gz": {
+      "source": "results/for-mathlib/rollout-public-types.log",
+      "raw_sha256": "026a47466b208190c264cd02e2d4a597debb4881b8b1c091d92c8acddba2a2ed",
+      "stored_sha256": "3fdbb514a7183cb86f3bcfdeb3bd27804328a3ec5ddac72b1aa9b53804bc7e60",
+      "raw_bytes": 156985,
+      "stored_bytes": 9076
+    },
+    "accepted/rollout-public-types.tsv.gz": {
+      "source": "results/for-mathlib/rollout-public-types.tsv",
+      "raw_sha256": "e4654186dfb098321631f5bad43d35f944fa569ab8148cbaf43200df8eb2eaa3",
+      "stored_sha256": "45a2b8861cef788e68efbbc2343607ca35fe2a2966744fe15eda8db76add7592",
+      "raw_bytes": 4616078,
+      "stored_bytes": 815047
+    },
+    "accepted/rollout-tests.log": {
+      "source": "results/for-mathlib/rollout-tests.log",
+      "raw_sha256": "b735125978b30444a9c09924d5e0464238603a3d93a6114fea7f6be4b6793dc2",
+      "stored_sha256": "b735125978b30444a9c09924d5e0464238603a3d93a6114fea7f6be4b6793dc2",
+      "raw_bytes": 105,
+      "stored_bytes": 105
+    },
+    "accepted/semantic-api-main-comparison.log": {
+      "source": "results/for-mathlib/semantic-api-main-comparison.log",
+      "raw_sha256": "fb04d2dbe4ec9306b992183971d5c20269f17697647c8408dbe367298d96b568",
+      "stored_sha256": "fb04d2dbe4ec9306b992183971d5c20269f17697647c8408dbe367298d96b568",
+      "raw_bytes": 2622,
+      "stored_bytes": 2622
+    },
+    "accepted/semantic-api-regressions.log": {
+      "source": "results/for-mathlib/semantic-api-regressions.log",
+      "raw_sha256": "96d645a46faa8d549f13c22e9ab436a4c3bdfb96d2d62af2f06a0aa309468ddd",
+      "stored_sha256": "96d645a46faa8d549f13c22e9ab436a4c3bdfb96d2d62af2f06a0aa309468ddd",
+      "raw_bytes": 100,
+      "stored_bytes": 100
+    },
+    "accepted/source-coverage.log": {
+      "source": "results/for-mathlib/source-coverage.log",
+      "raw_sha256": "495aad1c97ab29d586dd858c803871ec6f68404afd9739b8bddb5d98c3cfaa4b",
+      "stored_sha256": "495aad1c97ab29d586dd858c803871ec6f68404afd9739b8bddb5d98c3cfaa4b",
+      "raw_bytes": 132,
+      "stored_bytes": 132
+    },
+    "accepted/source-partition-tests.log": {
+      "source": "results/for-mathlib/source-partition-tests.log",
+      "raw_sha256": "ac6e9da8bd627c0143d4f0935a2191f667799eff6766b01790f29565bc679b61",
+      "stored_sha256": "ac6e9da8bd627c0143d4f0935a2191f667799eff6766b01790f29565bc679b61",
+      "raw_bytes": 113,
+      "stored_bytes": 113
+    },
+    "accepted/source-transport.log": {
+      "source": "results/for-mathlib/source-transport.log",
+      "raw_sha256": "95d9ab4205de66d553f58ab458a9d1399979d3ecb2b57b5f77d1311649e10e73",
+      "stored_sha256": "95d9ab4205de66d553f58ab458a9d1399979d3ecb2b57b5f77d1311649e10e73",
+      "raw_bytes": 84,
+      "stored_bytes": 84
+    },
+    "accepted/stages.json.gz": {
+      "source": "results/for-mathlib/stages.json",
+      "raw_sha256": "209fa7a5d76abcc90256776be3deb15e066c75d018ced488705ed5c8e9720f84",
+      "stored_sha256": "6bfbcea6fb151671054c9ebdefae3f33077515a5455d15e38c67f34655c63e4c",
+      "raw_bytes": 32563,
+      "stored_bytes": 3984
+    },
+    "accepted/type-comparison.log.gz": {
+      "source": "results/for-mathlib/type-comparison.log",
+      "raw_sha256": "89e5bfea7672e684dd251b07bb767b95049183950f95b9e549fc12225f78882f",
+      "stored_sha256": "f5a623e7044a98c87c7f54748ef1a87b59c7d56a9fe16b39a5b97945835a06bf",
+      "raw_bytes": 43826,
+      "stored_bytes": 6575
+    },
+    "accepted/warm-build.log": {
+      "source": "results/for-mathlib/warm-build.log",
+      "raw_sha256": "a38ee98114fc9b1ec3b001bbb50647a8a56c51a8d41e0ac1a43ae6811787070e",
+      "stored_sha256": "a38ee98114fc9b1ec3b001bbb50647a8a56c51a8d41e0ac1a43ae6811787070e",
+      "raw_bytes": 6110,
+      "stored_bytes": 6110
+    }
+  }
+}

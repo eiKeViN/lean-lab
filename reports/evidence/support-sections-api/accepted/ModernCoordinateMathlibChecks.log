@@ -1,0 +1,6 @@
+OAI.KLInvariance.CoordinateProjection.project.{ur, un, uv, ux} {R : Type ur} [CommRing R] {N : Type un} [AddCommGroup N]
+  [Module R N] {V : Type uv} {X : V → Type ux} [(x : V) → AddCommGroup (X x)] [(x : V) → Module R (X x)]
+  (f : (x : V) → N →ₗ[R] X x) (U : Set V) : N →ₗ[R] ↥(OAI.KLInvariance.CoordinateProjection.image f U)
+MeasureTheory.integral_const.{u_1, u_2} {α : Type u_1} {E : Type u_2} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  {m : MeasurableSpace α} {μ : MeasureTheory.Measure α} [hE : CompleteSpace E] (c : E) :
+  ∫ (x : α), c ∂μ = μ.real Set.univ • c

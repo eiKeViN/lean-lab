@@ -1,0 +1,77 @@
+⚠ [8940/9095] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8941/9095] Replayed ForMathlib.Algebra.Module.Graded.Basis
+warning: ForMathlib/Algebra/Module/Graded/Basis.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8952/9095] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8978/9095] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8979/9095] Replayed ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality
+warning: ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean:231:8: automatically included section variable(s) unused in theorem `OAI.KLInvariance.MomentGraph.Sheaf.singleStalkEquivSupport_apply_self`:
+  [Fintype E]
+  [IsDomain R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype E] [IsDomain R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8981/9095] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8982/9095] Replayed ForMathlib.GroupTheory.Coxeter.Exchange
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8996/9095] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean:21:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9010/9095] Replayed ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+warning: ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean:22:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9014/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.Basic
+warning: ForMathlib/Combinatorics/DirectedPaths/Basic.lean:16:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9017/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.ScalarMap
+warning: ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9021/9095] Replayed ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+warning: ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean:86:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9028/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.Subpaths
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:69:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:115:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9029/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.Transfer
+warning: ForMathlib/Combinatorics/DirectedPaths/Transfer.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9030/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9044/9095] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean:23:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9073/9095] Replayed ForMathlib.Combinatorics.Dihedral.SignedCount
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:14:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:171:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:326:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [9077/9095] Built ForMathlib.Combinatorics.MomentGraph.Boundary.Summand (3.2s)
+✖ [9078/9095] Building ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality (6.2s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:66:6: Application type mismatch: The argument
+  Eq.symm (congrArg (fun f => f n) (LinearEquiv.apply_symm_apply p ?m.655))
+has type
+  ?m.655 n = (p (p.symm ?m.655)) n
+but is expected to have type
+  lam (↑n x) = (p (p.symm ((IntegralSupport.projection (B.forget.sections Set.univ) x).dualMap lam))) n
+in the application
+  Eq.trans (Sheaf.singleSupportEquivDual_symm_pairing B.forget α hα ha p hbalanced hg x lam n)
+    (Eq.symm (congrArg (fun f => f n) (LinearEquiv.apply_symm_apply p ?m.655)))
+✖ [9087/9095] Building OAI.KL.BottSamelson.AdjointSheaf (16s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/OAI/KL/BottSamelson/AdjointSheaf.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/BottSamelson/AdjointSheaf.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/BottSamelson/AdjointSheaf.setup.json --json
+error: OAI/KL/BottSamelson/AdjointSheaf.lean:749:9: Type mismatch
+  ↑((bottSectionEquiv cs l hl) ((bottSectionEquiv cs l hl).symm ↑((h.imageSectionEquiv hh Set.univ) m))) x
+has type
+  ↑((bottProjectionSheaf cs l 1 (cs.wordProd l)).vertex x)
+of sort `Type u` but is expected to have type
+  Prop
+of sort `Type`
+error: OAI/KL/BottSamelson/AdjointSheaf.lean:750:87: unexpected token '='; expected command
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
+- OAI.KL.BottSamelson.AdjointSheaf
+error: build failed

@@ -1,0 +1,68 @@
+⚠ [8940/9095] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8941/9095] Replayed ForMathlib.Algebra.Module.Graded.Basis
+warning: ForMathlib/Algebra/Module/Graded/Basis.lean:31:3: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8952/9095] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8978/9095] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8982/9095] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.Defs
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean:26:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8983/9095] Replayed ForMathlib.GroupTheory.Coxeter.Exchange
+warning: ForMathlib/GroupTheory/Coxeter/Exchange.lean:20:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8997/9095] Replayed ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset
+warning: ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean:21:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9012/9095] Replayed ForMathlib.RepresentationTheory.Hecke.OrdinaryR
+warning: ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean:22:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9016/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.Basic
+warning: ForMathlib/Combinatorics/DirectedPaths/Basic.lean:16:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9020/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.ScalarMap
+warning: ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9024/9095] Replayed ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+warning: ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean:86:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9031/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.Subpaths
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:69:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean:115:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9032/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.Transfer
+warning: ForMathlib/Combinatorics/DirectedPaths/Transfer.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9033/9095] Replayed ForMathlib.Combinatorics.DirectedPaths.SortedSchedule
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:17:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean:18:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9047/9095] Replayed ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Canonical
+warning: ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean:23:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [9080/9095] Replayed ForMathlib.Combinatorics.Dihedral.SignedCount
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:14:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:171:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Combinatorics/Dihedral/SignedCount.lean:326:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [9084/9095] Building OAI.KL.BottSamelson.AdjointSheaf (26s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/OAI/KL/BottSamelson/AdjointSheaf.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/BottSamelson/AdjointSheaf.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/BottSamelson/AdjointSheaf.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/BottSamelson/AdjointSheaf.setup.json --json
+error: OAI/KL/BottSamelson/AdjointSheaf.lean:742:1: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: OAI/KL/BottSamelson/AdjointSheaf.lean:754:9: (kernel) unknown constant 'OAI.KLInvariance.TitsSpace.bottImageSectionWordEquiv_coordinates'
+✔ [9086/9095] Built OAI.KL.Sheaves.Support (37s)
+✖ [9087/9095] Building OAI.KL.Sheaves.FreeModel (7.4s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/OAI/KL/Sheaves/FreeModel.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/Sheaves/FreeModel.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/OAI/KL/Sheaves/FreeModel.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/Sheaves/FreeModel.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/OAI/KL/Sheaves/FreeModel.setup.json --json
+error: OAI/KL/Sheaves/FreeModel.lean:149:5: failed to synthesize instance of type class
+  (x : Interval cs u b) → Fintype (Free.ChooseBasisIndex Coefficient ↑(B.sheaf.forget.vertex x))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+✔ [9094/9095] Built OAI.KL.Localization.Ambient (11s)
+Some required targets logged failures:
+- OAI.KL.BottSamelson.AdjointSheaf
+- OAI.KL.Sheaves.FreeModel
+error: build failed
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'build', 'OAI.KL.Sheaves.Support', 'OAI.KL.Sheaves.FreeModel', 'OAI.KL.Comparison.Propagation', 'OAI.KL.BottSamelson.AdjointSheaf']' returned non-zero exit status 1.
