@@ -1,0 +1,3968 @@
+{
+  "OAI.KLInvariance.ReflectionFrobenius.coordinates_expand": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "ed96b8d8da45c159e9d627662ba44a98f6e65d92b81e76be6555842e5a220b5a",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionAction_divisible": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "72eacfc84303aa150a09cdf1738dd5013c0aca88723f44eb93ac34052ff04470",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.fixed_val": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "e65695e44af88f59fda4fbb0aa70e6e83c945169d55290f9a0a2458f05376d60",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.expand_apply": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "df5f780490cb98b72d96305626a95c8b03e8456bf5385ccb0265c4120e01cb06",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.mem_fixed": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "8810072fc90d179b6db01e0894919def27148e8f463b7773e30c3d5de462f89b",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.quotient_fixed": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "c8c9792e9330e560a44328806f7df9d219f897243eb09f99a1a77df8c3b5fe08",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.expand_coordinates": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "620ee33a782c72de33db552c3a95d9536ee0269b77ed32c02b684785191e83ff",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionAction": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "f04686fa70e6d0f7240fa6480a0925da30bd5ef925934c2d95d6031dd21c60e1",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.crossPair": {
+    "levels": "\"[`u_1]\"",
+    "type": "c6baf6500d3ee7dc3af0d5a1c88ce5957918d664bc3abe859e8fa9ed996dde44",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.coordinates": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "ef5f38ecfbd1b5f8053eb41e962877bfb10665e3e566ec00bd15b8b7abaf7a53",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.crossPair_bijective": {
+    "levels": "\"[`u_1]\"",
+    "type": "fd642fa8412ec4d69cb83483a41680f99a3bb6d61adf9c4339ebb77a49f096da",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.symmetricMap_refl": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "9a3c2460ab6c60282ea7b9779447ae99dbe211b456f716418881cbe39a4b745f",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.fixed": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "c50527f233a679a867e8d9bc2f505a250c2ab44274cf262a257a9dd0772ba325",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.trace_expand": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "7cf7c1cce519b893bb06360c64383383438fc48bda1a7eca98e01c06cbc5b47a",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.expand": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "7b6faeb2fb3ad8a28ff79c5692530eb40304ea6e5d52c5220566c760562fc07c",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.trace": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "de05ee8e7501db619dacf6ba247efbee5fcce44188ae51b0b236b43adb64ba88",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.expand_surjective": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "dc92ccaf126f936a44728f0c1f8f96e3a30a50b119a2a6e962c0d54a8414e0fb",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.square_fixed": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "e1a276425f014ec0cc58898ca343c1f651d63b2cd17f6cda76dcbe6a7d5d1f1a",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.symmetricMap_\u03b9": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "af0af433907acede1b6a4fd585f2b073911e38929b6ec991baa232d0479e12fc",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionAction_involutive": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "2b3b4bbd1aa0958c4baca1955efd5de404b892c8e08b42ef351e48fd2e997e4d",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.duality": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "ec118e3f63df933c5efb964e84638065f93afb6045f3e97b54f538744577bca2",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionAction.congr_simp": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "fa38decb1a8519e17eb3fd55e53ef2e570bc34ec94390b4bdd8e19562a8104f8",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.duality_balanced": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "9e66fc5091f9ad5cba3537039e3bd88adeb0f8d6366828e3b7d335db8a9c1bd3",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionAction_anti": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "74a3a01a6ad12bbb93dbba4ed22a4ab266f34220671faa082d25fbaf266adf77",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1": {
+    "levels": "\"[`u_1]\"",
+    "type": "e94105f651a2952d73d7a99851fce78a38678e83af90c9a734af3c7e534f2456",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.expand_injective": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "a64cf5e09cea9ce8854a62268ca83451dbab1e8648cf705640e0993bc0c02bf3",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionDuality": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "4d3afb2212830d4a8ce4db4f15ad42fb23d31e1ccd7f1c5cd6b45856a177a7d6",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.symmetricMap": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "83593e0d6625b14286329ec98036bb1c454abfa341812684f89b1a0ff2d8095b",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionAction.eq_1": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "01e2f6052ae567df5b1b05a4a3df96d7ebf9af12edfa8b234baf8600e869c4bc",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.crossPairEquiv": {
+    "levels": "\"[`u_1]\"",
+    "type": "e7b6b6ac161571f7e991e348fc84781c1d3a05b991929917970c4465e370d352",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.symmetricAction": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "18b99c33896e103dd61d995af1f7e66565473c0603fd5745611d683accb9cc64",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.duality_apply": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "f165ec12e9ff91861ab41dfde35d1381aec9b937b3c15d0ae6d6e98d0342c302",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.symmetricAction_\u03b9": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "fce97d96eb771ef61385238a2e1538862b30252660f54790c7e4c2167b1d9be6",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.symmetricMap.eq_1": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "3b43d08d991d4c23f617c7e44005e8032bd3de284a37101fe0af65e4c7bef483",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.trace_mul": {
+    "levels": "\"[`uk, `ua]\"",
+    "type": "1fde357c9ec38fb68842ef7a66cef10cfeede03e4a1141d59249e3d6fba275ac",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.symmetricMap_comp": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "54c03a037bd8ced6a40d2e7820d5e47cf0f97c8626ed62427788488b8ece3a8b",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.reflectionRoot_ne_zero": {
+    "levels": "\"[`uk, `uv]\"",
+    "type": "59d42d86854910b26ca513ad8f3961b584bc146c88c8dcf3b1385bba9670f2b9",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.class_projector": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "51f98e596479215e666740c6156db4324578d9a5e9a8ecc7a2ffe2cbb97c3422",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.partition_diagonal_sum": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "3de68081572595cd6dce4215833db05f1311d8f46d72a10e5860ff0035d8fe0d",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.exists_character_separators": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "a5f699cdb4e24643e31986909be77c1689cb28c178ee5773c5967c064200557e",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "26e6e8e0b6d76b0378cba56e57cb9a51b7a885a78160f9c7bea31be89809d268",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.diagonal_mem": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "eb29de610247fcb76a7b64c9b461cb813d198c958da819c8dfff4e4cd86fe77c",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.character_local_denominator": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "8c8cb862c9172b55ea67d4b002ed4d645ff44914a67d8803f1038df500bbe9c1",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.partition_local_denominator": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "07d775e6cf271db8daf690995df00fcf8d680d0e4bb469204c28404b35d369f1",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.diagonal": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "fa86673dc6883528d846a4328874e71f4b9a48c8a0d769cc8a5188a35bc49875",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.class_product_not_dvd": {
+    "levels": "\"[`u, `v]\"",
+    "type": "86799ebee59cbd1edb4ede6dc65d9b4da9126e9be6a2ad98244fb26c66f07c84",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.residueSetoid": {
+    "levels": "\"[`u, `v, `u_1]\"",
+    "type": "ed25238bba2b82e2bdca2fecc9052abb04a901ea8a93c0b1d87e4cea79259a18",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.uniform_projector": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "05ad2854d283d07c9658dbe5e25de7eea9fb27c2cad456b0ff4a8ec5cf9e38ae",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.character_class_projector": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "76e21bf00784b8dd8757e277f380aee55d8766d51517eabd9a0659f58be3f504",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.projector_product_values": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f696f58972ab8d07738c2bf7aedb77dab30315f666e42b5202f7666f558bd4e4",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.stabilizer": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "3d6ebb33786c7212c2f9e73a2439fd24352288d6ab32cadea683acf1e57bec84",
+    "kind": "def",
+    "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+  },
+  "OAI.KLInvariance.MomentGraph.removeGraph.eq_1": {
+    "levels": "\"[`um]\"",
+    "type": "c053ba30166c8f111c6e449ea7a004350228181216e6b8bbe9441946af48feca",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitEdge": {
+    "levels": "\"[`um]\"",
+    "type": "19b57106368d6ff3513b9b50bde635490862e9a50c890f6190aaa37f0ebfa362",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.removeTarget": {
+    "levels": "\"[`um]\"",
+    "type": "b8b4dc4fc185615bab8e896f376ab953843041ab28b003e913681504e0f78055",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitGraph": {
+    "levels": "\"[`um]\"",
+    "type": "ca97714f8ff816c9de2c6fa56543157a61e679528d4827e5886c67f6f9b55011",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.removeGraph.congr_simp": {
+    "levels": "\"[`um]\"",
+    "type": "7d6aefa874922c0658b655d4d40aa3afac459614e76719777aa9910fa513cadd",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.mk.congr_simp": {
+    "levels": "\"[`v, `w]\"",
+    "type": "dfeb41c7afb030c4f48a84f2d6a0ea88f22e69295f8d63346e775e0a14bb5260",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.removeGraph": {
+    "levels": "\"[`um]\"",
+    "type": "9bd13cbce6c8ef34a59af3349a9e57e5e0057524c91f5d12f519f1609bd68583",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitVertex": {
+    "levels": "\"[`um]\"",
+    "type": "8c1a8235a7174a9eb3cfbd1e1ee9c6ab18675534db6bd5c9d5ef6add23110c4b",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitVertex_ne": {
+    "levels": "\"[`um]\"",
+    "type": "dbf92003365660b7d441bd56ef59b57bd1502a12fb8aac3b67ad1b9b56b2dea8",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.removeTarget.congr_simp": {
+    "levels": "\"[`um]\"",
+    "type": "939af3f39da67e8303eeccc0bd8054734fd0764bbc2d90bb896b33aa816d767f",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.removeTarget.eq_1": {
+    "levels": "\"[`um]\"",
+    "type": "7d0aa26b7ed2f9f90fbb6c692f61511505a898adad3f7348f0201fbbb948fc03",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitVertex_self": {
+    "levels": "\"[`um]\"",
+    "type": "13cc5cd411c7bfd2da74f4b2612029e1580cdcbf4589c982072780cf3a756333",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitEdge.eq_1": {
+    "levels": "\"[`um]\"",
+    "type": "1584e8805d76bb88e0e066182a02cdf8181141336082a9b0c9a53edcf099f40a",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitEdge_labels": {
+    "levels": "\"[`um, `u_1]\"",
+    "type": "65281f94d020250112c14346e146c4a393384eca03fcd5c08d70f856da637262",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.bottomGraph.eq_1": {
+    "levels": "\"[`um]\"",
+    "type": "21e9e2090b9810d085c20d494015a48690d0dd8eec80c3de60dcc4505b446d01",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.MomentGraph.splitVertex.eq_1": {
+    "levels": "\"[`um]\"",
+    "type": "0b7862d103f3c1ee9eb529ea02de00b2efe8e8a999a9adb50ed866aa308a7cda",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.isReflection": {
+    "levels": "\"[`u, `v]\"",
+    "type": "825df545b6d6544fdcec7d5c2825ebaac7efa692a9f188e7eff71caea4776ca5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveRootEquiv": {
+    "levels": "\"[`u, `v]\"",
+    "type": "60d79eca7527767bc1361018067a95b0502a93f86856407b1136e2e182bea53a",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.SignedRepresents.act": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9f942db360f2e0e63d3b98c9e84826eeee88994bc708e470a31d7f3c9035c379",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "14dfe06775a1b408ce433008933efd5c1196b45015c76e596d5431c206625307",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.extended_independent_of_ne": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ce1834ac4b44b0f53a82d8e990e439a676ac21bb6c9461af371cf484d530cd21",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.leftInversionListEquiv": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1e71f333d8c0a9f83769f5edc05e24172f39c603893f37a4d80721a2fbbb0244",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot.not_both": {
+    "levels": "\"[`u, `v]\"",
+    "type": "c7546d95f1406c4afdd343e828990b2a7be49ff473c97df09ad2a2b2e3bad035",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot.sign": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4592a47db6e06b7327632ed01e233148a443a0fe75671d8d218bf1ce16e4aeec",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.rootReflection_represents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8c52d347cfab6312a3bc12c076a21ebfb4b00e2e4aad856c3580e1ac410d46e3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInversionEquiv": {
+    "levels": "\"[`u, `v]\"",
+    "type": "486a0a404440ee297c3cbe21fac22a759d390ae8bdb656641ae1bfd4454a3b04",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot.ne_zero": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8012278989af942a6bffd1184bafb26de64a7b0c3817e1fcbdbac8c7355e30a5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.PositiveRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6aa21d097a05307015eb450eaf026042dbbf5d1c18cdf497759220c5f8504ebd",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.SignedRepresents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "53a56dfa23b3b67ac6eef142dc77755a80c7d67ee9a89f9ba0b0cb3320b1dd47",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.unique_positive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5add66f56dfdc72445b538f02cf8b976af2ecf4f079933ab070af0cf95b40f6d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot.neg": {
+    "levels": "\"[`u, `v]\"",
+    "type": "686cfb3952423ad121a903d242c1b60eca4db915baf90638a08f63e70f4bb3d4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2f6cd7c494502df397904e54c9d63054fa4860458ed774eab52bdd32f7b46f4e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.reflection_unique": {
+    "levels": "\"[`u, `v]\"",
+    "type": "69f33f2452fb5de64870fa9245584e07f5762339a66aa5e540f4443a385e13e2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.isRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a8d0ff995da9228a0322f58aa85f6c2304404313fba98eec85973259b7c65611",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.independent_of_ne": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e62b15662c77cbd7cc36b1a739a4cc6e5cb7b272bfd9f8d6704c9afffee3829b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.card_rootInversions": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8be3017c0b6e8b39eaa9d4855c4b32d9bbda6f67debc544f1671ed00d86ba64e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "915fedc8b6add31f1b250fc9c70ef459943c0efc62568df5a02317e1c2d5a97f",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.neg": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8beeb1edf40772a78c61858aac9dad0d097f83e7ca7db4b29667bdac90f9881a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.action_formula": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2a9223ee993420acacd097723bb664b732f535a85fe86275ceb57b1a689d8ffb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_positive_root": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2624bd02444303eb2816b0194b4c8db178209b475292e8f13eb57be79d6f66de",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot.eq_simple_of_nonpos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1663033a139ea3c8125d0e85c48b7641068dcbf4a825fb603a8a7bece53eee5b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.unique_up_to_sign": {
+    "levels": "\"[`u, `v]\"",
+    "type": "63c1b910db5c128e500ce4af5253a4f1984f0ecb0dcd114cc234851b42e7a6f5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveRoot_represents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4ee017cb4db2d3009e2452c2af9f857afd26216fe1b735ce59744c2362288cf8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.RootInversions": {
+    "levels": "\"[`u, `v]\"",
+    "type": "20b4b8e7e01687d22fb2b1cb4420405c811921a634e20a17601d82089bde7383",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.plane_eq_of_product_eq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e959938965123f42234564744f40ad13d0f6723955cedd23f28de5ee5d7236a0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot.act": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b2b27e9dd4d38ee5199e57196840820ae0457facab0b36156cf322d990042502",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.formula": {
+    "levels": "\"[`u, `v]\"",
+    "type": "c018e63ce088d1316526d13fea879669ec2bcfe04768e7d28134336dfe404cd2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.SignedRepresents.simple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a31cae11e6f9387dd3c9d301d1f3cf3256b900d0239f62d53b5cef26935a1d18",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.inversion_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "baff968528efe1bd8578bc673eda52e574a8718b998ee78e76f657b13b76ba59",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.form_root_self": {
+    "levels": "\"[`u]\"",
+    "type": "351f1a1b037f8b13b6675ed2fec2bee734b8a75b5e8304ca580beb18c8e343a8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.rootReflection": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5b3307ea6ef3bccc41949aae674122240862ed166e04d023f196418dd249a745",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9bf6fac2f82e32a15149e09f1b2a1b860777c3b2916a1e289fff930160e2e6c9",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.simple_sign": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ea60cdc2bf7bc692a1c207444b13fb76005863bcc1d70dfaf6161bb95e26859a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInversions_finite": {
+    "levels": "\"[`u, `v]\"",
+    "type": "23632e4bdcfcb0e23b6d023821adbd39e8596e058df407b1e99f4dba04aebfb1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.embed": {
+    "levels": "\"[`u]\"",
+    "type": "e5881d6eb44aea7527c70140acde95eadee41e0ee15709a23718a55e15c021ed",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.IsRoot.norm": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0167656eb8a87b1aed9800f08e8ca96ef6ec8c2bb3985d771bc13ca3c3732e46",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.act": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4955771ffbaf4f4869a98ea0cbe8766321f4aeba63dd7bb44c33659646d0384a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.coordinatePolynomial.eq_1": {
+    "levels": "\"[`u]\"",
+    "type": "449714cc6367fb05a9782e6fa1f49c15eadba2b8d10b3a419d0b2bcef153ac1c",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.exists_avoiding_functional": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f587d2621d853c05d2d71753c9b0eeeb2ab079dcc6e11cba8caa671cfe1fb7b5",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.coordinatePolynomial": {
+    "levels": "\"[`u]\"",
+    "type": "b9a135ce82d9d1c194337ce1d2989aa20d314ab5ff30e5093abd0676d189be2f",
+    "kind": "def",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.coordinatePolynomial_coeff": {
+    "levels": "\"[`u]\"",
+    "type": "b116549a1e0cfdc6a55492a13f33dceb42529c4f970731740871fcab57fdc7ca",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.coordinatePolynomial_injective": {
+    "levels": "\"[`u]\"",
+    "type": "2363fbc9151194cbe31b4c7d8c2a9bb818738afdbd8482b2ba833a923a51601c",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.momentFunctional": {
+    "levels": "\"[`u]\"",
+    "type": "c40ab5180300c53a4c18561076a6cf4b80c7d751a41f9f32eac84d187445ae8d",
+    "kind": "def",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.coordinatePolynomial_eval": {
+    "levels": "\"[`u]\"",
+    "type": "e188d163a01b7c980843f4a89fd62a8b75c0a8a60eb953b588ea3379a8003c5f",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1": {
+    "levels": "\"[`u]\"",
+    "type": "6441aef188566123a24ba8d6ac4a01d8740056fd07452dfe6bf374c99807fd8e",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.ReflectionSchedules.exists_generic_functional": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5d318f9959b9bf6009a9f0b423060e1714dd393e83fe6be34d3119bc87365509",
+    "kind": "theorem",
+    "module": "ForMathlib.LinearAlgebra.Avoidance"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_eq_of_nonpos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ab330b6879d406265c43d915e0b228b03de08f80759c3827a21cba3fa0cbae62",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partner_involutive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "489684572c4eddac3faadef83d39140033dbc3478ca97b3d00f2a4f564ecf3b1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partner_eq_self_of_eq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2dbe4431a7922ce449c65d199cd51529a77cd158c169087da7a6ed7646c84519",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveActionEquiv": {
+    "levels": "\"[`u, `v]\"",
+    "type": "54d04318cd3d98368434708977610687ba092a83241a6b8c7327adcc55ca2d5c",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootChange.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3f57ded58274a385af09204ab7a5cbe029d7422397fa650245e9218b75b2a863",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootIndicator": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e7b1cb0c6e43eab90c179c5616b7b3e44436a7e4a3b97151f0e280cfe494a5b0",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.geometricSlope_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1d6f9df2a38cc9c3288f1cac9e293c9a0926459bcda9ec29b59105ba359080a9",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.finite_rootInverted": {
+    "levels": "\"[`u, `v]\"",
+    "type": "86e566b11e7b1ddbaa9f5186cfea543f2e5c10e726f921809d4acd5d2c6bc148",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.geometricFunctional": {
+    "levels": "\"[`u, `v]\"",
+    "type": "edff90289f25c7db3b4604b8349f970ae488b76af2dea1ea169c9a0f88541f0e",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.planeWeight_nonneg": {
+    "levels": "\"[`u, `v]\"",
+    "type": "97cd30a23289a0dc70c3b184825f21f425190fa3ff1ab0ad3e29c74c0eb050cc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.normalizedRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "974290de7a2b97fa787b59f14845d6434ed0713594f5a8bfbbbfd4d3ae0534dc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_represents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "70bf460c27284f1e07e38a81feabb53490529cc03fd317400db5831004f093e6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9293932be98cbe53c7c408267b3076692e8b577a3a963bd0b7c335f441827028",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.normalizedRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ea0b0d3ed5418bf6b8b0e9dac3dd8c424e0c7eb9766a2a4f10bc7f730a8b17af",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.negative_pair_coefficient_pos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d8b79d641696e9e5a16d70607f9fd7a91e7946b42241abdfd1dc5683c6267925",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.normalizedRoot_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d022c84650edff51bda4ddcc2fb2855dabc6291f8947422ef56e8483b7fb3d3e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.flipped_partner_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "920219cec4d25eea44e3228be585587ee250f84b180a3d486f4355c42e0cdce8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.countable_Positiveroot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4334b3b5a97d6cd2b1cd03ba72d0b73254bc33daa0501b1d2221a37668919674",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted_mul_of_nonpos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "278595ab4d9d812e999cec99cb192416e8d910c8f14252170e71f7d03cd23f3f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f006cc5759636aa14f3f494153b7d481b0e92b3022be4f1d7984c2745f669983",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.negative_partner_fixed": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8cd23b5415928d511378944cc73592c0cf4cba074da4348de047b5c92bfc38eb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.inversionVector": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6a8cbebd9e634e05ceae0fcf67768a907f622df4fbd7d5537f68b951bbf0bbfe",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.geometricOrder": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7190ef5d34904f6b04d9e5ae4bdf11a3cf2bf810099500c4e85086cf4b37217f",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane": {
+    "levels": "\"[`u, `v]\"",
+    "type": "cb5069f53311b7887f84eaf4d8ed4d415dfaac1bcf691d73b6b7f041234609cc",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_eq_of_nonneg": {
+    "levels": "\"[`u, `v]\"",
+    "type": "abfabbd652993b13b87c31188a0dacb35c110619d7c9e2fffee167d3013810b1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.planeDefect": {
+    "levels": "\"[`u, `v]\"",
+    "type": "42522d8fa1c111b3d6fd1638d53a0a0154816bb0701e1f3a57fc2ab5752c812e",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI_1": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.PositiveRoot.height_pos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "17cb3eb7d1b665f662ec7648ef4eac80fd1a4bf3713cc04a2332160bddff5e8f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane_self_finrank": {
+    "levels": "\"[`u, `v]\"",
+    "type": "64d6b1b204a27c1e836c2f329353a2d7dc692e27d95e430773b93cb75def54c0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_involutive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5cf3f6dba67054f16917651bc43fa7f1c5ad2e5788a5430f5c96c7ec2aa4d61c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted_mul_self": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f4f85e84af376da231bcfb67ba7979151a418065d55b8289469fc61e379ca6ed",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.negative_pair_sum": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ab1f6990e58952f59e7fc365188a94c75541789241852ad0aab0ad65b412c5fb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootChange": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fe4cc777d282a2cc8f1fcfaac985abc9aad7becbd420be4d96cc12c796525828",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.flipped": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a4bc403a6618b6edf50f1690c1ad04337273123b53e1eea3ea2cdf956c3528b6",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.not_rootInverted_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f5908189f593e1f68004954f11672fc58abb2ee67c7a0ae529c4462b547e062f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b1630e8fae5489ed99b413ae5ecab6a3acffd9b7b6a310c9a1c27840fafde535",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootChange_pair": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1554d28f376d9581b040f13e8308d0c866f07bab9d43063f0d4a6c42be8b5d48",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootIndicator_apply": {
+    "levels": "\"[`u, `v]\"",
+    "type": "104e8140c16570fa4e144c7887291e4027790bbe4a740142a7f35e7b61169421",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.mapDomain_plane_partner": {
+    "levels": "\"[`u, `v]\"",
+    "type": "042fc3e4cdbcadae2f67a9900ae403ac40b15785bbba14dd9ab334566367f41e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI_2": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane_eq_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "33b5e0aecc688459f26d6d82358b5fdc55e2ae616e8262c0a1cc2dfe7311bcdf",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.extraRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0658d1db42b661a274b2095ce3319d4c07296af750a52355ab65ac07d9f0272a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.extraRoot_finite": {
+    "levels": "\"[`u, `v]\"",
+    "type": "274d0f76fcedf10aee13248a60f85e8ce22018584a6f684df351aaa15b574c40",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.goodPairRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "849602efac2cc1ca5f0c2fe2bf7275606a6eb4cd08716a4af350f30939649b48",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partner_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "69b872f0a48f0519421e80b044f6e4e5acb96a7acfa7382f10a6f8798214bf0d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.height": {
+    "levels": "\"[`u]\"",
+    "type": "ee3e91b2cfaa2b69d76c18199bf8502e806af03ff5e59fd5b0b4110e3f55f217",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane_finrank": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4d8b373e8be85c0bb7f9934d2b64818742238ea4f776d85f87d276e4804efc3b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.planeDefect_eq_double_weight": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7789cf1f3b641e71c825341f930bfcacde170bab425a7d9115507f774315656e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.goodPairRoot_partner": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1ea0283d03a5b777dfb097852109cd8a9abdb81919aa7b206948303f46e57ccd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.inversionVector_sum": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8ffb730d084c262c3e8302498bb0ace68d99a3431a562a5a498b7462e07ac168",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveRoots_independent": {
+    "levels": "\"[`u, `v]\"",
+    "type": "aaa185c916ef776aff0e2ac1136b26c417c07774551b29916fc1cdade918999e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partnerEquiv_symm_apply": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a373417a339d2fe943aaec50953af0561b42e28a51978a2d069d320f04233bed",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.erasedChange_pair": {
+    "levels": "\"[`u, `v]\"",
+    "type": "33b4035f636b28e4f8655574120bbac9b49a05441ffbeb742091da48e9ea1a0f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.sum_planeWeight": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fd2ad443f8821a2ccc378abc8f7a66239fc01ace7febd38313ca3c5cdedc9971",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.geometricSlope": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4284c6b5eb40da719df77a5e05a6a207e5f3f6e19784a2bceb74ccdf2933d062",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI_3": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.planeWeight": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2e4ad1d00729611039717dea1887ebc6b417ef093bbe269ea90ad35742e738a9",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.planeDefect.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d6daa51959a45ac68c9a4e889f1bfc800304af21983e2d6425c9fc699cc271ba",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partnerEquiv_apply": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e93dcd04dc818d9692bdc7e5496b34caf6626387ac8bd3f063aee229268a88cd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_mul": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9eb82ff82c0e13fe3f12d70c92e74be835eec651c61c8039f696dda754ff709e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.functionalRatio_between": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8ce8c5d5b020f692cb604bcbc39fbc74812e823d69b4a0dd45f116a360fd8d67",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b26724992ec1067d9e9935b12b434f891acdadb2569a728996680dc6925277b4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partner": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fb8ef4d61289791f7a95d81242b5d1c2ec9993a7951efc124141eeeebdaccdfb",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.extraRoot_partner": {
+    "levels": "\"[`u, `v]\"",
+    "type": "275825f588acee702b2d7880590ed157584773e7d878c443555359712d250002",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.extraVector_eq_half": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ac336b4f26be429a1eb857918be305fbcb41a8d9bf065fe4d9538e3a0607e64e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_one": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4c15893800811c7ad169a5e03de5179df5b4569d48163874a10f76b49db97db0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.halfRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "335223c73786bdad41b8141549c027dd0bdefa89c1a4a295cc84c3b27ce07455",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partner_self": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fe29541d049febdfa9feff775df042725dfae81b6006e084a8c9a3bfa5e2fa2f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.halfVector.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "eb81ed72c0c65acf55e8438d7ef9c54c78afb70a9f382a2e4fe08d8d1340061b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.extraVector.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "76df6a7f04e08e6dfeba1c54ee53d00a537caa2511b3759ad741ee2d4995518f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.extraRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "849602efac2cc1ca5f0c2fe2bf7275606a6eb4cd08716a4af350f30939649b48",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootRef": {
+    "levels": "\"[`u, `v]\"",
+    "type": "273625e2397ed1f45fcefd396470c89b47ec72511a5be5ca2a93c85d5830438c",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootIndicator.congr_simp": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4079e1a31a3d1b3552008e3135f7d677aec4e76ec41972bd4aa1f3d5aae56af0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.halfVector": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fed00338d8c45fcdf7a928d14ebf9aa6e458b234b51ee93343d4cc5b5a2c968d",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.planeWeight.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3ece560232c0f6d9da9d072cb51fbe3139d25f165669423694cb3d9393a5c643",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_geometric_functional": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0fdf6a945a0cd6860b4f84947c9ea91a42c0acf8b76ba72a8abbdf88f2656de7",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.extraVector": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fed00338d8c45fcdf7a928d14ebf9aa6e458b234b51ee93343d4cc5b5a2c968d",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.halfRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "849602efac2cc1ca5f0c2fe2bf7275606a6eb4cd08716a4af350f30939649b48",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.inversionVector_apply": {
+    "levels": "\"[`u, `v]\"",
+    "type": "c8207d6104b4fd72fcd6829b8b09f619d916f40fd86b18d2f9e1d4ba415ebdcc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.negative_pair_not_both": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5cbad1d905f229f7d1b791373d0b2da8160b6380a658b3aadc869891405d1055",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootChange_distinguished": {
+    "levels": "\"[`u, `v]\"",
+    "type": "83b5a16a1f474f6dba6a4af44b427464bfdd269c91282784b3adc73de1c2ca3c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.planeDefect_sum": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1a05f51379143bc9cd90ba9515a39672ff1f248df66f80b3ae6d63c59afe9a30",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane_partner": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8f4e814a6f0169481672f398514eb2afb896685d3cf97fc163703989726cf433",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootReflection_positiveAction": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5c9821a684061246a7f3668d1e15bef8ad970f5ccb8d2bf275f3ecd9af30a8e7",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.geometricSlope_between": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7290ac45fc0436d18cd2b9d9636715f095bfae3f03e813e00ec84a7fab7b84fb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted_mul_of_nonneg": {
+    "levels": "\"[`u, `v]\"",
+    "type": "39e3f855538b6c8e30c1afa1296b1462512412d8705f7623735e3754f1c21a6b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.partnerEquiv": {
+    "levels": "\"[`u, `v]\"",
+    "type": "eee5364093e47dd4f389292d383411d490a4fba180e5917927464c3f1b635bbc",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.goodPairRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a6c0526cc03b6025019917b3fa4da7369e0045aac3e0c9a8d2c11baf1125e30d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.halfRoot_finite": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ad530b7cde227f78d6321ba44ce70189cf448e8d199aa104b6a72e665dfc0584",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Order"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot_ne_of_path": {
+    "levels": "\"[`u, `v]\"",
+    "type": "127a87107189fd971c6ac52a29212c9a7807b9489d80001ec3040db32f3eb8ca",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.BruhatStep.label_reflection": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fa41a853252b9a2c6c2ea3c0c9466bc1b8f79b14d1d5c0a97f3a1ebb66b6fee1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b5d65ce59a3ba3c7c1f408c639ea9b436c25f3041724b9b2b079b7872be9f1de",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.triple_isReflection": {
+    "levels": "\"[`u, `v]\"",
+    "type": "103afbb918dd7207a04dbe5a95b849dde2b572d9fb48de5d0503d8d4bc8e8237",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot_square_plane": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8b5c6190ef54c5c863ea703300917d1698546f251072a7178ad1d8ade1df721b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot_ne_of_same_source": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b69900a940ed8ba68e6eb3d7ef26f04ce57e5e2acc132e4cdce0c96f8055eb2a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.BruhatStep.composable_labels_ne": {
+    "levels": "\"[`u, `v]\"",
+    "type": "41fd066dff9cb4c6e180bde4caa9ef7103f03d87342e36f67deecab1e45028b5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot.congr_simp": {
+    "levels": "\"[`u, `v]\"",
+    "type": "56e0d9fab19d65ce330db67b1220c51bf200c8a1569cb55b75d795a6d45a87ff",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot_represents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b298bd8ad2bbb0d2476a9fcfc19ec6958c825056cab6ccea54b30a284563e2ad",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.TitsSpace.bruhatStep_diamond_closure": {
+    "levels": "\"[`u, `v]\"",
+    "type": "efaf9d1e3002704efd3a221a77988d9ce6215846aa237fd91312a0355dfb01f4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels"
+  },
+  "OAI.KLInvariance.diamondEdges_bruhatStep": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "6f41e43d193e733bbd008a98a02871b2c3384eacbdb9c3dd1bf3bcde124d47bc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure"
+  },
+  "OAI.KLInvariance.bruhatStep_of_interval_covBy": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "cf1d5b49264239cd4d3628b327ce7983d8a70f17d44068e2e9d93bdee9c83965",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure"
+  },
+  "OAI.KLInvariance.Dihedral.alt_add_two": {
+    "levels": "\"[]\"",
+    "type": "bcebdff8c684322e0a201d178404bca77ff4d6f93f638ab9c63e6ab9c1077368",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.reflection_iff_odd": {
+    "levels": "\"[`u_1]\"",
+    "type": "67a40daa6ed08745157dc7e4e4c6952d714c0a4eb01decef44d56401f078f988",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.alt.eq_2": {
+    "levels": "\"[]\"",
+    "type": "c9b2dfede1f4ad366621028ecf6460c36d8b05a730ca69c784ac44a9ee85596f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.two_elements_length": {
+    "levels": "\"[`u_1]\"",
+    "type": "a556f9e94b4190490de02d04b78a1d1811736cf2579c714367f9dc71a57117b3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.interval_covBy_of_length_succ": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "0cbc79442fd083b2d914c6be5758f3bf6d5c8aebca5eb554e0bbd7c1977f4dc8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.alt.eq_def": {
+    "levels": "\"[]\"",
+    "type": "cf5a77e0b7297f20fd5d99aa2ed7b72c670390b1ea3bdbb2eb5de652ccba92cc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.alt_odd_sandwich": {
+    "levels": "\"[]\"",
+    "type": "aef468aba63f065fc5d5aa61001ed606351f22e5ea82cbef0846cfa3c9e3592d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.step_iff_odd": {
+    "levels": "\"[`u_1]\"",
+    "type": "792a970b19b24a2d9a6da48f42e80fe0bbee9082ef4839298ede210fc80022a0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.two_step_rank_two": {
+    "levels": "\"[`u_1]\"",
+    "type": "c65568f39ea59bbe7ca3e3d4c123312d13bcff1e272740595bbdb212311c65cd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.diamondEdges_of_bruhatStep": {
+    "levels": "\"[`u_2]\"",
+    "type": "adfe34c10ef1077d719cc04d189873dd9532bf2fdf56e18d0c95a4cd22c2f2d3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.alt.eq_1": {
+    "levels": "\"[]\"",
+    "type": "d672753237778b8cba4ef56b0b3ed7c86ee9e9e4ea4bcf410850d53fd1d757ea",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.two_interval_elements_length": {
+    "levels": "\"[`u_2]\"",
+    "type": "f569d521db0c98d021d485ce7fc32d02b3326ffb73f8da0187ab3ddcb9ba762a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.odd_alt_reflection": {
+    "levels": "\"[`u_1]\"",
+    "type": "d29dbaef392a50cfde875a6fbd044279016e838569b6e90a157f2baa33387efc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_pair_vector": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ded905f8148549089602ed0695f98a88f6b8fbed40f870870982bd7133b0a50f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.TitsSpace.orbitSpline_single_factor": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "da9180ae3612f3d1e28851055d71c77d7c7c489af2b943abe1c241a396476942",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.TitsSpace.orbitSpline_reflection": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "1e2e1613aa4b26d0c7ec74a6a53c8265d987a776b391e7e604a75ca9bfda2e8b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.TitsSpace.orbitSpline_self": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "ce94f04c668660685bb7ad144080e46ba592a6f13c22d804ae35f7b2b9d9c0e2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.TitsSpace.orbitSpline.eq_1": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "80d6a547b5dd4cad37a4f9b26094fcc796d133a0d4681e2c422b800c00a23dd1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.TitsSpace.orbitSpline": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "6238e6d8dd352fe9e7a6dbbdb2201fd11fac73f65a7a8748140945d36fa2fd1d",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.TitsSpace.orbitSpline_pair_factor": {
+    "levels": "\"[`u, `v, `us]\"",
+    "type": "b9fc00d06c2a323394358d4b36e189cf9a10b7f027f13d1ffed18f2707ba70ec",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.TitsSpace.linearPolynomial": {
+    "levels": "\"[`u, `us]\"",
+    "type": "a7a488ab56837059a75de62c4615def6602ee60e92baa3892f00730cd17776de",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.Splines"
+  },
+  "OAI.KLInvariance.Dihedral.pairLift_range": {
+    "levels": "\"[`u_1]\"",
+    "type": "55fc19ed628c9619bc77ae48030baa37cf64d94f66def9ac050e20fbd3f54091",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.injective_of_simple_order": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "e66a8fefd905c94e344a4e0a2d32280166c26b06654770e2df3e21ac6645574e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.wordProd_alt_even": {
+    "levels": "\"[`u_2]\"",
+    "type": "210535ccd6e4214729f248f98ccee423a0fc1e830ce787e8bb19f11afb098f5e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairLift_injective": {
+    "levels": "\"[`u_1]\"",
+    "type": "fa0663e1911877fd83371f62106d587a8a6f7d87417b4a4dbbd3a3a0083e42aa",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairMatrix": {
+    "levels": "\"[`u_1]\"",
+    "type": "53fd7c15b845cb18ac1f5bc82aab8014eabb7b440b6ae9bb086452de5d2398ad",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairMatrix.congr_simp": {
+    "levels": "\"[`u_1]\"",
+    "type": "e22b21d2200d6d7315d42505bb4464cee5e9f5b792167435de4edb6eeabb0fe6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.edge_diamond": {
+    "levels": "\"[`u_1]\"",
+    "type": "00695a305acf8e860d64b0a5c0c4d28ddedf94ae14e7b869e661b010159bd366",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairLift": {
+    "levels": "\"[`u_1]\"",
+    "type": "31ac7dd95e9ab7b9863ab376f8547bac1534ff2a8a70d0d32262acca96dbc7d2",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairLift_simple": {
+    "levels": "\"[`u_1]\"",
+    "type": "db14bf8c2123b06492e0b0515bf10f19415117e74f9870b7ffcf6d2045f392bd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairSystem_simple": {
+    "levels": "\"[`u_1]\"",
+    "type": "d175e7c05c35b9e96e2c09f04c52d2e0f280c599eb7319f1439a3957a2dae2ce",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairLift.congr_simp": {
+    "levels": "\"[`u_1]\"",
+    "type": "26b30f483476dd996e00af1c8c720172fed4c4928575920a3f5d6e7375da5408",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairSystem": {
+    "levels": "\"[`u_1]\"",
+    "type": "bd26e2c727d45920b8105c07b93892f7c43438669851ee126a05d2357006e644",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.Dihedral.pairMatrix.eq_1": {
+    "levels": "\"[`u_1]\"",
+    "type": "22c80d408d793cd95acd2c90d36d328950323ef0e7e2afa2aed558960b3fc93b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "CoxeterMatrix.mk.congr_simp": {
+    "levels": "\"[`u_1]\"",
+    "type": "8e94820ae3a9f35af3cc08c808480d5cf379eff021d55eb618b37537747b1124",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactorDegree.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f37afe662bcf5a4df2d034a48db33eb743063157e7f6f1efe0e84331d81c92b5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI_6": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.planeRoot_ne": {
+    "levels": "\"[`u, `v]\"",
+    "type": "faf0994b1cd6a6b435d816d45ce3e9faeb9784bb6e2eb179873b08f44348b221",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI_5": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.reducedPlaneRoot_ne_zero": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1c71a85d160e7b30caaa84da202496c3bd70e69c8f33c389cdae1c96cd912348",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.reducedPlaneRoot_prime": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3c0e71e608349b0f44a86d643f375efcfed9a3fe513bfc54986be2708951252c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.planeLength": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ef00015b19819bef39612b4f2e72350fee0073cce4976638d8fea76f3ba7dc1e",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.EdgeCoefficient": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7771cc36427558ed9d73f6844ab9d2073232c6f50996a49b485fe36c2668936c",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane_grouped_erase": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e510d10bb178cdbd209e07084a72985577fcbabdd2556401fb49eb995810a73f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.planeWeight_support_root": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1fcb9b84fd8fb22637d7be13becb2c46d6840b6db5be545be13dbb42a48d0e5e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.planeRoot_plane": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d09331f24d1ef94b16d09773532fb33effe77398655bd534bad32e139471bf84",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactorDegree": {
+    "levels": "\"[`u, `v]\"",
+    "type": "673c0913de937ceba31262d3dd18824d2e8ed64ae48a148a616416fa9210a4da",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactor_homogeneous": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e3b0d78612e0e0bf60dc18e6494a6c527de41f04a5d9f126106be7b9ccc0302f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactor_nonzero": {
+    "levels": "\"[`u, `v]\"",
+    "type": "304f8d0841a54fa49166a97c697739f6e4eb2f7ecaf11850ba03dbde4737cfbc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.planeRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "327bbe9e9ba8c1653ae1747303ee412e09820776bb202d1be094754a08961af5",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactorDegree_cast": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0ab3fc594510d988f861708912e35b6f8704657b37a1de377acc9c2e0f20c1fc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.planeDefect_eq_relative_difference": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d0f01fbc45163a7b46572fefd13a30a7ae5d02b3ca9d11ead28b4e9340336d2d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.embed_not_rootLine": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b224a24cc80771bef8d1094e3cb45c58a92b61616e9b0aaa5b367cb9868fdf9f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.planeWeight_relative_degree": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7d1eaee37ff1186b2b0adccd72ed3fbadb477473a9a15014493bab321dde93ea",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactor": {
+    "levels": "\"[`u, `v]\"",
+    "type": "abfc00c51469fe98bfe88ae0675405344960e5f5124a37f214c68486760d7829",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.reducedPlaneRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "bf2622960b3ef49688d724311689e4592886e8b106d99cca01d1def922a49432",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI_4": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgePolynomial": {
+    "levels": "\"[`u, `v]\"",
+    "type": "84d9f73954905838679a8bb99b158bf839e2a9ecc9d20bce811a41456e82eab9",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.embed_mem_span_pair": {
+    "levels": "\"[`u]\"",
+    "type": "4e24647b91084e7e7f0155b928c80321a4ed6faf373aa6861c5e10956d74def8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactor_degree_formula": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3d5c2661c076997e139bbea5dd625df39de47153cd0d5dff7c4716bc0979e5e6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.reducedPlaneRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8886f2ec7a7e5bb4afd9e6a45254f982c1abf0457e2b0f1aea0068ebfdb7b2f2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.reducedPlaneRoot_dvd_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "29e70d733ea1284511b81d1d70ac88d6ef1662234995f04f3096613dd67632de",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactor.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1aad43a202bfca93659ea9224d4ceff3ab65754c912406d47366c0275fbb686d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.edgeFactor_totalDegree": {
+    "levels": "\"[`u, `v]\"",
+    "type": "12cefff345a5a85eaed9033a2ac15a6fd35d605e61022d2fb9ac60abed4e4e7d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.planeSubgroup_mem_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d5e9ed6d2efa0656b59f9e11147cd9826783c8ea927ae314f6c2dc0dbf386161",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.movingSubgroup": {
+    "levels": "\"[`u, `v]\"",
+    "type": "edd6e7b4cec2a0a72ee1f29d841b1a811405f8a2f4ad45413e171cd1266d4fca",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.root_inversion_coset_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f40f171262b50981868a37fd5b2e684097ff7d9e135314cc29e22e8468185bdc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.planeSubgroup_le_moving": {
+    "levels": "\"[`u, `v]\"",
+    "type": "83444982f83c49b8e7fafaf152d45a03ff614444cf8c820eebbbf8a57a44f2ac",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.leftInversion_coset_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b684733a4bf5eb7e738faadf97170e1f2543620c121cbb2d0a64a5dcd7748e78",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.reflection_between_coset_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f837a875527e0a5a0190846563ae5a7aa5887e4bc021c96a49cc23e9fb8a1cef",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.mem_of_moving": {
+    "levels": "\"[`u, `v]\"",
+    "type": "64f3fc55bb63f2e7024abae1cbb022400b1db05ced59163f67806d06271c4018",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.bruhatStep_coset_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ffad2473bab10d455168e68c611e1f13dee02cbd8917742cbfbfebaa602b72fe",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.root_nonneg_of_coset_minimal": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e5738cda1d2c46cd2f153c82472a8c5c506339d8f00e02aea007b79eb8ed99d4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.planeCoset_exists_minimal": {
+    "levels": "\"[`u, `v]\"",
+    "type": "99fd5836f270ba0a35367afbd5bab760a1c266fd25273f1f52d75114066b853c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.root_nonpos_coset_minimal_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "15c32e5a1f2b20ac12d235b7e8171e895db334efed8001a300db718228d81f01",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.planeSubgroup": {
+    "levels": "\"[`u, `v]\"",
+    "type": "edd6e7b4cec2a0a72ee1f29d841b1a811405f8a2f4ad45413e171cd1266d4fca",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.planeSubgroup_preserves": {
+    "levels": "\"[`u, `v]\"",
+    "type": "aefd322dfd29538533728b891744387708dd10acac252714758e0f0e273d550f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup"
+  },
+  "OAI.KLInvariance.TitsSpace.positive_combination_of_slope_between": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fef72edf6cd2f9828291c4d10e2dddf51f20307a983d154e7c750e75832cb658",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.coset_step_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "48d3ec5a14fb29eca87d6d786306516cc9ac50e0d71af16c09b6d9e735bbc960",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.inversionVector_inverse": {
+    "levels": "\"[`u, `v]\"",
+    "type": "33ed9de48343dcc0bb5439df050a0eb4bc172060ce53440acc4bd4089e5c34f0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple.planeLength_conj_drop": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a08984134ea8b8c3bf5be764508a262e78a14809c929571be2fccffebf64de3f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.reflection_inverts_endpoint": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0aab35eb2c34e0222099fe50f896bcbc626c8a4a629c8b29a5519a4747f4a218",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.leftInversion_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5a27a0004de2a60dc434d19aa8284759e669bad8383d1e6a9d737761d114652b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.bruhatStep_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "da1b0a62c739d66557c645b0755aabdd1a6d8a77223246b85b74e0fbbd08724e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.represents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "860b26a16b5a9151f621366afc321b753a76393d4547ee740f98c53f4de596d1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted_ref_self": {
+    "levels": "\"[`u, `v]\"",
+    "type": "63239ef9beef9959fa628833fe37f875114423e861feb527d2a4b4edc258cb7b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.noninverted_ref_of_pairing_nonpos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ad4bee0b253c70253f78444aef087b1ded3129f337a45faf703279f796a9aeff",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.rootRef_ne_one": {
+    "levels": "\"[`u, `v]\"",
+    "type": "cc113474537c9781ec4a7fc4906e78cd6f16d5a222104a63106d85a994488446",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.right": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ddf4156a46dfb1614fec689cc11c2f178b85d7e48b0e5834549ca5adb59cc22f",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.mk.noConfusion": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "7b2ea1c340686c21ac7fa751ee5a9b67d480e09fe8c03ebaa1db0ec782d66d06",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7a91bf9e054ab1b252ff4b5e18155213eb29e6502accb897d88b5ffc1534c385",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.ambient_edge_diamond": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2eeed0523079ce0b36d4a59be7e588ce98edbbcb901fb59420944005ffb44707",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.left_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3fac0b118880a81388aa2d644a4831c093776a5e5bab1c7b820b2d0a562ad841",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.left_simple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3ddbf8d59f8a15b5dba6bf3e98e8c4772658d2ccb1a9b0a2793260d0ef073ff9",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_plane_extreme_inverted": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9a2a773a1e8924c56aaa97cbbd5a17e9357ad72653d355038730f2244fa7b2bc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.rootPlane_eq_of_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d8cba4e308bcfecd5fc7efee1411d9ceec1d2eda488145580a9284e8fddcad8c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.simple_sign": {
+    "levels": "\"[`u, `v]\"",
+    "type": "465631d33ec1b97a353986f4db7808b0fe68fa8ac08fea0b96cad101fc563bfa",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.casesOn": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "69ab32a2bb64496eda4ae8497c16defefc0859a919c0db2d525a70d4c40e2194",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.planeLength_nonneg": {
+    "levels": "\"[`u, `v]\"",
+    "type": "45aa078b8f0de6d289bd521475ee7e553eff1beab1d9d8787d9204a37c118d7d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.pairClosure_eq_planeSubgroup": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4ad2a37936bdd76bb987a43b98aca9a402ca1c209882fe108b4b821b4d8ddad2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple.inverted_after_mul": {
+    "levels": "\"[`u, `v]\"",
+    "type": "255a309a021328ec5b54ebb96220ff0340bf8040a9bc76c65a7744d8a0ae047b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.rec": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "6abcf2b196891ae98aa9ab13585a31f2e7734398c38b31b7efd738df39e76488",
+    "kind": "recursor",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.ctorIdx": {
+    "levels": "\"[`u, `v]\"",
+    "type": "28595c58185d0c06b9d8070424236d9fc329bb776e6c23f2b04c8f6931b9c4ca",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple.exists_nonpositive_pair": {
+    "levels": "\"[`u, `v]\"",
+    "type": "024f9e5e4fbd5b44b73f5fb83e1983067d27502bd7bc64a9cc7364db9764f937",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple.planeLength_step_down": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7e241c9f4ed54adc604f3c76c8234735e9807d970b6377f03835156e94126b12",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.planeLength.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "eab08b76ab3eba4ee51156217b0e8908b96cb7e073c0c09231c929fe2412bf41",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.act": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f76ab2789ccf1c28b74ba9e9adbb87afeec4aaecbbe701b4c9dbad3198f224df",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.noConfusionType": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "cab528345849a8e8e45ecac906c678019f32ede1a4315a66d3249b0202008f90",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.rootRef_mem_pairClosure": {
+    "levels": "\"[`u, `v]\"",
+    "type": "69136104d72b53ff94f7dd2338160073e40ba7c9b3e20afb9242f5bc6c793c66",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.inversion_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "11b8722805e2940dcb9e0c3280ced849171e43b36c8074b3977488318d997361",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.simple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7c96d9b0324da56b23307be72217cf6d8e554273d48c7f4ed5c2c608f7cc677f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ec119300b487548b5e0b5e67435c420d8e8a1328253e8d1789fecf7ee6551571",
+    "kind": "inductive",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.mk": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6d3d732af62dab92e14f5678d75f0878c2609b18446c42723f6f9483e5d80165",
+    "kind": "constructor",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.not_rootInverted_one": {
+    "levels": "\"[`u, `v]\"",
+    "type": "64002ecc3d47a29c940c91bbabb95bc30aadfd5a5050d4c1e6f766efda0e6ff6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.casesOn": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "feb248478471cb986ddc4e27639ea05dc5913947179d541d90cb67d0b5c029ea",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.matrix": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4079970139e4c0c0a17e347b4c5c408ea975ca3c4dc2ba074863613523ff1db8",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.plane_eq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ac95abe7189f8872b08f9b62c4ffdce7abf583b96fea41a4a3011217ee99b41c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.rootRef_distinct": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a418258239aa61dc0f6c92406130bdd0b9b64b2bdb2a863c53a4b80eb7892c0c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.inversionEquiv": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5125b6ddacc792e01e78f1c98097759f24353f507af514ee132d8dabf3ef9c89",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_opposite_plane_extreme": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3c8b7018f5292c6d61da703adfa3942873c0498dcd362700fc987421320a0668",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple.planeWeight_eq_zero": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4af95363fc29d56ab4fc1c5c541ee8da89b71ab1f80d78b6a4b60ab6f9521bb6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.simpleRoot_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e19b6e68c6f611b908963cb876722650a1b7e52ee55fcb5065443c8062f43708",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.mk": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ce338c9b382aa66d02fb403d5128410dc2b54b6810c22a6c8b8e9ea5b9b71b83",
+    "kind": "constructor",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.plane_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "600363a9c5595d0a5fa90a2bd5fb099c2bf4af8a3ab84d972061932a917efcf7",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.system_simple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "54bd13a6706fe4de2c1567dae0a99611aaf527f38f1b37cdff8f3bdbbb63f76c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.simpleRoot_simple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "24c1fff0a50cc18dfd98ee93e2cd53f9e9ae5c870c47674b362932cfbd17b667",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.system": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6d5ea021b78c872ff6dbeac9a812ee382450d1909c9d5e2bed3b2206e0fb72d2",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.distinct": {
+    "levels": "\"[`u, `v]\"",
+    "type": "46897155e16298493d05d5bfeeed60feebba1c21fa6c8822df28b412fd3eebad",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple.planeLength_step": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2b68b65b95aa14d39ab4d7207bf1653d35bd23e75a2f843a4dba1ec968d0a099",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.reflection_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "df7669f9f9419413b5517d21f74bdab5572d06409a6b5af3c527d850690542db",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.rec": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "58d9126eb7fda11c3ca6a2822a6d0913b1a9098d32408c750ef36e1012c956c5",
+    "kind": "recursor",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.mk.inj": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d2093fcba31a45b9b5f64784c0e63a2a38e4c8c14af1597d93903403ab4fe95d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted_ref_iff_flipped": {
+    "levels": "\"[`u, `v]\"",
+    "type": "dd284e4b1f46f10d4e174a4e96fc9ab879dfda6023c221f15bcfffb9c9a9dcc2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.right_simple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "26264f01f782232de03e8458a389101cf24898a3165af73e3b19251b4c4c2971",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis": {
+    "levels": "\"[`u, `v]\"",
+    "type": "74d7f5be497910405e65bf1d8802bae71553a9a3efae6ac8a98b3cf267089fc2",
+    "kind": "inductive",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.rootInverted_inverse_action": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d1e1f7c67d7d353cf214e9a9319f538281c9892fd6cc75405ab20da2a2808269",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.right_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4e498ee04f96057816cbddb921ae5b489ac7fa1322ddb70141bc52fab5cf40e6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.coset_length_eq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a440d3766e118e666f7b966a15eb9ef86fef03e37548afdec17ee3a6e88b1380",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneSimple.partner_val": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2b305207ba92f9fbd88e9386b80365b24512b378340ca455f42dc51cbaaee5df",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.right_max": {
+    "levels": "\"[`u, `v]\"",
+    "type": "60ec404b3af5038a074ece77135c39d1340aee77efd73d1c84badfb6bf91372f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.noninverted_of_positive_combination": {
+    "levels": "\"[`u, `v]\"",
+    "type": "215d06b1bd97d1b91e701f61913c56105c3cb36aca8c769841e82bb3a78483e4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.mk.sizeOf_spec": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ccd330b02f6dc6a4b40f9c4eb6d63acee9a9898c232c1ded8722e833f7cbfdb1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.left": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ddf4156a46dfb1614fec689cc11c2f178b85d7e48b0e5834549ca5adb59cc22f",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.sign": {
+    "levels": "\"[`u, `v]\"",
+    "type": "51dd05934ccb9b873b5a3620828f5d11eff7ae60378b1321df06012993320adb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.simpleRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "eebd3cc7833ad202980c7ac2dd50a3753e0b249533c11dfd56f6074fa88e5842",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.planeSimple_of_extreme": {
+    "levels": "\"[`u, `v]\"",
+    "type": "21226442a2e719be9cac0575b4bcdbb6c6f7f01ff4af82f538448883272b5ad4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.mk.injEq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "058fa2dc2ef83e810a5dea31e17040e7f5559064652a8cfff05a89acff7a614c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.positive_cone": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7b215dec3c40b135bb1578ef1896645065f0c6d4ba37ab9cc457726c9fcce696",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.planeLength_inv": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0d1a92e7ce3293a5e8dcc17c758c1eddb1d3c1c14ffc013399c10c3aaebd4021",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.InducedSigned.recOn": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "feb248478471cb986ddc4e27639ea05dc5913947179d541d90cb67d0b5c029ea",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.noConfusion": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "b846272bfdd901c9582aef3d496542947d85b7ce755a358b308f0c85816d2906",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_mem_plane_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f89f01d54fa279b8113b34033af6f8fdb163d6c61595ffe416f1b5219b5a4804",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_mem_plane": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0bf3137cc91200f2c7308ee3b5824ceb9fa6c9f214fcf1c6045e6b6edff334bf",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.left_min": {
+    "levels": "\"[`u, `v]\"",
+    "type": "00b66e6fb62fadfd84c269eacaf423266138b4b5a1151323c47336a5b8ff43f9",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.coset_bruhat": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2beea7ba3f402080ad3630914523c6f98c7c4748398a943b6c56c80e037e4401",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.nonempty_planeBasis": {
+    "levels": "\"[`u, `v]\"",
+    "type": "053b209d2ff4d3156edb541c724ba07dd212e4639538ef2f16d7f94afc2e8491",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.recOn": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "69ab32a2bb64496eda4ae8497c16defefc0859a919c0db2d525a70d4c40e2194",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.length_eq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9d71a8bf94bd75cbd8ef25c14cbbd1625dda8a1c4aa4c1c23001081671cad006",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_positive_plane": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2ded8f615ec44a8bba3173122b4d95cd0d4b57e075f12f255002d94170482488",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis"
+  },
+  "OAI.KLInvariance.intervalIso_bruhatStep_iff": {
+    "levels": "\"[`u_1, `u_2, `u_3, `u_4]\"",
+    "type": "d73725bf29b125ce10c7c574d71cea7be1a1df15dc26e727dc36e14f6a5ffa0a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds"
+  },
+  "OAI.KLInvariance.intervalIso_bruhatStep_iff_general": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "a1a6cfa56caf057a146f3cc959d2cde76dffbd7ce72d31382574f60b42dd6ed3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds"
+  },
+  "OAI.KLInvariance.diamondEdges_of_bruhatStep": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "3331f7d86b33b24d2f1261e3b723c5b66b624776eff72bf4c4d2cc544ae8a546",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds"
+  },
+  "OAI.KLInvariance.diamondEdges_bruhatStep_general": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0a650f9467bf8aff8b4adb4c5db4bbad5a539c4d9f75c78cd91fbc5c58881a42",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds"
+  },
+  "OAI.KLInvariance.intervalIso_twoStep_iff": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "13db1af0f5d81726b031506cfd511b5a627b46d829500e6fc59b0bc68218b5bc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds"
+  },
+  "OAI.KLInvariance.diamondEdges_of_bruhatStep_general": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3c940d639ce48109cf221c7d2e0ac79f62de8ff6883f16b7600efd06f6f87b1b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds"
+  },
+  "OAI.KLInvariance.Dihedral.edgeFlip_source": {
+    "levels": "\"[`u_1]\"",
+    "type": "740a33d16f6e5aafdb2ee06d5039c2e6737f881642857b1680f2e41b7f8dd6cb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.intervalFlip_involutive": {
+    "levels": "\"[`u_1]\"",
+    "type": "00bcf48b49ea7c2ac45d7db1819f2952ecd1fd2ec0c59428b01ff33f0f7774ae",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.map_length_affine": {
+    "levels": "\"[`u\u2081, `u\u2082]\"",
+    "type": "a7f63e4cdb91da7484e8a2a1b7f2337f873dc7d8c2fb3afeea2f0ff52c25d2b4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rankFlip_upper": {
+    "levels": "\"[`u_1]\"",
+    "type": "7bbcfc54c0ad560b2eae78e2a85c9b33ea0ff7aab83bf9eec129739c43448d05",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.instDecidable_oAI_5": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.exists_interval_length": {
+    "levels": "\"[`u\u2081]\"",
+    "type": "ec08a51df73af1dc8efb976c19e51d02d439fa484e0e80c471280030d1a2cc37",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.descent_swap_false_iff_not": {
+    "levels": "\"[`u_1]\"",
+    "type": "06b757f285d4c0cbf4d5cf0903735957e75847b17f087a3c453f84b93a4b1710",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.edgeFlip_target": {
+    "levels": "\"[`u_1]\"",
+    "type": "67e01fcb7f171d84a988703b201942e2a199efd6d507c7af9c399d13dd82ec89",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.swap": {
+    "levels": "\"[`u_1]\"",
+    "type": "cdf50b2abae167fbe841509a9d7dab34420e949f3b28863649ff98be336eed33",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.swap_simple": {
+    "levels": "\"[`u_1]\"",
+    "type": "2110ab8014878aa27a37a4c9ed9ae59e61b066a04b187725cf81c29c654fff07",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.swapHom_simple": {
+    "levels": "\"[`u_1]\"",
+    "type": "342f7334050c7ebcc6da610fe52571271ef70e6afbf3913d3bf070ae4a02d40f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.descent_swap": {
+    "levels": "\"[`u_1]\"",
+    "type": "fa80bbeb49df211d7bd63d37a137b3412c97073537ebaa9d64ab6c77ee2985f3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.swapHom_involutive": {
+    "levels": "\"[`u_1]\"",
+    "type": "86ab086d0c8d2eb865d85803929a5de6b988ba1fd98f992cfe5ad0296590eb64",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rank_two_of_two_step_bound": {
+    "levels": "\"[`u_1]\"",
+    "type": "1d248548ea538218776a64d1f0960368db2ce6ed6b4011a42c8e80dc4da4773d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.swap_swap": {
+    "levels": "\"[`u_1]\"",
+    "type": "1097a83cf05c5209c5d6817c4f70afd19a4f9ba9368d49934820455f955d9e0d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.intervalFlip": {
+    "levels": "\"[`u_1]\"",
+    "type": "d59f3caf7d1c2abfa84248339a2832a3cb2514c2233ef88032e983d9ca0df51b",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.length_swap": {
+    "levels": "\"[`u_1]\"",
+    "type": "e238182c3dbe5f5c1a8671a41f15af3b43e021611dc8f6d6404c76f31e6233a8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rankFlip.eq_1": {
+    "levels": "\"[`u_1]\"",
+    "type": "7973e62a5cc374350f9646a27fffc82be03a37da10120a36405995d6e625e531",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rankFlip_step_iff": {
+    "levels": "\"[`u_1]\"",
+    "type": "3901195f0f966e2c873661268e932c292172d8d5bbc41ff93a26341940e70a36",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rankFlip": {
+    "levels": "\"[`u_1]\"",
+    "type": "ac2c9eaa625ab9b0322cf21bda4faac154090ae1e7577cefe88a1f22a9d73749",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.map_cover_length": {
+    "levels": "\"[`u\u2081, `u\u2082]\"",
+    "type": "0338302874082f307a3ece9b44f81dbb56c929eacf291a2a84dcd098be919e46",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.edgeFlip_involutive": {
+    "levels": "\"[`u_1]\"",
+    "type": "cfa5ec0a0ee8e3c4d5654440c6545075739754dcc1f9050fe504e99fe57aa603",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.edgeFlip": {
+    "levels": "\"[`u_1]\"",
+    "type": "c5264351d0491cdff57b4206edcd09dd3fa9f31136c80e299f4a9a16d982684d",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.swapHom": {
+    "levels": "\"[`u_1]\"",
+    "type": "0c484a14d4ccad648e3834b2e9d56ede6a43be1a2ad93942f3a229a97948c11e",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.swap_wordProd": {
+    "levels": "\"[`u_1]\"",
+    "type": "46381b42f14863121d092fd2dde15c874317ea6bb12e600f6b180a26fd8701f0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.unique_leftDescent": {
+    "levels": "\"[`u_1]\"",
+    "type": "0d1b669e625c0d0d48e1d4a36af2784f5bf217c832aff95eb7e37054cbb37e5f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.length_rankFlip": {
+    "levels": "\"[`u_1]\"",
+    "type": "3babef15ed2cd9e415a9d706696137ba715cc66bff2309505545a88e4ae5c5c4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rankFlip_lower": {
+    "levels": "\"[`u_1]\"",
+    "type": "28e2ddcb812fa38e9fde9b0e535e64a6222d4ccb20abe01f3cf6e6c4aee002ad",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rankFlip_involutive": {
+    "levels": "\"[`u_1]\"",
+    "type": "cff90a580a906947dd88430858a4c76b54e7e3508708dcfdf59c34ab44586cdc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.rankFlip_bruhat_iff": {
+    "levels": "\"[`u_1]\"",
+    "type": "e9ddd9c5b8ccdb8590ab06f5c2b73bd6c543c276e742fba9c9f7707c0889c525",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.range_eq_interval_of_rank_two": {
+    "levels": "\"[`u\u2081, `u\u2082]\"",
+    "type": "ca09137d04571b3ebcc628b7a252ef96e254eb6153ba837a0146840325215433",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.intervalFlip_val": {
+    "levels": "\"[`u_1]\"",
+    "type": "708e2c711df1bb529682313c53cb6f138cab1cd12309ca2fec830e22cfc34428",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_mod_period": {
+    "levels": "\"[`u_1]\"",
+    "type": "ab1ef061a5c9d1ba938aece5e55a03dbe0316afc4ef455f0c781c8dd7a2aa07f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.exists_good_index": {
+    "levels": "\"[`u_1]\"",
+    "type": "76de96525da6a684cdb48cca4617f6aa2c3cfaf265c3857cfa0e55b9b058f7cc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.max_length_positive": {
+    "levels": "\"[`u_1]\"",
+    "type": "5beb6aae659ab5747b2e36e04753f8b297d2dfcebfc7bca7f25d1b962c0616fa",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_step": {
+    "levels": "\"[`u_1]\"",
+    "type": "98872c4081c23a811251f7864830d52bc6555ee21a36d39cd9fd222232f19602",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.simple_rotation_zpow": {
+    "levels": "\"[`u_1]\"",
+    "type": "c2bffe97658affa34452b3afb7b13ff003fca13e5a42597265efc7804798681f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.wordProd_alt_odd": {
+    "levels": "\"[`u_1]\"",
+    "type": "0162eec2df9eab0e4a9e95eb93e8b19c9d1cdfae0eb6e412761f7902b3e0b11d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_neg_nat": {
+    "levels": "\"[`u_1]\"",
+    "type": "f414c644cc4126808477dad3dea852b98e3313bd7cc727d5cc6d6cf1223729ef",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_period": {
+    "levels": "\"[`u_1]\"",
+    "type": "00223a08c9a3488e44652465893bf53041c5bbabc4aa030fefbd8a5c95de1cd8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_odd": {
+    "levels": "\"[`u_1]\"",
+    "type": "a3bf376a9aca0deb0bd63487a60155d2dd3061fde377751cdccc4829b453cb86",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_even": {
+    "levels": "\"[`u_1]\"",
+    "type": "6a25567e562e543cf0f80048e2ddf3f60433f5b4ebd01e3434be1c61e6d4426c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.simple_rotation": {
+    "levels": "\"[`u_1]\"",
+    "type": "c5e90132690da6573d82689eb5ca9a89baa1e19d55c561b6c4d7ee17760d6720",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.leftDescent_alt": {
+    "levels": "\"[`u_1]\"",
+    "type": "6efade5276a376c900d521a4401afd1ae58ac26221aa60b9daaefc5033b17680",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.GoodIndex.eq_1": {
+    "levels": "\"[`u_1]\"",
+    "type": "46704fe990ddc692fcc3903dc5ef5fa7eec4e1756eb37b7f7cf29d0e1a4ca44f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.lower_top_fiber": {
+    "levels": "\"[`u_1]\"",
+    "type": "a8a650b92ab80a231a74eb4a261e60ab10cba78a7617db692d11d7e2c252d5bb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.goodIndex_neg_nat": {
+    "levels": "\"[`u_1]\"",
+    "type": "e55b41a6a7929d9ae215eac4e3a367390e703ca6b12676d72b3e88e4dc965aa1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.length_indexWord_neg_nat": {
+    "levels": "\"[`u_1]\"",
+    "type": "985ab037bc95d55de8e49de24f7d818ceba5cb00c214333153e8b39ba02b09d2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.sum_lower_signed": {
+    "levels": "\"[`u_1, `u_2]\"",
+    "type": "29b619df5c7e01294bf7ff1fb43437769d49e236e19786609637852f90b6f84c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.GoodIndex": {
+    "levels": "\"[`u_1]\"",
+    "type": "a8ff84eabd75fa3bf735f64565431cdbac76c593a9dd900d208d4947c477b7b2",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.goodIndex_nat": {
+    "levels": "\"[`u_1]\"",
+    "type": "fadf3823637201c30a0d99080d34fe6ac7431910d7fb6912201c3d493fceffd2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.swap_alt": {
+    "levels": "\"[`u_1]\"",
+    "type": "b3e79fadf83dab7b3427ff57e363411e6921ca33447260a6f5feea5d4c9f885e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.rotation": {
+    "levels": "\"[`u_1]\"",
+    "type": "4e7e3e6866503a254f7000f4cb0b379fbe85784fc408ba525a4a0461f0e62231",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.exists_common_upper": {
+    "levels": "\"[`v]\"",
+    "type": "c302436bafe44bf0f305c3335823ccaae06e5732ac034b7aa4c9ba6d1aae2d34",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.lower_length_fiber": {
+    "levels": "\"[`u_1]\"",
+    "type": "dec5b0cbdfcbdd9102cc55065647562adbef5b0e19a65554f47842c0b3324275",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_add_even": {
+    "levels": "\"[`u_1]\"",
+    "type": "e246ca5fadde9b7478da8752a6b895a2f5f16f62251be8ab6416ede6c42ff31d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.rotation_pow_max": {
+    "levels": "\"[`u_1]\"",
+    "type": "6c2e8e2898aff1c1968c73e93454908340150a8ab055f8dd6369c6e68c22634a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.natAbs_lt_iff": {
+    "levels": "\"[]\"",
+    "type": "56e4197dc502bb70ad06d49c2e381ca1055e5d06f61bf4ce72d5c7cb007008dd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.length_alt_le_length": {
+    "levels": "\"[`u_1]\"",
+    "type": "644384a77b9a471d0fc82b368b06a93ceb4aa4d837564bc55067cd3ce3341232",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_reflection_mul": {
+    "levels": "\"[`u_1]\"",
+    "type": "6ecac65b21aa249d2df3508e200042d4c61d9296e50ca047aa7b132fc2fd5604",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.length_indexWord": {
+    "levels": "\"[`u_1]\"",
+    "type": "98235c57e338a539701e8d9a2cb8a2c9ca8405f644d9aff0c33fdf1f13b5fda5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.lower_zero_fiber": {
+    "levels": "\"[`u_1]\"",
+    "type": "9140a9825c46a3a8569f81d9bfdfce812ec9a84bc0cdabc29764333609cbb516",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.exists_indexWord": {
+    "levels": "\"[`u_1]\"",
+    "type": "97d0a5f37aeebcde3e02f9d486c9214028268cd2b1fb70cd52affb48fecff4df",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_label": {
+    "levels": "\"[`u_1]\"",
+    "type": "6c7349b234b8e4411dd3ec72837ac64dfd44a67c399bc17e3b3da1bbdb3e7af9",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.maximal_or_unbounded": {
+    "levels": "\"[`u_1]\"",
+    "type": "298549883ece8a5825f734f32b6517c8ce9bef4ab772e7891b3e03b3844a7b73",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.bruhat_top_of_all_descents": {
+    "levels": "\"[`u, `v]\"",
+    "type": "873ef16a6b7fcc539a8f8d5b52a6acd46917627685bcca7c3dc9d278844aa3eb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.instDecidableEq_oAI": {
+    "levels": "\"[`u_1]\"",
+    "type": "6c2cd863265f727a70b2577df44030cebaf2fef7052cb95340af159fa8490ea0",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.rotation.eq_1": {
+    "levels": "\"[`u_1]\"",
+    "type": "48bd98aae38214d53938104ef3b289bf38dba1252e1c75f4a61312e2466465c6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_pos_ne_neg": {
+    "levels": "\"[`u_1]\"",
+    "type": "c102056a02bbe432ec5c9cfdb61d73d2993c5cbe30f3bb1050fea2d7e357721d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.maximal_eq": {
+    "levels": "\"[`u_1]\"",
+    "type": "d7ea80c84539407f9e72e64abd22de6927eb5b264d835cf1209c0efe282ea743",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.length_indexWord_unbounded": {
+    "levels": "\"[`u_1]\"",
+    "type": "575ff473f4ebfe05eebecab5042debf48720d1421186eeee7b988e1ebb321864",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.index_step_iff": {
+    "levels": "\"[`u_1]\"",
+    "type": "ff5fe38949cdb7a495c8de5916f6b18b5ce09b59ed020e7229e3a472665700de",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord.eq_1": {
+    "levels": "\"[`u_1]\"",
+    "type": "ec9cf835834377a93534acaec72b5d02f242139e4868563e129547f022c7225a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord_nat": {
+    "levels": "\"[`u_1]\"",
+    "type": "4f605088715a74c31e46e15f0b4500f286b473e3c00cac84c7ade424f0ab5bd1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.map_not_alt": {
+    "levels": "\"[]\"",
+    "type": "306858202ce729d3490a836bcf697d33db51b301087fcbdd5014cef8315b878a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.neg_indexWord_step": {
+    "levels": "\"[`u_1]\"",
+    "type": "048191fa30f44c5741eb02d153e30f22f67e0825d2d337e664cde2b6208a1f24",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.indexWord": {
+    "levels": "\"[`u_1]\"",
+    "type": "e776d0d3aee7cf0c07b5dd02adc322bb0e4a25cdbb65133ca4716495add37189",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.Dihedral.length_indexWord_nat": {
+    "levels": "\"[`u_1]\"",
+    "type": "58f1ad18447dd0d08a0a6c7cac423bd26b1a0c775a3c4749a162ade7f34851e3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.adapted_of_chamber": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d08144186595e9cbc99879ba0fe4d4d6060d7d9e0727097edb6d0d4a748081f3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.coordinate_sum": {
+    "levels": "\"[`u]\"",
+    "type": "4c485e01dc25b2d9f691f9ce8f92f87fd3a5bfd0f88e8655314e2270e138b907",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot_not_inverted_source": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5dead8734b9796b8d596c266c32a9d647a03aee74e0c58ed4c02bd2825a4d8be",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8e1d24ef33f73ee8afc1eef24c562e2452ebeea0697e1eb8e06424fcc0e27a2d",
+    "kind": "inductive",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.least_simple_descent": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b222c22fd6a276d88e1515444809cf00adfadca4458e0b09d73f293585049260",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.rootRef_simplePositive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "078f7adbc76c45576c8cb860aa346a7eeabb774d0511abcfe5c35713c7cc79ba",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.generic": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f60a00e46df4a608bb9199ffe8716337da165b4f8f9caf35380337b3377561f3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.slope_lt_of_inverted_left": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2b06a0278361d7ddcf4e4a996970cdae1483cfe37be198c5dcdafff796e48d49",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot_inverted_target": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b63d3324f8f4a029ffe318d2aa74cbe632c16cfb30e04b3b65cf1518994a6755",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.simplePositive_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7deaf24881b3bd3997360a3a161a3444d15c7c1ba4403b7e44ea996d9bb5f09b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PositiveFunctional.root_pos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8a4d97d7166bb512be743b9cdd83006fab29526df6160cbd3e115941a93ca368",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.simplePositive.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "c7af3978f13eec34e64883072c97a6bd95af4ef9edbaf9ad2da4761250b17a58",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.simple_action_nonneg": {
+    "levels": "\"[`u, `v]\"",
+    "type": "83f5110fd44bf5f78bc798f9de30c90b6c1496625ba0e7ef00d435ad6c31e996",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.dispatch_reverse_endpoints": {
+    "levels": "\"[`u, `v, `u_1]\"",
+    "type": "6c34a2fdcfda2319f9cf8e51e8a517bab01241fa0f023820900cbc5376e725c0",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.height_positive": {
+    "levels": "\"[`u]\"",
+    "type": "0fe8c61027a53b50bf8a2df0c64d0321615b4e544a0523d5e15d71f1eea99555",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.intervalEdgeSlope_flip": {
+    "levels": "\"[`u, `v]\"",
+    "type": "742f8aa2944fb15809329adeae9075e638d2c29d1542d968ece85b3bff8323f1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.numerator": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2d222679a2ade1ba2f8c5b7e2ef3fa322414e2cd3a76590ba6659a6e6aa52877",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PositiveFunctional": {
+    "levels": "\"[`u]\"",
+    "type": "dac1d6706d6b2b778b096a72dc28575caa8e13542652e227b9a30654d3db4634",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.turn": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a6479f15d6e441dfb1c0dd94c33474a15495e411499f0c345561a5ace55dedd3",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.height.eq_1": {
+    "levels": "\"[`u]\"",
+    "type": "0677783e43203584319ec126d7315b4af9a71e4f239cd064796c49a661b7a650",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.mk.inj": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2956b7fe929b8f8b3b231de15e48186b24aeeacb8f8dd29e904ddb22e0692938",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.recOn": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "4d1749a3a660e07aa3f510fcc001397865ac38ae24484fb37db37380fe5741ed",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_ratioOrder_chamber_height": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a46dd0be834a5631910bbd1e6bc68631851bd4ad5534535d2e0f35486a91b746",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.turn_ratio_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b97c3e607c8f0df5020e9c7319d6ee0a0a21ac62445515414a5ad1e14a46858f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.denominator_pos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ba348f1f9ff575d6df3ed0c49c04b1d242c07f671b80ba9630788ea7189402eb",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.exists_rotation": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fbc684473659317550be9baaa7c34864295e68864cd9716056eac1bc4df3ed75",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.noConfusion": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "9c06fa495513e85f19f6a687ea12c96084e842216b9af409a2caf51eec39a4bd",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.simple_lower_bound": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e53abaea8f267fca3057e8ede0dc320d5e96afee4785f0aac69f0a59e58e12d7",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.turn_chamber": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8739abfeba7baadecd6306aecf5d393c5652529f4e13924588255dd45cc7c2c2",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.mk.injEq": {
+    "levels": "\"[`u, `v]\"",
+    "type": "14deee8949e51d9c99d3aa1b7b922f710c51fec2f26b682a86ae14ae76745ec3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.simple_positiveAction_ne": {
+    "levels": "\"[`u, `v]\"",
+    "type": "34383fa5546401b46a70320969003f1dff30a3804ff4416d892c3a506eeafa91",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.slope_lt_iff_inverted_left": {
+    "levels": "\"[`u, `v]\"",
+    "type": "430f53279b0d976db71eb2037aa8314318481f6b29bb8696b13742a4fd97bd6b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.mk.noConfusion": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "bae9660a7f013490c1ba68c2fa062cfce0c125e32ef169737c4668e34997d4de",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.exists_least_simple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0b5c937c85c1a1ef29f3c58df5cd892dd39246cf42d96765ca7db91156fed2af",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.ctorIdx": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5aaf21c545994fc8eee5104c8590d36e1dd54f6fcb71dcc1526d0e00a62dc28b",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.Chamber": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ad9c320eefbf7f89f2453261e7feb540d92cdb560eec9b6e417e3d80b4a75ad7",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.instDecidable_oAI_8": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.inverted_of_positive_combination": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8aa84ccde3720d76132957793199756c51567c8e8e35059232f644ebfdbfd227",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b95d57197da25840d0784f58a83985b7f7d5282b3f88327c739d53b2e02a127a",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.positive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b87138fbb799b498a1cdc2e5741538a102a8a5794be8458b8aee049eac81bb41",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.exists_turn_parameter": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e3f5cd6ff8f95080fb07f603486c9bffac921ccfa584fa363d95e2bb71b52da9",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.turnNumerator": {
+    "levels": "\"[`u, `v]\"",
+    "type": "627e40e70c8960c1e12ffbf51b4cd6b08cc4cf6ef9f7d5a13319894176018a39",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.intervalEdgeSlope": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2b37f5c8369bff07510effdc85e2bd192405115a1d27ad30ebbf7da65dac6710",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.consecutive_slopes_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8becd8be19bba6b58d3b8ae69b6b89aeb380e460d2eadfbce68bc6bdc06db023",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.turn_slope_lt_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a222c4b9f234ea5d2d20432bf1a797561c5f81313781761f61159b08323c45e3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.casesOn": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "4d1749a3a660e07aa3f510fcc001397865ac38ae24484fb37db37380fe5741ed",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.Adapted": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ad9c320eefbf7f89f2453261e7feb540d92cdb560eec9b6e417e3d80b4a75ad7",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.intervalEdgeSlope_ties": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e7f25452b09657e2d120c8c267f5dd0c44091cc60688ffb3302c6e7daeef869d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.mk.sizeOf_spec": {
+    "levels": "\"[`u, `v]\"",
+    "type": "89342b9b7eb2373cde3325bb570b48cabde0d545ef3ec9ff352b467fece36d11",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.positiveAction_simplePositive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "15c1dde15ee6c3f5ba4bbcbd88b2e1f7e04b22fd7c27201fd5ec60839d6363f1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_1": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.mk": {
+    "levels": "\"[`u, `v]\"",
+    "type": "c071d96ecc0bcaa7d1d741cf89d28fd0efda985697579fd7067bbe29c48e39ce",
+    "kind": "constructor",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_slopes_rankFlip": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ebf5b158c8631706f225e7c02bcfb1bfed0b442d4a37441c5ea8a7e4ebcdeede",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_plane": {
+    "levels": "\"[`u, `v]\"",
+    "type": "70f45d3dfc4717a151acf890b6e938edfba482fda24b9ba0437695c35a7693f1",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.intervalEdgeSlope_flip_reverse": {
+    "levels": "\"[`u, `v]\"",
+    "type": "38ff02c1ac7871d01b9310a783a893829c7a2d3aa68a34457f9f5cf7390e2064",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.dual_coordinate_sum": {
+    "levels": "\"[`u]\"",
+    "type": "4da8827d0171198d1847d52b3639eb93864b0723c62300b73de3dd0116dc49b4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.denominator": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2d222679a2ade1ba2f8c5b7e2ef3fa322414e2cd3a76590ba6659a6e6aa52877",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.rec": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "d43affa0f5a898ad7a523aa042bee1b88367a6bc6ba4058cf827b9a257e18392",
+    "kind": "recursor",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.slope_lt_of_inverted_right": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0f24aa90feb92479fe896e5cd839a479e2f49443016bc2fc24eef973b412902f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.simplePositive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d09dcce1410d1944e2da5619da36f9c48d1d31a16dd53e2f6b365b0c843cfeaa",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.slope": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8880c2b9e5ea709e8014f5486147a271ebeafb7ecff179379e1e7ef291b8d0cb",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_ratioOrder_chamber": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3b2f5f04afc746ddc7d82b051183c399cf2df55d0731d6d986a56e10acc36ddd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.noConfusionType": {
+    "levels": "\"[`u_1, `u, `v]\"",
+    "type": "b23655c82b008e97e9d42896ee4d52c04d61d6ccadc9602ee080eed6d241d6c6",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.exists_uniform_pos_lt": {
+    "levels": "\"[`u]\"",
+    "type": "2b236f373156d695d409fba2e57ac6a939fa4a36c8f3ee15ba2c5a66bb47eba3",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.simple_positiveAction_val": {
+    "levels": "\"[`u, `v]\"",
+    "type": "19a0107a3dabf9aaa7704d8f53421b82eb792a9eb3e321b29b64eeae46ccc4d6",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_ne_of_path": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d116903954810407bba115c504fa929b8f309408d32de0e8accdb896cc130234",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.slope_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "454905da5593f225a07356edb0c3599e6c0c5eb0d13f6a538a64134303dbfe75",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.simpleRoot_inverted_coset_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "78ba067b00f1a91c9b48bdafca3b623277df5316f8f8d83e975198217ab05187",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.turnDenominator": {
+    "levels": "\"[`u, `v]\"",
+    "type": "dc96ce59349c0a9cf272751fad456b13f46152154c526031252fb2765658d1ae",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.simplePositive_val": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0497b9d8cb81692d2d1bc9174e792d18068098b1ffd9a3b254a105669c0e3aaa",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.RatioOrder.turn_simple_greatest": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e4c3ec6aa4e042d6b42a38634470d1369dc909ebf77d23a489e493ec967b01b7",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.simpleRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "700fc0a6c12eb66805d31103b3958878d3a4e95d92538c6ae38568eabc151e3e",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_slopes_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "229da3c6cd683fe0df6cf91741a1d9b2dc17c091378acb0680d3935dcda0b2da",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.odd_residue_repr": {
+    "levels": "\"[]\"",
+    "type": "1290d67d6834c84fa958226b7beace50f9aeedd3161415ccaa6b13982d254406",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_inverted_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "17493e7b6cc23c4399aeeaa83802e8d0aa31e406152deeddef97dd77a231c6c5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_infinite_order": {
+    "levels": "\"[`u, `v]\"",
+    "type": "92c76d3eee32ee627cef5b16538f6a2794ef09041a168fc5caf7e2b1ddf20ab9",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_eq_of_label": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ee2ba6226d0f6b26dba68a4ae4b5c7627574079f00bd7d9db3e069d39ba98cfd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.prefixRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "dc82897ffd2dc8e2241119de48fc86d27fce4d0da589d4bb82d6853c1deb2cbd",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_finite_order": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d22d46da4e88c8b2009f7c384b42479baf6d5ef5a512fed97b20fd5b27c62f71",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.negPrefixRoot_strictAnti": {
+    "levels": "\"[`u, `v]\"",
+    "type": "39dddd63b97d956092c9a1ad77ea56014915cc815153f537a42dfd0c06a7ce73",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.max_length_pos": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0984f65272a596886647a1dd7608697f84a0caff264a4a3dcff4728faa535185",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.prefixRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "efebd0ea8d2f238efe164f687294d1a76a4a3798e6b273cf6afafe3bdfc8397a",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.prefixRoot_eq_edgeRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "12ccdd439cc16010b4e21a4371d6da1c1e65041cf2d439ef6f808537abb6412b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.negPrefixRoot.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9ca7163c038b7adb9317ea19474036dfeaa8bbec6bfc0dec9bdd4674f7c2715a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.negPrefixRoot_eq_edgeRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4b6cb964c006afadfa563e635fa52117e884147f84a9d03df43fd1596d88497f",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.negPrefixRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "efebd0ea8d2f238efe164f687294d1a76a4a3798e6b273cf6afafe3bdfc8397a",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_positive_lt_negative": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3588064659c6b7799a2d87bf6779eaa0d8c03d06105f1b02cd30aba9fc5294a8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.prefixRoot_strictMono": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9b850bbe4044dbb7119c9b17056d8295c054809e1f0ccaaac9f0d00f23ff4729",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.twoStep_mem_coset": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4ab3bd73ab6efe3f25aa739a0efded3cf54832f59e94f0e4e6f00d6d549e5158",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.graphRoot_mem_of_coset": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e1c5fd6b8f4979a5fbfb40937a1b592064f46649f0927e8386659c3eae71e972",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.mem_coset_of_graphRoot": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0bb57e327b557313968f5801431e2f98918fd4267a7a78664ac79467652e569a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.dihedral_image_in_plane": {
+    "levels": "\"[`u, `v, `u_1]\"",
+    "type": "0aaf5bfa24dc5b397b6c9fec91d13ec7745ed4edaf7618eac9507e8fb8d7d7fc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.graphRoot_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "02451e9a0da84095bb7f2bf7ab7487f66b81de2ad33d135c664f19b10cb348b5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.transport_interval": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "43e7d1c3e5de2a8343c1b78072ab74ae3a367d4afb5fb2f4a8db99932c4c94bc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.ambient_two_step_rank_two": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9b23f2a581c676af6a39b9dcc40fe459e94392032ba75c3ad5f814bd7ac1bf07",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.cosetIntervalMap": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1d3d0e6f641cc1e28290de745e609fb0c27c491210a8f6a8accb6e835260f456",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.twoStep_interval_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3a0290f563d52c99b300c47cd70a65102f007af14e9f6a42f47200ea478e2035",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.graphRoot_path_plane": {
+    "levels": "\"[`u, `v]\"",
+    "type": "13af9d8f6f49f02d478395e47a897fb56f3be2597e5aed9ad3b8a042712eaa39",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_next_table": {
+    "levels": "\"[`u, `v]\"",
+    "type": "31ff22e45ea465fd566a071038e0e38baa514e02434d7ffb98d38f49ea6a7865",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6c41ae8960e56e99b84e60f72f3e5d9038afa94371b8d250021ccf103a270500",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.ambientAfterIndicator_coset": {
+    "levels": "\"[`u, `v]\"",
+    "type": "bdd00f284f6408b4f317a0c35c57378261b0fd5718b2453397c4058cfbc168e4",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_coset": {
+    "levels": "\"[`u, `v]\"",
+    "type": "59ab3348fdb82a3508a981eacaaadab8ea8cdd36c0bf685cc9dc2de17ce0c829",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot_same_table": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f357c4096f0177f8cc806cf0fce0e7b9d8ba0e9e5fc63485e4ae4e868a710c6b",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_3": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.transported_count_difference_all": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "88673ffeb83bb84b6e927c27b251cae6f61609bb198dca6a27235d48f7f76bc5",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.afterIndicator_next": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2ae5e8ff4d351dc911100847b8a1ea6493a0938d5b9d6576127b69b89825c55c",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.ambientAfterIndicator": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fd81aadf587e2ae86064136c2e6359904b7550ce77c20f7191916e8726567a0f",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.ambientAfterIndicator_edge_self": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e97a93254540848d7456bdadfc45abb553e7fe6c5f014a53deb0c66dc0bff5ad",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b138ff8653885610db7e1e72caabf1bd0f41a99832bba9d90f742be9bd55604d",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.interval_laterCount": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9687f8500409662c0b9262d4aed19103f2585f1298eb005755492408f0fd9644",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.afterIndicator_same": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f83110229d4f35b84025b25e3fac34b700a381b507cb2cf58eea29f38653849a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount_next": {
+    "levels": "\"[`u, `v]\"",
+    "type": "167cc66a3948fd4afc15f313e210925cd76430e206abce14b2aaca8223582d13",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.afterIndicator_one": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b0d4d0b1486c2ac4c779888fe0a6e241e47114ef3a09c5736be9ae3fcc331e1a",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.interval_map_count": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "342918c9a8e9af620ad3943bdbba57592aaef17bc5729cd59ae259925d8566b8",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.transported_count_difference": {
+    "levels": "\"[`u, `v, `u', `v']\"",
+    "type": "ccf10e5ebd2810c4de1469d2f7f53c8a178ac46685e7bfb6d3be6d0b4fdbdc68",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.ambientAfterIndicator.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5e956067493e79748c9b4cad4ae5dfa0d94fda19715b43fb04d10cf744e1ca48",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount_same": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6dc710e8da5ec15eaec830499016ff7ad6cc2d716219aed3c775eaf8764c8e30",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeRoot.congr_simp": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6df6e1671ccfc5a2b4cd9ec1b243c4f06b6fb659ff5359c25e71b0f30f4b6d2d",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.laterCount_difference": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fa126a4d457477128d6e6d16f9614e3f6740d961f218f54de4d82bba77cebe81",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.afterIndicator.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a8ab261f7232ed18953271f99e1d8124ca0ab64b0a356b57823ef5dae723d4de",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.ambientAfterIndicator_of_le": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d6c944ebb72df6f9635f30ef733ed37c8d8b599e2519f7c270c07e34d9a96c97",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.afterIndicator": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b138ff8653885610db7e1e72caabf1bd0f41a99832bba9d90f742be9bd55604d",
+    "kind": "def",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.afterIndicator_eq_zero": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f785e3c057535f1e3ef0695e6f07eae8e0e8c5d5f94e39107965d9fbeb5a56bc",
+    "kind": "theorem",
+    "module": "ForMathlib.GroupTheory.Coxeter.Roots.LaterCount"
+  },
+  "OAI.KLInvariance.AdaptedDyer.mem_schedule": {
+    "levels": "\"[`u, `v]\"",
+    "type": "427f0436a7bd0ab5e6e5181f5dbae99206c0d481c72ad27d461fd9101e946d9c",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rotateEdge": {
+    "levels": "\"[`u, `v]\"",
+    "type": "c2b409efc034dbcbe79961aa9762acb02f8374e8427ba553cf6af84a5d031dd0",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.nonsimple_map": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f04826c88efc7d2bb52b39a673e9cc7d3a8a4fe67ea1283a0c2217c1b1d89816",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.Nonsimple.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a2b58a57b6bee7ae18b12d4f5152d838d992cdb3e7258376297dbc08cc44823c",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.not_nonsimple_iff_cons": {
+    "levels": "\"[`u, `v]\"",
+    "type": "92e9430bc8af989e3647f298812ca83938ac8c018bde15fd032e9bbe7033402c",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.nonsimplePaths": {
+    "levels": "\"[`u, `v]\"",
+    "type": "6fd40b40bb9d43c8d30795867b71c0ba6a45753ffd744307159e0688f9dec832",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.simpleEdge_root": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2fce4f865cb472ceb78464948585e2beca10f0b2c0f8a148086e9716fb4c3b8a",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.score": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a3e0e7edaf45154c6e6fd887ef2ac34159686be954101f80905264e1248f245b",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial_eq_rTilde": {
+    "levels": "\"[`u, `v]\"",
+    "type": "80c82b852658ced4e81b671281c79a24513e5e44e3358a6c212ec8c8be4359ef",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.schedule_nodup": {
+    "levels": "\"[`u, `v]\"",
+    "type": "443f83190cc48eca0a93d7d4ea8e8bce3074fc63f9fa78e5f7e297e5b1a4abad",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.nonsimple_of_greatest": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5f884b07a95c9a3a53d2f366c0df9ac118d604ed01e90dcc0baf4f095382a6a9",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.exists_dyer_schedule": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a9828d6d47440dd7612b6a68d62ab184b923b12bc4ef73035e71a134ba794b2e",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.Nonsimple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "1b632bf10a57c86ea79eab129cd96b6def977488ebed04501b535dbf6ae7a47c",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9fb9074d71d7d1904e3376dc7950a0d6e032a0569ae674f7d14d03ad7601b9c4",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.schedule.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "5afb844863f25dda8aa4dc9c0c1ca91ae75c2776b05f0407256514c713293bd7",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.schedule_increasing": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9e3e8a80e638ed13ec593ffa72c483e4e5feb58ea9ba8768aa1fd4a6f6361bc7",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.score_ties": {
+    "levels": "\"[`u, `v]\"",
+    "type": "84c99ba822209b68b285d57e5c74e38de1dd46a76ceb906f2d6975f7c75e8bf3",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial_dispatch": {
+    "levels": "\"[`u, `v]\"",
+    "type": "34d9f43fdbc38fb23880798bcbecaddfa70c6fd27da49048770544860d72a2e0",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rotateEdge_val": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8f8d4af74f4c8173993533131b2831571b37ffe86f043d0f490b897e3221ac65",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rotateEdge_twice": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4a46be04861269e7692480163ecd93b4061b516c8f49d5d741fd4e4ec7ad0f2a",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.target_eq_root": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8d85c27d51984d57461991f5b582e651723d0fca30daec6bb973e4f23b367a5d",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.simpleEdge": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f5285ff82e8cd3afa6331e289f927565914409757c69bb9dff22c90f98ae7240",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.simpleEdge.congr_simp": {
+    "levels": "\"[`u, `v]\"",
+    "type": "51739dd8721113211e24410ece08ad0497eb4fbfbde77ca7f0a7e81560e2a6cb",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.mem_edgeFinset": {
+    "levels": "\"[`u, `v]\"",
+    "type": "fdd653ff7804a9b48a0beb8a43fd6234173cee57283a332e7706caaa1836f4e8",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.path_rotate": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8c43c1e2d6a94c0007ed674ec1fce2b63a7532339faa577a3377c15c4034879e",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rootLabel": {
+    "levels": "\"[`u, `v]\"",
+    "type": "607846adfc4cb7f1d2dd4726c3f4a7fb09e7819f36a85632c66b11b2b203177f",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.edgeFinset": {
+    "levels": "\"[`u, `v]\"",
+    "type": "c9d3cc9fa4f74bc3fd4227b8cb19f58062ccc051fcf3a2ca881972c37c301974",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rootRef_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "f02ebe5e28cde7a498933b4c67672c939dc23dc2a077d14f587b64232504b213",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.path_le": {
+    "levels": "\"[`u, `v]\"",
+    "type": "61a93cc04d1609f8a4a07f339170ec0425d291fe001c3e82304e8bc91d5de6be",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rotateEdge.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "630072e8b947ba429a2d3b3386c30e3cfa14eccc7b541e65d8d7dfd6243312eb",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.source": {
+    "levels": "\"[`u, `v]\"",
+    "type": "60f097917e52eb4d34cd5cb37ce87adce267c304b9b1693a4f203268142b1afa",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.path_targets_le": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9cddd8d4180cf6f24f5c14cc1defb1d228985d2487847723a9f25c1b516cd51e",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial_recursion": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3fd3590f5fcfbc224536dbaec821f5d860152e579c86ecab7833e61b7b8ea9b4",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.paths_diagonal": {
+    "levels": "\"[`u, `v]\"",
+    "type": "0eb211feac8f28c6d55e60a8141b1ec1c9e57ef03fa49075fffc80d15eab5867",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.paths.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "8e8bd9a87c469d8edbe56b03b3e8b1e6bdf6bc9bfa971ad2577aedb43d70070c",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.sum_nonsimple_rotate": {
+    "levels": "\"[`u, `v]\"",
+    "type": "dd37275259c4fa570516e65c194389f64d335e25a4354cb073c17bf3c36d8118",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rootLabel_ne_of_join": {
+    "levels": "\"[`u, `v]\"",
+    "type": "909be083f8155b5a5df036f10def7ee5665670fbf86dbe555cf31bcd6d908e2b",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rotateEdge_root": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9fddf67fb329797d279775ae262d1dd291e58f66caa62b1a7d87d6bf74b34573",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.paths_rotate_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "56d092199969ba5c286b8fbffef0cefc58ee423191879d3038edada405bb60eb",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.Edge": {
+    "levels": "\"[`u, `v]\"",
+    "type": "a107f317f65f130a07bb2225b02304b828636013516b3b576e29cba01670f396",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.simpleEdge_target": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e81eefbe6b8ec2fda820f8f32ec78de6cdc2200a3d5628d8ceceeb6074777372",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.paths": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2966ac2edff73975519247f2449c023aa0d4a24f116163ee75206c87a0922c7e",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial_diagonal": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9cd5a390a1369ac892b9da60e096d1dc5d5a6c66b8b652c9088fc8cac96a0388",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.target": {
+    "levels": "\"[`u, `v]\"",
+    "type": "60f097917e52eb4d34cd5cb37ce87adce267c304b9b1693a4f203268142b1afa",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rootRef_rootLabel": {
+    "levels": "\"[`u, `v]\"",
+    "type": "b8a4fb2f619096fb9310fdf01c70deefd9254a2a50a3dd9e515dccdab751b914",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.path_map_twice": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2af5640aebf57e6dd0c655581efbd8e0b9d5fa31ae6de5f88aed030b274fb994",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.path_map_of_mem": {
+    "levels": "\"[`u_1, `u_2, `u_3, `u_4]\"",
+    "type": "688d86fddfa9dec0081c41a73d500af44c2c61b56661da97f7525464c8a378eb",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.cons_simple_mem": {
+    "levels": "\"[`u, `v]\"",
+    "type": "ea6e819593a507d7a7643998991052cef129f4c9a6309c631914367831f43484",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.score.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "91f2a431d3885b20356ec3bac37ae77c02d54c09ff3d47fa5d131a7e3e9bd425",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.nonsimplePaths.eq_1": {
+    "levels": "\"[`u, `v]\"",
+    "type": "7b11b83ea9585613209d888f0c130842920c6045a94ecdca47cc85fe29fb5ccb",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.schedule": {
+    "levels": "\"[`u, `v]\"",
+    "type": "98be5c8217b17af2ddc7b0ff0086c18954b9417a2b76ebb6fcd31f683cfd6183",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.mem_paths": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e958db83bc0b24f8f7cf7c0eb403e2a1503be17dd17af4b63f978aa2580e22cc",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.nonsimple_tail_of_least": {
+    "levels": "\"[`u, `v]\"",
+    "type": "9bc9b9139467de4f315cdd9d32521acd6e4e59805133ff9d6a5447c05aad6ef6",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rootLabel_simple_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "16b7f749b77ceb7e8519a74d41355eea0d577e2a4c466c3705c11aee33a44081",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.simpleEdge_source": {
+    "levels": "\"[`u, `v]\"",
+    "type": "88049fdceff3294da7b2455ff99ae9f828ee58eb42bd841da6c10d72804a7a03",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.mem_nonsimplePaths": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d6e5491dd17a22ec965bba82dcd3bc5db252cb0ce2bae74a8c1694ea81af8951",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rotateEdge_nonsimple": {
+    "levels": "\"[`u, `v]\"",
+    "type": "3d05b1bc262f76323010ba2b4d067ae32946dda0df0a32e3efbe769c7cf50d5c",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.nonsimple_of_least_descent": {
+    "levels": "\"[`u, `v]\"",
+    "type": "09f842a692d10bde1b38ae5d1920a0021645ec5b21a67dcf2ca5ad5ccb912780",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial_zero": {
+    "levels": "\"[`u, `v]\"",
+    "type": "accaafe2ba78146ef4a72b0d8803e5b0516ce491da86c32ebc302750e9d455a3",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.instDecidable_oAI": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial_split": {
+    "levels": "\"[`u, `v]\"",
+    "type": "4d7537ddd341899f1064a432af1cf5edbec28e6359dc9f184ee4c976f8c01cd4",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.path_rotate_iff": {
+    "levels": "\"[`u, `v]\"",
+    "type": "20952b07e20e791529f01915b719c8c84828b03273e714a346e3f8718c6743b3",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.rotateEdge_involutive": {
+    "levels": "\"[`u, `v]\"",
+    "type": "cea2ff8902c3c61523bda3fc4102dc8a1d3e2ea0700940177c81867616495f89",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.AdaptedDyer.polynomial": {
+    "levels": "\"[`u, `v]\"",
+    "type": "090eef8115da378ceb0b2b8a4dbebdfe9dfe9d5e4a7bd957fb43b616f1278563",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.intervalToAmbient": {
+    "levels": "\"[`u, `v]\"",
+    "type": "dfdedea8ef6998457a2cd0327bff6da59f5d73a703aa0bf58a121ca487b0248a",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.dispatch_plane_reverse": {
+    "levels": "\"[`u, `v, `u_1]\"",
+    "type": "ed7272dfd448b130022dbb56c424ccfc20f4dcca5494fd3efaa233bd7828d6d8",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeToAmbient_source": {
+    "levels": "\"[`u, `v]\"",
+    "type": "78401d26e8c73b3e45c0f35c168b47347b0a541e5b96a497be518e9f5c6595f0",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeToAmbient_target": {
+    "levels": "\"[`u, `v]\"",
+    "type": "dfa916694fe27d6fa69ee855fb4a01e7c98594866f0c2900e4b332d2cc900168",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.path_coordinates": {
+    "levels": "\"[`u, `v]\"",
+    "type": "cabbf3ef98457ff923b1ab92376a2913da7254c31019630625b7b5063005d402",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeToAmbient": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d2762d8da3dc2fefab733d2ca2730ec03cf5b18e17086a93ca9af33f090a5a29",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.path_edges_lift": {
+    "levels": "\"[`u, `v]\"",
+    "type": "e87a5354ef827d8ec961964e2054fed7125f371744d24d8c5bc980ef2ff14eac",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.intervalToAmbient_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "2d4ef00db45d6dd9e309bcdee8deaa5979fcce1189fb758c9b60a0dd81e21af5",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeToAmbient_root": {
+    "levels": "\"[`u, `v]\"",
+    "type": "d48a45065abf429087c398b17b409aa18a7111adb8b03fdff99d1be5cc392641",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.edgeToAmbient_injective": {
+    "levels": "\"[`u, `v]\"",
+    "type": "dc1d004e6a0d9613d80fbb01d8a459e74f6254e4ccf7d307de94a6945f4a9485",
+    "kind": "theorem",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  },
+  "OAI.KLInvariance.TitsSpace.PlaneBasis.instDecidable_2": {
+    "levels": "\"[]\"",
+    "type": "e7dfb1acaf1dd1398de0535a61c889e2af29480d93ed3b168901eb6e7226bb55",
+    "kind": "def",
+    "module": "ForMathlib.RepresentationTheory.Hecke.DyerPaths.PlaneCoordinates"
+  }
+}

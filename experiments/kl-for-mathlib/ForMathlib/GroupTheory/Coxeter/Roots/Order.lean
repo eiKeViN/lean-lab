@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Roots.Basic
-import ForMathlib.LinearAlgebra.Avoidance
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+public import ForMathlib.LinearAlgebra.Avoidance
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.Order. Source spans: ReflectionSchedules:2, ReflectionSchedules:3, ReflectionSchedules:4, ReflectionSchedules:5, ReflectionSchedules:7, ReflectionSchedules:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,7 +18,7 @@ variable {I : Type u} [Fintype I] (M : CoxeterMatrix I)
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
-def height : Module.Dual ℝ (I → ℝ) where
+@[expose] def height : Module.Dual ℝ (I → ℝ) where
   toFun a := ∑ i, a i
   map_add' a b := by simp [Finset.sum_add_distrib]
   map_smul' r a := by simp [Finset.mul_sum]
@@ -32,7 +35,7 @@ theorem PositiveRoot.height_pos (a : PositiveRoot M cs) : 0 < height a.val := by
   exact Finset.sum_pos' (fun j _ => a.property.2 j)
     ⟨i,Finset.mem_univ _,lt_of_le_of_ne' (a.property.2 i) hi⟩
 
-def normalizedRoot (a : PositiveRoot M cs) : I → ℝ := (height a.val)⁻¹ • a.val
+@[expose] def normalizedRoot (a : PositiveRoot M cs) : I → ℝ := (height a.val)⁻¹ • a.val
 
 theorem normalizedRoot_injective : Function.Injective (normalizedRoot (M := M) (cs := cs)) := by
   intro a b hab
@@ -99,7 +102,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 
 /-- Conjugation on the actual root lines, represented by positive roots. -/
-def positiveAction (w : W) (a : PositiveRoot M cs) : PositiveRoot M cs :=
+@[expose] def positiveAction (w : W) (a : PositiveRoot M cs) : PositiveRoot M cs :=
   positiveRoot M cs ⟨w * (rootReflection M cs a).val * w⁻¹,
     (rootReflection M cs a).property.conj w⟩
 
@@ -140,7 +143,7 @@ theorem positiveAction_mul (w z : W) (a : PositiveRoot M cs) :
   simp only [rootReflection_positiveAction]
   group
 
-def positiveActionEquiv (w : W) : Equiv.Perm (PositiveRoot M cs) where
+@[expose] def positiveActionEquiv (w : W) : Equiv.Perm (PositiveRoot M cs) where
   toFun := positiveAction w
   invFun := positiveAction w⁻¹
   left_inv a := by rw [← positiveAction_mul, inv_mul_cancel, positiveAction_one]
@@ -153,7 +156,7 @@ theorem positiveAction_involutive (a : PositiveRoot M cs) :
   intro b
   rw [← positiveAction_mul, (rootReflection M cs a).property.mul_self, positiveAction_one]
 
-def rootInverted (w : W) (a : PositiveRoot M cs) : Prop :=
+@[expose] def rootInverted (w : W) (a : PositiveRoot M cs) : Prop :=
   ∀ i, action M cs w⁻¹ a.val i ≤ 0
 
 theorem not_rootInverted_iff (w : W) (a : PositiveRoot M cs) :
@@ -236,7 +239,7 @@ local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI (p : Prop) : 
 theorem finite_rootInverted (w : W) : {a : PositiveRoot M cs | rootInverted w a}.Finite := by
   exact Set.finite_coe_iff.mp (rootInversions_finite M cs w)
 
-def inversionVector (w : W) : PositiveRoot M cs →₀ ℤ := by
+@[expose] def inversionVector (w : W) : PositiveRoot M cs →₀ ℤ := by
   classical
   refine Finsupp.ofSupportFinite (fun a => if rootInverted w a then 1 else 0) ?_
   simpa only [Function.support, ne_eq, ite_eq_right_iff, one_ne_zero, imp_false,
@@ -268,14 +271,14 @@ theorem inversionVector_sum (w : W) : (inversionVector (M := M) (cs := cs) w).su
       · simp [f,hi] at hm
     _ = _ := by simp [hh]
 
-def rootChange (x y : W) : PositiveRoot M cs →₀ ℤ := inversionVector y - inversionVector x
+@[expose] def rootChange (x y : W) : PositiveRoot M cs →₀ ℤ := inversionVector y - inversionVector x
 
-def rootPlane (a b : PositiveRoot M cs) : Submodule ℝ (I → ℝ) :=
+@[expose] def rootPlane (a b : PositiveRoot M cs) : Submodule ℝ (I → ℝ) :=
   Submodule.span ℝ {a.val,b.val}
 
 /-- The finitely supported change in root inversions, with the distinguished
 root removed, grouped by actual root planes. -/
-def planeDefect (x y : W) (a : PositiveRoot M cs) : Submodule ℝ (I → ℝ) →₀ ℤ :=
+@[expose] def planeDefect (x y : W) (a : PositiveRoot M cs) : Submodule ℝ (I → ℝ) →₀ ℤ :=
   Finsupp.mapDomain (rootPlane a) ((rootChange x y).erase a)
 
 theorem rootInverted_mul_self (x : W) (a : PositiveRoot M cs) :
@@ -398,7 +401,7 @@ theorem negative_partner_fixed (a b : PositiveRoot M cs) (hn : flipped a b)
   simpa only [hc2,one_smul] using hb
 
 /-- Roots in a negative pair which are both positive before the ascent. -/
-def goodPairRoot (x : W) (a b : PositiveRoot M cs) : Prop :=
+@[expose] def goodPairRoot (x : W) (a b : PositiveRoot M cs) : Prop :=
   flipped a b ∧ ¬ rootInverted x b ∧ ¬ rootInverted x (partner a b)
 
 theorem goodPairRoot_partner (x : W) (a b : PositiveRoot M cs) :
@@ -510,14 +513,14 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_2 (p : Prop) : Decidable p := Classical.propDecidable p
 
-def geometricFunctional : Module.Dual ℝ (I → ℝ) := (exists_geometric_functional M cs).choose
+@[expose] def geometricFunctional : Module.Dual ℝ (I → ℝ) := (exists_geometric_functional M cs).choose
 
-def geometricSlope (a : PositiveRoot M cs) : ℝ := geometricFunctional (M := M) (cs := cs) a.val / height a.val
+@[expose] def geometricSlope (a : PositiveRoot M cs) : ℝ := geometricFunctional (M := M) (cs := cs) a.val / height a.val
 
 theorem geometricSlope_injective : Function.Injective (geometricSlope (M := M) (cs := cs)) :=
   (exists_geometric_functional M cs).choose_spec
 
-@[instance_reducible]
+@[instance_reducible, expose]
 def geometricOrder : LinearOrder (PositiveRoot M cs) := LinearOrder.lift' geometricSlope geometricSlope_injective
 
 theorem geometricSlope_between (a b c : PositiveRoot M cs) {r s : ℝ}
@@ -526,13 +529,13 @@ theorem geometricSlope_between (a b c : PositiveRoot M cs) {r s : ℝ}
     geometricSlope a < geometricSlope c ∧ geometricSlope c < geometricSlope b :=
   functionalRatio_between M cs (geometricFunctional (M := M) (cs := cs)) a b c hr hs hc hab
 
-def partnerEquiv (a : PositiveRoot M cs) : Equiv.Perm (PositiveRoot M cs) :=
+@[expose] def partnerEquiv (a : PositiveRoot M cs) : Equiv.Perm (PositiveRoot M cs) :=
   Function.Involutive.toPerm (partner a) (partner_involutive a)
 
 @[simp] theorem partnerEquiv_apply (a b : PositiveRoot M cs) : partnerEquiv a b = partner a b := rfl
 @[simp] theorem partnerEquiv_symm_apply (a b : PositiveRoot M cs) : (partnerEquiv a).symm b = partner a b := rfl
 
-def extraRoot (x : W) (a b : PositiveRoot M cs) : Prop := b ≠ a ∧ goodPairRoot x a b
+@[expose] def extraRoot (x : W) (a b : PositiveRoot M cs) : Prop := b ≠ a ∧ goodPairRoot x a b
 
 theorem extraRoot_partner (x : W) (a b : PositiveRoot M cs) :
     extraRoot x a (partner a b) ↔ extraRoot x a b := by
@@ -543,21 +546,21 @@ theorem extraRoot_finite (x : W) (a : PositiveRoot M cs) : {b | extraRoot x a b}
   intro b hb
   exact (rootInverted_mul_of_nonpos x a b hb.2.1).mpr hb.2.2.2
 
-def halfRoot (x : W) (a b : PositiveRoot M cs) : Prop :=
+@[expose] def halfRoot (x : W) (a b : PositiveRoot M cs) : Prop :=
   extraRoot x a b ∧ geometricSlope b < geometricSlope (partner a b)
 
 theorem halfRoot_finite (x : W) (a : PositiveRoot M cs) : {b | halfRoot x a b}.Finite :=
   (extraRoot_finite x a).subset (fun _ h => h.1)
 
-def rootIndicator (p : PositiveRoot M cs → Prop) (hp : {a | p a}.Finite) : PositiveRoot M cs →₀ ℤ :=
+@[expose] def rootIndicator (p : PositiveRoot M cs → Prop) (hp : {a | p a}.Finite) : PositiveRoot M cs →₀ ℤ :=
   Finsupp.ofSupportFinite (fun a => if p a then 1 else 0) (by
     simpa only [Function.support,ne_eq,ite_eq_right_iff,one_ne_zero,imp_false,not_not] using hp)
 
 @[simp] theorem rootIndicator_apply (p : PositiveRoot M cs → Prop) (hp : {a | p a}.Finite)
     (a : PositiveRoot M cs) : rootIndicator p hp a = if p a then 1 else 0 := rfl
 
-def extraVector (x : W) (a : PositiveRoot M cs) := rootIndicator (extraRoot x a) (extraRoot_finite x a)
-def halfVector (x : W) (a : PositiveRoot M cs) := rootIndicator (halfRoot x a) (halfRoot_finite x a)
+@[expose] def extraVector (x : W) (a : PositiveRoot M cs) := rootIndicator (extraRoot x a) (extraRoot_finite x a)
+@[expose] def halfVector (x : W) (a : PositiveRoot M cs) := rootIndicator (halfRoot x a) (halfRoot_finite x a)
 
 /-- A choice of one root in each actual two-element negative pair. -/
 theorem extraVector_eq_half (x : W) (a : PositiveRoot M cs) :
@@ -599,7 +602,7 @@ theorem mapDomain_plane_partner (a : PositiveRoot M cs) (f : PositiveRoot M cs �
   intro b _
   exact rootPlane_partner a b
 
-def planeWeight (x : W) (a : PositiveRoot M cs) : Submodule ℝ (I → ℝ) →₀ ℤ :=
+@[expose] def planeWeight (x : W) (a : PositiveRoot M cs) : Submodule ℝ (I → ℝ) →₀ ℤ :=
   Finsupp.mapDomain (rootPlane a) (halfVector x a)
 
 

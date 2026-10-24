@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Localization.FiniteCharacters. Source spans: IntegralPairings:25.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -12,12 +15,12 @@ variable {R : Type u} [CommRing R] {X : Type v}
   {E : X → Type w} [∀ x, AddCommGroup (E x)] [∀ x, Module R (E x)]
 noncomputable section
 
- def diagonal (f : X → R) : (∀ x, E x) →ₗ[R] (∀ x, E x) where
+ @[expose] def diagonal (f : X → R) : (∀ x, E x) →ₗ[R] (∀ x, E x) where
   toFun m x := f x • m x
   map_add' := by intro m n; funext x; exact smul_add _ _ _
   map_smul' := by intro r m; funext x; exact smul_comm _ _ _
 
- def stabilizer (L : Submodule R (∀ x, E x)) : Subalgebra R (X → R) where
+ @[expose] def stabilizer (L : Submodule R (∀ x, E x)) : Subalgebra R (X → R) where
   carrier := {f | ∀ m ∈ L, diagonal f m ∈ L}
   mul_mem' := by
     intro f g hf hg m hm
@@ -167,7 +170,7 @@ scalar denominator away from the prime. -/
   rw [partition_diagonal_sum q z d g hgin hgout m hmatch]
   exact L.sum_mem fun j _ => L.smul_mem _ (hg j _ (hm j))
 
- def residueSetoid {A : Type*} (p : R) (χ : A → X → R) : Setoid X where
+ @[expose] def residueSetoid {A : Type*} (p : R) (χ : A → X → R) : Setoid X where
   r x y := ∀ a, p ∣ χ a x-χ a y
   iseqv := ⟨fun x a => by rw [sub_self]; exact dvd_zero _,
     fun h a => by simpa only [neg_sub] using dvd_neg.mpr (h a),

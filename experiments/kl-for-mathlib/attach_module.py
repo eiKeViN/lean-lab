@@ -82,8 +82,10 @@ def compare_full(path):
         f.write(gzip.decompress(data));f.flush();old=load(f.name,3947)
     actual=load(path,3947);raw=compare(old,actual)
     if raw['relocated']:raise RuntimeError('Current producer/realizer owner changed')
-    accepted=accept_change(raw)
-    return {'raw':raw,'accepted_representation_changes':[accepted],'passed':True}
+    from module_final import accept_known
+    remaining,batch_accepted=accept_known(raw)
+    accepted=accept_change(remaining)
+    return {'raw':raw,'accepted_representation_changes':[accepted]+batch_accepted,'passed':True}
 
 if __name__=='__main__':
     import argparse

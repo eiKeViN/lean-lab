@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion. Source spans: GradedSheaves:15.
 See migration.json and MIGRATION.md for exact provenance.
@@ -13,16 +16,16 @@ namespace KLInvariance.MomentGraph
 universe um
 variable {V E : Type um} [PartialOrder V] (G : OrderedGraph V E)
 
- def removeGraph (x : V) (ht : ∀ e, G.target e ≠ x) :
+ @[expose] def removeGraph (x : V) (ht : ∀ e, G.target e ≠ x) :
     OrderedGraph {y : V // y ≠ x} {e : E // G.source e ≠ x} where
   source e := ⟨G.source e.val,e.property⟩
   target e := ⟨G.target e.val,ht e.val⟩
   increasing e := G.increasing e.val
 
- def removeTarget (x : V) (ht : ∀ e, G.target e ≠ x) :
+ @[expose] def removeTarget (x : V) (ht : ∀ e, G.target e ≠ x) :
     {e : E // G.source e = x} → {y : V // y ≠ x} := fun e => ⟨G.target e.val,ht e.val⟩
 
-noncomputable def splitVertex (x : V) : V ≃ WithBot {y : V // y ≠ x} := by
+@[expose] noncomputable def splitVertex (x : V) : V ≃ WithBot {y : V // y ≠ x} := by
   classical
   exact
     { toFun := fun y => if h : y=x then ⊥ else (⟨y,h⟩ : {y : V // y ≠ x})
@@ -34,7 +37,7 @@ noncomputable def splitVertex (x : V) : V ≃ WithBot {y : V // y ≠ x} := by
         | bot => simp
         | coe y => simp [y.property] }
 
-noncomputable def splitEdge (x : V) : E ≃ {e : E // G.source e ≠ x} ⊕ {e : E // G.source e = x} := by
+@[expose] noncomputable def splitEdge (x : V) : E ≃ {e : E // G.source e ≠ x} ⊕ {e : E // G.source e = x} := by
   classical
   exact
     { toFun := fun e => if h : G.source e=x then Sum.inr ⟨e,h⟩ else Sum.inl ⟨e,h⟩
@@ -57,7 +60,7 @@ omit [PartialOrder V] in
   classical
   simp [splitVertex,hy]
 
-noncomputable def splitGraph (x : V) (ht : ∀ e, G.target e ≠ x) :
+@[expose] noncomputable def splitGraph (x : V) (ht : ∀ e, G.target e ≠ x) :
     GraphEquiv G (bottomGraph (removeGraph G x ht) (removeTarget G x ht)) where
   vertex := splitVertex x
   edge := splitEdge G x

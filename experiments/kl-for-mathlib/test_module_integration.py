@@ -59,7 +59,7 @@ class ModuleIntegrationChecks(unittest.TestCase):
     def test_exactly_three_module_nodes(self):
         g=m.graph()
         from module_rollout import plan
-        self.assertEqual({n for n,r in g.items() if r['module']},set(plan()['selected']) | set(__import__('attach_module').OWNERS) | set(__import__('module_next').OWNERS))
+        self.assertEqual({n for n,r in g.items() if r['module']},set(plan()['selected']) | set(__import__('attach_module').OWNERS) | set(__import__('module_next').OWNERS) | set(__import__('module_final').OWNERS))
         self.assertEqual(g['OAI.KL.Compatibility.KernelTransport']['imports'][0]['module'],
                          'ForMathlib.LinearAlgebra.KernelTransport')
         self.assertTrue(g['OAI.KL.Compatibility.KernelTransport']['imports'][0]['public'])

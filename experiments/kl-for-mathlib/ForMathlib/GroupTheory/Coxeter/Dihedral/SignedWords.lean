@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Combinatorics.Dihedral.SignedCount
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
-import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport
-import ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.Dihedral.SignedCount
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords. Source spans: DihedralIntervals:1, DihedralIntervals:7, DihedralIntervals:8, DihedralIntervals:19, DihedralIntervals:9, DihedralIntervals:12, DihedralIntervals:15, DihedralIntervals:16.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -23,7 +26,7 @@ noncomputable section
     simp only [cs.wordProd_cons, ih, pow_succ']
     group
 
- def rotation (cs : CoxeterSystem M W) : W := cs.simple false * cs.simple true
+ @[expose] def rotation (cs : CoxeterSystem M W) : W := cs.simple false * cs.simple true
 
  theorem simple_rotation (cs : CoxeterSystem M W) :
     cs.simple false * rotation cs = (rotation cs)⁻¹ * cs.simple false := by
@@ -40,7 +43,7 @@ noncomputable section
 
 /-- The signed coordinate evaluates both alternating rays in the same group.
 The Euclidean quotient also gives the correct odd negative coordinates. -/
- def indexWord (cs : CoxeterSystem M W) (i : ℤ) : W :=
+ @[expose] def indexWord (cs : CoxeterSystem M W) (i : ℤ) : W :=
   if i % 2 = 0 then rotation cs ^ (i/2)
   else rotation cs ^ (i/2) * cs.simple false
 
@@ -438,7 +441,7 @@ namespace KLInvariance.Dihedral
 variable {W : Type*} [Group W] {M : CoxeterMatrix Bool}
 noncomputable section
 
- def GoodIndex (cs : CoxeterSystem M W) (i : ℤ) : Prop :=
+ @[expose] def GoodIndex (cs : CoxeterSystem M W) (i : ℤ) : Prop :=
   ∀ w, (∀ z, cs.length z ≤ cs.length w) → -(cs.length w:ℤ) < i ∧ i ≤ (cs.length w:ℤ)
 
  theorem maximal_or_unbounded (cs : CoxeterSystem M W) :

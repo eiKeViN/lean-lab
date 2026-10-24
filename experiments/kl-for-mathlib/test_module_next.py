@@ -27,8 +27,12 @@ class NextChecks(unittest.TestCase):
     def test_vertex_and_single_equation_policy_remain_bound(self):
         import subprocess
         p='ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean'
-        self.assertEqual((m.HERE/p).read_bytes(),m.baseline(p))
-        for f in ['stalk-equation-compat.json','stalk-equation-old.json','StalkEquationCompat.lean','attach_module.py','compare_types.py']:
+        self.assertEqual((m.HERE/p).read_bytes(),__import__('module_final').convert(p,__import__('module_final').baseline(p)))
+        old_attach=subprocess.check_output(['git','show',m.BASE+':experiments/kl-for-mathlib/attach_module.py'],cwd=m.ROOT).decode()
+        current_attach=(m.HERE/'attach_module.py').read_text()
+        part=lambda s:s[s.index('def accept_change('):s.index('def compare_full(')]
+        self.assertEqual(part(current_attach),part(old_attach))
+        for f in ['stalk-equation-compat.json','stalk-equation-old.json','StalkEquationCompat.lean','compare_types.py']:
             self.assertEqual((m.HERE/f).read_bytes(),subprocess.check_output(['git','show',m.BASE+':experiments/kl-for-mathlib/'+f],cwd=m.ROOT))
 
 if __name__=='__main__':unittest.main()

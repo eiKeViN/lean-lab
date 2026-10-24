@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Roots.Order
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Roots.Order
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels. Source spans: ReflectionSchedules:16, ReflectionSchedules:17.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -74,7 +77,7 @@ include klPreservedInstance7 in
 namespace TitsSpace
 open Module
 
- def graphRoot {x y : W} (h : BruhatStep cs x y) : PositiveRoot M cs :=
+ @[expose] def graphRoot {x y : W} (h : BruhatStep cs x y) : PositiveRoot M cs :=
    positiveRoot M cs ⟨y*x⁻¹,h.label_reflection⟩
 
  theorem graphRoot_represents {x y : W} (h : BruhatStep cs x y) :

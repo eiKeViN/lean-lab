@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem
-import ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength
-import ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem
+public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength
+public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis. Source spans: Decomposition:5, Decomposition:7.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -132,7 +135,7 @@ theorem exists_plane_extreme_inverted (a b : PositiveRoot M cs) (hab : a ≠ b) 
     hc.le hd.le he hlam hram) (rootInverted_ref_self a))
 
 /-- The canonical simple-root criterion stated on the actual ambient roots. -/
-def PlaneSimple (P : Submodule ℝ (I → ℝ)) (a : PositiveRoot M cs) : Prop :=
+@[expose] def PlaneSimple (P : Submodule ℝ (I → ℝ)) (a : PositiveRoot M cs) : Prop :=
   a.val ∈ P ∧ ∀ b : PositiveRoot M cs, b.val ∈ P →
     (rootInverted (rootRef a) b ↔ b = a)
 
@@ -536,12 +539,12 @@ theorem rootRef_ne_one (a : PositiveRoot M cs) : rootRef a ≠ 1 := by
   exact (not_rootInverted_one a) (h ▸ rootInverted_ref_self a)
 
 /-- The genuine dihedral matrix attached to the canonical plane endpoints. -/
-def matrix : CoxeterMatrix Bool :=
+@[expose] def matrix : CoxeterMatrix Bool :=
   Dihedral.pairMatrix (rootRef B.left) (rootRef B.right)
     (rootReflection M cs B.left).property.mul_self B.rootRef_distinct
 
 /-- A proved Coxeter system on the *actual maximal plane subgroup*. -/
-def system : CoxeterSystem B.matrix (planeSubgroup M cs P) :=
+@[expose] def system : CoxeterSystem B.matrix (planeSubgroup M cs P) :=
   (Dihedral.pairSystem (rootRef B.left) (rootRef B.right)
     (rootReflection M cs B.left).property.mul_self
     (rootReflection M cs B.right).property.mul_self B.rootRef_distinct
@@ -550,7 +553,7 @@ def system : CoxeterSystem B.matrix (planeSubgroup M cs P) :=
       (MulEquiv.subgroupCongr B.pairClosure_eq_planeSubgroup)
 
 /-- Canonical simple positive roots, indexed by Bool just like the system. -/
-def simpleRoot (i : Bool) : PositiveRoot M cs := if i then B.right else B.left
+@[expose] def simpleRoot (i : Bool) : PositiveRoot M cs := if i then B.right else B.left
 
 theorem simpleRoot_mem (i : Bool) : (B.simpleRoot i).val ∈ P := by
   cases i
@@ -718,7 +721,7 @@ theorem reflection_iff (t : planeSubgroup M cs P) :
 
 /-- The true ambient plane inversions are in bijection with the inversions
 of the canonical induced system. -/
-def inversionEquiv (w : planeSubgroup M cs P) :
+@[expose] def inversionEquiv (w : planeSubgroup M cs P) :
     {a : PositiveRoot M cs // a.val ∈ P ∧ rootInverted (w:W) a} ≃
       {t : planeSubgroup M cs P // B.system.IsLeftInversion w t} where
   toFun a := ⟨⟨rootRef a.val,

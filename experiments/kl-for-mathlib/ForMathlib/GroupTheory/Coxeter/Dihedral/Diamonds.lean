@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure
-import ForMathlib.GroupTheory.Coxeter.Dihedral.Words
-import ForMathlib.Order.Interval.Diamonds
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.Words
+public import ForMathlib.Order.Interval.Diamonds
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds. Source spans: ReflectionSchedules:19, ReflectionSchedules:20.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -96,7 +96,8 @@ def products():
  from module_rollout import overlay as rollout
  from attach_module import overlay as attach
  from module_next import overlay as next_modules
- return next_modules(attach(rollout(modules(overlay(pristine_products())))))
+ from module_final import overlay as final_modules
+ return final_modules(next_modules(attach(rollout(modules(overlay(pristine_products()))))))
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args();files=products()

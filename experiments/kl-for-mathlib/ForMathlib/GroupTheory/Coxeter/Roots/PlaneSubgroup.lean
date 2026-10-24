@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup. Source spans: Tits:21, Tits:22.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,7 +19,7 @@ noncomputable section
 
 /-- Elements whose actual linear displacement lies in `P`. This is a
 subgroup even when the invariant bilinear form restricted to `P` is singular. -/
-def movingSubgroup (P : Submodule ℝ (I → ℝ)) : Subgroup W where
+@[expose] def movingSubgroup (P : Submodule ℝ (I → ℝ)) : Subgroup W where
   carrier := {w | ∀ v, action M cs w v - v ∈ P}
   one_mem' := by intro v; simp
   mul_mem' := by
@@ -33,7 +36,7 @@ def movingSubgroup (P : Submodule ℝ (I → ℝ)) : Subgroup W where
 
 /-- The manuscript's maximal plane reflection subgroup, defined using
 actual normalized roots, not by assuming a rank-two presentation. -/
-def planeSubgroup (P : Submodule ℝ (I → ℝ)) : Subgroup W :=
+@[expose] def planeSubgroup (P : Submodule ℝ (I → ℝ)) : Subgroup W :=
   Subgroup.closure {t | ∃ a, Represents M cs t a ∧ a ∈ P}
 
 theorem planeSubgroup_le_moving (P : Submodule ℝ (I → ℝ)) :

@@ -1,0 +1,953 @@
+{
+  "schema": 1,
+  "base_commit": "0917d25afb52e46cae4233d3056020ed6f881fa3",
+  "held_structure_closure": [
+    "ForMathlib",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+    "OAI.Architecture",
+    "OAI.KL",
+    "OAI.KL.Comparison.SuffixFreeness",
+    "OAI.KL.Invariance.Finite",
+    "OAI.KL.Invariance.Main",
+    "OAI.KL.Localization.Edge",
+    "OAI.KL.Localization.Plane",
+    "OAI.KL.Localization.TerminalImages",
+    "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings",
+    "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson",
+    "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity",
+    "OAI.RepresentationTheory.KazhdanLusztig.Decomposition",
+    "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals",
+    "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths",
+    "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization",
+    "OAI.RepresentationTheory.KazhdanLusztig.Frobenius",
+    "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings",
+    "OAI.RepresentationTheory.KazhdanLusztig.Invariance",
+    "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions",
+    "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization",
+    "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer",
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders",
+    "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms",
+    "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance",
+    "OAI.RepresentationTheory.KazhdanLusztig.Support",
+    "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels"
+  ],
+  "files": {
+    "ForMathlib/Algebra/Algebra/ReflectionFrobenius/Basic.lean": {
+      "before_sha256": "b1c87ce8a9cdf7693e0883cf3663eeea3da7a2d73f34af7b69cfac48f66f49a9",
+      "after_sha256": "36782a5a13175c3ba92c7f86b694932d3049ba33179bdc269ac992bee7c3aa95",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n"
+        },
+        {
+          "start": 392,
+          "old": "def fixed (\u03c4 : A \u2243\u2090[k] A) : Subalgebra k A :=\n",
+          "new": "@[expose] def fixed (\u03c4 : A \u2243\u2090[k] A) : Subalgebra k A :=\n"
+        },
+        {
+          "start": 757,
+          "old": "def expand : (fixed \u03c4 \u00d7 fixed \u03c4) \u2192\u2097[fixed \u03c4] A where\n",
+          "new": "@[expose] def expand : (fixed \u03c4 \u00d7 fixed \u03c4) \u2192\u2097[fixed \u03c4] A where\n"
+        },
+        {
+          "start": 3209,
+          "old": "def coordinates : A \u2243\u2097[fixed \u03c4] (fixed \u03c4 \u00d7 fixed \u03c4) :=\n",
+          "new": "@[expose] def coordinates : A \u2243\u2097[fixed \u03c4] (fixed \u03c4 \u00d7 fixed \u03c4) :=\n"
+        },
+        {
+          "start": 3736,
+          "old": "def trace : A \u2192\u2097[fixed \u03c4] fixed \u03c4 :=\n",
+          "new": "@[expose] def trace : A \u2192\u2097[fixed \u03c4] fixed \u03c4 :=\n"
+        },
+        {
+          "start": 5041,
+          "old": "def crossPair : (R \u00d7 R) \u2192\u2097[R] Module.Dual R (R \u00d7 R) where\n",
+          "new": "@[expose] def crossPair : (R \u00d7 R) \u2192\u2097[R] Module.Dual R (R \u00d7 R) where\n"
+        },
+        {
+          "start": 6065,
+          "old": "def crossPairEquiv : (R \u00d7 R) \u2243\u2097[R] Module.Dual R (R \u00d7 R) :=\n",
+          "new": "@[expose] def crossPairEquiv : (R \u00d7 R) \u2243\u2097[R] Module.Dual R (R \u00d7 R) :=\n"
+        },
+        {
+          "start": 6278,
+          "old": "def duality : A \u2243\u2097[fixed \u03c4] Module.Dual (fixed \u03c4) A :=\n",
+          "new": "@[expose] def duality : A \u2243\u2097[fixed \u03c4] Module.Dual (fixed \u03c4) A :=\n"
+        },
+        {
+          "start": 6872,
+          "old": "def symmetricMap (e : V \u2243\u2097[k] V) : SymmetricAlgebra k V \u2192\u2090[k] SymmetricAlgebra k V :=\n",
+          "new": "@[expose] def symmetricMap (e : V \u2243\u2097[k] V) : SymmetricAlgebra k V \u2192\u2090[k] SymmetricAlgebra k V :=\n"
+        },
+        {
+          "start": 7673,
+          "old": "def symmetricAction (e : V \u2243\u2097[k] V) : SymmetricAlgebra k V \u2243\u2090[k] SymmetricAlgebra k V :=\n",
+          "new": "@[expose] def symmetricAction (e : V \u2243\u2097[k] V) : SymmetricAlgebra k V \u2243\u2090[k] SymmetricAlgebra k V :=\n"
+        },
+        {
+          "start": 10176,
+          "old": "def reflectionDuality :\n",
+          "new": "@[expose] def reflectionDuality :\n"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean": {
+      "before_sha256": "d67eb93ecbb8ae1ffbc2eb79e968f6a2be983f8b81aede6b535c118a38490274",
+      "after_sha256": "6b13aab37ceb798a57ef3c2d130517b86e3e79c2de889321cdb2b40f3762e15c",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n"
+        },
+        {
+          "start": 416,
+          "old": " def diagonal (f : X \u2192 R) : (\u2200 x, E x) \u2192\u2097[R] (\u2200 x, E x) where\n",
+          "new": " @[expose] def diagonal (f : X \u2192 R) : (\u2200 x, E x) \u2192\u2097[R] (\u2200 x, E x) where\n"
+        },
+        {
+          "start": 624,
+          "old": " def stabilizer (L : Submodule R (\u2200 x, E x)) : Subalgebra R (X \u2192 R) where\n",
+          "new": " @[expose] def stabilizer (L : Submodule R (\u2200 x, E x)) : Subalgebra R (X \u2192 R) where\n"
+        },
+        {
+          "start": 6781,
+          "old": " def residueSetoid {A : Type*} (p : R) (\u03c7 : A \u2192 X \u2192 R) : Setoid X where\n",
+          "new": " @[expose] def residueSetoid {A : Type*} (p : R) (\u03c7 : A \u2192 X \u2192 R) : Setoid X where\n"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean": {
+      "before_sha256": "24b140315f0fc0d84b8545eb4c5d8274105d5ef32ea9c9703b94a37f294eb046",
+      "after_sha256": "9b27b01a8373f1c2822aafe7ccac7c71e7edd2c7d79d62879268d35b51846cb6",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex\nimport ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex\npublic import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom\n\npublic section\n"
+        },
+        {
+          "start": 636,
+          "old": " def removeGraph (x : V) (ht : \u2200 e, G.target e \u2260 x) :\n",
+          "new": " @[expose] def removeGraph (x : V) (ht : \u2200 e, G.target e \u2260 x) :\n"
+        },
+        {
+          "start": 876,
+          "old": " def removeTarget (x : V) (ht : \u2200 e, G.target e \u2260 x) :\n",
+          "new": " @[expose] def removeTarget (x : V) (ht : \u2200 e, G.target e \u2260 x) :\n"
+        },
+        {
+          "start": 1019,
+          "old": "noncomputable def splitVertex (x : V) : V \u2243 WithBot {y : V // y \u2260 x} := by\n",
+          "new": "@[expose] noncomputable def splitVertex (x : V) : V \u2243 WithBot {y : V // y \u2260 x} := by\n"
+        },
+        {
+          "start": 1445,
+          "old": "noncomputable def splitEdge (x : V) : E \u2243 {e : E // G.source e \u2260 x} \u2295 {e : E // G.source e = x} := by\n",
+          "new": "@[expose] noncomputable def splitEdge (x : V) : E \u2243 {e : E // G.source e \u2260 x} \u2295 {e : E // G.source e = x} := by\n"
+        },
+        {
+          "start": 2198,
+          "old": "noncomputable def splitGraph (x : V) (ht : \u2200 e, G.target e \u2260 x) :\n",
+          "new": "@[expose] noncomputable def splitGraph (x : V) (ht : \u2200 e, G.target e \u2260 x) :\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Bruhat/DiamondClosure.lean": {
+      "before_sha256": "31893cf9b2e718c75c69d99a9f51e98b9c9249b2dae8e643444d3682923074fd",
+      "after_sha256": "53acca0d695cc46ccfe35ce3b7877d425953a08fd8b5f5f1e0a61df7f8480c3e",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels\nimport ForMathlib.Order.Interval.Diamonds\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionLabels\npublic import ForMathlib.Order.Interval.Diamonds\n\npublic section\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Bruhat/Diamonds.lean": {
+      "before_sha256": "1a3a1355eb26f28424874e5fb4e7193f62366b4b860c229c211e41a40fe9e843",
+      "after_sha256": "d639389e0441076681e38d02a6e47e6fc2efd53b42f1060f37b691a14b769238",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList\nimport ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Parabolic.InversionList\npublic import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis\n\npublic section\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Dihedral/Diamonds.lean": {
+      "before_sha256": "eb561fa1597232e02896782296dd840067ff9e2c4337835e1ee3f0ab2ee3b2d4",
+      "after_sha256": "53a78b2c07ef17367c5142ffa52e29f98176618e141c08354570a9a9817c531b",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.Words\nimport ForMathlib.Order.Interval.Diamonds\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.DiamondClosure\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.Words\npublic import ForMathlib.Order.Interval.Diamonds\n\npublic section\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Dihedral/IntervalTransport.lean": {
+      "before_sha256": "77cf1b2840e551c9d9fbdea10a9bdcfa4d56c5b18d7b24afab820d8dfdca6c41",
+      "after_sha256": "f0362fec9bfc8d499a6a35453d9541034e4bc1f54afd964b3a37a30ea00c18b4",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds\n\npublic section\n"
+        },
+        {
+          "start": 2296,
+          "old": "def swapHom (cs : CoxeterSystem M W) : W \u2192* W :=\n",
+          "new": "@[expose] def swapHom (cs : CoxeterSystem M W) : W \u2192* W :=\n"
+        },
+        {
+          "start": 2973,
+          "old": "def swap (cs : CoxeterSystem M W) : W \u2243* W where\n",
+          "new": "@[expose] def swap (cs : CoxeterSystem M W) : W \u2243* W where\n"
+        },
+        {
+          "start": 6602,
+          "old": "def rankFlip (cs : CoxeterSystem M W) (L H : \u2115) (w : W) : W :=\n",
+          "new": "@[expose] def rankFlip (cs : CoxeterSystem M W) (L H : \u2115) (w : W) : W :=\n"
+        },
+        {
+          "start": 7980,
+          "old": "def intervalFlip (cs : CoxeterSystem M W) (lo hi : W) :\n",
+          "new": "@[expose] def intervalFlip (cs : CoxeterSystem M W) (lo hi : W) :\n"
+        },
+        {
+          "start": 9326,
+          "old": "def edgeFlip (cs : CoxeterSystem M W) (lo hi : W) :\n",
+          "new": "@[expose] def edgeFlip (cs : CoxeterSystem M W) (lo hi : W) :\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Dihedral/PlaneSystem.lean": {
+      "before_sha256": "d3e2c546b9345cf7b0c06a1a8c1c787340c433f73dd096d4cabca87f56a0fc61",
+      "after_sha256": "34312dffa8bc69ef0c9fc28a0a84c4e978b3b7709ecf38802c56704f6df49128",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds\n\npublic section\n"
+        },
+        {
+          "start": 417,
+          "old": "def pairMatrix (s t : G) (hs : s * s = 1) (hst : s \u2260 t) : CoxeterMatrix Bool where\n",
+          "new": "@[expose] def pairMatrix (s t : G) (hs : s * s = 1) (hst : s \u2260 t) : CoxeterMatrix Bool where\n"
+        },
+        {
+          "start": 2835,
+          "old": "def pairLift : (pairMatrix s t hs hst).Group \u2192* G :=\n",
+          "new": "@[expose] def pairLift : (pairMatrix s t hs hst).Group \u2192* G :=\n"
+        },
+        {
+          "start": 5287,
+          "old": "def pairSystem (hs1 : s \u2260 1) (ht1 : t \u2260 1) :\n",
+          "new": "@[expose] def pairSystem (hs1 : s \u2260 1) (ht1 : t \u2260 1) :\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Dihedral/SignedWords.lean": {
+      "before_sha256": "eefc36d7587c70a02368d6fe849ca7f729c0b246acee4bde51995f0595c07053",
+      "after_sha256": "e12934d2af17482d22098a796525d1093275d82e55c23e9d5a3942d2741fba88",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.Dihedral.SignedCount\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Descent\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.Dihedral.SignedCount\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem\n\npublic section\n"
+        },
+        {
+          "start": 1031,
+          "old": " def rotation (cs : CoxeterSystem M W) : W := cs.simple false * cs.simple true\n",
+          "new": " @[expose] def rotation (cs : CoxeterSystem M W) : W := cs.simple false * cs.simple true\n"
+        },
+        {
+          "start": 1937,
+          "old": " def indexWord (cs : CoxeterSystem M W) (i : \u2124) : W :=\n",
+          "new": " @[expose] def indexWord (cs : CoxeterSystem M W) (i : \u2124) : W :=\n"
+        },
+        {
+          "start": 17106,
+          "old": " def GoodIndex (cs : CoxeterSystem M W) (i : \u2124) : Prop :=\n",
+          "new": " @[expose] def GoodIndex (cs : CoxeterSystem M W) (i : \u2124) : Prop :=\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/Basic.lean": {
+      "before_sha256": "45623d1726d4754d03cd5c2c7ea3d9045aad7fcd445b9bb8cea58dc781fa626f",
+      "after_sha256": "e036f0a345f55085744de3f88094846e2155e9adaa5cec64a9ccf223c2089a14",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Realization.Faithful\nimport ForMathlib.LinearAlgebra.Reflection.Plane\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Faithful\npublic import ForMathlib.LinearAlgebra.Reflection.Plane\n\npublic section\n"
+        },
+        {
+          "start": 576,
+          "old": "def IsRoot (a : I \u2192 \u211d) : Prop := \u2203 w : W, \u2203 i : I, a = action M cs w (root i)\n",
+          "new": "@[expose] def IsRoot (a : I \u2192 \u211d) : Prop := \u2203 w : W, \u2203 i : I, a = action M cs w (root i)\n"
+        },
+        {
+          "start": 728,
+          "old": "def Represents (t : W) (a : I \u2192 \u211d) : Prop :=\n",
+          "new": "@[expose] def Represents (t : W) (a : I \u2192 \u211d) : Prop :=\n"
+        },
+        {
+          "start": 5877,
+          "old": "def PositiveRoot := {a : I \u2192 \u211d // IsRoot M cs a \u2227 \u2200 i, 0 \u2264 a i}\n",
+          "new": "@[expose] def PositiveRoot := {a : I \u2192 \u211d // IsRoot M cs a \u2227 \u2200 i, 0 \u2264 a i}\n"
+        },
+        {
+          "start": 5942,
+          "old": "def positiveRoot (t : {t : W // cs.IsReflection t}) : PositiveRoot M cs :=\n",
+          "new": "@[expose] def positiveRoot (t : {t : W // cs.IsReflection t}) : PositiveRoot M cs :=\n"
+        },
+        {
+          "start": 6371,
+          "old": "def rootReflection (a : PositiveRoot M cs) : {t : W // cs.IsReflection t} := by\n",
+          "new": "@[expose] def rootReflection (a : PositiveRoot M cs) : {t : W // cs.IsReflection t} := by\n"
+        },
+        {
+          "start": 6807,
+          "old": "def positiveRootEquiv : {t : W // cs.IsReflection t} \u2243 PositiveRoot M cs where\n",
+          "new": "@[expose] def positiveRootEquiv : {t : W // cs.IsReflection t} \u2243 PositiveRoot M cs where\n"
+        },
+        {
+          "start": 9613,
+          "old": "def SignedRepresents (p : W \u00d7 ZMod 2) (a : I \u2192 \u211d) : Prop :=\n",
+          "new": "@[expose] def SignedRepresents (p : W \u00d7 ZMod 2) (a : I \u2192 \u211d) : Prop :=\n"
+        },
+        {
+          "start": 16192,
+          "old": "def RootInversions (w : W) :=\n",
+          "new": "@[expose] def RootInversions (w : W) :=\n"
+        },
+        {
+          "start": 16285,
+          "old": "def rootInversionEquiv (w : W) : RootInversions M cs w \u2243 {t : W // cs.IsLeftInversion w t} where\n",
+          "new": "@[expose] def rootInversionEquiv (w : W) : RootInversions M cs w \u2243 {t : W // cs.IsLeftInversion w t} where\n"
+        },
+        {
+          "start": 17091,
+          "old": "def leftInversionListEquiv {\u03c9 : List I} (h\u03c9 : cs.IsReduced \u03c9) :\n",
+          "new": "@[expose] def leftInversionListEquiv {\u03c9 : List I} (h\u03c9 : cs.IsReduced \u03c9) :\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/DihedralOrder.lean": {
+      "before_sha256": "a4535c6f7e203852aec3d28dbd5106d6f4abf1a319838d6746592a89244f2219",
+      "after_sha256": "45e836947baba9eecb80c8ded2552c0039140a64ff700f24fc4d6a2befa45cfd",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords\nimport ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords\npublic import ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder\n\npublic section\n"
+        },
+        {
+          "start": 646,
+          "old": " def prefixRoot (w : planeSubgroup M cs P) (n : \u2115) : PositiveRoot M cs :=\n",
+          "new": " @[expose] def prefixRoot (w : planeSubgroup M cs P) (n : \u2115) : PositiveRoot M cs :=\n"
+        },
+        {
+          "start": 808,
+          "old": " def negPrefixRoot (w : planeSubgroup M cs P) (n : \u2115) : PositiveRoot M cs :=\n",
+          "new": " @[expose] def negPrefixRoot (w : planeSubgroup M cs P) (n : \u2115) : PositiveRoot M cs :=\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/LaterCount.lean": {
+      "before_sha256": "6156389f889323daae66a8e0354c5a6b0c707daa181bb7a717763f8c59e6711f",
+      "after_sha256": "e4e9d95b3427df067051d9bdb8e3250a91a63624e6d4ad82bad3e18bf4aa498d",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder\nimport ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder\npublic import ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport\n\npublic section\n"
+        },
+        {
+          "start": 2950,
+          "old": " def afterIndicator (x : planeSubgroup M cs P) (\u03b1 : PositiveRoot M cs)\n",
+          "new": " @[expose] def afterIndicator (x : planeSubgroup M cs P) (\u03b1 : PositiveRoot M cs)\n"
+        },
+        {
+          "start": 5719,
+          "old": " def laterCount (x : planeSubgroup M cs P) (\u03b1 : PositiveRoot M cs)\n",
+          "new": " @[expose] def laterCount (x : planeSubgroup M cs P) (\u03b1 : PositiveRoot M cs)\n"
+        },
+        {
+          "start": 14111,
+          "old": " def ambientAfterIndicator (x : W) (\u03b1 : PositiveRoot M cs) (z : W) : \u2115 := by\n",
+          "new": " @[expose] def ambientAfterIndicator (x : W) (\u03b1 : PositiveRoot M cs) (z : W) : \u2115 := by\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/Order.lean": {
+      "before_sha256": "bd576d42859efea13c959e6c2feb16e5fc2b3483b3dbbc2da07f0900bbb09e2f",
+      "after_sha256": "85f6c093841a69bbca2b2bac4a8c291eedb301d8ab84edd713af025b74f1a460",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Roots.Basic\nimport ForMathlib.LinearAlgebra.Avoidance\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Roots.Basic\npublic import ForMathlib.LinearAlgebra.Avoidance\n\npublic section\n"
+        },
+        {
+          "start": 595,
+          "old": "def height : Module.Dual \u211d (I \u2192 \u211d) where\n",
+          "new": "@[expose] def height : Module.Dual \u211d (I \u2192 \u211d) where\n"
+        },
+        {
+          "start": 1114,
+          "old": "def normalizedRoot (a : PositiveRoot M cs) : I \u2192 \u211d := (height a.val)\u207b\u00b9 \u2022 a.val\n",
+          "new": "@[expose] def normalizedRoot (a : PositiveRoot M cs) : I \u2192 \u211d := (height a.val)\u207b\u00b9 \u2022 a.val\n"
+        },
+        {
+          "start": 3832,
+          "old": "def positiveAction (w : W) (a : PositiveRoot M cs) : PositiveRoot M cs :=\n",
+          "new": "@[expose] def positiveAction (w : W) (a : PositiveRoot M cs) : PositiveRoot M cs :=\n"
+        },
+        {
+          "start": 5821,
+          "old": "def positiveActionEquiv (w : W) : Equiv.Perm (PositiveRoot M cs) where\n",
+          "new": "@[expose] def positiveActionEquiv (w : W) : Equiv.Perm (PositiveRoot M cs) where\n"
+        },
+        {
+          "start": 6431,
+          "old": "def rootInverted (w : W) (a : PositiveRoot M cs) : Prop :=\n",
+          "new": "@[expose] def rootInverted (w : W) (a : PositiveRoot M cs) : Prop :=\n"
+        },
+        {
+          "start": 9796,
+          "old": "def inversionVector (w : W) : PositiveRoot M cs \u2192\u2080 \u2124 := by\n",
+          "new": "@[expose] def inversionVector (w : W) : PositiveRoot M cs \u2192\u2080 \u2124 := by\n"
+        },
+        {
+          "start": 10981,
+          "old": "def rootChange (x y : W) : PositiveRoot M cs \u2192\u2080 \u2124 := inversionVector y - inversionVector x\n",
+          "new": "@[expose] def rootChange (x y : W) : PositiveRoot M cs \u2192\u2080 \u2124 := inversionVector y - inversionVector x\n"
+        },
+        {
+          "start": 11073,
+          "old": "def rootPlane (a b : PositiveRoot M cs) : Submodule \u211d (I \u2192 \u211d) :=\n",
+          "new": "@[expose] def rootPlane (a b : PositiveRoot M cs) : Submodule \u211d (I \u2192 \u211d) :=\n"
+        },
+        {
+          "start": 11297,
+          "old": "def planeDefect (x y : W) (a : PositiveRoot M cs) : Submodule \u211d (I \u2192 \u211d) \u2192\u2080 \u2124 :=\n",
+          "new": "@[expose] def planeDefect (x y : W) (a : PositiveRoot M cs) : Submodule \u211d (I \u2192 \u211d) \u2192\u2080 \u2124 :=\n"
+        },
+        {
+          "start": 16791,
+          "old": "def goodPairRoot (x : W) (a b : PositiveRoot M cs) : Prop :=\n",
+          "new": "@[expose] def goodPairRoot (x : W) (a b : PositiveRoot M cs) : Prop :=\n"
+        },
+        {
+          "start": 21128,
+          "old": "def geometricFunctional : Module.Dual \u211d (I \u2192 \u211d) := (exists_geometric_functional M cs).choose\n",
+          "new": "@[expose] def geometricFunctional : Module.Dual \u211d (I \u2192 \u211d) := (exists_geometric_functional M cs).choose\n"
+        },
+        {
+          "start": 21222,
+          "old": "def geometricSlope (a : PositiveRoot M cs) : \u211d := geometricFunctional (M := M) (cs := cs) a.val / height a.val\n",
+          "new": "@[expose] def geometricSlope (a : PositiveRoot M cs) : \u211d := geometricFunctional (M := M) (cs := cs) a.val / height a.val\n"
+        },
+        {
+          "start": 21478,
+          "old": "@[instance_reducible]\n",
+          "new": "@[instance_reducible, expose]\n"
+        },
+        {
+          "start": 21973,
+          "old": "def partnerEquiv (a : PositiveRoot M cs) : Equiv.Perm (PositiveRoot M cs) :=\n",
+          "new": "@[expose] def partnerEquiv (a : PositiveRoot M cs) : Equiv.Perm (PositiveRoot M cs) :=\n"
+        },
+        {
+          "start": 22330,
+          "old": "def extraRoot (x : W) (a b : PositiveRoot M cs) : Prop := b \u2260 a \u2227 goodPairRoot x a b\n",
+          "new": "@[expose] def extraRoot (x : W) (a b : PositiveRoot M cs) : Prop := b \u2260 a \u2227 goodPairRoot x a b\n"
+        },
+        {
+          "start": 22850,
+          "old": "def halfRoot (x : W) (a b : PositiveRoot M cs) : Prop :=\n",
+          "new": "@[expose] def halfRoot (x : W) (a b : PositiveRoot M cs) : Prop :=\n"
+        },
+        {
+          "start": 23115,
+          "old": "def rootIndicator (p : PositiveRoot M cs \u2192 Prop) (hp : {a | p a}.Finite) : PositiveRoot M cs \u2192\u2080 \u2124 :=\n",
+          "new": "@[expose] def rootIndicator (p : PositiveRoot M cs \u2192 Prop) (hp : {a | p a}.Finite) : PositiveRoot M cs \u2192\u2080 \u2124 :=\n"
+        },
+        {
+          "start": 23549,
+          "old": "def extraVector (x : W) (a : PositiveRoot M cs) := rootIndicator (extraRoot x a) (extraRoot_finite x a)\ndef halfVector (x : W) (a : PositiveRoot M cs) := rootIndicator (halfRoot x a) (halfRoot_finite x a)\n",
+          "new": "@[expose] def extraVector (x : W) (a : PositiveRoot M cs) := rootIndicator (extraRoot x a) (extraRoot_finite x a)\n@[expose] def halfVector (x : W) (a : PositiveRoot M cs) := rootIndicator (halfRoot x a) (halfRoot_finite x a)\n"
+        },
+        {
+          "start": 25660,
+          "old": "def planeWeight (x : W) (a : PositiveRoot M cs) : Submodule \u211d (I \u2192 \u211d) \u2192\u2080 \u2124 :=\n",
+          "new": "@[expose] def planeWeight (x : W) (a : PositiveRoot M cs) : Submodule \u211d (I \u2192 \u211d) \u2192\u2080 \u2124 :=\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/PlaneBasis.lean": {
+      "before_sha256": "157d95def46dfa8ea69e7f48b579214a98b8b17334ae8ebdb3da747b9f21b0cf",
+      "after_sha256": "650f7cfeedaa93345fb1433554d6ee626429a5357f54597f45e1526d3bd8233b",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem\nimport ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength\nimport ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem\npublic import ForMathlib.GroupTheory.Coxeter.Roots.PlaneLength\npublic import ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup\n\npublic section\n"
+        },
+        {
+          "start": 6079,
+          "old": "def PlaneSimple (P : Submodule \u211d (I \u2192 \u211d)) (a : PositiveRoot M cs) : Prop :=\n",
+          "new": "@[expose] def PlaneSimple (P : Submodule \u211d (I \u2192 \u211d)) (a : PositiveRoot M cs) : Prop :=\n"
+        },
+        {
+          "start": 25345,
+          "old": "def matrix : CoxeterMatrix Bool :=\n",
+          "new": "@[expose] def matrix : CoxeterMatrix Bool :=\n"
+        },
+        {
+          "start": 25579,
+          "old": "def system : CoxeterSystem B.matrix (planeSubgroup M cs P) :=\n",
+          "new": "@[expose] def system : CoxeterSystem B.matrix (planeSubgroup M cs P) :=\n"
+        },
+        {
+          "start": 26024,
+          "old": "def simpleRoot (i : Bool) : PositiveRoot M cs := if i then B.right else B.left\n",
+          "new": "@[expose] def simpleRoot (i : Bool) : PositiveRoot M cs := if i then B.right else B.left\n"
+        },
+        {
+          "start": 33882,
+          "old": "def inversionEquiv (w : planeSubgroup M cs P) :\n",
+          "new": "@[expose] def inversionEquiv (w : planeSubgroup M cs P) :\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/PlaneLength.lean": {
+      "before_sha256": "a947f85036224184ae2c0a0f18b2393885419dbad57bc3e59e4e00376b6c1c03",
+      "after_sha256": "5ba3f693f589b06cf2eff38eed62fe973b7a676d963e0fb28770c24e62c0011a",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Roots.Order\nimport ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Roots.Order\npublic import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal\n\npublic section\n"
+        },
+        {
+          "start": 817,
+          "old": "def planeLength (P : Submodule \u211d (I \u2192 \u211d)) (w : W) : \u2124 :=\n",
+          "new": "@[expose] def planeLength (P : Submodule \u211d (I \u2192 \u211d)) (w : W) : \u2124 :=\n"
+        },
+        {
+          "start": 4024,
+          "old": "def planeRoot (x : W) (a : PositiveRoot M cs)\n",
+          "new": "@[expose] def planeRoot (x : W) (a : PositiveRoot M cs)\n"
+        },
+        {
+          "start": 5087,
+          "old": "def reducedPlaneRoot (x : W) (a : PositiveRoot M cs)\n",
+          "new": "@[expose] def reducedPlaneRoot (x : W) (a : PositiveRoot M cs)\n"
+        },
+        {
+          "start": 5689,
+          "old": "def edgeFactor (x : W) (a : PositiveRoot M cs) : EdgeCoefficient a :=\n",
+          "new": "@[expose] def edgeFactor (x : W) (a : PositiveRoot M cs) : EdgeCoefficient a :=\n"
+        },
+        {
+          "start": 5850,
+          "old": "def edgeFactorDegree (x : W) (a : PositiveRoot M cs) : \u2115 :=\n",
+          "new": "@[expose] def edgeFactorDegree (x : W) (a : PositiveRoot M cs) : \u2115 :=\n"
+        },
+        {
+          "start": 5976,
+          "old": "def edgePolynomial (a : PositiveRoot M cs) : EdgeCoefficient a \u2243\u2090[\u211d]\n",
+          "new": "@[expose] def edgePolynomial (a : PositiveRoot M cs) : EdgeCoefficient a \u2243\u2090[\u211d]\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/PlaneSubgroup.lean": {
+      "before_sha256": "09720f23b73f2f9f93786359907584c3704c3fff6bdfc8cdaa84bde5ab027dcd",
+      "after_sha256": "0f462b0bc21929c521b64afb6f7d70c41b256c2a59d82c8e5f03be1f8483460f",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Roots.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Roots.Basic\n\npublic section\n"
+        },
+        {
+          "start": 591,
+          "old": "def movingSubgroup (P : Submodule \u211d (I \u2192 \u211d)) : Subgroup W where\n",
+          "new": "@[expose] def movingSubgroup (P : Submodule \u211d (I \u2192 \u211d)) : Subgroup W where\n"
+        },
+        {
+          "start": 1302,
+          "old": "def planeSubgroup (P : Submodule \u211d (I \u2192 \u211d)) : Subgroup W :=\n",
+          "new": "@[expose] def planeSubgroup (P : Submodule \u211d (I \u2192 \u211d)) : Subgroup W :=\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/PlaneTransport.lean": {
+      "before_sha256": "8bf249a9af4054e85bd5dd0481fb105573cd93f44bcc1e76455f3de055cc4505",
+      "after_sha256": "9930b657d74505fb907ab04a7da177ff9699962120fb28520d4d4bdf0439aa09",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.Diamonds\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport\n\npublic section\n"
+        },
+        {
+          "start": 9471,
+          "old": "def cosetIntervalMap {a\u2080 u b : W}\n",
+          "new": "@[expose] def cosetIntervalMap {a\u2080 u b : W}\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/RatioOrder.lean": {
+      "before_sha256": "eac50f01fae2546ec2bfa195f8980f9718eab845f99492597c1782aeba8df22f",
+      "after_sha256": "2acf5a9b9b90d6049b4a9603366b39bd2fe9d1d11b3b636a61d6b1ca3f8acaae",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.DirectedPaths.Subpaths\nimport ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport\nimport ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.DirectedPaths.Subpaths\npublic import ForMathlib.GroupTheory.Coxeter.Dihedral.IntervalTransport\npublic import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis\n\npublic section\n"
+        },
+        {
+          "start": 738,
+          "old": "def simplePositive (i : I) : PositiveRoot M cs :=\n",
+          "new": "@[expose] def simplePositive (i : I) : PositiveRoot M cs :=\n"
+        },
+        {
+          "start": 1692,
+          "old": "def PositiveFunctional (h : Module.Dual \u211d (I \u2192 \u211d)) : Prop := \u2200 i, 0 < h (root i)\n",
+          "new": "@[expose] def PositiveFunctional (h : Module.Dual \u211d (I \u2192 \u211d)) : Prop := \u2200 i, 0 < h (root i)\n"
+        },
+        {
+          "start": 2755,
+          "old": "def slope (a : PositiveRoot M cs) : \u211d := O.numerator a.val / O.denominator a.val\n",
+          "new": "@[expose] def slope (a : PositiveRoot M cs) : \u211d := O.numerator a.val / O.denominator a.val\n"
+        },
+        {
+          "start": 3079,
+          "old": "def Adapted (y : W) : Prop := \u2200 a : PositiveRoot M cs,\n",
+          "new": "@[expose] def Adapted (y : W) : Prop := \u2200 a : PositiveRoot M cs,\n"
+        },
+        {
+          "start": 5256,
+          "old": "def Chamber (y : W) : Prop := \u2200 i, 0 < O.numerator (action M cs y (root i))\n",
+          "new": "@[expose] def Chamber (y : W) : Prop := \u2200 i, 0 < O.numerator (action M cs y (root i))\n"
+        },
+        {
+          "start": 11418,
+          "old": "def turnNumerator (i : I) : Module.Dual \u211d (I \u2192 \u211d) :=\n",
+          "new": "@[expose] def turnNumerator (i : I) : Module.Dual \u211d (I \u2192 \u211d) :=\n"
+        },
+        {
+          "start": 11531,
+          "old": "def turnDenominator (i : I) (k : \u211d) : Module.Dual \u211d (I \u2192 \u211d) :=\n",
+          "new": "@[expose] def turnDenominator (i : I) (k : \u211d) : Module.Dual \u211d (I \u2192 \u211d) :=\n"
+        },
+        {
+          "start": 15710,
+          "old": "def turn (i : I) (k : \u211d) (hk : k \u2260 0)\n",
+          "new": "@[expose] def turn (i : I) (k : \u211d) (hk : k \u2260 0)\n"
+        },
+        {
+          "start": 27205,
+          "old": "def edgeRoot {x y : planeSubgroup M cs P} (h : BruhatStep B.system x y) :\n",
+          "new": "@[expose] def edgeRoot {x y : planeSubgroup M cs P} (h : BruhatStep B.system x y) :\n"
+        },
+        {
+          "start": 30914,
+          "old": "def intervalEdgeSlope (lo hi : planeSubgroup M cs P) (e : Edge B.system lo hi) : \u211d :=\n",
+          "new": "@[expose] def intervalEdgeSlope (lo hi : planeSubgroup M cs P) (e : Edge B.system lo hi) : \u211d :=\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/ReflectionLabels.lean": {
+      "before_sha256": "4da1baeda850920c4bcd160ee427e4799600234c1c69b45c3c497510a5533c07",
+      "after_sha256": "7ede6908391d4e3d90ef2311f4c849fa3268a0b859731ccc2e68e739508330fd",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Roots.Order\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Roots.Order\n\npublic section\n"
+        },
+        {
+          "start": 2712,
+          "old": " def graphRoot {x y : W} (h : BruhatStep cs x y) : PositiveRoot M cs :=\n",
+          "new": " @[expose] def graphRoot {x y : W} (h : BruhatStep cs x y) : PositiveRoot M cs :=\n"
+        }
+      ]
+    },
+    "ForMathlib/GroupTheory/Coxeter/Roots/Splines.lean": {
+      "before_sha256": "2c491d91e46a731ebe6dd846c4a83f16aebc340f314cd932ea30b31a6d3b4c64",
+      "after_sha256": "6ab325ae44a1175594fa0a82569b4ebb981f60b839e7638dad24b780b8f6050c",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Roots.Basic\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Roots.Basic\n\npublic section\n"
+        },
+        {
+          "start": 490,
+          "old": " def linearPolynomial : Extended M \u2192\u2097[\u211d] MvPolynomial \u03c3 \u211d :=\n",
+          "new": " @[expose] def linearPolynomial : Extended M \u2192\u2097[\u211d] MvPolynomial \u03c3 \u211d :=\n"
+        },
+        {
+          "start": 654,
+          "old": " def orbitSpline (y : W) (v\u2080 : Extended M) (v : W) : MvPolynomial \u03c3 \u211d :=\n",
+          "new": " @[expose] def orbitSpline (y : W) (v\u2080 : Extended M) (v : W) : MvPolynomial \u03c3 \u211d :=\n"
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/Avoidance.lean": {
+      "before_sha256": "df8e1a111ff7ca63a2cd85d96d82d8a4926bdc0a54f560c44f1fea2e1c2c5e02",
+      "after_sha256": "60fe00785cbc88a76e5d94dedb18e1945cc903c29c8c86d4851ea4d5b2898377",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\n",
+          "new": "module\npublic import Mathlib\n\npublic section\n"
+        },
+        {
+          "start": 342,
+          "old": "def coordinatePolynomial (a : I \u2192 \u211d) : \u211d[X] :=\n",
+          "new": "@[expose] def coordinatePolynomial (a : I \u2192 \u211d) : \u211d[X] :=\n"
+        },
+        {
+          "start": 1143,
+          "old": "def momentFunctional (t : \u211d) : Module.Dual \u211d (I \u2192 \u211d) where\n",
+          "new": "@[expose] def momentFunctional (t : \u211d) : Module.Dual \u211d (I \u2192 \u211d) where\n"
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/DyerPaths/Adapted.lean": {
+      "before_sha256": "713ce8c85e5acb98211834515bcec993a8c43d329e6e8b44b172281b4fd63ea8",
+      "after_sha256": "a99c8c17404a51b3050ea2acff043f76b8320cf5f001e7bdced5d2958383820b",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\nimport ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder\nimport ForMathlib.RepresentationTheory.Hecke.Operators\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.GroupTheory.Coxeter.Bruhat.LowerFinset\npublic import ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder\npublic import ForMathlib.RepresentationTheory.Hecke.Operators\n\npublic section\n"
+        },
+        {
+          "start": 778,
+          "old": "def source (e : Edge cs) : W := e.val.1\ndef target (e : Edge cs) : W := e.val.2\ndef rootLabel (e : Edge cs) : PositiveRoot M cs := graphRoot e.property\n",
+          "new": "@[expose] def source (e : Edge cs) : W := e.val.1\n@[expose] def target (e : Edge cs) : W := e.val.2\n@[expose] def rootLabel (e : Edge cs) : PositiveRoot M cs := graphRoot e.property\n"
+        },
+        {
+          "start": 1557,
+          "old": "def score (O : RatioOrder (M := M) (cs := cs)) (e : Edge cs) : \u211d :=\n",
+          "new": "@[expose] def score (O : RatioOrder (M := M) (cs := cs)) (e : Edge cs) : \u211d :=\n"
+        },
+        {
+          "start": 1868,
+          "old": "def edgeFinset (b : W) : Finset (Edge cs) :=\n",
+          "new": "@[expose] def edgeFinset (b : W) : Finset (Edge cs) :=\n"
+        },
+        {
+          "start": 2836,
+          "old": "def schedule (O : RatioOrder (M := M) (cs := cs)) (b : W) : List (Edge cs) :=\n",
+          "new": "@[expose] def schedule (O : RatioOrder (M := M) (cs := cs)) (b : W) : List (Edge cs) :=\n"
+        },
+        {
+          "start": 4222,
+          "old": "def paths (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Finset (List (Edge cs)) :=\n",
+          "new": "@[expose] def paths (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Finset (List (Edge cs)) :=\n"
+        },
+        {
+          "start": 5118,
+          "old": "def polynomial (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Polynomial \u2124 :=\n",
+          "new": "@[expose] def polynomial (O : RatioOrder (M := M) (cs := cs)) (x y : W) : Polynomial \u2124 :=\n"
+        },
+        {
+          "start": 6242,
+          "old": "def rotateEdge (i : I) (e : Edge cs) : Edge cs :=\n",
+          "new": "@[expose] def rotateEdge (i : I) (e : Edge cs) : Edge cs :=\n"
+        },
+        {
+          "start": 9418,
+          "old": "def Nonsimple (i : I) (p : List (Edge cs)) : Prop :=\n",
+          "new": "@[expose] def Nonsimple (i : I) (p : List (Edge cs)) : Prop :=\n"
+        },
+        {
+          "start": 14050,
+          "old": "def nonsimplePaths (O : RatioOrder (M := M) (cs := cs)) (i : I) (x y : W) :\n",
+          "new": "@[expose] def nonsimplePaths (O : RatioOrder (M := M) (cs := cs)) (i : I) (x y : W) :\n"
+        },
+        {
+          "start": 15845,
+          "old": "def simpleEdge (i : I) (x : W) (hx : cs.length x < cs.length (cs.simple i*x)) : Edge cs :=\n",
+          "new": "@[expose] def simpleEdge (i : I) (x : W) (hx : cs.length x < cs.length (cs.simple i*x)) : Edge cs :=\n"
+        }
+      ]
+    },
+    "ForMathlib/RepresentationTheory/Hecke/DyerPaths/PlaneCoordinates.lean": {
+      "before_sha256": "04b5ca9554c82ec8d9c60940144678a25df28b8383a82a422ee7b5554538bb4c",
+      "after_sha256": "3f12f98de71d03ac9e01fcc8b68cd8ac327a884eeb9689682320974c022ff861",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import Mathlib\nimport ForMathlib.Combinatorics.DirectedPaths.Transfer\nimport ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport\nimport ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted\n",
+          "new": "module\npublic import Mathlib\npublic import ForMathlib.Combinatorics.DirectedPaths.Transfer\npublic import ForMathlib.GroupTheory.Coxeter.Roots.PlaneTransport\npublic import ForMathlib.RepresentationTheory.Hecke.DyerPaths.Adapted\n\npublic section\n"
+        },
+        {
+          "start": 2491,
+          "old": "def intervalToAmbient {a\u2080 : W} {g k : planeSubgroup M cs P}\n",
+          "new": "@[expose] def intervalToAmbient {a\u2080 : W} {g k : planeSubgroup M cs P}\n"
+        },
+        {
+          "start": 2830,
+          "old": "def edgeToAmbient {a\u2080 : W}\n",
+          "new": "@[expose] def edgeToAmbient {a\u2080 : W}\n"
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Sheaves.lean": {
+      "before_sha256": "5085f52128b312a2480c7afd4a80b3ae0d9a61c0411739bad20cbb7da2cb8ccf",
+      "after_sha256": "b5e334c5bb8aac1fdcb0b14bf6db96d409bbf163692921605bf5a4c79689fa70",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\nimport Mathlib\n",
+          "new": "module\npublic import ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\npublic import Mathlib\n\npublic section\n"
+        }
+      ]
+    },
+    "OAI/RepresentationTheory/KazhdanLusztig/Tits.lean": {
+      "before_sha256": "95fa4f377426e61b67a76db573ceb19b3499c95f1da9778385cda745ead45aa4",
+      "after_sha256": "0ae5f6751387cbc150f8e5de9ebe7b4bc0f590d4ae40e2ec5b2729cec3b3afcc",
+      "edits": [
+        {
+          "start": 0,
+          "old": "import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic\nimport ForMathlib.GroupTheory.Coxeter.Parabolic.Standard\nimport ForMathlib.GroupTheory.Coxeter.Parabolic.Support\nimport ForMathlib.GroupTheory.Coxeter.Realization.Cotangent\nimport ForMathlib.GroupTheory.Coxeter.Realization.Faithful\nimport ForMathlib.GroupTheory.Coxeter.Realization.Geometric\nimport ForMathlib.GroupTheory.Coxeter.Realization.Positivity\nimport ForMathlib.GroupTheory.Coxeter.Realization.Tits\nimport ForMathlib.GroupTheory.Coxeter.Roots.Basic\nimport ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup\nimport ForMathlib.LinearAlgebra.Reflection.Bilinear\nimport ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension\nimport ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic\nimport OAI.RepresentationTheory.KazhdanLusztig.Bruhat\nimport OAI.RepresentationTheory.KazhdanLusztig.Dihedral\nimport OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane\nimport OAI.RepresentationTheory.KazhdanLusztig.Sheaves\n",
+          "new": "module\npublic import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic\npublic import ForMathlib.GroupTheory.Coxeter.Parabolic.Standard\npublic import ForMathlib.GroupTheory.Coxeter.Parabolic.Support\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Cotangent\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Faithful\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Geometric\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Positivity\npublic import ForMathlib.GroupTheory.Coxeter.Realization.Tits\npublic import ForMathlib.GroupTheory.Coxeter.Roots.Basic\npublic import ForMathlib.GroupTheory.Coxeter.Roots.PlaneSubgroup\npublic import ForMathlib.LinearAlgebra.Reflection.Bilinear\npublic import ForMathlib.LinearAlgebra.BilinearForm.NondegenerateExtension\npublic import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.Parabolic\npublic import OAI.RepresentationTheory.KazhdanLusztig.Bruhat\npublic import OAI.RepresentationTheory.KazhdanLusztig.Dihedral\npublic import OAI.RepresentationTheory.KazhdanLusztig.ReflectionPlane\npublic import OAI.RepresentationTheory.KazhdanLusztig.Sheaves\n\npublic section\n"
+        }
+      ]
+    }
+  },
+  "held_matcher_producers": [
+    "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+    "ForMathlib.Algebra.Module.Cover.Local",
+    "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis",
+    "ForMathlib.Algebra.Module.ReflectionPair.Twist",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+    "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder"
+  ],
+  "held_matcher_closure": [
+    "ForMathlib",
+    "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis",
+    "ForMathlib.Algebra.Module.CoefficientChange.Basic",
+    "ForMathlib.Algebra.Module.CoefficientChange.Dual",
+    "ForMathlib.Algebra.Module.Cover.Local",
+    "ForMathlib.Algebra.Module.Graded.DualAndShift",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic",
+    "ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover",
+    "ForMathlib.Algebra.Module.Projective.Transport",
+    "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent",
+    "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel",
+    "ForMathlib.Algebra.Module.ReflectionPair.Twist",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Extension",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Hom",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Models",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Summand",
+    "ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel",
+    "ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Basic",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.StalkMaps",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand",
+    "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Uniqueness",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Extension",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Hom",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Isomorphism",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Models",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Products",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Uniqueness",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Zero",
+    "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder",
+    "ForMathlib.LinearAlgebra.Dual.Frobenius",
+    "ForMathlib.LinearAlgebra.KernelCoordinates",
+    "ForMathlib.RepresentationTheory.BottSamelson.TitsWords",
+    "ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder",
+    "ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall",
+    "OAI.Architecture",
+    "OAI.KL",
+    "OAI.KL.BottSamelson.AdjointSheaf",
+    "OAI.KL.BottSamelson.CanonicalPairing",
+    "OAI.KL.BottSamelson.Character",
+    "OAI.KL.BottSamelson.CharacterDecomposition",
+    "OAI.KL.BottSamelson.Flabby",
+    "OAI.KL.BottSamelson.Pairings",
+    "OAI.KL.BottSamelson.StalkCharacter",
+    "OAI.KL.BottSamelson.Stalks",
+    "OAI.KL.BottSamelson.Support",
+    "OAI.KL.BottSamelson.UpperSections",
+    "OAI.KL.Comparison.Propagation",
+    "OAI.KL.Comparison.SuffixFreeness",
+    "OAI.KL.Comparison.Transport",
+    "OAI.KL.Invariance.Finite",
+    "OAI.KL.Invariance.Main",
+    "OAI.KL.Localization.Ambient",
+    "OAI.KL.Localization.Edge",
+    "OAI.KL.Localization.GraphEmbedding",
+    "OAI.KL.Localization.Plane",
+    "OAI.KL.Localization.TerminalImages",
+    "OAI.KL.Sheaves.Boundary",
+    "OAI.KL.Sheaves.FreeModel",
+    "OAI.KL.Sheaves.LowerCharacter",
+    "OAI.KL.Sheaves.Reciprocity",
+    "OAI.KL.Sheaves.StalkReciprocity",
+    "OAI.KL.Sheaves.Support",
+    "OAI.RepresentationTheory.KazhdanLusztig.BalancedPairings",
+    "OAI.RepresentationTheory.KazhdanLusztig.BottSamelson",
+    "OAI.RepresentationTheory.KazhdanLusztig.CharacterReciprocity",
+    "OAI.RepresentationTheory.KazhdanLusztig.Decomposition",
+    "OAI.RepresentationTheory.KazhdanLusztig.DihedralIntervals",
+    "OAI.RepresentationTheory.KazhdanLusztig.DyerPaths",
+    "OAI.RepresentationTheory.KazhdanLusztig.EdgeLocalization",
+    "OAI.RepresentationTheory.KazhdanLusztig.Frobenius",
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedModules",
+    "OAI.RepresentationTheory.KazhdanLusztig.GradedSheaves",
+    "OAI.RepresentationTheory.KazhdanLusztig.HilbertSeries",
+    "OAI.RepresentationTheory.KazhdanLusztig.IntegralPairings",
+    "OAI.RepresentationTheory.KazhdanLusztig.Invariance",
+    "OAI.RepresentationTheory.KazhdanLusztig.MinimalExtensions",
+    "OAI.RepresentationTheory.KazhdanLusztig.ModuleAlgebra",
+    "OAI.RepresentationTheory.KazhdanLusztig.PlaneLocalization",
+    "OAI.RepresentationTheory.KazhdanLusztig.PositiveTransfer",
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders",
+    "OAI.RepresentationTheory.KazhdanLusztig.ReflectionSchedules",
+    "OAI.RepresentationTheory.KazhdanLusztig.SheafMorphisms",
+    "OAI.RepresentationTheory.KazhdanLusztig.SimultaneousInvariance",
+    "OAI.RepresentationTheory.KazhdanLusztig.Support",
+    "OAI.RepresentationTheory.KazhdanLusztig.TerminalKernels"
+  ]
+}

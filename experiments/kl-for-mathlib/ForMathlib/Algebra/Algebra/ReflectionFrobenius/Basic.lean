@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic. Source spans: Decomposition:9.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -13,7 +16,7 @@ variable {k : Type uk} [Field k] [CharZero k]
 
 noncomputable section
 
-def fixed (τ : A ≃ₐ[k] A) : Subalgebra k A :=
+@[expose] def fixed (τ : A ≃ₐ[k] A) : Subalgebra k A :=
   AlgHom.equalizer τ.toAlgHom (AlgHom.id k A)
 
 omit [CharZero k] [IsDomain A] in
@@ -25,7 +28,7 @@ omit [CharZero k] [IsDomain A] in
 
 variable (τ : A ≃ₐ[k] A) (α : A)
 
-def expand : (fixed τ × fixed τ) →ₗ[fixed τ] A where
+@[expose] def expand : (fixed τ × fixed τ) →ₗ[fixed τ] A where
   toFun a := (a.1 : A) + α * (a.2 : A)
   map_add' a b := by simp; ring
   map_smul' c a := by simp only [Prod.smul_fst, Prod.smul_snd, smul_eq_mul,
@@ -82,7 +85,7 @@ include hinv hα hanti hdiv in
   linear_combination a * htwo - (algebraMap k A h) * hd
 
 /-- The actual invariant-ring basis `1, α`, with no finiteness assumption. -/
-def coordinates : A ≃ₗ[fixed τ] (fixed τ × fixed τ) :=
+@[expose] def coordinates : A ≃ₗ[fixed τ] (fixed τ × fixed τ) :=
   (LinearEquiv.ofBijective (expand τ α)
     ⟨expand_injective τ α hα hanti, expand_surjective τ α hinv hα hanti hdiv⟩).symm
 
@@ -95,7 +98,7 @@ def coordinates : A ≃ₗ[fixed τ] (fixed τ × fixed τ) :=
   (coordinates τ α hinv hα hanti hdiv).apply_symm_apply a
 
 
-def trace : A →ₗ[fixed τ] fixed τ :=
+@[expose] def trace : A →ₗ[fixed τ] fixed τ :=
   (LinearMap.snd _ _ _).comp (coordinates τ α hinv hα hanti hdiv).toLinearMap
 
  theorem trace_expand (a : fixed τ × fixed τ) :
@@ -130,7 +133,7 @@ include hanti in
 section Pair
 variable (R : Type*) [CommRing R]
 
-def crossPair : (R × R) →ₗ[R] Module.Dual R (R × R) where
+@[expose] def crossPair : (R × R) →ₗ[R] Module.Dual R (R × R) where
   toFun a :=
     { toFun := fun b => a.1*b.2+a.2*b.1
       map_add' := by intro b c; simp; ring
@@ -155,13 +158,13 @@ def crossPair : (R × R) →ₗ[R] Module.Dual R (R × R) where
       _ = f (a.1 • (1,0) + a.2 • (0,1)) := by rw [map_add,map_smul,map_smul]; rfl
       _ = f a := congrArg f ha.symm
 
-def crossPairEquiv : (R × R) ≃ₗ[R] Module.Dual R (R × R) :=
+@[expose] def crossPairEquiv : (R × R) ≃ₗ[R] Module.Dual R (R × R) :=
   LinearEquiv.ofBijective (crossPair R) (crossPair_bijective R)
 
 end Pair
 
 /-- The Frobenius duality over the invariant ring is integral and perfect. -/
-def duality : A ≃ₗ[fixed τ] Module.Dual (fixed τ) A :=
+@[expose] def duality : A ≃ₗ[fixed τ] Module.Dual (fixed τ) A :=
   (coordinates τ α hinv hα hanti hdiv).trans
     ((crossPairEquiv (fixed τ)).trans
       (coordinates τ α hinv hα hanti hdiv).dualMap)
@@ -182,7 +185,7 @@ def duality : A ≃ₗ[fixed τ] Module.Dual (fixed τ) A :=
 section Symmetric
 variable {V : Type uv} [AddCommGroup V] [Module k V]
 
-def symmetricMap (e : V ≃ₗ[k] V) : SymmetricAlgebra k V →ₐ[k] SymmetricAlgebra k V :=
+@[expose] def symmetricMap (e : V ≃ₗ[k] V) : SymmetricAlgebra k V →ₐ[k] SymmetricAlgebra k V :=
   SymmetricAlgebra.lift ((SymmetricAlgebra.ι k V).comp e.toLinearMap)
 
 omit [CharZero k] in
@@ -205,7 +208,7 @@ omit [CharZero k] in
   simp
 
 /-- The algebra action is induced by the linear reflection, not postulated. -/
-def symmetricAction (e : V ≃ₗ[k] V) : SymmetricAlgebra k V ≃ₐ[k] SymmetricAlgebra k V :=
+@[expose] def symmetricAction (e : V ≃ₗ[k] V) : SymmetricAlgebra k V ≃ₐ[k] SymmetricAlgebra k V :=
   AlgEquiv.ofAlgHom (symmetricMap e) (symmetricMap e.symm)
     (by rw [symmetricMap_comp,LinearEquiv.symm_trans_self,symmetricMap_refl])
     (by rw [symmetricMap_comp,LinearEquiv.self_trans_symm,symmetricMap_refl])
@@ -265,7 +268,7 @@ omit [CharZero k] in
 
 /-- A genuine simple-reflection integral Frobenius extension in characteristic
 zero, for the symmetric algebra of any representation carrying the reflection. -/
-def reflectionDuality :
+@[expose] def reflectionDuality :
     SymmetricAlgebra k V ≃ₗ[fixed (reflectionAction root coroot hroot)]
       Module.Dual (fixed (reflectionAction root coroot hroot)) (SymmetricAlgebra k V) :=
   duality (reflectionAction root coroot hroot) (SymmetricAlgebra.ι k V root)

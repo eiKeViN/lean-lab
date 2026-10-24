@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.Splines. Source spans: DihedralIntervals:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,11 +18,11 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def linearPolynomial : Extended M →ₗ[ℝ] MvPolynomial σ ℝ :=
+ @[expose] def linearPolynomial : Extended M →ₗ[ℝ] MvPolynomial σ ℝ :=
   (SymmetricAlgebra.equivMvPolynomial basis).toLinearMap.comp
     (SymmetricAlgebra.ι ℝ (Extended M))
 
- def orbitSpline (y : W) (v₀ : Extended M) (v : W) : MvPolynomial σ ℝ :=
+ @[expose] def orbitSpline (y : W) (v₀ : Extended M) (v : W) : MvPolynomial σ ℝ :=
   linearPolynomial basis (extendedAction M cs (v*y⁻¹) v₀ - v₀)
 
  theorem orbitSpline_self (y : W) (v₀ : Extended M) : orbitSpline cs basis y v₀ y = 0 := by
