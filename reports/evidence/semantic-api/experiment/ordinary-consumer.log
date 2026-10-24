@@ -1,0 +1,6 @@
+SemanticApiChecks.lean:1:0: error: object file '/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.olean' of module ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange does not exist
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'env', 'lean', 'SemanticApiChecks.lean']' returned non-zero exit status 1.

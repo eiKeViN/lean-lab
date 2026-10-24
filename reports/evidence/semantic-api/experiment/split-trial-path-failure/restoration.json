@@ -1,0 +1,18 @@
+{
+  "source_restored": true,
+  "lake_artifacts_unchanged": true,
+  "artifacts": {
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.olean.private.hash": "a22287ab87248fa27383c7e3ff8ce0d0cff185fe9f2f665e7c524f57bd26c306",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.olean.hash": "cc8838a8ab7fabf7594ef197bec00bcc75045c04f88e6e5a48bdd0b80d6ed3fc",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.olean": "f77d13637c29c8be6abb02239d9aea9bf4e2ad374be056f7482b7418a20c5a3b",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.olean.server.hash": "66eac595460adebbafe9b233360ea2240018c534bc2c7017d918baf96947a1dc",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.olean.private": "8f44f4e2b5b9085b42e437cc8f2806902967b51a0b315d3ff3cf82145cea4f3b",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Cover/Local.olean.server": "d8eea721037c8873c3fc57c0243ad4ed18d7c6aa5fb3db988b00a9ebd9a365b3",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean.hash": "d53b7bba92fe2a4475c19358c6e07618293b6ae69c98bd69f789e553ed2346cd",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean.server": "78423cd622da3b88ae8646b964487af8796dcdf6c7b5ce816f9231011076a99c",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean.private.hash": "3c7660175c7d20aece596140074c52eb923449659da794e27e0f2542bb923e20",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean": "0fda93cc466ac57d5523ecc02c18a3defc347c263ba28703c54a098a368c9447",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean.server.hash": "eea74db2087410720f08c47c008ca589cb83837224181b728f8ae7d607a2fe5b",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean.private": "1634040881f74aa29ba98315774859f1d7ce5da3db4af56d6d0d5945e92729ad"
+  }
+}

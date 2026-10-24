@@ -1,0 +1,26 @@
+[
+  {
+    "label": "hidden-quotient-producer",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/quotient-trial/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.olean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/quotient-trial/hidden-quotient-producer.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.169398912999895
+  },
+  {
+    "label": "ordinary-hidden-consumer",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "/workspace/lean-lab/results/semantic-api/quotient-trial/HiddenQuotientConsumer.lean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/quotient-trial/ordinary-hidden-consumer.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.1998707580000882
+  }
+]

@@ -1,0 +1,13 @@
+.......................F...............................
+======================================================================
+FAIL: test_held_sources_and_existing_policy (test_module_final.FinalPolicyTests.test_held_sources_and_existing_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_module_final.py", line 59, in test_held_sources_and_existing_policy
+    self.assertEqual((m.HERE/p).read_bytes(),module_all.convert(p,m.baseline(p)),n)
+AssertionError: b"mod[3165 chars]N]\n def map (f : M \xe2\x86\x92\xe2\x82\x97[A[1253 chars]AI\n" != b"mod[3165 chars]N]\n @[expose] def map (f : M \xe2\x86\x92\xe2[933 chars]AI\n" : ForMathlib.Algebra.Module.CoefficientChange.Basic
+
+----------------------------------------------------------------------
+Ran 55 tests in 10.540s
+
+FAILED (failures=1)

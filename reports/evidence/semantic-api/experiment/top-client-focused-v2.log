@@ -1,0 +1,52 @@
+ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean:121:39: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (CoefficientChange.map ?e LinearMap.id) ?m
+in the target expression
+  (↑(equivOfEq ⋯) ∘ₗ (changeUnitHom e he hA hB).map ∘ₗ CoefficientChange.map e ↑(equivOfEq ⋯))
+      (((changeUnitInvHom e he hA hB).map ∘ₗ ↑(equivOfEq ⋯)) n) =
+    n
+
+k : Type uk
+inst✝⁸ : Field k
+A B : Type ua
+inst✝⁷ : CommRing A
+inst✝⁶ : CommRing B
+inst✝⁵ : Algebra k A
+inst✝⁴ : Algebra k B
+𝓐 : ℤ → Submodule k A
+𝓑 : ℤ → Submodule k B
+inst✝³ : DirectSum.Decomposition 𝓐
+inst✝² : SetLike.GradedMonoid 𝓐
+inst✝¹ : DirectSum.Decomposition 𝓑
+inst✝ : SetLike.GradedMonoid 𝓑
+e : A ≃ₐ[k] B
+he : ∀ (n : ℤ) (a : A), a ∈ 𝓐 n ↔ e a ∈ 𝓑 n
+hA : ∀ n < 0, 𝓐 n = ⊥
+hB : ∀ n < 0, 𝓑 n = ⊥
+n : ↑(unit hB).obj
+⊢ (↑(equivOfEq ⋯) ∘ₗ (changeUnitHom e he hA hB).map ∘ₗ CoefficientChange.map e ↑(equivOfEq ⋯))
+      (((changeUnitInvHom e he hA hB).map ∘ₗ ↑(equivOfEq ⋯)) n) =
+    n
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    CoefficientChange.map e ↑(equivOfEq ⋯)
+  has type
+    @LinearMap B B CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring (RingHom.id B)
+      (CoefficientChange e ↑(unit hA).obj) (CoefficientChange e ↑(unit hA).obj)
+      (CoefficientChange.instAddCommGroup e ↑(unit hA).obj).toAddCommMonoid
+      (CoefficientChange.instAddCommGroup e ↑(unit hA).obj).toAddCommMonoid
+      (CoefficientChange.instModule e ↑(unit hA).obj) (CoefficientChange.instModule e ↑(unit hA).obj)
+  but is expected to have type
+    @LinearMap B B CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring (RingHom.id B)
+      (↑(change e he (unit hA)).obj) (↑(change e he (unit hA)).obj)
+      (change e he (unit hA)).instAddCommGroupCarrierObj.toAddCommMonoid
+      (change e he (unit hA)).instAddCommGroupCarrierObj.toAddCommMonoid (change e he (unit hA)).obj.isModule
+      (change e he (unit hA)).obj.isModule
+  in the application
+    (changeUnitHom e he hA hB).map ∘ₗ CoefficientChange.map e ↑(equivOfEq ⋯)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'env', 'lean', 'ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean']' returned non-zero exit status 1.

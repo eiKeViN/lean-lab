@@ -1,0 +1,7 @@
+OAI.LinearEquiv.kernelSourceEquiv: Mathlib LinearEquiv references [LinearEquiv.mk,
+ LinearEquiv.toLinearMap,
+ LinearEquiv.symm]
+OAI.LinearEquiv.kernelTargetEquiv: Mathlib LinearEquiv references [LinearEquiv.mk, LinearEquiv.toLinearMap]
+OAI.LinearEquiv.kernelMixedEquiv: Mathlib LinearEquiv references [LinearEquiv.mk,
+ LinearEquiv.toLinearMap,
+ LinearEquiv.symm]

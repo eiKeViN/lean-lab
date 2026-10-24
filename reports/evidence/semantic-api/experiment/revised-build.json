@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; subprocess.run([\"lake\",\"build\",\"ForMathlib\",\"OAI\"],env=validate.serial_environment(),check=True)"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 83.66224697099995,
+  "user_seconds": 93.321435,
+  "system_seconds": 12.147729,
+  "max_rss_kib": 3197504
+}

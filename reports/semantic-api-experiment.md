@@ -5,8 +5,10 @@
 没有 PR、合并、升级 pin、公共 matcher 包装或全 Mathlib 源码构建。
 本轮四项候选不是全库覆盖；expose 数量不是质量指标。
 
-代码检查点状态：完整生产构建、普通 import 消费者和相对 main 的完整类型比较已通过；
-继承的完整项目门禁尚在验收，当前报告不能当作最终全部通过声明。
+最终通过代码为 `83ae9455fbb51d3022a95c6a517dec475ac31597`；完整 **69阶段验收通过**。
+后续提交只归档证据和更新报告，不改生产 Lean 或检查器。四项候选中，API覆盖与交付策略分开判断：
+split 的所选客户端覆盖成功但保留计算契约；map 的 sheaf 层覆盖仍不足；baseChangeQuotient
+覆盖成功但保留旧公共 eq_1；quotientPullback 交付隐藏，接受明确的一项实现可见性变化。
 
 ## 起点与选择
 
@@ -92,8 +94,8 @@ baseChangeQuotient 的历史 `eq_1` 等名字仍受原门禁保护；本轮消�
 `semantic_api.py` 与 hash 绑定的 source manifest 仅接受七个文件的精确旧新编辑。
 migrate 的最后一层生成本轮产品；历史 source/proof 检查的输入视图只撤销这七项精确编辑。
 其他文件及未登记字节变化仍拒绝。原始历史来源、3902-type snapshot、比较器和既有 manifest 不刷新。
-六项新增 theorem 的全记录单独固定于 `semantic-api-types.json`；完整实际导出为 3947 项，
-历史对照视图仍为 3940 项。仅在核对六项数学 API 与一项精确登记的生成 congruence 声明的名字/type/kind/levels/owner 后，从旧比较视图去掉这七项，
+六项新增 theorem 的全记录单独固定于 `semantic-api-types.json`；完整实际导出为 3947 项（相对本轮 main 的3940项新增7项），
+去除本轮登记新增的历史对照输入视图仍为3940项。与更早的3947记录数恰好相同，不表示恢复八个退休名字。仅在核对六项数学 API 与一项精确登记的生成 congruence 声明的名字/type/kind/levels/owner 后，从旧比较视图去掉这七项，
 没有按名字前缀忽略任意新增声明。
 `semantic-api-generated.json` 单独固定 `LocalCover.splitEquiv.congr_simp` 的完整记录；它由实际
 simp 使用触发，未手写兼容包装、不算第七条数学 API，也不承诺其名字为稳定数学接口。
@@ -133,7 +135,38 @@ python3 semantic_api_split_trial.py --quotient
 
 ## 验收、成本与限制
 
-（最终通过状态将在完整验收后填写。）
+| 验证项 | 实际结果 |
+| --- | --- |
+| 当前生产构建 | ForMathlib/OAI全部9186 jobs通过；261个生产模块，依赖 pin 不变 |
+| 相对指定 main 的完整导出 | 3940→3947；零missing、零type/kind/levels变化、零owner变化；六项数学API与一项生成声明分别登记 |
+| 普通 modern 消费者 | quotientPullback正文不可见、rfl负对照成功，语义/组合/逆向tensor证明通过；其他三候选和wrapper保持可见计算控制 |
+| 定向公理 | 六项新API、生成congruence与七项实际客户端共14项闭包，只含原三公理 |
+| split隔离对照 | 隐藏真实producer通过；旧实际MinimalCover客户端失败；改写后同一客户端及普通消费者通过 |
+| map隔离对照 | 隐藏producer及三个实际客户端通过；原GradedSheaf.Duality失败，保留为覆盖不足证据 |
+| quotient隔离对照 | 隐藏baseChangeQuotient后实际tensor消费者通过，但旧eq_1不可访问；这是兼容策略取舍，不是所选数学API覆盖失败 |
+| 恢复 | 三项试验source与正式工件的记录hash恢复/未变；未另建维护项目，不提交olean缓存 |
+| Source/基线 | Git身份、34原始blob、精确源码重建/覆盖、七文件有界编辑与原21文件proof-evolution检查通过 |
+| 完整门禁 | 69阶段全部通过；原16项主审计、81项pilot闭包、比较器/分区/演化回归及全部继承批次通过；无sorry、新增公理或unsafe |
+
+旧完整项目没有重新构建；历史来源/冻结type导出重放与当前编译分别报告。135个公共历史
+类型的实际检查与20个旧helper的有界历史实现上下文检查见前节，不能把后者解读成旧实现体
+在当前opaque环境仍可原样使用。当前生产数学用例与普通API消费者独立于该审计上下文。
+
+| 实测命令/阶段 | wall秒 | 最大子进程RSS KiB | 结果 |
+| --- | ---: | ---: | --- |
+| 首次编辑期完整构建 | 621.071 | 3295052 | 调试失败，非固定源码benchmark |
+| 双quotient隐藏的可编译候选 | 1139.441 | 3376384 | 编译通过；随后接口检查拒绝eq_1缺失 |
+| 恢复baseChangeQuotient后的重建 | 121.217 | 3238560 | 通过（重用未改工件） |
+| split真实隐藏对照 | 17.328 | 3178380 | 旧失败/新通过，恢复通过 |
+| map真实隐藏对照 | 20.982 | 3137572 | 小客户端通过/真实sheaf失败，恢复通过 |
+| quotient真实隐藏对照 | 8.130 | 3182180 | tensor API通过/eq_1缺失确认，恢复通过 |
+| 最终完整69阶段 | 456.662 | 7781104 | 全部通过 |
+
+[证据manifest](evidence/semantic-api/manifest.json) 记录每项原文/存储SHA与复用位置；
+[最终阶段](evidence/semantic-api/accepted/stages.json) 与
+[最终输入](evidence/semantic-api/accepted-inputs.json) 固定397个当前项目、脚本、溯源/指令输入及精确pins。
+完整原始导出、旧新类型比较、三个试验的真实命令/退出码、normal import派生setup、恢复hash、
+原始失败及有界Structure审计源码均保留。相同的完整导出和已有冻结基线按manifest引用复用，不重复存储。
 
 调试中保留的失败：裸 rfl 自动 defeq 属性与 doc/omit 的语法位置；三条 split 公式误带
 IsLocalRing；默认 implicit 透明度下结构载体/实例与 toFun 的重写匹配；quotientPullback
@@ -149,3 +182,10 @@ IsLocalRing；默认 implicit 透明度下结构载体/实例与 toFun 的重写
 仅作已有昂贵模块的背景，不据此主张本轮加速/回退。
 
 不宣称全库所有定义适合隐藏，也不宣称本小实验测得编译速度提升。token 无遥测，不可得。
+
+
+结论限于这四项候选：小型求值/坐标API确实可支持真实数学下游，并不要求一律隐藏定义。
+map的剩余工作是更高层sheaf求值/输运API；baseChangeQuotient若未来明确允许旧eq_1退出稳定
+契约，可在不补新数学定理的前提下隐藏。本轮保守保留其兼容承诺，不等同于接口设计失败。
+quotientPullback的隐藏可行，但四个局部R/S桥接和历史实现审计适配是实际维护成本，不据此推广
+全库unexpose策略。实验已完成，无环境/权限或未决执行阻塞；上述候选缺口是结果，不是未完成验收。

@@ -1,0 +1,59 @@
+[
+  {
+    "label": "ordinary-consumer-final",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "SemanticApiChecks.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.193123752999782,
+    "user_seconds": 3.210938,
+    "system_seconds": 1.138227,
+    "children_max_rss_kib_so_far": 5355776
+  },
+  {
+    "label": "implementation-imports",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-o",
+      ".lake/build/lib/lean/ImplementationImports.olean",
+      "ImplementationImports.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.442541791000167,
+    "user_seconds": 3.028325,
+    "system_seconds": 1.4023720000000002,
+    "children_max_rss_kib_so_far": 7430060
+  },
+  {
+    "label": "complete-export",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ImplementationPublicTypes.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 9.919027150999682,
+    "user_seconds": 8.479118,
+    "system_seconds": 1.5481150000000001,
+    "children_max_rss_kib_so_far": 7781220
+  },
+  {
+    "label": "main-interface-comparison",
+    "command": [
+      "python3",
+      "semantic_api.py",
+      "/workspace/lean-lab/results/semantic-api/current-types.tsv"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 5.830596096000136,
+    "user_seconds": 5.602853000000001,
+    "system_seconds": 0.2319179999999994,
+    "children_max_rss_kib_so_far": 7781220
+  }
+]

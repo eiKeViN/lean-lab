@@ -1,0 +1,64 @@
+[
+  {
+    "label": "hidden-producer",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Cover/Local.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/split-trial/artifacts/ForMathlib/Algebra/Module/Cover/Local.olean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/split-trial/hidden-producer.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.085146159000033,
+    "user_seconds": 3.8097650000000005,
+    "system_seconds": 0.491495,
+    "max_rss_kib_so_far": 3107428
+  },
+  {
+    "label": "old-real-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/split-trial/artifacts/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/split-trial/old-real-client.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.174563238000246,
+    "user_seconds": 5.106472999999999,
+    "system_seconds": 0.639714,
+    "max_rss_kib_so_far": 3107428
+  },
+  {
+    "label": "new-real-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/split-trial/artifacts/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/split-trial/new-real-client.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.747930342000018,
+    "user_seconds": 5.223894,
+    "system_seconds": 0.9211309999999999,
+    "max_rss_kib_so_far": 3119476
+  },
+  {
+    "label": "ordinary-hidden-consumer",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "/workspace/lean-lab/results/semantic-api/split-trial/HiddenSplitConsumer.lean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/split-trial/ordinary-hidden-consumer.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.57355272399991,
+    "user_seconds": 3.0872519999999994,
+    "system_seconds": 0.6125579999999999,
+    "max_rss_kib_so_far": 3178380
+  }
+]

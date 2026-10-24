@@ -1,0 +1,22 @@
+ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean:155:4: error: Type mismatch
+  g.graded n v hv
+has type
+  g.map v ∈ C.piece n
+but is expected to have type
+  ((g.splitEquiv h hgh) v).1 ∈ ↑(C.piece n)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  LocalCover.splitEquiv ↦ 7
+ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean:156:4: error: Type mismatch
+  Submodule.sub_mem (F.piece n) hv (h.graded n (g.map v) (g.graded n v hv))
+has type
+  v - h.map (g.map v) ∈ F.piece n
+but is expected to have type
+  ((g.splitEquiv h hgh) v).2 ∈ ↑((kernel g).piece n)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  LocalCover.splitEquiv ↦ 6
+ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean:168:4: error: 'change' tactic failed, pattern
+  ↑v - h.map (g.map ↑v) = ↑v
+is not definitionally equal to target
+  ↑((p ∘ₗ g.map.ker.subtype) v) = ↑(LinearMap.id v)

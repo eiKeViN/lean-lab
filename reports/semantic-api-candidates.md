@@ -1,6 +1,8 @@
 # Semantic API 实验：候选与环境检查点
 
-状态：候选与实现范围已确定，完整验收正在运行；本提交只归档进度，不是代码验收结论。
+此文件保留 dd44541 阶段的候选/环境检查点。实验现已完成，最终结果见
+[完整报告](semantic-api-experiment.md)：通过代码83ae945，69阶段通过，最终仅隐藏quotientPullback。
+下表中的“尝试隐藏”是实验计划，不是最终交付的expose选择。
 
 - 起点：已合并 main `178ccf2a9fa1f0bff04d6b029db1361f881fef33`。
 - 分支：`experiment/semantic-api-20261024`，不创建 PR、不合并、不修改 main。
@@ -21,8 +23,8 @@
 两个 quotient 定义保留隐藏候选；split/map 与 wrapper/module 实例保持透明。
 六项新声明和七文件精确源码将分别受有界门禁约束，不全局放宽冻结源码或新增声明检查。
 
-当前命令为 `lake build ForMathlib OAI`，正在编译 OAI/KL/BottSamelson/UpperSections.lean。
+记录检查点时，命令为 `lake build ForMathlib OAI`，正在编译 OAI/KL/BottSamelson/UpperSections.lean。
 环境无阻塞；该文件既有验收 job 曾记录948秒（含排队）。完成后继续普通 modern import、
-真实 producer/client 隔离隐藏对照、完整类型/公理及项目门禁。尚无最终通过声明。
+真实 producer/client 隔离隐藏对照、完整类型/公理及项目门禁。该构建及后续69阶段现均已通过，见完整报告。
 
 最终实现、详细前后比较与实测证据将归入本分支的 `reports/semantic-api-experiment.md`。

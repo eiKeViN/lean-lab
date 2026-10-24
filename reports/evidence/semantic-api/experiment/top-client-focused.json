@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; subprocess.run([\"lake\",\"env\",\"lean\",\"ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean\"],env=validate.serial_environment(),check=True)"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 79.57097917200008,
+  "user_seconds": 4.147022,
+  "system_seconds": 1.113826,
+  "max_rss_kib": 5277908
+}

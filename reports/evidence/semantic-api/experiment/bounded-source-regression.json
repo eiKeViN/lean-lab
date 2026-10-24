@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "test_semantic_api.BoundedApi.test_source_roundtrip_and_mutations"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.19152551999991374,
+  "user_seconds": 0.13869599999999999,
+  "system_seconds": 0.055820999999999996,
+  "max_rss_kib": 19812
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "semantic_api_split_trial.py",
+    "--quotient"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 8.129671303999658,
+  "user_seconds": 8.979024,
+  "system_seconds": 1.22561,
+  "max_rss_kib": 3182180
+}

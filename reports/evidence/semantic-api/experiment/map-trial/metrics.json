@@ -1,0 +1,59 @@
+[
+  {
+    "label": "hidden-map-producer",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/CoefficientChange/Basic.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/map-trial/artifacts/ForMathlib/Algebra/Module/CoefficientChange/Basic.olean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/map-trial/hidden-map-producer.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.444067147000169
+  },
+  {
+    "label": "dual",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/CoefficientChange/Dual.lean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/map-trial/dual.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.715051332999792
+  },
+  {
+    "label": "graded-hom",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange/Basic.lean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/map-trial/graded-hom.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.2391564680001466
+  },
+  {
+    "label": "top-split",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/map-trial/top-split.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.7476661390001027
+  },
+  {
+    "label": "remaining-real-sheaf-gap",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/semantic-api/map-trial/remaining-real-sheaf-gap.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.933732774999953
+  }
+]
