@@ -179,6 +179,8 @@ theorem upwardKernel_le_pullback (x : V) (T : Set F) :
     B.upwardKernel (f.vertex x) {e | e.val ∈ T} ≤
       (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} := by
   intro v hv
+  have hv := (B.mem_upwardKernel_iff (f.vertex x) {e | e.val ∈ T} v).mp hv
+  apply ((B.pullback f).mem_upwardKernel_iff x {e | f.edge e.val ∈ T} v).mpr
   classical
   let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
   have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)
@@ -199,6 +201,8 @@ theorem pullbackKernel_le_of_live (x : V) (T : Set F)
     (B.pullback f).upwardKernel x {e | f.edge e.val ∈ T} ≤
       B.upwardKernel (f.vertex x) {e | e.val ∈ T} := by
   intro v hv
+  have hv := ((B.pullback f).mem_upwardKernel_iff x {e | f.edge e.val ∈ T} v).mp hv
+  apply (B.mem_upwardKernel_iff (f.vertex x) {e | e.val ∈ T} v).mpr
   classical
   let s : B.Assignment := Function.update (fun _ => 0) (f.vertex x) v
   have hs : s (f.vertex x)=v := Function.update_self (β := fun y => B.vertex y) (f.vertex x) v (fun _ => 0)

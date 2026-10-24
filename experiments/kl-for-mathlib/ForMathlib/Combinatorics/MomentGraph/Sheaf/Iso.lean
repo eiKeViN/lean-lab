@@ -120,12 +120,25 @@ variable (B : Sheaf.{u,v,w,z} (R := R) G)
   add_mem' := by intro v w hv hw e he; simp [hv e he,hw e he]
   smul_mem' := by intro r v hv e he; simp [hv e he]
 
+/-- Local kernel constraints, independent of the submodule construction. -/
+theorem mem_upwardKernel_iff (x : V) (F : Set (Outgoing (G := G) x)) (v : B.vertex x) :
+    v ∈ B.upwardKernel x F ↔ ∀ e ∈ F, B.stalkMap x v e = 0 := by rfl
+
+/-- Imposing every outgoing constraint is the kernel of the full stalk map. -/
+theorem upwardKernel_univ (x : V) :
+    B.upwardKernel x Set.univ = LinearMap.ker (B.stalkMap x) := by
+  ext v
+  rw [mem_upwardKernel_iff, LinearMap.mem_ker]
+  simp only [Set.mem_univ, true_implies]
+  exact ⟨fun h => funext h, fun h e => congrFun h e⟩
+
 namespace Iso
 variable {B : Sheaf.{u,v,w,z} (R := R) G} {C : Sheaf.{u,v,w,z'} (R := R) G}
   (j : Iso B C)
 
 theorem upwardKernel_iff (x : V) (F : Set (Outgoing (G := G) x)) (v : B.vertex x) :
     j.vertex x v ∈ C.upwardKernel x F ↔ v ∈ B.upwardKernel x F := by
+  simp only [mem_upwardKernel_iff]
   constructor <;> intro h e he
   · apply (j.edge e.val).injective
     rw [map_zero]

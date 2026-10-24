@@ -1,0 +1,15 @@
+{
+  "old_exit_codes": {
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean": 0,
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean": 0,
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean": 0,
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean": 0,
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": 1,
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean": 0
+  },
+  "required_discriminating_clients": [
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean"
+  ],
+  "all_six_frozen_new_clients_passed": true,
+  "axiom_closures_checked": 25
+}

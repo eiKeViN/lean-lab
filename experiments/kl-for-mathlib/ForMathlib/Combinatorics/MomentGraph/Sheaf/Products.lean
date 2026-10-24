@@ -28,19 +28,39 @@ variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
   lower e := (B.lower e).prodMap (C.lower e)
   upper e := (B.upper e).prodMap (C.upper e)
 
+@[simp] theorem prod_stalkMap_apply (B C : Sheaf.{u,v,w,z} (R := R) G)
+    (x : V) (v : (prod B C).vertex x) (e : Outgoing (G := G) x) :
+    (prod B C).stalkMap x v e = (B.stalkMap x v.1 e, C.stalkMap x v.2 e) := by
+  rcases e with ⟨e,he⟩
+  subst x
+  rfl
+
+/-- A product assignment is compatible exactly when both projections are. -/
+theorem prod_compatible_iff (B C : Sheaf.{u,v,w,z} (R := R) G)
+    (U : Set V) (f : (prod B C).Assignment) :
+    (prod B C).CompatibleOn U f ↔
+      B.CompatibleOn U (fun x => (f x).1) ∧ C.CompatibleOn U (fun x => (f x).2) := by
+  constructor
+  · intro h
+    exact ⟨fun e hs ht => congrArg Prod.fst (h e hs ht),
+      fun e hs ht => congrArg Prod.snd (h e hs ht)⟩
+  · rintro ⟨hB,hC⟩ e hs ht
+    exact Prod.ext (hB e hs ht) (hC e hs ht)
+
 lemma prod_generated (B C : Sheaf.{u,v,w,z} (R := R) G)
     (hB : B.Generated) (hC : C.Generated) : (prod B C).Generated := by
   intro x v
   obtain ⟨f,hf,hfx⟩ := hB x v.1
   obtain ⟨g,hg,hgx⟩ := hC x v.2
-  exact ⟨fun y => (f y,g y),fun e hs ht => Prod.ext (hf e hs ht) (hg e hs ht),Prod.ext hfx hgx⟩
+  exact ⟨fun y => (f y,g y),(prod_compatible_iff B C Set.univ _).mpr ⟨hf,hg⟩,Prod.ext hfx hgx⟩
 
 lemma prod_flabby (B C : Sheaf.{u,v,w,z} (R := R) G)
     (hB : B.Flabby) (hC : C.Flabby) : (prod B C).Flabby := by
   intro U hU f hf
-  obtain ⟨g,hg,hgf⟩ := hB U hU (fun y => (f y).1) (fun e hs ht => congrArg Prod.fst (hf e hs ht))
-  obtain ⟨t,ht,htf⟩ := hC U hU (fun y => (f y).2) (fun e hs htt => congrArg Prod.snd (hf e hs htt))
-  exact ⟨fun y => (g y,t y),fun e hs htt => Prod.ext (hg e hs htt) (ht e hs htt),
+  obtain ⟨hfB,hfC⟩ := (prod_compatible_iff B C U f).mp hf
+  obtain ⟨g,hg,hgf⟩ := hB U hU (fun y => (f y).1) hfB
+  obtain ⟨t,ht,htf⟩ := hC U hU (fun y => (f y).2) hfC
+  exact ⟨fun y => (g y,t y),(prod_compatible_iff B C Set.univ _).mpr ⟨hg,ht⟩,
     fun y hy => Prod.ext (hgf y hy) (htf y hy)⟩
 
 lemma prod_upperQuotient (B C : Sheaf.{u,v,w,z} (R := R) G) (α : E → R)
@@ -80,22 +100,13 @@ lemma pi_upperQuotient {ι : Type*} (B : ι → Sheaf.{u,v,w,z} (R := R) G) (α 
 lemma prod_kernel_iff (B C : Sheaf.{u,v,w,z} (R := R) G) (x : V) (v : (prod B C).vertex x) :
     v ∈ LinearMap.ker ((prod B C).stalkMap x) ↔
       v.1 ∈ LinearMap.ker (B.stalkMap x) ∧ v.2 ∈ LinearMap.ker (C.stalkMap x) := by
+  simp only [← upwardKernel_univ, mem_upwardKernel_iff]
   constructor
   · intro h
-    constructor <;> apply LinearMap.mem_ker.mpr <;> funext e
-    · rcases e with ⟨e,he⟩
-      subst x
-      exact congrArg Prod.fst (congrFun (LinearMap.mem_ker.mp h) ⟨e,rfl⟩)
-    · rcases e with ⟨e,he⟩
-      subst x
-      exact congrArg Prod.snd (congrFun (LinearMap.mem_ker.mp h) ⟨e,rfl⟩)
-  · rintro ⟨hB,hC⟩
-    apply LinearMap.mem_ker.mpr
-    funext e
-    rcases e with ⟨e,he⟩
-    subst x
-    exact Prod.ext (congrFun (LinearMap.mem_ker.mp hB) ⟨e,rfl⟩)
-      (congrFun (LinearMap.mem_ker.mp hC) ⟨e,rfl⟩)
+    exact ⟨fun e he => congrArg Prod.fst ((prod_stalkMap_apply B C x v e).symm.trans (h e he)),
+      fun e he => congrArg Prod.snd ((prod_stalkMap_apply B C x v e).symm.trans (h e he))⟩
+  · rintro ⟨hB,hC⟩ e he
+    exact (prod_stalkMap_apply B C x v e).trans (Prod.ext (hB e he) (hC e he))
 
 lemma prod_minimal (B C : Sheaf.{u,v,w,z} (R := R) G) (x : V) (I : Ideal R)
     (hB : LinearMap.ker (B.stalkMap x) ≤ I • (⊤ : Submodule R (B.vertex x)))

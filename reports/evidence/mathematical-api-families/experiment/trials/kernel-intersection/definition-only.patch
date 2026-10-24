@@ -1,0 +1,17 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
+@@ -114,11 +114,9 @@
+ 
+ variable (B : Sheaf.{u,v,w,z} (R := R) G)
+ 
+-@[expose] def upwardKernel (x : V) (F : Set (Outgoing (G := G) x)) : Submodule R (B.vertex x) where
+-  carrier := {v | ∀ e ∈ F, B.stalkMap x v e = 0}
+-  zero_mem' := by intro e _; simp
+-  add_mem' := by intro v w hv hw e he; simp [hv e he,hw e he]
+-  smul_mem' := by intro r v hv e he; simp [hv e he]
++@[expose] def upwardKernel (x : V) (F : Set (Outgoing (G := G) x)) : Submodule R (B.vertex x) :=
++  ⨅ e : Outgoing (G := G) x, ⨅ (_ : e ∈ F),
++    LinearMap.ker ((LinearMap.proj e).comp (B.stalkMap x))
+ 
+ /-- Local kernel constraints, independent of the submodule construction. -/
+ theorem mem_upwardKernel_iff (x : V) (F : Set (Outgoing (G := G) x)) (v : B.vertex x) :

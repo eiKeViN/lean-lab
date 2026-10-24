@@ -1,0 +1,8 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:131:2: error: 'change' tactic failed, pattern
+  (j.vertex x) (g x) = f x
+is not definitionally equal to target
+  j.assignments g x = f x
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:139:2: error: 'change' tactic failed, pattern
+  (j.vertex x) (f x) = v
+is not definitionally equal to target
+  j.assignments f x = v

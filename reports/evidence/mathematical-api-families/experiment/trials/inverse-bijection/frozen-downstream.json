@@ -1,0 +1,8 @@
+{
+  "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean": "c40286e742e0a90b267847be3b7a584d757c25da07bb0ad32709fa1e5540912e",
+  "ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean": "8b4d38099794b38f1bc5f7db9018c0e02d696d8987238d2f3c52413e88982e94",
+  "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean": "fe217387d3389f179b4c6a3a0fbd8723447ba0a7fb525cc5e567eb9a3ffbc1b5",
+  "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean": "b7ffffa4ddd382c69dbb9e9a3acf627b686b81cb58e2443ffb6f853fc89cf2e5",
+  "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": "e85e2b777063b8586d1a676ea78125e89c19084d32f74e86d38183a7b374469c",
+  "ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean": "d3873ccb406fcc43868440df03405b27a4b182334d0a8d4e384a2504d0ada773"
+}

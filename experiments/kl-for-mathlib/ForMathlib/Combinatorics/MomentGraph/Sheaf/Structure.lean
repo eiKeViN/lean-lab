@@ -123,14 +123,14 @@ include j
 
  theorem flabby (hb : B.Flabby) : C.Flabby := by
   intro Ω hΩ f hf
-  have hsf : B.CompatibleOn Ω (j.symm.assignments f) :=
-    (j.symm.compatible_iff Ω f).mpr hf
-  obtain ⟨g,hg,hgf⟩ := hb Ω hΩ (j.symm.assignments f) hsf
+  have hsf : B.CompatibleOn Ω (j.assignments.symm f) := by
+    apply (j.compatible_iff Ω _).mp
+    simpa only [LinearEquiv.apply_symm_apply] using hf
+  obtain ⟨g,hg,hgf⟩ := hb Ω hΩ (j.assignments.symm f) hsf
   refine ⟨j.assignments g,(j.compatible_iff Set.univ g).mpr hg,?_⟩
   intro x hx
-  rw [j.assignments_apply,hgf x hx]
-  exact (congrArg (j.vertex x) (j.symm.assignments_apply f x)).trans
-    ((j.vertex x).apply_symm_apply _)
+  rw [j.assignments_apply,hgf x hx,j.assignments_symm_apply]
+  exact (j.vertex x).apply_symm_apply _
 
  theorem generated (hb : B.Generated) : C.Generated := by
   intro x v

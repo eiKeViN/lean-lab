@@ -1,0 +1,13 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
+@@ -39,7 +39,9 @@
+     simp only [LinearEquiv.apply_symm_apply, j.upper]
+ 
+ @[expose] noncomputable def assignments : B.Assignment ≃ₗ[R] C.Assignment :=
+-  LinearEquiv.piCongrRight j.vertex
++  (LinearEquiv.ofBijective
++     (LinearEquiv.piCongrRight (fun x => (j.vertex x).symm)).toLinearMap
++     (LinearEquiv.piCongrRight (fun x => (j.vertex x).symm)).bijective).symm
+ 
+ /-- Transport of an assignment is pointwise transport at the vertices. -/
+ @[simp] theorem assignments_apply (f : B.Assignment) (x : V) :

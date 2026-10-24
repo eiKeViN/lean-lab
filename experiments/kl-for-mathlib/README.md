@@ -258,3 +258,11 @@ removed. Nine evaluation/transport theorems support real graded/sheaf/pairing
 clients. The bounded layer is `api_evolution.py`; the equivalent-implementation
 trial is `api_evolution_trial.py`. Old round-1 hiding trials belong to the original
 31f05da checkout. No bulk exposure or formatting migration is performed here.
+
+### 第三轮：四组数学操作 API
+
+`experiment/mathematical-api-families-20261024` 在第二轮 bdbca7f 上扩展同构输运、
+局部核、product/pi 和 restriction/延拓四组操作。定义仍expose；
+真实客户端、两种实现扰动和精确门禁见
+[第三轮报告](../../reports/mathematical-api-families.md)。隔离脚本为 `api_families_trial.py`，
+不得与构建并行运行。前两轮的冻结报告/证据保留。

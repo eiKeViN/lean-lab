@@ -1,0 +1,13 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
+@@ -120,7 +120,9 @@
+ 
+ /-- Local kernel constraints, independent of the submodule construction. -/
+ theorem mem_upwardKernel_iff (x : V) (F : Set (Outgoing (G := G) x)) (v : B.vertex x) :
+-    v ∈ B.upwardKernel x F ↔ ∀ e ∈ F, B.stalkMap x v e = 0 := by rfl
++    v ∈ B.upwardKernel x F ↔ ∀ e ∈ F, B.stalkMap x v e = 0 := by
++  simp only [upwardKernel, Submodule.mem_iInf, LinearMap.mem_ker,
++    LinearMap.comp_apply, LinearMap.proj_apply]
+ 
+ /-- Imposing every outgoing constraint is the kernel of the full stalk map. -/
+ theorem upwardKernel_univ (x : V) :

@@ -33,6 +33,7 @@ def apply(path,b):
  if sha(s.encode())!=r['after_sha256']:raise RuntimeError('Unexpected evolution output')
  return s.encode()
 def prior_source(path,b):
+ b=__import__('api_families').prior_source(path,b)
  if path not in plan()['files']:return b
  old=before(path);new=apply(path,old)
  if b==new:return old
@@ -51,6 +52,7 @@ def registry():
 def additions():
  d=registry();return {**d['mathematical'],**d['generated']}
 def strip_additions(records):
+ records=__import__('api_families').strip_additions(records)
  added=additions()
  for n,r in added.items():
   if records.get(n)!=r:raise RuntimeError('Missing/changed evolution API: '+n)
@@ -62,8 +64,8 @@ def compare(path):
  if b!=subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT):raise RuntimeError('Changed first-round evidence')
  with tempfile.NamedTemporaryFile() as f:
   f.write(gzip.decompress(b));f.flush();old=load(f.name,3947)
- new=load(path,3947+len(additions()));raw=cmp(old,new)
- strip_additions(new)
+ complete=load(path);new=__import__('api_families').strip_additions(complete);raw=cmp(old,new)
+ strip_additions(complete)
  if raw['missing'] or raw['changed'] or raw['relocated'] or set(raw['added'])!=set(additions()):raise RuntimeError('Unapproved evolution: '+json.dumps(raw))
  return dict(raw=raw,registry=registry(),passed=True)
 def check_axioms(text):

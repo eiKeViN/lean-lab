@@ -1,0 +1,37 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean:187:16: error: Invalid `⟨...⟩` notation: The expected type
+  ↑(B.vertex (f.vertex x)) → Prop
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean:207:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (B.stalkMap ?x) (s ?x) ?e
+in the target expression
+  s (f.vertex x) ∈ e
+
+R : Type ur
+inst✝² : CommRing R
+V : Type uv
+inst✝¹ : PartialOrder V
+E : Type ue
+G : OrderedGraph V E
+W : Type uw
+inst✝ : PartialOrder W
+F : Type uf
+H : OrderedGraph W F
+B : Sheaf H
+f : GraphMap G H
+x : V
+T live : Set F
+hdead : ∀ e ∉ live, Subsingleton ↑(B.edge e)
+hlift : ∀ e ∈ live, f.vertex x = H.source e → ∃ a, f.edge a = e ∧ G.source a = x
+v : ↑((B.pullback f).vertex x)
+hv : v ∈ (B.pullback f).upwardKernel x {e | f.edge ↑e ∈ T}
+s : B.Assignment := Function.update (fun x => 0) (f.vertex x) v
+hs : s (f.vertex x) = v
+hxs : B.pullAssignment f s x = v
+e : Set ↑(B.vertex (f.vertex x))
+he :
+  e ∈
+    Set.range fun s =>
+      ⋂ (_ : s ∈ Set.range fun e => ⨅ (_ : e ∈ {e | ↑e ∈ T}), (LinearMap.proj e ∘ₗ B.stalkMap (f.vertex x)).ker), ↑s
+⊢ s (f.vertex x) ∈ e

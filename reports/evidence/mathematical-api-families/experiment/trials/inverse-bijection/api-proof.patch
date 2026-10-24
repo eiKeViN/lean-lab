@@ -1,0 +1,17 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean
+@@ -45,7 +45,13 @@
+ 
+ /-- Transport of an assignment is pointwise transport at the vertices. -/
+ @[simp] theorem assignments_apply (f : B.Assignment) (x : V) :
+-    j.assignments f x = j.vertex x (f x) := by rfl
++    j.assignments f x = j.vertex x (f x) := by
++  let back := LinearEquiv.ofBijective
++     (LinearEquiv.piCongrRight (fun x => (j.vertex x).symm)).toLinearMap
++     (LinearEquiv.piCongrRight (fun x => (j.vertex x).symm)).bijective
++  have h : (j.vertex x).symm (j.assignments f x) = f x :=
++    congrFun (back.apply_symm_apply f) x
++  exact (j.vertex x).symm_apply_eq.mp h
+ 
+ @[simp] theorem assignments_symm_apply (f : C.Assignment) (x : V) :
+     j.assignments.symm f x = (j.vertex x).symm (f x) := by rfl

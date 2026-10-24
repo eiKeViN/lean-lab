@@ -46,6 +46,29 @@ noncomputable section
   · rfl
   · exact (h x.property).elim
 
+/-- Restriction is a retraction of extension by zero. -/
+@[simp] theorem restrict_extendAssignment (f : (B.restrict K).Assignment) :
+    B.restrictAssignment K (B.extendAssignment K f) = f := by
+  funext x
+  exact B.extendAssignment_mem K f x
+
+/-- Compatibility on a subgraph set is exactly compatibility on its ambient image. -/
+theorem restrict_compatible_iff (Ω : Set K) (f : B.Assignment) :
+    (B.restrict K).CompatibleOn Ω (B.restrictAssignment K f) ↔
+      B.CompatibleOn (Subtype.val '' Ω) f := by
+  constructor
+  · intro hf e hs ht
+    obtain ⟨x,hx,hxe⟩ := hs
+    obtain ⟨y,hy,hye⟩ := ht
+    have hsk : G.source e ∈ K := hxe ▸ x.property
+    have htk : G.target e ∈ K := hye ▸ y.property
+    let ee : {e : E // G.source e ∈ K ∧ G.target e ∈ K} := ⟨e,hsk,htk⟩
+    have hsx : (inducedGraph G K).source ee = x := Subtype.ext hxe.symm
+    have hty : (inducedGraph G K).target ee = y := Subtype.ext hye.symm
+    exact hf ee (hsx ▸ hx) (hty ▸ hy)
+  · intro hf e hs ht
+    exact hf e.val ⟨_,hs,rfl⟩ ⟨_,ht,rfl⟩
+
  theorem restrict_compatible {Ω : Set V} {f : B.Assignment} (hf : B.CompatibleOn Ω f) :
     (B.restrict K).CompatibleOn (Subtype.val ⁻¹' Ω) (B.restrictAssignment K f) := by
   intro e hs ht
@@ -64,17 +87,9 @@ noncomputable section
  theorem extend_compatible (Ω : Set K) (f : (B.restrict K).Assignment)
     (hf : (B.restrict K).CompatibleOn Ω f) :
     B.CompatibleOn (Subtype.val '' Ω) (B.extendAssignment K f) := by
-  intro e hs ht
-  obtain ⟨x,hx,hxe⟩ := hs
-  obtain ⟨y,hy,hye⟩ := ht
-  have hsk : G.source e ∈ K := hxe ▸ x.property
-  have htk : G.target e ∈ K := hye ▸ y.property
-  let ee : {e : E // G.source e ∈ K ∧ G.target e ∈ K} := ⟨e,hsk,htk⟩
-  have hsx : (inducedGraph G K).source ee = x := Subtype.ext hxe.symm
-  have hty : (inducedGraph G K).target ee = y := Subtype.ext hye.symm
-  have hh := hf ee (hsx ▸ hx) (hty ▸ hy)
-  change B.lower e (f ⟨G.source e,hsk⟩) = B.upper e (f ⟨G.target e,htk⟩) at hh
-  simpa only [← B.extendAssignment_mem K f] using hh
+  apply (B.restrict_compatible_iff K Ω (B.extendAssignment K f)).mp
+  rw [B.restrict_extendAssignment K f]
+  exact hf
 
 /-- The induced subgraph may use upper sets which are not ambient upper
 sets. All nonzero exiting edges must stay in the subgraph. -/

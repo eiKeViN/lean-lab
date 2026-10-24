@@ -115,7 +115,7 @@ Public-type validation preserves all 3902 baseline declarations and checks every
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Localization.lean) | `edge_subsingleton_of_unit`, `supportedOutgoing`, `kernelProduct` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean) | `zeroVertex_subsingleton`, `zeroEdge_subsingleton`, `LocalModels` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean) | `pi`, `pi_compatible`, `pi_generated` |
-| [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Products`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean) | `zero`, `prod`, `prod_generated` |
+| [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Products`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean) | `zero`, `prod`, `prod_compatible_iff` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean) | `GraphMap`, `moduleEq`, `moduleEq_apply` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean) | `inducedGraph`, `restrict`, `restrictAssignment` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages`](ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean) | `outgoingLabelProduct`, `outgoingLabelProduct_dvd`, `outgoingLabelProduct_smul_mem` |

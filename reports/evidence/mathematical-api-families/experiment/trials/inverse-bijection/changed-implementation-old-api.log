@@ -1,0 +1,17 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean:48:47: error: Tactic `rfl` failed: The left-hand side
+  j.assignments f x
+is not definitionally equal to the right-hand side
+  (j.vertex x) (f x)
+
+R : Type u
+inst✝¹ : CommRing R
+V : Type v
+inst✝ : PartialOrder V
+E : Type w
+G : OrderedGraph V E
+B : Sheaf G
+C : Sheaf G
+j : B.Iso C
+f : B.Assignment
+x : V
+⊢ j.assignments f x = (j.vertex x) (f x)
