@@ -96,7 +96,7 @@ Public-type validation preserves all 3902 baseline declarations and checks every
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean) | `bottomGraph`, `attachEdges`, `attachQuotient` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Character.lean) | `freeStalkChar`, `ModelSum.character`, `exists_stalkCharacter_decomposition` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean) | `GradedSheaf`, `forget`, `EdgeFlabby` |
-| [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean) | `dualToSupport_homogeneous`, `UpperQuotient.annihilates`, `upwardSubmodule_saturated` |
+| [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean) | `dualToSupport_homogeneous`, `singleSupportEquivDual_symm_homogeneous`, `UpperQuotient.annihilates` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Extension.lean) | `lowerAt`, `lowerAt_map`, `upwardSubmodule` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Hilbert.lean) | `kernelHilbert`, `lowerImage`, `upperImage` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Hom.lean) | `Endomorphism`, `complement`, `complement_idempotent` |
