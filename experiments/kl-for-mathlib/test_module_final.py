@@ -32,6 +32,25 @@ class FinalPolicyTests(unittest.TestCase):
             left,accepted=m._partition(bad,pairs)
             self.assertFalse(left['passed']);self.assertEqual(len(accepted),count-1)
 
+    def test_preexisting_historical_transport_does_not_allow_new_owners(self):
+        from unittest.mock import patch
+        pairs=m.compatibility()['full']
+        baseline={x['name']:x['old'] for x in pairs}
+        actual={x['name']:x['new'] for x in pairs}
+        original={n:{**v,'module':'Original.Historical'} for n,v in baseline.items()}
+        changes=[{**x,'old':original[x['name']]} for x in pairs]
+        raw=dict(old_count=8,new_count=8,missing=[],added=[],changed=changes,relocated=8,passed=False)
+        with patch.object(m,'baseline_types',return_value=baseline),patch('compare_types.load_snapshot',return_value=original):
+            left,accepted=m._partition_historical(raw,actual)
+            self.assertTrue(left['passed']);self.assertEqual(left['relocated'],8);self.assertEqual(len(accepted),8)
+            bad=copy.deepcopy(actual);bad[next(iter(bad))]['module']='Unapproved.NewOwner'
+            with self.assertRaises(RuntimeError):m._partition_historical(raw,bad)
+            bad=copy.deepcopy(raw);bad['relocated']=7
+            with self.assertRaises(RuntimeError):m._partition_historical(bad,actual)
+            bad=copy.deepcopy(raw);bad['changed'][0]['old']['module']='Wrong.Historical'
+            with self.assertRaises(RuntimeError):m._partition_historical(bad,actual)
+        self.assertEqual(raw['relocated'],8)
+
     def test_held_sources_and_existing_policy(self):
         c=m.plan();held=set(c['held_structure_closure'])|set(c['held_matcher_closure'])
         for n in held:

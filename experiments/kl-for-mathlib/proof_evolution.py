@@ -233,8 +233,8 @@ def compare_export(path):
     additions = compare(expected, {k:all_types[k] for k in expected})
     if not additions['passed']:raise RuntimeError('Old API or explicit added types changed: '+json.dumps([result,additions]))
     from attach_module import accept_change
-    from module_final import accept_known
-    remaining,accepted=accept_known(result)
+    from module_final import accept_historical
+    remaining,accepted=accept_historical(result,all_types)
     try:accepted += [] if remaining['passed'] else [accept_change(remaining)]
     except RuntimeError as e:raise RuntimeError('Old API or explicit added types changed: '+str(e)) from e
     return dict(old_api=result, additions=additions, accepted_representation_changes=accepted, passed=True)

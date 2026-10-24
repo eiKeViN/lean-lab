@@ -84,6 +84,46 @@ def accept_known(raw,view='full'):
     if accepted:subprocess.run(['lake','env','lean',c['witness']],cwd=HERE,check=True)
     return residual,accepted
 
+def baseline_types():
+    from compare_types import load
+    rel='reports/evidence/module-next/stages/migrated-types.tsv.gz'
+    raw=(ROOT/rel).read_bytes()
+    if raw!=subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT):raise RuntimeError('Changed accepted 131-module export')
+    with tempfile.NamedTemporaryFile() as f:
+        f.write(gzip.decompress(raw));f.flush();return load(f.name,3947)
+
+def _partition_historical(raw,actual):
+    # Historical owner transport predates this batch. Verify every current owner
+    # against accepted 131-module main rather than weakening new-owner checks.
+    import copy
+    from compare_types import load_snapshot
+    baseline=baseline_types()
+    if set(actual)!=set(baseline) or any(actual[n]['module']!=baseline[n]['module'] for n in baseline):
+        raise RuntimeError('Historical transport differs from accepted 131-module owners')
+    ref='reference-public-types.json'
+    if (HERE/ref).read_bytes()!=subprocess.check_output(['git','show',BASE+':experiments/kl-for-mathlib/'+ref],cwd=ROOT):
+        raise RuntimeError('Changed original historical owner/type snapshot')
+    old=load_snapshot(HERE/ref)
+    expected=sum(old[n]['module']!=baseline[n]['module'] for n in old)
+    if raw['relocated']!=expected:raise RuntimeError('Unexpected historical owner transport count')
+    pairs=copy.deepcopy(compatibility()['full'])
+    for p in pairs:
+        original=old[p['name']]
+        if any(original[k]!=p['old'][k] for k in ('levels','type','kind')):
+            raise RuntimeError('Historical representation input differs from bound old record')
+        p['old']=original
+    transport_checked=copy.deepcopy(raw);transport_checked['relocated']=0
+    residual,accepted=_partition(transport_checked,pairs)
+    residual['relocated']=raw['relocated']
+    return residual,accepted
+
+def accept_historical(raw,actual):
+    c=compatibility();residual,accepted=_partition_historical(raw,actual)
+    v=subprocess.check_output(['lean','--version'],cwd=HERE,text=True)
+    if c['lean_commit'] not in v:raise RuntimeError('Wrong compiler for historical batch view')
+    if accepted:subprocess.run(['lake','env','lean',c['witness']],cwd=HERE,check=True)
+    return residual,accepted
+
 def compare_public(path):
     from compare_types import load,compare
     raw=compare(expected_types(),load(path,661));left,accepted=accept_known(raw,'ordinary')
