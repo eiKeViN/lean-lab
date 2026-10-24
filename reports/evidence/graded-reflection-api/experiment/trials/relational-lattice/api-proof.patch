@@ -1,0 +1,12 @@
+--- before/ForMathlib/Algebra/Module/ReflectionPair/Twist.lean
++++ after/ForMathlib/Algebra/Module/ReflectionPair/Twist.lean
+@@ -90,7 +90,8 @@
+ 
+ /-- Membership in the twisted lattice means that the two coordinates have a common lift. -/
+ theorem mem_lattice_iff (p : X × Twist τ Y) :
+-    p ∈ lattice f g τ α hdiv hinc ↔ ∃ n : N, f n=p.1 ∧ g n=p.2.val := by rfl
++    p ∈ lattice f g τ α hdiv hinc ↔ ∃ n : N, f n=p.1 ∧ g n=p.2.val := by
++  exact PairProjection.compatible_iff f g p.1 p.2.val
+ 
+ /-- Saturation away from the simple wall. Regularity on the old edge module,
+ not an unjustified reflexivity assertion, removes a non-wall factor. -/

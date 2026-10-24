@@ -82,7 +82,10 @@ namespace ReflectionPairTranslation
  theorem twistMap_injective (τ : R ≃+* R) (f : M →ₗ[R] P) (hf : Function.Injective f) :
     Function.Injective (twistMap τ f) := by
   intro m n h
-  exact Twist.ext (hf (congrArg Twist.val h))
+  apply Twist.ext
+  apply hf
+  exact (twistMap_val τ f m).symm.trans
+    ((congrArg Twist.val h).trans (twistMap_val τ f n))
 end ReflectionPairTranslation
 
 namespace CoordinateProjection

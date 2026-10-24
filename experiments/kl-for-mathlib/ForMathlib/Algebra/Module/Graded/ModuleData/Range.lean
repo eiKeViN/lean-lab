@@ -33,14 +33,28 @@ noncomputable section
   map := e.map.rangeRestrict
   graded n m hm := e.graded n m hm
 
-/-- The map induced on ranges agrees with the original commuting map. -/
-@[simp] theorem rangeMap_val (e : Hom M M) (f : Hom N N) (g : Hom M N)
-    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (v : range e) :
-    ((rangeMap e f g h).map v).val = g.map v.val := by rfl
-
 /-- The range factorization of an endomorphism retains its value. -/
 @[simp] theorem rangeProjection_val (e : Hom M M) (v : M) :
     ((rangeProjection e).map v).val = e.map v := by rfl
+
+/-- A commuting square induces a commuting square on the range projections. -/
+theorem rangeMap_projection (e : Hom M M) (f : Hom N N) (g : Hom M N)
+    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (m : M) :
+    (rangeMap e f g h).map ((rangeProjection e).map m) =
+      (rangeProjection f).map (g.map m) := by
+  apply Subtype.ext
+  exact (h m).symm
+
+/-- The map induced on ranges agrees with the original commuting map. -/
+@[simp] theorem rangeMap_val (e : Hom M M) (f : Hom N N) (g : Hom M N)
+    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (v : range e) :
+    ((rangeMap e f g h).map v).val = g.map v.val := by
+  obtain ⟨m,hm⟩ := v.property
+  have hv : v = (rangeProjection e).map m := Subtype.ext hm.symm
+  rw [hv]
+  exact (congrArg (fun w : range f => w.val) (rangeMap_projection e f g h m)).trans
+    ((rangeProjection_val f (g.map m)).trans
+      ((h m).trans (congrArg g.map (rangeProjection_val e m)).symm))
 
 /-- Inclusion of a range is its underlying vector. -/
 @[simp] theorem rangeInclusion_apply (e : Hom M M) (v : range e) :

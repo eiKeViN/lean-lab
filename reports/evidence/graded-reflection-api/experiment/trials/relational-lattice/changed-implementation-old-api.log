@@ -1,0 +1,24 @@
+ForMathlib/Algebra/Module/ReflectionPair/Twist.lean:93:73: error: Tactic `rfl` failed: The left-hand side
+  p ∈ lattice f g τ α hdiv hinc
+is not definitionally equal to the right-hand side
+  ∃ n, f n = p.1 ∧ g n = p.2.val
+
+R : Type u
+inst✝⁶ : CommRing R
+N : Type v
+inst✝⁵ : AddCommGroup N
+inst✝⁴ : Module R N
+X : Type w
+inst✝³ : AddCommGroup X
+inst✝² : Module R X
+Y : Type z
+inst✝¹ : AddCommGroup Y
+inst✝ : Module R Y
+f : N →ₗ[R] X
+g : N →ₗ[R] Y
+τ : R ≃+* R
+α : R
+hdiv : ∀ (r : R), α ∣ τ r - r
+hinc : ∀ (y : Y), ∃ n, f n = 0 ∧ g n = α • y
+p : X × Twist τ Y
+⊢ p ∈ lattice f g τ α hdiv hinc ↔ ∃ n, f n = p.1 ∧ g n = p.2.val

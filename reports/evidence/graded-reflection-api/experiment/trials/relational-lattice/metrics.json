@@ -1,0 +1,118 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/ReflectionPair/Twist.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.453619131996675,
+    "source_sha256": "05829a79fb9d7c4476fa2f47b2d32d4aa8bfd43d7d6da52c417cff3c28ee8144"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/ReflectionPair/Twist.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/artifacts/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.157284767999954,
+    "source_sha256": "f09929e03907a01043069674d5240c36648922032c7c723de6b5e500390d297a"
+  },
+  {
+    "label": "frozen-new-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/frozen-new-0.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/artifacts/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.169460192002589,
+    "source_sha256": "50a6994bf97a61d7cef1958b6921ed6e27a9f4a8a98f80a7a824f8e3b9df0e69"
+  },
+  {
+    "label": "frozen-new-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/frozen-new-1.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/artifacts/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.4901650589999917,
+    "source_sha256": "98b64d682da08721f163352987f5fe700612bbaf507a33112b8fd704da0baf65"
+  },
+  {
+    "label": "frozen-new-2",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/LinearAlgebra/KernelCoordinates.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/frozen-new-2.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/artifacts/ForMathlib/LinearAlgebra/KernelCoordinates.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.2228211920009926,
+    "source_sha256": "39af3789b514e6a918d6047dc0b5dbafe019470f33dee2781e7dcac572bed49a"
+  },
+  {
+    "label": "ordinary-api-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "GradedReflectionChecks.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/ordinary-api-client.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.9211067850010295,
+    "source_sha256": "e61e5b55271fd42f09df0cc04c5d72d9f468eebf39a5d671db7eb5f2761c1040"
+  },
+  {
+    "label": "old-client-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/old-client-0.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 5.313949325998692,
+    "source_sha256": "cafc587bc98bd25e1e16e7161f0df53c19d37c636330135694982e5e32ccd114"
+  },
+  {
+    "label": "old-client-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/old-client-1.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.134242315998563,
+    "source_sha256": "1913dbd64ea7959d91f57b7dbd04be53a4a981a36307c9b216bed3d4a0e47fb0"
+  },
+  {
+    "label": "old-client-2",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/LinearAlgebra/KernelCoordinates.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/relational-lattice/old-client-2.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.955872170998191,
+    "source_sha256": "0be150b1137177b69eb400a6e327a810e65bbfe656dfdae65bd1f50eba22cbbc"
+  }
+]

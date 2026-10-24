@@ -1,0 +1,92 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.5337982249984634,
+    "source_sha256": "62439ff7508488a8da02acc7b1d79cdc3e1b0a034b817e5c7186dcea2dcb9924"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/artifacts/ForMathlib/Algebra/Module/Graded/ModuleData/Range.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.041907186998287,
+    "source_sha256": "0f2a01f3c7919fe5cb5975ef9f907326bcc4cc8b97d1824da756956bae2354b1"
+  },
+  {
+    "label": "frozen-new-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/frozen-new-0.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.175011432998872,
+    "source_sha256": "fbf00a7a1032c4c424977f4d1fa88353aa35d776435eed89b96db17f389939c7"
+  },
+  {
+    "label": "frozen-new-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/BottSamelson/AdjointSheaf.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/frozen-new-1.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/artifacts/OAI/KL/BottSamelson/AdjointSheaf.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 40.910386470997764,
+    "source_sha256": "e7a67daff9c94a44a245411444922085ed63843723d1ee252b73896754839ed6"
+  },
+  {
+    "label": "ordinary-api-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "GradedReflectionChecks.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/ordinary-api-client.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.9381166559978737,
+    "source_sha256": "e61e5b55271fd42f09df0cc04c5d72d9f468eebf39a5d671db7eb5f2761c1040"
+  },
+  {
+    "label": "old-client-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/old-client-0.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.4434152630019526,
+    "source_sha256": "9a968f525ebb1e24916ab6e9eb2bca24ffaf3d77a1c162e9d2946c9ad2d52ac6"
+  },
+  {
+    "label": "old-client-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/BottSamelson/AdjointSheaf.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/old-client-1.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 14.845939586997702,
+    "source_sha256": "e7a67daff9c94a44a245411444922085ed63843723d1ee252b73896754839ed6"
+  }
+]

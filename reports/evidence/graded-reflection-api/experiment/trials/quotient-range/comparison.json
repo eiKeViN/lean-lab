@@ -1,0 +1,8 @@
+{
+  "old_exit_codes": {
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean": 1,
+    "OAI/KL/BottSamelson/AdjointSheaf.lean": 0
+  },
+  "all_frozen_new_clients_passed": true,
+  "axiom_closures_checked": 36
+}

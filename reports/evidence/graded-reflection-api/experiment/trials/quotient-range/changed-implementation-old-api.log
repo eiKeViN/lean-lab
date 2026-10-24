@@ -1,0 +1,6 @@
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:62:2: error: Type mismatch
+  Eq.symm (h m)
+has type
+  g.map (e.map m) = f.map (g.map m)
+but is expected to have type
+  ↑((rangeMap e f g h).map ((rangeProjection e).map m)) = ↑((rangeProjection f).map (g.map m))

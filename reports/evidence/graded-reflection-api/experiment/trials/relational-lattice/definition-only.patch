@@ -1,0 +1,47 @@
+--- before/ForMathlib/Algebra/Module/ReflectionPair/Twist.lean
++++ after/ForMathlib/Algebra/Module/ReflectionPair/Twist.lean
+@@ -66,23 +66,27 @@
+ 
+ /-- The old pair relation with the scalar action on its second factor twisted.
+ Alpha-annihilation of the old edge is what makes this an R-submodule. -/
+-@[expose] def lattice : Submodule R (X × Twist τ Y) where
+-  carrier := {p | ∃ n : N, f n=p.1 ∧ g n=p.2.val}
+-  zero_mem' := ⟨0,map_zero _,map_zero _⟩
+-  add_mem' := by
+-    rintro _ _ ⟨m,hm,hm'⟩ ⟨n,hn,hn'⟩
+-    exact ⟨m+n,by rw [map_add,hm,hn]; rfl,by rw [map_add,hm',hn']; rfl⟩
+-  smul_mem' := by
+-    rintro r ⟨x,y⟩ ⟨n,hn,hn'⟩
+-    obtain ⟨c,hc⟩ := hdiv r
+-    obtain ⟨m,hm,hm'⟩ := hinc (c • y.val)
+-    have hm'' : g m=(τ r-r) • y.val := by rw [hm',hc,mul_smul]
+-    refine ⟨r • n+m,?_,?_⟩
+-    · change f (r • n+m)=r • x
+-      rw [map_add,map_smul,hn,hm,add_zero]
+-    · change g (r • n+m)=τ r • y.val
+-      rw [map_add,map_smul,hn',hm'',sub_smul]
+-      abel
++@[expose] def lattice : Submodule R (X × Twist τ Y) := by
++  let S : Submodule R (X × Twist τ Y) := {
++    carrier := {p | ∃ n : N, f n=p.1 ∧ g n=p.2.val}
++    zero_mem' := ⟨0,map_zero _,map_zero _⟩
++    add_mem' := by
++      rintro _ _ ⟨m,hm,hm'⟩ ⟨n,hn,hn'⟩
++      exact ⟨m+n,by rw [map_add,hm,hn]; rfl,by rw [map_add,hm',hn']; rfl⟩
++    smul_mem' := by
++      rintro r ⟨x,y⟩ ⟨n,hn,hn'⟩
++      obtain ⟨c,hc⟩ := hdiv r
++      obtain ⟨m,hm,hm'⟩ := hinc (c • y.val)
++      have hm'' : g m=(τ r-r) • y.val := by rw [hm',hc,mul_smul]
++      refine ⟨r • n+m,?_,?_⟩
++      · change f (r • n+m)=r • x
++        rw [map_add,map_smul,hn,hm,add_zero]
++      · change g (r • n+m)=τ r • y.val
++        rw [map_add,map_smul,hn',hm'',sub_smul]
++        abel
++  }
++  exact S.copy {p | PairProjection.lower f g p.1 = PairProjection.upper f g p.2.val}
++    (Set.ext (fun p => PairProjection.compatible_iff f g p.1 p.2.val))
+ 
+ /-- Membership in the twisted lattice means that the two coordinates have a common lift. -/
+ theorem mem_lattice_iff (p : X × Twist τ Y) :

@@ -60,7 +60,7 @@ Public-type validation preserves all 3902 baseline declarations and checks every
 | [`ForMathlib.Algebra.Module.Projective.Transport`](ForMathlib/Algebra/Module/Projective/Transport.lean) | `projective_of_same_range`, `projective` |
 | [`ForMathlib.Algebra.Module.Quotient.KernelReduction`](ForMathlib/Algebra/Module/Quotient/KernelReduction.lean) | `kernel_saturated`, `reduced_kernel_injective`, `reducedInclusion` |
 | [`ForMathlib.Algebra.Module.Quotient.ScalarImage`](ForMathlib/Algebra/Module/Quotient/ScalarImage.lean) | `coordinateReduction`, `coordinateReduction_surjective`, `coordinateReduction_kernel` |
-| [`ForMathlib.Algebra.Module.ReflectionPair.TensorDescent`](ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean) | `tensorFirst_map`, `tensorSecond_map`, `tensor_difference` |
+| [`ForMathlib.Algebra.Module.ReflectionPair.TensorDescent`](ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean) | `tensorFirst_natural`, `tensorSecond_natural`, `tensorFirst_map` |
 | [`ForMathlib.Algebra.Module.ReflectionPair.TensorKernel`](ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean) | `scalarModule`, `scalarTower`, `scalarEquiv` |
 | [`ForMathlib.Algebra.Module.ReflectionPair.Twist`](ForMathlib/Algebra/Module/ReflectionPair/Twist.lean) | `equivVal`, `_root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instAddCommGroup`, `_root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule` |
 | [`ForMathlib.Algebra.Module.Submodule.PiIdeal`](ForMathlib/Algebra/Module/Submodule/PiIdeal.lean) | `pi_mem_ideal_smul` |

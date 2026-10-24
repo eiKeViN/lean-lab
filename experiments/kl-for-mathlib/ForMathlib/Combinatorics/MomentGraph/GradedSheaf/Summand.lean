@@ -219,18 +219,8 @@ noncomputable section
  @[expose] def Hom.imageProjection (h : Hom B B) : Hom B h.image where
   vertex x := ModuleData.rangeProjection (h.vertex x)
   edge e := ModuleData.rangeProjection (h.edge e)
-  lower e v := by
-    apply Subtype.ext
-    exact (ModuleData.rangeProjection_val (h.edge e) _).trans
-      ((h.lower e v).trans
-        ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.lower e) (h.lower e) _).trans
-          (congrArg (B.lower e).map (ModuleData.rangeProjection_val (h.vertex _) v))).symm)
-  upper e v := by
-    apply Subtype.ext
-    exact (ModuleData.rangeProjection_val (h.edge e) _).trans
-      ((h.upper e v).trans
-        ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.upper e) (h.upper e) _).trans
-          (congrArg (B.upper e).map (ModuleData.rangeProjection_val (h.vertex _) v))).symm)
+  lower e v := (ModuleData.rangeMap_projection (h.vertex _) (h.edge e) (B.lower e) (h.lower e) v).symm
+  upper e v := (ModuleData.rangeMap_projection (h.vertex _) (h.edge e) (B.upper e) (h.upper e) v).symm
 
  @[expose] def Hom.imageSplit (h : Hom B B)
     (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)

@@ -266,3 +266,10 @@ trial is `api_evolution_trial.py`. Old round-1 hiding trials belong to the origi
 真实客户端、两种实现扰动和精确门禁见
 [第三轮报告](../../reports/mathematical-api-families.md)。隔离脚本为 `api_families_trial.py`，
 不得与构建并行运行。前两轮的冻结报告/证据保留。
+
+### Fourth experiment: graded and reflection APIs
+
+[API discovery guide](API-GUIDE.md) maps the range, splitting, twisted-lattice
+and tensor laws to real consumers. See the [experiment report](../../reports/graded-reflection-api.md).
+The isolated script `graded_reflection_trial.py` must run without any concurrent
+build. The experiment keeps all computational definitions exposed.

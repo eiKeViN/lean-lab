@@ -1,0 +1,9 @@
+{
+  "old_exit_codes": {
+    "ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean": 1,
+    "ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean": 0,
+    "ForMathlib/LinearAlgebra/KernelCoordinates.lean": 0
+  },
+  "all_frozen_new_clients_passed": true,
+  "axiom_closures_checked": 36
+}

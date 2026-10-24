@@ -1,29 +1,83 @@
 # Graded / reflection API experiment（第四轮）
 
-状态：分阶段进行，尚未全库验收。
-基点a797fbc1300142c56c18ebfaa0ae84b357bc4b3d，分支
-experiment/graded-reflection-api-20261024。不修改main、不建PR、不合并，保留先前三轮。
+状态：六文件局部编译、普通导入与两种隔离试验通过；完整构建运行中，最终接口/全量门禁待验收。
+基点`a797fbc1300142c56c18ebfaa0ae84b357bc4b3d`，分支
+`experiment/graded-reflection-api-20261024`。main及先前三轮分支保留，不建PR、不合并。
+[发现索引](../experiments/kl-for-mathlib/API-GUIDE.md)列出完整命名、语义及来源。
 
-本轮选五个相邻操作族：
-
-| 家族 | 生产者 / 实际消费者 | 状态 |
+| 操作族 | 新API / 复用 | 实际生产下游 |
 | --- | --- | --- |
-| 分次同态组合与截面映射 | GradedSheaf.Summand中的Hom.comp/sectionMap → SplitIn.sections_split | 局部通过 |
-| range自然性与幂等固定点 | ModuleData.Range → Hom.imageInclusion/Projection/Split、imageSection_fixed | 局部通过 |
-| splitting/projector/image | SplitIn.projection_comp_inclusion、projector点值 → 现有projector幂等性、截面分裂 | 局部通过 |
-| twisted lattice成员与核坐标 | ReflectionPair.Twist → TensorKernel的右核、左右满射与单射 | 待实现 |
-| 反射张量的一般自然性 | TensorKernel/TensorDescent → 既有tensorFirst/Second_map、tensor_difference、KernelCoordinates | 待实现 |
+| 分次同态与截面函子性 | comp的vertex/edge求值、sectionMap保持comp/id；复用sectionMap_apply、eq_of_maps | SplitIn.projection_comp_inclusion、sections_split |
+| range自然性与幂等固定点 | rangeMap_projection交换方块、rangeMap_val、projection/inclusion求值、range_fixed | Hom.imageInclusion/Projection、imageSplit、imageSection_fixed |
+| splitting/projector/image | projection_comp_inclusion；projector_apply_vertex/edge，复用原vertex_split/edge_split | 原projector_vertex/edge及截面分裂，保持全部旧名称与类型 |
+| twisted lattice成员与核坐标 | val_add/val_smul、mem_lattice_iff、left/right_apply、两侧kernelMap坐标 | lattice_saturated、左右满射与核的满射/单射证明 |
+| 反射张量自然性 | twistMap_val、tensorFirst_natural/Second_natural（任意A-linear map） | 原tensorFirst_map/Second_map改为特化调用；tensor_difference、KernelCoordinates.twistMap_injective |
 
-现有shift与costalk已经有较多接口，暂不重复铺设。保留expose和原定义的数学/计算契约。
-普通prod/subtype、LinearMap/LinearEquiv接口继续作为计算接口，不隐藏所有record。
+这五组相邻且共享接口，不是五个完全独立领域；其中张量族是已有Endo自然性的补齐。
+shift和costalk现有接口较多，本轮不重复铺开。跨对象张量规律的普通检查通过，
+当前生产使用仍通过原Endo兼容入口，不宣称已有新的跨对象生产应用。
+共22条新数学定理，六个生产文件增加196行、删除50行；无新生产定义、instance或ext属性。
+全部原定义保留expose，没有批量格式迁移。
 
-第一阶段补11条定理，实际改造两个生产文件。复用已有Hom.eq_of_maps、sectionMap_apply、
-SplitIn.vertex_split/edge_split及mathlib函数/线性映射外延，不新造ext别名。
-局部目标GradedSheaf.Summand编译成功。调试有一次遗漏section的end及隐式参数匹配失败，
-随后用完整定理实参修正；失败日志保留。全库门禁尚未运行。
+## 真实证明变化
 
-计划隔离两种等价构造：经quotient构造range上诱导映射；把lattice的存在见证carrier改为兼容性关系。
-固定改造后的整份真实下游，比较旧源码，记录API层修补、无区分力对照和恢复。
-不将变体作为生产性能优化，不为通过门禁放宽全局策略。
+旧imageProjection两个交换图直接依赖rangeMap的restriction实现；新的公共交换方块是：
 
-成本、完整覆盖与源码索引在完成后补齐。token无遥测，不估造。
+```lean
+    (rangeMap e f g h).map ((rangeProjection e).map m) =
+      (rangeProjection f).map (g.map m)
+```
+
+实际lower证明为`(ModuleData.rangeMap_projection (h.vertex _) (h.edge e) (B.lower e) (h.lower e) v).symm`，
+upper对称。一般rangeMap_val改为由此方块和projection求值推导，而不继续依赖rfl。
+旧imageSplit/imageSection_fixed拆range成员见证；新证明复用range_fixed和求值API。
+旧sections_split逐点计算；新证明改用sectionMap_comp、projection_comp_inclusion、sectionMap_id。
+原projector幂等性经projector求值和已有split规律得到。
+
+旧lattice客户端把成员证明直接拆为共同lift见证；新代码先经mem_lattice_iff。
+左右kernelMap的构造也经该接口提供成员证明，投影和坐标的实际数学约定不变。
+张量差值加法步骤改用Twist.val_add；新val_smul明确新标量经τ作用，避免与系数变化的逆方向混淆。
+
+求值及identity使用simp，朝原向量与原操作归一化；交换方块、sectionMap_comp、
+retraction、range_fixed、成员iff和一般张量自然性保持显式调用，避免自动展开所有结构。
+复用mathlib的quotKerEquivRange/liftQ、现有Hom.eq_of_maps和标准ext，不增加自动化框架。
+
+## 两种冻结试验
+
+正式实现不采用变体。两者都保留expose，正常module import，不给选定producer提供olean.private。
+
+| 扰动 | 上游实现与API修补 | 冻结真实客户端 / 旧对照 |
+| --- | --- | --- |
+| quotient-range | rangeMap改为经ker(e) quotient，用第一同构定理与liftQ诱导；局部求值证明同时保证graded字段。只重证公共rangeMap_projection，其余API不改 | 整份Summand、AdjointSheaf均通过；a797旧Summand失败。AdjointSheaf本轮未改，旧版也通过，不算区分收益 |
+| relational-lattice | 用Submodule.copy把存在共同lift的carrier改为lower/upper兼容性关系；复用原闭合性证明。只重证公共mem_lattice_iff | 整份TensorKernel、TensorDescent、KernelCoordinates均通过；a797旧TensorKernel失败，后两旧版也通过，不算区分收益 |
+
+第一种不是加零或换binder：从restriction改为quotient诱导，API方块直接表达两者相同的数学操作。
+第二种是image见证与fiber-product关系两种自然表述；copy保留线性闭合性证据，
+不声称重新构造了完整范畴pullback。两条API分别对所有输入/所有lattice向量给出原语义。
+每次均冻结整文件SHA、重新elaboration，确认源码、冻结客户端及正常Lake工件hash恢复。
+试验只覆盖所列链，未全库重编译变体或承诺所有生成eq_1/helper兼容；正式实现另做全库验收。
+
+直接压力收益落在range交换方块和lattice成员边界。截面、projector、一般张量自然性有真实调用，
+没有单独改变其自身实现，不能把整文件通过当成每条API均已压力测试。
+计算载体、标准product/subtype与已有val接口仍公开；不宣称完全抽象化或生产性能优化。
+
+## 验证与成本
+
+六文件精确源码登记在api-reflection-source.json，原三轮source/type/gen数据不刷新。
+本轮完整导出先独立与a797逐条比较，再给旧检查提供精确去新增的历史视图；没有通配豁免。
+full-build前的局部目标和普通导入已通过，36项公理闭包只含原允许基础公理。
+隔离试验共113.120秒，最大子进程RSS 3317324 KiB。
+调试保留section结束位置、ModuleCat隐式参数失败；隔离构造初稿的private可见性和implicit重写失败
+也单独归档，不当作有效负对照。最终改为局部构造与显式等式输运，没有开展无关编译器研究。
+
+```sh
+source scripts/env.sh
+bash scripts/check.sh all
+cd experiments/kl-for-mathlib
+# 与任何构建互斥；临时源码在finally中恢复
+python3 graded_reflection_trial.py
+```
+
+完整构建、接口差异、全量门禁与最终输入绑定待完成后补齐。
+复用固定Lean4.34.1/5045d005与Mathlib d13f23b7的已初始化缓存，未全编Mathlib或更新pins。
+记录阶段墙钟与RSS，包含编译锁等待；不估造冷构建或性能收益。token无遥测，不估造。

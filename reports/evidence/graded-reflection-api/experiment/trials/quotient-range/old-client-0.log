@@ -1,0 +1,134 @@
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:175:15: error: Type mismatch
+  rfl
+has type
+  ?m.111 = ?m.111
+but is expected to have type
+  (ModuleData.rangeInclusion (h.edge x✝¹)).map ((h.image.upper x✝¹).map x✝) =
+    (B.upper x✝¹).map ((ModuleData.rangeInclusion (h.vertex (G.target x✝¹))).map x✝)
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:180:27: error: Application type mismatch: The argument
+  h.lower e v
+has type
+  (h.edge e).map ((B.lower e).map v) = (B.lower e).map ((h.vertex (G.source e)).map v)
+but is expected to have type
+  ↑((ModuleData.rangeProjection (h.edge e)).map ((B.lower e).map v)) =
+    ↑((h.image.lower e).map ((ModuleData.rangeProjection (h.vertex (G.source e))).map v))
+in the application
+  Subtype.ext (h.lower e v)
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:181:27: error: Application type mismatch: The argument
+  h.upper e v
+has type
+  (h.edge e).map ((B.upper e).map v) = (B.upper e).map ((h.vertex (G.target e)).map v)
+but is expected to have type
+  ↑((ModuleData.rangeProjection (h.edge e)).map ((B.upper e).map v)) =
+    ↑((h.image.upper e).map ((ModuleData.rangeProjection (h.vertex (G.target e))).map v))
+in the application
+  Subtype.ext (h.upper e v)
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:191:4: error: 'change' tactic failed, pattern
+  (h.vertex x).map ↑v = ↑v
+is not definitionally equal to target
+  ↑((h.imageProjection.vertex x).map ((h.imageInclusion.vertex x).map v)) = ↑v
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:196:4: error: 'change' tactic failed, pattern
+  (h.edge e).map ↑v = ↑v
+is not definitionally equal to target
+  ↑((h.imageProjection.edge e).map ((h.imageInclusion.edge e).map v)) = ↑v
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:183:15: error: (kernel) declaration has metavariables 'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSplit'
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:221:2: error: 'change' tactic failed, pattern
+  (h.vertex x).map ↑(↑f x) = ↑(↑f x)
+is not definitionally equal to target
+  ↑((h.sectionMap Ω) ((h.imageInclusion.sectionMap Ω) f)) x = ↑((h.imageInclusion.sectionMap Ω) f) x
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:238:4: error: Type mismatch
+  congrFun (congrArg Subtype.val (congrArg Subtype.val hfg)) x
+has type
+  ↑↑((h.imageSectionMap hv Ω) f) x = ↑↑((h.imageSectionMap hv Ω) g) x
+but is expected to have type
+  ↑(↑f x) = ↑(↑g x)
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:243:4: error: Tactic `rfl` failed: The left-hand side
+  ↑↑((h.imageSectionMap hv Ω) ((h.imageProjection.sectionMap Ω) m))
+is not definitionally equal to the right-hand side
+  ↑↑⟨(h.sectionMap Ω) m, ⋯⟩
+
+case right
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (h.vertex x).map ((h.vertex x).map v) = (h.vertex x).map v
+Ω : Set V
+m : ↥(B.forget.sections Ω)
+⊢ ↑↑((h.imageSectionMap hv Ω) ((h.imageProjection.sectionMap Ω) m)) = ↑↑⟨(h.sectionMap Ω) m, ⋯⟩
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:288:2: error: 'change' tactic failed, pattern
+  (s.projection.vertex x).map
+      ((s.inclusion.vertex x).map ((s.projection.vertex x).map ((s.inclusion.vertex x).map v))) =
+    v
+is not definitionally equal to target
+  (s.imageTo.vertex x).map ((s.toImage.vertex x).map v) = v
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:296:2: error: 'change' tactic failed, pattern
+  (s.projector.vertex x).map ((s.projector.vertex x).map ↑v) = ↑v
+is not definitionally equal to target
+  ↑((s.toImage.vertex x).map ((s.imageTo.vertex x).map v)) = ↑v
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:301:2: error: 'change' tactic failed, pattern
+  (s.projection.edge e).map ((s.inclusion.edge e).map ((s.projection.edge e).map ((s.inclusion.edge e).map v))) = v
+is not definitionally equal to target
+  (s.imageTo.edge e).map ((s.toImage.edge e).map v) = v
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:309:2: error: 'change' tactic failed, pattern
+  (s.projector.edge e).map ((s.projector.edge e).map ↑v) = ↑v
+is not definitionally equal to target
+  ↑((s.toImage.edge e).map ((s.imageTo.edge e).map v)) = ↑v
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:483:40: error: Tactic `rfl` failed: The left-hand side
+  (s.projector.vertex x✝).map v✝
+is not definitionally equal to the right-hand side
+  (p.vertex x✝).map v✝
+
+case hv
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+V E : Type um
+inst✝¹ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+inst✝ : IsNoetherianRing A
+p : B.Hom B
+hp : p.PrimitiveProjector
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (p.vertex x).map ((p.vertex x).map v) = (p.vertex x).map v
+he : ∀ (e : E) (v : ↑(B.edge e).obj), (p.edge e).map ((p.edge e).map v) = (p.edge e).map v
+s : p.image.SplitIn B := p.imageSplit hv he
+x✝ : V
+v✝ : ↑(B.vertex x✝).obj
+⊢ (s.projector.vertex x✝).map v✝ = (p.vertex x✝).map v✝
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:483:40: error: Tactic `rfl` failed: The left-hand side
+  (s.projector.edge e✝).map v✝
+is not definitionally equal to the right-hand side
+  (p.edge e✝).map v✝
+
+case he
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+V E : Type um
+inst✝¹ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+inst✝ : IsNoetherianRing A
+p : B.Hom B
+hp : p.PrimitiveProjector
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (p.vertex x).map ((p.vertex x).map v) = (p.vertex x).map v
+he : ∀ (e : E) (v : ↑(B.edge e).obj), (p.edge e).map ((p.edge e).map v) = (p.edge e).map v
+s : p.image.SplitIn B := p.imageSplit hv he
+e✝ : E
+v✝ : ↑(B.edge e✝).obj
+⊢ (s.projector.edge e✝).map v✝ = (p.edge e✝).map v✝
