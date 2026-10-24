@@ -1,7 +1,9 @@
 # 数学 API 操作族实验（第三轮）
 
-状态：四组API、六份真实客户端的两种隔离扰动、完整9186-job构建和原始完整接口核对均通过；
-最终全部门禁尚待验收。
+状态：完成。完整9186-job构建、两种六文件冻结试验、75阶段项目验收全部通过。
+验收代码与输入绑定：`7cc09db394c8ba68a744808ed89710024b1750b3`；
+数学源码仍与已独立复核的`2d8a70eac578ec65047e50caa653bad4cf6d5755`逐字节一致。
+后续提交仅归档报告/证据。
 基点 `bdbca7ff639bc32f94a85647c88cb16d9e80b294`，分支
 `experiment/mathematical-api-families-20261024`。第一阶段检查点`15ccdc5`已推送。
 保留前两轮完整结果，main不变，不建PR、不合并。
@@ -117,7 +119,7 @@ api_families逐条登记本轮新增声明，另对完整当前接口与bdb逐�
 不泛化为任意旧header。当前产品仍必须等于七文件overlay，旧字节不能作为overlay输入。
 新增回归验证旧输入可读、增添一个换行即拒绝、不能作为当前overlay起点；
 修复后新旧两组33项单元测试通过。数学源码、API类型、两类扰动及六文件冻结均不改变。
-失败整轮日志留存，最终再跑完整门禁，区别于重编译未变生产模块。
+失败整轮日志留存；修复后完整重跑75阶段全部通过，未重编译未变生产模块。
 
 ```sh
 source scripts/env.sh
@@ -133,7 +135,11 @@ python3 api_families_trial.py
 不是对所有9186项从零重编译；详见build-coverage.json。
 完整接口3956→3967，恰有11条新数学定理，无新生成声明，旧声明无missing/changed/relocated。
 原始比较器因任何新增而显示passed=false；本轮核对器只有精确11条新增均符合登记才接受。
-最终全部门禁与完整证据待完成后归档。
+最终完整门禁476.306秒，最大子进程RSS 7780184 KiB，最后热构建3.380秒。
+75阶段均退出0，覆盖普通导入、25项本轮公理闭包（含全部11条新API和实际消费者）、
+前两轮API、完整/普通接口比较、各轮源码/类型精确保护与全部适用回归。
+无sorry、新增公理、既有数学类型契约改变或未解决阻塞。
+输入绑定408项源码/脚本/配置哈希，前两轮报告及证据完全不变。
 阶段一18.327秒；阶段二失败23.806秒，修正后的阶段三20.613秒；
 普通导入检查3.616秒，静态检查10.035秒。
 两种试验共110.584秒，最大子进程RSS 3175720 KiB；各步骤耗时另记。
@@ -148,4 +154,22 @@ token无遥测，不估造。没有PR或合并授权，也未进行此类动作�
 - [试验总成本](evidence/mathematical-api-families/experiment/trials.json)
 
 每个trial子目录同时保存实际变体源码、唯一API修补patch、完整客户端SHA、逐步命令/退出码、
-旧/新错误日志及恢复检查。完整验收后补最终manifest与固定输入身份。
+旧/新错误日志及恢复检查。
+
+## 最终验收证据
+
+- [75阶段命令与退出码](evidence/mathematical-api-families/accepted/stages.json.gz)，
+  [验收总成本](evidence/mathematical-api-families/experiment/acceptance.json)
+- [完整构建成本](evidence/mathematical-api-families/experiment/full-build.json)，
+  [实际重编译范围](evidence/mathematical-api-families/experiment/build-coverage.json)
+- [原始完整接口差异](evidence/mathematical-api-families/experiment/raw-interface-diff.json)，
+  [精确11条记录核对](evidence/mathematical-api-families/accepted/api-families-full-records.log)
+- [首次失败整轮](evidence/mathematical-api-families/experiment/acceptance-before-historical-view-fix/stages.json.gz)，
+  [历史视图修复的33项回归](evidence/mathematical-api-families/experiment/historical-view-fix-verified.log)
+- [408项固定输入身份及版本](evidence/mathematical-api-families/accepted-inputs.json)，
+  [264份证据的原始/压缩SHA256](evidence/mathematical-api-families/manifest.json)
+
+accepted目录仅收本次成功stages的日志和相应接口导出；失败与局部调试放在experiment目录。
+所有链接、证据原始/压缩哈希、输入工作树字节及Git提交中的字节均已核对。
+最终提交相对验收代码仅有报告/证据，没有生产、验证脚本或门禁数据规则修改。
+main仍为178ccf2；前两轮分支保留在31f05da与bdbca7f。未创建PR、未合并。

@@ -1,0 +1,86 @@
+✔ [8928/8932] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso (5.0s)
+✖ [8929/8932] Building ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback (3.3s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean:182:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?v ∈ upwardKernel.{?u.68, ?u.67, ?u.66, ?u.65} ?B ?x ?F
+in the target expression
+  v ∈ upwardKernel.{ur, uv, ue, um} (B.pullback f) x {e | f.edge ↑e ∈ T}
+
+R : Type ur
+inst✝² : CommRing R
+V : Type uv
+inst✝¹ : PartialOrder V
+E : Type ue
+G : OrderedGraph V E
+W : Type uw
+inst✝ : PartialOrder W
+F : Type uf
+H : OrderedGraph W F
+B : Sheaf H
+f : GraphMap G H
+x : V
+T : Set F
+v : ↑(B.vertex (f.vertex x))
+hv : ∀ e ∈ {e | ↑e ∈ T}, (B.stalkMap (f.vertex x)) v e = 0
+⊢ v ∈ (B.pullback f).upwardKernel x {e | f.edge ↑e ∈ T}
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (B.pullback f).upwardKernel x {e | f.edge ↑e ∈ T}
+  has type
+    @Submodule R (↑((B.pullback f).vertex x)) CommRing.toCommSemiring.toSemiring
+      ((B.pullback f).vertex x).isAddCommGroup.toAddCommMonoid ((B.pullback f).vertex x).isModule
+  but is expected to have type
+    @Submodule R (↑(B.vertex (f.vertex x))) CommRing.toCommSemiring.toSemiring
+      (B.vertex (f.vertex x)).isAddCommGroup.toAddCommMonoid (B.vertex (f.vertex x)).isModule
+  in the application
+    Membership.mem ((B.pullback f).upwardKernel x {e | f.edge ↑e ∈ T})
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean:203:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?v ∈ upwardKernel.{?u.108, ?u.107, ?u.106, ?u.105} ?B ?x ?F
+in the target expression
+  v ∈ upwardKernel.{ur, uw, uf, um} B (f.vertex x) {e | ↑e ∈ T}
+
+R : Type ur
+inst✝² : CommRing R
+V : Type uv
+inst✝¹ : PartialOrder V
+E : Type ue
+G : OrderedGraph V E
+W : Type uw
+inst✝ : PartialOrder W
+F : Type uf
+H : OrderedGraph W F
+B : Sheaf H
+f : GraphMap G H
+x : V
+T live : Set F
+hdead : ∀ e ∉ live, Subsingleton ↑(B.edge e)
+hlift : ∀ e ∈ live, f.vertex x = H.source e → ∃ a, f.edge a = e ∧ G.source a = x
+v : ↑((B.pullback f).vertex x)
+hv : ∀ e ∈ {e | f.edge ↑e ∈ T}, ((B.pullback f).stalkMap x) v e = 0
+⊢ v ∈ B.upwardKernel (f.vertex x) {e | ↑e ∈ T}
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    B.upwardKernel (f.vertex x) {e | ↑e ∈ T}
+  has type
+    @Submodule R (↑(B.vertex (f.vertex x))) CommRing.toCommSemiring.toSemiring
+      (B.vertex (f.vertex x)).isAddCommGroup.toAddCommMonoid (B.vertex (f.vertex x)).isModule
+  but is expected to have type
+    @Submodule R (↑((B.pullback f).vertex x)) CommRing.toCommSemiring.toSemiring
+      ((B.pullback f).vertex x).isAddCommGroup.toAddCommMonoid ((B.pullback f).vertex x).isModule
+  in the application
+    Membership.mem (B.upwardKernel (f.vertex x) {e | ↑e ∈ T})
+✔ [8930/8932] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi (6.5s)
+✔ [8931/8932] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Products (3.9s)
+✔ [8932/8932] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Models (3.0s)
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
+error: build failed
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'build', 'ForMathlib.Combinatorics.MomentGraph.Sheaf.Models', 'ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback']' returned non-zero exit status 1.

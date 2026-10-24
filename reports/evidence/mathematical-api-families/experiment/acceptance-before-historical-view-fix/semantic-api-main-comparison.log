@@ -1,0 +1,67 @@
+{
+  "raw": {
+    "old_count": 3940,
+    "new_count": 3947,
+    "missing": [],
+    "added": [
+      "OAI.KLInvariance.CoefficientChange.map_id_apply",
+      "OAI.KLInvariance.CoefficientChange.val_map",
+      "OAI.KLInvariance.LocalCover.splitEquiv.congr_simp",
+      "OAI.KLInvariance.LocalCover.splitEquiv_apply_fst",
+      "OAI.KLInvariance.LocalCover.splitEquiv_apply_snd_coe",
+      "OAI.KLInvariance.LocalCover.splitEquiv_symm_apply",
+      "OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback_apply"
+    ],
+    "changed": [],
+    "relocated": 0,
+    "passed": false
+  },
+  "mathematical_additions": {
+    "OAI.KLInvariance.LocalCover.splitEquiv_apply_fst": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "ffb9486369be6d2950bf99bd4d7a66db6daf97848fe2dc4c2f26cccc238314de",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Cover.Local"
+    },
+    "OAI.KLInvariance.LocalCover.splitEquiv_apply_snd_coe": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "529ad16abee2b145760a0fc44f2060d9e97b5743bb0b9e186a0a77d39b3a0890",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Cover.Local"
+    },
+    "OAI.KLInvariance.LocalCover.splitEquiv_symm_apply": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "7a0fc00cf4161505c5c2dd78574fd915ccdc57bf8f98ea0265d159cdbb3290f7",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Cover.Local"
+    },
+    "OAI.KLInvariance.CoefficientChange.val_map": {
+      "levels": "\"[`uk, `ua, `ub, `um, `un]\"",
+      "type": "d5d3ff205cc3f181205d4eac92965e175e40bad3d7e4f76e85e791ea17c9786e",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic"
+    },
+    "OAI.KLInvariance.CoefficientChange.map_id_apply": {
+      "levels": "\"[`uk, `ua, `ub, `um]\"",
+      "type": "752e716425b8252c0e749fa8d4800bf6e2628572a7e78c486bdc1c5576016d36",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic"
+    },
+    "OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback_apply": {
+      "levels": "\"[`ur]\"",
+      "type": "e6a026ade2810dd28bfbdcbe35f3ad9ce4df5ee0cc607d6ad959e32dbdd34c20",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"
+    }
+  },
+  "generated_additions": {
+    "OAI.KLInvariance.LocalCover.splitEquiv.congr_simp": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "40599a0b81f203cec226228137d3003ecb6477be17afef076577642c4a31bfe9",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Cover.Local"
+    }
+  },
+  "hidden_definitions": [],
+  "passed": true
+}
