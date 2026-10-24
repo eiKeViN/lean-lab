@@ -1,0 +1,13 @@
+{
+  "checkpoint": "592bbcd2284d99e117489e19267d91379062544b",
+  "branch": "codex/module-next-region",
+  "full_validation_session": 57328,
+  "full_validation_log": "results/module-final/full-acceptance.log",
+  "completed": false,
+  "expected_stages": 59,
+  "inputs_checked": 1635,
+  "changed_inputs": [],
+  "decision_note": "results/module-final/decisions/decision-note.md",
+  "current_stage": "library-build",
+  "recorded_at_unix": 1792801265.7655594
+}

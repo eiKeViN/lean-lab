@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean ../../results/module-final/MatcherAccess.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.2729570829999375,
+  "user_seconds": 2.89045,
+  "system_seconds": 1.394283,
+  "max_rss_kib": 3979856
+}

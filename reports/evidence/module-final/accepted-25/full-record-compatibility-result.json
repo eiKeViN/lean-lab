@@ -1,0 +1,231 @@
+{
+  "raw": {
+    "old_count": 3947,
+    "new_count": 3947,
+    "missing": [],
+    "added": [],
+    "changed": [
+      {
+        "name": "OAI.KLInvariance.Dihedral.pairMatrix.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u_1]\"",
+          "type": "22c80d408d793cd95acd2c90d36d328950323ef0e7e2afa2aed558960b3fc93b",
+          "kind": "theorem",
+          "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+        },
+        "new": {
+          "levels": "\"[`u_1]\"",
+          "type": "282cb04abcca2749861e479a4ce92c09d70f0edef42ca5e4f43e45494b9fef49",
+          "kind": "theorem",
+          "module": "ForMathlib.GroupTheory.Coxeter.Dihedral.PlaneSystem"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u, `v, `w]\"",
+          "type": "26e6e8e0b6d76b0378cba56e57cb9a51b7a885a78160f9c7bea31be89809d268",
+          "kind": "theorem",
+          "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+        },
+        "new": {
+          "levels": "\"[`u, `v, `w]\"",
+          "type": "1b9c43d8898a46120450121f52bf466fe566d40ed90a3bc0089486d5571cd039",
+          "kind": "theorem",
+          "module": "ForMathlib.Algebra.Module.Localization.FiniteCharacters"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u, `v, `w, `z]\"",
+          "type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+        },
+        "new": {
+          "levels": "\"[`u, `v, `w, `z]\"",
+          "type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.MomentGraph.splitEdge.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`um]\"",
+          "type": "1584e8805d76bb88e0e066182a02cdf8181141336082a9b0c9a53edcf099f40a",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+        },
+        "new": {
+          "levels": "\"[`um]\"",
+          "type": "93dcd676c6ddd201fd3679f9e8f9ab10087070fc408c88b6cefdfe2c0dfb7763",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.MomentGraph.splitVertex.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`um]\"",
+          "type": "0b7862d103f3c1ee9eb529ea02de00b2efe8e8a999a9adb50ed866aa308a7cda",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+        },
+        "new": {
+          "levels": "\"[`um]\"",
+          "type": "d26b083b999b5e04dbb9ef51316d007ebb13f17ac3234d390512bc57a894bbca",
+          "kind": "theorem",
+          "module": "ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u_1]\"",
+          "type": "e94105f651a2952d73d7a99851fce78a38678e83af90c9a734af3c7e534f2456",
+          "kind": "theorem",
+          "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+        },
+        "new": {
+          "levels": "\"[`u_1]\"",
+          "type": "840016ff2e9aca4c5192a86fe7c6aaeb8a1aac1f43483edff0f720b1a3ea07fb",
+          "kind": "theorem",
+          "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u]\"",
+          "type": "6441aef188566123a24ba8d6ac4a01d8740056fd07452dfe6bf374c99807fd8e",
+          "kind": "theorem",
+          "module": "ForMathlib.LinearAlgebra.Avoidance"
+        },
+        "new": {
+          "levels": "\"[`u]\"",
+          "type": "a5ae98be8d47b767fbbaff47a0d102f83769f7c370efbf126b681bd56e76f8a9",
+          "kind": "theorem",
+          "module": "ForMathlib.LinearAlgebra.Avoidance"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u, `v]\"",
+          "type": "2f6cd7c494502df397904e54c9d63054fa4860458ed774eab52bdd32f7b46f4e",
+          "kind": "theorem",
+          "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+        },
+        "new": {
+          "levels": "\"[`u, `v]\"",
+          "type": "67d873c19b561a8fb3f68ee440a61e59d7bbda2651c7611608dc8c76a01472a8",
+          "kind": "theorem",
+          "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+        }
+      },
+      {
+        "name": "OAI.KLInvariance.TitsSpace.height.eq_1",
+        "field": "type",
+        "old": {
+          "levels": "\"[`u]\"",
+          "type": "0677783e43203584319ec126d7315b4af9a71e4f239cd064796c49a661b7a650",
+          "kind": "theorem",
+          "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+        },
+        "new": {
+          "levels": "\"[`u]\"",
+          "type": "a448f8d050e6da5a264187933a983f34afdf695639ddc2d761e4dd6298139f61",
+          "kind": "theorem",
+          "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+        }
+      }
+    ],
+    "relocated": 0,
+    "passed": false
+  },
+  "accepted_representation_changes": [
+    {
+      "name": "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap.eq_1",
+      "old_type": "72387780ac2996e978f19d36e3a222a2befa9a779adc3bed2f09366fed75fcc4",
+      "new_type": "6a81270c96e5d49fff7a7d026e7480dbe41225416176431b0f15cf08b5679f84",
+      "witness": "StalkEquationCompat.lean",
+      "policy_sha256": "c3b90ce64206d1f621978b0c3c3b68314ed24ca25983e76960ea575919922454",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.Dihedral.pairMatrix.eq_1",
+      "old_type": "22c80d408d793cd95acd2c90d36d328950323ef0e7e2afa2aed558960b3fc93b",
+      "new_type": "282cb04abcca2749861e479a4ce92c09d70f0edef42ca5e4f43e45494b9fef49",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1",
+      "old_type": "26e6e8e0b6d76b0378cba56e57cb9a51b7a885a78160f9c7bea31be89809d268",
+      "new_type": "1b9c43d8898a46120450121f52bf466fe566d40ed90a3bc0089486d5571cd039",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.MomentGraph.splitEdge.eq_1",
+      "old_type": "1584e8805d76bb88e0e066182a02cdf8181141336082a9b0c9a53edcf099f40a",
+      "new_type": "93dcd676c6ddd201fd3679f9e8f9ab10087070fc408c88b6cefdfe2c0dfb7763",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.MomentGraph.splitVertex.eq_1",
+      "old_type": "0b7862d103f3c1ee9eb529ea02de00b2efe8e8a999a9adb50ed866aa308a7cda",
+      "new_type": "d26b083b999b5e04dbb9ef51316d007ebb13f17ac3234d390512bc57a894bbca",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1",
+      "old_type": "e94105f651a2952d73d7a99851fce78a38678e83af90c9a734af3c7e534f2456",
+      "new_type": "840016ff2e9aca4c5192a86fe7c6aaeb8a1aac1f43483edff0f720b1a3ea07fb",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1",
+      "old_type": "6441aef188566123a24ba8d6ac4a01d8740056fd07452dfe6bf374c99807fd8e",
+      "new_type": "a5ae98be8d47b767fbbaff47a0d102f83769f7c370efbf126b681bd56e76f8a9",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq",
+      "old_type": "2f6cd7c494502df397904e54c9d63054fa4860458ed774eab52bdd32f7b46f4e",
+      "new_type": "67d873c19b561a8fb3f68ee440a61e59d7bbda2651c7611608dc8c76a01472a8",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.height.eq_1",
+      "old_type": "0677783e43203584319ec126d7315b4af9a71e4f239cd064796c49a661b7a650",
+      "new_type": "a448f8d050e6da5a264187933a983f34afdf695639ddc2d761e4dd6298139f61",
+      "policy_sha256": "29b24e59e5fe235dba35cab3256d55d3bc77346838fbf3c7590e60359cbaee2a",
+      "witness": "ModernFinalCompat.lean",
+      "raw_difference_retained": true
+    }
+  ],
+  "passed": true
+}

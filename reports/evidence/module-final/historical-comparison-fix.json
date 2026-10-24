@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && python3 test_module_final.py && python3 test_proof_evolution.py && python3 proof_evolution.py --compare ../../results/for-mathlib/migrated-types.tsv && python3 attach_module.py --compare-full ../../results/for-mathlib/migrated-types.tsv && python3 module_final.py --compare-full ../../results/for-mathlib/migrated-types.tsv"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 66.550987351,
+  "user_seconds": 60.544376,
+  "system_seconds": 9.640476,
+  "max_rss_kib": 3998132
+}

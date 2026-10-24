@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean ModernFinalCompat.lean && python3 test_module_final.py && python3 test_module_next.py && python3 test_attach_module.py && python3 test_module_rollout.py && python3 test_module_integration.py && python3 test_proof_evolution.py"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 31.455283031999898,
+  "user_seconds": 22.245717,
+  "system_seconds": 9.555261,
+  "max_rss_kib": 3997936
+}

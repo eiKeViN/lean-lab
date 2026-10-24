@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "results/module-final/capture_old.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 135.16040960100003,
+  "user_seconds": 193.808143,
+  "system_seconds": 27.078988,
+  "max_rss_kib": 7352820
+}

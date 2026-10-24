@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake build OAI.RepresentationTheory.KazhdanLusztig.Sheaves OAI.RepresentationTheory.KazhdanLusztig.Tits && LEAN_TYPES_OUT=/workspace/lean-lab/results/module-final/final-public.tsv lake env lean ModernFinalTypes.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 20.99810654199996,
+  "user_seconds": 19.850941,
+  "system_seconds": 6.491302,
+  "max_rss_kib": 3990548
+}

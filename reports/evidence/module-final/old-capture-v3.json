@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean BoundaryOldCapture.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 2.117440543000015,
+  "user_seconds": 0.819998,
+  "system_seconds": 1.3055430000000001,
+  "max_rss_kib": 2089488
+}

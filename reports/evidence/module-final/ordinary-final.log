@@ -1,0 +1,79 @@
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1; actual=OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1; actual=OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.MomentGraph.splitVertex.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.MomentGraph.splitVertex.eq_1; actual=OAI.KLInvariance.MomentGraph.splitVertex.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.MomentGraph.splitEdge.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.MomentGraph.splitEdge.eq_1; actual=OAI.KLInvariance.MomentGraph.splitEdge.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.Dihedral.pairMatrix.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.Dihedral.pairMatrix.eq_1; actual=OAI.KLInvariance.Dihedral.pairMatrix.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq; actual=OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.TitsSpace.simplePositive.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.TitsSpace.simplePositive.eq_1; actual=OAI.KLInvariance.TitsSpace.simplePositive.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.TitsSpace.height.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.TitsSpace.height.eq_1; actual=OAI.KLInvariance.TitsSpace.height.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1; actual=OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1
+Kernel checked 25 actual old helper type/value pairs under fresh names
+OAI.KLInvariance.MomentGraph.splitVertex.eq_1.{um} {V : Type um} (x : V) :
+  splitVertex x =
+    { toFun := fun y => if h : y = x then ⊥ else ↑⟨y, h⟩, invFun := fun n => WithBot.recBotCoe x Subtype.val n,
+      left_inv := ⋯, right_inv := ⋯ }
+OAI.KLInvariance.MomentGraph.splitEdge.eq_1.{um} {V E : Type um} [PartialOrder V] (G : OrderedGraph V E) (x : V) :
+  splitEdge G x =
+    { toFun := fun e => if h : G.source e = x then Sum.inr ⟨e, h⟩ else Sum.inl ⟨e, h⟩,
+      invFun := Sum.elim Subtype.val Subtype.val, left_inv := ⋯, right_inv := ⋯ }
+ModernFinalCompat.lean:200:72: error: Application type mismatch: The argument
+  e
+has type
+  { e // Ne.{u + 1} (G.source e) x }
+but is expected to have type
+  { e // Ne.{v + 1} (OrderedGraph.source ?m.10 e) ?m.11 }
+in the application
+  Sum.inl e
+ModernFinalCompat.lean:201:72: error: Application type mismatch: The argument
+  e
+has type
+  { e // Ne.{u + 1} (G.source e) x }
+but is expected to have type
+  { e // Ne.{v + 1} (OrderedGraph.source ?m.10 e) ?m.11 }
+in the application
+  Sum.inl e
+ModernFinalCompat.lean:203:72: error: Application type mismatch: The argument
+  e
+has type
+  { e // Ne.{u + 1} (G.source e) x }
+but is expected to have type
+  { e // Ne.{v + 1} (OrderedGraph.source ?m.10 e) ?m.11 }
+in the application
+  Sum.inl e
+ModernFinalCompat.lean:206:39: error: Application type mismatch: The argument
+  (splitEdge ?m.13 ?m.14) e
+has type
+  { e // OrderedGraph.source ?m.13 e ≠ ?m.14 } ⊕ { e // OrderedGraph.source ?m.13 e = ?m.14 }
+but is expected to have type
+  { e // OrderedGraph.source ?m.5 e ≠ ?m.6 } ⊕ { e // OrderedGraph.source ?m.5 e = ?m.6 }
+in the application
+  (splitEdge ?m.5 ?m.6).symm ((splitEdge ?m.13 ?m.14) e)
+OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1.{u_1} (R : Type u_1) [CommRing R] :
+  ReflectionFrobenius.crossPair R =
+    { toFun := fun a => { toFun := fun b => a.1 * b.2 + a.2 * b.1, map_add' := ⋯, map_smul' := ⋯ }, map_add' := ⋯,
+      map_smul' := ⋯ }
+OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1.{u, v, w} {R : Type u} [CommRing R] {X : Type v}
+  {E : X → Type w} [(x : X) → AddCommGroup (E x)] [(x : X) → _root_.Module R (E x)] (f : X → R) :
+  FiniteCharacterLocalization.diagonal f = { toFun := fun m x => f x • m x, map_add' := ⋯, map_smul' := ⋯ }
+OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1.{u} {I : Type u} [Fintype I] (t : ℝ) :
+  ReflectionSchedules.momentFunctional t =
+    { toFun := fun a => ∑ i, a i * t ^ ↑((Fintype.equivFin I) i), map_add' := ⋯, map_smul' := ⋯ }
+OAI.KLInvariance.Dihedral.pairMatrix.eq_1.{u_1} {G : Type u_1} [Group G] (s t : G) (hs : s * s = 1) (hst : s ≠ t) :
+  Dihedral.pairMatrix s t hs hst =
+    { M := fun i j => if i = j then 1 else orderOf (s * t), isSymm := ⋯, diagonal := ⋯, off_diagonal := ⋯ }
+OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq.{u, v} {I : Type u} [Fintype I] {M : CoxeterMatrix I}
+  {W : Type v} [Group W] {cs : CoxeterSystem M W} {t : W} {a : I → ℝ} (ha : TitsSpace.Represents M cs t a) :
+  (TitsSpace.extendedAction M cs) t = Module.reflection ⋯
+OAI.KLInvariance.TitsSpace.simplePositive.eq_1.{u, v} {I : Type u} [Fintype I] {M : CoxeterMatrix I} {W : Type v}
+  [Group W] {cs : CoxeterSystem M W} (i : I) : TitsSpace.simplePositive i = ⟨TitsSpace.root i, ⋯⟩
+OAI.KLInvariance.TitsSpace.height.eq_1.{u} {I : Type u} [Fintype I] :
+  TitsSpace.height = { toFun := fun a => ∑ i, a i, map_add' := ⋯, map_smul' := ⋯ }

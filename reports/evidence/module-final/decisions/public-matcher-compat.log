@@ -1,0 +1,6 @@
+/workspace/lean-lab/results/module-final/decisions/PublicMatcherCompat.lean:4:0: warning: Definition `Boundary.ext.match_1_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+Boundary.ext (x : Option Nat) : x = x
+Boundary.ext.match_1_1 (motive : Option Nat → Prop) (x : Option Nat) (h₁ : ∀ (a : Unit), motive none)
+  (h₂ : ∀ (y : Nat), motive (some y)) : motive x

@@ -1,0 +1,10 @@
+../../results/module-final/BatchCompat.lean:106:0: error: Application type mismatch: The argument
+  OAI.KLInvariance.ReflectionFrobenius.crossPair._proof_1 R
+has type
+  ∀ (a x y : R × R), a.1 * (x + y).2 + a.2 * (x + y).1 = a.1 * x.2 + a.2 * x.1 + (a.1 * y.2 + a.2 * y.1)
+but is expected to have type
+  SMulCommClass R R R
+in the application
+  @LinearMap.module R R R (R × R) R CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring
+    Prod.instAddCommMonoid CommRing.toCommSemiring.toAddCommMonoid Prod.instModule Semiring.toModule (RingHom.id R)
+    CommRing.toCommSemiring.toSemiring Semiring.toModule ⋯

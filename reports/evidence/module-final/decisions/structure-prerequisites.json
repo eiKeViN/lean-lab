@@ -1,0 +1,12 @@
+{
+  "structure": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure",
+  "legacy_prerequisites": [
+    "ForMathlib.Algebra.Module.Cover.Local",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso",
+    "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"
+  ],
+  "matcher_producers_in_prerequisites": [
+    "ForMathlib.Algebra.Module.Cover.Local"
+  ]
+}

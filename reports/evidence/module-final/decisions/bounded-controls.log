@@ -1,0 +1,25 @@
+trial-coefficient-producer 0
+legacy-coefficient-consumer 1
+modern-coefficient-consumer 1
+legacy-structure-producer 1
+/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.lean:24:0: error: Missing name after `end`: Expected the current scope name `Sheaf`
+
+Hint: To end the current scope `Sheaf`, specify its name:
+  end ̲S̲h̲e̲a̲f̲
+/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.lean:25:0: error: Missing name after `end`: Expected the current scope name `Sheaf`
+
+Hint: To end the current scope `Sheaf`, specify its name:
+  end ̲S̲h̲e̲a̲f̲
+/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.lean:26:0: error: Missing name after `end`: Expected the current scope name `Sheaf`
+
+Hint: To end the current scope `Sheaf`, specify its name:
+  end ̲S̲h̲e̲a̲f̲
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/results/module-final/decisions/run_controls.py", line 16, in <module>
+    p='ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean';s=subprocess.check_output(['git','show',base+':experiments/kl-for-mathlib/'+p],text=True);s=s[s.index('namespace OAI'):s.index(' theorem structureSheaf_free')];s+='\nend\nend\nend\nend\n';head='import Mathlib\nimport ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic\n';(d/'LegacyStructureActual.lean').write_text(head+s);run('legacy-structure-producer','LegacyStructureActual',compile=True)
+                                                                                                                                                                                                                                                                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/results/module-final/decisions/run_controls.py", line 10, in run
+    if status!=expect:print((d/(label+'.log')).read_text()[-3000:]);raise RuntimeError('Unexpected control outcome '+label)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unexpected control outcome legacy-structure-producer

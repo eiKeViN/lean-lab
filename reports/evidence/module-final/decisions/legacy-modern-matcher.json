@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "LEAN_PATH=/workspace/lean-lab/results/boundary/core-run-v3/matcher lean -R /workspace/lean-lab/results/module-final/decisions /workspace/lean-lab/results/module-final/decisions/LegacyModernMatcher.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 0.005615086000034353,
+  "user_seconds": 0.0,
+  "system_seconds": 0.005264,
+  "max_rss_kib": 9216
+}

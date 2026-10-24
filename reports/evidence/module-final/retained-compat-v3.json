@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean ../../results/module-final/BatchCompat.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 6.602651863000119,
+  "user_seconds": 5.690392,
+  "system_seconds": 1.6150120000000001,
+  "max_rss_kib": 3984568
+}

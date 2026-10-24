@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import json,subprocess; raise SystemExit(subprocess.call([\"lake\",\"build\",*json.load(open(\"../../results/module-final/roots.json\"))],cwd=\"experiments/kl-for-mathlib\"))"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 0.034862293999992744,
+  "user_seconds": 0.02719,
+  "system_seconds": 0.0073609999999999995,
+  "max_rss_kib": 9216
+}

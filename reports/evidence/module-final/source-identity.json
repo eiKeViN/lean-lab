@@ -1,0 +1,1613 @@
+{
+  "base_commit": "0917d25afb52e46cae4233d3056020ed6f881fa3",
+  "products": 261,
+  "changed_products": [
+    "experiments/kl-for-mathlib/ForMathlib/Algebra/Algebra/ReflectionFrobenius/Basic.lean",
+    "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean",
+    "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/DiamondClosure.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/Diamonds.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/Diamonds.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/IntervalTransport.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/PlaneSystem.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/SignedWords.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/Basic.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/DihedralOrder.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/LaterCount.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/Order.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneBasis.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneLength.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneSubgroup.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneTransport.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/RatioOrder.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/ReflectionLabels.lean",
+    "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/Splines.lean",
+    "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Avoidance.lean",
+    "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/DyerPaths/Adapted.lean",
+    "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/DyerPaths/PlaneCoordinates.lean",
+    "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Sheaves.lean",
+    "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Tits.lean"
+  ],
+  "unchanged_products": 236,
+  "records": [
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib.lean",
+      "before_sha256": "7e1e9190c92b3c990d278e5fa70dae20c2bc12b284f434acd95a987e22fb1887",
+      "after_sha256": "7e1e9190c92b3c990d278e5fa70dae20c2bc12b284f434acd95a987e22fb1887",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Algebra/ReflectionFrobenius/Basic.lean",
+      "before_sha256": "b1c87ce8a9cdf7693e0883cf3663eeea3da7a2d73f34af7b69cfac48f66f49a9",
+      "after_sha256": "36782a5a13175c3ba92c7f86b694932d3049ba33179bdc269ac992bee7c3aa95",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Algebra/ReflectionFrobenius/Basis.lean",
+      "before_sha256": "6059d43d600c559b8980f95a74c870ff6136b8bf80f332ad7f09ac8167771ca7",
+      "after_sha256": "6059d43d600c559b8980f95a74c870ff6136b8bf80f332ad7f09ac8167771ca7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/FiniteCharacterCancellation.lean",
+      "before_sha256": "b56807b58a3a1dbfa8b673c1664e70c204ab2194acb2f4bead06c0cea5363681",
+      "after_sha256": "b56807b58a3a1dbfa8b673c1664e70c204ab2194acb2f4bead06c0cea5363681",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/BigOperators/SingleCoordinate.lean",
+      "before_sha256": "3875d45402e41af195c5a240175abe4f97c054778dc2548a8710943c40e1f24d",
+      "after_sha256": "3875d45402e41af195c5a240175abe4f97c054778dc2548a8710943c40e1f24d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/CoefficientChange/Basic.lean",
+      "before_sha256": "4af9df99451456e8ea3b22c6a370e200f2070a3a67784d373b0c3b0af950cab2",
+      "after_sha256": "4af9df99451456e8ea3b22c6a370e200f2070a3a67784d373b0c3b0af950cab2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/CoefficientChange/Dual.lean",
+      "before_sha256": "1fb1182dd3db1c7a2dccdef4c9350b3b29e68626ab1c2f1e269376d69a29a24a",
+      "after_sha256": "1fb1182dd3db1c7a2dccdef4c9350b3b29e68626ab1c2f1e269376d69a29a24a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Cover/Local.lean",
+      "before_sha256": "b0f0762ef905deb3b238490c3608319135e36355941c0bf0df90d4a8f84f8cca",
+      "after_sha256": "b0f0762ef905deb3b238490c3608319135e36355941c0bf0df90d4a8f84f8cca",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Cover/Product.lean",
+      "before_sha256": "a4449060dc58624436bf20ec4e1c45ca5131849d36785a10184d5a925519476d",
+      "after_sha256": "a4449060dc58624436bf20ec4e1c45ca5131849d36785a10184d5a925519476d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Flat/Kernel.lean",
+      "before_sha256": "9ffff21e55fce77ff5c3e4d002c0572c6ed330885c641c235a15bf425f144686",
+      "after_sha256": "9ffff21e55fce77ff5c3e4d002c0572c6ed330885c641c235a15bf425f144686",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Free/ScalarDivisibility.lean",
+      "before_sha256": "5ee2509745a94c165169a11df763e40205140e133c8871c7577d9cf37d0e514e",
+      "after_sha256": "5ee2509745a94c165169a11df763e40205140e133c8871c7577d9cf37d0e514e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Adjoint.lean",
+      "before_sha256": "81575e5e2a94c3ed11529556ddfe6e73c3273da178a4c3677430abfa2762f1bb",
+      "after_sha256": "81575e5e2a94c3ed11529556ddfe6e73c3273da178a4c3677430abfa2762f1bb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/AlgebraMap.lean",
+      "before_sha256": "52b3d7a9cf48b33c451e6cc9f943cdca74079f610b27559f59c566561827ea57",
+      "after_sha256": "52b3d7a9cf48b33c451e6cc9f943cdca74079f610b27559f59c566561827ea57",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Basis.lean",
+      "before_sha256": "69db957815da80142de60e2eba10937945ceb18de4ccc09483a82d087f09fbf1",
+      "after_sha256": "69db957815da80142de60e2eba10937945ceb18de4ccc09483a82d087f09fbf1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Components.lean",
+      "before_sha256": "ead5e9a778295681c79ce7e7b28c5c3502354315b7972acdc3aa0c3cbe1f3d0c",
+      "after_sha256": "ead5e9a778295681c79ce7e7b28c5c3502354315b7972acdc3aa0c3cbe1f3d0c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/DualAndShift.lean",
+      "before_sha256": "28e2c039b1f598725b806630e01eb358da1bdfd9aa77fab440afeee566e4e5ef",
+      "after_sha256": "28e2c039b1f598725b806630e01eb358da1bdfd9aa77fab440afeee566e4e5ef",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/FinitePieces.lean",
+      "before_sha256": "1e8919981cd9e5dada91dbbf8bce78e9ef88a57407d2bf73b865db66a906067d",
+      "after_sha256": "1e8919981cd9e5dada91dbbf8bce78e9ef88a57407d2bf73b865db66a906067d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Generators.lean",
+      "before_sha256": "0588e4642b971e8df01d9083350bdc3dc592b44eedaab3f50b67665bd362d534",
+      "after_sha256": "0588e4642b971e8df01d9083350bdc3dc592b44eedaab3f50b67665bd362d534",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Basic.lean",
+      "before_sha256": "91a0faac6e5a7e17921f8658728387eddf69d9b92cb3e512aeab753286921962",
+      "after_sha256": "91a0faac6e5a7e17921f8658728387eddf69d9b92cb3e512aeab753286921962",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Images.lean",
+      "before_sha256": "cd93ab224c635d2bfa8b48e639384e4fd29ab3b8c5deb2b27f0dd268df661a62",
+      "after_sha256": "cd93ab224c635d2bfa8b48e639384e4fd29ab3b8c5deb2b27f0dd268df661a62",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Increment.lean",
+      "before_sha256": "cd50a97f81abaa092adef98a9421e2d7acf11a2113354705da5a832896a53ed0",
+      "after_sha256": "cd50a97f81abaa092adef98a9421e2d7acf11a2113354705da5a832896a53ed0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Numerator.lean",
+      "before_sha256": "53225d77b21a33ae6d6fb509737e69fd2034c450d099cf173633eed0e6d39b20",
+      "after_sha256": "53225d77b21a33ae6d6fb509737e69fd2034c450d099cf173633eed0e6d39b20",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/RationalFunction.lean",
+      "before_sha256": "8f897f3218095a9977e9898b6c96de86d478ae1579fadc64e5b61064f476b3ed",
+      "after_sha256": "8f897f3218095a9977e9898b6c96de86d478ae1579fadc64e5b61064f476b3ed",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/Hilbert/Series.lean",
+      "before_sha256": "42032b3722e29b0a9f05582ffe73079e7eda0480cb48b5fd532b06d801733500",
+      "after_sha256": "42032b3722e29b0a9f05582ffe73079e7eda0480cb48b5fd532b06d801733500",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/HomogeneousDual.lean",
+      "before_sha256": "aeebbe6a1aa101cb1e7e2c46658b87e875d153e721a1590b445a33bbfd349693",
+      "after_sha256": "aeebbe6a1aa101cb1e7e2c46658b87e875d153e721a1590b445a33bbfd349693",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/HomogeneousEquiv.lean",
+      "before_sha256": "b8a9500d47b16e49bbb79f18c35379f4f79dc037082c70186c825713f847bdc8",
+      "after_sha256": "b8a9500d47b16e49bbb79f18c35379f4f79dc037082c70186c825713f847bdc8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/HomogeneousMul.lean",
+      "before_sha256": "4fbfe702f667b9855ac895e151b866f02e2d49c4735e94d2ef3532e7bd5f99d4",
+      "after_sha256": "4fbfe702f667b9855ac895e151b866f02e2d49c4735e94d2ef3532e7bd5f99d4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean",
+      "before_sha256": "dc60c4112d50faf9a24152ff3c0750510c75dc6e99b5544777be12bd3dbc4df0",
+      "after_sha256": "dc60c4112d50faf9a24152ff3c0750510c75dc6e99b5544777be12bd3dbc4df0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/Character.lean",
+      "before_sha256": "53a019b9586d44083a578522d503d1cda4351713d0acf431e2397a1b244c7fe5",
+      "after_sha256": "53a019b9586d44083a578522d503d1cda4351713d0acf431e2397a1b244c7fe5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/CharacterDual.lean",
+      "before_sha256": "10133768fd82d03e899d9119638acb57b829e9fcbe6832346b255667d9206b90",
+      "after_sha256": "10133768fd82d03e899d9119638acb57b829e9fcbe6832346b255667d9206b90",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean",
+      "before_sha256": "c5a2a1316e7fc2a3e14887fffdfb11e1ed44b309e1cd1e01e528e7734977ccf9",
+      "after_sha256": "c5a2a1316e7fc2a3e14887fffdfb11e1ed44b309e1cd1e01e528e7734977ccf9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange/Basic.lean",
+      "before_sha256": "e10434fb141546561604af37c022775142ff0a5180a0b7566996cb6d1f9ce169",
+      "after_sha256": "e10434fb141546561604af37c022775142ff0a5180a0b7566996cb6d1f9ce169",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/CoverUniqueness.lean",
+      "before_sha256": "59a4e8206fb05f42c8c960bb9f7198b7d6c90c0fcce28ad7b28b9e19fbfe8093",
+      "after_sha256": "59a4e8206fb05f42c8c960bb9f7198b7d6c90c0fcce28ad7b28b9e19fbfe8093",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/Duality.lean",
+      "before_sha256": "be3a9ec8b8c5d413bd310618c013e98e824fc59490f6e403bcac0c246b00b802",
+      "after_sha256": "be3a9ec8b8c5d413bd310618c013e98e824fc59490f6e403bcac0c246b00b802",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/Equality.lean",
+      "before_sha256": "d265dbe90e15ea6d7f9d975cb5280aa4256a9cfd59c0fec33531ecf4c6391b73",
+      "after_sha256": "d265dbe90e15ea6d7f9d975cb5280aa4256a9cfd59c0fec33531ecf4c6391b73",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean",
+      "before_sha256": "292eafeaa5c046b29131c464335847a4c3c6e451c3e3c1e6085e78b2f8c46e76",
+      "after_sha256": "292eafeaa5c046b29131c464335847a4c3c6e451c3e3c1e6085e78b2f8c46e76",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/PairProjection.lean",
+      "before_sha256": "5ad6be457be85c38f3ba3d11cb88b26a11cc8df18beb76fa245da15631daeb62",
+      "after_sha256": "5ad6be457be85c38f3ba3d11cb88b26a11cc8df18beb76fa245da15631daeb62",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/QuotientHom.lean",
+      "before_sha256": "5a7ce2cf41c1bed1ad841abfd583e6ca6c1205f174792b3b5c985fd79fdbfe59",
+      "after_sha256": "5a7ce2cf41c1bed1ad841abfd583e6ca6c1205f174792b3b5c985fd79fdbfe59",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean",
+      "before_sha256": "06c7253b3cf539042a8d2ee5a1ff67470ba8c8153efb217f320f2f6a2333a60f",
+      "after_sha256": "06c7253b3cf539042a8d2ee5a1ff67470ba8c8153efb217f320f2f6a2333a60f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/ModuleData/Transport.lean",
+      "before_sha256": "6e6ff432e0ea318be5840ca0c3846897885a983fbd36e1ac4d05a9718c5c7538",
+      "after_sha256": "6e6ff432e0ea318be5840ca0c3846897885a983fbd36e1ac4d05a9718c5c7538",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/NonnegativeBasis.lean",
+      "before_sha256": "da622f5937dad9644e81202afb17eb7fdd6fe6c7196ccf3f4855626bcb612328",
+      "after_sha256": "da622f5937dad9644e81202afb17eb7fdd6fe6c7196ccf3f4855626bcb612328",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/PolynomialMap.lean",
+      "before_sha256": "72dae5ba65009e4d6cf953bc78e73355299537dd6bbc864a479ac7f4013c42cd",
+      "after_sha256": "72dae5ba65009e4d6cf953bc78e73355299537dd6bbc864a479ac7f4013c42cd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Graded/RegularScalar.lean",
+      "before_sha256": "4821140dacd82d18ca91d10b3e9d43c65691343a3f7c8912441e1e0eaf699c00",
+      "after_sha256": "4821140dacd82d18ca91d10b3e9d43c65691343a3f7c8912441e1e0eaf699c00",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean",
+      "before_sha256": "d67eb93ecbb8ae1ffbc2eb79e968f6a2be983f8b81aede6b535c118a38490274",
+      "after_sha256": "6b13aab37ceb798a57ef3c2d130517b86e3e79c2de889321cdb2b40f3762e15c",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/Lattice.lean",
+      "before_sha256": "bbd053afa253d237769786f56bbc7527e61da8178e1cbb866c397ce18e16d017",
+      "after_sha256": "bbd053afa253d237769786f56bbc7527e61da8178e1cbb866c397ce18e16d017",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/Membership.lean",
+      "before_sha256": "93172b5fc7159e74fa001e50ce23f2aebebeeb1304ccc941859273ee43518c58",
+      "after_sha256": "93172b5fc7159e74fa001e50ce23f2aebebeeb1304ccc941859273ee43518c58",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/Products.lean",
+      "before_sha256": "38ab0836155ced7d334caa4f2fa1267777c856c1a5737c430d6f3086fb08efde",
+      "after_sha256": "38ab0836155ced7d334caa4f2fa1267777c856c1a5737c430d6f3086fb08efde",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Localization/ProjectiveLattice.lean",
+      "before_sha256": "cc9f06497ac9664e15ebf0eaccbbb3523d0aa814fc1060a4bd0f301f17392352",
+      "after_sha256": "cc9f06497ac9664e15ebf0eaccbbb3523d0aa814fc1060a4bd0f301f17392352",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Projective/Range.lean",
+      "before_sha256": "fab6dc5b98c69e9d45373677a7665d4490e7b5616f50038d3199e05e0fafcb94",
+      "after_sha256": "fab6dc5b98c69e9d45373677a7665d4490e7b5616f50038d3199e05e0fafcb94",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Projective/ReverseFiltration.lean",
+      "before_sha256": "a722d3c21b45e9b26b7d2eecc8efcf219755b7fa14da571769dc6e74b1c4aece",
+      "after_sha256": "a722d3c21b45e9b26b7d2eecc8efcf219755b7fa14da571769dc6e74b1c4aece",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Projective/ScalarKernel.lean",
+      "before_sha256": "e0211d56ff8212d9f5474122abc1b0625dda2991ddb1ccc0919525db744bc756",
+      "after_sha256": "e0211d56ff8212d9f5474122abc1b0625dda2991ddb1ccc0919525db744bc756",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Projective/ScalarQuotient.lean",
+      "before_sha256": "d24c07330004d59b64c607b2f8f9f0bfcc632f08f43125f457dd84598d61b14d",
+      "after_sha256": "d24c07330004d59b64c607b2f8f9f0bfcc632f08f43125f457dd84598d61b14d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Projective/Transport.lean",
+      "before_sha256": "cf96201ac44ecbea8892da8f4a9b78fae84147da7aa9183419ae1aa4ac822319",
+      "after_sha256": "cf96201ac44ecbea8892da8f4a9b78fae84147da7aa9183419ae1aa4ac822319",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Quotient/KernelReduction.lean",
+      "before_sha256": "4976748198cacbd4babddfd3d7fc7cc20340a4b7abc0bb2e3e5fabaf076a4b91",
+      "after_sha256": "4976748198cacbd4babddfd3d7fc7cc20340a4b7abc0bb2e3e5fabaf076a4b91",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Quotient/ScalarImage.lean",
+      "before_sha256": "68237bb25b0dc9537e0d02180b9a3185f61d1b2a588b885cad974123e16bfed9",
+      "after_sha256": "68237bb25b0dc9537e0d02180b9a3185f61d1b2a588b885cad974123e16bfed9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean",
+      "before_sha256": "ddeafb98ebe7916ec6ed0c8cb945b071a83bd94affa6a0eb398552f84706d84d",
+      "after_sha256": "ddeafb98ebe7916ec6ed0c8cb945b071a83bd94affa6a0eb398552f84706d84d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean",
+      "before_sha256": "dd1c6d66fd09d4653e2f5ae43739eee6d55ed10ec10572cb921fce35effd39f1",
+      "after_sha256": "dd1c6d66fd09d4653e2f5ae43739eee6d55ed10ec10572cb921fce35effd39f1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/ReflectionPair/Twist.lean",
+      "before_sha256": "3531215d98f49e5ee900b388a49b4123ab502bb8f3a0d5a0f15653c2036ddacc",
+      "after_sha256": "3531215d98f49e5ee900b388a49b4123ab502bb8f3a0d5a0f15653c2036ddacc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Submodule/PiIdeal.lean",
+      "before_sha256": "5517148e1f4a25117857ac5de0c1cedf54a3c5f3525e750a563509103f995efc",
+      "after_sha256": "5517148e1f4a25117857ac5de0c1cedf54a3c5f3525e750a563509103f995efc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Submodule/ProductScaling.lean",
+      "before_sha256": "c7879b064a11d0169ac30303269a20dfa529b5462555e027e9bce3116c02ed83",
+      "after_sha256": "c7879b064a11d0169ac30303269a20dfa529b5462555e027e9bce3116c02ed83",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Module/Submodule/ScaledImage.lean",
+      "before_sha256": "cee6d1a40928cdb9e69959c67c2acef1085065473025ccd9d109b5c1a0c6dc32",
+      "after_sha256": "cee6d1a40928cdb9e69959c67c2acef1085065473025ccd9d109b5c1a0c6dc32",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Order/Field/RealScaling.lean",
+      "before_sha256": "c4d0d68bb0be19a4a09433186922b67fe1e58621117b6688ab7432dd63a3908e",
+      "after_sha256": "c4d0d68bb0be19a4a09433186922b67fe1e58621117b6688ab7432dd63a3908e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/LowPart.lean",
+      "before_sha256": "777055e4d6f83a405e9228c97943f7395da43a81afbf974cd5fbf69e9ceee736",
+      "after_sha256": "777055e4d6f83a405e9228c97943f7395da43a81afbf974cd5fbf69e9ceee736",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/Reciprocal.lean",
+      "before_sha256": "3e5cd69b980e2b5d6d5d1ba429d8a9d1e185c6eaefa458ec9ac0b0766bec2b2a",
+      "after_sha256": "3e5cd69b980e2b5d6d5d1ba429d8a9d1e185c6eaefa458ec9ac0b0766bec2b2a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/ScaledEvaluation.lean",
+      "before_sha256": "80ed4f9d2cc6b01da9a33d010485c4657e0f7e54cc0a333696f18db5b22f370a",
+      "after_sha256": "80ed4f9d2cc6b01da9a33d010485c4657e0f7e54cc0a333696f18db5b22f370a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/ScaledReciprocity.lean",
+      "before_sha256": "ac16f142b5ab7571b2134aaa4a648f2a79ac809989100c7fb778b46821ca015e",
+      "after_sha256": "ac16f142b5ab7571b2134aaa4a648f2a79ac809989100c7fb778b46821ca015e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Algebra/Polynomial/TransferEvaluation.lean",
+      "before_sha256": "40acbfbf9731b4b3f0c767c83751c2018f2ce31db79118bf2e95acb91f01efcd",
+      "after_sha256": "40acbfbf9731b4b3f0c767c83751c2018f2ce31db79118bf2e95acb91f01efcd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/Dihedral/SignedCount.lean",
+      "before_sha256": "38cbacef8082505d8028c4950e7d52b4e37097a931765d86f1ebdf4665750512",
+      "after_sha256": "38cbacef8082505d8028c4950e7d52b4e37097a931765d86f1ebdf4665750512",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/Basic.lean",
+      "before_sha256": "63224a07cd0f3a9a93f714b91cd8fce31c8a9e6bea443a4b865f5b7bf882b2eb",
+      "after_sha256": "63224a07cd0f3a9a93f714b91cd8fce31c8a9e6bea443a4b865f5b7bf882b2eb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/Monotone.lean",
+      "before_sha256": "d20bc3dea92272e0e37e27518276f0b56a06e316582988ed26af75d0798361d2",
+      "after_sha256": "d20bc3dea92272e0e37e27518276f0b56a06e316582988ed26af75d0798361d2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/PositiveTransfer.lean",
+      "before_sha256": "7b1f2fb076a32d8c2a77dccf9983d83fe4f51e8e7d96c7c8eb4b770086ee5e7d",
+      "after_sha256": "7b1f2fb076a32d8c2a77dccf9983d83fe4f51e8e7d96c7c8eb4b770086ee5e7d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/ScalarMap.lean",
+      "before_sha256": "b93735ff9c3ed551ba1e09ab704283f369fefe32f390a374ce72d4796057245f",
+      "after_sha256": "b93735ff9c3ed551ba1e09ab704283f369fefe32f390a374ce72d4796057245f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/SortedSchedule.lean",
+      "before_sha256": "ee16dad57af783031346ce5fe9c8de2d46c04ca8705e012e3ff5dba8f7e6c976",
+      "after_sha256": "ee16dad57af783031346ce5fe9c8de2d46c04ca8705e012e3ff5dba8f7e6c976",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/Subpaths.lean",
+      "before_sha256": "b77c83cc1c52386977c83f0c57d0c981d4b558c6be120ca6965c59c95709d20e",
+      "after_sha256": "b77c83cc1c52386977c83f0c57d0c981d4b558c6be120ca6965c59c95709d20e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/Suffix.lean",
+      "before_sha256": "58afe1f97e2d0a76cb29f5ac097e9aef0e2cd4d7705f7ef1bd6c05f9aa19c059",
+      "after_sha256": "58afe1f97e2d0a76cb29f5ac097e9aef0e2cd4d7705f7ef1bd6c05f9aa19c059",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/DirectedPaths/Transfer.lean",
+      "before_sha256": "69455f7852a3f4ae6b41f1627a85b2da86ea9f3c7beffc92131377a2353b03ab",
+      "after_sha256": "69455f7852a3f4ae6b41f1627a85b2da86ea9f3c7beffc92131377a2353b03ab",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Boundary/Basic.lean",
+      "before_sha256": "8b9780a87787dd8ba4843bbba1ed5bf94f8237554c401c43a015462a171c5fb5",
+      "after_sha256": "8b9780a87787dd8ba4843bbba1ed5bf94f8237554c401c43a015462a171c5fb5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Boundary/Extension.lean",
+      "before_sha256": "73af3033352cc8feb22538fe0e31a9f13ce033dbe2f75abbf1c669417738e6d7",
+      "after_sha256": "73af3033352cc8feb22538fe0e31a9f13ce033dbe2f75abbf1c669417738e6d7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Boundary/Hom.lean",
+      "before_sha256": "238146699038058a61d7981a66cffacf0983c28ea84b598859e342804e2201cb",
+      "after_sha256": "238146699038058a61d7981a66cffacf0983c28ea84b598859e342804e2201cb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Boundary/Models.lean",
+      "before_sha256": "8a9a87125cf99130a46a8d2343b0797b6d3e2b89b5c6ac32e75aa18e236adadf",
+      "after_sha256": "8a9a87125cf99130a46a8d2343b0797b6d3e2b89b5c6ac32e75aa18e236adadf",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Boundary/Summand.lean",
+      "before_sha256": "166fbe48d371084d919132d3e841d7c809ea909febd1b73cff8aed013a185804",
+      "after_sha256": "166fbe48d371084d919132d3e841d7c809ea909febd1b73cff8aed013a185804",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Boundary/Uniqueness.lean",
+      "before_sha256": "2c471e6e6ce530a460a44e6ed26cc8395addfd8cc18d46a6d4ee56bc8b03b3cd",
+      "after_sha256": "2c471e6e6ce530a460a44e6ed26cc8395addfd8cc18d46a6d4ee56bc8b03b3cd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Bruhat/Basic.lean",
+      "before_sha256": "fd4e63a8abfd3a4c419ee3a3d23e619ac66053672e027656ca0b3bb80ae674d6",
+      "after_sha256": "fd4e63a8abfd3a4c419ee3a3d23e619ac66053672e027656ca0b3bb80ae674d6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Bruhat/DihedralModel.lean",
+      "before_sha256": "17b08e36eab4b077b258a77cdc41f93ad3031b291af4271cc837f9012cdb5161",
+      "after_sha256": "17b08e36eab4b077b258a77cdc41f93ad3031b291af4271cc837f9012cdb5161",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Bruhat/PlaneModel.lean",
+      "before_sha256": "2501e86ad1b5921b0392741205b91a3ba5a7fa850a900b47cec27f744fa930a4",
+      "after_sha256": "2501e86ad1b5921b0392741205b91a3ba5a7fa850a900b47cec27f744fa930a4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean",
+      "before_sha256": "f0c866ff9e128d1135168539064242057bd6f3ad9b5fc5c26c705e0c06f6a6d0",
+      "after_sha256": "f0c866ff9e128d1135168539064242057bd6f3ad9b5fc5c26c705e0c06f6a6d0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Basic.lean",
+      "before_sha256": "0709d2a8f53692cb6db3124bb97e2576a7586dd7d5d24dee9fbba7280d5d8456",
+      "after_sha256": "0709d2a8f53692cb6db3124bb97e2576a7586dd7d5d24dee9fbba7280d5d8456",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Character.lean",
+      "before_sha256": "ec8c3f93daa92f898da33a341ea8ee44c269e3b1f042059d1403e39aca56d04a",
+      "after_sha256": "ec8c3f93daa92f898da33a341ea8ee44c269e3b1f042059d1403e39aca56d04a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean",
+      "before_sha256": "36b49556d3f2b9fec42f8f1dbb1126134182f499057f6d599ea08afd5d647af3",
+      "after_sha256": "36b49556d3f2b9fec42f8f1dbb1126134182f499057f6d599ea08afd5d647af3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean",
+      "before_sha256": "e9ded3ed9b6f7054e877319507a7e3fa27df51c6d373dc90b720cf79b45d3f80",
+      "after_sha256": "e9ded3ed9b6f7054e877319507a7e3fa27df51c6d373dc90b720cf79b45d3f80",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Extension.lean",
+      "before_sha256": "1c14243e585340124e4a3f2e5f14fa35d45368a30e38835e2932f8cdf46abc3b",
+      "after_sha256": "1c14243e585340124e4a3f2e5f14fa35d45368a30e38835e2932f8cdf46abc3b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Hilbert.lean",
+      "before_sha256": "0df08433edd5744f72c490c350b95e1ba7e97b89181c371f9987a63ec10334d7",
+      "after_sha256": "0df08433edd5744f72c490c350b95e1ba7e97b89181c371f9987a63ec10334d7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Hom.lean",
+      "before_sha256": "a691af39e319d15e7843bf1ce44f48891147c6f045c10ec16674165b58d3644b",
+      "after_sha256": "a691af39e319d15e7843bf1ce44f48891147c6f045c10ec16674165b58d3644b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.lean",
+      "before_sha256": "96acd4ee2ce14eb7d7d136757b936e0fb30387fa027cf1eb8a8f60bf2b273562",
+      "after_sha256": "96acd4ee2ce14eb7d7d136757b936e0fb30387fa027cf1eb8a8f60bf2b273562",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Properties.lean",
+      "before_sha256": "18b6efc7c140691d802fd67284f0e2cc2732be76de7c56bb5fdbaa3d8098a88a",
+      "after_sha256": "18b6efc7c140691d802fd67284f0e2cc2732be76de7c56bb5fdbaa3d8098a88a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Reindex.lean",
+      "before_sha256": "4f4e4e10ff4ebeaa7d53d431203c8bda48c6eade74160a5804a73a7630249e1a",
+      "after_sha256": "4f4e4e10ff4ebeaa7d53d431203c8bda48c6eade74160a5804a73a7630249e1a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/StalkMaps.lean",
+      "before_sha256": "ff75437ec2dbf54d97afe9fc2e1a492706f7345469910fbb7051f8e9aed1f55b",
+      "after_sha256": "ff75437ec2dbf54d97afe9fc2e1a492706f7345469910fbb7051f8e9aed1f55b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "before_sha256": "2f9408cc837ec53ef8ad37807c12c87089616f709af172d15ccf5c6c93d7384a",
+      "after_sha256": "2f9408cc837ec53ef8ad37807c12c87089616f709af172d15ccf5c6c93d7384a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Uniqueness.lean",
+      "before_sha256": "0f0f3faea2fe0313d4eff98bdb137ff632aaf7dde5e586934a99670d2dea2946",
+      "after_sha256": "0f0f3faea2fe0313d4eff98bdb137ff632aaf7dde5e586934a99670d2dea2946",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/OrderedGraph/VertexDeletion.lean",
+      "before_sha256": "24b140315f0fc0d84b8545eb4c5d8274105d5ef32ea9c9703b94a37f294eb046",
+      "after_sha256": "9b27b01a8373f1c2822aafe7ccac7c71e7edd2c7d79d62879268d35b51846cb6",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean",
+      "before_sha256": "1c2f252209a2c286303429a6b569250291bcf2c8039fa851fa1a594e043ca265",
+      "after_sha256": "1c2f252209a2c286303429a6b569250291bcf2c8039fa851fa1a594e043ca265",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean",
+      "before_sha256": "284a845f07afd4581d6fc7ab6c12ea613cf968c3cfb3093542dc52974c93ef46",
+      "after_sha256": "284a845f07afd4581d6fc7ab6c12ea613cf968c3cfb3093542dc52974c93ef46",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean",
+      "before_sha256": "37a94763a8ceed13d72684356d8ddaa254662c2484be22c7dc1cec9f3cf1a602",
+      "after_sha256": "37a94763a8ceed13d72684356d8ddaa254662c2484be22c7dc1cec9f3cf1a602",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Extension.lean",
+      "before_sha256": "aa95fe80ad7eae7240eaf2deeeaf8d232a10b1182a365fecd3235e5615c7b3d2",
+      "after_sha256": "aa95fe80ad7eae7240eaf2deeeaf8d232a10b1182a365fecd3235e5615c7b3d2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/FlowDown.lean",
+      "before_sha256": "d9b52fdb62240dbfd1c569c6548e269c248826a55dadd064e0793dfb9852b71d",
+      "after_sha256": "d9b52fdb62240dbfd1c569c6548e269c248826a55dadd064e0793dfb9852b71d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Hom.lean",
+      "before_sha256": "215c66f409121feb676bb3d0abfd3c86f13c0b38b5cd8a796931b36c206ffdeb",
+      "after_sha256": "215c66f409121feb676bb3d0abfd3c86f13c0b38b5cd8a796931b36c206ffdeb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean",
+      "before_sha256": "7e14671ecf2c37c61bf5db036dc3bb80e78a82bf68e18e76f4a4ee70de824fa9",
+      "after_sha256": "7e14671ecf2c37c61bf5db036dc3bb80e78a82bf68e18e76f4a4ee70de824fa9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Isomorphism.lean",
+      "before_sha256": "b596bfc1c929f05b0faf2934da327ec39a37aa56e4ba5e575f2e1bfb8c9bbc84",
+      "after_sha256": "b596bfc1c929f05b0faf2934da327ec39a37aa56e4ba5e575f2e1bfb8c9bbc84",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Localization.lean",
+      "before_sha256": "35006e4c219635ce01e7cffe6ccdb27e546f5ded1cc23377e796e647adcb2f48",
+      "after_sha256": "35006e4c219635ce01e7cffe6ccdb27e546f5ded1cc23377e796e647adcb2f48",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean",
+      "before_sha256": "af6f21aad2f674a0d658e9d72b4245c37a72516e1cd7d2418b2e2d79a8c2b42c",
+      "after_sha256": "af6f21aad2f674a0d658e9d72b4245c37a72516e1cd7d2418b2e2d79a8c2b42c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean",
+      "before_sha256": "76ec785a5fe563500840528a7ab9ee5bddf0ca4c5a63dd555c61ca9f36452bf4",
+      "after_sha256": "76ec785a5fe563500840528a7ab9ee5bddf0ca4c5a63dd555c61ca9f36452bf4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean",
+      "before_sha256": "8d9a0cb334e9fc69c8a2e2109e8e90f3b421d6d24d5d1f82155cafa8195b1d50",
+      "after_sha256": "8d9a0cb334e9fc69c8a2e2109e8e90f3b421d6d24d5d1f82155cafa8195b1d50",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean",
+      "before_sha256": "22ee33c3051530b5581c66b929e45f55a3716047c3be6c9a2bac64d6efd3e38a",
+      "after_sha256": "22ee33c3051530b5581c66b929e45f55a3716047c3be6c9a2bac64d6efd3e38a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean",
+      "before_sha256": "f2309d0875e7c757d6e8d7544ddfcf2fa2313b706f0db3060dd11bcbaa260044",
+      "after_sha256": "f2309d0875e7c757d6e8d7544ddfcf2fa2313b706f0db3060dd11bcbaa260044",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean",
+      "before_sha256": "81cd1abbc1e76e83882e37c1162b7ed67e8813c76873f3776f5b174b249c1fb3",
+      "after_sha256": "81cd1abbc1e76e83882e37c1162b7ed67e8813c76873f3776f5b174b249c1fb3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean",
+      "before_sha256": "f8801d111159d891d514fe813a96ce1e115d9c218749c83ea894e045c1777d6c",
+      "after_sha256": "f8801d111159d891d514fe813a96ce1e115d9c218749c83ea894e045c1777d6c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Uniqueness.lean",
+      "before_sha256": "73a4b075309952b574ab07e3bdd141cbb0261dbecea3888ec3ebf393829bc6df",
+      "after_sha256": "73a4b075309952b574ab07e3bdd141cbb0261dbecea3888ec3ebf393829bc6df",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Zero.lean",
+      "before_sha256": "051053306c65aea5850e1b0dc496728926354f0d963a685443144b3e06f0072d",
+      "after_sha256": "051053306c65aea5850e1b0dc496728926354f0d963a685443144b3e06f0072d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/Basic.lean",
+      "before_sha256": "a86f22d2cb699df44e952a508c4a53197a9d697a073d7d69893e2a269f224c0d",
+      "after_sha256": "a86f22d2cb699df44e952a508c4a53197a9d697a073d7d69893e2a269f224c0d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/Defs.lean",
+      "before_sha256": "6582909a51eb46f7822c010e9fbcf074628eae80f2f23ef35328072f5cdb7e0e",
+      "after_sha256": "6582909a51eb46f7822c010e9fbcf074628eae80f2f23ef35328072f5cdb7e0e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/Descent.lean",
+      "before_sha256": "b541ae831f196580410f1d9dae989311063cbd36fbf01421fd7b6d8494c0f067",
+      "after_sha256": "b541ae831f196580410f1d9dae989311063cbd36fbf01421fd7b6d8494c0f067",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/DiamondClosure.lean",
+      "before_sha256": "31893cf9b2e718c75c69d99a9f51e98b9c9249b2dae8e643444d3682923074fd",
+      "after_sha256": "53acca0d695cc46ccfe35ce3b7877d425953a08fd8b5f5f1e0a61df7f8480c3e",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/Diamonds.lean",
+      "before_sha256": "1a3a1355eb26f28424874e5fb4e7193f62366b4b860c229c211e41a40fe9e843",
+      "after_sha256": "d639389e0441076681e38d02a6e47e6fc2efd53b42f1060f37b691a14b769238",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/LowerFinset.lean",
+      "before_sha256": "af804840170e6943b27c5c66a34b3e549fbb45152ed6393b16569822af3161d1",
+      "after_sha256": "af804840170e6943b27c5c66a34b3e549fbb45152ed6393b16569822af3161d1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Bruhat/Transport.lean",
+      "before_sha256": "7be28ea08fbdf6e2952967144d611db4eb8671278c9de79f76330902488fdf61",
+      "after_sha256": "7be28ea08fbdf6e2952967144d611db4eb8671278c9de79f76330902488fdf61",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/Diamonds.lean",
+      "before_sha256": "eb561fa1597232e02896782296dd840067ff9e2c4337835e1ee3f0ab2ee3b2d4",
+      "after_sha256": "53a78b2c07ef17367c5142ffa52e29f98176618e141c08354570a9a9817c531b",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/IntervalTransport.lean",
+      "before_sha256": "77cf1b2840e551c9d9fbdea10a9bdcfa4d56c5b18d7b24afab820d8dfdca6c41",
+      "after_sha256": "f0362fec9bfc8d499a6a35453d9541034e4bc1f54afd964b3a37a30ea00c18b4",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/PlaneSystem.lean",
+      "before_sha256": "d3e2c546b9345cf7b0c06a1a8c1c787340c433f73dd096d4cabca87f56a0fc61",
+      "after_sha256": "34312dffa8bc69ef0c9fc28a0a84c4e978b3b7709ecf38802c56704f6df49128",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/SignedWords.lean",
+      "before_sha256": "eefc36d7587c70a02368d6fe849ca7f729c0b246acee4bde51995f0595c07053",
+      "after_sha256": "e12934d2af17482d22098a796525d1093275d82e55c23e9d5a3942d2741fba88",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Dihedral/Words.lean",
+      "before_sha256": "69920ee3829997776f3e3baa024ca69c079b7d415d9f33c43d26fa31504f49f7",
+      "after_sha256": "69920ee3829997776f3e3baa024ca69c079b7d415d9f33c43d26fa31504f49f7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Exchange.lean",
+      "before_sha256": "c572a83c37fe7d045efe90e50ce464a956a30b64b02ee70612481f02ead422c5",
+      "after_sha256": "c572a83c37fe7d045efe90e50ce464a956a30b64b02ee70612481f02ead422c5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Parabolic/InversionList.lean",
+      "before_sha256": "6f5a63fbb3281142f9e3733648da062c0f9621bb9d6968367a6766ff06aed2ae",
+      "after_sha256": "6f5a63fbb3281142f9e3733648da062c0f9621bb9d6968367a6766ff06aed2ae",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Parabolic/Standard.lean",
+      "before_sha256": "28b53cedf7d21c523c8ef7b443f7a26ad74c7e380a95e715338f160435ede1d1",
+      "after_sha256": "28b53cedf7d21c523c8ef7b443f7a26ad74c7e380a95e715338f160435ede1d1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Parabolic/Support.lean",
+      "before_sha256": "9c94fd3de085d843b2131ff18e2dc21de6d9daf099745ea3853ddbfad2c71979",
+      "after_sha256": "9c94fd3de085d843b2131ff18e2dc21de6d9daf099745ea3853ddbfad2c71979",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Realization/Cotangent.lean",
+      "before_sha256": "23dd7758609a811f029596c86cd2a8f96d975e441d44b599e20f8d4f016422c9",
+      "after_sha256": "23dd7758609a811f029596c86cd2a8f96d975e441d44b599e20f8d4f016422c9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Realization/Faithful.lean",
+      "before_sha256": "1dc03003ba622167cc6f09c74b3cbe6f08d57d9ec6b3b8b7ea0e18e812d21546",
+      "after_sha256": "1dc03003ba622167cc6f09c74b3cbe6f08d57d9ec6b3b8b7ea0e18e812d21546",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Realization/Geometric.lean",
+      "before_sha256": "4cb6cf7c66107e8967a08332f87435387af2efef53880afbd3fb7f3d08a2346b",
+      "after_sha256": "4cb6cf7c66107e8967a08332f87435387af2efef53880afbd3fb7f3d08a2346b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Realization/Positivity.lean",
+      "before_sha256": "e6373195c84c0d83106e315f39814c29bec85aab59eb57209d44e8d166c26199",
+      "after_sha256": "e6373195c84c0d83106e315f39814c29bec85aab59eb57209d44e8d166c26199",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Realization/Tits.lean",
+      "before_sha256": "c94752c95cb24511c0dbfab2cc8ce018a0486e09999f342df323f91af4a633a0",
+      "after_sha256": "c94752c95cb24511c0dbfab2cc8ce018a0486e09999f342df323f91af4a633a0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/Basic.lean",
+      "before_sha256": "45623d1726d4754d03cd5c2c7ea3d9045aad7fcd445b9bb8cea58dc781fa626f",
+      "after_sha256": "e036f0a345f55085744de3f88094846e2155e9adaa5cec64a9ccf223c2089a14",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/DihedralOrder.lean",
+      "before_sha256": "a4535c6f7e203852aec3d28dbd5106d6f4abf1a319838d6746592a89244f2219",
+      "after_sha256": "45e836947baba9eecb80c8ded2552c0039140a64ff700f24fc4d6a2befa45cfd",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/LaterCount.lean",
+      "before_sha256": "6156389f889323daae66a8e0354c5a6b0c707daa181bb7a717763f8c59e6711f",
+      "after_sha256": "e4e9d95b3427df067051d9bdb8e3250a91a63624e6d4ad82bad3e18bf4aa498d",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/Order.lean",
+      "before_sha256": "bd576d42859efea13c959e6c2feb16e5fc2b3483b3dbbc2da07f0900bbb09e2f",
+      "after_sha256": "85f6c093841a69bbca2b2bac4a8c291eedb301d8ab84edd713af025b74f1a460",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneBasis.lean",
+      "before_sha256": "157d95def46dfa8ea69e7f48b579214a98b8b17334ae8ebdb3da747b9f21b0cf",
+      "after_sha256": "650f7cfeedaa93345fb1433554d6ee626429a5357f54597f45e1526d3bd8233b",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneLength.lean",
+      "before_sha256": "a947f85036224184ae2c0a0f18b2393885419dbad57bc3e59e4e00376b6c1c03",
+      "after_sha256": "5ba3f693f589b06cf2eff38eed62fe973b7a676d963e0fb28770c24e62c0011a",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneSubgroup.lean",
+      "before_sha256": "09720f23b73f2f9f93786359907584c3704c3fff6bdfc8cdaa84bde5ab027dcd",
+      "after_sha256": "0f462b0bc21929c521b64afb6f7d70c41b256c2a59d82c8e5f03be1f8483460f",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/PlaneTransport.lean",
+      "before_sha256": "8bf249a9af4054e85bd5dd0481fb105573cd93f44bcc1e76455f3de055cc4505",
+      "after_sha256": "9930b657d74505fb907ab04a7da177ff9699962120fb28520d4d4bdf0439aa09",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/RatioOrder.lean",
+      "before_sha256": "eac50f01fae2546ec2bfa195f8980f9718eab845f99492597c1782aeba8df22f",
+      "after_sha256": "2acf5a9b9b90d6049b4a9603366b39bd2fe9d1d11b3b636a61d6b1ca3f8acaae",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/ReflectionLabels.lean",
+      "before_sha256": "4da1baeda850920c4bcd160ee427e4799600234c1c69b45c3c497510a5533c07",
+      "after_sha256": "7ede6908391d4e3d90ef2311f4c849fa3268a0b859731ccc2e68e739508330fd",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/ReflectionOrder.lean",
+      "before_sha256": "1993fc7ff4d49080b1cae43449fb8bac2ecbcbc1e43578fb027707687ed537f4",
+      "after_sha256": "1993fc7ff4d49080b1cae43449fb8bac2ecbcbc1e43578fb027707687ed537f4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/GroupTheory/Coxeter/Roots/Splines.lean",
+      "before_sha256": "2c491d91e46a731ebe6dd846c4a83f16aebc340f314cd932ea30b31a6d3b4c64",
+      "after_sha256": "6ab325ae44a1175594fa0a82569b4ebb981f60b839e7638dad24b780b8f6050c",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Avoidance.lean",
+      "before_sha256": "df8e1a111ff7ca63a2cd85d96d82d8a4926bdc0a54f560c44f1fea2e1c2c5e02",
+      "after_sha256": "60fe00785cbc88a76e5d94dedb18e1945cc903c29c8c86d4851ea4d5b2898377",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/BilinearForm/NondegenerateExtension.lean",
+      "before_sha256": "7e7f8e8f9fc3b8903ff816899710d8e88f4a0f245fe6cef4c8ad7031de01223a",
+      "after_sha256": "7e7f8e8f9fc3b8903ff816899710d8e88f4a0f245fe6cef4c8ad7031de01223a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/ConjugateRange.lean",
+      "before_sha256": "aeecc42ba8af837703df458e166b55b9800a8a719807924845bb0baa77a02f35",
+      "after_sha256": "aeecc42ba8af837703df458e166b55b9800a8a719807924845bb0baa77a02f35",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/CoordinateProjection.lean",
+      "before_sha256": "ad02912203956d0bd7d113e9f8c1d8569d6bfbb6869d5a886d3b7d4c44b63250",
+      "after_sha256": "ad02912203956d0bd7d113e9f8c1d8569d6bfbb6869d5a886d3b7d4c44b63250",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/Adjoint.lean",
+      "before_sha256": "e922c52f6d58a1d48f1e9e1da28ebf448f70b55c6fdcd3fe6906e2ae2e7272bf",
+      "after_sha256": "e922c52f6d58a1d48f1e9e1da28ebf448f70b55c6fdcd3fe6906e2ae2e7272bf",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/BalancedCut.lean",
+      "before_sha256": "433fbc2dfbfc223d2ef9cc1a16651030a1eacee890c9b2965cfdcb7e71c64f12",
+      "after_sha256": "433fbc2dfbfc223d2ef9cc1a16651030a1eacee890c9b2965cfdcb7e71c64f12",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/Frobenius.lean",
+      "before_sha256": "9da05c5ffb1d5dd64f6739981c4b977af4a29eede1f26265a5b2f186c3dd0087",
+      "after_sha256": "9da05c5ffb1d5dd64f6739981c4b977af4a29eede1f26265a5b2f186c3dd0087",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean",
+      "before_sha256": "a6d90be35951e30ece3c0dcf021b564a6c0979c3658b7358df93ec407edcf4af",
+      "after_sha256": "a6d90be35951e30ece3c0dcf021b564a6c0979c3658b7358df93ec407edcf4af",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/Summand.lean",
+      "before_sha256": "7dcb62587974f30fb8650ca52914453cff8e1fa0e8a3f5f7171417380f97dea2",
+      "after_sha256": "7dcb62587974f30fb8650ca52914453cff8e1fa0e8a3f5f7171417380f97dea2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Dual/TransportPairing.lean",
+      "before_sha256": "5b22af24a48777680022fc173991c456911c4b207ed605984f06bfb5920a8ec6",
+      "after_sha256": "5b22af24a48777680022fc173991c456911c4b207ed605984f06bfb5920a8ec6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/KernelCoordinates.lean",
+      "before_sha256": "24f89b7733ab0a6851f52f8891dc5502ae7b95c27c007ca6f83c3029a984405c",
+      "after_sha256": "24f89b7733ab0a6851f52f8891dc5502ae7b95c27c007ca6f83c3029a984405c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/KernelTransport.lean",
+      "before_sha256": "dc83913516dc6d3e90fb0b653d76efff4fe506c2f30b4d61f26a82fc60018438",
+      "after_sha256": "dc83913516dc6d3e90fb0b653d76efff4fe506c2f30b4d61f26a82fc60018438",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/PairProjection.lean",
+      "before_sha256": "0a7b006738bdd5cc30f3a90da3eb33e639971f5aaabb8de444c757bd32746c3a",
+      "after_sha256": "0a7b006738bdd5cc30f3a90da3eb33e639971f5aaabb8de444c757bd32746c3a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/PlaneReduction.lean",
+      "before_sha256": "045907c63e56f92d55b84960b81217141770d12bef73de3afe606aa09864010b",
+      "after_sha256": "045907c63e56f92d55b84960b81217141770d12bef73de3afe606aa09864010b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Quotient/Transport.lean",
+      "before_sha256": "472299c3dee2bae3bbed6c827b2405a42832a3cbbf2009f0fed072519943513b",
+      "after_sha256": "472299c3dee2bae3bbed6c827b2405a42832a3cbbf2009f0fed072519943513b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Reflection/Bilinear.lean",
+      "before_sha256": "7248051cb9ef3a4c287fb4161318f69d32b816229075a5f9e32682a771d0a07a",
+      "after_sha256": "7248051cb9ef3a4c287fb4161318f69d32b816229075a5f9e32682a771d0a07a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Reflection/Classification.lean",
+      "before_sha256": "4faf5ab57ac1537b13a9e4aa9e1f329f6c18c6b62fa17a2005beb74aa3cdf1b1",
+      "after_sha256": "4faf5ab57ac1537b13a9e4aa9e1f329f6c18c6b62fa17a2005beb74aa3cdf1b1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Reflection/Forms.lean",
+      "before_sha256": "b0238abb9068d1f73b3d1def3f71b137c2f3369b7988a4ce463022082fe3cef4",
+      "after_sha256": "b0238abb9068d1f73b3d1def3f71b137c2f3369b7988a4ce463022082fe3cef4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/Reflection/Plane.lean",
+      "before_sha256": "61a1c89d093dfd619b56cd80c63443ade5e72fb7ab88292ff9b7ded739f4486e",
+      "after_sha256": "61a1c89d093dfd619b56cd80c63443ade5e72fb7ab88292ff9b7ded739f4486e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/SymmetricAlgebra/Quotient.lean",
+      "before_sha256": "f2edc5e44be61776f77308ab8ff0b0629c4927d41c22bce7b5ed538d4cbef32a",
+      "after_sha256": "f2edc5e44be61776f77308ab8ff0b0629c4927d41c22bce7b5ed538d4cbef32a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/SymmetricAlgebra/RootIdeal.lean",
+      "before_sha256": "4693ac325788724aed986cba2069d17c8ad49fedd939d34560036b16ed2a4165",
+      "after_sha256": "4693ac325788724aed986cba2069d17c8ad49fedd939d34560036b16ed2a4165",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/LinearAlgebra/TensorProduct/Coordinates.lean",
+      "before_sha256": "f261798ca965edf9248c90b34f783a613f4ca42eacc77792328ca45c725e42c4",
+      "after_sha256": "f261798ca965edf9248c90b34f783a613f4ca42eacc77792328ca45c725e42c4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/Order/Interval/Diamonds.lean",
+      "before_sha256": "45d797961f6bad462b606536a6400a7e34128ab8ef129b19280c0ce93fca92dd",
+      "after_sha256": "45d797961f6bad462b606536a6400a7e34128ab8ef129b19280c0ce93fca92dd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/BottSamelson/TitsWords.lean",
+      "before_sha256": "4dc5f4605c167052a4e499702df750d15595b93d63e510408ce12d25629e65dd",
+      "after_sha256": "4dc5f4605c167052a4e499702df750d15595b93d63e510408ce12d25629e65dd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/Coefficients.lean",
+      "before_sha256": "2250272f214ba39d74b474e171dd0788dc259007a148bee14285efe45180f582",
+      "after_sha256": "2250272f214ba39d74b474e171dd0788dc259007a148bee14285efe45180f582",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/DualR.lean",
+      "before_sha256": "c71b09bc5ea71ae743f265ad48a209d3ca33d1c423bc137455fc580dce168bee",
+      "after_sha256": "c71b09bc5ea71ae743f265ad48a209d3ca33d1c423bc137455fc580dce168bee",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/DyerPaths/Adapted.lean",
+      "before_sha256": "713ce8c85e5acb98211834515bcec993a8c43d329e6e8b44b172281b4fd63ea8",
+      "after_sha256": "a99c8c17404a51b3050ea2acff043f76b8320cf5f001e7bdced5d2958383820b",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/DyerPaths/LexicographicOrder.lean",
+      "before_sha256": "f39508a27f2e1e786e5db01323b986038e7ee58becf12bfe41f72d08ae18264a",
+      "after_sha256": "f39508a27f2e1e786e5db01323b986038e7ee58becf12bfe41f72d08ae18264a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/DyerPaths/PlaneCoordinates.lean",
+      "before_sha256": "04b5ca9554c82ec8d9c60940144678a25df28b8383a82a422ee7b5554538bb4c",
+      "after_sha256": "3f12f98de71d03ac9e01fcc8b68cd8ac327a884eeb9689682320974c022ff861",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/DyerPaths/Wall.lean",
+      "before_sha256": "e7c3be49da45b7aa407a04aeaa4b4464e0a18c88fc173d07a223fb0ebea655fa",
+      "after_sha256": "e7c3be49da45b7aa407a04aeaa4b4464e0a18c88fc173d07a223fb0ebea655fa",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/Inverse.lean",
+      "before_sha256": "8fe67330ec811b1010526998c85476b91b4db9e189d3425f0ffaf8b3d2a027ed",
+      "after_sha256": "8fe67330ec811b1010526998c85476b91b4db9e189d3425f0ffaf8b3d2a027ed",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/Operators.lean",
+      "before_sha256": "e6dd43102a4f715796db89a73111e8323c04c781db8f493fbb7c5d16edf2853a",
+      "after_sha256": "e6dd43102a4f715796db89a73111e8323c04c781db8f493fbb7c5d16edf2853a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/OrdinaryR.lean",
+      "before_sha256": "d14db7a915e95fe11bf18b7f33612cda15dc1c7e2a3a1c578b114a25d80f640c",
+      "after_sha256": "d14db7a915e95fe11bf18b7f33612cda15dc1c7e2a3a1c578b114a25d80f640c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/Hecke/PositiveWord.lean",
+      "before_sha256": "9a9b07c91818f95fe1f3ccb12b11c29d678e32765342d3b43443331adf3ae8e0",
+      "after_sha256": "9a9b07c91818f95fe1f3ccb12b11c29d678e32765342d3b43443331adf3ae8e0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Canonical.lean",
+      "before_sha256": "0d9573b2bfae44d0721f3a7077bdfec90f56da4cb08c454f3027845cd23c302d",
+      "after_sha256": "0d9573b2bfae44d0721f3a7077bdfec90f56da4cb08c454f3027845cd23c302d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Dihedral.lean",
+      "before_sha256": "b60d9824465828d4d6c1a61e00333cef8ec3ce8295e67063fd5364a9959a535b",
+      "after_sha256": "b60d9824465828d4d6c1a61e00333cef8ec3ce8295e67063fd5364a9959a535b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/FiniteRankReduction.lean",
+      "before_sha256": "5335f56dd7eea89cfbf3673e4b81786a604db74b2c1d18869d5738b11729d167",
+      "after_sha256": "5335f56dd7eea89cfbf3673e4b81786a604db74b2c1d18869d5738b11729d167",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/IntervalTransport.lean",
+      "before_sha256": "bf16d6b4bd4c903da886d8f5d6e1e31ca8c4855a536e38e45c7a184dd0cd6cfe",
+      "after_sha256": "bf16d6b4bd4c903da886d8f5d6e1e31ca8c4855a536e38e45c7a184dd0cd6cfe",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Normalization.lean",
+      "before_sha256": "10682e62478cff3b29b2527f384a6ad10ff60581e7035f90f8c0b25c960fe190",
+      "after_sha256": "10682e62478cff3b29b2527f384a6ad10ff60581e7035f90f8c0b25c960fe190",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Normalized.lean",
+      "before_sha256": "4e4ab9785282d96cd1b28d33182e024d675a2c7887eb7ef1f746b44f9df2c9dc",
+      "after_sha256": "4e4ab9785282d96cd1b28d33182e024d675a2c7887eb7ef1f746b44f9df2c9dc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Parabolic.lean",
+      "before_sha256": "c49147fdbc9a75da6aa98978938bd022ebac8a74d128eec290ef8425b274c04a",
+      "after_sha256": "c49147fdbc9a75da6aa98978938bd022ebac8a74d128eec290ef8425b274c04a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/ScaledReciprocity.lean",
+      "before_sha256": "6177081921da74bbfb4731bbb0bf210e13670cfbab63b37951fd1b9ce7d674c9",
+      "after_sha256": "6177081921da74bbfb4731bbb0bf210e13670cfbab63b37951fd1b9ce7d674c9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/SelectedR.lean",
+      "before_sha256": "7b2cef9c5a8059a8f3068eeca3e0690723fa6a36f01fe44569307f46c421cea9",
+      "after_sha256": "7b2cef9c5a8059a8f3068eeca3e0690723fa6a36f01fe44569307f46c421cea9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RepresentationTheory/KazhdanLusztig/Polynomials/Unique.lean",
+      "before_sha256": "be8e2593d3e542a691828daf40b9bac67d2ca902949146a8f3d7028bb3fec15d",
+      "after_sha256": "be8e2593d3e542a691828daf40b9bac67d2ca902949146a8f3d7028bb3fec15d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/ForMathlib/RingTheory/Localization/RelativePrime.lean",
+      "before_sha256": "d6ca533a2dbd97b661dd7d69877d7c047cfa4166001db164c0331102068f2dc5",
+      "after_sha256": "d6ca533a2dbd97b661dd7d69877d7c047cfa4166001db164c0331102068f2dc5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/Architecture.lean",
+      "before_sha256": "822544c6496c573df880fcea588a7ea77c2e333f9b72bbb4a5a210a80006bc1f",
+      "after_sha256": "822544c6496c573df880fcea588a7ea77c2e333f9b72bbb4a5a210a80006bc1f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL.lean",
+      "before_sha256": "0cc2dc71a1e01a0cd64995a5e69d17b4e5d7006323cb68c29569daa34e5f01ce",
+      "after_sha256": "0cc2dc71a1e01a0cd64995a5e69d17b4e5d7006323cb68c29569daa34e5f01ce",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/AdjointSheaf.lean",
+      "before_sha256": "28b45a2405e12b9473c00f1dcbe636c5a0662d7c813d8850b11dabcb1f8f9873",
+      "after_sha256": "28b45a2405e12b9473c00f1dcbe636c5a0662d7c813d8850b11dabcb1f8f9873",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/CanonicalPairing.lean",
+      "before_sha256": "6fb4c1cf850e2df7d8a84f0420d912cbffc20c892bebb79015a8e70becf6829d",
+      "after_sha256": "6fb4c1cf850e2df7d8a84f0420d912cbffc20c892bebb79015a8e70becf6829d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/Character.lean",
+      "before_sha256": "ebcd87e9f0537afa860233571c17b40877c578cf9c4d68070cb961aa4372af5f",
+      "after_sha256": "ebcd87e9f0537afa860233571c17b40877c578cf9c4d68070cb961aa4372af5f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/CharacterDecomposition.lean",
+      "before_sha256": "c8231a9833c4ebf42fa49f8e47d8c97ebbc9b6c513e7f7b26feaf20804b4337a",
+      "after_sha256": "c8231a9833c4ebf42fa49f8e47d8c97ebbc9b6c513e7f7b26feaf20804b4337a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/Flabby.lean",
+      "before_sha256": "b59c469b54a4642fbe47fdd82cb459c8b4de4f87307e4f89c1859e99ff117752",
+      "after_sha256": "b59c469b54a4642fbe47fdd82cb459c8b4de4f87307e4f89c1859e99ff117752",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/Pairings.lean",
+      "before_sha256": "51518aba9a3d6b46f4aaa38104c149bf6e651d87bbc790846c868d525d5062b1",
+      "after_sha256": "51518aba9a3d6b46f4aaa38104c149bf6e651d87bbc790846c868d525d5062b1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/StalkCharacter.lean",
+      "before_sha256": "ee2e9104e1f3786a9e1786fee8a072b36464b9db276e8a58dc673e737a2d8037",
+      "after_sha256": "ee2e9104e1f3786a9e1786fee8a072b36464b9db276e8a58dc673e737a2d8037",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/Stalks.lean",
+      "before_sha256": "4f4fd7bfdd722bc2307a79a904079ff5e6bb2f25e18b8063d032bee3d91738eb",
+      "after_sha256": "4f4fd7bfdd722bc2307a79a904079ff5e6bb2f25e18b8063d032bee3d91738eb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/Support.lean",
+      "before_sha256": "e7e24a10f337357591d437970ec17b2f646a053405f5d09b45cf8f6b30a5492e",
+      "after_sha256": "e7e24a10f337357591d437970ec17b2f646a053405f5d09b45cf8f6b30a5492e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/BottSamelson/UpperSections.lean",
+      "before_sha256": "44473d4448ed82a57aaacb84f4c2244c8317947ba6949cfd05bea9379cf5c607",
+      "after_sha256": "44473d4448ed82a57aaacb84f4c2244c8317947ba6949cfd05bea9379cf5c607",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Comparison/Propagation.lean",
+      "before_sha256": "c330d6b7bca3c86579e1ebd2db9cefbf968a28bf6644387235cac7ef4e256cbf",
+      "after_sha256": "c330d6b7bca3c86579e1ebd2db9cefbf968a28bf6644387235cac7ef4e256cbf",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Comparison/SuffixFreeness.lean",
+      "before_sha256": "afcb971b29c76b8e95d72555580a99972d3c6befa97dea96cf16f38f9c76ff97",
+      "after_sha256": "afcb971b29c76b8e95d72555580a99972d3c6befa97dea96cf16f38f9c76ff97",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Comparison/Transport.lean",
+      "before_sha256": "294eb43386cfb9001db92aac262d8605c9735152baab1a88b4c414e0627d1dc3",
+      "after_sha256": "294eb43386cfb9001db92aac262d8605c9735152baab1a88b4c414e0627d1dc3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Compatibility/KernelTransport.lean",
+      "before_sha256": "925af4a80052374936590ca410b4e0b25d6d96a91a84ea84f33018e7978e9bf3",
+      "after_sha256": "925af4a80052374936590ca410b4e0b25d6d96a91a84ea84f33018e7978e9bf3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Invariance/Finite.lean",
+      "before_sha256": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2",
+      "after_sha256": "6733b994a8a621c9196fe67845deb63a09035d989524e36ba57dc67868528bf2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Invariance/Main.lean",
+      "before_sha256": "b8c4a22c608f1f67fcc7e31f7bfbcd5ff524cefb9cb2bd2d3249df7474af06c0",
+      "after_sha256": "b8c4a22c608f1f67fcc7e31f7bfbcd5ff524cefb9cb2bd2d3249df7474af06c0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Localization/Ambient.lean",
+      "before_sha256": "ddc409a9d999b75c75d2abb94930a5b43e0925eeda34a31e42f657e6ab99cb3f",
+      "after_sha256": "ddc409a9d999b75c75d2abb94930a5b43e0925eeda34a31e42f657e6ab99cb3f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Localization/Edge.lean",
+      "before_sha256": "6f5dba309484ee96348428fb8714ea2fd01743481091411399fad530ca0e98fb",
+      "after_sha256": "6f5dba309484ee96348428fb8714ea2fd01743481091411399fad530ca0e98fb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Localization/GraphEmbedding.lean",
+      "before_sha256": "8434097a73e3507a7d3e11a5771109d9e3f99b241ad73dc9660ccff4cc6c3a08",
+      "after_sha256": "8434097a73e3507a7d3e11a5771109d9e3f99b241ad73dc9660ccff4cc6c3a08",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Localization/Plane.lean",
+      "before_sha256": "19eb49ab953cdaf53b8831bd1174157cfb5c09839ba194eeb3e7735412ac4a00",
+      "after_sha256": "19eb49ab953cdaf53b8831bd1174157cfb5c09839ba194eeb3e7735412ac4a00",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Localization/TerminalImages.lean",
+      "before_sha256": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41",
+      "after_sha256": "e1c1c09b5cd98ce24b958b107ee9a232ed184836a1d9d441152c5e6bc38e2e41",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Sheaves/Boundary.lean",
+      "before_sha256": "43b3f2cf1af4eca319bc8eb314a57b412161ab9a14ff997d5009916cd4b43d48",
+      "after_sha256": "43b3f2cf1af4eca319bc8eb314a57b412161ab9a14ff997d5009916cd4b43d48",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Sheaves/FreeModel.lean",
+      "before_sha256": "f1089a6dd54d3fe0af05088fc1fd41fbd78f2a26571d8ede4424db41aacca9fb",
+      "after_sha256": "f1089a6dd54d3fe0af05088fc1fd41fbd78f2a26571d8ede4424db41aacca9fb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Sheaves/LowerCharacter.lean",
+      "before_sha256": "e5c538d83a14b7036191124ae26b81485f47c89c18455e114dbbfa9382ee0fe6",
+      "after_sha256": "e5c538d83a14b7036191124ae26b81485f47c89c18455e114dbbfa9382ee0fe6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Sheaves/Reciprocity.lean",
+      "before_sha256": "1b13ce2b1ec2f589f97e61e3dd4d5d2e85955950c679445dd560b9119108aa11",
+      "after_sha256": "1b13ce2b1ec2f589f97e61e3dd4d5d2e85955950c679445dd560b9119108aa11",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Sheaves/StalkReciprocity.lean",
+      "before_sha256": "397b5ad113283964b2511160bad96459d81e659d6b22fd35b00e4bcc58ed3111",
+      "after_sha256": "397b5ad113283964b2511160bad96459d81e659d6b22fd35b00e4bcc58ed3111",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/KL/Sheaves/Support.lean",
+      "before_sha256": "9afec71809da8e949c05e28b0c3b21dc1cf5388b36c27e0e41e51d39230f7d99",
+      "after_sha256": "9afec71809da8e949c05e28b0c3b21dc1cf5388b36c27e0e41e51d39230f7d99",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/LinearAlgebra/KernelTransport.lean",
+      "before_sha256": "7ba17cdf9254da4220342ee26e753e5320ddac1e8e08e5b4ca24130ad66ce04d",
+      "after_sha256": "7ba17cdf9254da4220342ee26e753e5320ddac1e8e08e5b4ca24130ad66ce04d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/BalancedPairings.lean",
+      "before_sha256": "71d90d4dfae02dfb2767bfec6b46a3d29f1b5f9cfcfbb69df4573bd76f168ae5",
+      "after_sha256": "71d90d4dfae02dfb2767bfec6b46a3d29f1b5f9cfcfbb69df4573bd76f168ae5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/BottSamelson.lean",
+      "before_sha256": "78eb0d7e620bfbc30a00e97fd71035c45573b424426f78dd0ce48af201b60137",
+      "after_sha256": "78eb0d7e620bfbc30a00e97fd71035c45573b424426f78dd0ce48af201b60137",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Bruhat.lean",
+      "before_sha256": "73493ed97aacaf0429afe0a14935d3c29ab5e5673725ca9ecb989486b56969cc",
+      "after_sha256": "73493ed97aacaf0429afe0a14935d3c29ab5e5673725ca9ecb989486b56969cc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/CanonicalKL.lean",
+      "before_sha256": "41b8eb0b4c5e41768e238d29597aaac4287bf62d693b4f48e40ad08bc860c262",
+      "after_sha256": "41b8eb0b4c5e41768e238d29597aaac4287bf62d693b4f48e40ad08bc860c262",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/CharacterReciprocity.lean",
+      "before_sha256": "12968cc8aa0d82aee4238fd92ffdfece2124839566e0ca80f7855f84aff65ef7",
+      "after_sha256": "12968cc8aa0d82aee4238fd92ffdfece2124839566e0ca80f7855f84aff65ef7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Comparison.lean",
+      "before_sha256": "5098309f0a93d0d716c0e413764c28988a9fba4243b6caa5cffe44b00657a344",
+      "after_sha256": "5098309f0a93d0d716c0e413764c28988a9fba4243b6caa5cffe44b00657a344",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Coxeter.lean",
+      "before_sha256": "cc0f59154eeeed91d82331d1ed4416179adc521e7ed9a137c1fc382f74f46c27",
+      "after_sha256": "cc0f59154eeeed91d82331d1ed4416179adc521e7ed9a137c1fc382f74f46c27",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Decomposition.lean",
+      "before_sha256": "ccf701e788312ec38e148a45900577daa187caf15dd45c70afb69d9d6ac3aa7f",
+      "after_sha256": "ccf701e788312ec38e148a45900577daa187caf15dd45c70afb69d9d6ac3aa7f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Dihedral.lean",
+      "before_sha256": "74eb9f8f8c7ea6f6fa2a004654ae80e98b6bb6aa2fb8bad9d95c2c738e1b7fba",
+      "after_sha256": "74eb9f8f8c7ea6f6fa2a004654ae80e98b6bb6aa2fb8bad9d95c2c738e1b7fba",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/DihedralIntervals.lean",
+      "before_sha256": "b02f48be56dce9fe04229487767d025d841a93ffb603b9c1414fa6906f6ef2e2",
+      "after_sha256": "b02f48be56dce9fe04229487767d025d841a93ffb603b9c1414fa6906f6ef2e2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/DyerPaths.lean",
+      "before_sha256": "765749b692a536a7e75c073a829e6efd39f6357135cfcc28634f130b1f20c8e5",
+      "after_sha256": "765749b692a536a7e75c073a829e6efd39f6357135cfcc28634f130b1f20c8e5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/EdgeLocalization.lean",
+      "before_sha256": "0210570a92165922c404f2f2ccf8e64b265fafb8d8b41a0ef9b9b4b97ad61af9",
+      "after_sha256": "0210570a92165922c404f2f2ccf8e64b265fafb8d8b41a0ef9b9b4b97ad61af9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Frobenius.lean",
+      "before_sha256": "d17284938a49df75279764a31f4f80fe4f697db4f0cde349b779743af7cf4af1",
+      "after_sha256": "d17284938a49df75279764a31f4f80fe4f697db4f0cde349b779743af7cf4af1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/GradedModules.lean",
+      "before_sha256": "5a5ab1f4e6a89383ced8f1c069403675a0168a3f32ccef18a60bdbef58ef755b",
+      "after_sha256": "5a5ab1f4e6a89383ced8f1c069403675a0168a3f32ccef18a60bdbef58ef755b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/GradedSheaves.lean",
+      "before_sha256": "a812034fffcb277f18c67529d32cd58d6b1f299200f514a3e7cda076a3aeabf9",
+      "after_sha256": "a812034fffcb277f18c67529d32cd58d6b1f299200f514a3e7cda076a3aeabf9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Hecke.lean",
+      "before_sha256": "db152052f58736db40f1d1d86a50a4c487a45e9e99ed25450c27d3ff91f88ea9",
+      "after_sha256": "db152052f58736db40f1d1d86a50a4c487a45e9e99ed25450c27d3ff91f88ea9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/HilbertSeries.lean",
+      "before_sha256": "c94e96d162d5cdf84c9ca9e36ffbf95025a1e48a622f5910e863725c84e03dda",
+      "after_sha256": "c94e96d162d5cdf84c9ca9e36ffbf95025a1e48a622f5910e863725c84e03dda",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/IntegralPairings.lean",
+      "before_sha256": "890407023575025c8e4eb3c352e977ea16568ded036af4e66b42fa8ee69c4c2c",
+      "after_sha256": "890407023575025c8e4eb3c352e977ea16568ded036af4e66b42fa8ee69c4c2c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Invariance.lean",
+      "before_sha256": "2c8efaedc2cbed93c34f3f970bef88153934edbd41c0c2eda7e74c0a49b100cb",
+      "after_sha256": "2c8efaedc2cbed93c34f3f970bef88153934edbd41c0c2eda7e74c0a49b100cb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/KernelTransportCompat.lean",
+      "before_sha256": "205f801d5dad6fb45058b84f9eed364feaed2de0f7fb1582a91035e0df8ce660",
+      "after_sha256": "205f801d5dad6fb45058b84f9eed364feaed2de0f7fb1582a91035e0df8ce660",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/MinimalExtensions.lean",
+      "before_sha256": "8dcb5e6da69a4452bae400148a13f862bc94f7c47be0940cd83731417e99cdf3",
+      "after_sha256": "8dcb5e6da69a4452bae400148a13f862bc94f7c47be0940cd83731417e99cdf3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Model.lean",
+      "before_sha256": "ffd9782efa99beef594894d92b297c05e59e5170b6672e0518c63bc67797dcd6",
+      "after_sha256": "ffd9782efa99beef594894d92b297c05e59e5170b6672e0518c63bc67797dcd6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/ModuleAlgebra.lean",
+      "before_sha256": "f57964dd98379b4fcaebf21a4f7a07b7d148f4ccb7f39c182c3f052c7ab8d50f",
+      "after_sha256": "f57964dd98379b4fcaebf21a4f7a07b7d148f4ccb7f39c182c3f052c7ab8d50f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/OrdinaryR.lean",
+      "before_sha256": "548e7ecb3d62697882e0d606c9a0df8d0a3ccb4be1f9561223b5f40d3fefca4b",
+      "after_sha256": "548e7ecb3d62697882e0d606c9a0df8d0a3ccb4be1f9561223b5f40d3fefca4b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/PlaneLocalization.lean",
+      "before_sha256": "ab4d3c2b74683ca5fe0f78540904049790c2ca7ba62f969cd02c4b59b5464fc8",
+      "after_sha256": "ab4d3c2b74683ca5fe0f78540904049790c2ca7ba62f969cd02c4b59b5464fc8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/PositiveTransfer.lean",
+      "before_sha256": "be37535cc97857cddf865f640abe0b8c0189911dbffe11854878b0f3c8e96cfe",
+      "after_sha256": "be37535cc97857cddf865f640abe0b8c0189911dbffe11854878b0f3c8e96cfe",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/ReflectionOrders.lean",
+      "before_sha256": "5d7a4557144b7d40f2ece28bb9065429249abc4326ce2857184ee7fd11de568d",
+      "after_sha256": "5d7a4557144b7d40f2ece28bb9065429249abc4326ce2857184ee7fd11de568d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/ReflectionPlane.lean",
+      "before_sha256": "82b4577972ff3afdcaff073819e56fad52d9ef9b5224c44f603e4bc0df77b8fa",
+      "after_sha256": "82b4577972ff3afdcaff073819e56fad52d9ef9b5224c44f603e4bc0df77b8fa",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/ReflectionSchedules.lean",
+      "before_sha256": "7b54ad946ae042e35d707e2468b336d2b89b99d911a9ce4594623d7a9c2a79c1",
+      "after_sha256": "7b54ad946ae042e35d707e2468b336d2b89b99d911a9ce4594623d7a9c2a79c1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/SheafMorphisms.lean",
+      "before_sha256": "fd4554eed521bd7272d9951635a6019b8f812e0e44e8272a606dfd4d2314f7b4",
+      "after_sha256": "fd4554eed521bd7272d9951635a6019b8f812e0e44e8272a606dfd4d2314f7b4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Sheaves.lean",
+      "before_sha256": "5085f52128b312a2480c7afd4a80b3ae0d9a61c0411739bad20cbb7da2cb8ccf",
+      "after_sha256": "b5e334c5bb8aac1fdcb0b14bf6db96d409bbf163692921605bf5a4c79689fa70",
+      "unchanged": false
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/SimultaneousInvariance.lean",
+      "before_sha256": "7e2ebe87fd196ba8bbf5813ae7b5658db587ff2175b1e53b881d675f0501329d",
+      "after_sha256": "7e2ebe87fd196ba8bbf5813ae7b5658db587ff2175b1e53b881d675f0501329d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Support.lean",
+      "before_sha256": "26fc0ef89477c936748be7acecbef4f461ffe60fc1618a8706108226571341a6",
+      "after_sha256": "26fc0ef89477c936748be7acecbef4f461ffe60fc1618a8706108226571341a6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/TerminalKernels.lean",
+      "before_sha256": "9c23ae1a21d23576b6f30759238dcd5431b0a25ed5a42f07cad33ade05027b43",
+      "after_sha256": "9c23ae1a21d23576b6f30759238dcd5431b0a25ed5a42f07cad33ade05027b43",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/kl-for-mathlib/OAI/RepresentationTheory/KazhdanLusztig/Tits.lean",
+      "before_sha256": "95fa4f377426e61b67a76db573ceb19b3499c95f1da9778385cda745ead45aa4",
+      "after_sha256": "0ae5f6751387cbc150f8e5de9ebe7b4bc0f590d4ae40e2ec5b2729cec3b3afcc",
+      "unchanged": false
+    }
+  ],
+  "unchanged_protected_files": [
+    "reference-public-types.json",
+    "compare_types.py",
+    "additional-types.json",
+    "stalk-equation-compat.json",
+    "stalk-equation-old.json",
+    "StalkEquationCompat.lean",
+    "lean-toolchain",
+    "lakefile.toml",
+    "lake-manifest.json"
+  ],
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "mathlib_status": ""
+}

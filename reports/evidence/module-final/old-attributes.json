@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "results/module-final/capture_attrs.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 96.24612434999995,
+  "user_seconds": 101.209481,
+  "system_seconds": 26.502577,
+  "max_rss_kib": 7266768
+}

@@ -1,0 +1,11 @@
+{
+  "build_checkpoint": "592bbcd2284d99e117489e19267d91379062544b",
+  "audit_checkpoint": "491f409adfcdd91e50ca1842311dbaa35e7dc017",
+  "changed_between_runs": [
+    "experiments/kl-for-mathlib/module_final.py",
+    "experiments/kl-for-mathlib/proof_evolution.py",
+    "experiments/kl-for-mathlib/test_module_final.py"
+  ],
+  "lean_source_changes": [],
+  "pins_changed": false
+}

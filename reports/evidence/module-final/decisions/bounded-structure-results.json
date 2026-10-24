@@ -1,0 +1,71 @@
+[
+  {
+    "label": "legacy-structure-producer",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/module-final/decisions",
+      "-o",
+      "/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.olean",
+      "/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.lean"
+    ],
+    "source_sha256": "379fc107beacb1a1e72f9875db52b11ddc0afaaa35e9f08c0528047f938a1b8e",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "wall_seconds": 7.320475405000252
+  },
+  {
+    "label": "private-structure-control",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/module-final/decisions",
+      "/workspace/lean-lab/results/module-final/decisions/ModernStructureOriginal.lean"
+    ],
+    "source_sha256": "fbebc293048f2979314942e499a0ab60e1f6efde555c6d7b489dbdc2f77aaf0e",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "wall_seconds": 7.651491279999846
+  },
+  {
+    "label": "inline-structure-producer",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/module-final/decisions",
+      "-o",
+      "/workspace/lean-lab/results/module-final/decisions/InlineStructureActual.olean",
+      "/workspace/lean-lab/results/module-final/decisions/InlineStructureActual.lean"
+    ],
+    "source_sha256": "274fceb2c8a832d419d4f1004e03a886f7bca6ef7c1e8017885fe3eb80d3dba2",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "wall_seconds": 7.370252128000175
+  },
+  {
+    "label": "legacy-structure-consumer",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/module-final/decisions",
+      "/workspace/lean-lab/results/module-final/decisions/LegacyStructureConsumer.lean"
+    ],
+    "source_sha256": "42c2375c655d99fc58b6b7f143075590da89b6b5ed221ed8ae491e488f378c76",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "wall_seconds": 6.328553021000062
+  },
+  {
+    "label": "modern-structure-consumer",
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/module-final/decisions",
+      "/workspace/lean-lab/results/module-final/decisions/ModernStructureConsumer.lean"
+    ],
+    "source_sha256": "46e70699e1a09a97a09d952f620e4b69a2a8e345fd190ea5360525ac8ef7a0f5",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "wall_seconds": 4.7313189269998475
+  }
+]

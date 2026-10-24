@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean ../../results/module-final/ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 13.061590513000056,
+  "user_seconds": 15.160417,
+  "system_seconds": 2.346339,
+  "max_rss_kib": 7226504
+}

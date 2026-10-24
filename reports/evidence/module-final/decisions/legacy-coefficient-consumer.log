@@ -1,0 +1,4 @@
+OAI.KLInvariance.CoefficientChange.ext.{uk, ua, ub, um} {k : Type uk} {inst✝ : Field k} {A : Type ua}
+  {inst✝¹ : CommRing A} {inst✝² : Algebra k A} {B : Type ub} {inst✝³ : CommRing B} {inst✝⁴ : Algebra k B}
+  {_e : A ≃ₐ[k] B} {M : Type um} {x y : OAI.KLInvariance.CoefficientChange _e M} (val : x.val = y.val) : x = y
+/workspace/lean-lab/results/module-final/decisions/LegacyCoefficientConsumer.lean:3:7: error(lean.unknownIdentifier): Unknown constant `OAI.KLInvariance.CoefficientChange.ext.match_1`

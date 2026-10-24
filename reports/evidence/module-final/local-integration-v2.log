@@ -1,0 +1,43 @@
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.692s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.076s
+
+OK
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.069s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 4.148s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.996s
+
+OK
+.........F....................
+======================================================================
+FAIL: test_reject_library_unsampled_code (__main__.EvolutionChecks.test_reject_library_unsampled_code)
+----------------------------------------------------------------------
+RuntimeError: Unapproved final-module header/body edit: ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 179, in test_reject_library_unsampled_code
+    with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "outside approved" does not match "Unapproved final-module header/body edit: ForMathlib/Algebra/Module/Localization/FiniteCharacters.lean"
+
+----------------------------------------------------------------------
+Ran 30 tests in 6.061s
+
+FAILED (failures=1)

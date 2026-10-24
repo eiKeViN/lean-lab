@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "export LEAN_PATH=/workspace/lean-lab/results/module-final/decisions:/workspace/lean-lab/results/boundary/core-run-v3/matcher; /workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean -R /workspace/lean-lab/results/module-final/decisions -o /workspace/lean-lab/results/module-final/decisions/ReferenceMatcher.olean /workspace/lean-lab/results/module-final/decisions/ReferenceMatcher.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 0.6400509280001643,
+  "user_seconds": 0.471057,
+  "system_seconds": 0.17202499999999998,
+  "max_rss_kib": 727792
+}

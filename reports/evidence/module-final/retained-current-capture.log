@@ -1,0 +1,19 @@
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1; actual=OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1; actual=OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.MomentGraph.splitVertex.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.MomentGraph.splitVertex.eq_1; actual=OAI.KLInvariance.MomentGraph.splitVertex.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.MomentGraph.splitEdge.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.MomentGraph.splitEdge.eq_1; actual=OAI.KLInvariance.MomentGraph.splitEdge.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.Dihedral.pairMatrix.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.Dihedral.pairMatrix.eq_1; actual=OAI.KLInvariance.Dihedral.pairMatrix.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq; actual=OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.TitsSpace.simplePositive.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.TitsSpace.simplePositive.eq_1; actual=OAI.KLInvariance.TitsSpace.simplePositive.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.TitsSpace.height.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.TitsSpace.height.eq_1; actual=OAI.KLInvariance.TitsSpace.height.eq_1
+PASS directed rewrite/simp actual equation: OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1
+PASS actual historical type/kernel/defeq/axioms: OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1; actual=OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1
+Kernel checked 25 actual old helper type/value pairs under fresh names

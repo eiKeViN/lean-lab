@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && python3 module_final.py --compare-public ../../results/module-final/final-public-v2.tsv && python3 test_module_final.py && python3 test_module_next.py && python3 test_attach_module.py && python3 test_module_rollout.py && python3 test_module_integration.py && python3 test_proof_evolution.py"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 8.842328322999947,
+  "user_seconds": 7.656337,
+  "system_seconds": 2.113026,
+  "max_rss_kib": 3993376
+}

@@ -1,0 +1,6 @@
+/workspace/lean-lab/results/module-final/decisions/ModernStructureOriginal.lean:22:37: error(lean.unknownIdentifier): Unknown identifier `quotientLinear`
+
+Note: A private declaration `quotientLinear` (from the current module) exists but would need to be public to access here.
+/workspace/lean-lab/results/module-final/decisions/ModernStructureOriginal.lean:21:37: error(lean.unknownIdentifier): Unknown identifier `quotientLinear`
+
+Note: A private declaration `quotientLinear` (from the current module) exists but would need to be public to access here.

@@ -1,0 +1,1 @@
+BoundaryOldCapture.lean:1:0: error: cannot import non-`module` ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basic from `module`

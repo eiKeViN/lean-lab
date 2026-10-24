@@ -1,0 +1,38 @@
+{
+  "OAI.KLInvariance.MomentGraph.splitVertex.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "OAI.KLInvariance.MomentGraph.splitEdge.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq": {
+    "defeq": false,
+    "backward_defeq": false
+  },
+  "OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "OAI.KLInvariance.TitsSpace.simplePositive.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "OAI.KLInvariance.TitsSpace.height.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "OAI.KLInvariance.Dihedral.pairMatrix.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  },
+  "OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1": {
+    "defeq": false,
+    "backward_defeq": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "results/module-final/decisions/run_controls.py"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 29.1283289779999,
+  "user_seconds": 19.463814,
+  "system_seconds": 10.018896,
+  "max_rss_kib": 6854988
+}

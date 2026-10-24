@@ -1,0 +1,12 @@
+/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.lean:24:0: error: Missing name after `end`: Expected the current scope name `Sheaf`
+
+Hint: To end the current scope `Sheaf`, specify its name:
+  end ̲S̲h̲e̲a̲f̲
+/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.lean:25:0: error: Missing name after `end`: Expected the current scope name `Sheaf`
+
+Hint: To end the current scope `Sheaf`, specify its name:
+  end ̲S̲h̲e̲a̲f̲
+/workspace/lean-lab/results/module-final/decisions/LegacyStructureActual.lean:26:0: error: Missing name after `end`: Expected the current scope name `Sheaf`
+
+Hint: To end the current scope `Sheaf`, specify its name:
+  end ̲S̲h̲e̲a̲f̲

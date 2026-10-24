@@ -1,0 +1,14 @@
+BoundaryOldCapture.lean:1:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:2:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:3:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:4:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:5:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:6:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:7:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:8:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:9:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:10:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:11:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:12:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:13:7: error: cannot use `import all` without `module`
+BoundaryOldCapture.lean:14:7: error: cannot use `import all` without `module`

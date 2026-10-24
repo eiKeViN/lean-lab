@@ -1,0 +1,36 @@
+[
+  {
+    "path": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "regional": [
+      "const",
+      "`OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq._proof_1",
+      "[Lean.Level.param `u, Lean.Level.param `v]"
+    ],
+    "complete": [
+      "proof",
+      "195295"
+    ]
+  }
+]

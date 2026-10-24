@@ -1,0 +1,3 @@
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
+  {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) : Sheaf G
+Private helper remains unavailable; vertex/upper/lower rfl controls pass.

@@ -1,0 +1,29 @@
+ModernFinalCompat.lean:106:0: error: property not found: OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1
+OAI.KLInvariance.MomentGraph.splitVertex.eq_1.{um} {V : Type um} (x : V) :
+  splitVertex x =
+    { toFun := fun y => if h : y = x then ⊥ else ↑⟨y, h⟩, invFun := fun n => WithBot.recBotCoe x Subtype.val n,
+      left_inv := ⋯, right_inv := ⋯ }
+OAI.KLInvariance.MomentGraph.splitEdge.eq_1.{um} {V E : Type um} [PartialOrder V] (G : OrderedGraph V E) (x : V) :
+  splitEdge G x =
+    { toFun := fun e => if h : G.source e = x then Sum.inr ⟨e, h⟩ else Sum.inl ⟨e, h⟩,
+      invFun := Sum.elim Subtype.val Subtype.val, left_inv := ⋯, right_inv := ⋯ }
+OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1.{u_1} (R : Type u_1) [CommRing R] :
+  ReflectionFrobenius.crossPair R =
+    { toFun := fun a => { toFun := fun b => a.1 * b.2 + a.2 * b.1, map_add' := ⋯, map_smul' := ⋯ }, map_add' := ⋯,
+      map_smul' := ⋯ }
+OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1.{u, v, w} {R : Type u} [CommRing R] {X : Type v}
+  {E : X → Type w} [(x : X) → AddCommGroup (E x)] [(x : X) → _root_.Module R (E x)] (f : X → R) :
+  FiniteCharacterLocalization.diagonal f = { toFun := fun m x => f x • m x, map_add' := ⋯, map_smul' := ⋯ }
+OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1.{u} {I : Type u} [Fintype I] (t : ℝ) :
+  ReflectionSchedules.momentFunctional t =
+    { toFun := fun a => ∑ i, a i * t ^ ↑((Fintype.equivFin I) i), map_add' := ⋯, map_smul' := ⋯ }
+OAI.KLInvariance.Dihedral.pairMatrix.eq_1.{u_1} {G : Type u_1} [Group G] (s t : G) (hs : s * s = 1) (hst : s ≠ t) :
+  Dihedral.pairMatrix s t hs hst =
+    { M := fun i j => if i = j then 1 else orderOf (s * t), isSymm := ⋯, diagonal := ⋯, off_diagonal := ⋯ }
+OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq.{u, v} {I : Type u} [Fintype I] {M : CoxeterMatrix I}
+  {W : Type v} [Group W] {cs : CoxeterSystem M W} {t : W} {a : I → ℝ} (ha : TitsSpace.Represents M cs t a) :
+  (TitsSpace.extendedAction M cs) t = Module.reflection ⋯
+OAI.KLInvariance.TitsSpace.simplePositive.eq_1.{u, v} {I : Type u} [Fintype I] {M : CoxeterMatrix I} {W : Type v}
+  [Group W] {cs : CoxeterSystem M W} (i : I) : TitsSpace.simplePositive i = ⟨TitsSpace.root i, ⋯⟩
+OAI.KLInvariance.TitsSpace.height.eq_1.{u} {I : Type u} [Fintype I] :
+  TitsSpace.height = { toFun := fun a => ∑ i, a i, map_add' := ⋯, map_smul' := ⋯ }

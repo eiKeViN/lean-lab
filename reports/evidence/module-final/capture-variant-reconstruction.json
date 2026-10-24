@@ -1,0 +1,22 @@
+{
+  "old-capture": {
+    "recorded_sha256": "876e36099736a274f699393a3ee770edf5977d8931651f41da40c42407dcdfe3",
+    "reconstructed_sha256": "876e36099736a274f699393a3ee770edf5977d8931651f41da40c42407dcdfe3",
+    "matches": true
+  },
+  "old-capture-v2": {
+    "recorded_sha256": "3932bab27af332ae7c567bcebc56b55f5d146b5209a896d80b0368da822fea35",
+    "reconstructed_sha256": "3932bab27af332ae7c567bcebc56b55f5d146b5209a896d80b0368da822fea35",
+    "matches": true
+  },
+  "old-capture-v3": {
+    "recorded_sha256": "8f9373cf6e39ccde47f5292933339cf33d114767948f1844c3a3d8d549cebce4",
+    "reconstructed_sha256": "8f9373cf6e39ccde47f5292933339cf33d114767948f1844c3a3d8d549cebce4",
+    "matches": true
+  },
+  "old-capture-v4": {
+    "recorded_sha256": "97adc413697e6f24fed83dfa44d07297c493c4fdd5dce76df0ee7843f29f65d1",
+    "reconstructed_sha256": "97adc413697e6f24fed83dfa44d07297c493c4fdd5dce76df0ee7843f29f65d1",
+    "matches": true
+  }
+}

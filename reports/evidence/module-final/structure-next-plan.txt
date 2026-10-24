@@ -1,0 +1,25 @@
+AFTER existing full session 57328 completes successfully and inputs match:
+1. Archive immutable successful 59-stage outputs + identities before any experiment.
+2. Structure dependency prerequisite legacy chain is only Cover.Local, Sheaf.Iso,
+   Sheaf.BaseChange, Sheaf.Structure. Other prerequisites are already modern.
+3. Capture actual old public types for those 4 + recursively referenced _proof_
+   and project private helper type/value from current accepted compiled full env,
+   allowOpaque true; include actual private computational quotientLinear definition.
+4. Full real Structure original source with two quotient expressions inlined can
+   first be tested as a diagnostic legacy fixture, keeping all other real proofs.
+5. For actual modern full-module control, a TEMPORARY 4-module header/expose trial
+   must migrate Cover.Local (known match_3 loss/new match_6), Iso, BaseChange and
+   Structure. Keep private quotientLinear declaration; inline only its two uses.
+   No public matcher compat definitions or owner policy are authorized.
+6. Local build Structure recursively; ordinary modern real consumer vertex/upper/
+   lower rfl and old/new actual equation types/helpers/fresh definitions, attributes,
+   exact names, rw/simp, axioms; regional strict raw export with all deltas retained.
+   Known LocalCover matcher loss remains an unaccepted diagnostic, not delivery.
+7. Always restore exact 4 production bytes in finally and bounded rebuild those
+   roots. Verify 261 product identities back to accepted 25-module checkpoint.
+   No full project repeat just to replace a local diagnostic. If real new API
+   issue or cache state uncertain, report accurately. Final delivered branch
+   remains accepted 25 only unless a subsequent fully accepted scope is authorized.
+8. Commit/push report + curated evidence (no olean/cache), final exact remote head,
+   no PR/main actions. Preserve all initial failed probes and cost/interpretation
+   corrections (value? default excludes theorem values; output JSON stem collisions).

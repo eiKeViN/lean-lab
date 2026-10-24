@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "results/module-final/decisions/run_structure_controls.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 34.15411621699968,
+  "user_seconds": 20.727684,
+  "system_seconds": 10.080393,
+  "max_rss_kib": 7164720
+}

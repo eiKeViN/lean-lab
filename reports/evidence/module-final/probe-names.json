@@ -1,0 +1,20 @@
+[
+  "OAI.KLInvariance.CoefficientChange.ext.match_1",
+  "OAI.KLInvariance.Dihedral.pairMatrix.eq_1",
+  "OAI.KLInvariance.FiniteCharacterLocalization.diagonal.eq_1",
+  "OAI.KLInvariance.LocalCover.splitEquiv.match_3",
+  "OAI.KLInvariance.MomentGraph.Sheaf.AboveIso.mapAssignment.eq_1",
+  "OAI.KLInvariance.MomentGraph.Sheaf.castStalkIso.eq_1",
+  "OAI.KLInvariance.MomentGraph.splitEdge.eq_1",
+  "OAI.KLInvariance.MomentGraph.splitVertex.eq_1",
+  "OAI.KLInvariance.ReflectionFrobenius.crossPair.eq_1",
+  "OAI.KLInvariance.ReflectionFrobenius.wallCoordinate_injective.match_1_2",
+  "OAI.KLInvariance.ReflectionFrobenius.wallMatrix_mulVec.match_1_1",
+  "OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1",
+  "OAI.KLInvariance.ReflectionSchedules.momentFunctional.eq_1",
+  "OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq",
+  "OAI.KLInvariance.TitsSpace.coefficientAction_reflection",
+  "OAI.KLInvariance.TitsSpace.exists_common_transverse.match_1_1",
+  "OAI.KLInvariance.TitsSpace.height.eq_1",
+  "OAI.KLInvariance.TitsSpace.simplePositive.eq_1"
+]
