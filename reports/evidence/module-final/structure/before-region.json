@@ -1,0 +1,14 @@
+{
+  "command": [
+    "bash",
+    "results/module-final/structure/run-lean.sh",
+    "/workspace/lean-lab/results/module-final/structure/Region.lean",
+    "--types-out",
+    "/workspace/lean-lab/results/module-final/structure/before-region.tsv"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 12.131604774000152,
+  "user_seconds": 10.413006,
+  "system_seconds": 1.880388,
+  "max_rss_kib": 7197748
+}

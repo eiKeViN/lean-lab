@@ -1,0 +1,25 @@
+{
+  "candidate_producers_compiled": 4,
+  "old_public_types_checked": 136,
+  "modern_historical_types_checked": 135,
+  "actual_old_helpers_kernel_checked": 20,
+  "strict_comparison": {
+    "old_count": 198,
+    "new_count": 198,
+    "missing": [
+      "OAI.KLInvariance.LocalCover.splitEquiv.match_3"
+    ],
+    "added": [
+      "OAI.KLInvariance.LocalCover.splitEquiv.match_6"
+    ],
+    "changed": [],
+    "relocated": 0,
+    "passed": false
+  },
+  "accepted_for_delivery": false,
+  "blocker": "Existing LocalCover matcher name is unavailable; no compatibility definition or policy exemption authorized.",
+  "candidate_full_downstream_regression": "not run after known unaccepted matcher failure",
+  "production_sources_restored": true,
+  "restored_oleans_identical": true,
+  "accepted_25_full_downstream_ready": true
+}

@@ -1,0 +1,29 @@
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:86:52: error(lean.invalidField): Invalid field notation: Type of
+  j
+is not known; cannot resolve field `getArr?`
+
+Hint: Consider replacing the field projection `.getArr?` with a call to the function `Json.getArr?`.
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:86:43: error: Ambiguous term
+  ofExcept
+Possible interpretations:
+  Lean.ofExcept ?m.62 : TermElabM ?m.55
+  
+  MonadExcept.ofExcept ?m.61 : TermElabM ?m.55
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
+  {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) : Sheaf G
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.eq_1.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureSheaf G α c =
+    { vertex := fun x => ↧(PLift (x ≤ c) → R), edge := fun e => ↧(PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e}),
+      lower := fun e =>
+        LinearMap.pi fun h => OAI.KLInvariance.MomentGraph.Sheaf.quotientLinear✝ α e ∘ₗ LinearMap.proj { down := ⋯ },
+      upper := fun e =>
+        LinearMap.pi fun h => OAI.KLInvariance.MomentGraph.Sheaf.quotientLinear✝ α e ∘ₗ LinearMap.proj h }
+OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso.eq_1.{ur, us, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (S : Type us) [CommRing S] [Algebra R S] (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureBaseChangeIso S G α c =
+    { vertex := fun x => Sheaf.baseChangePiScalar S (x ≤ c),
+      edge := fun e => Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c), lower := ⋯, upper := ⋯ }
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:182:2: error: No goals to be solved
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:185:2: error: No goals to be solved
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:191:2: error: No goals to be solved

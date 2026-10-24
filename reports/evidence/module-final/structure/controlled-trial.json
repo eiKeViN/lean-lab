@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "results/module-final/structure/run_trial.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 88.79031036999913,
+  "user_seconds": 94.389435,
+  "system_seconds": 19.046282,
+  "max_rss_kib": 7195544
+}

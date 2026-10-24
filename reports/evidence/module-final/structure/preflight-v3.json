@@ -1,0 +1,14 @@
+{
+  "command": [
+    "bash",
+    "results/module-final/structure/run-lean.sh",
+    "/workspace/lean-lab/results/module-final/structure/Preflight.lean",
+    "--input",
+    "/workspace/lean-lab/results/module-final/structure/old-ordered.json"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 9.75858813099967,
+  "user_seconds": 8.224052,
+  "system_seconds": 2.217527,
+  "max_rss_kib": 7400444
+}

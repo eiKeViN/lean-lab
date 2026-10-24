@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "results/module-final/structure/run-lean.sh",
+    "/workspace/lean-lab/results/module-final/structure/CaptureOld.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 7.33046324299994,
+  "user_seconds": 5.107041,
+  "system_seconds": 2.468863,
+  "max_rss_kib": 7330556
+}

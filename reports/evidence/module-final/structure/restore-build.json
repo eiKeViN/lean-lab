@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "source scripts/env.sh && cd experiments/kl-for-mathlib && lake build ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 35.60266020200015,
+  "user_seconds": 39.054517,
+  "system_seconds": 8.50571,
+  "max_rss_kib": 6971156
+}

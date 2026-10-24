@@ -1,0 +1,82 @@
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:98:54: error: unexpected identifier; expected '}'
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:105:75: error: unexpected token 'else'; expected identifier
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:106:13: error: unexpected token 'if'; expected ':'
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:106:50: error: unexpected token 'else'; expected identifier
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:148:14: error: unexpected token ':='; expected ':'
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
+  {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) : Sheaf G
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.eq_1.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureSheaf G α c =
+    { vertex := fun x => ↧(PLift (x ≤ c) → R), edge := fun e => ↧(PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e}),
+      lower := fun e =>
+        LinearMap.pi fun h => OAI.KLInvariance.MomentGraph.Sheaf.quotientLinear✝ α e ∘ₗ LinearMap.proj { down := ⋯ },
+      upper := fun e =>
+        LinearMap.pi fun h => OAI.KLInvariance.MomentGraph.Sheaf.quotientLinear✝ α e ∘ₗ LinearMap.proj h }
+OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso.eq_1.{ur, us, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (S : Type us) [CommRing S] [Algebra R S] (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureBaseChangeIso S G α c =
+    { vertex := fun x => Sheaf.baseChangePiScalar S (x ≤ c),
+      edge := fun e => Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c), lower := ⋯, upper := ⋯ }
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:174:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a.upper e = LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h
+Error: Application type mismatch: The argument
+  LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h
+has type
+  (PLift (G.target e ≤ c) → R) →ₗ[R] PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e}
+but is expected to have type
+  ↑(_a.vertex (G.target e)) →ₗ[R] ↑(_a.edge e)
+in the application
+  _a.upper e = LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+R : Type ur
+inst✝¹ : CommRing R
+V : Type uv
+inst✝ : PartialOrder V
+E : Type ue
+G : OrderedGraph V E
+α : E → R
+c x : V
+e : E
+⊢ (Sheaf.structureSheaf G α c).upper e =
+    LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h
+  has type
+    @LinearMap R R CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring (RingHom.id R)
+      (PLift (G.target e ≤ c) → R) (PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e}) Pi.addCommMonoid Pi.addCommMonoid
+      (Pi.module (PLift (G.target e ≤ c)) (fun h => R) R)
+      (Pi.module (PLift (G.target e ≤ c)) (fun h => R ⧸ Ideal.span {α e}) R)
+  but is expected to have type
+    @LinearMap R R CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring (RingHom.id R)
+      (↑((Sheaf.structureSheaf G α c).vertex (G.target e))) (↑((Sheaf.structureSheaf G α c).edge e))
+      ((Sheaf.structureSheaf G α c).vertex (G.target e)).isAddCommGroup.toAddCommMonoid
+      ((Sheaf.structureSheaf G α c).edge e).isAddCommGroup.toAddCommMonoid
+      ((Sheaf.structureSheaf G α c).vertex (G.target e)).isModule ((Sheaf.structureSheaf G α c).edge e).isModule
+  in the application
+    (Sheaf.structureSheaf G α c).upper e =
+      LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h
+/workspace/lean-lab/results/module-final/structure/Preflight.lean:179:2: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    LinearMap.proj { down := ⋯ }
+  has type
+    @LinearMap R R CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring (RingHom.id R)
+      (PLift (G.source e ≤ c) → R) R Pi.addCommMonoid CommRing.toCommSemiring.toAddCommMonoid
+      (Pi.module (PLift (G.source e ≤ c)) (fun i => R) R) Semiring.toModule
+  but is expected to have type
+    @LinearMap R R CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring (RingHom.id R)
+      (↑((Sheaf.structureSheaf G α c).vertex (G.source e))) R
+      ((Sheaf.structureSheaf G α c).vertex (G.source e)).isAddCommGroup.toAddCommMonoid inst✝¹.toAddCommMonoid
+      ((Sheaf.structureSheaf G α c).vertex (G.source e)).isModule Algebra.toModule
+  in the application
+    (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ }

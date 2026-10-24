@@ -22,3 +22,10 @@ SHA256.json binds retained files except this README and the manifest itself.
 Input paths describe the actual execution environment. Costs include failures;
 replay is not fresh historical elaboration. No token telemetry or GitHub CI
 success is asserted. No PR/main mutation occurred in this batch.
+
+structure/ contains the subsequent controlled four-module trial. Its script exited
+zero after restoring all inputs, while raw-comparison.json remains failed on the
+known matcher rename. trial-classification.json makes this distinction explicit.
+The four sources and original olean bytes were restored; full no-build readiness
+and all original 1635 audit input identities remain valid. No candidate full
+downstream regression or new compatibility policy was silently claimed.

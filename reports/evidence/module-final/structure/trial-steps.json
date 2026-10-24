@@ -1,0 +1,18 @@
+[
+  {
+    "label": "candidate-build",
+    "exit_code": 0
+  },
+  {
+    "label": "ordinary-consumer",
+    "exit_code": 0
+  },
+  {
+    "label": "candidate-region",
+    "exit_code": 0
+  },
+  {
+    "label": "restore-build",
+    "exit_code": 0
+  }
+]

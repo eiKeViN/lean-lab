@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake --no-build build ForMathlib OAI"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 6.062311542999851,
+  "user_seconds": 7.535637,
+  "system_seconds": 3.336106,
+  "max_rss_kib": 992264
+}

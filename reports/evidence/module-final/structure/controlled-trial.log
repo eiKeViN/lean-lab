@@ -1,0 +1,22 @@
+{"command": ["bash", "-c", "source scripts/env.sh && cd experiments/kl-for-mathlib && lake build ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"], "exit_code": 0, "wall_seconds": 30.727785254999617, "user_seconds": 36.29691, "system_seconds": 6.204587, "max_rss_kib": 3120376}
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/module-final/structure/ModernConsumer.lean", "--input", "/workspace/lean-lab/results/module-final/structure/old-ordered.json"], "exit_code": 0, "wall_seconds": 7.866045521999695, "user_seconds": 6.991354, "system_seconds": 1.607745, "max_rss_kib": 4052916}
+{"command": ["bash", "results/module-final/structure/run-lean.sh", "/workspace/lean-lab/results/module-final/structure/Region.lean", "--types-out", "/workspace/lean-lab/results/module-final/structure/candidate-region.tsv"], "exit_code": 0, "wall_seconds": 13.276152217000345, "user_seconds": 11.136429, "system_seconds": 2.324763, "max_rss_kib": 7195544}
+{"command": ["bash", "-c", "source scripts/env.sh && cd experiments/kl-for-mathlib && lake build ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"], "exit_code": 0, "wall_seconds": 35.60266020200015, "user_seconds": 39.054517, "system_seconds": 8.50571, "max_rss_kib": 6971156}
+{
+  "production_sources_restored": true,
+  "restored_build_exit": 0,
+  "original_olean_hashes": {
+    "ForMathlib/Algebra/Module/Cover/Local.lean": "c5242f47ab6993c84326a5151aa8ffba1e48c22535216bbda89e85f5c32b00c4",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean": "f7ca70a9835957bfb782a43b9cbb65631aa36e90032581575cc62943aacf92a8",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean": "f8f4c8542ab1ce8d0d6a17d4b16a08e6e4d2bbd0501f1a9c3dddfb586ef77b02",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": "a64bfc8903c2b6c9f3eab8684bf11f222d8d12900b225f1d8dde9a78cf2d614c"
+  },
+  "restored_olean_hashes": {
+    "ForMathlib/Algebra/Module/Cover/Local.lean": "c5242f47ab6993c84326a5151aa8ffba1e48c22535216bbda89e85f5c32b00c4",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean": "f7ca70a9835957bfb782a43b9cbb65631aa36e90032581575cc62943aacf92a8",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean": "f8f4c8542ab1ce8d0d6a17d4b16a08e6e4d2bbd0501f1a9c3dddfb586ef77b02",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": "a64bfc8903c2b6c9f3eab8684bf11f222d8d12900b225f1d8dde9a78cf2d614c"
+  },
+  "artifact_bytes_identical": true,
+  "trial_exit": 0
+}

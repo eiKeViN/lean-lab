@@ -1,0 +1,18 @@
+{
+  "production_sources_restored": true,
+  "restored_build_exit": 0,
+  "original_olean_hashes": {
+    "ForMathlib/Algebra/Module/Cover/Local.lean": "c5242f47ab6993c84326a5151aa8ffba1e48c22535216bbda89e85f5c32b00c4",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean": "f7ca70a9835957bfb782a43b9cbb65631aa36e90032581575cc62943aacf92a8",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean": "f8f4c8542ab1ce8d0d6a17d4b16a08e6e4d2bbd0501f1a9c3dddfb586ef77b02",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": "a64bfc8903c2b6c9f3eab8684bf11f222d8d12900b225f1d8dde9a78cf2d614c"
+  },
+  "restored_olean_hashes": {
+    "ForMathlib/Algebra/Module/Cover/Local.lean": "c5242f47ab6993c84326a5151aa8ffba1e48c22535216bbda89e85f5c32b00c4",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean": "f7ca70a9835957bfb782a43b9cbb65631aa36e90032581575cc62943aacf92a8",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/BaseChange.lean": "f8f4c8542ab1ce8d0d6a17d4b16a08e6e4d2bbd0501f1a9c3dddfb586ef77b02",
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": "a64bfc8903c2b6c9f3eab8684bf11f222d8d12900b225f1d8dde9a78cf2d614c"
+  },
+  "artifact_bytes_identical": true,
+  "trial_exit": 0
+}

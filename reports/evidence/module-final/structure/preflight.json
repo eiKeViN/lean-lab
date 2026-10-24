@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "results/module-final/structure/run-lean.sh",
+    "/workspace/lean-lab/results/module-final/structure/Preflight.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 8.873157582000204,
+  "user_seconds": 7.454668,
+  "system_seconds": 2.157538,
+  "max_rss_kib": 7312736
+}

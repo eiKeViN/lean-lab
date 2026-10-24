@@ -65,28 +65,42 @@ may avoid relocation but has not been established; do not claim it solved.
 
 ## Structure boundary
 
-The closure is 35 modules, all already in the matcher closure. Current production
-Structure is unchanged. The real extracted private quotientLinear and exposed
-structureSheaf definitions fail as expected when the exposed body references the
-private helper. Inlining ONLY its two computational expressions in structureSheaf
-passes. Ordinary modern consumer vertex/upper/lower projection rfl controls pass;
-private quotientLinear remains unresolvable. The unchanged legacy extracted
-source passes the same three rfl controls. Full Structure proofs, exact equation
-export, historical-type witness and closure regression are NOT yet run.
+The closure is 35 modules, all already in the matcher closure. The real modern
+prerequisite chain has only four currently legacy producers: Cover.Local,
+Sheaf.Iso, Sheaf.BaseChange and Structure; LocalCover is the only matcher producer
+on that chain. Production files remain unchanged after the experiment.
 
-Recommended choice: first authorize/continue the bounded inline implementation
-trial, preserving private encapsulation and all tested computation. It is not
-necessary to start by publishing quotientLinear. Keep the unused original private
-helper until the source/provenance strategy is reviewed. Expect an equation
-representation delta from the inlined expression; validate actual old/new types
-and computational old-helper definitions under fresh names before any finite
-acceptance. Do not infer full compatibility merely from these three projections.
+A controlled four-producer trial compiled the full real Structure module and all
+its proofs, with only the two quotient calls in structureSheaf inlined and the
+usual module/public/expose transport. The private quotientLinear declaration was
+retained. No public helper compatibility definition or ownership exception was
+introduced. Ordinary modern historical use succeeded for 135 of 136 names/types,
+including exact levels/attributes, kernel/defeq and three-axiom checks, with 20
+actual old helper type/value pairs reconstructed under fresh names. Those include
+the private quotient and old LocalCover matcher; both old computational definitions
+are well-formed in the new ordinary environment, which is useful feasibility
+evidence but not restoration of the missing historical matcher name.
 
-Alternatives: publishing quotientLinear adds a previously unavailable public API
-name/implementation promise; withholding expose loses ordinary definition-body
-and potentially rfl access. Neither was done. Inlining adds no helper public name
-and is the least interface-expanding candidate, but changes two production body
-expressions and therefore requires explicit source accounting and full audit.
+Vertex/upper/lower rfl and structure/base-change vertex rw/simp controls pass.
+The same regional exporter reports 198 records before/after, zero type/kind/level/
+owner differences, only missing LocalCover.splitEquiv.match_3 and added match_6.
+That raw comparison remains failed. Full candidate downstream regression was not
+run after this known name failure; the four-module candidate is not delivered.
+
+All source bytes and four original olean hashes were restored, and full project
+no-build readiness passes. The complete 25-module accepted audit inputs remain
+unchanged. The delivered branch still has 156 modern and 105 legacy modules.
+See module-final-batch.md and evidence/module-final/structure/ for all controls,
+raw differences, restoration identities, failures and measured costs.
+
+Recommendation: retain the inline implementation as the next compatible candidate;
+there is no demonstrated need to publish quotientLinear or withdraw expose. The
+remaining delivery gate is the old LocalCover matcher API, plus subsequent full
+integration acceptance once that gate is addressed. Publishing quotientLinear
+would add a previously unavailable public name/implementation promise; withholding
+expose would lose definition-body access. Neither was done. The safe inline trial
+changes two implementation expressions but leaves the private interface and all
+tested computation intact; it is not a global fingerprint waiver.
 
 ## Controls and limitations
 
@@ -103,5 +117,5 @@ without installing/upgrading anything. No public production helper was added.
 
 The complete Structure prerequisite chain has only four remaining legacy modules:
 Cover.Local, Sheaf.Iso, Sheaf.BaseChange, Sheaf.Structure. LocalCover is the sole
-matcher producer on that chain. A controlled full-module inline trial is next;
-its result is not included in the completed 25-module acceptance.
+matcher producer on that chain. The completed controlled trial is described above; it remains outside the delivered
+25-module acceptance because the matcher name failure is not waived.

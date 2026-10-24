@@ -182,3 +182,50 @@ recorded input hashes. Initial inefficient preparation was interrupted before
 compilation; its preparation CPU/wall was not separately measured. The final
 header/body source guard rejects unrecorded edits. All failures remain distinct
 from successful acceptance; no proof was rewritten to chase a fingerprint.
+
+## Follow-up: real Structure four-module trial (not delivered)
+
+After freezing and archiving the accepted batch, a controlled temporary migration
+of Cover.Local, Sheaf.Iso, Sheaf.BaseChange and Sheaf.Structure compiled the **full
+real modules**, including all Structure proofs. Only the two private quotient
+calls in structureSheaf were inlined; the private quotientLinear declaration
+remained unchanged. Other changes were module/public/expose transport. No public
+matcher compatibility definition, owner exception or type exception was added.
+
+The ordinary modern consumer imported the real Structure producer and Lean,
+without import-all. It reconstructed 20 actual old helper type/value pairs
+(including the private computational quotient and old LocalCover matcher), then
+kernel-checked actual new declarations at **135 historical types**, with exact
+universe parameters, old equation attributes, definitional equality and three-axiom
+closures. A legacy preflight checked all 136 old names/types. The sole unavailable
+modern name was the known `LocalCover.splitEquiv.match_3`. Definition bodies of
+vertex/upper/lower passed rfl; vertex and base-change equivalence controls passed
+rfl/rw/simp. The actual old quotient and old LocalCover matcher definitions are
+valid under fresh audit names in the new ordinary environment; that does not
+publish their historical names or solve production ownership/integration.
+
+The same regional exporter before/after reported **198/198 records**, no type,
+universe, kind or owner differences, exactly one missing match_3 and one added
+match_6. Its raw comparison therefore remains **failed**, not waived. The
+orchestration command's zero exit means that compilation/consumer probes/restoration
+succeeded, not that strict compatibility was accepted. See
+[trial classification](evidence/module-final/structure/trial-classification.json).
+Full OAI/downstream regression under this known-incompatible four-module candidate
+was not run; it cannot be delivered while that old name is unavailable.
+
+All four production files were restored exactly to accepted checkpoint a95504e.
+The bounded rebuild restored **byte-identical four olean files**, and
+`lake --no-build build ForMathlib OAI` then passed. All 261 production files and
+all 1635 inputs of the successful 25-module audit still match; see
+[restoration](evidence/module-final/structure/restoration.json) and
+[final source check](evidence/module-final/structure/final-source-check.json).
+No full project rebuild was repeated. The delivered modern count remains 156,
+not 160. Structure is a locally supported inline candidate, not an accepted module.
+
+Measured local trial costs: four-producer build 30.728 s, ordinary consumer 7.866 s,
+regional export 13.276 s, restore build 35.603 s; orchestration including restoration
+88.790 s. Final no-build readiness check 6.062 s. Failed preflight fixtures retain
+syntax/type-inference mistakes and a dependent-projection rewrite attempt that
+also fails on the original legacy source. The final controls use nondependent
+vertex equations for rw/simp while retaining upper/lower rfl checks. Those failed
+probes are not migration failures and were not fixed by editing production proofs.

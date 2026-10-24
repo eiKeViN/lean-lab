@@ -1,0 +1,14 @@
+{
+  "command": [
+    "bash",
+    "results/module-final/structure/run-lean.sh",
+    "/workspace/lean-lab/results/module-final/structure/ModernConsumer.lean",
+    "--input",
+    "/workspace/lean-lab/results/module-final/structure/old-ordered.json"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 7.866045521999695,
+  "user_seconds": 6.991354,
+  "system_seconds": 1.607745,
+  "max_rss_kib": 4052916
+}
