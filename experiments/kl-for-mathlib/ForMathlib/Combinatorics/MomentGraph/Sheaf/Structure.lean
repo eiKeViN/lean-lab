@@ -128,16 +128,15 @@ include j
   obtain ⟨g,hg,hgf⟩ := hb Ω hΩ (j.symm.assignments f) hsf
   refine ⟨j.assignments g,(j.compatible_iff Set.univ g).mpr hg,?_⟩
   intro x hx
-  change j.vertex x (g x) = f x
-  rw [hgf x hx]
-  exact (j.vertex x).apply_symm_apply _
+  rw [j.assignments_apply,hgf x hx]
+  exact (congrArg (j.vertex x) (j.symm.assignments_apply f x)).trans
+    ((j.vertex x).apply_symm_apply _)
 
  theorem generated (hb : B.Generated) : C.Generated := by
   intro x v
   obtain ⟨f,hf,hfv⟩ := hb x ((j.vertex x).symm v)
   refine ⟨j.assignments f,(j.compatible_iff Set.univ f).mpr hf,?_⟩
-  change j.vertex x (f x) = v
-  rw [hfv,LinearEquiv.apply_symm_apply]
+  rw [j.assignments_apply,hfv,LinearEquiv.apply_symm_apply]
 
 end Iso
 
