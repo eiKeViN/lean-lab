@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.LinearAlgebra.PairProjection
+module
+public import Mathlib
+public import ForMathlib.LinearAlgebra.PairProjection
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.ReflectionPair.Twist. Source spans: Frobenius:28.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -22,7 +25,7 @@ local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingH
   RingHomInvPair.of_ringEquiv_symm τ
 local instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instRingHomInvPairToRingHomSymm_1 : RingHomInvPair τ.toRingHom τ.symm.toRingHom :=
   RingHomInvPair.of_ringEquiv τ
-def equivVal : Twist τ Y ≃ Y where
+@[expose] def equivVal : Twist τ Y ≃ Y where
   toFun := val
   invFun := mk
   left_inv _ := rfl
@@ -32,7 +35,7 @@ instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule : Mo
   letI : Module R Y := Module.compHom Y τ.toRingHom
   exact ({ equivVal τ Y with map_add' := fun _ _ => rfl } : Twist τ Y ≃+ Y).module R
 
-def equiv : Y ≃ₛₗ[τ.symm.toRingHom] Twist τ Y where
+@[expose] def equiv : Y ≃ₛₗ[τ.symm.toRingHom] Twist τ Y where
   toFun := mk
   invFun := val
   left_inv _ := rfl
@@ -55,7 +58,7 @@ variable {N : Type v} [AddCommGroup N] [Module R N]
 
 /-- The old pair relation with the scalar action on its second factor twisted.
 Alpha-annihilation of the old edge is what makes this an R-submodule. -/
-def lattice : Submodule R (X × Twist τ Y) where
+@[expose] def lattice : Submodule R (X × Twist τ Y) where
   carrier := {p | ∃ n : N, f n=p.1 ∧ g n=p.2.val}
   zero_mem' := ⟨0,map_zero _,map_zero _⟩
   add_mem' := by
@@ -96,7 +99,7 @@ theorem lattice_saturated (β : R)
   · exact (lattice f g τ α hdiv hinc).smul_mem β
 
 /-- Surjective projection to the untwisted (lower) stalk. -/
-def left : lattice f g τ α hdiv hinc →ₗ[R] X :=
+@[expose] def left : lattice f g τ α hdiv hinc →ₗ[R] X :=
   (LinearMap.fst R X (Twist τ Y)).comp (lattice f g τ α hdiv hinc).subtype
 
  theorem left_surjective (hf : Function.Surjective f) :
@@ -106,7 +109,7 @@ def left : lattice f g τ α hdiv hinc →ₗ[R] X :=
   exact ⟨⟨(f n,⟨g n⟩),n,rfl,rfl⟩,rfl⟩
 
 /-- Its kernel is the alpha-multiple of the twisted upper stalk. -/
-def kernelMap : Twist τ Y →ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) where
+@[expose] def kernelMap : Twist τ Y →ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) where
   toFun y := ⟨⟨(0,⟨α • y.val⟩),hinc y.val⟩,rfl⟩
   map_add' y z := by
     apply Subtype.ext
@@ -140,7 +143,7 @@ def kernelMap : Twist τ Y →ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) wh
   apply Twist.ext
   exact hinj (congrArg (fun p => p.val.val.2.val) h)
 
-noncomputable def kernelEquiv (hinj : Function.Injective (fun y : Y => α • y)) :
+@[expose] noncomputable def kernelEquiv (hinj : Function.Injective (fun y : Y => α • y)) :
     Twist τ Y ≃ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) :=
   LinearEquiv.ofBijective (kernelMap f g τ α hdiv hinc)
     ⟨kernelMap_injective f g τ α hdiv hinc hinj,kernelMap_surjective f g τ α hdiv hinc hker⟩

@@ -1,10 +1,13 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
-import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds
-import ForMathlib.GroupTheory.Coxeter.Roots.Splines
-import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Bruhat.Basic
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Descent
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.Diamonds
+public import ForMathlib.GroupTheory.Coxeter.Roots.Splines
+public import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel. Source spans: DihedralIntervals:3, DihedralIntervals:5.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -29,11 +32,11 @@ noncomputable section
   rw [ds.length_inv] at h
   omega
 
- def oppositeExternal (x c : H) : Finset H := by
+ @[expose] def oppositeExternal (x c : H) : Finset H := by
   classical
   exact (externalLower ds x c).filter (fun z => ds.length z % 2 ≠ ds.length x % 2)
 
- def sameExternal (x c : H) : Finset H := by
+ @[expose] def sameExternal (x c : H) : Finset H := by
   classical
   exact (externalLower ds x c).filter (fun z => ds.length z % 2 = ds.length x % 2)
 
@@ -42,7 +45,7 @@ noncomputable section
   classical
   exact reflection_of_parity ds (Finset.mem_filter.mp hy).2
 
- def interpolationRoot (x c : H) (y : oppositeExternal ds x c) : PositiveRoot M cs :=
+ @[expose] def interpolationRoot (x c : H) (y : oppositeExternal ds x c) : PositiveRoot M cs :=
   positiveRoot M cs ⟨φ (y.val*x⁻¹), hφ _ (oppositeExternal_reflection ds y.property)⟩
 
  theorem interpolation_exists (hφinj : Function.Injective φ) {x c : H}
@@ -132,10 +135,10 @@ variable {H : Type w} [Group H] {N : CoxeterMatrix Bool} (ds : CoxeterSystem N H
   {σ : Type us} (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def inducedRoot (b : H) (e : Edge ds 1 b) : PositiveRoot M cs :=
+ @[expose] def inducedRoot (b : H) (e : Edge ds 1 b) : PositiveRoot M cs :=
   positiveRoot M cs ⟨φ (label ds 1 b e),hφ _ (label_isReflection ds 1 b e)⟩
 
- def inducedLabel (b : H) (e : Edge ds 1 b) : MvPolynomial σ ℝ :=
+ @[expose] def inducedLabel (b : H) (e : Edge ds 1 b) : MvPolynomial σ ℝ :=
   linearPolynomial basis (embed M (inducedRoot ds cs φ hφ b e).val)
 
  theorem external_step {x c y : H} (hy : y ∈ oppositeExternal ds x c) :
@@ -159,7 +162,7 @@ noncomputable section
 
  variable (b : H) [Fintype (Edge ds 1 b)] [DecidableEq (Interval ds 1 b)]
 
- def externalEdge (x c : Interval ds 1 b) (y : oppositeExternal ds x.val c.val) : Edge ds 1 b :=
+ @[expose] def externalEdge (x c : Interval ds 1 b) (y : oppositeExternal ds x.val c.val) : Edge ds 1 b :=
   ⟨(x,⟨y.val,one_bruhat ds y.val,
     bruhat_trans ds ((mem_externalLower ds x.val c.val y.val).mp
       (Finset.mem_filter.mp y.property).1).1 c.property.2⟩),external_step ds y.property⟩
@@ -171,7 +174,7 @@ noncomputable section
   exact ⟨rfl,((mem_externalLower ds x.val c.val y.val).mp
     (Finset.mem_filter.mp y.property).1).1⟩
 
- def outgoingEquiv (x c : Interval ds 1 b) :
+ @[expose] def outgoingEquiv (x c : Interval ds 1 b) :
     ↥(oppositeExternal ds x.val c.val) ≃ ↥(modelOutgoing (graph ds 1 b) c x) where
   toFun y := ⟨externalEdge ds b x c y,externalEdge_mem ds b x c y⟩
   invFun e := ⟨(target ds 1 b e.val).val,by

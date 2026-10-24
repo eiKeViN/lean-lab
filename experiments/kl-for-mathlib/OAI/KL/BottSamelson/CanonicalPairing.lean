@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness
-import OAI.KL.BottSamelson.Character
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Boundary.Uniqueness
+public import OAI.KL.BottSamelson.Character
+
+public section
 
 /-! Semantic home: OAI.KL.BottSamelson.CanonicalPairing. Source spans: EdgeLocalization:15, EdgeLocalization:16, EdgeLocalization:18.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -21,7 +24,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (s : GradedSheaf.SplitIn B.sheaf (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l)))
 noncomputable section
 
- def bottCanonicalAdjointHom : GradedSheaf.Hom B.sheaf
+ @[expose] def bottCanonicalAdjointHom : GradedSheaf.Hom B.sheaf
     (bottSplitAdjointSheaf cs basis l hl B.sheaf s) :=
   (bottSplitAdjointSplit cs basis l hl B s).projection.comp s.inclusion
 
@@ -32,7 +35,7 @@ noncomputable section
   · exact bottBoundarySplit_top_fixed cs basis l hl _ B s
   · exact bottBoundarySplitAdjoint_top_fixed cs basis l hl _ B s
 
- def bottCanonicalAdjointIso : GradedSheaf.Iso B.sheaf
+ @[expose] def bottCanonicalAdjointIso : GradedSheaf.Iso B.sheaf
     (bottSplitAdjointSheaf cs basis l hl B.sheaf s) := by
   classical
   let := symmetricCoefficientNoetherian basis
@@ -97,7 +100,7 @@ noncomputable section
       (bottSplitRightWord_coordinates cs basis l hl B.sheaf s m x).symm).trans
       (bottAdjointSheaf_vertex cs basis l hl s.projector x _))
 
- def bottCanonicalPerfectPairing : GradedSheaf.PerfectPairing B.sheaf (l.length : ℤ) :=
+ @[expose] def bottCanonicalPerfectPairing : GradedSheaf.PerfectPairing B.sheaf (l.length : ℤ) :=
   bottRecognizedPerfectPairing cs basis l hl B.sheaf s
     (bottCanonicalAdjointIso cs basis l hl B s)
 

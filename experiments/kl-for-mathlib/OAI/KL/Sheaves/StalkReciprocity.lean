@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.BigOperators.SingleCoordinate
-import OAI.KL.BottSamelson.CharacterDecomposition
+module
+public import Mathlib
+public import ForMathlib.Algebra.BigOperators.SingleCoordinate
+public import OAI.KL.BottSamelson.CharacterDecomposition
+
+public section
 
 /-! Semantic home: OAI.KL.Sheaves.StalkReciprocity. Source spans: DyerPaths:2.
 See migration.json and MIGRATION.md for exact provenance. -/

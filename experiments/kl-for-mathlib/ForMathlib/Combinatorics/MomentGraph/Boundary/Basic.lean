@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
-import ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso
+public import ForMathlib.Combinatorics.MomentGraph.OrderedGraph.VertexDeletion
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Boundary.Basic. Source spans: GradedSheaves:16.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -30,7 +33,7 @@ structure BoundarySheaf {V E : Type um} [PartialOrder V] (G : OrderedGraph V E)
 
 variable {V E : Type um} [PartialOrder V] (G : OrderedGraph V E)
 
-noncomputable def singletonSheaf [IsEmpty E] : GradedSheaf (𝓐 := 𝓐) G where
+@[expose] noncomputable def singletonSheaf [IsEmpty E] : GradedSheaf (𝓐 := 𝓐) G where
   vertex := fun _ => ModuleData.unit hneg
   edge := isEmptyElim
   lower := isEmptyElim

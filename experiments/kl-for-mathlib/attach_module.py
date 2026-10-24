@@ -80,12 +80,13 @@ def compare_full(path):
     if data!=original:raise RuntimeError('Changed accepted 3947-record starting export')
     with tempfile.NamedTemporaryFile() as f:
         f.write(gzip.decompress(data));f.flush();old=load(f.name,3947)
-    actual=load(path,3947);raw=compare(old,actual)
+    from module_all import load_prior_view
+    actual=load_prior_view(path);raw=compare(old,actual)
     if raw['relocated']:raise RuntimeError('Current producer/realizer owner changed')
     from module_final import accept_known
     remaining,batch_accepted=accept_known(raw)
     accepted=accept_change(remaining)
-    return {'raw':raw,'accepted_representation_changes':[accepted]+batch_accepted,'passed':True}
+    return {**__import__('module_all').contract_summary(),'raw':raw,'accepted_representation_changes':[accepted]+batch_accepted,'passed':True}
 
 if __name__=='__main__':
     import argparse

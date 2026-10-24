@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Cover.Local. Source spans: ModuleAlgebra:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -33,7 +36,7 @@ theorem lift_surjective [Module.Finite R P]
 
 /-- An explicit linear equivalence for a split surjection, with the kernel
 as the second summand. It is used below to produce the local sheaf summand. -/
-noncomputable def splitEquiv (g : B →ₗ[R] P) (s : P →ₗ[R] B)
+@[expose] noncomputable def splitEquiv (g : B →ₗ[R] P) (s : P →ₗ[R] B)
     (hs : g.comp s = LinearMap.id) : B ≃ₗ[R] P × LinearMap.ker g := by
   have hs' (p : P) : g (s p) = p := LinearMap.congr_fun hs p
   let k : B →ₗ[R] LinearMap.ker g :=

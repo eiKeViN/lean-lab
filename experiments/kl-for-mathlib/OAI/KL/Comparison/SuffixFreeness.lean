@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.BigOperators.SingleCoordinate
-import ForMathlib.Combinatorics.DirectedPaths.Suffix
-import OAI.KL.Localization.Edge
+module
+public import Mathlib
+public import ForMathlib.Algebra.BigOperators.SingleCoordinate
+public import ForMathlib.Combinatorics.DirectedPaths.Suffix
+public import OAI.KL.Localization.Edge
+
+public section
 
 /-! Semantic home: OAI.KL.Comparison.SuffixFreeness. Source spans: SimultaneousInvariance:3, SimultaneousInvariance:1, SimultaneousInvariance:2, SimultaneousInvariance:4, SimultaneousInvariance:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -113,7 +116,7 @@ variable {I : Type u} {M : CoxeterMatrix I} {W : Type v} [Group W]
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
 
- def upperIntervalIso (x : Interval cs u b) :
+ @[expose] def upperIntervalIso (x : Interval cs u b) :
     Interval cs x.val b ≃o Interval cs' (φ x).val b' where
   toFun z :=
     let zI : Interval cs u b := ⟨z.val,x.property.1.trans z.property.1,z.property.2⟩
@@ -136,7 +139,7 @@ noncomputable section
     intro x y
     exact φ.map_rel_iff
 
- def upperGraphInclusion (x : Interval cs u b) :
+ @[expose] def upperGraphInclusion (x : Interval cs u b) :
     GraphMap (graph cs x.val b) (graph cs u b) where
   vertex z := ⟨z.val,x.property.1.trans z.property.1,z.property.2⟩
   edge e := ⟨(⟨(source cs x.val b e).val,
@@ -206,7 +209,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
 
-def FreeSuffixes : Prop :=
+@[expose] def FreeSuffixes : Prop :=
   ∀ q, q <:+ chronologicalSchedule φ → ∀ x : Interval cs u b,
     Module.Free (Coefficient (σ := σ))
       ((intervalBoundary basis hub).sheaf.upwardSubmodule x

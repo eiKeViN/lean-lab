@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character
-import OAI.KL.Sheaves.Boundary
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character
+public import OAI.KL.Sheaves.Boundary
+
+public section
 
 /-! Semantic home: OAI.KL.Sheaves.LowerCharacter. Source spans: Decomposition:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,7 +20,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 local instance _root_.OAI.KLInvariance.BruhatGraph.instDecidable_oAI_1 (p : Prop) : Decidable p := Classical.propDecidable p
 
- def lowerCharacter (c x : Interval cs 1 b) : Polynomial ℤ :=
+ @[expose] def lowerCharacter (c x : Interval cs 1 b) : Polynomial ℤ :=
   if h : x≤c then stalkCharacter cs 1 c.val basis (one_bruhat cs c.val)
     ⟨x.val,x.property.1,h⟩ else 0
 

@@ -34,7 +34,8 @@ class ModuleIntegrationChecks(unittest.TestCase):
                         new.replace(b'  ring\n',b'  apply id\n  ring\n',1),
                         new+b'\nprivate axiom hidden : False\n']:
             self.assertNotEqual(m.legacy_source(m.S,changed),old)
-        untouched='ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean'
+        # All production files are now covered; exercise the inverse's out-of-scope utility case.
+        untouched='Unlisted/Control.lean'
         self.assertEqual(m.legacy_source(untouched,new),new)
 
     def test_manifest_cannot_expand_or_rebind(self):
@@ -59,7 +60,7 @@ class ModuleIntegrationChecks(unittest.TestCase):
     def test_exactly_three_module_nodes(self):
         g=m.graph()
         from module_rollout import plan
-        self.assertEqual({n for n,r in g.items() if r['module']},set(plan()['selected']) | set(__import__('attach_module').OWNERS) | set(__import__('module_next').OWNERS) | set(__import__('module_final').OWNERS))
+        self.assertEqual({n for n,r in g.items() if r['module']},set(plan()['selected']) | set(__import__('attach_module').OWNERS) | set(__import__('module_next').OWNERS) | set(__import__('module_final').OWNERS) | set(__import__('module_all').OWNERS))
         self.assertEqual(g['OAI.KL.Compatibility.KernelTransport']['imports'][0]['module'],
                          'ForMathlib.LinearAlgebra.KernelTransport')
         self.assertTrue(g['OAI.KL.Compatibility.KernelTransport']['imports'][0]['public'])

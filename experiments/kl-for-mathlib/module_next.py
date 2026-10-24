@@ -62,11 +62,12 @@ def compare_full(path):
     if raw!=subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT):raise RuntimeError('Changed accepted main export')
     with tempfile.NamedTemporaryFile() as f:
         f.write(gzip.decompress(raw));f.flush();old=load(f.name,3947)
-    r=compare(old,load(path,3947))
+    from module_all import load_prior_view
+    r=compare(old,load_prior_view(path))
     from module_final import accept_known
     left,accepted=accept_known(r)
     if not left['passed']:raise RuntimeError('New unaccepted complete-record difference: '+json.dumps(r))
-    return {'raw':r,'accepted_representation_changes':accepted,'passed':True}
+    return {**__import__('module_all').contract_summary(),'raw':r,'accepted_representation_changes':accepted,'passed':True}
 
 def generated_checks():
     import attach_module

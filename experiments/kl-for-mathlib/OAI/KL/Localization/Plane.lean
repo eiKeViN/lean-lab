@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization
-import ForMathlib.RingTheory.Localization.RelativePrime
-import OAI.KL.Localization.GraphEmbedding
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization
+public import ForMathlib.RingTheory.Localization.RelativePrime
+public import OAI.KL.Localization.GraphEmbedding
+
+public section
 
 /-! Semantic home: OAI.KL.Localization.Plane. Source spans: PlaneLocalization:9, PlaneLocalization:6, PlaneLocalization:11, PlaneLocalization:8, PlaneLocalization:17, PlaneLocalization:13, PlaneLocalization:19, PlaneLocalization:28, PlaneLocalization:18, PlaneLocalization:20, PlaneLocalization:22, PlaneLocalization:30.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -19,7 +22,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (a₀ b : W)
 noncomputable section
 
- def CosetVertex := {d : planeSubgroup M cs P // BruhatLE B.system 1 d ∧
+ @[expose] def CosetVertex := {d : planeSubgroup M cs P // BruhatLE B.system 1 d ∧
     BruhatLE cs ((d:W)*a₀) b}
 
  instance cosetOrder : PartialOrder (B.CosetVertex a₀ b) where
@@ -28,7 +31,7 @@ noncomputable section
   le_trans _ _ _ := bruhat_trans B.system
   le_antisymm x y hxy hyx := Subtype.ext (bruhat_antisymm B.system hxy hyx)
 
- def cosetAmbient (x : B.CosetVertex a₀ b) : Interval cs 1 b :=
+ @[expose] def cosetAmbient (x : B.CosetVertex a₀ b) : Interval cs 1 b :=
   ⟨(x.val:W)*a₀,one_bruhat cs _,x.property.2⟩
 
  theorem cosetAmbient_injective : Function.Injective (B.cosetAmbient a₀ b) := by
@@ -41,10 +44,10 @@ noncomputable section
   let := interval_finite cs 1 b
   exact Finite.of_injective _ (B.cosetAmbient_injective a₀ b)
 
- def CosetEdge := {p : B.CosetVertex a₀ b × B.CosetVertex a₀ b //
+ @[expose] def CosetEdge := {p : B.CosetVertex a₀ b × B.CosetVertex a₀ b //
     BruhatStep B.system p.1.val p.2.val}
 
- def cosetGraph : OrderedGraph (B.CosetVertex a₀ b) (B.CosetEdge a₀ b) where
+ @[expose] def cosetGraph : OrderedGraph (B.CosetVertex a₀ b) (B.CosetEdge a₀ b) where
   source e := e.val.1
   target e := e.val.2
   increasing e := ⟨.single e.property,fun h => not_lt_of_ge
@@ -52,11 +55,11 @@ noncomputable section
 
 variable (hmin : ∀ z ∈ planeSubgroup M cs P, cs.length a₀ ≤ cs.length (z*a₀))
 
- def cosetEdgeAmbient (e : B.CosetEdge a₀ b) : Edge cs 1 b :=
+ @[expose] def cosetEdgeAmbient (e : B.CosetEdge a₀ b) : Edge cs 1 b :=
   ⟨(B.cosetAmbient a₀ b e.val.1,B.cosetAmbient a₀ b e.val.2),
     (B.coset_step_iff hmin _ _).mpr e.property⟩
 
- def cosetGraphMap : GraphMap (B.cosetGraph a₀ b) (graph cs 1 b) where
+ @[expose] def cosetGraphMap : GraphMap (B.cosetGraph a₀ b) (graph cs 1 b) where
   vertex := B.cosetAmbient a₀ b
   edge := B.cosetEdgeAmbient a₀ b hmin
   source _ := rfl
@@ -115,7 +118,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   [Module.Flat (MvPolynomial σ ℝ) R] [IsLocalRing R]
 noncomputable section
 
- def localModels (b : planeSubgroup M cs P)
+ @[expose] def localModels (b : planeSubgroup M cs P)
     (hα : ∀ e, algebraMap (MvPolynomial σ ℝ) R (B.modelLabel basis b e) ∈
       IsLocalRing.maximalIdeal R) :
     LocalModels (G := graph B.system 1 b)
@@ -142,11 +145,11 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (a₀ b : W) (hmin : ∀ z ∈ planeSubgroup M cs P, cs.length a₀ ≤ cs.length (z*a₀))
 noncomputable section
 
- def cosetLabel (e : B.CosetEdge a₀ b) : PlaneRing basis P :=
+ @[expose] def cosetLabel (e : B.CosetEdge a₀ b) : PlaneRing basis P :=
   algebraMap (MvPolynomial σ ℝ) (PlaneRing basis P)
     (polynomialLabel cs 1 b basis (B.cosetEdgeAmbient a₀ b hmin e))
 
- def localizedCoset (C : Sheaf.{us,v,v,um} (R := MvPolynomial σ ℝ) (graph cs 1 b)) :
+ @[expose] def localizedCoset (C : Sheaf.{us,v,v,um} (R := MvPolynomial σ ℝ) (graph cs 1 b)) :
     Sheaf (R := PlaneRing basis P) (B.cosetGraph a₀ b) :=
   (C.baseChange (PlaneRing basis P)).pullback (B.cosetGraphMap a₀ b hmin)
 
@@ -210,7 +213,7 @@ noncomputable section
   apply (Represents.planeSubgroup_mem_iff M cs (positiveRoot_represents M cs _)).mp
   exact (label B.system 1 b e).property
 
- def localizedModels (b : planeSubgroup M cs P) :
+ @[expose] def localizedModels (b : planeSubgroup M cs P) :
     LocalModels (G := graph B.system 1 b)
       (fun e => algebraMap (MvPolynomial σ ℝ) (PlaneRing basis P) (B.modelLabel basis b e)) :=
   B.localModels basis (PlaneRing basis P) b (B.modelLabel_mem_maximal basis b)
@@ -284,14 +287,14 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (a₀ b : W) (hmin : ∀ z ∈ planeSubgroup M cs P, cs.length a₀ ≤ cs.length (z*a₀))
 noncomputable section
 
- def cosetInto (d : planeSubgroup M cs P) (hd : ∀ x : B.CosetVertex a₀ b, BruhatLE B.system x.val d) :
+ @[expose] def cosetInto (d : planeSubgroup M cs P) (hd : ∀ x : B.CosetVertex a₀ b, BruhatLE B.system x.val d) :
     B.CosetVertex a₀ b → Interval B.system 1 d := fun x => ⟨x.val,x.property.1,hd x⟩
 
- def cosetIntoEdge (d : planeSubgroup M cs P)
+ @[expose] def cosetIntoEdge (d : planeSubgroup M cs P)
     (hd : ∀ x : B.CosetVertex a₀ b, BruhatLE B.system x.val d) (e : B.CosetEdge a₀ b) :
     Edge B.system 1 d := ⟨(B.cosetInto a₀ b d hd e.val.1,B.cosetInto a₀ b d hd e.val.2),e.property⟩
 
- def cosetIntoGraph (d : planeSubgroup M cs P)
+ @[expose] def cosetIntoGraph (d : planeSubgroup M cs P)
     (hd : ∀ x : B.CosetVertex a₀ b, BruhatLE B.system x.val d) :
     GraphMap (B.cosetGraph a₀ b) (graph B.system 1 d) where
   vertex := B.cosetInto a₀ b d hd
@@ -364,7 +367,7 @@ noncomputable section
       (B.coset_modelLabel_eq basis a₀ b hmin d hbnd e)
   rwa [hα] at hh
 
- def cosetModels : LocalModels (G := B.cosetGraph a₀ b) (B.cosetLabel basis a₀ b hmin) :=
+ @[expose] def cosetModels : LocalModels (G := B.cosetGraph a₀ b) (B.cosetLabel basis a₀ b hmin) :=
   structureLocalModels _ _
     (fun e => (linear_mem_maximal_iff basis P _).mpr (by
       apply (Represents.planeSubgroup_mem_iff M cs
@@ -449,7 +452,7 @@ noncomputable section
   rw [B.cosetRoot_eq a₀ b hmin e]
   rfl
 
- def reducedCosetRoot (e : B.CosetEdge a₀ b) (β : PositiveRoot M cs) :
+ @[expose] def reducedCosetRoot (e : B.CosetEdge a₀ b) (β : PositiveRoot M cs) :
     PlaneRing basis P ⧸ Ideal.span {B.cosetLabel basis a₀ b hmin e} :=
   algebraMap (PlaneRing basis P) _ (localizedLinear basis P β.val)
 
@@ -497,7 +500,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (hmin : ∀ z ∈ planeSubgroup M cs P, cs.length a₀ ≤ cs.length (z*a₀))
 noncomputable section
 
- def cosetUpperVertex (x : B.CosetVertex a₀ b) (hx : BruhatLE cs u ((x.val:W)*a₀)) :
+ @[expose] def cosetUpperVertex (x : B.CosetVertex a₀ b) (hx : BruhatLE cs u ((x.val:W)*a₀)) :
     Interval cs u b := ⟨(x.val:W)*a₀,hx,x.property.2⟩
 
  theorem outgoing_step (x : B.CosetVertex a₀ b)
@@ -514,7 +517,7 @@ noncomputable section
     BruhatLE cs u ((f.val.val.2.val:W)*a₀) :=
   bruhat_trans cs hx (.single ((B.coset_step_iff hmin _ _).mpr (B.outgoing_step x f)))
 
- def scheduledOutgoing (φ : Interval cs u b ≃o Interval cs' u' b')
+ @[expose] def scheduledOutgoing (φ : Interval cs u b ≃o Interval cs' u' b')
     (α : PositiveRoot M' cs') (x : B.CosetVertex a₀ b)
     (hx : BruhatLE cs u ((x.val:W)*a₀)) : Set (Outgoing (G := B.cosetGraph a₀ b) x) :=
   {f | ambientAfterIndicator (φ (B.cosetUpperVertex x hx)).val α
@@ -599,18 +602,18 @@ noncomputable section
     (hx : BruhatLE cs u ((e.val.1.val:W)*a₀)) : BruhatLE cs u ((e.val.2.val:W)*a₀) :=
   bruhat_trans cs hx (.single ((B.coset_step_iff hmin _ _).mpr e.property))
 
- def mappedCosetRoot (e : B.CosetEdge a₀ b) (hx : BruhatLE cs u ((e.val.1.val:W)*a₀)) :
+ @[expose] def mappedCosetRoot (e : B.CosetEdge a₀ b) (hx : BruhatLE cs u ((e.val.1.val:W)*a₀)) :
     PositiveRoot M' cs' :=
   graphRoot ((intervalIso_bruhatStep_iff_general cs cs' φ
     (B.cosetUpperVertex e.val.1 hx)
     (B.cosetUpperVertex e.val.2 (B.cosetEdge_target_upper hmin e hx))).mpr
     ((B.coset_step_iff hmin _ _).mpr e.property))
 
- def scheduledLower (e : B.CosetEdge a₀ b) (hx : BruhatLE cs u ((e.val.1.val:W)*a₀)) :
+ @[expose] def scheduledLower (e : B.CosetEdge a₀ b) (hx : BruhatLE cs u ((e.val.1.val:W)*a₀)) :
     Set (Outgoing (G := B.cosetGraph a₀ b) e.val.1) :=
   B.scheduledOutgoing hmin φ (B.mappedCosetRoot hmin φ e hx) e.val.1 hx
 
- def scheduledUpper (e : B.CosetEdge a₀ b) (hx : BruhatLE cs u ((e.val.1.val:W)*a₀)) :
+ @[expose] def scheduledUpper (e : B.CosetEdge a₀ b) (hx : BruhatLE cs u ((e.val.1.val:W)*a₀)) :
     Set (Outgoing (G := B.cosetGraph a₀ b) e.val.2) :=
   B.scheduledOutgoing hmin φ (B.mappedCosetRoot hmin φ e hx) e.val.2
     (B.cosetEdge_target_upper hmin e hx)

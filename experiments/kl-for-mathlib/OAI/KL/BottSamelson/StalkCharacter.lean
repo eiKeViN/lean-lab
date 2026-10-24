@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
-import ForMathlib.RepresentationTheory.Hecke.Coefficients
-import OAI.KL.BottSamelson.Stalks
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.Hilbert.Numerator
+public import ForMathlib.RepresentationTheory.Hecke.Coefficients
+public import OAI.KL.BottSamelson.Stalks
+
+public section
 
 /-! Semantic home: OAI.KL.BottSamelson.StalkCharacter. Source spans: IntegralPairings:2, IntegralPairings:4.
 See migration.json and MIGRATION.md for exact provenance.
@@ -94,7 +97,7 @@ local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_7 (p : Prop) 
   · intro q _ _
     simpa only [Module.finrank_zero_of_subsingleton,Nat.cast_zero,zero_mul,Polynomial.eval₂_zero] using (hasSum_zero : HasSum (fun _ : ℤ => (0 : ℝ)) 0)
 
- def bottTopPolynomialEquiv (l : List I) (hl : cs.IsReduced l) :
+ @[expose] def bottTopPolynomialEquiv (l : List I) (hl : cs.IsReduced l) :
     bottStalk cs l (cs.wordProd l) ≃ₗ[ℝ] MvPolynomial σ ℝ :=
   ((bottTopStalkEquiv cs l hl).restrictScalars ℝ).trans
     (SymmetricAlgebra.equivMvPolynomial basis).toLinearEquiv

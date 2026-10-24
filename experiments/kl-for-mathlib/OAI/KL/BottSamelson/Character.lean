@@ -1,10 +1,13 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Boundary.Models
-import ForMathlib.RepresentationTheory.Hecke.PositiveWord
-import OAI.KL.BottSamelson.Support
-import OAI.KL.Sheaves.FreeModel
-import OAI.KL.BottSamelson.StalkCharacter
-import OAI.KL.BottSamelson.Flabby
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Boundary.Models
+public import ForMathlib.RepresentationTheory.Hecke.PositiveWord
+public import OAI.KL.BottSamelson.Support
+public import OAI.KL.Sheaves.FreeModel
+public import OAI.KL.BottSamelson.StalkCharacter
+public import OAI.KL.BottSamelson.Flabby
+
+public section
 
 /-! Semantic home: OAI.KL.BottSamelson.Character. Source spans: CharacterReciprocity:20, CharacterReciprocity:21, CharacterReciprocity:18, CharacterReciprocity:22, CharacterReciprocity:23, CharacterReciprocity:12, CharacterReciprocity:16.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -23,12 +26,12 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (s : GradedSheaf.SplitIn B (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l)))
 noncomputable section
 
- def bottSplitRightWord (n : B.forget.sections Set.univ) : BottSamelsonModule cs l := by
+ @[expose] def bottSplitRightWord (n : B.forget.sections Set.univ) : BottSamelsonModule cs l := by
   let := symmetricCoefficientNoetherian basis
   exact (bottImageSectionWordEquiv cs basis l hl s.projector s.projector_vertex
     ((s.imageSectionEquiv Set.univ).symm n)).val
 
- def bottSplitLeftWord
+ @[expose] def bottSplitLeftWord
     (m : (bottSplitAdjointSheaf cs basis l hl B s).forget.sections Set.univ) :
     BottSamelsonModule cs l := by
   let := symmetricCoefficientNoetherian basis
@@ -81,7 +84,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (j : GradedSheaf.Iso B (bottSplitAdjointSheaf cs basis l hl B s))
 noncomputable section
 
- def bottRecognizedPerfectPairing : GradedSheaf.PerfectPairing B (l.length : ℤ) where
+ @[expose] def bottRecognizedPerfectPairing : GradedSheaf.PerfectPairing B (l.length : ℤ) where
   pairing := (j.toIso.sections Set.univ).trans (bottSplitAdjointEquivDual cs basis l hl B s)
   homogeneous i q m n hm hn := bottSplitAdjointPairing_homogeneous cs basis l hl B s i q
     (j.toIso.sections Set.univ m) n (fun x => j.vertex_graded x i _ (hm x)) hn
@@ -131,7 +134,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (s : GradedSheaf.SplitIn B.sheaf (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l)))
 noncomputable section
 
- def bottSplitAdjointSplit : GradedSheaf.SplitIn
+ @[expose] def bottSplitAdjointSplit : GradedSheaf.SplitIn
     (bottSplitAdjointSheaf cs basis l hl B.sheaf s)
     (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l)) := by
   let := symmetricCoefficientNoetherian basis
@@ -149,14 +152,14 @@ noncomputable section
   exact (bottSplitAdjointSplit cs basis l hl B s).vertex_free
     (symmetricGrading_negative basis) (symmetricGrading_zero basis) x
 
- def bottSplitAdjointTopInclusion : ModuleData.Hom
+ @[expose] def bottSplitAdjointTopInclusion : ModuleData.Hom
     (B.sheaf.vertex ⟨cs.wordProd l,one_bruhat cs _,bruhat_refl cs _⟩)
     ((bottSplitAdjointSheaf cs basis l hl B.sheaf s).vertex
       ⟨cs.wordProd l,one_bruhat cs _,bruhat_refl cs _⟩) :=
   ((bottSplitAdjointSplit cs basis l hl B s).projection.vertex _).comp
     (bottBoundarySheafTopInclusion cs basis l hl B)
 
- def bottSplitAdjointTopProjection : ModuleData.Hom
+ @[expose] def bottSplitAdjointTopProjection : ModuleData.Hom
     ((bottSplitAdjointSheaf cs basis l hl B.sheaf s).vertex
       ⟨cs.wordProd l,one_bruhat cs _,bruhat_refl cs _⟩)
     (B.sheaf.vertex ⟨cs.wordProd l,one_bruhat cs _,bruhat_refl cs _⟩) :=
@@ -241,7 +244,7 @@ noncomputable section
     ⟨b,one_bruhat cs b,bruhat_refl cs b⟩ (fun x => x.property.2)
     (symmetricLabel cs 1 b) (symmetricLabel_homogeneous cs basis 1 b)
 
- def symmetricBoundarySheaf (b : W) :
+ @[expose] def symmetricBoundarySheaf (b : W) :
     BoundarySheaf (symmetricGrading_negative basis)
       (graph cs 1 b) (symmetricLabel cs 1 b) ⟨b,one_bruhat cs b,bruhat_refl cs b⟩ :=
   (exists_symmetricBoundarySheaf cs basis b).some
@@ -309,7 +312,7 @@ noncomputable section
   rw [bottSection_symmetric]
   exact bottSection_left_orthogonal cs l hl x n m hn hm
 
- def bottWordPerfectPairing (l : List I) (hl : cs.IsReduced l) :
+ @[expose] def bottWordPerfectPairing (l : List I) (hl : cs.IsReduced l) :
     GradedSheaf.PerfectPairing (bottGradedProjectionSheaf cs basis l 1 (cs.wordProd l))
       (l.length : ℤ) where
   pairing := bottSectionDuality cs l hl
@@ -317,12 +320,12 @@ noncomputable section
   left_orthogonal := bottSection_left_orthogonal cs l hl
   right_orthogonal := bottSection_right_orthogonal cs l hl
 
- def bottPolynomialPerfectPairing (l : List I) (hl : cs.IsReduced l) :
+ @[expose] def bottPolynomialPerfectPairing (l : List I) (hl : cs.IsReduced l) :
     GradedSheaf.PerfectPairing (bottPolynomialSheaf cs basis l 1 (cs.wordProd l)) (l.length : ℤ) :=
   (bottWordPerfectPairing cs basis l hl).coefficientChange (SymmetricAlgebra.equivMvPolynomial basis)
     (mem_symmetricGrading basis)
 
- def bottFreeSheaf (l : List I) : FreeSheaf cs 1 (cs.wordProd l) basis where
+ @[expose] def bottFreeSheaf (l : List I) : FreeSheaf cs 1 (cs.wordProd l) basis where
   sheaf := bottPolynomialSheaf cs basis l 1 (cs.wordProd l)
   free := bottPolynomialSheaf_free cs basis l 1 (cs.wordProd l)
   quotient := bottPolynomialSheaf_quotient cs basis l 1 (cs.wordProd l)
@@ -331,7 +334,7 @@ noncomputable section
 local instance finiteEdges (l : List I) : Fintype (Edge cs 1 (cs.wordProd l)) := Fintype.ofFinite _
 local instance _root_.OAI.KLInvariance.TitsSpace.instDecidableEq_oAI_1 (a : Type*) : DecidableEq a := Classical.decEq a
 
- def bottFreeDuality (l : List I) (hl : cs.IsReduced l) :
+ @[expose] def bottFreeDuality (l : List I) (hl : cs.IsReduced l) :
     FreeSheaf.SectionDuality cs 1 (cs.wordProd l) basis (bottFreeSheaf cs basis l) :=
   FreeSheaf.dualityOfPairing cs 1 (cs.wordProd l) basis _ (bottPolynomialPerfectPairing cs basis l hl)
 

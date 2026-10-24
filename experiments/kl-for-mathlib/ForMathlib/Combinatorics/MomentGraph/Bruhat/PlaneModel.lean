@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel
-import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel
+public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel. Source spans: DihedralIntervals:6.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,7 +20,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def modelLabel (b : planeSubgroup M cs P) (e : Edge B.system 1 b) : MvPolynomial σ ℝ :=
+ @[expose] def modelLabel (b : planeSubgroup M cs P) (e : Edge B.system 1 b) : MvPolynomial σ ℝ :=
   Dihedral.inducedLabel B.system cs (planeSubgroup M cs P).subtype
     (fun t => (B.reflection_iff t).mp) basis b e
 

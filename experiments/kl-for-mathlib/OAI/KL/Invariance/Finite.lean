@@ -1,10 +1,13 @@
-import Mathlib
-import ForMathlib.Algebra.BigOperators.SingleCoordinate
-import ForMathlib.Algebra.Polynomial.ScaledEvaluation
-import ForMathlib.Algebra.Polynomial.TransferEvaluation
-import ForMathlib.GroupTheory.Coxeter.Bruhat.Transport
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport
-import OAI.KL.Comparison.SuffixFreeness
+module
+public import Mathlib
+public import ForMathlib.Algebra.BigOperators.SingleCoordinate
+public import ForMathlib.Algebra.Polynomial.ScaledEvaluation
+public import ForMathlib.Algebra.Polynomial.TransferEvaluation
+public import ForMathlib.GroupTheory.Coxeter.Bruhat.Transport
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.IntervalTransport
+public import OAI.KL.Comparison.SuffixFreeness
+
+public section
 
 /-! Semantic home: OAI.KL.Invariance.Finite. Source spans: Invariance:5, Invariance:6, Invariance:2, Invariance:3, Invariance:7.
 See migration.json and MIGRATION.md for exact provenance. -/

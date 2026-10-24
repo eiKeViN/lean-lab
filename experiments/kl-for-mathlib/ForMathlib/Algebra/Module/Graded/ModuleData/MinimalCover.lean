@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Cover.Local
-import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
-import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Cover.Local
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Equality
+public import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.Graded.ModuleData.MinimalCover. Source spans: SheafMorphisms:15, SheafMorphisms:19, SheafMorphisms:22, SheafMorphisms:25, SheafMorphisms:8, SheafMorphisms:17.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -91,7 +94,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {𝓐 : ℤ → Submodule k A} {M N : ModuleData.{uk,ua,um} 𝓐}
 noncomputable section
 
- def inverse (f : Hom M N) (hf : Function.Bijective f.map) : Hom N M where
+ @[expose] def inverse (f : Hom M N) (hf : Function.Bijective f.map) : Hom N M where
   map := (LinearEquiv.ofBijective f.map hf).symm.toLinearMap
   graded := by
     intro n v hv
@@ -139,7 +142,7 @@ include hneg hzero in
   ext v
   exact (g.comp t).map_inverse hgt v
 
- def Hom.splitEquiv {F C : ModuleData.{uk,ua,um} 𝓐}
+ @[expose] def Hom.splitEquiv {F C : ModuleData.{uk,ua,um} 𝓐}
     (g : Hom F C) (h : Hom C F) (hgh : g.map.comp h.map = LinearMap.id) :
     F ≃ₗ[A] C × kernel g := LocalCover.splitEquiv g.map h.map hgh
 

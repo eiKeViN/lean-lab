@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization. Source spans: PlaneLocalization:10, PlaneLocalization:14, PlaneLocalization:12, PlaneLocalization:5, PlaneLocalization:2, PlaneLocalization:15, PlaneLocalization:3.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -40,11 +43,11 @@ variable {R : Type ur} [CommRing R] [DecompositionMonoid R]
   (G : OrderedGraph V E) (α : E → R) (c : V)
 noncomputable section
 
- def supportedOutgoing (x : V) (F : Set (Outgoing (G := G) x)) : Finset (Outgoing (G := G) x) := by
+ @[expose] def supportedOutgoing (x : V) (F : Set (Outgoing (G := G) x)) : Finset (Outgoing (G := G) x) := by
   classical
   exact Finset.univ.filter (fun e => e ∈ F ∧ G.target e.val ≤ c)
 
- def kernelProduct (x : V) (F : Set (Outgoing (G := G) x)) : R :=
+ @[expose] def kernelProduct (x : V) (F : Set (Outgoing (G := G) x)) : R :=
   ∏ e ∈ supportedOutgoing G c x F, α e.val
 
  theorem structure_kernel_iff_dvd (x : V) (hx : x ≤ c)
@@ -110,7 +113,7 @@ variable {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
   {F : Type uf} {H : OrderedGraph W F}
 noncomputable section
 
- def propPiEquiv (N : Type*) [AddCommGroup N] [Module R N]
+ @[expose] def propPiEquiv (N : Type*) [AddCommGroup N] [Module R N]
     {p q : Prop} (h : p ↔ q) : (PLift p → N) ≃ₗ[R] (PLift q → N) where
   toFun v t := v ⟨h.mpr t.down⟩
   invFun v t := v ⟨h.mp t.down⟩
@@ -126,7 +129,7 @@ noncomputable section
   subst y
   rfl
 
- def structurePullbackIso (f : GraphMap G H) (α : F → R) (c : V)
+ @[expose] def structurePullbackIso (f : GraphMap G H) (α : F → R) (c : V)
     (ho : ∀ x y, f.vertex x ≤ f.vertex y ↔ x ≤ y) :
     Iso ((structureSheaf H α (f.vertex c)).pullback f)
       (structureSheaf G (fun e => α (f.edge e)) c) where
@@ -162,7 +165,7 @@ variable {R : Type ur} [CommRing R] [IsLocalRing R]
   {V : Type uv} [PartialOrder V] {E : Type ue} (G : OrderedGraph V E) (α : E → R)
 noncomputable section
 
- def structureLocalModels
+ @[expose] def structureLocalModels
     (hα : ∀ e, α e ∈ IsLocalRing.maximalIdeal R)
     (hreach : ∀ x c, x < c → ∃ e, G.source e = x ∧ G.target e ≤ c)
     (hfl : ∀ c, (structureSheaf G α c).Flabby) : LocalModels (G := G) α where

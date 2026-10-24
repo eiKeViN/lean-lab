@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction
-import OAI.KL.Invariance.Finite
+module
+public import Mathlib
+public import ForMathlib.RepresentationTheory.KazhdanLusztig.Polynomials.FiniteRankReduction
+public import OAI.KL.Invariance.Finite
+
+public section
 
 /-! Semantic home: OAI.KL.Invariance.Main. Source spans: Invariance:9.
 See migration.json and MIGRATION.md for exact provenance. -/

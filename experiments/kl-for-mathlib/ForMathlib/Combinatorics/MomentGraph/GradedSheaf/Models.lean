@@ -1,10 +1,13 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
-import ForMathlib.LinearAlgebra.Dual.BalancedCut
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Models
+public import ForMathlib.LinearAlgebra.Dual.BalancedCut
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Models. Source spans: CharacterReciprocity:8, CharacterReciprocity:26, CharacterReciprocity:10, CharacterReciprocity:31, CharacterReciprocity:3, CharacterReciprocity:19, CharacterReciprocity:9, CharacterReciprocity:33.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -23,7 +26,7 @@ noncomputable section
  abbrev kernelData (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) :=
   B.upwardKernel x Set.univ
 
- def kernelProdEquiv (B C : GradedSheaf (𝓐 := 𝓐) G) (x : V) :
+ @[expose] def kernelProdEquiv (B C : GradedSheaf (𝓐 := 𝓐) G) (x : V) :
     kernelData (prod B C) x ≃ₗ[A] ((kernelData B x).prod (kernelData C x)) where
   toFun m := ⟨⟨m.val.1,((Sheaf.prod_upwardKernel_iff B.forget C.forget x Set.univ m.val).mp m.property).1⟩,
     ⟨m.val.2,((Sheaf.prod_upwardKernel_iff B.forget C.forget x Set.univ m.val).mp m.property).2⟩⟩
@@ -38,7 +41,7 @@ noncomputable section
     (n : ℤ) (v : kernelData (prod B C) x) (hv : v∈(kernelData (prod B C) x).piece n) :
     kernelProdEquiv B C x v∈((kernelData B x).prod (kernelData C x)).piece n := hv
 
- def kernelPiEquiv {ι : Type um} [Fintype ι] (B : ι → GradedSheaf (𝓐 := 𝓐) G) (x : V) :
+ @[expose] def kernelPiEquiv {ι : Type um} [Fintype ι] (B : ι → GradedSheaf (𝓐 := 𝓐) G) (x : V) :
     kernelData (pi B) x ≃ₗ[A] ModuleData.pi (fun i => kernelData (B i) x) where
   toFun m i := ⟨m.val i,(Sheaf.pi_upwardKernel_iff (fun i => (B i).forget) x Set.univ m.val).mp m.property i⟩
   invFun m := ⟨(fun i => (m i).val),(Sheaf.pi_upwardKernel_iff (fun i => (B i).forget) x Set.univ _).mpr
@@ -52,14 +55,14 @@ noncomputable section
     (n : ℤ) (v : kernelData (pi B) x) (hv : v∈(kernelData (pi B) x).piece n) :
     kernelPiEquiv B x v∈(ModuleData.pi (fun i => kernelData (B i) x)).piece n := hv
 
- def kernelShiftEquiv (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) (d : ℕ) :
+ @[expose] def kernelShiftEquiv (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) (d : ℕ) :
     kernelData (B.shift d) x ≃ₗ[A] (kernelData B x).shift d := LinearEquiv.refl A _
 
  theorem kernelShiftEquiv_graded (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) (d : ℕ)
     (n : ℤ) (v : kernelData (B.shift d) x) (hv : v∈(kernelData (B.shift d) x).piece n) :
     kernelShiftEquiv B x d v∈((kernelData B x).shift d).piece n := hv
 
- def Iso.kernelEquiv {B C : GradedSheaf (𝓐 := 𝓐) G} (j : Iso B C) (x : V) :
+ @[expose] def Iso.kernelEquiv {B C : GradedSheaf (𝓐 := 𝓐) G} (j : Iso B C) (x : V) :
     kernelData B x ≃ₗ[A] kernelData C x where
   toFun m := ⟨j.vertex x m.val,(j.toIso.upwardKernel_iff x Set.univ m.val).mpr m.property⟩
   invFun m := ⟨(j.vertex x).symm m.val,(j.toIso.symm.upwardKernel_iff x Set.univ m.val).mpr m.property⟩
@@ -88,7 +91,7 @@ variable {k : Type uk} [Field k] {A B : Type ua} [CommRing A] [CommRing B]
   {V E : Type um} [PartialOrder V] {G : OrderedGraph V E}
 noncomputable section
 
- def Hom.coefficientUnchange {S T : GradedSheaf (𝓐 := 𝓐) G}
+ @[expose] def Hom.coefficientUnchange {S T : GradedSheaf (𝓐 := 𝓐) G}
     (g : Hom (GradedSheaf.coefficientChange e he S) (GradedSheaf.coefficientChange e he T)) : Hom S T where
   vertex x := ModuleData.unchangeHom e he (g.vertex x)
   edge f := ModuleData.unchangeHom e he (g.edge f)
@@ -143,7 +146,7 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   [IsNoetherianRing A] {𝓐 : ℤ → Submodule k A}
   {V E : Type um} [PartialOrder V] {G : OrderedGraph V E}
 noncomputable section
- def kernelEquivFull (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) :
+ @[expose] def kernelEquivFull (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) :
     kernelData B x ≃ₗ[A] LinearMap.ker (B.forget.stalkMap x) where
   toFun m := ⟨m.val,funext (fun e => m.property e (Set.mem_univ e))⟩
   invFun m := ⟨m.val,fun e _ => congrFun m.property e⟩
@@ -189,7 +192,7 @@ omit [IsNoetherianRing A] in
     have hh := hm ⟨⟨e,h.down.down⟩,rfl⟩ (Set.mem_univ _)
     exact hh
 
- def lowerExtendKernelEquiv (B : GradedSheaf (𝓐 := 𝓐) (lowerGraph G K hK))
+ @[expose] def lowerExtendKernelEquiv (B : GradedSheaf (𝓐 := 𝓐) (lowerGraph G K hK))
     (x : K) : kernelData B.lowerExtend x.val ≃ₗ[A] kernelData B x where
   toFun m := ⟨B.lowerExtendVertex x m.val,(lowerExtend_kernel_iff B x m.val).mp m.property⟩
   invFun m := ⟨(B.lowerExtendVertex x).symm m.val,(lowerExtend_kernel_iff B x _).mpr (by
@@ -212,7 +215,7 @@ omit [IsNoetherianRing A] in
   exact B.forget.pullback_kernel f x Set.univ Set.univ
     (fun e he => (he (Set.mem_univ e)).elim) (fun e _ he => hlift e x he)
 
- def pullbackKernelEquiv (B : GradedSheaf (𝓐 := 𝓐) H) (f : GraphMap G H)
+ @[expose] def pullbackKernelEquiv (B : GradedSheaf (𝓐 := 𝓐) H) (f : GraphMap G H)
     (hlift : ∀ e x, f.vertex x=H.source e → ∃ a, f.edge a=e ∧ G.source a=x) (x : V) :
     kernelData (B.pullback f) x ≃ₗ[A] kernelData B (f.vertex x) where
   toFun m := ⟨m.val,fullKernel_pullback B f hlift x ▸ m.property⟩
@@ -363,7 +366,7 @@ noncomputable section
     let _ := hf c x
     infer_instance
 
- def freeKernelChar (B : GradedSheaf (𝓐 := polynomialGrading k σ) G)
+ @[expose] def freeKernelChar (B : GradedSheaf (𝓐 := polynomialGrading k σ) G)
     (hf : ∀ x, Module.Free (MvPolynomial σ k) (kernelData B x)) (x : V) : Polynomial ℤ := by
   let := hf x
   exact (kernelData B x).char

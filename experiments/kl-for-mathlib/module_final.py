@@ -80,9 +80,11 @@ def accept_known(raw,view='full'):
     c=compatibility()
     v=subprocess.check_output(['lean','--version'],cwd=HERE,text=True)
     if c['lean_commit'] not in v:raise RuntimeError('Wrong actual compiler for batch')
+    from module_all import accept_type
+    raw,new_accepted=accept_type(raw)
     residual,accepted=_partition(raw,c[view])
     if accepted:subprocess.run(['lake','env','lean',c['witness']],cwd=HERE,check=True)
-    return residual,accepted
+    return residual,new_accepted+accepted
 
 def baseline_types():
     from compare_types import load
@@ -107,6 +109,8 @@ def _partition_historical(raw,actual):
     expected=sum(old[n]['module']!=baseline[n]['module'] for n in old)
     if raw['relocated']!=expected:raise RuntimeError('Unexpected historical owner transport count')
     pairs=copy.deepcopy(compatibility()['full'])
+    from module_all import registry
+    pairs += copy.deepcopy(registry()['type_pairs'])
     for p in pairs:
         original=old[p['name']]
         if any(original[k]!=p['old'][k] for k in ('levels','type','kind')):
@@ -114,11 +118,19 @@ def _partition_historical(raw,actual):
         p['old']=original
     transport_checked=copy.deepcopy(raw);transport_checked['relocated']=0
     residual,accepted=_partition(transport_checked,pairs)
+    import module_all
+    new_names={p['name'] for p in module_all.registry()['type_pairs']}
+    for item in accepted:
+        if item['name'] in new_names:
+            item['policy_sha256']=module_all.REGISTRY_SHA
+            item['witness']='ModernOrdinaryAllCompat.lean'
     residual['relocated']=raw['relocated']
     return residual,accepted
 
 def accept_historical(raw,actual):
     c=compatibility();residual,accepted=_partition_historical(raw,actual)
+    from module_all import registry,witness
+    if any(x['name'] in {p['name'] for p in registry()['type_pairs']} for x in accepted):witness()
     v=subprocess.check_output(['lean','--version'],cwd=HERE,text=True)
     if c['lean_commit'] not in v:raise RuntimeError('Wrong compiler for historical batch view')
     if accepted:subprocess.run(['lake','env','lean',c['witness']],cwd=HERE,check=True)
@@ -137,9 +149,10 @@ def compare_full(path):
     if raw!=subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT):raise RuntimeError('Changed accepted 131-module export')
     with tempfile.NamedTemporaryFile() as f:
         f.write(gzip.decompress(raw));f.flush();old=load(f.name,3947)
-    raw=compare(old,load(path,3947));left,accepted=accept_known(raw)
+    from module_all import load_prior_view
+    raw=compare(old,load_prior_view(path));left,accepted=accept_known(raw)
     if not left['passed']:raise RuntimeError('Unaccepted complete batch change: '+json.dumps(raw))
-    return {'raw':raw,'accepted_representation_changes':accepted,'passed':True}
+    return {**__import__('module_all').contract_summary(),'raw':raw,'accepted_representation_changes':accepted,'passed':True}
 
 if __name__=='__main__':
     import argparse

@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis
+module
+public import Mathlib
+public import ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis
+
+public section
 
 /-! Semantic home: ForMathlib.LinearAlgebra.Dual.Frobenius. Source spans: Frobenius:2, Frobenius:3, Frobenius:4, Frobenius:5, Frobenius:10.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -16,12 +19,12 @@ variable {R : Type ur} [CommRing R] {A : Type ua} [CommRing A] [Algebra R A]
   (M : Type um) [AddCommGroup M] [Module A M] [Module R M] [IsScalarTower R A M]
 noncomputable section
 
- def restrictDual : Dual A M →ₗ[R] Dual R M where
+ @[expose] def restrictDual : Dual A M →ₗ[R] Dual R M where
   toFun f := tr.comp (f.restrictScalars R)
   map_add' _ _ := by ext; simp
   map_smul' _ _ := by ext; simp
 
- def fiber (f : Dual R M) (m : M) : Dual R A :=
+ @[expose] def fiber (f : Dual R M) (m : M) : Dual R A :=
   f.comp ((LinearMap.toSpanSingleton A M m).restrictScalars R)
 
 @[simp] theorem fiber_apply (f : Dual R M) (m : M) (a : A) :
@@ -43,7 +46,7 @@ include hd in
   rw [he,trace_recover_fiber tr d hd]
   simp only [mul_smul]
 
- def recoverDual (f : Dual R M) : Dual A M where
+ @[expose] def recoverDual (f : Dual R M) : Dual A M where
   toFun m := d.symm (fiber M f m)
   map_add' m n := by
     apply d.injective
@@ -72,7 +75,7 @@ include hd in
   change tr (f (a • m)) = d (f m) a
   rw [map_smul,smul_eq_mul,hd,mul_comm]
 
- def restrictionEquiv : Dual A M ≃ₗ[R] Dual R M :=
+ @[expose] def restrictionEquiv : Dual A M ≃ₗ[R] Dual R M :=
   LinearEquiv.ofBijective (restrictDual tr M)
     ⟨fun f g h => by
       have hh := congrArg (recoverDual tr d hd M) h
@@ -84,7 +87,7 @@ include hd in
 
 /-- Restricting an integral perfect pairing along a Frobenius trace is again
 integral and perfect; no localization or fraction-field argument is used. -/
- def restrictPairing (p : M ≃ₗ[A] Dual A M) : M ≃ₗ[R] Dual R M :=
+ @[expose] def restrictPairing (p : M ≃ₗ[A] Dual A M) : M ≃ₗ[R] Dual R M :=
   (p.restrictScalars R).trans (restrictionEquiv tr d hd M)
 
  theorem restrictPairing_apply (p : M ≃ₗ[A] Dual A M) (m n : M) :
@@ -103,7 +106,7 @@ variable {R : Type ur} [CommRing R] (A : Type ua) [CommRing A] [Algebra R A]
   {M : Type um} [AddCommGroup M] [Module R M] [Module.Free R M] [Module.Finite R M]
 noncomputable section
 
- def extendPairing (p : M ≃ₗ[R] Dual R M) :
+ @[expose] def extendPairing (p : M ≃ₗ[R] Dual R M) :
     (A ⊗[R] M) ≃ₗ[A] Dual A (A ⊗[R] M) :=
   (p.baseChange R A M (Dual R M)).trans
     (TensorProduct.isBaseChange (R := R) (S := A) (M := M)).toDualBaseChange
@@ -140,7 +143,7 @@ structure PairedModule (A : Type ua) [CommRing A] where
 attribute [instance] PairedModule.add PairedModule.module PairedModule.free PairedModule.finite
 instance _root_.OAI.KLInvariance.FrobeniusDuality.instCoeSortPairedModuleType {A : Type ua} [CommRing A] : CoeSort (PairedModule.{ua,um} A) (Type um) := ⟨PairedModule.carrier⟩
 
- def unitPairing (A : Type ua) [CommRing A] : A ≃ₗ[A] Dual A A where
+ @[expose] def unitPairing (A : Type ua) [CommRing A] : A ≃ₗ[A] Dual A A where
   toFun a := LinearMap.mul A A a
   invFun f := f 1
   left_inv a := mul_one a
@@ -152,7 +155,7 @@ instance _root_.OAI.KLInvariance.FrobeniusDuality.instCoeSortPairedModuleType {A
   map_add' _ _ := by ext; simp
   map_smul' _ _ := by ext; simp
 
- def unitModule (A : Type ua) [CommRing A] : PairedModule A where
+ @[expose] def unitModule (A : Type ua) [CommRing A] : PairedModule A where
   carrier := A
   free := inferInstance
   finite := inferInstance
@@ -166,14 +169,14 @@ variable {R : Type ur} [CommRing R] {A : Type ua} [CommRing A] [Algebra R A]
 local instance restrictedModule : Module R N := Module.compHom N (algebraMap R A)
 local instance restrictedTower : IsScalarTower R A N := IsScalarTower.of_algebraMap_smul fun _ _ => rfl
 
- def restrictionBasis : Basis
+ @[expose] def restrictionBasis : Basis
     (Module.Free.ChooseBasisIndex R A × Module.Free.ChooseBasisIndex A N) R N :=
   (Module.Free.chooseBasis R A).smulTower (Module.Free.chooseBasis A N)
 
 local instance restrictedFree : Module.Free R N := Module.Free.of_basis (restrictionBasis N)
 local instance restrictedFinite : Module.Finite R N := Module.Finite.trans A N
 
- def inducedModule : PairedModule A where
+ @[expose] def inducedModule : PairedModule A where
   carrier := A ⊗[R] N
   free := inferInstance
   finite := inferInstance
@@ -201,7 +204,7 @@ structure PairedBimodule (A : Type ua) [CommRing A] where
   balanced : ∀ a m n, obj.pairing (right a m) n = obj.pairing m (right a n)
   symmetric : ∀ m n, obj.pairing m n = obj.pairing n m
 
- def unitBimodule (A : Type ua) [CommRing A] : PairedBimodule A where
+ @[expose] def unitBimodule (A : Type ua) [CommRing A] : PairedBimodule A where
   obj := unitModule A
   right := Algebra.lmul A A |>.toRingHom
   balanced a m n := by
@@ -219,7 +222,7 @@ variable {R : Type ur} [CommRing R] {A : Type ua} [CommRing A] [Algebra R A]
 
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
- def restrictedRight (right : A →+* End A N) : A →+* End R N where
+ @[expose] def restrictedRight (right : A →+* End A N) : A →+* End R N where
   toFun a := (right a).restrictScalars R
   map_one' := by ext m; change (right 1) m = m; rw [map_one]; rfl
   map_mul' a b := by
@@ -230,7 +233,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
   map_zero' := by ext m; change (right 0) m = 0; rw [map_zero]; rfl
   map_add' a b := by ext m; change (right (a+b)) m = (right a) m + (right b) m; rw [map_add]; rfl
 
- def inducedRight (right : A →+* End A N) : A →+* End A (inducedModule tr d hd N) :=
+ @[expose] def inducedRight (right : A →+* End A N) : A →+* End A (inducedModule tr d hd N) :=
   (Module.End.baseChangeHom R A N).toRingHom.comp (restrictedRight N right)
 
 @[simp] theorem inducedRight_tmul (right : A →+* End A N) (r a : A) (m : N) :
@@ -269,7 +272,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
     | tmul b n =>
       rw [extendPairing_tmul,extendPairing_tmul,restrictPairing_apply,restrictPairing_apply,hs,mul_comm a b]
 
- def inducedBimodule (N : PairedBimodule.{ua,um} A) : PairedBimodule A where
+ @[expose] def inducedBimodule (N : PairedBimodule.{ua,um} A) : PairedBimodule A where
   obj := inducedModule tr d hd N.obj
   right := inducedRight tr d hd N.obj N.right
   balanced := inducedPairing_balanced tr d hd N.obj N.right N.balanced
@@ -296,7 +299,7 @@ variable (N : PairedModule.{ua,um} A)
   {ι : Type ui} (b : Basis ι A N)
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
- def inducedBasis : Basis (Fin 2 × ι) A
+ @[expose] def inducedBasis : Basis (Fin 2 × ι) A
     (inducedModule (trace τ α hinv hα hanti hdiv)
       (duality τ α hinv hα hanti hdiv) (duality_apply τ α hinv hα hanti hdiv) N) :=
   ((reflectionBasis τ α hinv hα hanti hdiv).smulTower b).baseChange A

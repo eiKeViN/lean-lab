@@ -1,19 +1,22 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Free.ScalarDivisibility
-import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
-import ForMathlib.Algebra.Module.Graded.FinitePieces
-import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
-import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
-import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
-import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
-import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
-import ForMathlib.LinearAlgebra.TensorProduct.Coordinates
-import ForMathlib.RepresentationTheory.BottSamelson.TitsWords
-import OAI.KL.Compatibility.KernelTransport
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Free.ScalarDivisibility
+public import ForMathlib.Algebra.Module.Graded.HomogeneousEquiv
+public import ForMathlib.Algebra.Module.Graded.FinitePieces
+public import ForMathlib.Algebra.Module.Graded.ModuleData.PairProjection
+public import ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic
+public import ForMathlib.Algebra.Module.Graded.NonnegativeBasis
+public import ForMathlib.Algebra.Module.ReflectionPair.TensorKernel
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties
+public import ForMathlib.LinearAlgebra.SymmetricAlgebra.RootIdeal
+public import ForMathlib.LinearAlgebra.TensorProduct.Coordinates
+public import ForMathlib.RepresentationTheory.BottSamelson.TitsWords
+public import OAI.KL.Compatibility.KernelTransport
+
+public section
 
 /-! Semantic home: OAI.KL.BottSamelson.Stalks. Source spans: BottSamelson:2, BottSamelson:4, BottSamelson:11, BottSamelson:5, BottSamelson:15, BottSamelson:6, BottSamelson:3, BottSamelson:21, BottSamelson:9, BottSamelson:13, BottSamelson:16, BottSamelson:19, BottSamelson:17, BottSamelson:22, BottSamelson:23, BottSamelson:29, BottSamelson:30, BottSamelson:26.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -60,7 +63,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- def bottFullIndex : (l : List I) → BottIndex l
+ @[expose] def bottFullIndex : (l : List I) → BottIndex l
   | [] => PUnit.unit
   | _::l => (1,bottFullIndex l)
 
@@ -99,7 +102,7 @@ omit [Fintype I] in
   have hh := cs.length_wordProd_le (bottSubword l e)
   rwa [bottSubword_wordProd,he,hl.eq] at hh
 
- def bottUnit : (l : List I) → BottSamelsonModule cs l
+ @[expose] def bottUnit : (l : List I) → BottSamelsonModule cs l
   | [] => (1 : SymmetricCoefficient (M := M))
   | i::l => 1 ⊗ₜ[simpleFixed cs i] bottUnit l
 
@@ -118,7 +121,7 @@ omit [Fintype I] in
   refine ⟨a • bottUnit cs l,?_⟩
   rw [map_smul,bottEvaluation_unit,smul_eq_mul,mul_one]
 
- def bottTopCoordinate (l : List I) : bottStalk cs l (cs.wordProd l) →ₗ[
+ @[expose] def bottTopCoordinate (l : List I) : bottStalk cs l (cs.wordProd l) →ₗ[
     SymmetricCoefficient (M := M)] SymmetricCoefficient (M := M) :=
   (LinearMap.proj ⟨bottFullIndex l,bottWeight_full cs l⟩).comp
     (bottStalk cs l (cs.wordProd l)).subtype
@@ -137,7 +140,7 @@ omit [Fintype I] in
     obtain ⟨m,hm⟩ := bottEvaluation_surjective cs l (bottFullIndex l) a
     exact ⟨bottStalkProjection cs l (cs.wordProd l) m,hm⟩
 
- def bottTopStalkEquiv (l : List I) (hl : cs.IsReduced l) :
+ @[expose] def bottTopStalkEquiv (l : List I) (hl : cs.IsReduced l) :
     bottStalk cs l (cs.wordProd l) ≃ₗ[SymmetricCoefficient (M := M)]
       SymmetricCoefficient (M := M) :=
   LinearEquiv.ofBijective (bottTopCoordinate cs l) (bottTopCoordinate_bijective cs l hl)
@@ -156,11 +159,11 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 attribute [local instance] restrictedModule restrictedTower restrictedFree restrictedFinite
 
- def bottHeadTail (i : I) (l : List I) : BottSamelsonModule cs (i::l) →ₗ[
+ @[expose] def bottHeadTail (i : I) (l : List I) : BottSamelsonModule cs (i::l) →ₗ[
     SymmetricCoefficient (M := M)] BottSamelsonModule cs l :=
   tensorFirst (C := simpleFixed cs i)
 
- def bottHeadReflectedTail (i : I) (l : List I) : BottSamelsonModule cs (i::l) →ₗ[
+ @[expose] def bottHeadReflectedTail (i : I) (l : List I) : BottSamelsonModule cs (i::l) →ₗ[
     SymmetricCoefficient (M := M)] Twist (coefficientAction cs (cs.simple i)).toRingEquiv
       (BottSamelsonModule cs l) :=
   tensorSecond (C := simpleFixed cs i) (coefficientAction cs (cs.simple i)).toRingEquiv
@@ -175,7 +178,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
   change Twist.mk ((coefficientAction cs (cs.simple i)) 1 • n)=Twist.mk n
   rw [map_one,one_smul]
 
- def bottHeadLocalPair (i : I) (l : List I) (x : W) : BottSamelsonModule cs (i::l) →ₗ[
+ @[expose] def bottHeadLocalPair (i : I) (l : List I) (x : W) : BottSamelsonModule cs (i::l) →ₗ[
     SymmetricCoefficient (M := M)]
     (bottStalk cs l x × Twist (coefficientAction cs (cs.simple i)).toRingEquiv
       (bottStalk cs l (cs.simple i*x))) :=
@@ -282,7 +285,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {W : Type v} [Group W] (cs : CoxeterSystem M W)
 noncomputable section
 
- def BottKernelExact (l : List I) : Prop :=
+ @[expose] def BottKernelExact (l : List I) : Prop :=
   ∀ (x t : W) (a : I → ℝ), Represents M cs t a →
     cs.length x < cs.length (t*x) →
     ∀ m : BottSamelsonModule cs l, bottStalkProjection cs l x m=0 →
@@ -377,7 +380,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def bottCoordinatePiece (l : List I) (x : W) : ℤ → Submodule ℝ
+ @[expose] def bottCoordinatePiece (l : List I) (x : W) : ℤ → Submodule ℝ
     ({e : BottIndex l // bottWeight cs l e=x} → SymmetricCoefficient (M := M)) :=
   piPiece (fun _ => symmetricGrading basis)
 
@@ -405,7 +408,7 @@ noncomputable section
     (bottWeightProjection cs l x) 0 (by
       simpa only [add_zero] using bottWeightProjection_homogeneous cs basis l x)
 
- def bottStalkPiece (l : List I) (x : W) : ℤ → Submodule ℝ (bottStalk cs l x) :=
+ @[expose] def bottStalkPiece (l : List I) (x : W) : ℤ → Submodule ℝ (bottStalk cs l x) :=
   subPiece (bottCoordinatePiece cs basis l x) (bottStalk cs l x)
 
  instance bottStalkPiece_decomposition (l : List I) (x : W) :
@@ -443,7 +446,7 @@ noncomputable section
   intro n m hm e he
   rw [← bottEvaluation_component,hm e he,map_zero]
 
- def bottSupportPiece (l : List I) (x : W) :
+ @[expose] def bottSupportPiece (l : List I) (x : W) :
     ℤ → Submodule ℝ (bottWeightSupported cs l x) :=
   subPiece (bottPiece cs basis l) (bottWeightSupported cs l x)
 
@@ -499,7 +502,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
     simpa only [bottWeight,ite_eq_right h] using e.property
   simpa only [cs.simple_mul_simple_cancel_left] using (congrArg (cs.simple i * ·) he)
 
- def bottHeadPairCoordinates (i : I) (l : List I) (x : W) :
+ @[expose] def bottHeadPairCoordinates (i : I) (l : List I) (x : W) :
     (bottStalk cs l x × Twist (coefficientAction cs (cs.simple i)).toRingEquiv
       (bottStalk cs l (cs.simple i*x))) →ₗ[SymmetricCoefficient (M := M)]
       ({e : BottIndex (i::l) // bottWeight cs (i::l) e=x} → SymmetricCoefficient (M := M)) where
@@ -549,7 +552,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
 
  variable (i : I) (l : List I) (x : W)
 
- def bottHeadPairLattice := lattice (bottStalkProjection cs l x)
+ @[expose] def bottHeadPairLattice := lattice (bottStalkProjection cs l x)
     (bottStalkProjection cs l (cs.simple i*x)) (coefficientAction cs (cs.simple i)).toRingEquiv
     (simpleRootPolynomial (M := M) i) (simpleReverseDivisibility cs i) (bottSimpleEdge_kernel_inclusion cs i l x)
 
@@ -568,7 +571,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
   rw [one_mul]
   split_ifs <;> rfl
 
- def bottHeadPairToStalk : bottHeadPairLattice cs i l x →ₗ[
+ @[expose] def bottHeadPairToStalk : bottHeadPairLattice cs i l x →ₗ[
      SymmetricCoefficient (M := M)] bottStalk cs (i::l) x :=
   LinearMap.codRestrict (bottStalk cs (i::l) x)
     ((bottHeadPairCoordinates cs i l x).comp (bottHeadPairLattice cs i l x).subtype) (by
@@ -601,7 +604,7 @@ attribute [local instance] restrictedModule restrictedTower restrictedFree restr
     ((bottHeadPairCoordinates cs i l x).comp (bottHeadPairLattice cs i l x).subtype)
     (bottStalk cs (i::l) x) _ (bottHeadPair_range cs i l x)
 
- def bottHeadPairEquiv : bottHeadPairLattice cs i l x ≃ₗ[
+ @[expose] def bottHeadPairEquiv : bottHeadPairLattice cs i l x ≃ₗ[
      SymmetricCoefficient (M := M)] bottStalk cs (i::l) x :=
   LinearEquiv.ofBijective (bottHeadPairToStalk cs i l x)
     ⟨bottHeadPairToStalk_injective cs i l x,bottHeadPairToStalk_surjective cs i l x⟩
@@ -627,7 +630,7 @@ omit [Fintype σ] in
   exact piPiece_eq_bot (fun _ => symmetricGrading basis) n
     (fun _ => symmetricGrading_negative basis n hn)
 
- def bottStalkData (l : List I) (x : W) : ModuleData.{0,u,u} (symmetricGrading basis) where
+ @[expose] def bottStalkData (l : List I) (x : W) : ModuleData.{0,u,u} (symmetricGrading basis) where
   obj := ModuleCat.of _ (bottStalk cs l x)
   kModule := inferInstance
   tower := inferInstance
@@ -649,7 +652,7 @@ omit [Fintype σ] in
   rw [symmetricGrading_negative basis n hn,Submodule.mem_bot] at h
   exact h.trans (map_zero (bottEvaluation cs l e)).symm
 
- def bottWordData (l : List I) : ModuleData.{0,u,u} (symmetricGrading basis) where
+ @[expose] def bottWordData (l : List I) : ModuleData.{0,u,u} (symmetricGrading basis) where
   obj := ModuleCat.of _ (BottSamelsonModule cs l)
   kModule := inferInstance
   tower := inferInstance
@@ -659,7 +662,7 @@ omit [Fintype σ] in
   nonneg := bottPiece_negative cs basis l
   finite := inferInstance
 
- def bottStalkHom (l : List I) (x : W) :
+ @[expose] def bottStalkHom (l : List I) (x : W) :
     ModuleData.Hom (bottWordData cs basis l) (bottStalkData cs basis l x) where
   map := bottStalkProjection cs l x
   graded := bottStalkProjection_homogeneous cs basis l x
@@ -668,21 +671,21 @@ omit [Fintype σ] in
     Function.Surjective (bottStalkHom cs basis l x).map :=
   bottStalkProjection_surjective cs l x
 
- def bottEdgeData (l : List I) (x y : W) : ModuleData.{0,u,u} (symmetricGrading basis) :=
+ @[expose] def bottEdgeData (l : List I) (x y : W) : ModuleData.{0,u,u} (symmetricGrading basis) :=
   ModuleData.pairEdge (bottStalkHom cs basis l x) (bottStalkHom cs basis l y)
     (bottStalkHom_surjective cs basis l y)
 
- def bottLowerHom (l : List I) (x y : W) :
+ @[expose] def bottLowerHom (l : List I) (x y : W) :
     ModuleData.Hom (bottStalkData cs basis l x) (bottEdgeData cs basis l x y) :=
   ModuleData.pairLower (bottStalkHom cs basis l x) (bottStalkHom cs basis l y)
     (bottStalkHom_surjective cs basis l y)
 
- def bottUpperHom (l : List I) (x y : W) :
+ @[expose] def bottUpperHom (l : List I) (x y : W) :
     ModuleData.Hom (bottStalkData cs basis l y) (bottEdgeData cs basis l x y) :=
   ModuleData.pairUpper (bottStalkHom cs basis l x) (bottStalkHom cs basis l y)
     (bottStalkHom_surjective cs basis l y)
 
- def bottGradedProjectionSheaf (l : List I) (u b : W) :
+ @[expose] def bottGradedProjectionSheaf (l : List I) (u b : W) :
     GradedSheaf (𝓐 := symmetricGrading basis) (graph cs u b) where
   vertex x := bottStalkData cs basis l x.val
   edge e := bottEdgeData cs basis l (source cs u b e).val (target cs u b e).val
@@ -706,14 +709,14 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def bottHeadLeft (i : I) (l : List I) (x : W) :
+ @[expose] def bottHeadLeft (i : I) (l : List I) (x : W) :
     bottStalk cs (i::l) x →ₗ[SymmetricCoefficient (M := M)] bottStalk cs l x :=
   (ReflectionPairTranslation.left (bottStalkProjection cs l x)
     (bottStalkProjection cs l (cs.simple i*x)) (coefficientAction cs (cs.simple i)).toRingEquiv
     (simpleRootPolynomial (M := M) i) (simpleReverseDivisibility cs i)
     (bottSimpleEdge_kernel_inclusion cs i l x)).comp (bottHeadPairEquiv cs i l x).symm.toLinearMap
 
- def bottHeadRight (i : I) (l : List I) (x : W) :
+ @[expose] def bottHeadRight (i : I) (l : List I) (x : W) :
     bottStalk cs (i::l) x →ₗ[ℝ] bottStalk cs l (cs.simple i*x) :=
   (Twist.scalarEquiv (coefficientAction cs (cs.simple i)) _).toLinearMap.comp
     (((LinearMap.snd (SymmetricCoefficient (M := M)) (bottStalk cs l x)
@@ -1103,7 +1106,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type us} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def bottHeadKernelEquiv (i : I) (l : List I) (x : W)
+ @[expose] def bottHeadKernelEquiv (i : I) (l : List I) (x : W)
     (h : cs.length x<cs.length (cs.simple i*x)) :
     bottStalk cs l (cs.simple i*x) ≃ₗ[ℝ] LinearMap.ker (bottHeadLeft cs i l x) :=
   (Twist.scalarEquiv (coefficientAction cs (cs.simple i)) _).symm.trans
@@ -1122,7 +1125,7 @@ noncomputable section
       if he : e.val.1=0 then 0 else coefficientAction cs (cs.simple i)
         (simpleRootPolynomial (M := M) i * y.val ⟨e.val.2,bottWeight_tail_one cs i l x e he⟩) := rfl
 
- def bottHeadKernelPiece (i : I) (l : List I) (x : W) :
+ @[expose] def bottHeadKernelPiece (i : I) (l : List I) (x : W) :
     ℤ → Submodule ℝ (LinearMap.ker (bottHeadLeft cs i l x)) :=
   subPiece (bottStalkPiece cs basis (i::l) x) (LinearMap.ker (bottHeadLeft cs i l x))
 
@@ -1172,7 +1175,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   {σ : Type u} [Fintype σ] (basis : Basis σ ℝ (Extended M))
 noncomputable section
 
- def bottPolynomialStalkData (l : List I) (x : W) :
+ @[expose] def bottPolynomialStalkData (l : List I) (x : W) :
     ModuleData.{0,u,u} (polynomialGrading ℝ σ) :=
   ModuleData.change (SymmetricAlgebra.equivMvPolynomial basis) (mem_symmetricGrading basis)
     (bottStalkData cs basis l x)
@@ -1182,7 +1185,7 @@ noncomputable section
   inferInstanceAs (Module.Free (MvPolynomial σ ℝ)
     (CoefficientChange (SymmetricAlgebra.equivMvPolynomial basis) (bottStalk cs l x)))
 
- def bottStalkCharacter (l : List I) (x : W) : Polynomial ℤ :=
+ @[expose] def bottStalkCharacter (l : List I) (x : W) : Polynomial ℤ :=
   Graded.character (σ := σ) (bottPolynomialStalkData cs basis l x).piece
     (bottPolynomialStalkData cs basis l x).nonneg
 
@@ -1232,7 +1235,7 @@ noncomputable section
     (simple_represents cs i) (cs.simple_mul_simple_cancel_left i) h z
   simpa only [and_comm,simpleRootPolynomial,embed,extendedRoot] using hh
 
- def bottHeadRightKernelEquiv (i : I) (l : List I) (x : W)
+ @[expose] def bottHeadRightKernelEquiv (i : I) (l : List I) (x : W)
     (h : cs.length (cs.simple i*x)<cs.length x) :
     bottStalk cs l x ≃ₗ[ℝ] LinearMap.ker (bottHeadRight cs i l x) :=
   ((rightKernelEquiv (bottStalkProjection cs l x) (bottStalkProjection cs l (cs.simple i*x))
@@ -1254,7 +1257,7 @@ noncomputable section
   · rfl
   · exact map_zero _
 
- def bottHeadRightKernelPiece (i : I) (l : List I) (x : W) :
+ @[expose] def bottHeadRightKernelPiece (i : I) (l : List I) (x : W) :
     ℤ → Submodule ℝ (LinearMap.ker (bottHeadRight cs i l x)) :=
   subPiece (bottStalkPiece cs basis (i::l) x) (LinearMap.ker (bottHeadRight cs i l x))
 

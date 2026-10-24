@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction. Source spans: MinimalExtensions:19, MinimalExtensions:20.
 See migration.json and MIGRATION.md for exact provenance.
@@ -13,7 +16,7 @@ namespace KLInvariance.MomentGraph
 universe ur uv ue um
 variable {V : Type uv} [PartialOrder V] {E : Type ue} (G : OrderedGraph V E)
 
- def inducedGraph (K : Set V) : OrderedGraph K {e : E // G.source e ∈ K ∧ G.target e ∈ K} where
+ @[expose] def inducedGraph (K : Set V) : OrderedGraph K {e : E // G.source e ∈ K ∧ G.target e ∈ K} where
   source e := ⟨G.source e.val,e.property.1⟩
   target e := ⟨G.target e.val,e.property.2⟩
   increasing e := G.increasing e.val
@@ -23,15 +26,15 @@ variable {G} {R : Type ur} [CommRing R] (B : Sheaf.{ur,uv,ue,um} (R := R) G)
   (K : Set V)
 noncomputable section
 
- def restrict : Sheaf (R := R) (inducedGraph G K) where
+ @[expose] def restrict : Sheaf (R := R) (inducedGraph G K) where
   vertex x := B.vertex x.val
   edge e := B.edge e.val
   lower e := B.lower e.val
   upper e := B.upper e.val
 
- def restrictAssignment (f : B.Assignment) : (B.restrict K).Assignment := fun x => f x.val
+ @[expose] def restrictAssignment (f : B.Assignment) : (B.restrict K).Assignment := fun x => f x.val
 
- def extendAssignment (f : (B.restrict K).Assignment) : B.Assignment := by
+ @[expose] def extendAssignment (f : (B.restrict K).Assignment) : B.Assignment := by
   classical
   exact fun x => if h : x ∈ K then f ⟨x,h⟩ else 0
 
@@ -112,7 +115,7 @@ variable {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
   {E : Type ue} (G : OrderedGraph V E) (α : E → R) (K : Set V)
 noncomputable section
 
- def structureRestrictIso (c : K) :
+ @[expose] def structureRestrictIso (c : K) :
     Iso ((structureSheaf G α c.val).restrict K)
       (structureSheaf (inducedGraph G K) (fun e => α e.val) c) where
   vertex _ := LinearEquiv.refl R _

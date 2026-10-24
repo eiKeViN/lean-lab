@@ -1,4 +1,7 @@
-import Mathlib
+module
+public import Mathlib
+
+public section
 
 /-! Semantic home: ForMathlib.Algebra.Module.CoefficientChange.Basic. Source spans: BottSamelson:27.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -18,7 +21,7 @@ namespace CoefficientChange
 variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module k M]
   [IsScalarTower k A M]
 
- def equivVal : CoefficientChange e M ≃ M where
+ @[expose] def equivVal : CoefficientChange e M ≃ M where
   toFun := val
   invFun := mk
   left_inv _ := rfl
@@ -39,7 +42,7 @@ variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module
  local instance _root_.OAI.KLInvariance.CoefficientChange.instRingHomInvPairToRingHomToRingEquivSymm : RingHomInvPair e.symm.toRingHom e.toRingHom := RingHomInvPair.of_ringEquiv_symm e.toRingEquiv
  local instance _root_.OAI.KLInvariance.CoefficientChange.instRingHomInvPairToRingHomToRingEquivSymm_1 : RingHomInvPair e.toRingHom e.symm.toRingHom := RingHomInvPair.of_ringEquiv e.toRingEquiv
 
- def equiv : M ≃ₛₗ[e.toRingHom] CoefficientChange e M where
+ @[expose] def equiv : M ≃ₛₗ[e.toRingHom] CoefficientChange e M where
    toFun := mk
    invFun := val
    left_inv _ := rfl
@@ -49,7 +52,7 @@ variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module
      change mk (a • m)=mk (e.symm (e a) • m)
      rw [e.symm_apply_apply]
 
- def kEquiv : M ≃ₗ[k] CoefficientChange e M where
+ @[expose] def kEquiv : M ≃ₗ[k] CoefficientChange e M where
    toFun := mk
    invFun := val
    left_inv _ := rfl
@@ -63,7 +66,7 @@ variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module
    Module.Finite.of_surjective (equiv e M).toLinearMap (equiv e M).surjective
 
  variable {M} {N : Type un} [AddCommGroup N] [Module A N] [Module k N] [IsScalarTower k A N]
- def map (f : M →ₗ[A] N) : CoefficientChange e M →ₗ[B] CoefficientChange e N where
+ @[expose] def map (f : M →ₗ[A] N) : CoefficientChange e M →ₗ[B] CoefficientChange e N where
    toFun m := mk (f m.val)
    map_add' m n := CoefficientChange.ext (map_add f m.val n.val)
    map_smul' b m := CoefficientChange.ext (map_smul f (e.symm b) m.val)

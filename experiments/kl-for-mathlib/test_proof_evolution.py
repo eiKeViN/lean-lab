@@ -33,7 +33,7 @@ class EvolutionChecks(unittest.TestCase):
         record['diff_sha256']=ev.sha(delta);ev.MANIFEST.write_text(json.dumps(record))
 
     def compare_mock(self,current):
-        with patch.object(types,'load',return_value=current),patch.object(types,'load_snapshot',return_value=OLD):
+        with patch.object(types,'load',return_value=current),patch.object(types,'load_snapshot',return_value=OLD),patch('module_all.load_prior_view',return_value=current):
             return ev.compare_export('unused.tsv')
 
     def test_accept_current_explicit_evolution(self):
@@ -77,14 +77,16 @@ class EvolutionChecks(unittest.TestCase):
         f=self.root/'ForMathlib/Algebra/BigOperators/SingleCoordinate.lean';text=f.read_text()
         self.assertIn("exact sub_le_sub hp hp'.ge",text)
         f.write_text(text.replace("exact sub_le_sub hp hp'.ge","simpa using sub_le_sub hp hp'.ge",1));self.bind_sources()
-        with patch.object(ev,'check_prior_source',return_value=None):
+        # Isolate the inherited inner guard; final105's stricter outer guard has independent tests.
+        with patch.object(ev,'check_prior_source',return_value=None), patch('module_all.legacy_source',side_effect=lambda p,d:d):
             with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_expansion_unsampled_proof(self):
         f=self.root/'ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean';text=f.read_text()
         self.assertIn('simp [h]',text)
         f.write_text(text.replace('simp [h]','simpa [h]',1));self.bind_sources()
-        with patch.object(ev,'check_prior_source',return_value=None):
+        # Isolate the inherited inner guard; final105's stricter outer guard has independent tests.
+        with patch.object(ev,'check_prior_source',return_value=None), patch('module_all.legacy_source',side_effect=lambda p,d:d):
             with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_expansion_statement(self):
@@ -109,14 +111,16 @@ class EvolutionChecks(unittest.TestCase):
         f=self.root/'OAI/KL/Comparison/Transport.lean';text=f.read_text()
         needle='  rw [← transported_entry_eq_rTilde φ x y]'
         self.assertIn(needle,text);f.write_text(text.replace(needle,'  simp only [← transported_entry_eq_rTilde φ x y]',1));self.bind_sources()
-        with patch.object(ev,'check_prior_source',return_value=None):
+        # Isolate the inherited inner guard; final105's stricter outer guard has independent tests.
+        with patch.object(ev,'check_prior_source',return_value=None), patch('module_all.legacy_source',side_effect=lambda p,d:d):
             with self.assertRaisesRegex(RuntimeError,'outside approved'):ev.overlay(dict(PRISTINE))
 
     def test_reject_comparison_old_header_without_scope_mock(self):
         f=self.root/'OAI/KL/Comparison/Transport.lean';text=f.read_text()
         needle='(v : C) (hv : v≠0) (x : Interval cs 1 b) :'
         self.assertIn(needle,text);f.write_text(text.replace(needle,'(v : C) (hv : v=0) (x : Interval cs 1 b) :',1));self.bind_sources()
-        with patch.object(ev,'check_prior_source',return_value=None):
+        # Isolate the inherited inner guard; final105's stricter outer guard has independent tests.
+        with patch.object(ev,'check_prior_source',return_value=None), patch('module_all.legacy_source',side_effect=lambda p,d:d):
             with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_private_axiom(self):
@@ -164,7 +168,8 @@ class EvolutionChecks(unittest.TestCase):
 
     def test_reject_rebound_third_round_source(self):
         f=self.root/'OAI/KL/Comparison/Transport.lean';f.write_text(f.read_text()+'\n');self.bind_sources()
-        with self.assertRaisesRegex(RuntimeError,'frozen prior-round'):ev.overlay(dict(PRISTINE))
+        with patch('module_all.legacy_source',side_effect=lambda p,d:d):
+            with self.assertRaisesRegex(RuntimeError,'frozen prior-round'):ev.overlay(dict(PRISTINE))
 
     def test_reject_rebound_third_round_type(self):
         f=self.root/'additional-types.json';data=json.loads(f.read_text())

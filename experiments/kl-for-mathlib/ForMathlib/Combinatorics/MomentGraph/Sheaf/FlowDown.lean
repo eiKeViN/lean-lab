@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown. Source spans: DihedralIntervals:4.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,7 +18,7 @@ variable {R : Type ur} [CommRing R] [DecompositionMonoid R]
 noncomputable section
 variable [Fintype E] [DecidableEq V]
 
-def modelOutgoing (x : V) : Finset E := by
+@[expose] def modelOutgoing (x : V) : Finset E := by
   classical
   exact Finset.univ.filter (fun e => G.source e = x ∧ G.target e ≤ c)
 
@@ -24,9 +27,9 @@ def modelOutgoing (x : V) : Finset E := by
   classical
   simp [modelOutgoing]
 
-def modelProduct (x : V) : R := ∏ e ∈ modelOutgoing G c x, α e
+@[expose] def modelProduct (x : V) : R := ∏ e ∈ modelOutgoing G c x, α e
 
-def HasFlowDown : Prop :=
+@[expose] def HasFlowDown : Prop :=
   ∀ x, x ≤ c → ∃ f : (structureSheaf G α c).Assignment,
     (structureSheaf G α c).IsGlobal f ∧
     (∀ h : PLift (x ≤ c), f x h = modelProduct G α c x) ∧

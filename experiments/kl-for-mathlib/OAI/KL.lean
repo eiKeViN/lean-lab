@@ -1,1 +1,4 @@
-import OAI.KL.Invariance.Main
+module
+public import OAI.KL.Invariance.Main
+
+public section

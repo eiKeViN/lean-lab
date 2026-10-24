@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.BaseChange
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure. Source spans: MinimalExtensions:14, MinimalExtensions:18.
 See migration.json and MIGRATION.md for exact provenance.
@@ -17,11 +20,11 @@ noncomputable section
 private def quotientLinear (e : E) : R →ₗ[R] R ⧸ Ideal.span {α e} :=
   (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap
 
- def structureSheaf : Sheaf (R := R) G where
+ @[expose] def structureSheaf : Sheaf (R := R) G where
   vertex x := ModuleCat.of R (PLift (x ≤ c) → R)
   edge e := ModuleCat.of R (PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e})
-  upper e := LinearMap.pi (fun h => (quotientLinear α e).comp (LinearMap.proj h))
-  lower e := LinearMap.pi (fun h => (quotientLinear α e).comp
+  upper e := LinearMap.pi (fun h => ((Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap).comp (LinearMap.proj h))
+  lower e := LinearMap.pi (fun h => ((Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap).comp
     (LinearMap.proj ⟨(G.increasing e).le.trans h.down⟩))
 
  theorem structureSheaf_free (x : V) : Module.Free R ((structureSheaf G α c).vertex x) :=
@@ -34,7 +37,7 @@ private def quotientLinear (e : E) : R →ₗ[R] R ⧸ Ideal.span {α e} :=
     Subsingleton ((structureSheaf G α c).vertex x) := by
   refine ⟨fun f g => funext fun h => False.elim (hx h.down)⟩
 
- def structureVertexIso (x : V) (hx : x ≤ c) :
+ @[expose] def structureVertexIso (x : V) (hx : x ≤ c) :
     (structureSheaf G α c).vertex x ≃ₗ[R] R where
   toFun f := f ⟨hx⟩
   invFun r := fun _ => r
@@ -140,7 +143,7 @@ end Iso
 
 variable (S : Type us) [CommRing S] [Algebra R S]
 
-def baseChangeScalar : S ⊗[R] R ≃ₗ[S] S := AlgebraTensorModule.rid R S S
+@[expose] def baseChangeScalar : S ⊗[R] R ≃ₗ[S] S := AlgebraTensorModule.rid R S S
 
 @[simp] theorem baseChangeScalar_tmul (s : S) (r : R) :
     baseChangeScalar S (s ⊗ₜ[R] r) = s * algebraMap R S r := by
@@ -151,7 +154,7 @@ def baseChangeScalar : S ⊗[R] R ≃ₗ[S] S := AlgebraTensorModule.rid R S S
     (Ideal.span {a}).map (algebraMap R S) = Ideal.span {algebraMap R S a} := by
   rw [Ideal.map_span,Set.image_singleton]
 
- def baseChangeQuotient (a : R) :
+ @[expose] def baseChangeQuotient (a : R) :
     S ⊗[R] (R ⧸ Ideal.span {a}) ≃ₗ[S] S ⧸ Ideal.span {algebraMap R S a} :=
   (Algebra.TensorProduct.quotIdealMapEquivTensorQuot S (Ideal.span {a})).symm.toLinearEquiv.trans
     (Ideal.quotientEquivAlgOfEq S (span_map S a)).toLinearEquiv
@@ -165,13 +168,13 @@ def baseChangeScalar : S ⊗[R] R ≃ₗ[S] S := AlgebraTensorModule.rid R S S
   rw [Algebra.smul_def,mul_comm]
 
 
- def baseChangePiScalar (p : Prop) :
+ @[expose] def baseChangePiScalar (p : Prop) :
     S ⊗[R] (PLift p → R) ≃ₗ[S] (PLift p → S) := by
   classical
   exact (TensorProduct.piRight R S S (fun _ : PLift p => R)).trans
     (LinearEquiv.piCongrRight (fun _ => baseChangeScalar S))
 
- def baseChangePiQuotient (a : R) (p : Prop) :
+ @[expose] def baseChangePiQuotient (a : R) (p : Prop) :
     S ⊗[R] (PLift p → R ⧸ Ideal.span {a}) ≃ₗ[S]
       (PLift p → S ⧸ Ideal.span {algebraMap R S a}) := by
   classical
@@ -187,7 +190,7 @@ def baseChangeScalar : S ⊗[R] R ≃ₗ[S] S := AlgebraTensorModule.rid R S S
     (s : S) (v : PLift p → R ⧸ Ideal.span {a}) (h : PLift p) :
     baseChangePiQuotient S a p (s ⊗ₜ v) h = baseChangeQuotient S a (s ⊗ₜ v h) := rfl
 
- def quotientPullback (a : R) (p q : Prop) (h : q → p) :
+ @[expose] def quotientPullback (a : R) (p q : Prop) (h : q → p) :
     (PLift p → R) →ₗ[R] (PLift q → R ⧸ Ideal.span {a}) :=
   LinearMap.pi fun t => (Ideal.Quotient.mkₐ R (Ideal.span {a})).toLinearMap.comp
     (LinearMap.proj ⟨h t.down⟩)
@@ -207,7 +210,7 @@ def baseChangeScalar : S ⊗[R] R ≃ₗ[S] S := AlgebraTensorModule.rid R S S
     exact congrArg (Ideal.Quotient.mk _) (baseChangePiScalar_tmul S p s v _).symm
   | add v w hv hw => simp only [map_add,hv,hw]
 
- def structureBaseChangeIso (G : OrderedGraph V E) (α : E → R) (c : V) :
+ @[expose] def structureBaseChangeIso (G : OrderedGraph V E) (α : E → R) (c : V) :
     Iso ((structureSheaf G α c).baseChange S)
       (structureSheaf G (fun e => algebraMap R S (α e)) c) where
   vertex x := baseChangePiScalar S (x ≤ c)

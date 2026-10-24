@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Roots.Basic
-import ForMathlib.GroupTheory.Coxeter.Roots.Order
-import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
-import ForMathlib.LinearAlgebra.Avoidance
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Roots.Basic
+public import ForMathlib.GroupTheory.Coxeter.Roots.Order
+public import ForMathlib.GroupTheory.Coxeter.Roots.PlaneBasis
+public import ForMathlib.LinearAlgebra.Avoidance
+
+public section
 
 /-! Semantic home: ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder. Source spans: ReflectionOrders:2, ReflectionOrders:7.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -124,7 +127,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 local instance _root_.OAI.KLInvariance.TitsSpace.instDecidable_oAI_11 (p : Prop) : Decidable p := Classical.propDecidable p
 
-def pencil (f g : Module.Dual ℝ (I → ℝ)) (t : ℝ) : Module.Dual ℝ (I → ℝ) :=
+@[expose] def pencil (f g : Module.Dual ℝ (I → ℝ)) (t : ℝ) : Module.Dual ℝ (I → ℝ) :=
   (1-t) • f + t • g
 
 omit [Fintype I] in
@@ -138,15 +141,15 @@ omit [Fintype I] in
 theorem pencil_apply (f g : Module.Dual ℝ (I → ℝ)) (t : ℝ) (v : I → ℝ) :
     pencil f g t v=(1-t)*f v+t*g v := rfl
 
-def rootDifference (a b : PositiveRoot M cs) : I → ℝ := normalizedRoot b-normalizedRoot a
+@[expose] def rootDifference (a b : PositiveRoot M cs) : I → ℝ := normalizedRoot b-normalizedRoot a
 
-def wallVector (f : Module.Dual ℝ (I → ℝ)) (a b c : PositiveRoot M cs) : I → ℝ :=
+@[expose] def wallVector (f : Module.Dual ℝ (I → ℝ)) (a b c : PositiveRoot M cs) : I → ℝ :=
   f (rootDifference a b) • rootDifference a c -
     f (rootDifference a c) • rootDifference a b
 
 /-- This is an actual genericity condition on linear functionals, not
 an assumed path or Hecke identity. -/
-def Transverse (f g : Module.Dual ℝ (I → ℝ)) : Prop :=
+@[expose] def Transverse (f g : Module.Dual ℝ (I → ℝ)) : Prop :=
   ∀ a b c : PositiveRoot M cs, g (wallVector f a b c)=0 → wallVector f a b c=0
 
 theorem pencil_tie_plane (f g : Module.Dual ℝ (I → ℝ))

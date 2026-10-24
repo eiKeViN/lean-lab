@@ -1,7 +1,10 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Quotient.ScalarImage
-import OAI.KL.Comparison.Propagation
-import OAI.KL.Localization.TerminalImages
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Quotient.ScalarImage
+public import OAI.KL.Comparison.Propagation
+public import OAI.KL.Localization.TerminalImages
+
+public section
 
 /-! Semantic home: OAI.KL.Localization.Edge. Source spans: TerminalKernels:10, TerminalKernels:12, TerminalKernels:13, TerminalKernels:15, TerminalKernels:19, TerminalKernels:9, TerminalKernels:20, TerminalKernels:21, TerminalKernels:22, TerminalKernels:23.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -20,7 +23,7 @@ noncomputable section
  abbrev EdgeRing (a : PositiveRoot M cs) :=
    MvPolynomial σ ℝ ⧸ Ideal.span {polynomialRoot cs basis a}
 
- def edgeRingEquiv (a : PositiveRoot M cs) : EdgeRing cs basis a ≃ₐ[ℝ] EdgeCoefficient a :=
+ @[expose] def edgeRingEquiv (a : PositiveRoot M cs) : EdgeRing cs basis a ≃ₐ[ℝ] EdgeCoefficient a :=
    (Ideal.quotientEquivAlg (rootIdeal (k := ℝ) (embed M a.val))
      (Ideal.span {polynomialRoot cs basis a}) (SymmetricAlgebra.equivMvPolynomial basis)
      (by simp only [rootIdeal,Ideal.map_span,Set.image_singleton,polynomialRoot]; rfl)).symm
@@ -77,7 +80,7 @@ omit [Fintype σ] in
     Module.IsTorsionBy (MvPolynomial σ ℝ) (B.sheaf.edge e) (polynomialRoot cs basis (root cs u b e)) :=
    fun v => GradedSheaf.UpperQuotient.annihilates B.sheaf B.quotient e v
 
- @[instance_reducible] def edgeModule (e : Edge cs u b) :
+ @[instance_reducible, expose] def edgeModule (e : Edge cs u b) :
     Module (EdgeRing cs basis (root cs u b e)) (B.sheaf.edge e) :=
    (edgeTorsion cs u b basis hub B e).module
 
@@ -411,7 +414,7 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
   (φ : Interval cs u b ≃o Interval cs' u' b')
 noncomputable section
 
- def intervalBoundary := restrictBoundary cs u b basis hub
+ @[expose] def intervalBoundary := restrictBoundary cs u b basis hub
   (boundarySheaf cs 1 b basis (one_bruhat cs b))
 
  theorem schedule_edge_image_le {e : Edge cs u b} {q : List (Edge cs u b)}

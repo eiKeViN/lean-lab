@@ -1,11 +1,14 @@
-import ForMathlib.Combinatorics.Dihedral.SignedCount
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel
-import ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown
-import ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords
-import ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder
-import ForMathlib.GroupTheory.Coxeter.Roots.LaterCount
-import ForMathlib.GroupTheory.Coxeter.Roots.Splines
-import OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders
+module
+public import ForMathlib.Combinatorics.Dihedral.SignedCount
+public import ForMathlib.Combinatorics.MomentGraph.Bruhat.DihedralModel
+public import ForMathlib.Combinatorics.MomentGraph.Bruhat.PlaneModel
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.FlowDown
+public import ForMathlib.GroupTheory.Coxeter.Dihedral.SignedWords
+public import ForMathlib.GroupTheory.Coxeter.Roots.DihedralOrder
+public import ForMathlib.GroupTheory.Coxeter.Roots.LaterCount
+public import ForMathlib.GroupTheory.Coxeter.Roots.Splines
+public import OAI.RepresentationTheory.KazhdanLusztig.ReflectionOrders
+
+public section
 
 /-! Compatibility import for the pre-migration module. No declarations live here. -/

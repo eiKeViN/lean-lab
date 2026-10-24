@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Boundary.Hom
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Boundary.Hom
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Boundary.Summand. Source spans: BalancedPairings:33.
 See migration.json and MIGRATION.md for exact provenance. -/

@@ -1,0 +1,337 @@
+{
+  "schema": 1,
+  "baseline_commit": "382d29d94aaa8e32bcdeb24633f070d29695dcc3",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "removed": {
+    "OAI.KLInvariance.CoefficientChange.ext.match_1": {
+      "levels": "\"[`u_1, `u_2, `u_3, `u_4]\"",
+      "type": "d0950c6e136648e8b755ffc8fca1e1be380da6c48e6a3a98eb8bc3283c63e594",
+      "kind": "def",
+      "module": "ForMathlib.Algebra.Module.CoefficientChange.Basic"
+    },
+    "OAI.KLInvariance.LocalCover.splitEquiv.match_3": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "3b5ef23b14da4cb9f5dc33dac54a272c2bd05570a4ea5069dd30f17e76287648",
+      "kind": "def",
+      "module": "ForMathlib.Algebra.Module.Cover.Local"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_1": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "ed1a6e664c6332ba1cbf0e141a1b6996fa2513f933ef2bd205fab77a8fb503e9",
+      "kind": "def",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_3": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "7765cd2b93737f9d07e4976faf1c2ec6b69297428426d991848c78100f78abf8",
+      "kind": "def",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties"
+    },
+    "OAI.KLInvariance.ReflectionFrobenius.wallCoordinate_injective.match_1_2": {
+      "levels": "\"[`u_1]\"",
+      "type": "f4e9dd9cce963b23d8d011c5577ff7e7738914cc6202d2381141bab88a011297",
+      "kind": "def",
+      "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis"
+    },
+    "OAI.KLInvariance.ReflectionFrobenius.wallMatrix_mulVec.match_1_1": {
+      "levels": "\"[`u_1]\"",
+      "type": "f4e9dd9cce963b23d8d011c5577ff7e7738914cc6202d2381141bab88a011297",
+      "kind": "def",
+      "module": "ForMathlib.Algebra.Algebra.ReflectionFrobenius.Basis"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.Twist.ext.match_1": {
+      "levels": "\"[`u_1, `u_2]\"",
+      "type": "3ce0a5b49974d651b8a8899d5b428295556a4245fa56207cbed869a20e35b69c",
+      "kind": "def",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist"
+    },
+    "OAI.KLInvariance.TitsSpace.exists_common_transverse.match_1_1": {
+      "levels": "\"[`u_1, `u_2]\"",
+      "type": "2a0413422018e82f52b674f0cfcdcb7f6f490061b1518b316a13af3385265a78",
+      "kind": "def",
+      "module": "ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder"
+    }
+  },
+  "generated_added": {
+    "OAI.KLInvariance.LocalCover.splitEquiv.match_6": {
+      "levels": "\"[`u_1, `u_2, `u_3]\"",
+      "type": "3b5ef23b14da4cb9f5dc33dac54a272c2bd05570a4ea5069dd30f17e76287648",
+      "kind": "def",
+      "module": "ForMathlib.Algebra.Module.Cover.Local"
+    }
+  },
+  "contract": "Explicit source break for exactly eight historical generated helpers; no wildcard exemption. New match_6 is compiler output, not a promised semantic operation.",
+  "evidence_files": {
+    "module-all-old.json": "7a35c58bb016eb8c10aa60ee6e04d6628cbac19e467ec920fa601a5e90f980b8",
+    "module-all-current.json": "e6957adad7910a6c86b03eb67592ad8f41dfbd7686e50d2082dec8e58a140818",
+    "ModernAllCompat.lean": "415a06e9b488911f97d8f9c0b960017a72fedcb437d63c273ed65f9d4ca3628e",
+    "ModernAllTypes.lean": "a1308aff08eba45802dbb30e12bc717e94c665c17262b0db67a3223501bdab54",
+    "module-all-types.json": "c46c7157f43a6cbb26e605efdfa8e265b0386ea8193c5370700b9e622ba68599",
+    "ModernAllConsumer.lean": "60af601a3073d318dbd182bfc81aed7327b843ddff7d9c2d8de51dfc01fffc13",
+    "module-all-ordinary-old.json": "d1e982f95281203feb4ac96e28a1235b0aecbac099390305fc768c3a9205d4f4",
+    "module-all-ordinary-current.json": "831a4b6b4507a91b41c42eac05b4ad964922420c79c41618ea1ecbac74a4a672",
+    "ModernOrdinaryAllCompat.lean": "f827f84bf22d3221bb04588be77ed3a1f34d6e74654861e89faa7766fe80fc66",
+    "module-all-structure-old.json": "78776675c8e85ed5e4ea0fcea8cb9683c9dbd9d16f85c1a7e876e8b501847198",
+    "ModernStructureCompat.lean": "c5a6216fb40e654e080d9ba47d03615b74360d0674b37c363922c2bcfed8d795",
+    "module-all-generated-old.json": "f5624693a726a96aff3a45aeac177b0dc69a8da56e352c44cb436b9e70bf0749",
+    "module-all-onhom-attributes.json": "85270ecddda3bc9a322561fdb3589c2ceb8e7588fb7f2ad34c217bbfc8299d19"
+  },
+  "ordinary_pairs": [
+    {
+      "name": "OAI.KLInvariance.MomentGraph.GradedSheaf.OnHom.extend.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "11164faeac3226cc005430378816b046dff99c9f3934efd8a54ad0f25bd6b91a",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom"
+      },
+      "new": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "d324117c5ac193cae8efa16565afeaeb867e4f179fa0a08176c4a7d17c5754fc",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.MomentGraph.Sheaf.AboveIso.mapAssignment.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v, `w, `z, `z']\"",
+        "type": "9e38dcc64e376cafd6871d291b86c46d94177ff80cf9fa003182b0a40d4ada29",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso"
+      },
+      "new": {
+        "levels": "\"[`u, `v, `w, `z, `z']\"",
+        "type": "56c286e7275bd82e0a3fcb3388120f449cebd3f08d684fe542af311e369a0a7a",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.MomentGraph.Sheaf.baseChangeQuotient.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`ur, `us]\"",
+        "type": "f60b4fdea7f8bbe635c95c3205c974a7b84bc24c8f7a89ad0d3a5d18dba4f1d4",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"
+      },
+      "new": {
+        "levels": "\"[`ur, `us]\"",
+        "type": "493c2eb316d276f2615714564ac3bcec459a4bb4e865e804e936c817d060f0ee",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Structure"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.MomentGraph.Sheaf.castStalkIso.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v, `w, `z, `z']\"",
+        "type": "bdb215e6b29df523b64d760d91b2a090cd229a1e14918968eb46adf9b99ea0f7",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso"
+      },
+      "new": {
+        "levels": "\"[`u, `v, `w, `z, `z']\"",
+        "type": "0972244db28afe4a2404e3fa887876872bd81fb48302043c94d511531dcb66b6",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Iso"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.Represents.extendedAction_eq",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v]\"",
+        "type": "67d873c19b561a8fb3f68ee440a61e59d7bbda2651c7611608dc8c76a01472a8",
+        "kind": "theorem",
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+      },
+      "new": {
+        "levels": "\"[`u, `v]\"",
+        "type": "55067d30d940ba9ead8728be3949fc6a4102f42f8f6fc33e782646977b881cd4",
+        "kind": "theorem",
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.Basic"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.bottCanonicalAdjointIso_vertex",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `us]\"",
+        "type": "f12712cd286386e82044ac7fb8d353e66833e183c10b59749eb3b80cc9f514b9",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.CanonicalPairing"
+      },
+      "new": {
+        "levels": "\"[`u, `us]\"",
+        "type": "f61c06edd0004b68b5fcf8d0a2167fff83a89ce9886ee012750246c14aaf2f53",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.CanonicalPairing"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.bottHeadPairCoordinates.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v]\"",
+        "type": "40ec50e779a747a824863ebe7dc56ff2355501d0437081e1204098209a2ec8f3",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.Stalks"
+      },
+      "new": {
+        "levels": "\"[`u, `v]\"",
+        "type": "8f83323b3321c9b2cf34c25afaf73774b6b92f43f253007b33c255557e4ebd9a",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.Stalks"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.bottImageSectionWordEquiv_coordinates",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `us]\"",
+        "type": "37f94949d3e984cd0a45928336028e5672be5459ed61f767a690e2a5358b5532",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.AdjointSheaf"
+      },
+      "new": {
+        "levels": "\"[`u, `us]\"",
+        "type": "5c3694492831a7c07d7106a1a321904b9e14aff1c2a3424520e9f6392d820737",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.AdjointSheaf"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.bottSplitLeftWord_coordinates",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `us]\"",
+        "type": "b0e3e4429ccf3f224bc6d961a3140bcfb8082a91e732fde6694d3bc1dae1aff8",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.Character"
+      },
+      "new": {
+        "levels": "\"[`u, `us]\"",
+        "type": "8df4d564bf26ba854d1f3be7d9eb0a7e4c96cc3548426864876e0f034e27e16a",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.Character"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.coefficientAction_reflection",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v]\"",
+        "type": "5b6c1815ad797df63d2acdcf6b292610069ef1486c6e1a9b194d66cd4b6c1186",
+        "kind": "theorem",
+        "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"
+      },
+      "new": {
+        "levels": "\"[`u, `v]\"",
+        "type": "ff08f3912d14378e164732bdb2dba190c46addce01d430fb6b9c561f7edd5f63",
+        "kind": "theorem",
+        "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.embedLinear.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u]\"",
+        "type": "b309f0cf6a3057c0502da152a37ee0d7bf7d72f1d7fe22da22a8d2cad1d3e824",
+        "kind": "theorem",
+        "module": "OAI.KL.Localization.Edge"
+      },
+      "new": {
+        "levels": "\"[`u]\"",
+        "type": "5d2b2d3e6f8ece54715371ee4ddd48bad57886b975220b27d40ec02b0a2e955f",
+        "kind": "theorem",
+        "module": "OAI.KL.Localization.Edge"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.simplePositive.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v]\"",
+        "type": "c7af3978f13eec34e64883072c97a6bd95af4ef9edbaf9ad2da4761250b17a58",
+        "kind": "theorem",
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+      },
+      "new": {
+        "levels": "\"[`u, `v]\"",
+        "type": "29ce7fdcbd1403b1f0548c6d5c20057012f79b7017d9a559d13f9de267a5708e",
+        "kind": "theorem",
+        "module": "ForMathlib.GroupTheory.Coxeter.Roots.RatioOrder"
+      }
+    }
+  ],
+  "inherited_proof_alias_scope": {
+    "exact_aliases": 150,
+    "previous_modern_owners": 156,
+    "current_modern_owners": 261,
+    "alias_list_expanded": false,
+    "original_kind_required": "theorem",
+    "full_proposition_retained": true,
+    "pre_scope_raw_difference_file": "ordinary-library-raw-diff.json",
+    "post_scope_raw_difference_file": "ordinary-library-v3-raw-diff.json"
+  },
+  "type_pairs": [
+    {
+      "name": "OAI.KLInvariance.TitsSpace.bottHeadPairCoordinates.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v]\"",
+        "type": "40ec50e779a747a824863ebe7dc56ff2355501d0437081e1204098209a2ec8f3",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.Stalks"
+      },
+      "new": {
+        "levels": "\"[`u, `v]\"",
+        "type": "8f83323b3321c9b2cf34c25afaf73774b6b92f43f253007b33c255557e4ebd9a",
+        "kind": "theorem",
+        "module": "OAI.KL.BottSamelson.Stalks"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.coefficientAction_reflection",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u, `v]\"",
+        "type": "5b6c1815ad797df63d2acdcf6b292610069ef1486c6e1a9b194d66cd4b6c1186",
+        "kind": "theorem",
+        "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"
+      },
+      "new": {
+        "levels": "\"[`u, `v]\"",
+        "type": "9776e80a08445499a0894dacca861220d5c6930cc30456eaddc097889eb3e652",
+        "kind": "theorem",
+        "module": "ForMathlib.RepresentationTheory.BottSamelson.TitsWords"
+      }
+    },
+    {
+      "name": "OAI.KLInvariance.TitsSpace.embedLinear.eq_1",
+      "field": "type",
+      "old": {
+        "levels": "\"[`u]\"",
+        "type": "b309f0cf6a3057c0502da152a37ee0d7bf7d72f1d7fe22da22a8d2cad1d3e824",
+        "kind": "theorem",
+        "module": "OAI.KL.Localization.Edge"
+      },
+      "new": {
+        "levels": "\"[`u]\"",
+        "type": "5d2b2d3e6f8ece54715371ee4ddd48bad57886b975220b27d40ec02b0a2e955f",
+        "kind": "theorem",
+        "module": "OAI.KL.Localization.Edge"
+      }
+    }
+  ],
+  "actual_old_types_checked": 120,
+  "actual_old_helpers_checked": 53,
+  "directed_rw_simp_checked": 10
+}

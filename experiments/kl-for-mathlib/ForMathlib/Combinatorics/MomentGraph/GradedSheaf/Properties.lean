@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Reindex
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Properties. Source spans: GradedSheaves:6.
 See migration.json and MIGRATION.md for exact provenance.
@@ -17,17 +20,17 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   {V E W F : Type um} [PartialOrder V] [PartialOrder W]
   {G : OrderedGraph V E} {H : OrderedGraph W F}
 
- def FreeStalks (B : GradedSheaf (𝓐 := 𝓐) G) : Prop := ∀ x, Module.Free A (B.vertex x)
+ @[expose] def FreeStalks (B : GradedSheaf (𝓐 := 𝓐) G) : Prop := ∀ x, Module.Free A (B.vertex x)
 
 /-- The genuine upper-end quotient rule, expressed without choosing a quotient
 presentation of the edge object. -/
- def UpperQuotient (B : GradedSheaf (𝓐 := 𝓐) G) (α : E → A) : Prop :=
+ @[expose] def UpperQuotient (B : GradedSheaf (𝓐 := 𝓐) G) (α : E → A) : Prop :=
   ∀ e, Function.Surjective (B.upper e).map ∧
     ∀ v, (B.upper e).map v = 0 ↔ ∃ w, v = α e • w
 
 /-- Minimality of the full outgoing boundary cover. The assignment formulation
 avoids dependent casts and is equivalent to the usual kernel containment. -/
- def KernelMinimal (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) : Prop :=
+ @[expose] def KernelMinimal (B : GradedSheaf (𝓐 := 𝓐) G) (x : V) : Prop :=
   ∀ f : B.forget.Assignment,
     (∀ e, G.source e = x → B.forget.lower e (f (G.source e)) = 0) →
     f x ∈ positiveIdeal 𝓐 • (⊤ : Submodule A (B.vertex x))

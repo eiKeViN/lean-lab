@@ -1,8 +1,11 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Flat.Kernel
-import ForMathlib.Algebra.Module.Localization.Membership
-import ForMathlib.Algebra.Module.Submodule.ProductScaling
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Flat.Kernel
+public import ForMathlib.Algebra.Module.Localization.Membership
+public import ForMathlib.Algebra.Module.Submodule.ProductScaling
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages. Source spans: TerminalKernels:14, TerminalKernels:7, TerminalKernels:1, TerminalKernels:18, TerminalKernels:2.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -18,7 +21,7 @@ variable {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
 noncomputable section
 open scoped Classical
 
- def outgoingLabelProduct (α : E → R) (x : V) (F : Set (Outgoing (G := G) x)) : R :=
+ @[expose] def outgoingLabelProduct (α : E → R) (x : V) (F : Set (Outgoing (G := G) x)) : R :=
    ∏ f ∈ F.toFinite.toFinset, α f.val
 
  theorem outgoingLabelProduct_dvd (α : E → R) (x : V) (F : Set (Outgoing (G := G) x))
@@ -57,7 +60,7 @@ variable {R : Type ur} [CommRing R] (S : Type us) [CommRing S] [Algebra R S]
   (B : Sheaf.{ur,uv,ue,um} (R := R) G)
 noncomputable section
 
- def kernelConstraint (x : V) (F : Set (Outgoing (G := G) x)) :
+ @[expose] def kernelConstraint (x : V) (F : Set (Outgoing (G := G) x)) :
     B.vertex x →ₗ[R] (∀ e : F, B.edge e.val.val) :=
   LinearMap.pi (fun e => (LinearMap.proj e.val).comp (B.stalkMap x))
 

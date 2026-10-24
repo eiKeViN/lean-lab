@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Algebra.Module.Graded.ModuleData.Character
-import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
+module
+public import Mathlib
+public import ForMathlib.Algebra.Module.Graded.ModuleData.Character
+public import ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character. Source spans: Decomposition:1.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -15,7 +18,7 @@ variable {k : Type uk} [Field k] {σ : Type us} [Finite σ]
   {V E : Type um} [PartialOrder V] {G : OrderedGraph V E}
 noncomputable section
 
- def freeStalkChar (B : GradedSheaf (𝓐 := polynomialGrading k σ) G)
+ @[expose] def freeStalkChar (B : GradedSheaf (𝓐 := polynomialGrading k σ) G)
     (hf : ∀ x, Module.Free (MvPolynomial σ k) (B.vertex x)) (x : V) : Polynomial ℤ := by
   let := hf x
   exact (B.vertex x).char

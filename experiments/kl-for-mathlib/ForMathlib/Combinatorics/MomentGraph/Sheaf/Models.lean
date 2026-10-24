@@ -1,5 +1,8 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.Products
+
+public section
 
 /-! Semantic home: ForMathlib.Combinatorics.MomentGraph.Sheaf.Models. Source spans: CharacterReciprocity:6, CharacterReciprocity:7.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -108,7 +111,7 @@ variable {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
   {E : Type ue} {G : OrderedGraph V E}
 
 /-- Equality of embedded images with a scalar on the upper image. -/
-def ScaledImages (B : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
+@[expose] def ScaledImages (B : Sheaf.{ur,uv,ue,uz} (R := R) G) (e : E)
     (F : Set (Outgoing (G := G) (G.source e)))
     (H : Set (Outgoing (G := G) (G.target e))) (r : R) : Prop :=
   ∀ z : B.edge e,

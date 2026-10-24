@@ -1,0 +1,96 @@
+# 剩余 105 个 module 迁移与生成名契约调整
+
+本轮从已验收的 `382d29d94aaa8e32bcdeb24633f070d29695dcc3` 延续
+`codex/module-next-region`，不创建 PR、不合并 main。`8769a93203b1324ad7c47dde972d278dff86f146`
+只交付过声明清单；该清单中的八项公共兼容定义提案已撤回，未作为生产补丁提交。
+用户随后明确同意八个生成名退出稳定公共契约。这是有界的源码接口破坏，不能称为完全兼容。
+
+固定 Lean 4.34.1 / `5045d0056413266e57c625dcd7c365b10e377c52`，Mathlib
+`d13f23b723b8a846827a245b89c10fc7d3f11612`。继续使用唯一维护项目和已有官方 cache，
+没有升级依赖或从源码全编 Mathlib。初始化没有重跑，不能把本轮 warm 成本当作 fresh 初始化成本；token 无遥测，不可得。
+
+## 八项明确退出的名字
+
+完整限定名、旧 Lean 类型及实际 recursor 正文见 [历史声明清单](matcher-compat-declarations.md)。
+清单保留作证据，不再代表拟交付的兼容定义。机器登记 `module-all-interface.json` 逐项固定
+旧 levels/type hash/kind/owner，不使用 match_N 正则或未来自动豁免。
+
+| 完整名字（均以 `OAI.KLInvariance.` 为前缀） | 旧辅助操作 | 保留的实际接口 |
+| --- | --- | --- |
+| `CoefficientChange.ext.match_1` | 包装结构的 Prop 消去 | `CoefficientChange.ext`、`casesOn`、`mk`、`val`、`equivVal` |
+| `LocalCover.splitEquiv.match_3` | `P × ker g` 的 Prop 消去 | `splitEquiv` 正反向计算；标准 `Prod.casesOn` |
+| `MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_1` | `∃ w, α d • w = v` 的依赖 Prop 消去 | `extendBottom_upperQuotient`；标准 `Exists.elim`/`rcases` |
+| `MomentGraph.GradedSheaf.extendBottom_upperQuotient.match_1_3` | `∃ w, v = α d • w` 的依赖 Prop 消去 | 同上，等式方向由调用处表达 |
+| `ReflectionFrobenius.wallCoordinate_injective.match_1_2` | `Fin 2 × ι` 的 Prop 消去 | `wallCoordinate_injective`、`wallCoordinate`；标准积消去 |
+| `ReflectionFrobenius.wallMatrix_mulVec.match_1_1` | `Fin 2 × ι` 的 Prop 消去 | `wallMatrix_mulVec`、`wallMatrix`；标准积消去 |
+| `ReflectionPairTranslation.Twist.ext.match_1` | Twist 包装结构的 Prop 消去 | `Twist.ext`、`casesOn`、`mk`、`val`、`equivVal` |
+| `TitsSpace.exists_common_transverse.match_1_1` | `(E×E) ⊕ (Bool×E×E×E)` 的 Sort 消去 | 公共存在性定理、`rootDifference`、`wallVector`；标准 Sum/Prod 消去 |
+
+第八项确实能计算，不能把它误称为纯证明项。但实际源中的 E/A/v 仅为单个证明向
+`exists_avoiding_functional` 提供索引：左支 rootDifference，右支 wallVector。保持局部即可，
+没有独立用途需要新增公共归纳类型或八个语义包装。旧生产源码对八名的直接引用为零；外部引用者仍须修改调用。
+
+新增的唯一生成名 `OAI.KLInvariance.LocalCover.splitEquiv.match_6` 与实际旧 match_3 的类型、正文
+定义相等，且具有 matcher 元数据。它是编译器编号变化，不作为数学 API 扩张或稳定新操作。
+其他生成名仍检查，例如本轮保留的 `TitsSpace.bottDegree.match_1` 通过旧正文比较和普通消费者 rfl。
+本轮没有批准或实施“所有生成名均可丢弃”的政策。
+
+## 生产改动和私有边界
+
+105 个生产文件作 module/public import/public section/expose 迁移；数学正文唯一变化是 Structure
+中两处 `(quotientLinear α e)` 内联为 `((Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap)`。
+原 private helper 保持 private。没有公开 helper、撤销 expose、改写 stalkMap 证明或添加数学定理。
+逐文件输入/输出 SHA256 和精确编辑保存在 `module-all.json`；源检查组合此前所有层，其他正文改动会失败。
+
+撤回的 run_elab 公共补名方案连同完整 patch、计划、两处失败日志保留在证据中。其早期 generic toy 通过
+不等于真实八项交付；实际54根编译在 CoefficientChange/Twist 名称解析处失败。撤回后同54根编译全通过。
+
+## 表达式、名称和实际使用的证据
+
+完整导出继续使用原 exporter/compare_types.py 与原历史基线，不刷新基线。
+实际旧3947名的处置应逐项核算：3939名保留、8名明确退休、1个生成项新增，实际导出3940条。
+完整原始差异单独保留；继承的156模块检查使用明确标记的 prior-contract view，绝不把恢复的历史登记当作当前可访问声明。
+每个继承比较均附八项破坏与新增登记，且最终实际3940记录审计是必需步骤。
+
+ForMathlib 完整区域比较为3150→3143：8 missing、1 added、0 owner change，另有
+`TitsSpace.coefficientAction_reflection` 一项 type hash 变化（5b6c1815…→9776e80a…）。
+实际旧类型在普通现代消费者中可用，并通过定义相等、按旧类型使用当前证明、rw/simp 和公理检查。
+这不是命题逻辑不等价的证据，也不产生任何全局 defeq 豁免。
+
+普通导出的隔离诊断保留两种原始视图。沿用旧156 proof-owner范围时有117个表达式差异；
+仅把范围更新为当前261模块、保持原150个精确 proof-alias 名单、原 theorem-kind 条件和完整命题表达式后剩7项。
+没有增加通配 proof/matcher 规则，也没有任意展开数学定义。115项实际旧类型均另行提取，导出指纹与旧完整基线115/115匹配，
+并在普通现代 imports 下逐项通过旧类型使用、kernel、isDefEq 和三公理检查；40个实际旧 helper 的类型/正文在新名字下内核检查。
+余下两项视图差异已有上一轮精确证据。ForMathlib 七个、完整十二个普通视图 pair 另以完整旧新记录和实际表达式固定，其他差异拒绝。
+
+保留了 bottWeight.eq_def 的失败控制：把仍保留的公共 matcher 引用替换成新审计名字后默认 isDefEq 失败，具体 Meta 比较路径尚未最小化。
+这属于引入额外审计常量后的失败，不能直接归因于生产 API；历史调用应保留其公共名字。保留后115项通过。另外独立比较旧新 matcher 正文并测试普通消费者 rfl，
+而不是把失败静默删除或给该 matcher 增加豁免。
+
+Structure 的135个历史名/类型、20个旧 helper 的内核重建，以及 vertex/upper/lower/base-change 的 rfl/rw/simp
+都在当前105候选下通过；唯一不可访问者为上述 LocalCover 旧 matcher。原 private quotientLinear 的封装和计算承诺均受定向检查保护。
+
+## 完整验收与重跑
+
+当前为可审阅的代码/局部证据检查点：9186-job 完整构建、261生产源绑定、静态保护已通过；完整集成验收仍待最终重跑，不能把检查点称为交付完成。
+
+完整原始3947→3940导出还有两项仅在OAI范围出现的type pair：bottHeadPairCoordinates.eq_1（40ec50e7…→8f83323b…）与embedLinear.eq_1（b309f0cf…→5d2b2d3e…）。三项完整pair和十二项普通pair均登记在 [固定接口登记](../experiments/kl-for-mathlib/module-all-interface.json)。
+
+补取5项OAI实际旧类型后，合计120/120指纹匹配旧基线；53个旧helper、120项普通现代旧类型使用以及10项实际用规则的rw/simp已通过。OAI五项的原defeq/backward_defeq属性及OnHom equation属性通过比较。embedLinear的旧方程由旧GraphEmbedding生产者生成，历史owner仍固定为Edge；没有owner豁免。embedLinear及bottHeadPairCoordinates的实际toFun另有普通消费者rfl控制。
+
+本次检查点的完整集成失败是新增检查漏导入Cover.Local，已修正；初次新单测还因mock覆盖了编译器版本查询而失败，已修正并通过定向变异测试。这些失败不是生产API证明，通过记录与原失败均将随最终证据归档。
+
+在已初始化仓库执行：
+
+```sh
+source scripts/env.sh
+scripts/check.sh static
+scripts/check.sh warm
+```
+
+新机器先执行 `scripts/setup.sh` 获取固定版本和官方 cache。`warm` 要求已有 ForMathlib/OAI 工件就绪，
+不是用旧日志代替编译。完整构建与审计输入身份、实际日志、失败控制、原始 TSV/差异和成本见 `reports/evidence/module-completion/`。
+历史快照比较属于证据回放；本轮源提取说明了哪些旧表达式另行真实 elaboration，不声称重编了完整历史环境。
+
+检查范围包括完整记录与公理、普通 module 名称和原 kind、历史类型、定向归约、全部实际 OAI 下游以及原有回归。
+它不能证明任意未知外部脚本从不引用生成名；上述八项外部源码破坏是明确交付边界。

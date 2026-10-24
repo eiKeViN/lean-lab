@@ -225,7 +225,8 @@ def compare_export(path):
     prior = json.loads(LIBRARY_TYPES.read_text())
     if any(expected.get(k) != v for k,v in prior.items()):
         raise RuntimeError('Changed retained prior-round added types')
-    all_types = load(path, 3902+len(p['additions']))
+    from module_all import load_prior_view
+    all_types = load_prior_view(path)
     old = load_snapshot(HERE/'reference-public-types.json')
     if set(all_types) != set(old)|set(expected) or set(old)&set(expected):
         raise RuntimeError('Missing old API or unlisted new public declaration')
@@ -237,7 +238,7 @@ def compare_export(path):
     remaining,accepted=accept_historical(result,all_types)
     try:accepted += [] if remaining['passed'] else [accept_change(remaining)]
     except RuntimeError as e:raise RuntimeError('Old API or explicit added types changed: '+str(e)) from e
-    return dict(old_api=result, additions=additions, accepted_representation_changes=accepted, passed=True)
+    return dict(**__import__('module_all').contract_summary(),old_api=result, additions=additions, accepted_representation_changes=accepted, passed=True)
 
 def check_pilot_axioms(text):
     p = policy(); expected = set(p['additions'] + p['changed_declarations'])

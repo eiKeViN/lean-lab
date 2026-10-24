@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder
-import ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder
+module
+public import Mathlib
+public import ForMathlib.GroupTheory.Coxeter.Roots.ReflectionOrder
+public import ForMathlib.RepresentationTheory.Hecke.DyerPaths.LexicographicOrder
+
+public section
 
 /-! Semantic home: ForMathlib.RepresentationTheory.Hecke.DyerPaths.Wall. Source spans: ReflectionOrders:8, ReflectionOrders:9.
 See migration.json and MIGRATION.md for exact provenance. -/
@@ -17,18 +20,18 @@ variable {I : Type u} [Fintype I] {M : CoxeterMatrix I}
 noncomputable section
 local instance _root_.OAI.KLInvariance.WallDyer.instDecidable_oAI (p : Prop) : Decidable p := Classical.propDecidable p
 
-def rootValue (f : Module.Dual ℝ (I → ℝ)) (e : Edge cs) : ℝ :=
+@[expose] def rootValue (f : Module.Dual ℝ (I → ℝ)) (e : Edge cs) : ℝ :=
   f (normalizedRoot (rootLabel cs e))
 
-def rootPlaneTies (f : Module.Dual ℝ (I → ℝ)) : Prop :=
+@[expose] def rootPlaneTies (f : Module.Dual ℝ (I → ℝ)) : Prop :=
   ∀ a b : PositiveRoot M cs, a ≠ b → f (normalizedRoot a)=f (normalizedRoot b) →
     ∀ c : PositiveRoot M cs, f (normalizedRoot c)=f (normalizedRoot a) ↔
       c.val ∈ rootPlane a b
 
-def schedule (f : Module.Dual ℝ (I → ℝ)) (b : W) : List (Edge cs) :=
+@[expose] def schedule (f : Module.Dual ℝ (I → ℝ)) (b : W) : List (Edge cs) :=
   sortedSchedule (edgeFinset cs b) (lexEdgeScore f)
 
-def entry {R : Type*} [Semiring R] (T : R) (f : Module.Dual ℝ (I → ℝ))
+@[expose] def entry {R : Type*} [Semiring R] (T : R) (f : Module.Dual ℝ (I → ℝ))
     (b x y : W) : R :=
   dispatch (source cs) (target cs) T (fun z => if z=y then 1 else 0) (schedule f b) x
 

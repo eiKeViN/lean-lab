@@ -1,6 +1,9 @@
-import Mathlib
-import ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages
-import OAI.KL.Localization.Plane
+module
+public import Mathlib
+public import ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages
+public import OAI.KL.Localization.Plane
+
+public section
 
 /-! Semantic home: OAI.KL.Localization.TerminalImages. Source spans: TerminalKernels:4, TerminalKernels:3, TerminalKernels:5, TerminalKernels:8.
 See migration.json and MIGRATION.md for exact provenance. -/
