@@ -1,0 +1,9 @@
+⚠ [8927/8956] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8928/8956] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+✔ [8955/8956] Built ForMathlib.Algebra.Module.Graded.ModuleData.Range (4.2s)
+✔ [8956/8956] Built ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand (5.9s)
+Build completed successfully (8956 jobs).

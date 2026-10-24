@@ -1,0 +1,20 @@
+--- before/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
++++ after/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
+@@ -58,8 +58,16 @@
+     (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (m : M) :
+     (rangeMap e f g h).map ((rangeProjection e).map m) =
+       (rangeProjection f).map (g.map m) := by
++  let F : M →ₗ[A] range f := f.map.rangeRestrict.comp g.map
++  have hk : LinearMap.ker e.map ≤ LinearMap.ker F := by
++    intro m hm
++    apply Subtype.ext
++    exact (h m).trans ((congrArg g.map (LinearMap.mem_ker.mp hm)).trans (map_zero g.map))
+   apply Subtype.ext
+-  exact (h m).symm
++  change ((LinearMap.ker e.map).liftQ F hk
++    (e.map.quotKerEquivRange.symm ⟨e.map m,⟨m,rfl⟩⟩)).val = f.map (g.map m)
++  rw [LinearMap.quotKerEquivRange_symm_apply_image]
++  rfl
+ 
+ /-- The map induced on ranges agrees with the original commuting map. -/
+ @[simp] theorem rangeMap_val (e : Hom M M) (f : Hom N N) (g : Hom M N)

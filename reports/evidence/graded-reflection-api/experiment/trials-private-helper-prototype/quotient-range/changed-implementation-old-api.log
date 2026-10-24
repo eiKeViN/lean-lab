@@ -1,0 +1,50 @@
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:35:2: error: Type mismatch
+  h m
+has type
+  f.map (g.map m) = g.map (e.map m)
+but is expected to have type
+  ↑((e.map.ker.liftQ (f.map.rangeRestrict ∘ₗ g.map) ⋯ ∘ₗ ↑e.map.quotKerEquivRange.symm) ⟨e.map m, ⋯⟩) = g.map (e.map m)
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:33:31: warning: This simp argument is unused:
+  LinearMap.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rangeViaQuotient, LinearMap.quotKerEquivRange_symm_apply_image, Submodule.liftQ_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:34:4: warning: This simp argument is unused:
+  LinearMap.quotKerEquivRange_symm_apply_image
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rangeViaQuotient, LinearMap.comp_apply, Submodule.liftQ_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:34:50: warning: This simp argument is unused:
+  Submodule.liftQ_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rangeViaQuotient, LinearMap.comp_apply, LinearMap.quotKerEquivRange_symm_apply_image]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:39:9: error(lean.unknownIdentifier): Unknown identifier `rangeViaQuotient`
+
+Note: A private declaration `rangeViaQuotient` (from the current module) exists but would need to be public to access here.
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:37:15: error: (kernel) declaration has metavariables 'OAI.KLInvariance.Graded.ModuleData.rangeMap'
+ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean:56:55: error: Tactic `rfl` failed: The left-hand side
+  ↑((rangeMap e f g h).map v)
+is not definitionally equal to the right-hand side
+  g.map ↑v
+
+k : Type uk
+inst✝³ : Field k
+A : Type ua
+inst✝² : CommRing A
+inst✝¹ : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝ : IsNoetherianRing A
+M N : ModuleData 𝓐
+e : M.Hom M
+f : N.Hom N
+g : M.Hom N
+h : ∀ (m : ↑M.obj), f.map (g.map m) = g.map (e.map m)
+v : ↑(range e).obj
+⊢ ↑((rangeMap e f g h).map v) = g.map ↑v

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/graded_reflection_trial.py", line 115, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/graded_reflection_trial.py", line 98, in main
+    run('changed-implementation-repaired-api',producer,True,dest);shadows[producer]=dest
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/graded_reflection_trial.py", line 88, in run
+    if expected is not None and (r.returncode==0)!=expected:raise RuntimeError('Unexpected result: '+kind+'/'+label)
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unexpected result: quotient-range/changed-implementation-repaired-api

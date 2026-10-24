@@ -1,0 +1,42 @@
+API evolution: all selected interfaces retain exposed bodies.
+'OAI.KLInvariance.CoefficientChange.val_zero' depends on axioms: [propext, Quot.sound]
+'OAI.KLInvariance.CoefficientChange.val_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.CoefficientChange.val_mapEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Graded.ModuleData.val_changeHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_lower_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_upper_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_compatibleOn_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChangeSections_symm_val_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.PerfectPairing.coefficientChange_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.coefficientChange' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_upperQuotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_flabby' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChange_generated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.coefficientChangeSections' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.PerfectPairing.coefficientChange' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SymmetricPerfectPairing.coefficientChange' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.CoefficientChange.pairingEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]

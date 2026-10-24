@@ -1,6 +1,9 @@
 # Graded / reflection API experiment（第四轮）
 
-状态：局部及完整9186-job构建、两种隔离试验、完整接口核对通过；最终全量门禁待验收。
+状态：完成。完整构建、两种冻结客户端试验及78阶段全量检查全部通过。
+执行代码与输入绑定：`31c6f7ca02b1b30d20c978a467517c9c0c362def`。
+数学源码与已独立复核的`857aceb5f6095b8a204cc64fcc0c32c01836e2a2`一致；
+接口登记与`803d94528e6ebb0601ae3e206ec9b039eb972b8b`一致，后续提交仅报告/证据。
 基点`a797fbc1300142c56c18ebfaa0ae84b357bc4b3d`，分支
 `experiment/graded-reflection-api-20261024`。main及先前三轮分支保留，不建PR、不合并。
 [发现索引](../experiments/kl-for-mathlib/API-GUIDE.md)列出完整命名、语义及来源。
@@ -30,6 +33,17 @@ shift和costalk现有接口较多，本轮不重复铺开。跨对象张量规�
 
 实际lower证明为`(ModuleData.rangeMap_projection (h.vertex _) (h.edge e) (B.lower e) (h.lower e) v).symm`，
 upper对称。一般rangeMap_val改为由此方块和projection求值推导，而不继续依赖rfl。
+
+原样结构字段摘录，外层上下文省略：
+
+旧版：
+```lean
+  lower e v := Subtype.ext (h.lower e v)
+```
+新版：
+```lean
+  lower e v := (ModuleData.rangeMap_projection (h.vertex _) (h.edge e) (B.lower e) (h.lower e) v).symm
+```
 旧imageSplit/imageSection_fixed拆range成员见证；新证明复用range_fixed和求值API。
 旧sections_split逐点计算；新证明改用sectionMap_comp、projection_comp_inclusion、sectionMap_id。
 原projector幂等性经projector求值和已有split规律得到。
@@ -54,7 +68,8 @@ retraction、range_fixed、成员iff和一般张量自然性保持显式调用�
 第一种不是加零或换binder：从restriction改为quotient诱导，API方块直接表达两者相同的数学操作。
 第二种是image见证与fiber-product关系两种自然表述；copy保留线性闭合性证据，
 不声称重新构造了完整范畴pullback。两条API分别对所有输入/所有lattice向量给出原语义。
-每次均冻结整文件SHA、重新elaboration，确认源码、冻结客户端及所记录的正常.olean*工件hash恢复。
+每次均冻结整文件SHA、重新elaboration；最后确认临时源码恢复、冻结客户端字节未变，
+所记录的正常.olean*工件也未变。
 试验只覆盖所列链，未全库重编译变体或承诺所有生成eq_1/helper兼容；正式实现另做全库验收。
 
 直接压力收益落在range交换方块和lattice成员边界。截面、projector、一般张量自然性有真实调用，
@@ -85,6 +100,30 @@ python3 graded_reflection_trial.py
 修复只在这一条历史比较前调用api_reflection.prior_source；原迁移规则、plan和基准均未改变，
 当前产品仍必须等于本轮六文件精确overlay，任意未登记变动仍被拒绝。
 修复后含剩余源码/比较器测试的91项Python回归全部通过。数学源码、接口记录与扰动脚本不变。
-接下来重跑检查链，沿用已完成的生产构建，不重编译未变的大模块；最终结果与输入绑定待补。
+修复后的完整检查链78阶段全部通过，耗时487.369秒，最大子进程RSS 7779600 KiB，
+最后缓存热检查3.492秒。沿用已完成的生产构建，没有再次编译生产模块。
+普通现代import、36项公理闭包、完整/普通接口、各轮精确源码/类型与全部适用回归通过；
+无sorry、新增公理或既有数学类型契约变化，无未解决阻塞。
 复用固定Lean4.34.1/5045d005与Mathlib d13f23b7的已初始化缓存，未全编Mathlib或更新pins。
 记录阶段墙钟与RSS，包含编译锁等待；不估造冷构建或性能收益。token无遥测，不估造。
+
+
+## 固定证据
+
+- [78阶段命令、退出码和成本](evidence/graded-reflection-api/accepted/stages.json.gz)，
+  [最终检查成本](evidence/graded-reflection-api/experiment/acceptance.json)
+- [完整构建成本](evidence/graded-reflection-api/experiment/full-build.json)，
+  [49模块重编译记录](evidence/graded-reflection-api/experiment/build-coverage.json)
+- [完整接口原始差异](evidence/graded-reflection-api/experiment/raw-interface-diff.json)，
+  [精确22条记录核对](evidence/graded-reflection-api/accepted/api-reflection-full-records.log)
+- [quotient-range旧新对照](evidence/graded-reflection-api/experiment/trials/quotient-range/comparison.json)，
+  [relational-lattice旧新对照](evidence/graded-reflection-api/experiment/trials/relational-lattice/comparison.json)
+- [首次失败检查链](evidence/graded-reflection-api/experiment/acceptance-before-rollout-view-fix/stages.json.gz)，
+  [测试适配后的91项回归](evidence/graded-reflection-api/experiment/rollout-view-fix.log)
+- [414项输入哈希与版本](evidence/graded-reflection-api/accepted-inputs.json)，
+  [266份证据的原始/压缩SHA256](evidence/graded-reflection-api/manifest.json)
+
+原始严格比较器因任何新增而显示passed=false；本轮核对器要求精确22条新增完全匹配才接受。
+accepted只收本次成功检查的日志/导出；实现初稿失败及首次全量失败在experiment中分开保留。
+已核对证据哈希、报告/索引链接、输入工作树与Git提交字节，以及两组冻结客户端的输入身份。
+最终提交相对执行代码仅增报告/证据。main仍为178ccf2，前三轮分支保留，未创建PR或合并。

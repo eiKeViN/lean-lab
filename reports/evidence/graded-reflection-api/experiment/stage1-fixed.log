@@ -1,0 +1,317 @@
+⚠ [8933/8956] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8934/8956] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [8956/8956] Building ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand (4.8s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:213:45: don't know how to synthesize placeholder for argument `h`
+context:
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(h.image.vertex (G.target e)).obj
+⊢ ∀ (m : ↑(B.vertex (G.target e)).obj),
+    (ModuleData.Hom.map (?m.142 imageInclusion h e v)) ((B.upper e).map m) =
+      (B.upper e).map ((h.vertex (G.target e)).map m)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:213:41: don't know how to synthesize placeholder for argument `f`
+context:
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(h.image.vertex (G.target e)).obj
+⊢ (B.edge e).Hom (B.edge e)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:212:45: don't know how to synthesize placeholder for argument `h`
+context:
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(h.image.vertex (G.source e)).obj
+⊢ ∀ (m : ↑(B.vertex (G.source e)).obj),
+    (ModuleData.Hom.map (?m.140 imageInclusion h e v)) ((B.lower e).map m) =
+      (B.lower e).map ((h.vertex (G.source e)).map m)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:212:41: don't know how to synthesize placeholder for argument `f`
+context:
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(h.image.vertex (G.source e)).obj
+⊢ (B.edge e).Hom (B.edge e)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:222:8: don't know how to synthesize implicit argument `a`
+  @Eq.symm (↑(B.edge e).obj)
+    (↑((ModuleData.rangeMap (h.vertex (G.source e)) (h.edge e) (B.lower e) ?m.169).map
+        ((ModuleData.rangeProjection (h.vertex (G.source e))).map v)))
+    ((B.lower e).map ((h.vertex (G.source e)).map v))
+    (Eq.trans
+      (ModuleData.rangeMap_val (h.vertex (G.source e)) (h.edge e) (B.lower e) ?m.169
+        ((ModuleData.rangeProjection (h.vertex (G.source e))).map v))
+      (congrArg (⇑(B.lower e).map) (ModuleData.rangeProjection_val (h.vertex (G.source e)) v)))
+context:
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(B.vertex (G.source e)).obj
+⊢ ↑(B.edge e).obj
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:222:9: don't know how to synthesize implicit argument `a`
+  @Eq.trans (↑(B.edge e).obj)
+    (↑((ModuleData.rangeMap (h.vertex (G.source e)) (h.edge e) (B.lower e) ?m.169).map
+        ((ModuleData.rangeProjection (h.vertex (G.source e))).map v)))
+    ((B.lower e).map ↑((ModuleData.rangeProjection (h.vertex (G.source e))).map v))
+    ((B.lower e).map ((h.vertex (G.source e)).map v))
+    (ModuleData.rangeMap_val (h.vertex (G.source e)) (h.edge e) (B.lower e) ?m.169
+      ((ModuleData.rangeProjection (h.vertex (G.source e))).map v))
+    (congrArg (⇑(B.lower e).map) (ModuleData.rangeProjection_val (h.vertex (G.source e)) v))
+context:
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(B.vertex (G.source e)).obj
+⊢ ↑(B.edge e).obj
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:222:40: don't know how to synthesize placeholder for argument `h`
+context:
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(B.vertex (G.source e)).obj
+⊢ ∀ (m : ↑(B.vertex (G.source e)).obj),
+    (h.edge e).map ((B.lower e).map m) = (B.lower e).map ((h.vertex (G.source e)).map m)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:218:15: unsolved goals
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(B.vertex (G.source e)).obj
+⊢ ↑((ModuleData.rangeProjection (h.edge e)).map ((B.lower e).map v)) =
+    ↑((h.image.lower e).map ((ModuleData.rangeProjection (h.vertex (G.source e))).map v))
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:224:15: unsolved goals
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+e : E
+v : ↑(B.vertex (G.target e)).obj
+⊢ ↑((ModuleData.rangeProjection (h.edge e)).map ((B.upper e).map v)) =
+    ↑((h.image.upper e).map ((ModuleData.rangeProjection (h.vertex (G.target e))).map v))
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:239:6: Application type mismatch: The argument
+  Eq.trans (congrArg (⇑(h.vertex x).map) (ModuleData.rangeInclusion_apply (h.vertex x) v))
+    (ModuleData.range_fixed (h.vertex x) (hv x) v)
+has type
+  (h.vertex x).map ((ModuleData.rangeInclusion (h.vertex x)).map v) = ↑v
+but is expected to have type
+  (h.vertex x).map ((h.imageInclusion.vertex x).map v) = ↑v
+in the application
+  Eq.trans (ModuleData.rangeProjection_val (h.vertex x) ((h.imageInclusion.vertex x).map v))
+    (Eq.trans (congrArg (⇑(h.vertex x).map) (ModuleData.rangeInclusion_apply (h.vertex x) v))
+      (ModuleData.range_fixed (h.vertex x) (hv x) v))
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:244:6: Application type mismatch: The argument
+  Eq.trans (congrArg (⇑(h.edge e).map) (ModuleData.rangeInclusion_apply (h.edge e) v))
+    (ModuleData.range_fixed (h.edge e) (he e) v)
+has type
+  (h.edge e).map ((ModuleData.rangeInclusion (h.edge e)).map v) = ↑v
+but is expected to have type
+  (h.edge e).map ((h.imageInclusion.edge e).map v) = ↑v
+in the application
+  Eq.trans (ModuleData.rangeProjection_val (h.edge e) ((h.imageInclusion.edge e).map v))
+    (Eq.trans (congrArg (⇑(h.edge e).map) (ModuleData.rangeInclusion_apply (h.edge e) v))
+      (ModuleData.range_fixed (h.edge e) (he e) v))
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:269:2: Type mismatch
+  Eq.trans (congrArg (⇑(h.vertex x).map) (ModuleData.rangeInclusion_apply (h.vertex x) (↑f x)))
+    (Eq.trans (ModuleData.range_fixed (h.vertex x) (hv x) (↑f x))
+      (Eq.symm (ModuleData.rangeInclusion_apply (h.vertex x) (↑f x))))
+has type
+  (h.vertex x).map ((ModuleData.rangeInclusion (h.vertex x)).map (↑f x)) =
+    (ModuleData.rangeInclusion (h.vertex x)).map (↑f x)
+but is expected to have type
+  (h.vertex x).map ((h.imageInclusion.vertex x).map (↑f x)) = (h.imageInclusion.vertex x).map (↑f x)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:287:4: Type mismatch
+  congrFun (congrArg Subtype.val (congrArg Subtype.val hfg)) x
+has type
+  ↑↑((h.imageSectionMap hv Ω) f) x = ↑↑((h.imageSectionMap hv Ω) g) x
+but is expected to have type
+  ↑(↑f x) = ↑(↑g x)
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:292:4: Tactic `rfl` failed: The left-hand side
+  ↑↑((h.imageSectionMap hv Ω) ((h.imageProjection.sectionMap Ω) m))
+is not definitionally equal to the right-hand side
+  ↑↑⟨(h.sectionMap Ω) m, ⋯⟩
+
+case right
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+inst✝¹ : IsNoetherianRing A
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+h : B.Hom B
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (h.vertex x).map ((h.vertex x).map v) = (h.vertex x).map v
+Ω : Set V
+m : ↥(B.forget.sections Ω)
+⊢ ↑↑((h.imageSectionMap hv Ω) ((h.imageProjection.sectionMap Ω) m)) = ↑↑⟨(h.sectionMap Ω) m, ⋯⟩
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:343:2: 'change' tactic failed, pattern
+  (s.projection.vertex x).map
+      ((s.inclusion.vertex x).map ((s.projection.vertex x).map ((s.inclusion.vertex x).map v))) =
+    v
+is not definitionally equal to target
+  (s.imageTo.vertex x).map ((s.toImage.vertex x).map v) = v
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:351:2: 'change' tactic failed, pattern
+  (s.projector.vertex x).map ((s.projector.vertex x).map ↑v) = ↑v
+is not definitionally equal to target
+  ↑((s.toImage.vertex x).map ((s.imageTo.vertex x).map v)) = ↑v
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:356:2: 'change' tactic failed, pattern
+  (s.projection.edge e).map ((s.inclusion.edge e).map ((s.projection.edge e).map ((s.inclusion.edge e).map v))) = v
+is not definitionally equal to target
+  (s.imageTo.edge e).map ((s.toImage.edge e).map v) = v
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:364:2: 'change' tactic failed, pattern
+  (s.projector.edge e).map ((s.projector.edge e).map ↑v) = ↑v
+is not definitionally equal to target
+  ↑((s.toImage.edge e).map ((s.imageTo.edge e).map v)) = ↑v
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:538:40: Tactic `rfl` failed: The left-hand side
+  (s.projector.vertex x✝).map v✝
+is not definitionally equal to the right-hand side
+  (p.vertex x✝).map v✝
+
+case hv
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+V E : Type um
+inst✝¹ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+inst✝ : IsNoetherianRing A
+p : B.Hom B
+hp : p.PrimitiveProjector
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (p.vertex x).map ((p.vertex x).map v) = (p.vertex x).map v
+he : ∀ (e : E) (v : ↑(B.edge e).obj), (p.edge e).map ((p.edge e).map v) = (p.edge e).map v
+s : p.image.SplitIn B := p.imageSplit hv he
+x✝ : V
+v✝ : ↑(B.vertex x✝).obj
+⊢ (s.projector.vertex x✝).map v✝ = (p.vertex x✝).map v✝
+error: ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean:538:40: Tactic `rfl` failed: The left-hand side
+  (s.projector.edge e✝).map v✝
+is not definitionally equal to the right-hand side
+  (p.edge e✝).map v✝
+
+case he
+k : Type uk
+inst✝⁴ : Field k
+A : Type ua
+inst✝³ : CommRing A
+inst✝² : Algebra k A
+𝓐 : ℤ → Submodule k A
+V E : Type um
+inst✝¹ : PartialOrder V
+G : OrderedGraph V E
+B : GradedSheaf G
+inst✝ : IsNoetherianRing A
+p : B.Hom B
+hp : p.PrimitiveProjector
+hv : ∀ (x : V) (v : ↑(B.vertex x).obj), (p.vertex x).map ((p.vertex x).map v) = (p.vertex x).map v
+he : ∀ (e : E) (v : ↑(B.edge e).obj), (p.edge e).map ((p.edge e).map v) = (p.edge e).map v
+s : p.image.SplitIn B := p.imageSplit hv he
+e✝ : E
+v✝ : ↑(B.edge e✝).obj
+⊢ (s.projector.edge e✝).map v✝ = (p.edge e✝).map v✝
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand
+error: build failed
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'build', 'ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand']' returned non-zero exit status 1.
