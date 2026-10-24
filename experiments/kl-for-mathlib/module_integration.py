@@ -111,7 +111,7 @@ def graph():
         spec=SPEC.get(path) or rollout['files'].get(path)
         if path in all_paths:
             if any(e['all'] or e['meta'] or not e['public'] for e in record['imports']):raise RuntimeError('Changed final105 import flags')
-            if (HERE/path).read_bytes()!=__import__('module_all').convert(path,__import__('module_all').baseline(path)):raise RuntimeError('Changed final105 source')
+            if __import__('semantic_api').prior_source(path,(HERE/path).read_bytes())!=__import__('module_all').convert(path,__import__('module_all').baseline(path)):raise RuntimeError('Changed final105 source')
             continue
         if path in final_paths:
             if any(e['all'] or e['meta'] or not e['public'] for e in record['imports']):raise RuntimeError('Changed final-module import flags')

@@ -152,8 +152,11 @@ omit [DirectSum.Decomposition 𝓐] [SetLike.GradedMonoid 𝓐] [IsDomain A] in
     (n : ℤ) (v : F) (hv : v ∈ F.piece n) :
     g.splitEquiv h hgh v ∈ (prod C (kernel g)).piece n := by
   constructor
-  · exact g.graded n v hv
-  · exact Submodule.sub_mem _ hv (h.graded n _ (g.graded n v hv))
+  · change (LocalCover.splitEquiv g.map h.map hgh v).1 ∈ C.piece n
+    exact (LocalCover.splitEquiv_apply_fst g.map h.map hgh v).symm ▸ g.graded n v hv
+  · change ((LocalCover.splitEquiv g.map h.map hgh v).2 : F) ∈ F.piece n
+    rw [LocalCover.splitEquiv_apply_snd_coe]
+    exact Submodule.sub_mem _ hv (h.graded n _ (g.graded n v hv))
 
 include hneg hzero in
  theorem Hom.kernel_free_of_split {F C : ModuleData.{uk,ua,um} 𝓐}
@@ -165,8 +168,9 @@ include hneg hzero in
     apply LinearMap.ext
     intro v
     apply Subtype.ext
-    change ((v : F) - h.map (g.map v))=v
-    rw [LinearMap.mem_ker.mp v.property,map_zero,sub_zero]
+    change ((LocalCover.splitEquiv g.map h.map hgh v).2 : F) = v
+    simp only [LocalCover.splitEquiv_apply_snd_coe,
+      LinearMap.mem_ker.mp v.property, map_zero, sub_zero]
   let : Module.Projective A (kernel g) := Module.Projective.of_split g.map.ker.subtype p hp
   obtain ⟨ι,hι,b,_⟩ := exists_homogeneous_basis_connected 𝓐 (kernel g).piece
     hneg hzero 0 (kernel g).nonneg

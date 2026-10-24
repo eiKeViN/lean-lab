@@ -23,8 +23,12 @@ noncomputable section
     [IsScalarTower k A N] (f : M ≃ₗ[A] N) : CoefficientChange e M ≃ₗ[B] CoefficientChange e N where
   toLinearMap := map e f.toLinearMap
   invFun n := mk (f.symm n.val)
-  left_inv m := CoefficientChange.ext (f.symm_apply_apply m.val)
-  right_inv n := CoefficientChange.ext (f.apply_symm_apply n.val)
+  left_inv m := by
+    apply CoefficientChange.ext
+    exact (congrArg f.symm (val_map e f.toLinearMap m)).trans (f.symm_apply_apply m.val)
+  right_inv n := by
+    apply CoefficientChange.ext
+    exact (val_map e f.toLinearMap (mk (f.symm n.val))).trans (f.apply_symm_apply n.val)
 
  @[expose] def dualTo (f : CoefficientChange e (Dual A M)) : Dual B (CoefficientChange e M) where
   toFun m := e (f.val m.val)
@@ -78,7 +82,10 @@ noncomputable section
 
  omit [Module k M] [IsScalarTower k A M] in
  theorem pairingEquiv_apply (d : M ≃ₗ[A] Dual A M) (m n : CoefficientChange e M) :
-    pairingEquiv e d m n=e (d m.val n.val) := rfl
+    pairingEquiv e d m n=e (d m.val n.val) := by
+   change e ((map e d.toLinearMap m).val n.val) = _
+   rw [val_map]
+   rfl
 
 end
 end KLInvariance.CoefficientChange

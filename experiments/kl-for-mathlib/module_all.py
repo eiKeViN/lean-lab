@@ -32,6 +32,8 @@ def convert(path,data):
     if sha(s.encode())!=d['after_sha256']:raise RuntimeError('Changed final105 output')
     return s.encode()
 def legacy_source(path,data):
+    from semantic_api import prior_source
+    data=prior_source(path,data)
     if path not in PATHS:return data
     old=baseline(path)
     if data not in (old,convert(path,old)):raise RuntimeError('Source outside final105 transport: '+path)
@@ -81,7 +83,9 @@ def prior_view(actual):
 
 def contract_summary():
     c=registry()
-    return {'actual_export_count':3940,'prior_contract_view_count':3947,
+    return {'actual_export_count':3947,'accepted_main_export_count':3940,
+      'semantic_api_additions':__import__('semantic_api').added_types(),
+      'semantic_api_generated':__import__('semantic_api').generated_types(),'prior_contract_view_count':3947,
       'comparison_view':'retained declarations plus historical records ONLY for the eight explicitly retired names; not an availability assertion',
       'explicit_generated_contract_breaks':c['removed'],
       'classified_generated_additions':c['generated_added'],
@@ -89,7 +93,7 @@ def contract_summary():
 
 def load_prior_view(path):
     from compare_types import load
-    return prior_view(load(path,3940))
+    return prior_view(__import__('semantic_api').prior_export(path,3940))
 
 def witness():
     c=registry()
@@ -110,10 +114,13 @@ def accept_type(raw):
 
 def compare_full(path):
     from compare_types import load,compare
-    actual=load(path,3940);old=baseline_types();raw=compare(old,actual)
+    actual=__import__('semantic_api').prior_export(path,3940);old=baseline_types();raw=compare(old,actual)
     view=prior_view(actual);r=compare(old,view);left,accepted=accept_type(r)
     if not left['passed'] or left['relocated']:raise RuntimeError('New unaccepted final105 difference: '+json.dumps(raw))
-    return {'raw':raw,'explicit_generated_contract_breaks':registry()['removed'],'classified_generated_additions':registry()['generated_added'],'accepted_representation_changes':accepted,'passed':True,'fully_source_compatible':False}
+    return {'raw':compare(old,__import__('compare_types').load(path,3947)),
+      'historical_policy_raw':raw,'semantic_api_additions':__import__('semantic_api').added_types(),
+      'semantic_api_generated':__import__('semantic_api').generated_types(),
+      'explicit_generated_contract_breaks':registry()['removed'],'classified_generated_additions':registry()['generated_added'],'accepted_representation_changes':accepted,'passed':True,'fully_source_compatible':False}
 
 def compare_public(path):
     from compare_types import load,compare

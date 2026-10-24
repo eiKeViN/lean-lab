@@ -190,10 +190,15 @@ variable (S : Type us) [CommRing S] [Algebra R S]
     (s : S) (v : PLift p → R ⧸ Ideal.span {a}) (h : PLift p) :
     baseChangePiQuotient S a p (s ⊗ₜ v) h = baseChangeQuotient S a (s ⊗ₜ v h) := rfl
 
- @[expose] def quotientPullback (a : R) (p q : Prop) (h : q → p) :
+ def quotientPullback (a : R) (p q : Prop) (h : q → p) :
     (PLift p → R) →ₗ[R] (PLift q → R ⧸ Ideal.span {a}) :=
   LinearMap.pi fun t => (Ideal.Quotient.mkₐ R (Ideal.span {a})).toLinearMap.comp
     (LinearMap.proj ⟨h t.down⟩)
+
+ /-- Pull back a scalar function and reduce each value modulo the label. -/
+ @[simp] theorem quotientPullback_apply (a : R) (p q : Prop) (h : q → p)
+    (v : PLift p → R) (t : PLift q) :
+    quotientPullback a p q h v t = Ideal.Quotient.mk _ (v ⟨h t.down⟩) := by rfl
 
  theorem baseChangePi_natural (a : R) (p q : Prop) (h : q → p)
     (v : S ⊗[R] (PLift p → R)) :
@@ -205,9 +210,8 @@ variable (S : Type us) [CommRing S] [Algebra R S]
     funext hh
     change baseChangePiQuotient S a q (s ⊗ₜ quotientPullback a p q h v) hh = _
     rw [baseChangePiQuotient_tmul]
-    change baseChangeQuotient S a (s ⊗ₜ Ideal.Quotient.mk _ (v ⟨h hh.down⟩)) = _
-    rw [baseChangeQuotient_tmul]
-    exact congrArg (Ideal.Quotient.mk _) (baseChangePiScalar_tmul S p s v _).symm
+    rw [quotientPullback_apply, baseChangeQuotient_tmul, quotientPullback_apply,
+      baseChangePiScalar_tmul]
   | add v w hv hw => simp only [map_add,hv,hw]
 
  @[expose] def structureBaseChangeIso (G : OrderedGraph V E) (α : E → R) (c : V) :
@@ -215,9 +219,46 @@ variable (S : Type us) [CommRing S] [Algebra R S]
       (structureSheaf G (fun e => algebraMap R S (α e)) c) where
   vertex x := baseChangePiScalar S (x ≤ c)
   edge e := baseChangePiQuotient S (α e) (G.target e ≤ c)
-  lower e v := baseChangePi_natural S (α e) (G.source e ≤ c) (G.target e ≤ c)
-    ((G.increasing e).le.trans ·) v
-  upper e v := baseChangePi_natural S (α e) (G.target e ≤ c) (G.target e ≤ c) id v
+  lower e v := by
+    have hR : (structureSheaf G α c).lower e =
+        quotientPullback (α e) (G.source e ≤ c) (G.target e ≤ c)
+          ((G.increasing e).le.trans ·) := by
+      apply LinearMap.ext
+      intro x
+      funext t
+      exact (quotientPullback_apply (α e) (G.source e ≤ c) (G.target e ≤ c)
+        ((G.increasing e).le.trans ·) x t).symm
+    have hS : (structureSheaf G (fun e => algebraMap R S (α e)) c).lower e =
+        quotientPullback (algebraMap R S (α e)) (G.source e ≤ c) (G.target e ≤ c)
+          ((G.increasing e).le.trans ·) := by
+      apply LinearMap.ext
+      intro x
+      funext t
+      exact (quotientPullback_apply (algebraMap R S (α e)) (G.source e ≤ c)
+        (G.target e ≤ c) ((G.increasing e).le.trans ·) x t).symm
+    change baseChangePiQuotient S (α e) (G.target e ≤ c)
+      (AlgebraTensorModule.lTensor S S ((structureSheaf G α c).lower e) v) = _
+    erw [hR, hS]
+    exact baseChangePi_natural S (α e) (G.source e ≤ c) (G.target e ≤ c)
+      ((G.increasing e).le.trans ·) v
+  upper e v := by
+    have hR : (structureSheaf G α c).upper e =
+        quotientPullback (α e) (G.target e ≤ c) (G.target e ≤ c) id := by
+      apply LinearMap.ext
+      intro x
+      funext t
+      exact (quotientPullback_apply (α e) (G.target e ≤ c) (G.target e ≤ c) id x t).symm
+    have hS : (structureSheaf G (fun e => algebraMap R S (α e)) c).upper e =
+        quotientPullback (algebraMap R S (α e)) (G.target e ≤ c) (G.target e ≤ c) id := by
+      apply LinearMap.ext
+      intro x
+      funext t
+      exact (quotientPullback_apply (algebraMap R S (α e)) (G.target e ≤ c)
+        (G.target e ≤ c) id x t).symm
+    change baseChangePiQuotient S (α e) (G.target e ≤ c)
+      (AlgebraTensorModule.lTensor S S ((structureSheaf G α c).upper e) v) = _
+    erw [hR, hS]
+    exact baseChangePi_natural S (α e) (G.target e ≤ c) (G.target e ≤ c) id v
 
  theorem structureSheaf_flat_flabby [Finite V] [Finite E] [Module.Flat R S]
     (G : OrderedGraph V E) (α : E → R) (c : V) (hf : (structureSheaf G α c).Flabby) :

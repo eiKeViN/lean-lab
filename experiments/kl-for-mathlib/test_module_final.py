@@ -56,7 +56,7 @@ class FinalPolicyTests(unittest.TestCase):
         for n in held:
             p=n.replace('.','/')+'.lean'
             import module_all
-            self.assertEqual((m.HERE/p).read_bytes(),module_all.convert(p,m.baseline(p)),n)
+            self.assertEqual(__import__('semantic_api').prior_source(p,(m.HERE/p).read_bytes()),module_all.convert(p,m.baseline(p)),n)
         for p in ['stalk-equation-compat.json','stalk-equation-old.json','StalkEquationCompat.lean','compare_types.py','reference-public-types.json','additional-types.json','module-next-types.json']:
             self.assertEqual((m.HERE/p).read_bytes(),m.baseline(p),p)
 

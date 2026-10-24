@@ -72,8 +72,20 @@ variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module
    map_smul' b m := CoefficientChange.ext (map_smul f (e.symm b) m.val)
 
  omit [Module k M] [IsScalarTower k A M] [Module k N] [IsScalarTower k A N] in
+ /-- Changing coefficients applies the original map to the underlying vector. -/
+ @[simp] theorem val_map (f : M →ₗ[A] N) (m : CoefficientChange e M) :
+     (map e f m).val = f m.val := by rfl
+
+ omit [Module k M] [IsScalarTower k A M] in
+ /-- Changing coefficients preserves the identity on vectors. -/
+ @[simp] theorem map_id_apply (m : CoefficientChange e M) :
+     map e (LinearMap.id : M →ₗ[A] M) m = m := by
+   apply CoefficientChange.ext
+   exact val_map e LinearMap.id m
+
+ omit [Module k M] [IsScalarTower k A M] [Module k N] [IsScalarTower k A N] in
  theorem map_injective (f : M →ₗ[A] N) (hf : Function.Injective f) :
-     Function.Injective (map e f) := fun _m _n h => CoefficientChange.ext (hf (congrArg val h))
+     Function.Injective (map e f) := fun _m _n h => CoefficientChange.ext (hf (by simpa only [val_map] using congrArg val h))
  omit [Module k M] [IsScalarTower k A M] [Module k N] [IsScalarTower k A N] in
  theorem map_surjective (f : M →ₗ[A] N) (hf : Function.Surjective f) :
      Function.Surjective (map e f) := by

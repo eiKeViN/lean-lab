@@ -236,3 +236,16 @@ The [next graph/sheaf module batch](../../reports/module-next-region.md) adds Br
 Sheaf.Duality and GradedSheaf.Reindex (131 modern products). Its complete
 3947-record comparison against accepted main has no new differences;
 VertexDeletion remains legacy with its two rejected equation deltas retained.
+
+
+The [semantic API experiment](../../reports/semantic-api-experiment.md) adds six
+mathematical theorems in seven exact producer/client source exceptions, plus one
+separately registered generated congruence declaration. It hides only
+`Sheaf.quotientPullback`; `LocalCover.splitEquiv`, `CoefficientChange.map` and
+`Sheaf.baseChangeQuotient` retain their computation/compatibility interfaces.
+`semantic-api-source.json`, `semantic-api-types.json` and
+`semantic-api-generated.json` bind this finite round without refreshing the old
+source/type baselines. `SemanticApiChecks.lean` uses ordinary modern imports.
+The isolated actual producer/client trials are `semantic_api_split_trial.py`
+(with `--map` or `--quotient` for the two additional controls); run them only
+without another active build. See the report for acceptance status and costs.

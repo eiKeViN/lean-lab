@@ -1,0 +1,8 @@
+{
+  "OAI.KLInvariance.LocalCover.splitEquiv.congr_simp": {
+    "levels": "\"[`u_1, `u_2, `u_3]\"",
+    "type": "40599a0b81f203cec226228137d3003ecb6477be17afef076577642c4a31bfe9",
+    "kind": "theorem",
+    "module": "ForMathlib.Algebra.Module.Cover.Local"
+  }
+}

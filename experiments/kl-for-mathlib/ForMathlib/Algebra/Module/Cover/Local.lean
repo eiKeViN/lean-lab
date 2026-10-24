@@ -55,6 +55,23 @@ as the second summand. It is used below to produce the local sheaf summand. -/
         · apply Subtype.ext
           simp [k, hs'] }
 
+omit [IsLocalRing R] in
+/-- The quotient coordinate of the splitting is the given surjection. -/
+@[simp] theorem splitEquiv_apply_fst (g : B →ₗ[R] P) (s : P →ₗ[R] B)
+    (hs : g.comp s = LinearMap.id) (b : B) : (splitEquiv g s hs b).1 = g b := by rfl
+
+omit [IsLocalRing R] in
+/-- The kernel coordinate subtracts the chosen section. -/
+@[simp] theorem splitEquiv_apply_snd_coe (g : B →ₗ[R] P) (s : P →ₗ[R] B)
+    (hs : g.comp s = LinearMap.id) (b : B) :
+    ((splitEquiv g s hs b).2 : B) = b - s (g b) := by rfl
+
+omit [IsLocalRing R] in
+/-- Reassemble quotient and kernel coordinates using the chosen section. -/
+@[simp] theorem splitEquiv_symm_apply (g : B →ₗ[R] P) (s : P →ₗ[R] B)
+    (hs : g.comp s = LinearMap.id) (p : P × LinearMap.ker g) :
+    (splitEquiv g s hs).symm p = s p.1 + p.2 := by rfl
+
 /-- The full minimal-cover splitting required at each descending vertex.
 The new kernel is proved finite free over the local ring, not introduced
 as a free summand hypothesis. -/
@@ -76,16 +93,20 @@ theorem exists_split_minimal_cover [Module.Free R B] [Module.Finite R B]
     intro b
     exact ⟨e.symm (0, b), by simp [k]⟩
   have hki : k.comp (LinearMap.ker g).subtype = LinearMap.id := by
-    ext b
-    change ((b : B) - s (g b)) = b
-    simp []
+    apply LinearMap.ext
+    intro b
+    apply Subtype.ext
+    change ((splitEquiv g s hs b).2 : B) = b
+    simp only [splitEquiv_apply_snd_coe,
+      LinearMap.mem_ker.mp b.property, map_zero, sub_zero]
   let : Module.Finite R (LinearMap.ker g) := Module.Finite.of_surjective k hk
   let : Module.Projective R (LinearMap.ker g) :=
     Module.Projective.of_split (LinearMap.ker g).subtype k hki
   let : Module.Free R (LinearMap.ker g) := Module.free_of_flat_of_isLocalRing
   refine ⟨g, e, hsurj, hg, inferInstance, inferInstance, ?_⟩
   intro b
-  exact ⟨rfl, LinearMap.congr_fun hg b⟩
+  exact ⟨splitEquiv_apply_fst g s hs b, by
+    rw [splitEquiv_apply_fst]; exact LinearMap.congr_fun hg b⟩
 
 end KLInvariance.LocalCover
 end
