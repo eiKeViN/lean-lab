@@ -1,0 +1,728 @@
+[
+  {
+    "repeat": 1,
+    "scenario": "route-cold",
+    "route": "Native",
+    "wall_seconds": 4.068034515999898,
+    "cpu_seconds": 4.449079000000001,
+    "compiled_modules": [
+      "NativeBase",
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r1-route-cold-Native-base",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeBase.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Native/CostStudy/NativeBase.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.0131051910000224,
+        "child_cpu_seconds": 2.294800000000004,
+        "module": "NativeBase",
+        "source_sha256": "17c03999431184c8b651f0efd4fdd164805dad7c817b4dfd2dd84601fd9ea116",
+        "artifact_sha256": "17da0033dc93a6c72ea1d253d859a6879dd6c7a3415d59e90bce6a550ffdae08",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Native/CostStudy/NativeBase.olean",
+        "artifact_mtime_ns": 1793583776702434862
+      },
+      {
+        "label": "r1-route-cold-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.0549293249998755,
+        "child_cpu_seconds": 2.154278999999997,
+        "module": "NativeConsumer",
+        "source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+        "artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583778756896815
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 1,
+    "scenario": "route-cold",
+    "route": "Bridge",
+    "wall_seconds": 3.90299512300021,
+    "cpu_seconds": 4.125189999999999,
+    "compiled_modules": [
+      "BridgeBase",
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r1-route-cold-Bridge-base",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeBase.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Bridge/CostStudy/BridgeBase.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.9263011770001413,
+        "child_cpu_seconds": 2.0900100000000013,
+        "module": "BridgeBase",
+        "source_sha256": "234cd163fc3a3409412fcc17e11fd35f716a6b19e038c47dd55c171c2c88475e",
+        "artifact_sha256": "5219aa3fa8ff9f885f738e1e4a6ea82f99194271f2cde356a00e48fea0a2ac7b",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Bridge/CostStudy/BridgeBase.olean",
+        "artifact_mtime_ns": 1793583780680441048
+      },
+      {
+        "label": "r1-route-cold-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.9766939460000685,
+        "child_cpu_seconds": 2.0351799999999978,
+        "module": "BridgeConsumer",
+        "source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+        "artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-route-cold-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583782661976822
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 1,
+    "scenario": "basis-hot",
+    "route": "Native",
+    "wall_seconds": 2.241858038999908,
+    "cpu_seconds": 2.341382000000002,
+    "compiled_modules": [
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r1-basis-hot-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-basis-hot-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-basis-hot-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.241858038999908,
+        "child_cpu_seconds": 2.341382000000002,
+        "module": "NativeConsumer",
+        "source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+        "artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-basis-hot-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583784892900981
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 1,
+    "scenario": "basis-hot",
+    "route": "Bridge",
+    "wall_seconds": 1.9220468269998037,
+    "cpu_seconds": 1.9823249999999986,
+    "compiled_modules": [
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r1-basis-hot-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-basis-hot-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-basis-hot-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.9220468269998037,
+        "child_cpu_seconds": 1.9823249999999986,
+        "module": "BridgeConsumer",
+        "source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+        "artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-basis-hot-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583786833594744
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 1,
+    "scenario": "consumer-edit",
+    "route": "Native",
+    "wall_seconds": 2.305016006000187,
+    "cpu_seconds": 2.4127209999999977,
+    "compiled_modules": [
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r1-consumer-edit-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-consumer-edit-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/variants",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-consumer-edit-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.305016006000187,
+        "child_cpu_seconds": 2.4127209999999977,
+        "module": "NativeConsumer",
+        "source_sha256": "42d79f529f88f46aca62a492f76fee9e23c270d7f0df000e5dc650a70794ae25",
+        "artifact_sha256": "82b56b55d423d437249a97290e4c65c521fdf7114808e9cec44cce09f33ff0ff",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-consumer-edit-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583789130519833
+      }
+    ],
+    "before_edit": {
+      "consumer_source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+      "consumer_artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+      "consumer_artifact_mtime_ns": 1793583764131365136,
+      "basis_artifact_sha256": "17da0033dc93a6c72ea1d253d859a6879dd6c7a3415d59e90bce6a550ffdae08"
+    }
+  },
+  {
+    "repeat": 1,
+    "scenario": "consumer-edit",
+    "route": "Bridge",
+    "wall_seconds": 2.137781516999894,
+    "cpu_seconds": 2.200180999999997,
+    "compiled_modules": [
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r1-consumer-edit-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-consumer-edit-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/variants",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-consumer-edit-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.137781516999894,
+        "child_cpu_seconds": 2.200180999999997,
+        "module": "BridgeConsumer",
+        "source_sha256": "bac721b70dcd43effb466b68cc3d97e0df95f7100c6323faabab202fa6cb174a",
+        "artifact_sha256": "99e3d69636d8a17b70a71911a849d6d0be08fe93083952042b944bad48f240fa",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r1-consumer-edit-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583791258526106
+      }
+    ],
+    "before_edit": {
+      "consumer_source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+      "consumer_artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+      "consumer_artifact_mtime_ns": 1793583768103998623,
+      "basis_artifact_sha256": "5219aa3fa8ff9f885f738e1e4a6ea82f99194271f2cde356a00e48fea0a2ac7b"
+    }
+  },
+  {
+    "repeat": 2,
+    "scenario": "consumer-edit",
+    "route": "Bridge",
+    "wall_seconds": 1.9375356139998985,
+    "cpu_seconds": 1.9954129999999974,
+    "compiled_modules": [
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r2-consumer-edit-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-consumer-edit-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/variants",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-consumer-edit-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.9375356139998985,
+        "child_cpu_seconds": 1.9954129999999974,
+        "module": "BridgeConsumer",
+        "source_sha256": "bac721b70dcd43effb466b68cc3d97e0df95f7100c6323faabab202fa6cb174a",
+        "artifact_sha256": "99e3d69636d8a17b70a71911a849d6d0be08fe93083952042b944bad48f240fa",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-consumer-edit-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583793214323491
+      }
+    ],
+    "before_edit": {
+      "consumer_source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+      "consumer_artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+      "consumer_artifact_mtime_ns": 1793583768103998623,
+      "basis_artifact_sha256": "5219aa3fa8ff9f885f738e1e4a6ea82f99194271f2cde356a00e48fea0a2ac7b"
+    }
+  },
+  {
+    "repeat": 2,
+    "scenario": "consumer-edit",
+    "route": "Native",
+    "wall_seconds": 2.086607746000027,
+    "cpu_seconds": 2.165728999999997,
+    "compiled_modules": [
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r2-consumer-edit-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-consumer-edit-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/variants",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-consumer-edit-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.086607746000027,
+        "child_cpu_seconds": 2.165728999999997,
+        "module": "NativeConsumer",
+        "source_sha256": "42d79f529f88f46aca62a492f76fee9e23c270d7f0df000e5dc650a70794ae25",
+        "artifact_sha256": "82b56b55d423d437249a97290e4c65c521fdf7114808e9cec44cce09f33ff0ff",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-consumer-edit-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583795288908164
+      }
+    ],
+    "before_edit": {
+      "consumer_source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+      "consumer_artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+      "consumer_artifact_mtime_ns": 1793583764131365136,
+      "basis_artifact_sha256": "17da0033dc93a6c72ea1d253d859a6879dd6c7a3415d59e90bce6a550ffdae08"
+    }
+  },
+  {
+    "repeat": 2,
+    "scenario": "basis-hot",
+    "route": "Bridge",
+    "wall_seconds": 1.9199359410001762,
+    "cpu_seconds": 1.983348000000003,
+    "compiled_modules": [
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r2-basis-hot-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-basis-hot-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-basis-hot-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.9199359410001762,
+        "child_cpu_seconds": 1.983348000000003,
+        "module": "BridgeConsumer",
+        "source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+        "artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-basis-hot-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583797230670284
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 2,
+    "scenario": "basis-hot",
+    "route": "Native",
+    "wall_seconds": 2.163308625999889,
+    "cpu_seconds": 2.2526559999999964,
+    "compiled_modules": [
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r2-basis-hot-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-basis-hot-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-basis-hot-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.163308625999889,
+        "child_cpu_seconds": 2.2526559999999964,
+        "module": "NativeConsumer",
+        "source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+        "artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-basis-hot-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583799394084854
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 2,
+    "scenario": "route-cold",
+    "route": "Bridge",
+    "wall_seconds": 4.195210902000099,
+    "cpu_seconds": 4.432122000000003,
+    "compiled_modules": [
+      "BridgeBase",
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r2-route-cold-Bridge-base",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeBase.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Bridge/CostStudy/BridgeBase.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.121972421999999,
+        "child_cpu_seconds": 2.295176000000005,
+        "module": "BridgeBase",
+        "source_sha256": "234cd163fc3a3409412fcc17e11fd35f716a6b19e038c47dd55c171c2c88475e",
+        "artifact_sha256": "5219aa3fa8ff9f885f738e1e4a6ea82f99194271f2cde356a00e48fea0a2ac7b",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Bridge/CostStudy/BridgeBase.olean",
+        "artifact_mtime_ns": 1793583801500912525
+      },
+      {
+        "label": "r2-route-cold-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.0732384800001,
+        "child_cpu_seconds": 2.1369459999999982,
+        "module": "BridgeConsumer",
+        "source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+        "artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583803592914006
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 2,
+    "scenario": "route-cold",
+    "route": "Native",
+    "wall_seconds": 4.21634582899992,
+    "cpu_seconds": 4.613371000000001,
+    "compiled_modules": [
+      "NativeBase",
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r2-route-cold-Native-base",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeBase.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Native/CostStudy/NativeBase.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.202768042999878,
+        "child_cpu_seconds": 2.5128850000000025,
+        "module": "NativeBase",
+        "source_sha256": "17c03999431184c8b651f0efd4fdd164805dad7c817b4dfd2dd84601fd9ea116",
+        "artifact_sha256": "17da0033dc93a6c72ea1d253d859a6879dd6c7a3415d59e90bce6a550ffdae08",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Native/CostStudy/NativeBase.olean",
+        "artifact_mtime_ns": 1793583805788915504
+      },
+      {
+        "label": "r2-route-cold-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.0135777860000417,
+        "child_cpu_seconds": 2.1004859999999983,
+        "module": "NativeConsumer",
+        "source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+        "artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r2-route-cold-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583807808916916
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 3,
+    "scenario": "route-cold",
+    "route": "Native",
+    "wall_seconds": 4.029790480999964,
+    "cpu_seconds": 4.377019000000004,
+    "compiled_modules": [
+      "NativeBase",
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r3-route-cold-Native-base",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeBase.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Native/CostStudy/NativeBase.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.9583450229999926,
+        "child_cpu_seconds": 2.224738000000002,
+        "module": "NativeBase",
+        "source_sha256": "17c03999431184c8b651f0efd4fdd164805dad7c817b4dfd2dd84601fd9ea116",
+        "artifact_sha256": "17da0033dc93a6c72ea1d253d859a6879dd6c7a3415d59e90bce6a550ffdae08",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Native/CostStudy/NativeBase.olean",
+        "artifact_mtime_ns": 1793583809776480579
+      },
+      {
+        "label": "r3-route-cold-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.071445457999971,
+        "child_cpu_seconds": 2.152281000000002,
+        "module": "NativeConsumer",
+        "source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+        "artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583811842901329
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 3,
+    "scenario": "route-cold",
+    "route": "Bridge",
+    "wall_seconds": 3.884896124000079,
+    "cpu_seconds": 4.0787770000000005,
+    "compiled_modules": [
+      "BridgeBase",
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r3-route-cold-Bridge-base",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeBase.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Bridge/CostStudy/BridgeBase.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.8340146890000142,
+        "child_cpu_seconds": 1.9719250000000006,
+        "module": "BridgeBase",
+        "source_sha256": "234cd163fc3a3409412fcc17e11fd35f716a6b19e038c47dd55c171c2c88475e",
+        "artifact_sha256": "5219aa3fa8ff9f885f738e1e4a6ea82f99194271f2cde356a00e48fea0a2ac7b",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Bridge/CostStudy/BridgeBase.olean",
+        "artifact_mtime_ns": 1793583813680525695
+      },
+      {
+        "label": "r3-route-cold-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.050881435000065,
+        "child_cpu_seconds": 2.106852,
+        "module": "BridgeConsumer",
+        "source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+        "artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-route-cold-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583815735473882
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 3,
+    "scenario": "basis-hot",
+    "route": "Native",
+    "wall_seconds": 2.0387890369997876,
+    "cpu_seconds": 2.1200600000000023,
+    "compiled_modules": [
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r3-basis-hot-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-basis-hot-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-basis-hot-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.0387890369997876,
+        "child_cpu_seconds": 2.1200600000000023,
+        "module": "NativeConsumer",
+        "source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+        "artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-basis-hot-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583817765892563
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 3,
+    "scenario": "basis-hot",
+    "route": "Bridge",
+    "wall_seconds": 1.8503532020001785,
+    "cpu_seconds": 1.907661000000008,
+    "compiled_modules": [
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r3-basis-hot-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-basis-hot-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-basis-hot-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.8503532020001785,
+        "child_cpu_seconds": 1.907661000000008,
+        "module": "BridgeConsumer",
+        "source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+        "artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-basis-hot-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583819631402934
+      }
+    ],
+    "before_edit": {}
+  },
+  {
+    "repeat": 3,
+    "scenario": "consumer-edit",
+    "route": "Native",
+    "wall_seconds": 2.0628723899999386,
+    "cpu_seconds": 2.142006000000002,
+    "compiled_modules": [
+      "NativeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r3-consumer-edit-Native-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/NativeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-consumer-edit-Native/CostStudy/NativeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/variants",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-consumer-edit-Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 2.0628723899999386,
+        "child_cpu_seconds": 2.142006000000002,
+        "module": "NativeConsumer",
+        "source_sha256": "42d79f529f88f46aca62a492f76fee9e23c270d7f0df000e5dc650a70794ae25",
+        "artifact_sha256": "82b56b55d423d437249a97290e4c65c521fdf7114808e9cec44cce09f33ff0ff",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-consumer-edit-Native/CostStudy/NativeConsumer.olean",
+        "artifact_mtime_ns": 1793583821672926818
+      }
+    ],
+    "before_edit": {
+      "consumer_source_sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743",
+      "consumer_artifact_sha256": "93cb08ef6335771fc5768fa93ad6dd409302d0b646aaf4093b182b580821e2cd",
+      "consumer_artifact_mtime_ns": 1793583764131365136,
+      "basis_artifact_sha256": "17da0033dc93a6c72ea1d253d859a6879dd6c7a3415d59e90bce6a550ffdae08"
+    }
+  },
+  {
+    "repeat": 3,
+    "scenario": "consumer-edit",
+    "route": "Bridge",
+    "wall_seconds": 1.9570475420000548,
+    "cpu_seconds": 2.018599999999992,
+    "compiled_modules": [
+      "BridgeConsumer"
+    ],
+    "steps": [
+      {
+        "label": "r3-consumer-edit-Bridge-consumer",
+        "command": [
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+          "CostStudy/BridgeConsumer.lean",
+          "-o",
+          "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-consumer-edit-Bridge/CostStudy/BridgeConsumer.olean"
+        ],
+        "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/variants",
+        "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-consumer-edit-Bridge:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+        "exit_code": 0,
+        "wall_seconds": 1.9570475420000548,
+        "child_cpu_seconds": 2.018599999999992,
+        "module": "BridgeConsumer",
+        "source_sha256": "bac721b70dcd43effb466b68cc3d97e0df95f7100c6323faabab202fa6cb174a",
+        "artifact_sha256": "99e3d69636d8a17b70a71911a849d6d0be08fe93083952042b944bad48f240fa",
+        "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014237719601Z/outputs/r3-consumer-edit-Bridge/CostStudy/BridgeConsumer.olean",
+        "artifact_mtime_ns": 1793583823651572022
+      }
+    ],
+    "before_edit": {
+      "consumer_source_sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249",
+      "consumer_artifact_sha256": "7d442529b1ce965a792395269724cb4a4320b5b04ad4712c1fd603a8bb6b3863",
+      "consumer_artifact_mtime_ns": 1793583768103998623,
+      "basis_artifact_sha256": "5219aa3fa8ff9f885f738e1e4a6ea82f99194271f2cde356a00e48fea0a2ac7b"
+    }
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "label": "prepare-common",
+    "command": [
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+      "CostStudy/Common.lean",
+      "-o",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014147105311Z/common/CostStudy/Common.olean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+    "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014147105311Z/common:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+    "exit_code": 0,
+    "wall_seconds": 1.8808441179999136,
+    "child_cpu_seconds": 1.898722,
+    "module": "Common",
+    "source_sha256": "ced6abd6c8689e6617fefbe2c037c98c26b49a210d9635fd7113199cc49127dc",
+    "artifact_sha256": "2aefedc1ec24d9401aa59acfe70c3781afb0a8c415d6734ec97d0b096c4d7a40",
+    "artifact": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014147105311Z/common/CostStudy/Common.olean",
+    "artifact_mtime_ns": 1793583709579174808
+  },
+  {
+    "label": "prepare-NativeBase",
+    "command": [
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean",
+      "CostStudy/NativeBase.lean",
+      "-o",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014147105311Z/basis-cache/Native/CostStudy/NativeBase.olean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/CostStudy20261102/sources",
+    "LEAN_PATH": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014147105311Z/basis-cache/Native:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/logs/cost-20261102/run-20261102T014147105311Z/common:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/lib/lean",
+    "exit_code": 1,
+    "wall_seconds": 0.14305941800012079,
+    "child_cpu_seconds": 0.14099600000000012
+  }
+]

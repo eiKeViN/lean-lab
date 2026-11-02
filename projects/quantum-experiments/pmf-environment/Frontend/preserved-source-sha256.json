@@ -1,0 +1,129 @@
+{
+  "source_commit": "0a6ef9bfa780891cc072c47227ee107ab5dcd627",
+  "files": [
+    {
+      "path": "Comparison/Audit.lean",
+      "sha256": "96a882dd3050fe5dd3b402904dd2c3f811367f1d5606d4b7006505193e8219d5"
+    },
+    {
+      "path": "Comparison/Dependencies.lean",
+      "sha256": "c771fa59212662874cf0a0aeef8cdb81dc684daa1597cb5a1fee5bdd99f2aedb"
+    },
+    {
+      "path": "Comparison/PMFComparison.lean",
+      "sha256": "52021bfa2b685edac085a1d931804a7e923ba01f112fc2bacb82b4b689f6ea16"
+    },
+    {
+      "path": "Comparison/PMFComparison/Contracts.lean",
+      "sha256": "f930121bcb43221d561f9ae14192b5247942f222894ed8a4f6faa089d40a82b7"
+    },
+    {
+      "path": "Comparison/PMFComparison/Finite.lean",
+      "sha256": "18c94b41bbd02c0dd0b3239f3adadb06ba7c6353bc60a0ceb5c5257e82f3fd3d"
+    },
+    {
+      "path": "Comparison/PMFComparison/FiniteCovariance.lean",
+      "sha256": "0bea111412e6e7d74c5bb3739ae29ac1eda02025569f280e29a460dc2ac8359b"
+    },
+    {
+      "path": "Comparison/PMFComparison/Moments.lean",
+      "sha256": "a5cf380e7f4e93eb4f609e9b5be998bf32c1e6181c3a13ed757dc142d3405dda"
+    },
+    {
+      "path": "Comparison/PMFComparison/Transport.lean",
+      "sha256": "717e171cc7564979f1110cebf787a50086e2f05a69ec1c3c0e0a087c5cdad3b4"
+    },
+    {
+      "path": "Comparison/PMFComparison/TransportCovariance.lean",
+      "sha256": "171725a172ef5a3c6895bf6a7ed639c33605642634893d1f189af9f6548f13d6"
+    },
+    {
+      "path": "CostStudy20261102/accounting.json",
+      "sha256": "76dfa48c65dbdd757acc5179ecbb2a11ee70812b0a520ae7f6c2cf52aed9b999"
+    },
+    {
+      "path": "CostStudy20261102/generate.py",
+      "sha256": "c4a54d2d286f0f9f3460d0b47bff283e87e957498c22e2d5ef8fe382d451773e"
+    },
+    {
+      "path": "CostStudy20261102/run.py",
+      "sha256": "0d8f4df6dc7b4d7fc831f384fe79ac571e693360f9b90a1d3b5f5bddf569827f"
+    },
+    {
+      "path": "CostStudy20261102/sources/CostStudy/BridgeBase.lean",
+      "sha256": "234cd163fc3a3409412fcc17e11fd35f716a6b19e038c47dd55c171c2c88475e"
+    },
+    {
+      "path": "CostStudy20261102/sources/CostStudy/BridgeConsumer.lean",
+      "sha256": "ad0d822ce066b7e4fb1cfb41fe9b2bef2433f0df843120a592c2186f45e85249"
+    },
+    {
+      "path": "CostStudy20261102/sources/CostStudy/Common.lean",
+      "sha256": "ced6abd6c8689e6617fefbe2c037c98c26b49a210d9635fd7113199cc49127dc"
+    },
+    {
+      "path": "CostStudy20261102/sources/CostStudy/NativeBase.lean",
+      "sha256": "17c03999431184c8b651f0efd4fdd164805dad7c817b4dfd2dd84601fd9ea116"
+    },
+    {
+      "path": "CostStudy20261102/sources/CostStudy/NativeConsumer.lean",
+      "sha256": "3650eeb9bec41794277a50e9ebfe04a4f3336dd893dd21d6ec7511f0da58b743"
+    },
+    {
+      "path": "CostStudy20261102/type_export.lean.inc",
+      "sha256": "5265fb1655489500d602428f05daf0c4f506f9dcd8b55efd9b50e62d3bf399f5"
+    },
+    {
+      "path": "CostStudy20261102/variants/CostStudy/BridgeConsumer.lean",
+      "sha256": "bac721b70dcd43effb466b68cc3d97e0df95f7100c6323faabab202fa6cb174a"
+    },
+    {
+      "path": "CostStudy20261102/variants/CostStudy/NativeConsumer.lean",
+      "sha256": "42d79f529f88f46aca62a492f76fee9e23c270d7f0df000e5dc650a70794ae25"
+    },
+    {
+      "path": "Verified/Audit.lean",
+      "sha256": "1f07270dc07270215c0885da547672c9b9de8c13ad04228e6c12dde4067f007f"
+    },
+    {
+      "path": "Verified/PMFBridgeDraft.lean",
+      "sha256": "4d3a3a0a3e06f6ce51c7c251d99d73cf2558dbd9cd42be29f3110b1534e675f3"
+    },
+    {
+      "path": "Verified/PMFBridgeDraft/Bridge.lean",
+      "sha256": "bcb84f2ac48176aedfef46b7d26142b5c336d7041230798c23339d8582226732"
+    },
+    {
+      "path": "Verified/PMFBridgeDraft/ChannelProduct.lean",
+      "sha256": "d6106b579928f42b76b19638009837396be6e1048a46aeb498d77876a4f76716"
+    },
+    {
+      "path": "Verified/PMFBridgeDraft/ChannelStatistics.lean",
+      "sha256": "fce46eaea2797d9185040edb431832319cf32455d5df011681a8c3ac70844f2f"
+    },
+    {
+      "path": "Verified/PMFBridgeDraft/Compare.lean",
+      "sha256": "9e25fe7b49237b228c056d5abfc4a3615215473ce2d592f6401d33c62c9b1f44"
+    },
+    {
+      "path": "Verified/PMFBridgeDraft/Native.lean",
+      "sha256": "c9c4b254b73bcc27dae97f9ccfa8b9cbcd38fecc1bda08431a1af788ceb6abc7"
+    },
+    {
+      "path": "Verified/PMFBridgeDraft/ViaPMF.lean",
+      "sha256": "1de12ca589d36ad7933ebe235213340fd3b83aa1e21337627e82097bc36953ee"
+    },
+    {
+      "path": "history/publication/commands.json",
+      "sha256": "91fe01d35abb51c647a1cdd3807e2ca770801ca116f978e8448a9a87f8066469"
+    },
+    {
+      "path": "history/publication/report.json",
+      "sha256": "85aa2edf08a6a7ad7e7b822ba5902d098e5127393f31a1664bd510fa74187557"
+    },
+    {
+      "path": "history/source-baselines.json",
+      "sha256": "3e8fcffa94a53dad10cb48762cbde6f4b71331e92061805b486e831d505a4d21"
+    }
+  ]
+}

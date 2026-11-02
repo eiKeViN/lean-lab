@@ -6,7 +6,8 @@
 
 - `Verified/`：已修复并验证的六份 PMF 桥接、真实信道乘积测度、独立性与方差证明。
 - `Comparison/`：强原生有限求和基线、同题有限中心矩接口及双评分协方差消费者扩展。
-- [比较报告](Comparison/README.md)：实际证明/适配成本及限制；没有观察到当前纯有限任务上桥接的净优势。
+- [历史比较报告](Comparison/README.md)：保留原文件级账本；[声明级修正与受控计时](CostStudy20261102/README.md)区分基础和消费者，必要声明78对76行、指定增量起点31对26行，不据此声称普遍优势。
+- [有限任务前端](Frontend/README.md)：一般有限索引的友好API、内部桥复用、真实信道特例和三类已编译客户端。
 - [原验证说明](Verified/VALIDATION.md)：原五处空缺修复及原36声明验收。
 - [发布与历史记录](history/README.md)：公开源码基线、必要失败记录、差异和发布验证。
 - `../physlib-pmf-bridge/`：冻结历史原稿与计划；其中 `UNVERIFIED_DRAFT` 不作为活动构建入口。
@@ -18,14 +19,14 @@
 ```bash
 bash setup.sh
 source env.sh
-python3 compare-check.py
+python3 Frontend/verify.py
 ```
 
 `setup.sh` 下载官方 Lean 发行包并核对 SHA-256，以本地固定 manifest 获取依赖和所需 mathlib 二进制缓存，再运行环境 smoke check。工具链、下载和缓存只写入本目录的 Git 忽略子目录。需要允许访问 GitHub 官方发行包、依赖仓库及官方缓存；不需要私人文件或额外凭证。
 
-`compare-check.py` 构建两个库、逐文件检查新增六模块、核查全部63显式声明的公理闭包和源码基线，并进行两轮有限叶文件增量计时。也可在上级目录运行 `bash check.sh`。只检查原六份修订稿可运行 `python3 verify-proofs.py`。
+`Frontend/verify.py` 构建三个活动库，逐文件检查新前端、核查47新增及63历史声明的公理闭包和源码基线。历史 `compare-check.py` 仍保留原比较检查及两轮叶文件计时；它不是本次前端性能结果。也可在上级目录运行 `bash check.sh`。只检查原六份修订稿可运行 `python3 verify-proofs.py`。
 
-两个 Lake 入口为 `lake build PMFBridgeDraft PMFComparison`。脚本复用现有缓存，不更新 pins；不触及仓库根 `experiments/kl-for-mathlib`，因此不调用专用于该旧项目的根 `scripts/setup.sh`/`scripts/check.sh`。
+三个 Lake 入口为 `lake build PMFBridgeDraft PMFComparison FiniteProbability`，客户端与契约由验证脚本一并构建。脚本复用现有缓存，不更新 pins；不触及仓库根 `experiments/kl-for-mathlib`，因此不调用专用于该旧项目的根 `scripts/setup.sh`/`scripts/check.sh`。
 
 ## 验证范围与保全
 
@@ -35,6 +36,6 @@ python3 compare-check.py
 
 已证明的是固定输入、有限输出的具体命题，不能推广为相关随机输入下的无条件独立；消费者扩展也不等同于长期维护或跨版本升级数据。没有执行独立的全依赖内核重放。
 
-## 有限任务前端（本地后续实验）
+## 有限任务前端
 
 新增 [Frontend](Frontend/README.md) 提供任务友好的有限均值、矩与加权方差接口，内部复用通用乘积测度桥及 mathlib。公开 Lake 入口为 `FiniteProbability`；历史 `Verified`、`Comparison` 与成本研究保留各自状态。

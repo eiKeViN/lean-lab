@@ -1,6 +1,6 @@
 # 有限任务前端，桥接证明后端（2026-11-02）
 
-本阶段已通过实际 Lean 验证：47 个新增声明（含定义、观察桥、客户端与契约），并复查原有 63 个声明。公开入口为 `import FiniteProbability`。这是隔离实验中的新接口层，旧六文件、原生对照、冻结失败与成本研究均保留，没有迁移 Alioth 或推送本轮修改。
+本阶段已通过实际 Lean 验证：47 个新增声明（含定义、观察桥、客户端与契约），并复查原有 63 个声明。公开入口为 `import FiniteProbability`。这是隔离实验中的新接口层，旧六文件、原生对照、冻结失败与成本研究均保留，没有迁移 Alioth。此源码及下述证据随本次 main 发布。
 
 ## 接口分层
 
@@ -60,11 +60,15 @@ python3 Frontend/verify.py
 `verify.py` 会核验：
 
 - Lean 4.35.0；mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679`；Physlib `c5a908ba7a1ee474063626bdf0470af006f9812e`，且依赖源码无已跟踪改动。
-- 原冻结源及六份桥证明的 SHA；既有 `Verified`、`Comparison`、`CostStudy20261102`、`history` 相对起始提交无改动。
+- 原冻结源及六份桥证明的 SHA；既有 `Verified`、`Comparison`、`CostStudy20261102`、`history` 由随仓库提供的 `preserved-source-sha256.json` 核对保留代码；导航与日期化发布补记允许更新。
 - 整体 `lake build PMFBridgeDraft PMFComparison FiniteProbability FiniteProbability.Clients FiniteProbability.Contracts`，逐个新增源码重新 elaboration。
 - 47 个新增声明的类型与公理闭包、旧 63 个声明的公理闭包；仅允许 `propext`、`Classical.choice`、`Quot.sound`，没有 `sorryAx` 或新公理。
 - 实际证明依赖来源；全部命令、退出码及源码 SHA 写入日期化日志。
 
-本次验收目录：`evidence/accepted-20261102T022029Z/`，`report.json` 为机器可读结果，所有命令退出码为 0。首次迭代失败亦保留：`core-01` 至 `core-04` 是函数空间枚举实例及有限和归一化转换；`moments-01` 是函数值和与逐点和的表达式匹配；`scores-01` 是加权函数需要显式特例化。后续成功日志保留，没有把失败重标为通过。旧的 module-system import 风格警告继续存在，未因此修改固定上游或旧证据。
+初次本地验收目录：`evidence/accepted-20261102T022029Z/`，`report.json` 为机器可读结果，所有命令退出码为 0。首次迭代失败亦保留：`core-01` 至 `core-04` 是函数空间枚举实例及有限和归一化转换；`moments-01` 是函数值和与逐点和的表达式匹配；`scores-01` 是加权函数需要显式特例化。后续成功日志保留，没有把失败重标为通过。旧的 module-system import 风格警告继续存在，未因此修改固定上游或旧证据。
 
 范围边界：有限、同一种输出类型 `O`、实值评分；信道输入固定。没有异质坐标类型、无限空间推广或相关随机输入下无条件独立的结论。本轮没有新计时、升级或长期维护实验；不重用历史计时作为新接口的性能结果。
+
+发布复验与浅克隆支持：`verify.py` 使用随仓库提供的源码SHA清单，不要求本地历史Git对象。原验收目录保留，新发布验收由 `evidence/latest.txt` 指向；不将本次验收描述为新性能计时。
+
+本次发布布局的复验：`evidence/accepted-20261102T023701Z/`，47新增及63历史声明检查通过。公开保全清单含31个既有代码/证据文件；根导航、量子索引和原报告的日期化补记已同步更新。

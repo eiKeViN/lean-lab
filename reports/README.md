@@ -10,7 +10,9 @@ Return to the [multi-project workspace index](../README.md).
   acceptance covers 261/261 modern modules, with its explicit interface exceptions.
 - **Quantum / Lean 4.35.0:** [experiment index](../projects/quantum-experiments/README.md),
   [PMF bridge verification](../projects/quantum-experiments/pmf-environment/Verified/VALIDATION.md),
-  [finite-sum comparison](../projects/quantum-experiments/pmf-environment/Comparison/README.md), and
+  [finite-sum comparison](../projects/quantum-experiments/pmf-environment/Comparison/README.md),
+  [corrected cost/timing study](../projects/quantum-experiments/pmf-environment/CostStudy20261102/README.md),
+  [finite-friendly interfaces and clients](../projects/quantum-experiments/pmf-environment/Frontend/README.md), and
   [publication acceptance](../projects/quantum-experiments/pmf-environment/history/publication/README.md).
   These are separate projects and dependency pins; the quantum scripts do not check KL.
 

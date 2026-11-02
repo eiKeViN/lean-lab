@@ -21,8 +21,11 @@ for name,pin in pins.items():
  assert cmd('pin-'+name,['git','-C',str(root/'.lake/packages'/name),'rev-parse','HEAD']).strip()==pin
  assert not cmd('clean-'+name,['git','-C',str(root/'.lake/packages'/name),'status','--porcelain','--untracked-files=no']).strip()
 cmd('source-identity',['python3','check-source-identity.py'])
-# Historical accepted finite comparison and cost-study files are byte-identical to our starting commit.
-assert not cmd('history-unchanged',['git','diff','0a6ef9bfa780891cc072c47227ee107ab5dcd627','--','Verified','Comparison','CostStudy20261102','history']).strip()
+# Portable preserved-code baseline; works in shallow clones without old Git objects.
+for row in json.loads((root/'Frontend/preserved-source-sha256.json').read_text())['files']:
+ rel=Path(row['path'])
+ assert not rel.is_absolute() and '..' not in rel.parts
+ assert hashlib.sha256((root/rel).read_bytes()).hexdigest()==row['sha256'],rel
 files=sorted((root/'Frontend/FiniteProbability').glob('*.lean'))
 names=[];hashes={}
 for p in files:
