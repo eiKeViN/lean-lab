@@ -1,0 +1,228 @@
+{
+  "base_commit": "313de258d8356905209908bea60215c233e56824",
+  "metric": "nonblank noncomment declaration lines, including signature/body/attributes; excluding module scaffolding",
+  "declarations": [
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.mean",
+      "origin": "Comparison/PMFComparison/Moments.lean",
+      "category": "common",
+      "declaration_lines": 2,
+      "body_sha256": "ac890019843a73531ffe115e024a07e63154b97d840390e055bd4a10356ab75d"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.variance",
+      "origin": "Comparison/PMFComparison/Moments.lean",
+      "category": "common",
+      "declaration_lines": 2,
+      "body_sha256": "c02b0f6f1f351d7950da5f186a1a0a32b1f3e9e7824c705e282064c6fe2e07c7"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.productMean",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_basis",
+      "declaration_lines": 4,
+      "body_sha256": "2c18048b6b33941594431b87e1da425a3b4570b5eec2fe353631dee51105c784"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.mean_center",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_basis",
+      "declaration_lines": 4,
+      "body_sha256": "04a94c12305d556e5842b5c42994861e63bc5ed111ce99e173d9f807994e4f5d"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.productMean_prod",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_basis",
+      "declaration_lines": 8,
+      "body_sha256": "95b51982cd3da17cb18b7356dae5c01f5c07782333afb150d41f6b4e2dc89112"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.productMean_coordinate",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_basis",
+      "declaration_lines": 5,
+      "body_sha256": "76d1d43f7b9a2c14000a1f67d2e683da9125ce290a3ed116e14ad89e732378f8"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.productMean_pair",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_basis",
+      "declaration_lines": 16,
+      "body_sha256": "dd008800b69647af1d900d1c00d39d975238faf3a0a6146c04020da453a72783"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.productMean_sum",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_basis",
+      "declaration_lines": 5,
+      "body_sha256": "f2207640ae86516520c40cec762dbcb79f9e5a1c98f2210391c1549ae72c3ef7"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.productMean_sum_coordinate",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_basis",
+      "declaration_lines": 5,
+      "body_sha256": "0062a45352db3520d2e4650aa8283b0c53da944c827396c51d0ef6e54ef53f65"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.productMean_centered_sum_sq",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_consumer",
+      "declaration_lines": 14,
+      "body_sha256": "a7c5b023a26fa9c055e0f8958c358f656c52350d41cf1e4d8ba088e0d8553847"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Finite.variance_on_fin",
+      "origin": "Comparison/PMFComparison/Finite.lean",
+      "category": "native_consumer",
+      "declaration_lines": 17,
+      "body_sha256": "ae33df1982a322b811520cbc790fd325e1c288ef5a4818da026ddaf28a0ae522"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF",
+      "origin": "Verified/PMFBridgeDraft/Bridge.lean",
+      "category": "bridge_representation",
+      "declaration_lines": 4,
+      "body_sha256": "2d19f7a5c4505d9029bf3fe5a55bbb8f0c7a2dd80c73cac7541cc681fdc23d8b"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply",
+      "origin": "Verified/PMFBridgeDraft/Bridge.lean",
+      "category": "bridge_representation",
+      "declaration_lines": 2,
+      "body_sha256": "8704a62042503c5ede3409f9fcb1adaad7f1ede3fd6ed4ad235e956d50f583ce"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal",
+      "origin": "Verified/PMFBridgeDraft/Bridge.lean",
+      "category": "bridge_representation",
+      "declaration_lines": 4,
+      "body_sha256": "f9a77f52ef92d3a4570fcc198942f0618434c9e432a90bd591bcd880f8628154"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law",
+      "origin": "Verified/PMFBridgeDraft/ChannelProduct.lean",
+      "category": "bridge_representation",
+      "declaration_lines": 2,
+      "body_sha256": "96bbd780817f526e4c235c00b7dbe7ac662882a9304d4f0f1dac736d8e0f604c"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability",
+      "origin": "Verified/PMFBridgeDraft/ChannelProduct.lean",
+      "category": "bridge_representation",
+      "declaration_lines": 4,
+      "body_sha256": "59ffb0ea551a1fe3c7c7717ba8bacc853e0f61be0a120c0536e7686a4d53fb1c"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton",
+      "origin": "Verified/PMFBridgeDraft/ChannelProduct.lean",
+      "category": "bridge_representation",
+      "declaration_lines": 5,
+      "body_sha256": "d99f67a8e7c18f959ccf9066f2240b05c17229b10942a87d866ce27bd96676cf"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply",
+      "origin": "Verified/PMFBridgeDraft/ChannelProduct.lean",
+      "category": "bridge_domain",
+      "declaration_lines": 2,
+      "body_sha256": "029f0f11fc7ecc61cfad2199c653e97b2e53dde36bce6416cc07c98bf6e6b3de"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi",
+      "origin": "Verified/PMFBridgeDraft/ChannelProduct.lean",
+      "category": "bridge_domain",
+      "declaration_lines": 10,
+      "body_sha256": "1034746ebb417cd24e17e015d5c9111d624c83f93a187466233684f883de0533"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real",
+      "origin": "Verified/PMFBridgeDraft/ChannelStatistics.lean",
+      "category": "bridge_observation",
+      "declaration_lines": 4,
+      "body_sha256": "502f3f98f70fec93f8655aa82950db15fd2b043769da6e88a8fc9904a744bdc4"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two",
+      "origin": "Verified/PMFBridgeDraft/ChannelStatistics.lean",
+      "category": "bridge_moment",
+      "declaration_lines": 6,
+      "body_sha256": "ff178610e8c63c0b6a44f5f4df5350ffcff454385b1df487e31c4250bac91180"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Transport.integral_eq_mean",
+      "origin": "Comparison/PMFComparison/Transport.lean",
+      "category": "bridge_observation",
+      "declaration_lines": 2,
+      "body_sha256": "43355e4eaa78e2c27f4569cf88f1804e171eb564f0cda154f50d3d05de6c258e"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Transport.variance_eq_finite",
+      "origin": "Comparison/PMFComparison/Transport.lean",
+      "category": "bridge_observation",
+      "declaration_lines": 5,
+      "body_sha256": "5993c796b56637eae7fc87f59000430ae90803b3cdaeff8aeb74062fa7edf2b3"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore",
+      "origin": "Verified/PMFBridgeDraft/ChannelStatistics.lean",
+      "category": "bridge_consumer",
+      "declaration_lines": 1,
+      "body_sha256": "556a8cc7c2f411c0325ef9a45a39dce5a481e503e5a58f75de83baa80e367c8d"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp",
+      "origin": "Verified/PMFBridgeDraft/ChannelStatistics.lean",
+      "category": "bridge_consumer",
+      "declaration_lines": 11,
+      "body_sha256": "f90192f1d1957bc4c4de636e56715013c2f9a7338b334b88ddc6f40f9ec56469"
+    },
+    {
+      "name": "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore",
+      "origin": "Verified/PMFBridgeDraft/ChannelStatistics.lean",
+      "category": "bridge_consumer",
+      "declaration_lines": 6,
+      "body_sha256": "6d221904420cde5cbaac041eb06f823093025f5643a74ea26130fa873b5a3d10"
+    },
+    {
+      "name": "QuantumExperiments.PMFComparison.Transport.variance_on_fin",
+      "origin": "Comparison/PMFComparison/Transport.lean",
+      "category": "bridge_consumer",
+      "declaration_lines": 8,
+      "body_sha256": "f8e4f7e1e4f841c5049b4b8a864338c0859d76c04f89b22e182de03ff618c6b8"
+    }
+  ],
+  "category_lines": {
+    "common": 4,
+    "native_basis": 47,
+    "native_consumer": 31,
+    "bridge_representation": 21,
+    "bridge_domain": 12,
+    "bridge_observation": 11,
+    "bridge_moment": 6,
+    "bridge_consumer": 26
+  },
+  "upstream_import_union": [
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Basic.ENNReal.BigOperators",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+    "Mathlib.MeasureTheory.MeasurableSpace.Basic",
+    "Mathlib.MeasureTheory.Measure.Dirac.Basic",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Moments.Variance",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "QuantumInfo.ClassicalInfo.Channel",
+    "QuantumInfo.ClassicalInfo.Distribution"
+  ],
+  "source_files": {
+    "Verified/PMFBridgeDraft/Bridge.lean": "bcb84f2ac48176aedfef46b7d26142b5c336d7041230798c23339d8582226732",
+    "Verified/PMFBridgeDraft/ChannelProduct.lean": "d6106b579928f42b76b19638009837396be6e1048a46aeb498d77876a4f76716",
+    "Verified/PMFBridgeDraft/ChannelStatistics.lean": "fce46eaea2797d9185040edb431832319cf32455d5df011681a8c3ac70844f2f",
+    "Comparison/PMFComparison/Finite.lean": "18c94b41bbd02c0dd0b3239f3adadb06ba7c6353bc60a0ceb5c5257e82f3fd3d",
+    "Comparison/PMFComparison/Transport.lean": "717e171cc7564979f1110cebf787a50086e2f05a69ec1c3c0e0a087c5cdad3b4",
+    "Comparison/PMFComparison/Moments.lean": "a5cf380e7f4e93eb4f609e9b5be998bf32c1e6181c3a13ed757dc142d3405dda"
+  },
+  "mutation": "Same statement, same proof steps, final consumer proof wrapped in exact (by ...); a proof-body refactor, not new mathematics or a new downstream theorem."
+}

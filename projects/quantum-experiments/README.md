@@ -20,3 +20,6 @@
 固定 Lean 4.35.0，mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679`，Physlib `c5a908ba7a1ee474063626bdf0470af006f9812e`。不修改仓库原有 KL 实验或其他研究项目。
 
 发布目标：`eiKeViN/lean-lab` 的 `main`，路径保持为 `projects/quantum-experiments`。原实验分支与旧本地验收提交继续保留；公开复现使用随仓库发布的源码 SHA 基线，不依赖未发布提交对象或私人保全包。未迁入或修改 Alioth。
+
+2026-11-02 本地补充：[有限方差声明级成本与受控编译时间](pmf-environment/CostStudy20261102/README.md)。
+此补充保留原源码与报告，细分基础/消费者成本，并采用独立产物目录计时；尚未追加发布到远端。
