@@ -1,0 +1,10 @@
+.lake/
+downloads/
+toolchain/
+logs/
+.cache/
+*.olean
+*.ilean
+*.olean.private
+*.olean.server
+*.ir

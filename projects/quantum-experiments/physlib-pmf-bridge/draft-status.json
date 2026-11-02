@@ -1,0 +1,79 @@
+{
+  "recorded_utc": "2026-10-31T13:14:57.485525+00:00",
+  "status": "UNVERIFIED_DRAFT",
+  "lean_execution": "NOT_RUN",
+  "network_attempts_this_followup": 0,
+  "required_pins": {
+    "lean": "v4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e"
+  },
+  "prior_research_commit": "98a6b804a911bac97327df961628e65fbf98155f",
+  "source_snapshot_manifest_sha256": "8855acce306b8335ac49987f08ab055c6bad7a5212515e961fac70697e3b7576",
+  "files": [
+    {
+      "path": "UNVERIFIED_DRAFT/PMFBridgeDraft/Bridge.lean",
+      "sha256": "c3acc6c9fca8d957b87db8a75bb1fe439b0a0489bf988e769ddd6bc3115e7305",
+      "git_blob_sha1": "6cbb8c3efebc154d2efc7188a6e663bb77f2c4c0",
+      "incomplete_proof_lines": [
+        21,
+        29,
+        74
+      ],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "path": "UNVERIFIED_DRAFT/PMFBridgeDraft/Compare.lean",
+      "sha256": "1f83a7af03aa92ec3d99d16ebe351dd314c78b1a6990cc2ee6303682ff3b677a",
+      "git_blob_sha1": "b320e8514b433b20ae1b1f00df176a9a7e998ca5",
+      "incomplete_proof_lines": [],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "path": "UNVERIFIED_DRAFT/PMFBridgeDraft/Native.lean",
+      "sha256": "b2fa3dec2a47f9b8837333d104ca40f0046e3ea96b7b97ae75a64aa91d489347",
+      "git_blob_sha1": "540aa38c57258614670ea34b7890accf09202db0",
+      "incomplete_proof_lines": [
+        22,
+        39
+      ],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "path": "UNVERIFIED_DRAFT/PMFBridgeDraft/ViaPMF.lean",
+      "sha256": "846986d32f92542f901e3ad7baa7a036722f2119be0c568bf9fafc860f8f21f8",
+      "git_blob_sha1": "b8c05da49dd7ddbdb649e17172a5e3a93777f0ce",
+      "incomplete_proof_lines": [],
+      "compiled": false,
+      "accepted": false
+    }
+  ],
+  "explicit_incomplete_proofs": 5,
+  "obligations": {
+    "B01": "Bridge.toPMF normalization via nonnegative finite ofReal sum",
+    "B02": "Bridge.ofPMF real finite normalization from PMF.tsum_coe and apply_ne_top",
+    "B03": "Bridge.pmf_bind_toReal finite sum observation",
+    "N01": "Native.bind real normalization by finite sums",
+    "N02": "Native.bind_assoc real finite sum algebra"
+  },
+  "transitive_incompleteness": "Every definition/theorem in the drafts remains unverified; files without direct sorry also depend on incomplete imports. No accepted theorem count.",
+  "signature_limit": "Finite-sum conversion/exchange helper declarations not in saved fixed-source subset; intentionally not guessed. ENNReal real-roundtrip helpers are evidenced by fixed Physlib call sites, not a fresh read of their declarations. All elaboration, coercion, rfl and tactics remain unchecked.",
+  "validation_executed": [
+    "Python byte/hash, placeholder and label checks",
+    "Local Markdown target checks",
+    "git diff --check"
+  ],
+  "validation_not_executed": [
+    "Lean parser/elaborator",
+    "axiom checks",
+    "kernel",
+    "dependency build",
+    "runtime",
+    "comparative benefit measurement"
+  ],
+  "preserved_preparation_json_sha256": "d7b0aa9728ed200472c107d942d04def2b3e2b1faaabac0374c222cdc4bd3144",
+  "network_blocker_unchanged": true
+}

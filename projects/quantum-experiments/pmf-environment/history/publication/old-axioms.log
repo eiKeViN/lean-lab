@@ -1,0 +1,165 @@
+'QuantumExperiments.PMFBridgeDraft.Bridge.toPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.toPMF.{u_1} {α : Type u_1} [Fintype α] (d : ProbDistribution α) : PMF α
+'QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF.{u_1} {α : Type u_1} [Fintype α] (p : PMF α) : ProbDistribution α
+'QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply.{u_1} {α : Type u_1} [Fintype α] (d : ProbDistribution α) (a : α) :
+  (QuantumExperiments.PMFBridgeDraft.Bridge.toPMF d) a = ENNReal.ofReal ↑(d a)
+'QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_apply.{u_1} {α : Type u_1} [Fintype α] (p : PMF α) (a : α) :
+  ↑((QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF p) a) = (p a).toReal
+'QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal.{u_1} {α : Type u_1} [Fintype α] (d : ProbDistribution α)
+  (a : α) : ((QuantumExperiments.PMFBridgeDraft.Bridge.toPMF d) a).toReal = ↑(d a)
+'QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_toPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_toPMF.{u_1} {α : Type u_1} [Fintype α] (d : ProbDistribution α) :
+  QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF (QuantumExperiments.PMFBridgeDraft.Bridge.toPMF d) = d
+'QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_ofPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_ofPMF.{u_1} {α : Type u_1} [Fintype α] (p : PMF α) :
+  QuantumExperiments.PMFBridgeDraft.Bridge.toPMF (QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF p) = p
+'QuantumExperiments.PMFBridgeDraft.Bridge.equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.equiv.{u_3} (α : Type u_3) [Fintype α] : ProbDistribution α ≃ PMF α
+'QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_injective.{u_1} {α : Type u_1} [Fintype α] :
+  Function.Injective QuantumExperiments.PMFBridgeDraft.Bridge.toPMF
+'QuantumExperiments.PMFBridgeDraft.Bridge.pmf_bind_toReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Bridge.pmf_bind_toReal.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α]
+  (p : PMF α) (k : α → PMF β) (b : β) : ((p.bind k) b).toReal = ∑ a, (p a).toReal * ((k a) b).toReal
+'QuantumExperiments.PMFBridgeDraft.ChannelProduct.law' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelProduct.law.{u_1} {α : Type u_1} [Fintype α] [MeasurableSpace α]
+  (d : ProbDistribution α) : MeasureTheory.Measure α
+'QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability.{u_1} {α : Type u_1} [Fintype α] [MeasurableSpace α]
+  (d : ProbDistribution α) : MeasureTheory.IsProbabilityMeasure (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law d)
+'QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton.{u_1} {α : Type u_1} [Fintype α] [MeasurableSpace α]
+  [MeasurableSingletonClass α] (d : ProbDistribution α) (a : α) :
+  (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law d) {a} = ENNReal.ofReal ↑(d a)
+'QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply.{u_2, u_3} {I : Type u_2} {O : Type u_3} [Fintype O]
+  {n : ℕ} (C : DMChannel I O) (is : Fin n → I) (os : Fin n → O) :
+  ↑((DMChannel.on_fin I O C is) os) = ∏ k, ↑((C.symb_dist (is k)) (os k))
+'QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi.{u_2, u_3} {I : Type u_2} {O : Type u_3} [Fintype O]
+  {n : ℕ} [MeasurableSpace O] [MeasurableSingletonClass O] (C : DMChannel I O) (is : Fin n → I) :
+  QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (DMChannel.on_fin I O C is) =
+    MeasureTheory.Measure.pi fun k => QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (C.symb_dist (is k))
+'QuantumExperiments.PMFBridgeDraft.ChannelProduct.coordinates_iIndepFun' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelProduct.coordinates_iIndepFun.{u_2, u_3} {I : Type u_2} {O : Type u_3}
+  [Fintype O] {n : ℕ} [MeasurableSpace O] [MeasurableSingletonClass O] (C : DMChannel I O) (is : Fin n → I) :
+  ProbabilityTheory.iIndepFun (fun k os => os k)
+    (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (DMChannel.on_fin I O C is))
+'QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real.{u_1} {O : Type u_1} [Fintype O] [MeasurableSpace O]
+  [MeasurableSingletonClass O] (d : ProbDistribution O) (g : O → ℝ) :
+  ∫ (o : O), g o ∂QuantumExperiments.PMFBridgeDraft.ChannelProduct.law d = ∑ o, ↑(d o) * g o
+'QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two.{u_1} {O : Type u_1} [Fintype O] [MeasurableSpace O]
+  [MeasurableSingletonClass O] (d : ProbDistribution O) (g : O → ℝ) :
+  MeasureTheory.MemLp g 2 (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law d)
+'QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore.{u_1} {O : Type u_1} {n : ℕ} (g : Fin n → O → ℝ)
+  (os : Fin n → O) : ℝ
+'QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp.{u_1, u_2} {O : Type u_1} [Fintype O]
+  [MeasurableSpace O] [MeasurableSingletonClass O] {I : Type u_2} {n : ℕ} (C : DMChannel I O) (is : Fin n → I)
+  (g : Fin n → O → ℝ)
+  (hg :
+    ∀ (k : Fin n),
+      MeasureTheory.MemLp (g k) 2 (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (C.symb_dist (is k)))) :
+  ProbabilityTheory.variance (QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore g)
+      (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (DMChannel.on_fin I O C is)) =
+    ∑ k, ProbabilityTheory.variance (g k) (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (C.symb_dist (is k)))
+'QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore.{u_1, u_2} {O : Type u_1} [Fintype O]
+  [MeasurableSpace O] [MeasurableSingletonClass O] {I : Type u_2} {n : ℕ} (C : DMChannel I O) (is : Fin n → I)
+  (g : Fin n → O → ℝ) :
+  ProbabilityTheory.variance (QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore g)
+      (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (DMChannel.on_fin I O C is)) =
+    ∑ k, ProbabilityTheory.variance (g k) (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (C.symb_dist (is k)))
+'QuantumExperiments.PMFBridgeDraft.route_bind_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.route_bind_eq.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β]
+  (d : ProbDistribution α) (k : α → ProbDistribution β) :
+  QuantumExperiments.PMFBridgeDraft.Native.bind d k = QuantumExperiments.PMFBridgeDraft.ViaPMF.bind d k
+'QuantumExperiments.PMFBridgeDraft.route_comp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.route_comp_eq.{u_3, u_4, u_5} {I : Type u_3} {O : Type u_4} {P : Type u_5} [Fintype O]
+  [Fintype P] (C : DMChannel I O) (D : DMChannel O P) :
+  QuantumExperiments.PMFBridgeDraft.Native.comp C D = QuantumExperiments.PMFBridgeDraft.ViaPMF.comp C D
+'QuantumExperiments.PMFBridgeDraft.Native.bind' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Native.bind.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β]
+  (d : ProbDistribution α) (k : α → ProbDistribution β) : ProbDistribution β
+'QuantumExperiments.PMFBridgeDraft.Native.bind_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Native.bind_apply.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β]
+  (d : ProbDistribution α) (k : α → ProbDistribution β) (b : β) :
+  ↑((QuantumExperiments.PMFBridgeDraft.Native.bind d k) b) = ∑ a, ↑(d a) * ↑((k a) b)
+'QuantumExperiments.PMFBridgeDraft.Native.bind_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Native.bind_assoc.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {γ : Type u_3}
+  [Fintype α] [Fintype β] [Fintype γ] (d : ProbDistribution α) (k : α → ProbDistribution β)
+  (l : β → ProbDistribution γ) :
+  QuantumExperiments.PMFBridgeDraft.Native.bind (QuantumExperiments.PMFBridgeDraft.Native.bind d k) l =
+    QuantumExperiments.PMFBridgeDraft.Native.bind d fun a => QuantumExperiments.PMFBridgeDraft.Native.bind (k a) l
+'QuantumExperiments.PMFBridgeDraft.Native.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Native.comp.{u_4, u_5, u_6} {I : Type u_4} {O : Type u_5} {P : Type u_6} [Fintype O]
+  [Fintype P] (C : DMChannel I O) (D : DMChannel O P) : DMChannel I P
+'QuantumExperiments.PMFBridgeDraft.Native.comp_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Native.comp_apply.{u_4, u_5, u_6} {I : Type u_4} {O : Type u_5} {P : Type u_6}
+  [Fintype O] [Fintype P] (C : DMChannel I O) (D : DMChannel O P) (i : I) (p : P) :
+  ↑(((QuantumExperiments.PMFBridgeDraft.Native.comp C D).symb_dist i) p) =
+    ∑ o, ↑((C.symb_dist i) o) * ↑((D.symb_dist o) p)
+'QuantumExperiments.PMFBridgeDraft.Native.comp_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.Native.comp_assoc.{u_4, u_5, u_6, u_7} {I : Type u_4} {O : Type u_5} {P : Type u_6}
+  {Q : Type u_7} [Fintype O] [Fintype P] [Fintype Q] (C : DMChannel I O) (D : DMChannel O P) (E : DMChannel P Q) :
+  QuantumExperiments.PMFBridgeDraft.Native.comp (QuantumExperiments.PMFBridgeDraft.Native.comp C D) E =
+    QuantumExperiments.PMFBridgeDraft.Native.comp C (QuantumExperiments.PMFBridgeDraft.Native.comp D E)
+'QuantumExperiments.PMFBridgeDraft.ViaPMF.bind' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ViaPMF.bind.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β]
+  (d : ProbDistribution α) (k : α → ProbDistribution β) : ProbDistribution β
+'QuantumExperiments.PMFBridgeDraft.ViaPMF.toPMF_bind' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ViaPMF.toPMF_bind.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β]
+  (d : ProbDistribution α) (k : α → ProbDistribution β) :
+  QuantumExperiments.PMFBridgeDraft.Bridge.toPMF (QuantumExperiments.PMFBridgeDraft.ViaPMF.bind d k) =
+    (QuantumExperiments.PMFBridgeDraft.Bridge.toPMF d).bind fun a =>
+      QuantumExperiments.PMFBridgeDraft.Bridge.toPMF (k a)
+'QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_apply.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β]
+  (d : ProbDistribution α) (k : α → ProbDistribution β) (b : β) :
+  ↑((QuantumExperiments.PMFBridgeDraft.ViaPMF.bind d k) b) = ∑ a, ↑(d a) * ↑((k a) b)
+'QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_assoc.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {γ : Type u_3}
+  [Fintype α] [Fintype β] [Fintype γ] (d : ProbDistribution α) (k : α → ProbDistribution β)
+  (l : β → ProbDistribution γ) :
+  QuantumExperiments.PMFBridgeDraft.ViaPMF.bind (QuantumExperiments.PMFBridgeDraft.ViaPMF.bind d k) l =
+    QuantumExperiments.PMFBridgeDraft.ViaPMF.bind d fun a => QuantumExperiments.PMFBridgeDraft.ViaPMF.bind (k a) l
+'QuantumExperiments.PMFBridgeDraft.ViaPMF.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ViaPMF.comp.{u_4, u_5, u_6} {I : Type u_4} {O : Type u_5} {P : Type u_6} [Fintype O]
+  [Fintype P] (C : DMChannel I O) (D : DMChannel O P) : DMChannel I P
+'QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_apply.{u_4, u_5, u_6} {I : Type u_4} {O : Type u_5} {P : Type u_6}
+  [Fintype O] [Fintype P] (C : DMChannel I O) (D : DMChannel O P) (i : I) (p : P) :
+  ↑(((QuantumExperiments.PMFBridgeDraft.ViaPMF.comp C D).symb_dist i) p) =
+    ∑ o, ↑((C.symb_dist i) o) * ↑((D.symb_dist o) p)
+'QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_assoc.{u_4, u_5, u_6, u_7} {I : Type u_4} {O : Type u_5} {P : Type u_6}
+  {Q : Type u_7} [Fintype O] [Fintype P] [Fintype Q] (C : DMChannel I O) (D : DMChannel O P) (E : DMChannel P Q) :
+  QuantumExperiments.PMFBridgeDraft.ViaPMF.comp (QuantumExperiments.PMFBridgeDraft.ViaPMF.comp C D) E =
+    QuantumExperiments.PMFBridgeDraft.ViaPMF.comp C (QuantumExperiments.PMFBridgeDraft.ViaPMF.comp D E)

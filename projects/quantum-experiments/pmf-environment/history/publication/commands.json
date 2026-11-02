@@ -1,0 +1,292 @@
+[
+  {
+    "label": "lean",
+    "command": [
+      "lean",
+      "--version"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 0.09146843000000615
+  },
+  {
+    "label": "pin-mathlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 0.004708270999998376
+  },
+  {
+    "label": "clean-mathlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 0.05461870700000304
+  },
+  {
+    "label": "pin-Physlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 0.003085280999997053
+  },
+  {
+    "label": "clean-Physlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 0.033897835999994186
+  },
+  {
+    "label": "source-identity",
+    "command": [
+      "python3",
+      "check-source-identity.py"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 0.02208997799999679
+  },
+  {
+    "label": "full-build",
+    "command": [
+      "lake",
+      "build",
+      "PMFBridgeDraft",
+      "PMFComparison"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 3.876825456000006
+  },
+  {
+    "label": "file-Contracts",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Contracts.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 7.941264296
+  },
+  {
+    "label": "file-Finite",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Finite.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.398119700999999
+  },
+  {
+    "label": "file-FiniteCovariance",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/FiniteCovariance.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.4190161260000025
+  },
+  {
+    "label": "file-Moments",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Moments.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.0804033659999988
+  },
+  {
+    "label": "file-Transport",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Transport.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.7345469109999954
+  },
+  {
+    "label": "file-TransportCovariance",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/TransportCovariance.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.5400815410000064
+  },
+  {
+    "label": "old-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Verified/Audit.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.62792484900001
+  },
+  {
+    "label": "new-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/Audit.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.3483969520000016
+  },
+  {
+    "label": "dependencies",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/Dependencies.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 3.587607921
+  },
+  {
+    "label": "warm-1-Finite",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Finite.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.3919106060000104
+  },
+  {
+    "label": "warm-1-Transport",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Transport.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.49843388299999
+  },
+  {
+    "label": "warm-1-FiniteCovariance",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/FiniteCovariance.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.336063571000011
+  },
+  {
+    "label": "warm-1-TransportCovariance",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/TransportCovariance.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.812749635999978
+  },
+  {
+    "label": "warm-2-Transport",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Transport.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.566806735
+  },
+  {
+    "label": "warm-2-Finite",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/Finite.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.3995255420000206
+  },
+  {
+    "label": "warm-2-TransportCovariance",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/TransportCovariance.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.523320584000004
+  },
+  {
+    "label": "warm-2-FiniteCovariance",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/PMFComparison/FiniteCovariance.lean"
+    ],
+    "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+    "exit_code": 0,
+    "wall_seconds": 2.234761295999988
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-10-31T13:06:16.108657+00:00",
+  "status": "BLOCKED_NETWORK_PROXY",
+  "action": "Read official Lean v4.35.0 release metadata before any binary download",
+  "target": "https://api.github.com/repos/leanprover/lean4/releases/tags/v4.35.0",
+  "result": "known failed; urllib exit 1, proxy tunnel 403; no asset downloaded",
+  "retries": 0,
+  "alternate_routes": 0,
+  "command": [
+    "python",
+    "-"
+  ],
+  "stdin": "import urllib.request,json\nr=json.load(urllib.request.urlopen('https://api.github.com/repos/leanprover/lean4/releases/tags/v4.35.0',timeout=30))\nfor a in r['assets']:\n    if a['name']=='lean-4.35.0-linux.tar.zst':\n        print(json.dumps({k:a.get(k) for k in ['name','size','digest','browser_download_url']},indent=2))\n",
+  "stdout": "",
+  "stderr_log": "results/prepare01/release-metadata.stderr",
+  "stderr_sha256": "5ea4bbe1fd1062c1774ebde37da4fa7176c34f2bb13afc9258e33442883a4eae",
+  "log_capture": "Transcribed verbatim from exec_command stderr after its return; not an independent rerun",
+  "required_pins": {
+    "lean": "v4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e"
+  },
+  "preparation_authorization": "2026-10-31 user approved isolated environment preparation and local lean-lab quantum experiments; no remote destination authorized",
+  "prior_research_commit": "98a6b804a911bac97327df961628e65fbf98155f",
+  "prior_source_manifest": {
+    "local_path": "/workspace/lean-library-quality-research/experiments/physlib-pmf-bridge/sources.json",
+    "sha256": "8855acce306b8335ac49987f08ab055c6bad7a5212515e961fac70697e3b7576"
+  },
+  "disk_check": {
+    "command": [
+      "df",
+      "-h",
+      "/workspace"
+    ],
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G  7.6G   23G  26% /workspace\n"
+  },
+  "verification": {
+    "bridge": "NOT_RUN",
+    "consumers": "NOT_RUN",
+    "axiom_audit": "NOT_RUN",
+    "kernel_replay": "NOT_RUN"
+  },
+  "local_log_not_in_git": true,
+  "global_environment_changes": false
+}

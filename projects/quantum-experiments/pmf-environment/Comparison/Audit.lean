@@ -1,0 +1,56 @@
+import PMFComparison
+
+#print axioms QuantumExperiments.PMFComparison.Contracts.VarianceClaim
+#check QuantumExperiments.PMFComparison.Contracts.VarianceClaim
+#print axioms QuantumExperiments.PMFComparison.Contracts.CovarianceClaim
+#check QuantumExperiments.PMFComparison.Contracts.CovarianceClaim
+#print axioms QuantumExperiments.PMFComparison.Contracts.native_variance
+#check QuantumExperiments.PMFComparison.Contracts.native_variance
+#print axioms QuantumExperiments.PMFComparison.Contracts.transported_variance
+#check QuantumExperiments.PMFComparison.Contracts.transported_variance
+#print axioms QuantumExperiments.PMFComparison.Contracts.native_covariance
+#check QuantumExperiments.PMFComparison.Contracts.native_covariance
+#print axioms QuantumExperiments.PMFComparison.Contracts.transported_covariance
+#check QuantumExperiments.PMFComparison.Contracts.transported_covariance
+#print axioms QuantumExperiments.PMFComparison.Finite.productMean
+#check QuantumExperiments.PMFComparison.Finite.productMean
+#print axioms QuantumExperiments.PMFComparison.Finite.mean_center
+#check QuantumExperiments.PMFComparison.Finite.mean_center
+#print axioms QuantumExperiments.PMFComparison.Finite.productMean_prod
+#check QuantumExperiments.PMFComparison.Finite.productMean_prod
+#print axioms QuantumExperiments.PMFComparison.Finite.productMean_coordinate
+#check QuantumExperiments.PMFComparison.Finite.productMean_coordinate
+#print axioms QuantumExperiments.PMFComparison.Finite.productMean_pair
+#check QuantumExperiments.PMFComparison.Finite.productMean_pair
+#print axioms QuantumExperiments.PMFComparison.Finite.productMean_sum
+#check QuantumExperiments.PMFComparison.Finite.productMean_sum
+#print axioms QuantumExperiments.PMFComparison.Finite.productMean_sum_coordinate
+#check QuantumExperiments.PMFComparison.Finite.productMean_sum_coordinate
+#print axioms QuantumExperiments.PMFComparison.Finite.productMean_centered_sum_sq
+#check QuantumExperiments.PMFComparison.Finite.productMean_centered_sum_sq
+#print axioms QuantumExperiments.PMFComparison.Finite.variance_on_fin
+#check QuantumExperiments.PMFComparison.Finite.variance_on_fin
+#print axioms QuantumExperiments.PMFComparison.Finite.mean_add
+#check QuantumExperiments.PMFComparison.Finite.mean_add
+#print axioms QuantumExperiments.PMFComparison.Finite.variance_add
+#check QuantumExperiments.PMFComparison.Finite.variance_add
+#print axioms QuantumExperiments.PMFComparison.Finite.covariance_on_fin
+#check QuantumExperiments.PMFComparison.Finite.covariance_on_fin
+#print axioms QuantumExperiments.PMFComparison.Finite.mean
+#check QuantumExperiments.PMFComparison.Finite.mean
+#print axioms QuantumExperiments.PMFComparison.Finite.variance
+#check QuantumExperiments.PMFComparison.Finite.variance
+#print axioms QuantumExperiments.PMFComparison.Finite.covariance
+#check QuantumExperiments.PMFComparison.Finite.covariance
+#print axioms QuantumExperiments.PMFComparison.Transport.integral_eq_mean
+#check QuantumExperiments.PMFComparison.Transport.integral_eq_mean
+#print axioms QuantumExperiments.PMFComparison.Transport.variance_eq_finite
+#check QuantumExperiments.PMFComparison.Transport.variance_eq_finite
+#print axioms QuantumExperiments.PMFComparison.Transport.variance_on_fin
+#check QuantumExperiments.PMFComparison.Transport.variance_on_fin
+#print axioms QuantumExperiments.PMFComparison.Transport.covariance_eq_finite
+#check QuantumExperiments.PMFComparison.Transport.covariance_eq_finite
+#print axioms QuantumExperiments.PMFComparison.Transport.covariance_polarization
+#check QuantumExperiments.PMFComparison.Transport.covariance_polarization
+#print axioms QuantumExperiments.PMFComparison.Transport.covariance_on_fin
+#check QuantumExperiments.PMFComparison.Transport.covariance_on_fin

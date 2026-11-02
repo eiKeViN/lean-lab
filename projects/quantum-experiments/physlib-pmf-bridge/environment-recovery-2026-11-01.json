@@ -1,0 +1,83 @@
+{
+  "date_utc": "2026-11-01T09:14:08.431071+00:00",
+  "status": "BLOCKED_PROXY_CONNECT_403",
+  "base_commit": "e97b2315d872cd34f5e47c4d7596c1ff421f4f4f",
+  "requested_scope": "Matching isolated environment only; no mathematics expansion or remote publication",
+  "required_pins": {
+    "lean": "v4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e"
+  },
+  "declared_pin_source": {
+    "repository": "/workspace/lean-library-quality-research",
+    "checkpoint": "98a6b804a911bac97327df961628e65fbf98155f",
+    "physlib_manifest": "experiments/physlib-pmf-bridge/upstream/physlib/lake-manifest.json",
+    "manifest_sha256": "b446f065c29a1f67f1cce6721cd6317bfa23b3c7aad516af5472cc21bb3c45a0",
+    "physlib_toolchain": "experiments/physlib-pmf-bridge/upstream/physlib/lean-toolchain",
+    "toolchain_sha256": "ead308ab4fc749eb2389819903fd7baa11bf06e490827f6896a8cbfe622fa703",
+    "recovery": "Read retained Git objects with git show. Original source paths are absent from the currently checked-out API-research branch, not lost from Git.",
+    "initial_local_probe": "FileNotFoundError on original worktree source path; corrected read-only lookup to the pinned Git checkpoint. No source file or branch changed."
+  },
+  "network_attempt": {
+    "url": "https://api.github.com/repos/leanprover/lean4/releases/tags/v4.35.0",
+    "same_operation_recovery_attempts_this_increment": 1,
+    "result": "Proxy CONNECT tunnel returned 403 before GitHub API response",
+    "known_outcome": "Metadata read failed; no release asset or toolchain installation started",
+    "raw_attempt_record": "results/prepare02/metadata-attempt.json",
+    "raw_attempt_sha256": "4bd9409e801ae2bd22817d0b3b6ce9b3823bdafbf6add8e2e34a369a4568bfb2",
+    "stderr_log": "results/prepare02/release-metadata.stderr",
+    "stderr_sha256": "1e6d7328a017a1c951deb87cd360b9a3e790169a7cd39e519e84c7a908e05a55",
+    "repeated_after_this_failure": false,
+    "alternate_channel_executor_or_proxy_changes": false,
+    "request_expression": "urllib.request.urlopen(original_url, timeout=30), default proxy; response.read() never reached"
+  },
+  "classification": {
+    "observed": "Network proxy tunnel rejection, not a Lean/compiler/import failure",
+    "platform_approval_rejection_observed": false,
+    "underlying_proxy_rule": "UNKNOWN; current explicit setup authorization does not remove the proxy refusal",
+    "transient_or_persistent": "Two dated attempts observed same tunnel error; no claim about full service outage or exact policy cause"
+  },
+  "local_checks": {
+    "no_duplicate_Lean_or_lake_process_observed": true,
+    "repository_agents_read": true,
+    "repository_agents_skills_directories": "Not present at inspected repo/project paths",
+    "disk_available_observed": "23GB",
+    "existing_lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+    "existing_lean_version_stdout": "results/prepare02/existing-lean.stdout",
+    "existing_mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "existing_mathlib_revision_stdout": "results/prepare02/existing-mathlib.stdout",
+    "stdout_capture": "Copied verbatim from this increment exec_command returns; not additional tool execution",
+    "matching_cache_at_lean_lab_cache_quantum": "Absent",
+    "lean_on_PATH": null,
+    "lake_on_PATH": null,
+    "inventory_limit": "Inspected available workspace/cache locations, not inaccessible machine directories",
+    "existing_lean_command": [
+      "/workspace/.cache/api-composition-compiler/lean-4.34.1-linux/bin/lean",
+      "--version"
+    ],
+    "existing_lean_exit_code": 0,
+    "existing_lean_stdout_sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "existing_mathlib_command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "existing_mathlib_cwd": "/workspace/.cache/api-composition-compiler/mathlib",
+    "existing_mathlib_exit_code": 0,
+    "existing_mathlib_stdout_sha256": "d26684ea790064f49bcb150415b3a062ec30b5e646b207927aa3fc5fcbb43fbe"
+  },
+  "acceptance": {
+    "matching_lean_version": "NOT_RUN: v4.35.0 unavailable",
+    "matching_dependency_checkout_SHA": "NOT_PREPARED; target SHA only confirmed from retained Physlib manifest",
+    "matching_minimal_import": "NOT_RUN: matching toolchain/dependencies unavailable",
+    "bridge_and_consumer_compilation": "NOT_RUN; not this environment-only increment",
+    "axiom_or_kernel_checks": "NOT_RUN"
+  },
+  "minimum_user_action": "Have the current execution environment network/proxy owner permit the original HTTPS request (CONNECT api.github.com:443), or provide an already prepared verified matching environment in an authorized local directory. Another generic install approval alone does not resolve the observed tunnel error. Do not retry until relevant access/environment information changes.",
+  "history_preservation": {
+    "prepare01_preserved": true,
+    "six_draft_sources_preserved": true,
+    "old_cache_and_global_defaults_unchanged": true
+  },
+  "retention": "Raw logs/metadata are ignored local results; hashes in this tracked receipt are not remote backups; no push authorized"
+}

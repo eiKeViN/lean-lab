@@ -1,0 +1,87 @@
+{
+  "original_experiment_commit": "f65426e33730d93a26ea0d1f5a00faefc29ddf89",
+  "verified_source_commit": "05b07b3db0fa70dcae4b0cefb7c6be90538c6612",
+  "comparison_source_commit": "8fa207059701cb2b44b4913017d3717b5682115b",
+  "files": [
+    {
+      "path": "physlib-pmf-bridge/DRAFT.md",
+      "sha256": "ceeda9ff6ddb44fd62806356b27721c2a61d699366d0f2c1c9694fd34a4fede7"
+    },
+    {
+      "path": "physlib-pmf-bridge/PROBABILITY-CHAIN.md",
+      "sha256": "e1df41245bfa66eaee0d4f5fe2fcafa57312442205424236bc54c95c1d4f4fb1"
+    },
+    {
+      "path": "physlib-pmf-bridge/README.md",
+      "sha256": "71fe77fae658facec966d9664a3f9bbce3e8b28b2350c892cb07a3145a5ae9c2"
+    },
+    {
+      "path": "physlib-pmf-bridge/UNVERIFIED_DRAFT/PMFBridgeDraft/Bridge.lean",
+      "sha256": "c3acc6c9fca8d957b87db8a75bb1fe439b0a0489bf988e769ddd6bc3115e7305"
+    },
+    {
+      "path": "physlib-pmf-bridge/UNVERIFIED_DRAFT/PMFBridgeDraft/ChannelProduct.lean",
+      "sha256": "a28fda5fee43bf0906f36cc4d6ac54a752e8dbdfa9fa710edfd956cd13b8c889"
+    },
+    {
+      "path": "physlib-pmf-bridge/UNVERIFIED_DRAFT/PMFBridgeDraft/ChannelStatistics.lean",
+      "sha256": "ce476a17ab9a7b085cc8f2f902a6fdee9bafbf0e40069465164837b7be857b0b"
+    },
+    {
+      "path": "physlib-pmf-bridge/UNVERIFIED_DRAFT/PMFBridgeDraft/Compare.lean",
+      "sha256": "1f83a7af03aa92ec3d99d16ebe351dd314c78b1a6990cc2ee6303682ff3b677a"
+    },
+    {
+      "path": "physlib-pmf-bridge/UNVERIFIED_DRAFT/PMFBridgeDraft/Native.lean",
+      "sha256": "b2fa3dec2a47f9b8837333d104ca40f0046e3ea96b7b97ae75a64aa91d489347"
+    },
+    {
+      "path": "physlib-pmf-bridge/UNVERIFIED_DRAFT/PMFBridgeDraft/ViaPMF.lean",
+      "sha256": "846986d32f92542f901e3ad7baa7a036722f2119be0c568bf9fafc860f8f21f8"
+    },
+    {
+      "path": "physlib-pmf-bridge/draft-status.json",
+      "sha256": "d79400430045f85abc403e8202de2fd892525eaddfee19d301a1cfdc2e964af6"
+    },
+    {
+      "path": "physlib-pmf-bridge/environment-recovery-2026-11-01.json",
+      "sha256": "c56ba9f6a2e3c1323e9bf734faa5abb992114641fb73ae2904afda8005f3053b"
+    },
+    {
+      "path": "physlib-pmf-bridge/lean-toolchain",
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "physlib-pmf-bridge/preparation.json",
+      "sha256": "d7b0aa9728ed200472c107d942d04def2b3e2b1faaabac0374c222cdc4bd3144"
+    },
+    {
+      "path": "physlib-pmf-bridge/probability-chain-status.json",
+      "sha256": "388ab3319c2cb2ada872f1c8461ec7555c8329994f724ba97ca82df78e3e59a3"
+    },
+    {
+      "path": "pmf-environment/Verified/PMFBridgeDraft/Bridge.lean",
+      "sha256": "bcb84f2ac48176aedfef46b7d26142b5c336d7041230798c23339d8582226732"
+    },
+    {
+      "path": "pmf-environment/Verified/PMFBridgeDraft/ChannelProduct.lean",
+      "sha256": "d6106b579928f42b76b19638009837396be6e1048a46aeb498d77876a4f76716"
+    },
+    {
+      "path": "pmf-environment/Verified/PMFBridgeDraft/ChannelStatistics.lean",
+      "sha256": "fce46eaea2797d9185040edb431832319cf32455d5df011681a8c3ac70844f2f"
+    },
+    {
+      "path": "pmf-environment/Verified/PMFBridgeDraft/Compare.lean",
+      "sha256": "9e25fe7b49237b228c056d5abfc4a3615215473ce2d592f6401d33c62c9b1f44"
+    },
+    {
+      "path": "pmf-environment/Verified/PMFBridgeDraft/Native.lean",
+      "sha256": "c9c4b254b73bcc27dae97f9ccfa8b9cbcd38fecc1bda08431a1af788ceb6abc7"
+    },
+    {
+      "path": "pmf-environment/Verified/PMFBridgeDraft/ViaPMF.lean",
+      "sha256": "1de12ca589d36ad7933ebe235213340fd3b83aa1e21337627e82097bc36953ee"
+    }
+  ]
+}

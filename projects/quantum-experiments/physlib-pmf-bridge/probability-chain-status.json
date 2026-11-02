@@ -1,0 +1,247 @@
+{
+  "recorded_utc": "2026-10-31T13:35:17.724703+00:00",
+  "status": "UNVERIFIED_DRAFT",
+  "base_commit": "946402fd9d557d981ee33a6e21fbb904d8aed32a",
+  "required_pins": {
+    "lean": "v4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e"
+  },
+  "scope": "Fixed deterministic input string is of the actual Physlib DMChannel.on_fin; finite real coordinate scores. Not random-input unconditional independence.",
+  "new_drafts": [
+    {
+      "path": "UNVERIFIED_DRAFT/PMFBridgeDraft/ChannelProduct.lean",
+      "sha256": "a28fda5fee43bf0906f36cc4d6ac54a752e8dbdfa9fa710edfd956cd13b8c889",
+      "computed_git_blob_sha1": "8c50ea6e6f92181674b409476bffa3e8f6b5ff4a",
+      "direct_admission_lines": [],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "path": "UNVERIFIED_DRAFT/PMFBridgeDraft/ChannelStatistics.lean",
+      "sha256": "ce476a17ab9a7b085cc8f2f902a6fdee9bafbf0e40069465164837b7be857b0b",
+      "computed_git_blob_sha1": "4424399f82a22d017a5eccf90a60339d0bc708f3",
+      "direct_admission_lines": [],
+      "compiled": false,
+      "accepted": false
+    }
+  ],
+  "old_draft_status_sha256": "d79400430045f85abc403e8202de2fd892525eaddfee19d301a1cfdc2e964af6",
+  "old_four_lean_sources_byte_unchanged": true,
+  "old_explicit_incomplete_proofs_preserved": 5,
+  "new_direct_incomplete_proofs": 0,
+  "validation_status": {
+    "Lean": "NOT_RUN",
+    "elaboration": "NOT_RUN",
+    "axiom_audit": "NOT_RUN",
+    "kernel": "NOT_RUN",
+    "runtime": "NOT_RUN",
+    "comparison_efficiency": "NOT_RUN"
+  },
+  "proposed_dependency_roles": {
+    "forward_bridge": "Existing Bridge.toPMF, originally incomplete B01; inverse/bind routes not called by new chain. Actual axiom dependencies unknown until audit.",
+    "local_connection": "Actual on_fin pointwise product, singleton measure extensionality, ofReal nonnegative product, PMF probability instances.",
+    "native_theory": "iIndepFun_pi and variance_sum_pi; finite scores use measurable_of_finite and MemLp.of_bound."
+  },
+  "pending_checks": [
+    "Exact elaboration of C.on_fin I O is",
+    "MeasurableSingletonClass of the finite function space",
+    "Derived IsProbabilityMeasure and SigmaFinite instances",
+    "Implicit measure/index inference at iIndepFun_pi and variance_sum_pi",
+    "Generated Finset.single_le_sum export and scalar/finite-function sum simplification",
+    "No sorryAx in intended accepted dependency closure after actual proof repairs"
+  ],
+  "preserved_network_stop": {
+    "target": "https://api.github.com/repos/leanprover/lean4/releases/tags/v4.35.0",
+    "stderr_sha256": "5ea4bbe1fd1062c1774ebde37da4fa7176c34f2bb13afc9258e33442883a4eae",
+    "preparation_json_sha256": "d7b0aa9728ed200472c107d942d04def2b3e2b1faaabac0374c222cdc4bd3144",
+    "requests_to_stopped_target_this_followup": 0,
+    "retries_or_download_route_changes": 0
+  },
+  "source_read_method": "Task-authorized independent read-only GitHub connector for fixed mathlib text; no toolchain/download request. Content equality checked against connector text. No independent server Git-blob hash verification.",
+  "source_lookup_failure": {
+    "attempted_path": "Mathlib/MeasureTheory/Measure/Pi.lean",
+    "status": 404,
+    "local_record": "results/source-review01/lookup-pi-path-404.json",
+    "resolution": "Read actual imported Mathlib/MeasureTheory/Constructions/Pi.lean; not the release-metadata request."
+  },
+  "source_files": [
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/BigOperators/Group/Finset.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Order/BigOperators/Group/Finset.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/Algebra/Order/BigOperators/Group/Finset.lean",
+      "bytes": 39872,
+      "sha256": "6c31074e3991a03e6f99c99229fbde4aba6dea19202dab72c880427d9ae351c4",
+      "computed_git_blob_sha1": "3d48bbb33a2d57e1a56372ef4d3dc4cd659bf4f6",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 273,
+          "source_line": "theorem single_le_prod [MulLeftMono N] (hf : \u2200 i \u2208 s, 1 \u2264 f i) {a} (h : a \u2208 s) :"
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Basic/ENNReal/BigOperators.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Basic/ENNReal/BigOperators.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/Basic/ENNReal/BigOperators.lean",
+      "bytes": 8290,
+      "sha256": "b1ecd4c55a43cd80fe633a9fc4efbcdea057457a4af39a6066727fb1f9d30e0d",
+      "computed_git_blob_sha1": "a10140b16ed9a38d3e80920073af73e0b6ebbf9f",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 63,
+          "source_line": "theorem ofReal_prod_of_nonneg {\u03b1 : Type*} {s : Finset \u03b1} {f : \u03b1 \u2192 \u211d} (hf : \u2200 i, i \u2208 s \u2192 0 \u2264 f i) :"
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/Constructions/Pi.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/MeasureTheory/Constructions/Pi.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/MeasureTheory/Constructions/Pi.lean",
+      "bytes": 47126,
+      "sha256": "bb89dee63d412cd1cc1f7f9fd7a81d64074139571960b2f0fcb66d8b763cd6ef",
+      "computed_git_blob_sha1": "dfa283d0686ca751104d39c4ea97140653db1220",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 299,
+          "source_line": "@[simp] lemma pi_singleton [\u2200 i, SigmaFinite (\u03bc i)] (f : \u2200 i, \u03b1 i) :"
+        },
+        {
+          "line": 311,
+          "source_line": "instance pi.instIsProbabilityMeasure [\u2200 i, IsProbabilityMeasure (\u03bc i)] :"
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean",
+      "bytes": 54108,
+      "sha256": "8e7b53565147a97607ebb09d26073084d0e926edbc9349db90f69859990762cd",
+      "computed_git_blob_sha1": "f94c8fbd4b98e99f18afa972da8c1018053a0b3a",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 631,
+          "source_line": "theorem MemLp.of_bound [IsFiniteMeasure \u03bc] {f : \u03b1 \u2192 E} (hf : AEStronglyMeasurable f \u03bc) (C : \u211d)"
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
+      "bytes": 15859,
+      "sha256": "8cafe2d83ca194225b37f331c01ed08219f58541b6de0aa0d20a6866fa048935",
+      "computed_git_blob_sha1": "7b60ee3cbcddf056739a401bef066046bf591f40",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 293,
+          "source_line": "theorem measurable_of_finite [Finite \u03b1] [MeasurableSingletonClass \u03b1] (f : \u03b1 \u2192 \u03b2) : Measurable f :="
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/Measure/Dirac/Basic.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/MeasureTheory/Measure/Dirac/Basic.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/MeasureTheory/Measure/Dirac/Basic.lean",
+      "bytes": 15676,
+      "sha256": "0641a9328dbfb175c9124af3b2efbecb21f603269edcdbf1e5fbb119f44094ae",
+      "computed_git_blob_sha1": "795335880df18203c52f287854c293b057dd7b73",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 60,
+          "source_line": "theorem ext_of_singleton [Countable \u03b1] {\u03bc \u03bd : Measure \u03b1} (h : \u2200 a, \u03bc {a} = \u03bd {a}) : \u03bc = \u03bd :="
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Probability/Independence/Basic.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Probability/Independence/Basic.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/Probability/Independence/Basic.lean",
+      "bytes": 56016,
+      "sha256": "56dc44b3609c87b133e50a441dd83349de8e2731c9cc901699d7bb1161c8d3d7",
+      "computed_git_blob_sha1": "2be21b5fc494f2243c622488337789fc2c277010",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 895,
+          "source_line": "lemma iIndepFun_pi (mX : \u2200 i, AEMeasurable (X i) (\u03bc i)) :"
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Probability/Moments/Variance.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Probability/Moments/Variance.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/Probability/Moments/Variance.lean",
+      "bytes": 25464,
+      "sha256": "0bcf0e00025e061b358fbde009fc35cd2e6dc28749d724513d08caa76e69415e",
+      "computed_git_blob_sha1": "11864e20ef5d62daf68d4d316c0dd06d73d90d18",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 449,
+          "source_line": "lemma variance_sum_pi [Fintype \u03b9] {\u03a9 : \u03b9 \u2192 Type*} {m\u03a9 : \u2200 i, MeasurableSpace (\u03a9 i)}"
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/mathlib4",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "local_copy": "results/source-review01/upstream/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "bytes": 2263,
+      "sha256": "04484c3ede88e8e0029000c3fc95b44eaaf19e3e4ccc09243a7cb9fe3034d6d5",
+      "computed_git_blob_sha1": "0299efaf925f3599b169c98d7734d1a643dc6978",
+      "connector_text_copy_equality_checked": true,
+      "declaration_locations": [
+        {
+          "line": 45,
+          "source_line": "theorem integral_eq_sum [Fintype \u03b1] (p : PMF \u03b1) (f : \u03b1 \u2192 E) :"
+        }
+      ]
+    }
+  ],
+  "source_license": {
+    "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/56a005855ea17e0b0958f73ec801ae140b0a1679/LICENSE",
+    "copy": "results/source-review01/LICENSE.mathlib",
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    "reused_from": "Original fixed research source snapshot, read-only reference"
+  },
+  "local_raw_sources_ignored_not_remote_backup": true,
+  "validation_executed": [
+    "9 connector-text/source-copy equality checks",
+    "Local source SHA256 and computed Git-blob identities",
+    "Original four-draft and 403-record preservation",
+    "New draft admission-token scan; not a Lean parser",
+    "Local Markdown path/anchor checks"
+  ],
+  "boundaries": [
+    "No matched native variance Lean implementation; native responsibilities analysed mathematically only.",
+    "No new theorem acceptance or measured proof/maintenance advantage.",
+    "No modification of original expect_val/Mixable assumptions.",
+    "Correlated-input identity-channel variance control is mathematical, not Lean-verified."
+  ]
+}

@@ -1,0 +1,74 @@
+import PMFBridgeDraft
+
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.toPMF
+#check QuantumExperiments.PMFBridgeDraft.Bridge.toPMF
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF
+#check QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply
+#check QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_apply
+#check QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_apply
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal
+#check QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_toPMF
+#check QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_toPMF
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_ofPMF
+#check QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_ofPMF
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.equiv
+#check QuantumExperiments.PMFBridgeDraft.Bridge.equiv
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_injective
+#check QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_injective
+#print axioms QuantumExperiments.PMFBridgeDraft.Bridge.pmf_bind_toReal
+#check QuantumExperiments.PMFBridgeDraft.Bridge.pmf_bind_toReal
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelProduct.law
+#check QuantumExperiments.PMFBridgeDraft.ChannelProduct.law
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability
+#check QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton
+#check QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply
+#check QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi
+#check QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelProduct.coordinates_iIndepFun
+#check QuantumExperiments.PMFBridgeDraft.ChannelProduct.coordinates_iIndepFun
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real
+#check QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two
+#check QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore
+#check QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp
+#check QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp
+#print axioms QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore
+#check QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore
+#print axioms QuantumExperiments.PMFBridgeDraft.route_bind_eq
+#check QuantumExperiments.PMFBridgeDraft.route_bind_eq
+#print axioms QuantumExperiments.PMFBridgeDraft.route_comp_eq
+#check QuantumExperiments.PMFBridgeDraft.route_comp_eq
+#print axioms QuantumExperiments.PMFBridgeDraft.Native.bind
+#check QuantumExperiments.PMFBridgeDraft.Native.bind
+#print axioms QuantumExperiments.PMFBridgeDraft.Native.bind_apply
+#check QuantumExperiments.PMFBridgeDraft.Native.bind_apply
+#print axioms QuantumExperiments.PMFBridgeDraft.Native.bind_assoc
+#check QuantumExperiments.PMFBridgeDraft.Native.bind_assoc
+#print axioms QuantumExperiments.PMFBridgeDraft.Native.comp
+#check QuantumExperiments.PMFBridgeDraft.Native.comp
+#print axioms QuantumExperiments.PMFBridgeDraft.Native.comp_apply
+#check QuantumExperiments.PMFBridgeDraft.Native.comp_apply
+#print axioms QuantumExperiments.PMFBridgeDraft.Native.comp_assoc
+#check QuantumExperiments.PMFBridgeDraft.Native.comp_assoc
+#print axioms QuantumExperiments.PMFBridgeDraft.ViaPMF.bind
+#check QuantumExperiments.PMFBridgeDraft.ViaPMF.bind
+#print axioms QuantumExperiments.PMFBridgeDraft.ViaPMF.toPMF_bind
+#check QuantumExperiments.PMFBridgeDraft.ViaPMF.toPMF_bind
+#print axioms QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_apply
+#check QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_apply
+#print axioms QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_assoc
+#check QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_assoc
+#print axioms QuantumExperiments.PMFBridgeDraft.ViaPMF.comp
+#check QuantumExperiments.PMFBridgeDraft.ViaPMF.comp
+#print axioms QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_apply
+#check QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_apply
+#print axioms QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_assoc
+#check QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_assoc

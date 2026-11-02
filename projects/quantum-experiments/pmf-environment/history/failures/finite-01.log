@@ -1,0 +1,37 @@
+Comparison/PMFComparison/Finite.lean:16:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (ι → O)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Comparison/PMFComparison/Finite.lean:27:13: warning: declaration uses `sorry`
+Comparison/PMFComparison/Finite.lean:23:6: warning: declaration uses `sorry`
+Comparison/PMFComparison/Finite.lean:27:26: warning: This simp argument is unused:
+  ← Finset.prod_mul_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [productMean]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Comparison/PMFComparison/Finite.lean:28:2: warning: Unused tactic linter: `simpa only [Fintype.piFinset_univ] using
+  Finset.sum_prod_piFinset (Finset.univ : Finset O) (fun i o => (d i o : ℝ) * f i o)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Comparison/PMFComparison/Finite.lean:59:8: error: typeclass instance problem is stuck
+  AddCommMonoid ?m.28
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `AddCommMonoid` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+Comparison/PMFComparison/Finite.lean:58:13: warning: declaration uses `sorry`
+Comparison/PMFComparison/Finite.lean:58:26: warning: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [productMean]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Comparison/PMFComparison/Finite.lean:89:2: error: 'change' tactic failed, pattern
+  (productMean d fun os => (∑ i, g i (os i) - productMean d fun os => ∑ i, g i (os i)) ^ 2) = ?m.72
+is not definitionally equal to target
+  (variance (DMChannel.on_fin I O C is) fun os => ∑ i, g i (os i)) = ∑ i, variance (C.symb_dist (is i)) (g i)

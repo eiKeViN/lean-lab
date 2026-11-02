@@ -1,0 +1,106 @@
+--- original/Bridge.lean
++++ Verified/Bridge.lean
+@@ -2,3 +2,2 @@
+-UNVERIFIED_DRAFT — NOT COMPILED. Expected Lean v4.35.0; pins in ../../DRAFT.md.
+-Contains three explicit `sorry` obligations: B01, B02, B03. NOT accepted evidence.
+-Real Physlib imports only; no copied replacement for Prob or ProbDistribution.
++Explicit finite equivalence with mathlib PMF and real-valued bind observation.
++Revised from the preserved UNVERIFIED_DRAFT; validation evidence is recorded separately.
+@@ -16 +15 @@
+-/-- UNVERIFIED_DRAFT B01: transfer real finite normalization through ofReal. -/
++/-- Transfer real finite normalization through ofReal. -/
+@@ -19,3 +18,2 @@
+-    -- INCOMPLETE B01. Use nonnegativity and d.normalized, then the actual pinned
+-    -- finite-ofReal-sum lemma. Its declaration was not in the saved snapshot.
+-    sorry)
++    rw [← ENNReal.ofReal_sum_of_nonneg (fun _ _ => Prob.zero_le_coe)]
++    rw [d.normalized, ENNReal.ofReal_one])
+@@ -23 +21 @@
+-/-- UNVERIFIED_DRAFT B02: decode the finite PMF without an extra upper-bound input. -/
++/-- Decode the finite PMF without an extra upper-bound input. -/
+@@ -27,3 +25,3 @@
+-      -- INCOMPLETE B02. PMF.tsum_coe p = 1; convert finite tsum to sum and move
+-      -- toReal across it using p.apply_ne_top. Exact helper signatures pending.
+-      sorry)
++      rw [← ENNReal.toReal_sum (fun a _ => p.apply_ne_top a)]
++      have h : ∑ a, p a = 1 := by simpa only [tsum_fintype] using p.tsum_coe
++      rw [h, ENNReal.toReal_one])
+@@ -57 +55 @@
+-/-- UNVERIFIED_DRAFT: no global coercions or instances are installed. -/
++/-- No global coercions or instances are installed. -/
+@@ -67 +65 @@
+-/-- UNVERIFIED_DRAFT B03: the conversion cost needed by the real-valued bind client.
++/-- The conversion cost needed by the real-valued bind client.
+@@ -71,4 +69,3 @@
+-  -- INCOMPLETE B03. Start from PMF.bind_apply, then finite-tsum conversion,
+-  -- toReal of a finite sum and product. Each factor is finite by apply_ne_top.
+-  -- Do not hide this unresolved pointwise contract behind the definition below.
+-  sorry
++  rw [PMF.bind_apply, tsum_fintype]
++  rw [ENNReal.toReal_sum (fun a _ => ENNReal.mul_ne_top (p.apply_ne_top a) ((k a).apply_ne_top b))]
++  simp only [ENNReal.toReal_mul]
+--- original/ChannelProduct.lean
++++ Verified/ChannelProduct.lean
+@@ -2,4 +2,2 @@
+-UNVERIFIED_DRAFT — NOT COMPILED. Depends on the original incomplete Bridge.
+-New consumer: the ACTUAL DMChannel.on_fin at a FIXED input string is.
+-No result for unconditionally random/correlated inputs is asserted.
+-Source pins and exact obligations are in ../../PROBABILITY-CHAIN.md.
++The actual DMChannel.on_fin at a fixed input: product law and independent coordinates.
++Revised from the preserved UNVERIFIED_DRAFT; validation evidence is recorded separately.
+@@ -45 +43 @@
+-/-- UNVERIFIED_DRAFT: fixed-input law = product measure, from singleton masses.
++/-- Fixed-input law = product measure, from singleton masses.
+--- original/ChannelStatistics.lean
++++ Verified/ChannelStatistics.lean
+@@ -2,3 +2,2 @@
+-UNVERIFIED_DRAFT — NOT COMPILED. No new admission, but imports incomplete Bridge.
+-Real-valued additive scores under the ACTUAL on_fin at a FIXED input string.
+-Does not modify or strengthen Physlib's general expect_val/Mixable API.
++Finite real scores at a fixed input: integrals, second moments and additive variance.
++Revised from the preserved UNVERIFIED_DRAFT; validation evidence is recorded separately.
+@@ -48,2 +47,5 @@
+-  simpa only [totalScore, Finset.sum_apply] using
+-    ProbabilityTheory.variance_sum_pi
++  have hscore : totalScore g = ∑ k, fun os => g k (os k) := by
++    funext os
++    simp only [totalScore, Finset.sum_apply]
++  rw [hscore]
++  exact ProbabilityTheory.variance_sum_pi
+--- original/Compare.lean
++++ Verified/Compare.lean
+@@ -2,3 +2,2 @@
+-UNVERIFIED_DRAFT — NOT COMPILED. Static shared-goal check for two routes.
+-No new placeholders, but BOTH imported routes are incomplete and unverified.
+-No timing, maintenance-benefit or accepted-theorem claim follows from this file.
++Equality of the native and PMF-transported operations.
++Revised from the preserved UNVERIFIED_DRAFT; validation evidence is recorded separately.
+--- original/Native.lean
++++ Verified/Native.lean
+@@ -2,3 +2,2 @@
+-UNVERIFIED_DRAFT — NOT COMPILED. Two explicit `sorry` obligations N01/N02.
+-Strong native baseline: real finite sums, shared bind helper, no explicit PMF import.
+-Imports the actual Physlib Channel, not its commented-out Channel.comp sketch.
++Native finite-sum bind and channel composition baseline.
++Revised from the preserved UNVERIFIED_DRAFT; validation evidence is recorded separately.
+@@ -20,3 +19,3 @@
+-        -- INCOMPLETE N01. Swap the two finite sums; each k a sums to 1, then d.
+-        -- Exact finite-sum exchange helper signature is not in saved sources.
+-        sorry)
++        rw [Finset.sum_comm]
++        simp_rw [← Finset.mul_sum, ProbDistribution.normalized, mul_one]
++        exact d.normalized)
+@@ -37,3 +36,2 @@
+-  -- INCOMPLETE N02. Distribute multiplication, exchange finite sums, associate.
+-  -- This may be short with shared native lemmas; do not force a weak baseline.
+-  sorry
++  simp_rw [Finset.sum_mul, Finset.mul_sum, mul_assoc]
++  exact Finset.sum_comm
+--- original/ViaPMF.lean
++++ Verified/ViaPMF.lean
+@@ -2,3 +2,2 @@
+-UNVERIFIED_DRAFT — NOT COMPILED. No additional placeholders in this file,
+-but depends on Bridge's THREE explicit incomplete obligations. No acceptance claim.
+-Uses actual PMF.bind/bind_bind, with a real finite-sum observation for clients.
++Transported bind and channel composition using the actual PMF monad.
++Revised from the preserved UNVERIFIED_DRAFT; validation evidence is recorded separately.

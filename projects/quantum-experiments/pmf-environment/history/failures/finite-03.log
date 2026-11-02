@@ -1,0 +1,6 @@
+Comparison/PMFComparison/Finite.lean:86:81: error: Type mismatch
+  rfl
+has type
+  ?m.45 = ?m.45
+but is expected to have type
+  mean (DMChannel.on_fin I O C is) f = productMean d f

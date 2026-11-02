@@ -1,0 +1,776 @@
+{
+  "pass": true,
+  "lean": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "base_commit": "05b07b3db0fa70dcae4b0cefb7c6be90538c6612",
+  "declaration_count": 63,
+  "axioms": {
+    "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.ofPMF_toPMF": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_ofPMF": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Bridge.pmf_bind_toReal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelProduct.coordinates_iIndepFun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.route_bind_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.route_comp_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Native.bind": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Native.bind_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Native.bind_assoc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Native.comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Native.comp_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.Native.comp_assoc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ViaPMF.bind": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ViaPMF.toPMF_bind": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ViaPMF.bind_assoc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ViaPMF.comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFBridgeDraft.ViaPMF.comp_assoc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Contracts.VarianceClaim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Contracts.CovarianceClaim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Contracts.native_variance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Contracts.transported_variance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Contracts.native_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Contracts.transported_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.productMean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.mean_center": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.productMean_prod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.productMean_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.productMean_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.productMean_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.productMean_sum_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.productMean_centered_sum_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.variance_on_fin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.mean_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.variance_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.covariance_on_fin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.variance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.integral_eq_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.variance_eq_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.variance_on_fin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.covariance_eq_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.covariance_polarization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.covariance_on_fin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "metrics": {
+    "Comparison/PMFComparison/Contracts.lean": {
+      "physical_lines": 32,
+      "nonblank_noncomment_lines": 22,
+      "explicit_declarations": 6,
+      "sha256": "f930121bcb43221d561f9ae14192b5247942f222894ed8a4f6faa089d40a82b7"
+    },
+    "Comparison/PMFComparison/Finite.lean": {
+      "physical_lines": 98,
+      "nonblank_noncomment_lines": 85,
+      "explicit_declarations": 9,
+      "sha256": "18c94b41bbd02c0dd0b3239f3adadb06ba7c6353bc60a0ceb5c5257e82f3fd3d"
+    },
+    "Comparison/PMFComparison/FiniteCovariance.lean": {
+      "physical_lines": 45,
+      "nonblank_noncomment_lines": 37,
+      "explicit_declarations": 3,
+      "sha256": "0bea111412e6e7d74c5bb3739ae29ac1eda02025569f280e29a460dc2ac8359b"
+    },
+    "Comparison/PMFComparison/Moments.lean": {
+      "physical_lines": 19,
+      "nonblank_noncomment_lines": 12,
+      "explicit_declarations": 3,
+      "sha256": "a5cf380e7f4e93eb4f609e9b5be998bf32c1e6181c3a13ed757dc142d3405dda"
+    },
+    "Comparison/PMFComparison/Transport.lean": {
+      "physical_lines": 32,
+      "nonblank_noncomment_lines": 24,
+      "explicit_declarations": 3,
+      "sha256": "717e171cc7564979f1110cebf787a50086e2f05a69ec1c3c0e0a087c5cdad3b4"
+    },
+    "Comparison/PMFComparison/TransportCovariance.lean": {
+      "physical_lines": 41,
+      "nonblank_noncomment_lines": 33,
+      "explicit_declarations": 3,
+      "sha256": "171725a172ef5a3c6895bf6a7ed639c33605642634893d1f189af9f6548f13d6"
+    },
+    "Verified/PMFBridgeDraft/Bridge.lean": {
+      "physical_lines": 73,
+      "nonblank_noncomment_lines": 50,
+      "explicit_declarations": 10,
+      "sha256": "bcb84f2ac48176aedfef46b7d26142b5c336d7041230798c23339d8582226732"
+    },
+    "Verified/PMFBridgeDraft/ChannelProduct.lean": {
+      "physical_lines": 65,
+      "nonblank_noncomment_lines": 44,
+      "explicit_declarations": 6,
+      "sha256": "d6106b579928f42b76b19638009837396be6e1048a46aeb498d77876a4f76716"
+    },
+    "Verified/PMFBridgeDraft/ChannelStatistics.lean": {
+      "physical_lines": 63,
+      "nonblank_noncomment_lines": 42,
+      "explicit_declarations": 5,
+      "sha256": "fce46eaea2797d9185040edb431832319cf32455d5df011681a8c3ac70844f2f"
+    },
+    "Verified/PMFBridgeDraft/Compare.lean": {
+      "physical_lines": 34,
+      "nonblank_noncomment_lines": 24,
+      "explicit_declarations": 2,
+      "sha256": "9e25fe7b49237b228c056d5abfc4a3615215473ce2d592f6401d33c62c9b1f44"
+    },
+    "Verified/PMFBridgeDraft/Native.lean": {
+      "physical_lines": 66,
+      "nonblank_noncomment_lines": 50,
+      "explicit_declarations": 6,
+      "sha256": "c9c4b254b73bcc27dae97f9ccfa8b9cbcd38fecc1bda08431a1af788ceb6abc7"
+    },
+    "Verified/PMFBridgeDraft/ViaPMF.lean": {
+      "physical_lines": 66,
+      "nonblank_noncomment_lines": 49,
+      "explicit_declarations": 7,
+      "sha256": "1de12ca589d36ad7933ebe235213340fd3b83aa1e21337627e82097bc36953ee"
+    }
+  },
+  "local_dependency_slices": {
+    "QuantumExperiments.PMFComparison.Finite.variance_on_fin": [
+      "QuantumExperiments.PMFComparison.Finite.productMean_coordinate",
+      "QuantumExperiments.PMFComparison.Finite.productMean_centered_sum_sq",
+      "QuantumExperiments.PMFComparison.Finite.productMean_pair",
+      "QuantumExperiments.PMFComparison.Finite.productMean_prod._simp_1_2",
+      "QuantumExperiments.PMFComparison.Finite.productMean",
+      "QuantumExperiments.PMFComparison.Finite.mean_center._simp_1_2",
+      "QuantumExperiments.PMFComparison.Finite.productMean_sum",
+      "QuantumExperiments.PMFComparison.Finite.variance",
+      "QuantumExperiments.PMFComparison.Finite.mean_center",
+      "QuantumExperiments.PMFComparison.Finite.variance_on_fin._simp_1_1",
+      "QuantumExperiments.PMFComparison.Finite.variance_on_fin",
+      "QuantumExperiments.PMFComparison.Finite.mean",
+      "QuantumExperiments.PMFComparison.Finite.productMean_sum_coordinate",
+      "QuantumExperiments.PMFComparison.Finite.productMean_prod"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.variance_on_fin": [
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp",
+      "QuantumExperiments.PMFComparison.Transport.integral_eq_mean",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal",
+      "QuantumExperiments.PMFComparison.Finite.variance",
+      "QuantumExperiments.PMFComparison.Transport.variance_eq_finite",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF._proof_1",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law",
+      "QuantumExperiments.PMFComparison.Transport.variance_on_fin",
+      "QuantumExperiments.PMFComparison.Finite.mean",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply"
+    ],
+    "QuantumExperiments.PMFComparison.Finite.covariance_on_fin": [
+      "QuantumExperiments.PMFComparison.Finite.productMean_coordinate",
+      "QuantumExperiments.PMFComparison.Finite.productMean_centered_sum_sq",
+      "QuantumExperiments.PMFComparison.Finite.productMean_pair",
+      "QuantumExperiments.PMFComparison.Finite.productMean_prod._simp_1_2",
+      "QuantumExperiments.PMFComparison.Finite.productMean",
+      "QuantumExperiments.PMFComparison.Finite.mean_center._simp_1_2",
+      "QuantumExperiments.PMFComparison.Finite.covariance_on_fin",
+      "QuantumExperiments.PMFComparison.Finite.productMean_sum",
+      "QuantumExperiments.PMFComparison.Finite.covariance",
+      "QuantumExperiments.PMFComparison.Finite.mean_add",
+      "QuantumExperiments.PMFComparison.Finite.variance",
+      "QuantumExperiments.PMFComparison.Finite.mean_center",
+      "QuantumExperiments.PMFComparison.Finite.variance_add",
+      "QuantumExperiments.PMFComparison.Finite.variance_on_fin._simp_1_1",
+      "QuantumExperiments.PMFComparison.Finite.variance_on_fin",
+      "QuantumExperiments.PMFComparison.Finite.mean",
+      "QuantumExperiments.PMFComparison.Finite.productMean_sum_coordinate",
+      "QuantumExperiments.PMFComparison.Finite.productMean_prod"
+    ],
+    "QuantumExperiments.PMFComparison.Transport.covariance_on_fin": [
+      "QuantumExperiments.PMFComparison.Transport.covariance_eq_finite",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore_of_memLp",
+      "QuantumExperiments.PMFComparison.Transport.integral_eq_mean",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.totalScore",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.integral_real",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.score_memLp_two",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_probability",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_singleton",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_toReal",
+      "QuantumExperiments.PMFComparison.Transport.covariance_polarization",
+      "QuantumExperiments.PMFComparison.Finite.covariance",
+      "QuantumExperiments.PMFComparison.Transport.covariance_on_fin",
+      "QuantumExperiments.PMFComparison.Finite.variance",
+      "QuantumExperiments.PMFComparison.Transport.variance_eq_finite",
+      "QuantumExperiments.PMFBridgeDraft.ChannelStatistics.variance_totalScore",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF._proof_1",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law",
+      "QuantumExperiments.PMFComparison.Transport.variance_on_fin",
+      "QuantumExperiments.PMFComparison.Finite.mean",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.on_fin_real_apply",
+      "QuantumExperiments.PMFBridgeDraft.ChannelProduct.law_on_fin_eq_pi",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF",
+      "QuantumExperiments.PMFBridgeDraft.Bridge.toPMF_apply"
+    ]
+  },
+  "commands": [
+    {
+      "label": "lean",
+      "command": [
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 0.09146843000000615
+    },
+    {
+      "label": "pin-mathlib",
+      "command": [
+        "git",
+        "-C",
+        "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 0.004708270999998376
+    },
+    {
+      "label": "clean-mathlib",
+      "command": [
+        "git",
+        "-C",
+        "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib",
+        "status",
+        "--porcelain",
+        "--untracked-files=no"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 0.05461870700000304
+    },
+    {
+      "label": "pin-Physlib",
+      "command": [
+        "git",
+        "-C",
+        "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 0.003085280999997053
+    },
+    {
+      "label": "clean-Physlib",
+      "command": [
+        "git",
+        "-C",
+        "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib",
+        "status",
+        "--porcelain",
+        "--untracked-files=no"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 0.033897835999994186
+    },
+    {
+      "label": "source-identity",
+      "command": [
+        "python3",
+        "check-source-identity.py"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 0.02208997799999679
+    },
+    {
+      "label": "full-build",
+      "command": [
+        "lake",
+        "build",
+        "PMFBridgeDraft",
+        "PMFComparison"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 3.876825456000006
+    },
+    {
+      "label": "file-Contracts",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Contracts.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 7.941264296
+    },
+    {
+      "label": "file-Finite",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Finite.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.398119700999999
+    },
+    {
+      "label": "file-FiniteCovariance",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/FiniteCovariance.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.4190161260000025
+    },
+    {
+      "label": "file-Moments",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Moments.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.0804033659999988
+    },
+    {
+      "label": "file-Transport",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Transport.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.7345469109999954
+    },
+    {
+      "label": "file-TransportCovariance",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/TransportCovariance.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.5400815410000064
+    },
+    {
+      "label": "old-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Verified/Audit.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.62792484900001
+    },
+    {
+      "label": "new-axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/Audit.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.3483969520000016
+    },
+    {
+      "label": "dependencies",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/Dependencies.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 3.587607921
+    },
+    {
+      "label": "warm-1-Finite",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Finite.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.3919106060000104
+    },
+    {
+      "label": "warm-1-Transport",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Transport.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.49843388299999
+    },
+    {
+      "label": "warm-1-FiniteCovariance",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/FiniteCovariance.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.336063571000011
+    },
+    {
+      "label": "warm-1-TransportCovariance",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/TransportCovariance.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.812749635999978
+    },
+    {
+      "label": "warm-2-Transport",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Transport.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.566806735
+    },
+    {
+      "label": "warm-2-Finite",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/Finite.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.3995255420000206
+    },
+    {
+      "label": "warm-2-TransportCovariance",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/TransportCovariance.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.523320584000004
+    },
+    {
+      "label": "warm-2-FiniteCovariance",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "Comparison/PMFComparison/FiniteCovariance.lean"
+      ],
+      "cwd": "/workspace/lean-lab/projects/quantum-experiments/pmf-environment",
+      "exit_code": 0,
+      "wall_seconds": 2.234761295999988
+    }
+  ],
+  "published_historical_sources_unchanged": true,
+  "verified_six_files_unchanged": true,
+  "timing_scope": "Two alternating warm source-elaboration samples with compiled dependencies; not clean build, human effort or long-term maintenance."
+}

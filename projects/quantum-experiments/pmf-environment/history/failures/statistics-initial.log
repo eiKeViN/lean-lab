@@ -1,0 +1,8 @@
+Verified/PMFBridgeDraft/ChannelStatistics.lean:48:2: error: Type mismatch: After simplification, term
+  ProbabilityTheory.variance_sum_pi hg
+ has type
+  ProbabilityTheory.variance (∑ i, fun ω => g i (ω i)) (Measure.pi fun k => law (C.symb_dist (is k))) =
+    ∑ i, ProbabilityTheory.variance (g i) (law (C.symb_dist (is i)))
+but is expected to have type
+  ProbabilityTheory.variance (totalScore g) (Measure.pi fun k => law (C.symb_dist (is k))) =
+    ∑ k, ProbabilityTheory.variance (g k) (law (C.symb_dist (is k)))
