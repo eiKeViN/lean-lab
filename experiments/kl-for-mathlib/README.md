@@ -1,6 +1,13 @@
 # KL formalization
 
-The single maintained Lean project. Continue updating this directory in place.
+The maintained KL Lean project. Continue updating this directory in place.
+The repository also contains separately pinned [quantum experiments](../../projects/quantum-experiments/README.md); see the [workspace index](../../README.md).
+This KL project remains on Lean 4.34.1; the quantum 4.35.0 pin does not apply here.
+
+Latest recorded status: [261/261 modern modules accepted](../../reports/module-completion.md).
+That report includes the eight explicit generated-name contract retirements.
+The architectural inventory and earlier refinement stages below retain their
+own scope; the navigation update does not rerun KL validation.
 Earlier stages through `85b3d1a4fa9c4f08beb718d8925d2d0ec9c50060` remain
 recoverable from Git history; their experiment directories have been removed.
 That consolidation preserved the mathematical source and interfaces. Subsequent

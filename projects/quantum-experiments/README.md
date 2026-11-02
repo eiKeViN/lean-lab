@@ -1,5 +1,7 @@
 # lean-lab 量子实验区
 
+返回 [lean-lab 多项目入口](../../README.md)。本区 Lean 4.35.0 与旧 KL 项目的 4.34.1 环境独立。
+
 当前唯一活动 Lake 工作区是 **`pmf-environment/`**。全部活动 Lean 源码均已纳入 lean-lab 本地 Git，不以临时目录或 ZIP 作为唯一来源。
 
 | 位置 | 用途 |

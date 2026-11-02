@@ -1,13 +1,28 @@
 # Verification records
 
+Return to the [multi-project workspace index](../README.md).
+
+## Current project entrypoints
+
+- **KL / Lean 4.34.1:** [complete module migration acceptance](module-completion.md),
+  [project guide](../experiments/kl-for-mathlib/README.md), and
+  [module index](../experiments/kl-for-mathlib/MODULES.md). The latest recorded
+  acceptance covers 261/261 modern modules, with its explicit interface exceptions.
+- **Quantum / Lean 4.35.0:** [experiment index](../projects/quantum-experiments/README.md),
+  [PMF bridge verification](../projects/quantum-experiments/pmf-environment/Verified/VALIDATION.md),
+  [finite-sum comparison](../projects/quantum-experiments/pmf-environment/Comparison/README.md), and
+  [publication acceptance](../projects/quantum-experiments/pmf-environment/history/publication/README.md).
+  These are separate projects and dependency pins; the quantum scripts do not check KL.
+
+## Earlier KL rounds and retained evidence
+
 The [three-file production integration](module-integration.md) connects the module
 pilot to exact source transforms, split audits and real downstream validation.
 
 The bounded [import/module pilot](module-import-pilot.md) records four-grid,
 visibility compatibility, and incremental-build experiments on the pinned baseline.
 
-Current entrypoints are in the root README and the maintained
-`experiments/kl-for-mathlib/README.md`. The current library extraction round is in
+The earlier library extraction round is in
 [lemma-granularity-library.md](lemma-granularity-library.md), with a separate
 [coverage register](lemma-granularity-library-coverage.md), following the
 [comparison pilot](lemma-granularity-comparison.md), the

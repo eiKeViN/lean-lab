@@ -1,5 +1,9 @@
 # KL provenance
 
+This directory covers the KL project only. See the [workspace index](../README.md)
+for separately pinned experiments and [quantum provenance](../projects/quantum-experiments/pmf-environment/history/README.md)
+for the PMF experiment source baselines.
+
 - Canonical project: [OpenAI math / KL](https://github.com/openai/math/tree/main/lean/OAI/RepresentationTheory/KazhdanLusztig).
 - Preserved upstream: [agoramachina/openai-math](https://github.com/agoramachina/openai-math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a), revision `adc7f1241b42e322a6451854ab7e4b4c146bf78a`.
 - Transport snapshot: [jiajunma/combkl](https://github.com/jiajunma/combkl/tree/70211c3350c1f203aa8f52f1809e57d7ae93ba78/sources), revision `70211c3350c1f203aa8f52f1809e57d7ae93ba78`, from branch `codex/kl-source-snapshot`.
