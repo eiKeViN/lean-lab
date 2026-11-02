@@ -1,0 +1,96 @@
+import FiniteProbability.Contracts
+
+#check @QuantumExperiments.FiniteProbability.mean_on_fin
+#print axioms QuantumExperiments.FiniteProbability.mean_on_fin
+#check @QuantumExperiments.FiniteProbability.mean_score_on_fin
+#print axioms QuantumExperiments.FiniteProbability.mean_score_on_fin
+#check @QuantumExperiments.FiniteProbability.cross_moment_on_fin
+#print axioms QuantumExperiments.FiniteProbability.cross_moment_on_fin
+#check @QuantumExperiments.FiniteProbability.variance_on_fin
+#print axioms QuantumExperiments.FiniteProbability.variance_on_fin
+#check @QuantumExperiments.FiniteProbability.covariance_on_fin
+#print axioms QuantumExperiments.FiniteProbability.covariance_on_fin
+#check @QuantumExperiments.FiniteProbability.weighted_variance_on_fin
+#print axioms QuantumExperiments.FiniteProbability.weighted_variance_on_fin
+#check @QuantumExperiments.FiniteProbability.Clients.expected_flag_count
+#print axioms QuantumExperiments.FiniteProbability.Clients.expected_flag_count
+#check @QuantumExperiments.FiniteProbability.Clients.two_sensor_cross_moment
+#print axioms QuantumExperiments.FiniteProbability.Clients.two_sensor_cross_moment
+#check @QuantumExperiments.FiniteProbability.Clients.diagnostic_covariance
+#print axioms QuantumExperiments.FiniteProbability.Clients.diagnostic_covariance
+#check @QuantumExperiments.FiniteProbability.Clients.weighted_uncertainty_budget
+#print axioms QuantumExperiments.FiniteProbability.Clients.weighted_uncertainty_budget
+#check @QuantumExperiments.FiniteProbability.Contracts.productMean_agrees
+#print axioms QuantumExperiments.FiniteProbability.Contracts.productMean_agrees
+#check @QuantumExperiments.FiniteProbability.Contracts.same_product_moment
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_product_moment
+#check @QuantumExperiments.FiniteProbability.Contracts.same_coordinate_mean
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_coordinate_mean
+#check @QuantumExperiments.FiniteProbability.Contracts.same_cross_moment
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_cross_moment
+#check @QuantumExperiments.FiniteProbability.Contracts.same_sum
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_sum
+#check @QuantumExperiments.FiniteProbability.Contracts.same_score_mean
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_score_mean
+#check @QuantumExperiments.FiniteProbability.Contracts.same_center
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_center
+#check @QuantumExperiments.FiniteProbability.Contracts.same_variance
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_variance
+#check @QuantumExperiments.FiniteProbability.Contracts.same_covariance
+#print axioms QuantumExperiments.FiniteProbability.Contracts.same_covariance
+#check @QuantumExperiments.FiniteProbability.product
+#print axioms QuantumExperiments.FiniteProbability.product
+#check @QuantumExperiments.FiniteProbability.product_apply
+#print axioms QuantumExperiments.FiniteProbability.product_apply
+#check @QuantumExperiments.FiniteProbability.on_fin_eq_product
+#print axioms QuantumExperiments.FiniteProbability.on_fin_eq_product
+#check @QuantumExperiments.FiniteProbability.law_product_eq_pi
+#print axioms QuantumExperiments.FiniteProbability.law_product_eq_pi
+#check @QuantumExperiments.FiniteProbability.coordinates_independent
+#print axioms QuantumExperiments.FiniteProbability.coordinates_independent
+#check @QuantumExperiments.FiniteProbability.mean_center
+#print axioms QuantumExperiments.FiniteProbability.mean_center
+#check @QuantumExperiments.FiniteProbability.mean_product_prod
+#print axioms QuantumExperiments.FiniteProbability.mean_product_prod
+#check @QuantumExperiments.FiniteProbability.mean_product_coordinate
+#print axioms QuantumExperiments.FiniteProbability.mean_product_coordinate
+#check @QuantumExperiments.FiniteProbability.mean_product_pair
+#print axioms QuantumExperiments.FiniteProbability.mean_product_pair
+#check @QuantumExperiments.FiniteProbability.mean_sum
+#print axioms QuantumExperiments.FiniteProbability.mean_sum
+#check @QuantumExperiments.FiniteProbability.mean_product_sum_coordinate
+#print axioms QuantumExperiments.FiniteProbability.mean_product_sum_coordinate
+#check @QuantumExperiments.FiniteProbability.variance_sum
+#print axioms QuantumExperiments.FiniteProbability.variance_sum
+#check @QuantumExperiments.FiniteProbability.covariance_sum
+#print axioms QuantumExperiments.FiniteProbability.covariance_sum
+#check @QuantumExperiments.FiniteProbability.productMean
+#print axioms QuantumExperiments.FiniteProbability.productMean
+#check @QuantumExperiments.FiniteProbability.productMean_eq_mean
+#print axioms QuantumExperiments.FiniteProbability.productMean_eq_mean
+#check @QuantumExperiments.FiniteProbability.productMean_prod
+#print axioms QuantumExperiments.FiniteProbability.productMean_prod
+#check @QuantumExperiments.FiniteProbability.productMean_coordinate
+#print axioms QuantumExperiments.FiniteProbability.productMean_coordinate
+#check @QuantumExperiments.FiniteProbability.productMean_pair
+#print axioms QuantumExperiments.FiniteProbability.productMean_pair
+#check @QuantumExperiments.FiniteProbability.productMean_sum
+#print axioms QuantumExperiments.FiniteProbability.productMean_sum
+#check @QuantumExperiments.FiniteProbability.productMean_sum_coordinate
+#print axioms QuantumExperiments.FiniteProbability.productMean_sum_coordinate
+#check @QuantumExperiments.FiniteProbability.productVariance
+#print axioms QuantumExperiments.FiniteProbability.productVariance
+#check @QuantumExperiments.FiniteProbability.productCovariance
+#print axioms QuantumExperiments.FiniteProbability.productCovariance
+#check @QuantumExperiments.FiniteProbability.productVariance_eq_variance
+#print axioms QuantumExperiments.FiniteProbability.productVariance_eq_variance
+#check @QuantumExperiments.FiniteProbability.productCovariance_eq_covariance
+#print axioms QuantumExperiments.FiniteProbability.productCovariance_eq_covariance
+#check @QuantumExperiments.FiniteProbability.productVariance_sum
+#print axioms QuantumExperiments.FiniteProbability.productVariance_sum
+#check @QuantumExperiments.FiniteProbability.productCovariance_sum
+#print axioms QuantumExperiments.FiniteProbability.productCovariance_sum
+#check @QuantumExperiments.FiniteProbability.variance_scale
+#print axioms QuantumExperiments.FiniteProbability.variance_scale
+#check @QuantumExperiments.FiniteProbability.weighted_variance
+#print axioms QuantumExperiments.FiniteProbability.weighted_variance

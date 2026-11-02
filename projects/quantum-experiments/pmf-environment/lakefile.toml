@@ -16,3 +16,7 @@ srcDir = "Verified"
 [[lean_lib]]
 name = "PMFComparison"
 srcDir = "Comparison"
+
+[[lean_lib]]
+name = "FiniteProbability"
+srcDir = "Frontend"

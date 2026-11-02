@@ -1,0 +1,276 @@
+@QuantumExperiments.FiniteProbability.mean_on_fin : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O] {n : ℕ}
+  (C : DMChannel I O) (is : Fin n → I) (f : (Fin n → O) → ℝ),
+  QuantumExperiments.PMFComparison.Finite.mean (DMChannel.on_fin I O C is) f =
+    QuantumExperiments.FiniteProbability.productMean (fun i => C.symb_dist (is i)) f
+'QuantumExperiments.FiniteProbability.mean_on_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.mean_score_on_fin : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O] {n : ℕ}
+  (C : DMChannel I O) (is : Fin n → I) (g : Fin n → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.mean (DMChannel.on_fin I O C is) fun os => ∑ i, g i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.mean (C.symb_dist (is i)) (g i)
+'QuantumExperiments.FiniteProbability.mean_score_on_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.cross_moment_on_fin : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O] {n : ℕ}
+  (C : DMChannel I O) (is : Fin n → I) (i j : Fin n),
+  i ≠ j →
+    ∀ (f g : O → ℝ),
+      (QuantumExperiments.PMFComparison.Finite.mean (DMChannel.on_fin I O C is) fun os => f (os i) * g (os j)) =
+        QuantumExperiments.PMFComparison.Finite.mean (C.symb_dist (is i)) f *
+          QuantumExperiments.PMFComparison.Finite.mean (C.symb_dist (is j)) g
+'QuantumExperiments.FiniteProbability.cross_moment_on_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.variance_on_fin : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O] {n : ℕ}
+  (C : DMChannel I O) (is : Fin n → I) (g : Fin n → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.variance (DMChannel.on_fin I O C is) fun os => ∑ i, g i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.variance (C.symb_dist (is i)) (g i)
+'QuantumExperiments.FiniteProbability.variance_on_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.covariance_on_fin : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O] {n : ℕ}
+  (C : DMChannel I O) (is : Fin n → I) (f g : Fin n → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.covariance (DMChannel.on_fin I O C is) (fun os => ∑ i, f i (os i)) fun os =>
+      ∑ i, g i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.covariance (C.symb_dist (is i)) (f i) (g i)
+'QuantumExperiments.FiniteProbability.covariance_on_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.weighted_variance_on_fin : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O]
+  {n : ℕ} (C : DMChannel I O) (is : Fin n → I) (w : Fin n → ℝ) (g : Fin n → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.variance (DMChannel.on_fin I O C is) fun os => ∑ i, w i * g i (os i)) =
+    ∑ i, w i ^ 2 * QuantumExperiments.PMFComparison.Finite.variance (C.symb_dist (is i)) (g i)
+'QuantumExperiments.FiniteProbability.weighted_variance_on_fin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Clients.expected_flag_count : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O]
+  {n : ℕ} (C : DMChannel I O) (is : Fin n → I) (flag : Fin n → O → Bool),
+  (QuantumExperiments.PMFComparison.Finite.mean (DMChannel.on_fin I O C is) fun os =>
+      ∑ i, if flag i (os i) = true then 1 else 0) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.mean (C.symb_dist (is i)) fun o => if flag i o = true then 1 else 0
+'QuantumExperiments.FiniteProbability.Clients.expected_flag_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Clients.two_sensor_cross_moment : ∀ {O : Type u_1} [inst : Fintype O]
+  (d : Bool → ProbDistribution O) (f g : O → ℝ),
+  (QuantumExperiments.FiniteProbability.productMean d fun os => f (os false) * g (os true)) =
+    QuantumExperiments.PMFComparison.Finite.mean (d false) f * QuantumExperiments.PMFComparison.Finite.mean (d true) g
+'QuantumExperiments.FiniteProbability.Clients.two_sensor_cross_moment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Clients.diagnostic_covariance : ∀ {I : Type u_1} {O : Type u_2} [inst : Fintype O]
+  {n : ℕ} (C : DMChannel I O) (is : Fin n → I) (quality cost : Fin n → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.covariance (DMChannel.on_fin I O C is) (fun os => ∑ i, quality i (os i))
+      fun os => ∑ i, cost i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.covariance (C.symb_dist (is i)) (quality i) (cost i)
+'QuantumExperiments.FiniteProbability.Clients.diagnostic_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Clients.weighted_uncertainty_budget : ∀ {ι : Type u_1} {O : Type u_2}
+  [inst : Fintype ι] [inst_1 : Fintype O] (d : ι → ProbDistribution O) (w v : ι → ℝ) (f : ι → O → ℝ),
+  (∀ (i : ι), QuantumExperiments.PMFComparison.Finite.variance (d i) (f i) ≤ v i) →
+    (QuantumExperiments.FiniteProbability.productVariance d fun os => ∑ i, w i * f i (os i)) ≤ ∑ i, w i ^ 2 * v i
+'QuantumExperiments.FiniteProbability.Clients.weighted_uncertainty_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.productMean_agrees : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (f : (ι → O) → ℝ),
+  QuantumExperiments.FiniteProbability.productMean d f = QuantumExperiments.PMFComparison.Finite.productMean d f
+'QuantumExperiments.FiniteProbability.Contracts.productMean_agrees' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_product_moment : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.productMean d fun os => ∏ i, f i (os i)) =
+    ∏ i, QuantumExperiments.PMFComparison.Finite.mean (d i) (f i)
+'QuantumExperiments.FiniteProbability.Contracts.same_product_moment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_coordinate_mean : ∀ {ι : Type u_1} {O : Type u_2}
+  [inst : Fintype ι] [inst_1 : Fintype O] (d : ι → ProbDistribution O) (i : ι) (f : O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.productMean d fun os => f (os i)) =
+    QuantumExperiments.PMFComparison.Finite.mean (d i) f
+'QuantumExperiments.FiniteProbability.Contracts.same_coordinate_mean' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_cross_moment : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (i j : ι),
+  i ≠ j →
+    ∀ (f g : O → ℝ),
+      (QuantumExperiments.PMFComparison.Finite.productMean d fun os => f (os i) * g (os j)) =
+        QuantumExperiments.PMFComparison.Finite.mean (d i) f * QuantumExperiments.PMFComparison.Finite.mean (d j) g
+'QuantumExperiments.FiniteProbability.Contracts.same_cross_moment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_sum : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] {κ : Type u_3} [inst_2 : Fintype κ] (d : ι → ProbDistribution O) (f : κ → (ι → O) → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.productMean d fun os => ∑ k, f k os) =
+    ∑ k, QuantumExperiments.PMFComparison.Finite.productMean d (f k)
+'QuantumExperiments.FiniteProbability.Contracts.same_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_score_mean : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.productMean d fun os => ∑ i, f i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.mean (d i) (f i)
+'QuantumExperiments.FiniteProbability.Contracts.same_score_mean' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_center : ∀ {α : Type u_1} [inst : Fintype α]
+  (d : ProbDistribution α) (f : α → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.mean d fun a => f a - QuantumExperiments.PMFComparison.Finite.mean d f) = 0
+'QuantumExperiments.FiniteProbability.Contracts.same_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_variance : ∀ {O : Type u_1} {I : Type u_2} [inst : Fintype O]
+  {n : ℕ} (C : DMChannel I O) (is : Fin n → I) (g : Fin n → O → ℝ),
+  QuantumExperiments.PMFComparison.Contracts.VarianceClaim C is g
+'QuantumExperiments.FiniteProbability.Contracts.same_variance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.Contracts.same_covariance : ∀ {O : Type u_1} {I : Type u_2} [inst : Fintype O]
+  {n : ℕ} (C : DMChannel I O) (is : Fin n → I) (f g : Fin n → O → ℝ),
+  QuantumExperiments.PMFComparison.Contracts.CovarianceClaim C is f g
+'QuantumExperiments.FiniteProbability.Contracts.same_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.product : {ι : Type u_1} →
+  {O : Type u_2} →
+    [Fintype ι] → [inst : Fintype O] → [inst_1 : Fintype (ι → O)] → (ι → ProbDistribution O) → ProbDistribution (ι → O)
+'QuantumExperiments.FiniteProbability.product' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.product_apply : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (os : ι → O),
+  ↑((QuantumExperiments.FiniteProbability.product d) os) = ∏ i, ↑((d i) (os i))
+'QuantumExperiments.FiniteProbability.product_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.on_fin_eq_product : ∀ {O : Type u_1} [inst : Fintype O] {I : Type u_2} {n : ℕ}
+  (C : DMChannel I O) (is : Fin n → I),
+  DMChannel.on_fin I O C is = QuantumExperiments.FiniteProbability.product fun i => C.symb_dist (is i)
+'QuantumExperiments.FiniteProbability.on_fin_eq_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.law_product_eq_pi : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] [inst_3 : MeasurableSpace O] [MeasurableSingletonClass O]
+  (d : ι → ProbDistribution O),
+  QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (QuantumExperiments.FiniteProbability.product d) =
+    MeasureTheory.Measure.pi fun i => QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (d i)
+'QuantumExperiments.FiniteProbability.law_product_eq_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.coordinates_independent : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] [inst_3 : MeasurableSpace O] [MeasurableSingletonClass O]
+  (d : ι → ProbDistribution O),
+  ProbabilityTheory.iIndepFun (fun i os => os i)
+    (QuantumExperiments.PMFBridgeDraft.ChannelProduct.law (QuantumExperiments.FiniteProbability.product d))
+'QuantumExperiments.FiniteProbability.coordinates_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.mean_center : ∀ {α : Type u_1} [inst : Fintype α] (d : ProbDistribution α)
+  (f : α → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.mean d fun a => f a - QuantumExperiments.PMFComparison.Finite.mean d f) = 0
+'QuantumExperiments.FiniteProbability.mean_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.mean_product_prod : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.mean (QuantumExperiments.FiniteProbability.product d) fun os =>
+      ∏ i, f i (os i)) =
+    ∏ i, QuantumExperiments.PMFComparison.Finite.mean (d i) (f i)
+'QuantumExperiments.FiniteProbability.mean_product_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.mean_product_coordinate : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (i : ι) (f : O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.mean (QuantumExperiments.FiniteProbability.product d) fun os => f (os i)) =
+    QuantumExperiments.PMFComparison.Finite.mean (d i) f
+'QuantumExperiments.FiniteProbability.mean_product_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.mean_product_pair : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (i j : ι),
+  i ≠ j →
+    ∀ (f g : O → ℝ),
+      (QuantumExperiments.PMFComparison.Finite.mean (QuantumExperiments.FiniteProbability.product d) fun os =>
+          f (os i) * g (os j)) =
+        QuantumExperiments.PMFComparison.Finite.mean (d i) f * QuantumExperiments.PMFComparison.Finite.mean (d j) g
+'QuantumExperiments.FiniteProbability.mean_product_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.mean_sum : ∀ {α : Type u_1} [inst : Fintype α] {κ : Type u_2} [inst_1 : Fintype κ]
+  (d : ProbDistribution α) (f : κ → α → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.mean d fun a => ∑ k, f k a) =
+    ∑ k, QuantumExperiments.PMFComparison.Finite.mean d (f k)
+'QuantumExperiments.FiniteProbability.mean_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.mean_product_sum_coordinate : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.mean (QuantumExperiments.FiniteProbability.product d) fun os =>
+      ∑ i, f i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.mean (d i) (f i)
+'QuantumExperiments.FiniteProbability.mean_product_sum_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.variance_sum : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.variance (QuantumExperiments.FiniteProbability.product d) fun os =>
+      ∑ i, f i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.variance (d i) (f i)
+'QuantumExperiments.FiniteProbability.variance_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.covariance_sum : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (f g : ι → O → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.covariance (QuantumExperiments.FiniteProbability.product d)
+      (fun os => ∑ i, f i (os i)) fun os => ∑ i, g i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.covariance (d i) (f i) (g i)
+'QuantumExperiments.FiniteProbability.covariance_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productMean : {ι : Type u_1} →
+  {O : Type u_2} → [Fintype ι] → [inst : Fintype O] → (ι → ProbDistribution O) → ((ι → O) → ℝ) → ℝ
+'QuantumExperiments.FiniteProbability.productMean' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productMean_eq_mean : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (f : (ι → O) → ℝ),
+  QuantumExperiments.FiniteProbability.productMean d f =
+    QuantumExperiments.PMFComparison.Finite.mean (QuantumExperiments.FiniteProbability.product d) f
+'QuantumExperiments.FiniteProbability.productMean_eq_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productMean_prod : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.FiniteProbability.productMean d fun os => ∏ i, f i (os i)) =
+    ∏ i, QuantumExperiments.PMFComparison.Finite.mean (d i) (f i)
+'QuantumExperiments.FiniteProbability.productMean_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productMean_coordinate : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (i : ι) (f : O → ℝ),
+  (QuantumExperiments.FiniteProbability.productMean d fun os => f (os i)) =
+    QuantumExperiments.PMFComparison.Finite.mean (d i) f
+'QuantumExperiments.FiniteProbability.productMean_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productMean_pair : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (i j : ι),
+  i ≠ j →
+    ∀ (f g : O → ℝ),
+      (QuantumExperiments.FiniteProbability.productMean d fun os => f (os i) * g (os j)) =
+        QuantumExperiments.PMFComparison.Finite.mean (d i) f * QuantumExperiments.PMFComparison.Finite.mean (d j) g
+'QuantumExperiments.FiniteProbability.productMean_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productMean_sum : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] {κ : Type u_3} [inst_2 : Fintype κ] (d : ι → ProbDistribution O) (f : κ → (ι → O) → ℝ),
+  (QuantumExperiments.FiniteProbability.productMean d fun os => ∑ k, f k os) =
+    ∑ k, QuantumExperiments.FiniteProbability.productMean d (f k)
+'QuantumExperiments.FiniteProbability.productMean_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productMean_sum_coordinate : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.FiniteProbability.productMean d fun os => ∑ i, f i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.mean (d i) (f i)
+'QuantumExperiments.FiniteProbability.productMean_sum_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.productVariance : {ι : Type u_1} →
+  {O : Type u_2} → [Fintype ι] → [inst : Fintype O] → (ι → ProbDistribution O) → ((ι → O) → ℝ) → ℝ
+'QuantumExperiments.FiniteProbability.productVariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productCovariance : {ι : Type u_1} →
+  {O : Type u_2} → [Fintype ι] → [inst : Fintype O] → (ι → ProbDistribution O) → ((ι → O) → ℝ) → ((ι → O) → ℝ) → ℝ
+'QuantumExperiments.FiniteProbability.productCovariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productVariance_eq_variance : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (f : (ι → O) → ℝ),
+  QuantumExperiments.FiniteProbability.productVariance d f =
+    QuantumExperiments.PMFComparison.Finite.variance (QuantumExperiments.FiniteProbability.product d) f
+'QuantumExperiments.FiniteProbability.productVariance_eq_variance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.productCovariance_eq_covariance : ∀ {ι : Type u_1} {O : Type u_2}
+  [inst : Fintype ι] [inst_1 : Fintype O] [inst_2 : Fintype (ι → O)] (d : ι → ProbDistribution O) (f g : (ι → O) → ℝ),
+  QuantumExperiments.FiniteProbability.productCovariance d f g =
+    QuantumExperiments.PMFComparison.Finite.covariance (QuantumExperiments.FiniteProbability.product d) f g
+'QuantumExperiments.FiniteProbability.productCovariance_eq_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@QuantumExperiments.FiniteProbability.productVariance_sum : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (f : ι → O → ℝ),
+  (QuantumExperiments.FiniteProbability.productVariance d fun os => ∑ i, f i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.variance (d i) (f i)
+'QuantumExperiments.FiniteProbability.productVariance_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.productCovariance_sum : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (f g : ι → O → ℝ),
+  (QuantumExperiments.FiniteProbability.productCovariance d (fun os => ∑ i, f i (os i)) fun os => ∑ i, g i (os i)) =
+    ∑ i, QuantumExperiments.PMFComparison.Finite.covariance (d i) (f i) (g i)
+'QuantumExperiments.FiniteProbability.productCovariance_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.variance_scale : ∀ {α : Type u_1} [inst : Fintype α] (d : ProbDistribution α)
+  (c : ℝ) (f : α → ℝ),
+  (QuantumExperiments.PMFComparison.Finite.variance d fun a => c * f a) =
+    c ^ 2 * QuantumExperiments.PMFComparison.Finite.variance d f
+'QuantumExperiments.FiniteProbability.variance_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuantumExperiments.FiniteProbability.weighted_variance : ∀ {ι : Type u_1} {O : Type u_2} [inst : Fintype ι]
+  [inst_1 : Fintype O] (d : ι → ProbDistribution O) (w : ι → ℝ) (f : ι → O → ℝ),
+  (QuantumExperiments.FiniteProbability.productVariance d fun os => ∑ i, w i * f i (os i)) =
+    ∑ i, w i ^ 2 * QuantumExperiments.PMFComparison.Finite.variance (d i) (f i)
+'QuantumExperiments.FiniteProbability.weighted_variance' depends on axioms: [propext, Classical.choice, Quot.sound]

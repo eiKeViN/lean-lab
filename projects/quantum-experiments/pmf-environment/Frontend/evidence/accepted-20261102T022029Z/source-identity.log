@@ -1,0 +1,2 @@
+PASS: 14 published historical files and 6 accepted bridge sources match SHA-256 baselines
+Scope: published source identity; private transfer archive and ignored logs are not required

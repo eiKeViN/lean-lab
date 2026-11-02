@@ -1,0 +1,66 @@
+⚠ [3047/3052] Replayed PMFBridgeDraft.Bridge
+warning: Verified/PMFBridgeDraft/Bridge.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Constructions` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3048/3052] Replayed PMFBridgeDraft.ChannelProduct
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.Basic.ENNReal.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.MeasureTheory.Constructions.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.MeasureTheory.Measure.Dirac.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.Probability.Independence.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3050/3052] Replayed PMFBridgeDraft.ChannelStatistics
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Integrals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.MeasureTheory.Function.LpSeminorm.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.MeasureTheory.MeasurableSpace.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Algebra.Order.BigOperators.Group.Finset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Probability.Moments.Variance` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✖ [3052/3052] Building FiniteProbability.Core (2.6s)
+trace: .> LEAN_PATH=/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/lib/lean /workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean /workspace/lean-lab/projects/quantum-experiments/pmf-environment/Frontend/FiniteProbability/Core.lean -o /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/lib/lean/FiniteProbability/Core.olean -i /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/lib/lean/FiniteProbability/Core.ilean -c /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/ir/FiniteProbability/Core.c --setup /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/ir/FiniteProbability/Core.setup.json --json
+error: Frontend/FiniteProbability/Core.lean:14:43: failed to synthesize instance of type class
+  Fintype (ι → O)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Frontend/FiniteProbability/Core.lean:16:51: Function expected at
+  os
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  i
+warning: Frontend/FiniteProbability/Core.lean:24:16: declaration uses `sorry`
+warning: Frontend/FiniteProbability/Core.lean:30:2: Unused tactic linter: `apply ProbDistribution.ext` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Frontend/FiniteProbability/Core.lean:31:2: Unused tactic linter: `intro os` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Frontend/FiniteProbability/Core.lean:32:2: Unused tactic linter: `apply Subtype.ext` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Frontend/FiniteProbability/Core.lean:33:2: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Frontend/FiniteProbability/Core.lean:31:2: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Frontend/FiniteProbability/Core.lean:32:2: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Frontend/FiniteProbability/Core.lean:33:2: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+error: Frontend/FiniteProbability/Core.lean:39:4: failed to synthesize instance of type class
+  Fintype (ι → O)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Frontend/FiniteProbability/Core.lean:44:28: This simp argument is unused:
+  product_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [law_singleton]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Frontend/FiniteProbability/Core.lean:48:68: failed to synthesize instance of type class
+  Fintype (ι → O)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Some required targets logged failures:
+- FiniteProbability.Core
+error: build failed

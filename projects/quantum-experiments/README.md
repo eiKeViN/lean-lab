@@ -23,3 +23,7 @@
 
 2026-11-02 本地补充：[有限方差声明级成本与受控编译时间](pmf-environment/CostStudy20261102/README.md)。
 此补充保留原源码与报告，细分基础/消费者成本，并采用独立产物目录计时；尚未追加发布到远端。
+
+### 有限任务前端
+
+[接口与验证报告](pmf-environment/Frontend/README.md) · [短客户端](pmf-environment/Frontend/FiniteProbability/Clients.lean)。在匹配 4.35.0 环境下验证，采用有限友好前端与桥接证明后端；本阶段为本地后续实验，不表示整个仓库工具链已升级。

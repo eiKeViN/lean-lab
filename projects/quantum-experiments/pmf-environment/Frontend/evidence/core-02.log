@@ -1,0 +1,26 @@
+⚠ [3047/3052] Replayed PMFBridgeDraft.Bridge
+warning: Verified/PMFBridgeDraft/Bridge.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Constructions` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3048/3052] Replayed PMFBridgeDraft.ChannelProduct
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.Basic.ENNReal.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.MeasureTheory.Constructions.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.MeasureTheory.Measure.Dirac.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.Probability.Independence.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3050/3052] Replayed PMFBridgeDraft.ChannelStatistics
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Integrals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.MeasureTheory.Function.LpSeminorm.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.MeasureTheory.MeasurableSpace.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Algebra.Order.BigOperators.Group.Finset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Probability.Moments.Variance` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✖ [3052/3052] Building FiniteProbability.Core (2.9s)
+trace: .> LEAN_PATH=/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/lib/lean /workspace/lean-lab/projects/quantum-experiments/pmf-environment/toolchain/lean-4.35.0-linux/bin/lean /workspace/lean-lab/projects/quantum-experiments/pmf-environment/Frontend/FiniteProbability/Core.lean -o /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/lib/lean/FiniteProbability/Core.olean -i /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/lib/lean/FiniteProbability/Core.ilean -c /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/ir/FiniteProbability/Core.c --setup /workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/build/ir/FiniteProbability/Core.setup.json --json
+error: Frontend/FiniteProbability/Core.lean:30:22: Type mismatch
+  product fun i => C.symb_dist (is i)
+has type
+  @ProbDistribution (Fin n → O)
+    (@Pi.instFintype (Fin n) (fun a => O) (Classical.decEq (Fin n)) (Fin.fintype n) fun a => inst✝)
+but is expected to have type
+  @ProbDistribution (Fin n → O)
+    (@Pi.instFintype (Fin n) (fun a => O) (instDecidableEqFin n) (Fin.fintype n) fun a => inst✝)
+Some required targets logged failures:
+- FiniteProbability.Core
+error: build failed

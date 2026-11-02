@@ -1,0 +1,15 @@
+⚠ [3047/3052] Replayed PMFBridgeDraft.Bridge
+warning: Verified/PMFBridgeDraft/Bridge.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Constructions` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3048/3052] Replayed PMFBridgeDraft.ChannelProduct
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.Basic.ENNReal.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.MeasureTheory.Constructions.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.MeasureTheory.Measure.Dirac.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelProduct.lean: imports `Mathlib.Probability.Independence.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3050/3052] Replayed PMFBridgeDraft.ChannelStatistics
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Integrals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.MeasureTheory.Function.LpSeminorm.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.MeasureTheory.MeasurableSpace.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Algebra.Order.BigOperators.Group.Finset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Verified/PMFBridgeDraft/ChannelStatistics.lean: imports `Mathlib.Probability.Moments.Variance` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [3052/3052] Built FiniteProbability.Core (1.0s)
+Build completed successfully (3052 jobs).

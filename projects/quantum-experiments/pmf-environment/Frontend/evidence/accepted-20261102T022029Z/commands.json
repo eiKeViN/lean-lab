@@ -1,0 +1,191 @@
+[
+  {
+    "label": "lean",
+    "command": [
+      "lean",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "pin-mathlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "clean-mathlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/mathlib",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "pin-Physlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "clean-Physlib",
+    "command": [
+      "git",
+      "-C",
+      "/workspace/lean-lab/projects/quantum-experiments/pmf-environment/.lake/packages/Physlib",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "source-identity",
+    "command": [
+      "python3",
+      "check-source-identity.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "history-unchanged",
+    "command": [
+      "git",
+      "diff",
+      "0a6ef9bfa780891cc072c47227ee107ab5dcd627",
+      "--",
+      "Verified",
+      "Comparison",
+      "CostStudy20261102",
+      "history"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "full-build",
+    "command": [
+      "lake",
+      "build",
+      "PMFBridgeDraft",
+      "PMFComparison",
+      "FiniteProbability",
+      "FiniteProbability.Clients",
+      "FiniteProbability.Contracts"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "file-Channel",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/FiniteProbability/Channel.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "file-Clients",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/FiniteProbability/Clients.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "file-Contracts",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/FiniteProbability/Contracts.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "file-Core",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/FiniteProbability/Core.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "file-Moments",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/FiniteProbability/Moments.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "file-Scores",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/FiniteProbability/Scores.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "new-axioms-types",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/Audit.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "old-bridge-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Verified/Audit.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "old-comparison-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Comparison/Audit.lean"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "dependencies",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "Frontend/Dependencies.lean"
+    ],
+    "exit_code": 0
+  }
+]
