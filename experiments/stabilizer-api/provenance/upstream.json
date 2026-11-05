@@ -1,0 +1,32 @@
+{
+  "url": "https://github.com/VerifiedQC/Lean-QEC.git",
+  "commit": "8d115519b471b71a21fbdddf5341d8203b841cc9",
+  "lean": "leanprover/lean4:v4.30.0-rc2",
+  "mathlib": "5450b53e5ddc75d46418fabb605edbf36bd0beb6",
+  "certificates": {
+    "LeanQEC/Stabilizer/Examples/Steane.lean-steane_dist-94-2.lrat": {
+      "sha256": "cb1336bb8ca9011d2eff82b30539cea4011848151fcd0899482ed18a05b7b855",
+      "size_bytes": 3995
+    },
+    "LeanQEC/Stabilizer/Examples/Golay.lean-golay_dist-108-2.lrat": {
+      "sha256": "8058b534f147007c6c422767b4b53c75cbfe0af92aa1a03753bf42809064b3a4",
+      "size_bytes": 22150923
+    },
+    "LeanQEC/Stabilizer/Examples/BB/BB54.lean-BB54_X_rank-53-2.lrat": {
+      "sha256": "40c05d3782536a06307799252a066dbeba20c56b7a02cde1105c3a2b2b8bd513",
+      "size_bytes": 5707
+    },
+    "LeanQEC/Stabilizer/Examples/BB/BB54.lean-BB54_Z_rank-65-2.lrat": {
+      "sha256": "fe21b70da7ddaf01bd2c1deb93416af45650cf5fccbdac64ebd6d3492d2ce461",
+      "size_bytes": 7007
+    },
+    "LeanQEC/Stabilizer/Examples/BB/BB54.lean-BB54_dist_x-131-2.lrat": {
+      "sha256": "d453e23a056c3d33a0e7ebe3e43c4a163f80c78ab993f09d5a4b637be55991fb",
+      "size_bytes": 1651840
+    },
+    "LeanQEC/Stabilizer/Examples/BB/BB54.lean-BB54_dist_z-120-2.lrat": {
+      "sha256": "087d7e658b255c2d85a34b72e10ba4c3c8211a3435061ab4015d1333641143ff",
+      "size_bytes": 1390626
+    }
+  }
+}

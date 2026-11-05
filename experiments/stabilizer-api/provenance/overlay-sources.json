@@ -1,0 +1,15 @@
+{
+  "LeanQEC/Stabilizer/API.lean": "d9fd06e09c5cb4b03b031e0c89ba8f63c6eda5ffbd8016ff1829ce859ef8481c",
+  "LeanQEC/Stabilizer/Generators.lean": "64cd73a7a56f5a54a3b253adc3e94ed73495c5b67a9bb7ec27be9430dacc83f9",
+  "LeanQEC/Stabilizer/Interface.lean": "7307591304872afa0ecd1611c42c306feac2541f530e1c9666b852d5c60c94b2",
+  "LeanQEC/Stabilizer/Reindex.lean": "4d82ed98b43acdc5c6427710d0ae95aa29b902a36260eab7a0007832d5155ab2",
+  "LeanQEC/Stabilizer/Constructors.lean": "d86c2e792ef4147be93c94714b27aec7fea01675d1cfb6c3d5c78bf23386c14f",
+  "LeanQEC/Stabilizer/Basic.lean": "dec92a2015282d57d94bde4a137d1dcf0d1f3574cf22f4c445faea8bd87f4917",
+  "LeanQEC/Stabilizer/CSS.lean": "9e2bc030e4c34514ec06c4d74f7af8d7a2395d42b41533f27574f007184490f8",
+  "LeanQEC/Stabilizer/BinaryBridge.lean": "6e943516a343e5e0fd1650befbf9ac40155ebcdda76d9d66e9a2780346ba6b1c",
+  "LeanQEC/Stabilizer/Transport.lean": "98048df0449e4e3110584df893104149511a0c431c90ea33aa0e0cf3a7bc2ae3",
+  "LeanQEC/Stabilizer/Examples/DownstreamAPI.lean": "d4b3fd6a499d1e6220e607f6ce1d542bd10fbbb198afe1460b83a8fda59ace89",
+  "LeanQEC/Stabilizer/Examples/PresentationWorkflow.lean": "d62628a13efdde858346ca9c8373f5b6f5df2c939372faadd2737be0e2033289",
+  "LeanQEC/Stabilizer/Examples/PublicTypes.lean": "990600988c41b24c4b72eac6429a2258c33bf41901a896a42d7e06ae96b17ade",
+  "scripts/check_stabilizer_api.py": "2bc92bbadfc9203389396c0c156179337e6ed558b309f46d73e15d76febc85e1"
+}
