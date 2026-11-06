@@ -1,0 +1,20 @@
+{
+  "purpose": "bounded observation, not a theorem or complete performance benchmark",
+  "records": [
+    {
+      "variant": "before",
+      "synthesis_heartbeats": 2000,
+      "outcome": "resource_limit",
+      "diagnostic": "before.lean:3:52: error: failed to synthesize\n  CommGroup \u21a5(PauliGroup_group n)\n(deterministic) timeout at `typeclass`, maximum number of heartbeats (2000) has been reached\n\nNote: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\n",
+      "probe_sha256": "cdc1da2d9a60e985de27cba1c6efec9ca684b947112747cf2a8ac083bc5a6fae"
+    },
+    {
+      "variant": "after",
+      "synthesis_heartbeats": 2000,
+      "outcome": "resource_limit",
+      "diagnostic": "after.lean:3:52: error: failed to synthesize\n  CommGroup \u21a5(PauliGroup_group n)\n(deterministic) timeout at `typeclass`, maximum number of heartbeats (2000) has been reached\n\nNote: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\n",
+      "probe_sha256": "3532f47aca3fa9900b329de47a291e449fc14fdaaaced8677625b8ec04676b50"
+    }
+  ],
+  "interpretation": "Both bounded searches hit resource limits; this does not prove absence of an instance or establish a new performance regression."
+}

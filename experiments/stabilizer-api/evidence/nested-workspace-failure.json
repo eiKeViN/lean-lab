@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-11-05T06:12:03.718685+00:00",
+  "finished_utc": "2026-11-05T06:14:38.352753+00:00",
+  "source_identity_before": "passed",
+  "source_identity_after": "failed",
+  "source_identity_error": "source identity mismatch: LeanQEC/Stabilizer/Basic.lean",
+  "compilation": "failed",
+  "printed_axioms": "failed",
+  "comparison": "not_run",
+  "observation": "Basic and CSS reverted to baseline bytes inside the nested generated checkout. This attempt is a failure, not acceptance evidence.",
+  "subsequent_change": "Moved the generated execution checkout outside the publishing repository and retained pre/post source-identity checks."
+}

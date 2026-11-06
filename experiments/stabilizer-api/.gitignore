@@ -1,0 +1,6 @@
+/environment
+/results/
+/comparison/.verification/
+/comparison/logs/
+/__pycache__/
+/scripts/__pycache__/
