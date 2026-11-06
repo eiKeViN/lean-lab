@@ -1,0 +1,8 @@
+downloads/
+toolchain/
+vendor/
+generated/
+.cache/
+.lake/
+results/
+__pycache__/

@@ -1,0 +1,3 @@
+@OptimalHypothesisRate.Ref81Lem5 : ∀ {d : Type u_1} [inst : Fintype d] [inst_1 : DecidableEq d] (ρ σ : MState d),
+  ∀ ε < 1,
+    ∀ (α : ℝ) (hα : 1 < α), (OptimalHypothesisRate ρ ε {σ}).negLog ≤ D̃_α(ρ‖σ) + (1 - ε).negLog * ↑⟨α, ⋯⟩ / ↑⟨α - 1, ⋯⟩

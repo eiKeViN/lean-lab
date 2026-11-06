@@ -1,0 +1,12 @@
+--- Existing/PMFBridgeDraft/Bridge.lean
++++ Adapter/PMFBridgeDraft/Bridge.lean
+@@ -0,0 +1,2 @@
++module
++
+@@ -5,2 +7,2 @@
+-import QuantumInfo.ClassicalInfo.Distribution
+-import Mathlib.Probability.ProbabilityMassFunction.Constructions
++public import QuantumInfo.ClassicalInfo.Distribution
++public import Mathlib.Probability.ProbabilityMassFunction.Constructions
+@@ -7,0 +10 @@
++@[expose] public section

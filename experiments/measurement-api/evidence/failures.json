@@ -1,0 +1,53 @@
+{
+  "scope": "Selected actual development failures; full logs retained locally under ignored results/. These are not passed validation records.",
+  "failures": [
+    {
+      "log": "results/build-01.log",
+      "sha256": "00b6f8f6680d8ac287bd730d3afa35709ef1f96ef2871c8518300c538f90a77a",
+      "subject": "Finite sum and decidability",
+      "diagnostic": "  DecidablePred fun x => f x = y\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nerror: MeasurementAPI/Probability.lean:31:64: unsolved goals\nX : Type u_1\nY : Type u_2\ninst✝¹ : Fintype X",
+      "resolution": "Use a classical statement context and explicitly rewrite the finite filter; no extra client instances.",
+      "final_status": "resolved in accepted checks"
+    },
+    {
+      "log": "results/build-02.log",
+      "sha256": "8bd28ec2511edae7c07c1b314190152cde78a25de8e5081195d734eb78633995",
+      "subject": "Module interface adaptation",
+      "diagnostic": "error: MeasurementAPI/Probability.lean:1:0: cannot import non-`module` PMFBridgeDraft.Bridge from `module`\n✔ [3358/3362] Built MeasurementAPI.POVM (1.9s)\nSome required targets logged failures:\n- MeasurementAPI.Probability\nerror: build failed",
+      "resolution": "Generate a visibility-only module adapter from the existing shared bridge; preserve its proof bodies and original source.",
+      "final_status": "resolved in accepted checks"
+    },
+    {
+      "log": "results/build-03.log",
+      "sha256": "45f862f01f9c870467a5f921ebb8d2b5db2a8e80af1be44b7381629133108471",
+      "subject": "Real client coercion cost",
+      "diagnostic": "error: generated/Comparison/HypothesisAfter.lean:428:8: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\nerror: generated/Comparison/HypothesisAfter.lean:416:11: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached\n",
+      "resolution": "Rewrite the local q definition and existing probability identity explicitly, rather than elaborating a large coercion congruence. Keep the default heartbeat budget.",
+      "final_status": "resolved in accepted checks"
+    },
+    {
+      "log": "results/build-05.log",
+      "sha256": "6a75ccd59bbd8ac04d62947c6554ca7590e1167455245c26a06416e182a48c74",
+      "subject": "Broad simplification recursion",
+      "diagnostic": "maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n✖ [3481/3485] Building MeasurementAPI.Kraus (1.8s)\ntrace: .> LEAN_PATH=/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab-measurement/experiments/measurement-api/.lake/build/lib/lean /workspace/lean-lab-measurement/experiments/measurement-api/toolchain/lean-4.35.0-linux/bin/lean /workspace/lean-lab-measurement/experiments/measurement-api/MeasurementAPI/Kraus.lean -o /workspace/lean-lab-measurement/experiments/measurement-api/.lake/build/lib/lean/MeasurementAPI/Kraus.olean -i /workspace/lean-lab-measurement/experiments/measurement-api/.lake/build/lib/lean/MeasurementAPI/Kraus.ilean -c /workspace/lean-lab-measurement/experiments/measurement-api/.lake/build/ir/MeasurementAPI/Kraus.c --setup /workspace/lean-lab-measurement/experiments/measurement-api/.lake/build/ir/MeasurementAPI/Kraus.setup.json --json\nerror: MeasurementAPI/Kraus.lean:23:4: Type mismatch: After simplification, term\n  hK",
+      "resolution": "Use explicit pointwise conditional rewrites in the finite PMF observation rule.",
+      "final_status": "resolved in accepted checks"
+    },
+    {
+      "log": "results/build-07.log",
+      "sha256": "4eb9aebb347dec8c1e9a1191596c75fe517878203dc8e8d8850efa93fe64ae59",
+      "subject": "Hermitian carrier normalization",
+      "diagnostic": "error: MeasurementAPI/Kraus.lean:26:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ↑(∑ i ∈ ?s, ?f i)\nin the target expression\n  ↑(∑ x, ⟨(K x).conjTranspose * K x, ⋯⟩) = 1\n\nX : Type u_1\na : Type u_2",
+      "resolution": "Name the Hermitian-valued effect family E and use the typed mat_finset_sum theorem directly.",
+      "final_status": "resolved in accepted checks"
+    },
+    {
+      "log": "results/build-08.log",
+      "sha256": "06020beca3520cf47d43bc991d683b3fe00fe62e5c1425aff861958b55550f42",
+      "subject": "State versus matrix observation",
+      "diagnostic": "error: Contracts/ProcessSeparation.lean:74:79: unsolved goals\nh : preserveProcess inputOne = resetProcess inputOne\nhe :\n  ↑({\n            toLinearMap :=\n              {\n                  toFun := fun X =>",
+      "resolution": "Move to the existing matrix action boundary before reducing the concrete Kraus computation.",
+      "final_status": "resolved in accepted checks"
+    }
+  ]
+}

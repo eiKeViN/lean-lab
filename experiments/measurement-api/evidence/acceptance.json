@@ -1,0 +1,370 @@
+{
+  "source_identity_before": "passed",
+  "compilation": "passed",
+  "public_types": "passed",
+  "printed_axioms": "passed_standard_axioms_only",
+  "full_client_comparison": "passed_same_signature_and_axiom_set",
+  "source_identity_after": "passed",
+  "targets": [
+    "MeasurementAPI",
+    "Contracts.Pipeline",
+    "Contracts.ProcessSeparation",
+    "Comparison.HypothesisBefore",
+    "Comparison.HypothesisAfter"
+  ],
+  "identity": {
+    "physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e",
+    "physlib_source_files": 82,
+    "packages": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "shared_bridge_sha256": "bcb84f2ac48176aedfef46b7d26142b5c336d7041230798c23339d8582226732"
+  },
+  "actual_lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "build": {
+    "command": [
+      "lake",
+      "build",
+      "MeasurementAPI",
+      "Contracts.Pipeline",
+      "Contracts.ProcessSeparation",
+      "Comparison.HypothesisBefore",
+      "Comparison.HypothesisAfter"
+    ],
+    "exit_code": 0,
+    "seconds": 2.098,
+    "log": "results/build-current.log",
+    "sha256": "713cfc0464d740b91c9d8681fd451a0567a55da5b2f5c34f3cc5bbb42c6a9538"
+  },
+  "api_and_contract_axioms": {
+    "POVM.ext": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.mapEffects": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.mapEffects_mats": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.pullback": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.measure_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.measure_pullback": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.coarsegrain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.coarsegrain_mats": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.coarsegrain_id": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.coarsegrain_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.mapEffects_coarsegrain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.binary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.binary_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.measure_binary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.measureDiscard_binary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.measure_coarsegrain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.observe_pipeline": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.binary_channel_for_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.ofKraus": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.ofKraus_mats_mat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.measure_ofKraus": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ProbDistribution.pushforward": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ProbDistribution.toPMF_pushforward": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ProbDistribution.pushforward_id": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ProbDistribution.pushforward_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ProbDistribution.pushforward_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.Contracts.pullback_coarsegrain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.Contracts.two_relabelings": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.Contracts.channel_composition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.Contracts.pmf_consumer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.Contracts.unused_label": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.Contracts.unused_label_probability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.Contracts.zeroDimPOVM": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.Qubit": [],
+    "MeasurementAPI.ProcessSeparation.preserve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.reset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.preserve_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.reset_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.preserveProcess": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.resetProcess": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.same_POVM": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.same_probabilities": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.same_branch_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.processes_ne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.inputOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MeasurementAPI.ProcessSeparation.output_states_ne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "client_axioms": {
+    "Before": {
+      "OptimalHypothesisRate.Ref81Lem5": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "After": {
+      "OptimalHypothesisRate.Ref81Lem5": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "checked_api_declarations": 26,
+  "checked_contract_declarations": 20,
+  "compiled_physlib_dependency_modules": [
+    "QuantumInfo.Channels.Bundled",
+    "QuantumInfo.Channels.CPTP",
+    "QuantumInfo.Channels.Dual",
+    "QuantumInfo.Channels.MatrixMap",
+    "QuantumInfo.Channels.Unbundled",
+    "QuantumInfo.ClassicalInfo.Distribution",
+    "QuantumInfo.ClassicalInfo.Entropy",
+    "QuantumInfo.ClassicalInfo.ForMathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "QuantumInfo.ClassicalInfo.Prob",
+    "QuantumInfo.Entropy.DPI",
+    "QuantumInfo.Entropy.Relative",
+    "QuantumInfo.Entropy.VonNeumann",
+    "QuantumInfo.ForMathlib.ContinuousLinearMap",
+    "QuantumInfo.ForMathlib.ContinuousSup",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.BlockDiagonal",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.GeneralizedPerspectiveFunction",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.HilbertSchmidtOperatorSpace",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.JensenOperatorInequality",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.JensenOperatorInequalityIImpIV",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.LiebAndoTrace",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.LownerHeinzCore",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.LownerHeinzTheorem",
+    "QuantumInfo.ForMathlib.HayataGroup.TraceInequality.OperatorGeometricMean",
+    "QuantumInfo.ForMathlib.HermitianMat",
+    "QuantumInfo.ForMathlib.HermitianMat.Basic",
+    "QuantumInfo.ForMathlib.HermitianMat.CFC",
+    "QuantumInfo.ForMathlib.HermitianMat.CompoundMatrix",
+    "QuantumInfo.ForMathlib.HermitianMat.Inner",
+    "QuantumInfo.ForMathlib.HermitianMat.LiebConcavity",
+    "QuantumInfo.ForMathlib.HermitianMat.LogExp",
+    "QuantumInfo.ForMathlib.HermitianMat.NonSingular",
+    "QuantumInfo.ForMathlib.HermitianMat.Order",
+    "QuantumInfo.ForMathlib.HermitianMat.Peierls",
+    "QuantumInfo.ForMathlib.HermitianMat.Proj",
+    "QuantumInfo.ForMathlib.HermitianMat.Reindex",
+    "QuantumInfo.ForMathlib.HermitianMat.Rpow",
+    "QuantumInfo.ForMathlib.HermitianMat.Schatten",
+    "QuantumInfo.ForMathlib.HermitianMat.Sqrt",
+    "QuantumInfo.ForMathlib.HermitianMat.Trace",
+    "QuantumInfo.ForMathlib.HermitianMat.Unitary",
+    "QuantumInfo.ForMathlib.IsMaximalSelfAdjoint",
+    "QuantumInfo.ForMathlib.Isometry",
+    "QuantumInfo.ForMathlib.LinearEquiv",
+    "QuantumInfo.ForMathlib.Majorization",
+    "QuantumInfo.ForMathlib.Matrix",
+    "QuantumInfo.ForMathlib.MatrixNorm.TraceNorm",
+    "QuantumInfo.ForMathlib.Minimax",
+    "QuantumInfo.ForMathlib.Misc",
+    "QuantumInfo.ForMathlib.SionMinimax",
+    "QuantumInfo.ForMathlib.Tactic.Commutes",
+    "QuantumInfo.ForMathlib.Tactic.Commutes.Attribute",
+    "QuantumInfo.Measurements.POVM",
+    "QuantumInfo.Operators.Unitary",
+    "QuantumInfo.States.Mixed.MState",
+    "QuantumInfo.States.Pure.Braket"
+  ],
+  "checked_inputs_sha256": {
+    "lakefile.toml": "a8360ed75de1e310f8e36c77ab3a3730e49761c211f6ef09301fb278ba0f3cbd",
+    "lake-manifest.json": "d422a7b50157723725f3a87d223d1d7901223bac2a7d5b8d6dd199cd04042611",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "MeasurementAPI.lean": "8893f869cde94418b22c9d0f16fc2b0b502cf531212627e613c80e3c34b700e6",
+    "MeasurementAPI/BinaryChannel.lean": "195f66adc46c667f666621570f84998303f38bf2f7c354d2e81651d65e97aa8e",
+    "MeasurementAPI/Kraus.lean": "e1a046a1fa3d3c14a25d59b911aaf736cbff15814e848766d51f3f046155536c",
+    "MeasurementAPI/Observations.lean": "0ec664ae135df31bd5f1f84491d37fa43b10a28ce3306c5c5164de819355c6c3",
+    "MeasurementAPI/POVM.lean": "4df2763e1a5ab2cf908303ecf397483664231c02a8805a4e21840fe45d470930",
+    "MeasurementAPI/Probability.lean": "ef2e42bfc362c67ff5846d00e8deb5c3882265a32eb0f985f5f4523912ccc394",
+    "Contracts/Pipeline.lean": "a5fb03b857942392857d01c4c86bd52f3795aea71be71b9dec143a357d9fc5fe",
+    "Contracts/ProcessSeparation.lean": "d6354d913a8ad9810551790c20284f3d21100888664e7a64a055f2e83010d5dd",
+    "scripts/check.py": "c1c2416a3c2cf188f7355a41e34b458345b6b18be20078a714bfa5eec54d1433",
+    "scripts/common.py": "415631c72b2bf166a6e1c1a3e5d714ec50c086764bdc6275fa70b35ec68c6789",
+    "scripts/materialize.py": "4d6d022673f40b5c32bec82b8c47e20e29353c68a7feb2f9aca5b4a388351942",
+    "scripts/setup.py": "01b50708b557e55ecca8575dc063387c9e76eaa9e723da0d55f2ba36799912d5",
+    "provenance/physlib-sources.json": "178362a28b51cde6585e3caf4c35b019d0c255d620fedbb122f0c5aea5360ea7",
+    "provenance/upstream.json": "eef11733d96bf99f6883c7c58636219959b28a9a481463923bf98facb91c2483"
+  },
+  "scope": "Fresh compilation of local modules and complete isolated client variants; fixed official dependency cache; no independent whole-dependency kernel replay"
+}
