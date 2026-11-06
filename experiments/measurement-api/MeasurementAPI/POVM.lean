@@ -59,10 +59,7 @@ def coarsegrain (P : POVM X a) (f : X → Y) : POVM Y a where
   mats y := ∑ x ∈ Finset.univ.filter (fun x => f x = y), P.mats x
   nonneg y := Finset.sum_nonneg (fun x _ => P.nonneg x)
   normalized := by
-    rw [show (∑ y, ∑ x ∈ Finset.univ.filter (fun x => f x = y), P.mats x) =
-        ∑ x, P.mats x by
-      simpa using Finset.sum_fiberwise_eq_sum_filter Finset.univ Finset.univ f P.mats]
-    exact P.normalized
+    exact (Finset.sum_fiberwise Finset.univ f P.mats).trans P.normalized
 
 @[simp] theorem coarsegrain_mats (P : POVM X a) (f : X → Y) (y : Y) :
     (coarsegrain P f).mats y =

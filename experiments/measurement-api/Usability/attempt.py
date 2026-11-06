@@ -22,16 +22,23 @@ def digest(data):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--case', required=True)
+    parser.add_argument('--round', choices=['round1', 'round2'], default='round1')
     parser.add_argument('--audit', action='store_true')
     parser.add_argument('--decl', action='append', default=[])
     args = parser.parse_args()
-    freeze = json.loads((ROOT / 'Usability/freeze.json').read_text())
+    freeze_file = 'freeze.json' if args.round == 'round1' else 'freeze-round2.json'
+    freeze = json.loads((ROOT / 'Usability' / freeze_file).read_text())
     case = (dict(problem='_harness', resources='extended',
                  source='results/usability-harness/Input.lean') if args.case == '_harness'
             else freeze['cases'][args.case])
     for relative, expected in freeze['library_sources_sha256'].items():
         if digest((ROOT / relative).read_bytes()) != expected:
             raise RuntimeError('Frozen library source changed: ' + relative)
+    known_lean = {p for p in freeze['library_sources_sha256'] if p.endswith('.lean')}
+    actual_lean = {'MeasurementAPI.lean'} | {
+        str(p.relative_to(ROOT)) for p in (ROOT / 'MeasurementAPI').glob('*.lean')}
+    if actual_lean != known_lean:
+        raise RuntimeError('Frozen library module set changed')
     source = ROOT / case['source']
     text = source.read_text()
     imports = []
@@ -49,7 +56,8 @@ def main():
         parser.error('audit requires at least one --decl')
     if any(not re.fullmatch(r"[\w.']+", name) for name in args.decl):
         parser.error('declarations must be qualified Lean names')
-    directory = ROOT / 'results/usability' / args.case
+    directory = (ROOT / 'results/usability' / args.case if args.round == 'round1'
+                 else ROOT / 'results/usability/round2' / args.case)
     directory.mkdir(parents=True, exist_ok=True)
     existing = sorted(directory.glob('Attempt*.json'))
     number = len(existing) + 1
@@ -58,7 +66,8 @@ def main():
     original.write_text(text)
     executable = text
     if args.audit:
-        executable += '\n' + '\n'.join('#check @' + n for n in args.decl) + '\n'
+        executable += '\nset_option pp.fullNames true\n'
+        executable += '\n'.join('#check @' + n for n in args.decl) + '\n'
         executable += '\n'.join('#print axioms ' + n for n in args.decl) + '\n'
     compiled = directory / (stem + '.lean')
     compiled.write_text(executable)
@@ -95,7 +104,8 @@ def main():
         status = 'sorry_rejected'
     log = directory / (stem + '.log')
     log.write_text(output)
-    metadata = dict(case=args.case, mode='audit' if args.audit else 'compile',
+    metadata = dict(case=args.case, round=args.round, recorder_sha256=digest(Path(__file__).read_bytes()),
+                    mode='audit' if args.audit else 'compile',
                     started_utc=started, elapsed_seconds=round(time.monotonic() - monotonic, 3),
                     timeout_seconds=120, lean_threads=1, command=command,
                     lean_exit_code=exit_code, status=status,

@@ -40,9 +40,9 @@
       "Comparison.HypothesisAfter"
     ],
     "exit_code": 0,
-    "seconds": 8.379,
+    "seconds": 10.416,
     "log": "results/build-current.log",
-    "sha256": "023785d87761cdd63735aeddc35312d6af8dcf462c3695f912b77762ff352a04"
+    "sha256": "790fe4caa1a876d48df045b8a578ceec4b4f86c94e8bc74db06a5f8076db287d"
   },
   "api_and_contract_axioms": {
     "POVM.ext": [
@@ -156,6 +156,16 @@
       "Quot.sound"
     ],
     "POVM.sum_mats_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.coarsegrain_fst_mats": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "POVM.coarsegrain_snd_mats": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -298,7 +308,7 @@
       ]
     }
   },
-  "checked_api_declarations": 28,
+  "checked_api_declarations": 30,
   "checked_contract_declarations": 20,
   "compiled_physlib_dependency_modules": [
     "QuantumInfo.Channels.Bundled",
@@ -361,16 +371,17 @@
     "lakefile.toml": "a8360ed75de1e310f8e36c77ab3a3730e49761c211f6ef09301fb278ba0f3cbd",
     "lake-manifest.json": "d422a7b50157723725f3a87d223d1d7901223bac2a7d5b8d6dd199cd04042611",
     "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
-    "MeasurementAPI.lean": "713225324e414d62cf1ed3349476d8f28faace22f6e0bb8dbc26ad9e1a525344",
+    "MeasurementAPI.lean": "f560eb66282792c48adbd65717211bd5f3f52e762a8e7b759468301a87513594",
     "MeasurementAPI/BinaryChannel.lean": "195f66adc46c667f666621570f84998303f38bf2f7c354d2e81651d65e97aa8e",
     "MeasurementAPI/EffectBounds.lean": "90980ae349176dbc37d3f96d667d326304d8043509e7efd537b51cb41c9d8bbd",
     "MeasurementAPI/Kraus.lean": "e1a046a1fa3d3c14a25d59b911aaf736cbff15814e848766d51f3f046155536c",
+    "MeasurementAPI/Marginals.lean": "53e55512fc1e8bcbcc9173a41abd27878b68d2170b830805b5f9f110ecff768e",
     "MeasurementAPI/Observations.lean": "0ec664ae135df31bd5f1f84491d37fa43b10a28ce3306c5c5164de819355c6c3",
-    "MeasurementAPI/POVM.lean": "4df2763e1a5ab2cf908303ecf397483664231c02a8805a4e21840fe45d470930",
+    "MeasurementAPI/POVM.lean": "09cb067cb6cb463809845f939cc8fafe4fecb229c35a5532f1e60dd009079f65",
     "MeasurementAPI/Probability.lean": "ef2e42bfc362c67ff5846d00e8deb5c3882265a32eb0f985f5f4523912ccc394",
     "Contracts/Pipeline.lean": "a5fb03b857942392857d01c4c86bd52f3795aea71be71b9dec143a357d9fc5fe",
     "Contracts/ProcessSeparation.lean": "d6354d913a8ad9810551790c20284f3d21100888664e7a64a055f2e83010d5dd",
-    "scripts/check.py": "f4178cfda9315842aa464c0659da430537e6b7e3a673c3fbbe757df2fe3e93ff",
+    "scripts/check.py": "aaac6ea863879184659f0904f450dc6808510553ce2490612162c52f31287d01",
     "scripts/common.py": "415631c72b2bf166a6e1c1a3e5d714ec50c086764bdc6275fa70b35ec68c6789",
     "scripts/materialize.py": "4d6d022673f40b5c32bec82b8c47e20e29353c68a7feb2f9aca5b4a388351942",
     "scripts/setup.py": "01b50708b557e55ecca8575dc063387c9e76eaa9e723da0d55f2ba36799912d5",

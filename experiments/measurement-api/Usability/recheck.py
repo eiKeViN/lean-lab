@@ -26,6 +26,9 @@ def main():
     freeze = json.loads((ROOT / 'Usability/freeze.json').read_text())
     changed = [p for p, d in freeze['library_sources_sha256'].items()
                if sha((ROOT / p).read_bytes()) != d]
+    actual_lean = [ROOT / 'MeasurementAPI.lean', *sorted((ROOT / 'MeasurementAPI').glob('*.lean'))]
+    changed += ['added:' + str(p.relative_to(ROOT)) for p in actual_lean
+                if str(p.relative_to(ROOT)) not in freeze['library_sources_sha256']]
     if changed and not args.allow_library_drift:
         raise RuntimeError('Frozen library differs: ' + ', '.join(changed))
     env = os.environ.copy()
@@ -38,7 +41,9 @@ def main():
     output_dir.mkdir(exist_ok=True)
     report = dict(kind='later_library_regression' if changed else 'frozen_round1_parent_review',
                   started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                  library_commit=freeze['library_commit'], changed_library_files=changed, cases={})
+                  library_commit=freeze['library_commit'], changed_library_files=changed,
+                  observed_library_sha256={str(p.relative_to(ROOT)): sha(p.read_bytes())
+                                            for p in actual_lean}, cases={})
     for case_id, case in freeze['cases'].items():
         source = ROOT / case['source']
         final = source.read_text()

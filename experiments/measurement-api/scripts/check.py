@@ -12,7 +12,8 @@ API = ['POVM.' + n for n in [
     'coarsegrain', 'coarsegrain_mats', 'coarsegrain_id', 'coarsegrain_comp',
     'mapEffects_coarsegrain', 'binary', 'binary_zero', 'measure_binary', 'measureDiscard_binary',
     'measure_coarsegrain', 'observe_pipeline', 'binary_channel_for_pair',
-    'ofKraus', 'ofKraus_mats_mat', 'measure_ofKraus', 'effect_le_one', 'sum_mats_le_one']]
+    'ofKraus', 'ofKraus_mats_mat', 'measure_ofKraus', 'effect_le_one', 'sum_mats_le_one',
+    'coarsegrain_fst_mats', 'coarsegrain_snd_mats']]
 API += ['ProbDistribution.' + n for n in [
     'pushforward', 'toPMF_pushforward', 'pushforward_id', 'pushforward_comp', 'pushforward_apply']]
 CONTRACTS = ['MeasurementAPI.Contracts.' + n for n in [

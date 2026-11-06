@@ -1,0 +1,668 @@
+{
+  "kind": "later_library_regression",
+  "started_utc": "2026-11-06T10:18:21.317623+00:00",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "changed_library_files": [
+    "MeasurementAPI.lean",
+    "MeasurementAPI/POVM.lean",
+    "added:MeasurementAPI/Marginals.lean"
+  ],
+  "observed_library_sha256": {
+    "MeasurementAPI.lean": "f560eb66282792c48adbd65717211bd5f3f52e762a8e7b759468301a87513594",
+    "MeasurementAPI/BinaryChannel.lean": "195f66adc46c667f666621570f84998303f38bf2f7c354d2e81651d65e97aa8e",
+    "MeasurementAPI/EffectBounds.lean": "90980ae349176dbc37d3f96d667d326304d8043509e7efd537b51cb41c9d8bbd",
+    "MeasurementAPI/Kraus.lean": "e1a046a1fa3d3c14a25d59b911aaf736cbff15814e848766d51f3f046155536c",
+    "MeasurementAPI/Marginals.lean": "53e55512fc1e8bcbcc9173a41abd27878b68d2170b830805b5f9f110ecff768e",
+    "MeasurementAPI/Observations.lean": "0ec664ae135df31bd5f1f84491d37fa43b10a28ce3306c5c5164de819355c6c3",
+    "MeasurementAPI/POVM.lean": "09cb067cb6cb463809845f939cc8fafe4fecb229c35a5532f1e60dd009079f65",
+    "MeasurementAPI/Probability.lean": "ef2e42bfc362c67ff5846d00e8deb5c3882265a32eb0f985f5f4523912ccc394"
+  },
+  "cases": {
+    "E1New": {
+      "declarations": [
+        "E1New.rename",
+        "E1New.rename_mats",
+        "E1New.rename_probability",
+        "E1New.rename_inverse"
+      ],
+      "variants": {
+        "first_compiling_source": {
+          "source_sha256": "0a1872c71dbc99356d7ee0dbb70b43d5bcecaed4fc95f016e6eeafab22fc0f9b",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E1New.rename": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E1New.rename_mats": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E1New.rename_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E1New.rename_inverse": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 3.193,
+          "log": "results/usability-parent/E1New_first_compiling_source.log",
+          "log_sha256": "b6e45e9b0ce2c2cd8efd74b37e325ea9f0499c0b1438f051bc2b8acdd20f4c04"
+        },
+        "final_source": {
+          "source_sha256": "0a1872c71dbc99356d7ee0dbb70b43d5bcecaed4fc95f016e6eeafab22fc0f9b",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E1New.rename": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E1New.rename_mats": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E1New.rename_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E1New.rename_inverse": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.522,
+          "log": "results/usability-parent/E1New_final_source.log",
+          "log_sha256": "b6e45e9b0ce2c2cd8efd74b37e325ea9f0499c0b1438f051bc2b8acdd20f4c04"
+        }
+      },
+      "first_compiling_attempt": "results/usability/E1New/Attempt001.source.lean.txt"
+    },
+    "E2New": {
+      "declarations": [
+        "E2New.effect",
+        "E2New.effect_bounds",
+        "E2New.decision",
+        "E2New.decision_zero",
+        "E2New.decision_one",
+        "E2New.effect_expectation",
+        "E2New.decision_prob_zero",
+        "E2New.decision_prob_one"
+      ],
+      "variants": {
+        "first_compiling_source": {
+          "source_sha256": "e53ac398f1147e966551e41d3c9d9218bfe93b446a0627879912496c070a489d",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E2New.effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.effect_bounds": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_zero": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_one": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.effect_expectation": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_prob_zero": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_prob_one": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.722,
+          "log": "results/usability-parent/E2New_first_compiling_source.log",
+          "log_sha256": "890b8eee81f146709cc9fd45eb6b9000d98d0a13126191c37f90a38745aaf3fa"
+        },
+        "final_source": {
+          "source_sha256": "5fc421ffce16f0551615ff0e81d091bf6f7e34ce83b9fdb5b8a0081b100f7445",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E2New.effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.effect_bounds": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_zero": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_one": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.effect_expectation": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_prob_zero": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2New.decision_prob_one": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.729,
+          "log": "results/usability-parent/E2New_final_source.log",
+          "log_sha256": "890b8eee81f146709cc9fd45eb6b9000d98d0a13126191c37f90a38745aaf3fa"
+        }
+      },
+      "first_compiling_attempt": "results/usability/E2New/Attempt001.source.lean.txt"
+    },
+    "E2Base": {
+      "declarations": [
+        "E2Base.testEffect",
+        "E2Base.testEffect_bounds",
+        "E2Base.binary",
+        "E2Base.binary_zero",
+        "E2Base.binary_one",
+        "E2Base.accept_probability",
+        "E2Base.reject_probability"
+      ],
+      "variants": {
+        "first_compiling_source": {
+          "source_sha256": "5a2027aef2113a8ec057a14a504c1c758dccee41b284458a3eb4706cc8f2d618",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E2Base.testEffect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.testEffect_bounds": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.binary": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.binary_zero": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.binary_one": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.accept_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.reject_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.806,
+          "log": "results/usability-parent/E2Base_first_compiling_source.log",
+          "log_sha256": "09a2341f4acc08af71f342408036fb0eb9d5e871088fc71b2fa6311cf4dee40a"
+        },
+        "final_source": {
+          "source_sha256": "5a2027aef2113a8ec057a14a504c1c758dccee41b284458a3eb4706cc8f2d618",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E2Base.testEffect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.testEffect_bounds": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.binary": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.binary_zero": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.binary_one": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.accept_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E2Base.reject_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.719,
+          "log": "results/usability-parent/E2Base_final_source.log",
+          "log_sha256": "3b7ac032e01ce2f735f650fc38feec6cd0207351fceff775e06e60ab18109dac"
+        }
+      },
+      "first_compiling_attempt": "results/usability/E2Base/Attempt001.source.lean.txt"
+    },
+    "E3New": {
+      "declarations": [
+        "E3New.merged",
+        "E3New.merged_effects",
+        "E3New.merged_probability",
+        "E3New.pushforward_sum_abs_le",
+        "E3New.measurement_sum_abs_le"
+      ],
+      "variants": {
+        "first_compiling_source": {
+          "source_sha256": "26f2797e5ad86423b63c1c9736d516e00f943bba0684f3b61903d9afaded7aa6",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E3New.merged": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.merged_effects": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.merged_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.pushforward_sum_abs_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.measurement_sum_abs_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.676,
+          "log": "results/usability-parent/E3New_first_compiling_source.log",
+          "log_sha256": "c8a67a2ccbe5d30c19d60aceff242e234b5638830856bbbeb019da7fc9f4bc63"
+        },
+        "final_source": {
+          "source_sha256": "2f3a22d07b984dff6cdea1505177899adb8d208c59ccd920f80044bd214c00af",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E3New.merged": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.merged_effects": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.merged_probability": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.pushforward_sum_abs_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3New.measurement_sum_abs_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.809,
+          "log": "results/usability-parent/E3New_final_source.log",
+          "log_sha256": "c8a67a2ccbe5d30c19d60aceff242e234b5638830856bbbeb019da7fc9f4bc63"
+        }
+      },
+      "first_compiling_attempt": "results/usability/E3New/Attempt001.source.lean.txt"
+    },
+    "E3Base": {
+      "declarations": [
+        "E3Base.coarse",
+        "E3Base.coarse_mats",
+        "E3Base.born",
+        "E3Base.born_eq_inner",
+        "E3Base.born_eq_re_trace",
+        "E3Base.coarse_born",
+        "E3Base.abs_sum_fibers_le",
+        "E3Base.coarse_measure_l1_le"
+      ],
+      "variants": {
+        "first_compiling_source": {
+          "source_sha256": "5c2333cad5c6a16bfa780ceeef69c86f2906545b26d55d1ed4b33b46149a0473",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E3Base.coarse": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.coarse_mats": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.born": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.born_eq_inner": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.born_eq_re_trace": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.coarse_born": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.abs_sum_fibers_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.coarse_measure_l1_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.477,
+          "log": "results/usability-parent/E3Base_first_compiling_source.log",
+          "log_sha256": "e0557efd74f322934b48f663f76f1f620122d73b64256864c710f1bec6f824b7"
+        },
+        "final_source": {
+          "source_sha256": "5c2333cad5c6a16bfa780ceeef69c86f2906545b26d55d1ed4b33b46149a0473",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E3Base.coarse": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.coarse_mats": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.born": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.born_eq_inner": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.born_eq_re_trace": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.coarse_born": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.abs_sum_fibers_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E3Base.coarse_measure_l1_le": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 2.553,
+          "log": "results/usability-parent/E3Base_final_source.log",
+          "log_sha256": "322f1fb36bece1772c87532e8f8fd4d2f473d19ccdfff389996b50da3a6f392f"
+        }
+      },
+      "first_compiling_attempt": "results/usability/E3Base/Attempt002.source.lean.txt"
+    },
+    "E4New": {
+      "declarations": [
+        "E4New.fineKraus",
+        "E4New.fine_effect",
+        "E4New.sum_fine_effect",
+        "E4New.fine_normalized",
+        "E4New.originalPOVM",
+        "E4New.finePOVM",
+        "E4New.originalPOVM_effect",
+        "E4New.finePOVM_effect",
+        "E4New.coarsegrain_finePOVM",
+        "E4New.fine_branch",
+        "E4New.nonselective_eq",
+        "E4New.channel_eq"
+      ],
+      "variants": {
+        "first_compiling_source": {
+          "source_sha256": "d1b8abceaf011375bb86f019944da27fae08ef2ef8794a7166d99f1e7fc935c5",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E4New.fineKraus": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.sum_fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.fine_normalized": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.originalPOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.originalPOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.finePOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.coarsegrain_finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.fine_branch": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.nonselective_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.channel_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 3.129,
+          "log": "results/usability-parent/E4New_first_compiling_source.log",
+          "log_sha256": "7c03e8c517bee12288ebc16d5164d74ec0916a46d435c42f0e6d60a70d68fe91"
+        },
+        "final_source": {
+          "source_sha256": "8c32817771a2e8095e28f364144744b7fd775e6fec899e6b3a0d3291c05b2446",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E4New.fineKraus": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.sum_fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.fine_normalized": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.originalPOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.originalPOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.finePOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.coarsegrain_finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.fine_branch": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.nonselective_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4New.channel_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 3.083,
+          "log": "results/usability-parent/E4New_final_source.log",
+          "log_sha256": "322833f16d4ad1cb0a56fc498122e1dae928adc0b83b05c0bd37ec5230362397"
+        }
+      },
+      "first_compiling_attempt": "results/usability/E4New/Attempt007.source.lean.txt"
+    }
+  }
+}

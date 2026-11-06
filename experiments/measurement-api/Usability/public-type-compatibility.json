@@ -1,0 +1,43 @@
+{
+  "baseline_library": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "unchanged_named_signatures": [
+    "MeasurementAPI.Contracts.channel_composition",
+    "MeasurementAPI.Contracts.pmf_consumer",
+    "MeasurementAPI.Contracts.pullback_coarsegrain",
+    "MeasurementAPI.Contracts.two_relabelings",
+    "MeasurementAPI.Contracts.unused_label",
+    "MeasurementAPI.Contracts.unused_label_probability",
+    "POVM.binary",
+    "POVM.binary_channel_for_pair",
+    "POVM.binary_zero",
+    "POVM.coarsegrain",
+    "POVM.coarsegrain_comp",
+    "POVM.coarsegrain_id",
+    "POVM.coarsegrain_mats",
+    "POVM.effect_le_one",
+    "POVM.ext",
+    "POVM.mapEffects",
+    "POVM.mapEffects_coarsegrain",
+    "POVM.mapEffects_mats",
+    "POVM.measureDiscard_binary",
+    "POVM.measure_apply",
+    "POVM.measure_binary",
+    "POVM.measure_coarsegrain",
+    "POVM.measure_ofKraus",
+    "POVM.measure_pullback",
+    "POVM.observe_pipeline",
+    "POVM.ofKraus",
+    "POVM.ofKraus_mats_mat",
+    "POVM.pullback",
+    "POVM.sum_mats_le_one",
+    "ProbDistribution.pushforward",
+    "ProbDistribution.pushforward_apply",
+    "ProbDistribution.pushforward_comp",
+    "ProbDistribution.pushforward_id",
+    "ProbDistribution.toPMF_pushforward"
+  ],
+  "added_signatures": [
+    "POVM.coarsegrain_fst_mats",
+    "POVM.coarsegrain_snd_mats"
+  ]
+}

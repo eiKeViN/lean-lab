@@ -76,6 +76,12 @@
   (P : POVM X a) (x : X), P.mats x ≤ 1
 @POVM.sum_mats_le_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]
   (P : POVM X a) (S : Finset X), ∑ x ∈ S, P.mats x ≤ 1
+@POVM.coarsegrain_fst_mats : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]
+  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (P : POVM (X × Y) a) (x : X),
+  (P.coarsegrain Prod.fst).mats x = ∑ y, P.mats (x, y)
+@POVM.coarsegrain_snd_mats : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]
+  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (P : POVM (X × Y) a) (y : Y),
+  (P.coarsegrain Prod.snd).mats y = ∑ x, P.mats (x, y)
 @ProbDistribution.pushforward : {X : Type u_1} →
   {Y : Type u_2} → [inst : Fintype X] → [inst_1 : Fintype Y] → ProbDistribution X → (X → Y) → ProbDistribution Y
 @ProbDistribution.toPMF_pushforward : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]
