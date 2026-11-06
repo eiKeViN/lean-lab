@@ -1,0 +1,67 @@
+{
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "base_commit": "47d47405807af105c6ef0ecccba94b956026d927",
+  "library_sources_sha256": {
+    "MeasurementAPI.lean": "713225324e414d62cf1ed3349476d8f28faace22f6e0bb8dbc26ad9e1a525344",
+    "MeasurementAPI/BinaryChannel.lean": "195f66adc46c667f666621570f84998303f38bf2f7c354d2e81651d65e97aa8e",
+    "MeasurementAPI/EffectBounds.lean": "90980ae349176dbc37d3f96d667d326304d8043509e7efd537b51cb41c9d8bbd",
+    "MeasurementAPI/Kraus.lean": "e1a046a1fa3d3c14a25d59b911aaf736cbff15814e848766d51f3f046155536c",
+    "MeasurementAPI/Observations.lean": "0ec664ae135df31bd5f1f84491d37fa43b10a28ce3306c5c5164de819355c6c3",
+    "MeasurementAPI/POVM.lean": "4df2763e1a5ab2cf908303ecf397483664231c02a8805a4e21840fe45d470930",
+    "MeasurementAPI/Probability.lean": "ef2e42bfc362c67ff5846d00e8deb5c3882265a32eb0f985f5f4523912ccc394",
+    "lakefile.toml": "a8360ed75de1e310f8e36c77ab3a3730e49761c211f6ef09301fb278ba0f3cbd",
+    "lake-manifest.json": "d422a7b50157723725f3a87d223d1d7901223bac2a7d5b8d6dd199cd04042611",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+  },
+  "problems_sha256": {
+    "E1": "928b1d8c68f38c36bc047608ff7b6319ad316459568a7ff74a1ffea56252c9d1",
+    "E2": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+    "E3": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+    "E4": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993"
+  },
+  "lean": "4.35.0",
+  "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e",
+  "task_wall_budget_minutes": 25,
+  "lean_process_timeout_seconds": 120,
+  "lean_threads": 1,
+  "cases": {
+    "E1New": {
+      "problem": "E1",
+      "resources": "extended",
+      "source": "Usability/Submissions/E1New.lean",
+      "journal": "Usability/Submissions/E1New.md"
+    },
+    "E2New": {
+      "problem": "E2",
+      "resources": "extended",
+      "source": "Usability/Submissions/E2New.lean",
+      "journal": "Usability/Submissions/E2New.md"
+    },
+    "E2Base": {
+      "problem": "E2",
+      "resources": "original",
+      "source": "Usability/Submissions/E2Base.lean",
+      "journal": "Usability/Submissions/E2Base.md"
+    },
+    "E3New": {
+      "problem": "E3",
+      "resources": "extended",
+      "source": "Usability/Submissions/E3New.lean",
+      "journal": "Usability/Submissions/E3New.md"
+    },
+    "E3Base": {
+      "problem": "E3",
+      "resources": "original",
+      "source": "Usability/Submissions/E3Base.lean",
+      "journal": "Usability/Submissions/E3Base.md"
+    },
+    "E4New": {
+      "problem": "E4",
+      "resources": "extended",
+      "source": "Usability/Submissions/E4New.lean",
+      "journal": "Usability/Submissions/E4New.md"
+    }
+  },
+  "isolation": "fresh model contexts plus instructed resource boundaries; shared filesystem, no OS-level isolation"
+}
