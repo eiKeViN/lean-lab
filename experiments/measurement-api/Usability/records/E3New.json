@@ -1,0 +1,183 @@
+{
+  "case": "E3New",
+  "problem": "E3",
+  "resources": "extended",
+  "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "protocol_commit": "321c723",
+  "final_source": "Usability/Submissions/E3New.lean",
+  "final_source_sha256": "2f3a22d07b984dff6cdea1505177899adb8d208c59ccd920f80044bd214c00af",
+  "fact_journal": "Usability/Submissions/E3New.md",
+  "mathematical_help_sent": [],
+  "attempts": [
+    {
+      "case": "E3New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:57:34.309405+00:00",
+      "elapsed_seconds": 4.206,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E3New/Attempt001.lean",
+        "-o",
+        "results/usability/E3New/Attempt001.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "compiled",
+      "source": "Usability/Submissions/E3New.lean",
+      "source_sha256": "26f2797e5ad86423b63c1c9736d516e00f943bba0684f3b61903d9afaded7aa6",
+      "source_snapshot": "results/usability/E3New/Attempt001.source.lean.txt",
+      "log": "results/usability/E3New/Attempt001.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nopen Classical BigOperators\n\nnoncomputable section\n\nnamespace E3New\n\nvariable {X Y a : Type*} [Fintype X] [Fintype Y]\n  [Fintype a] [DecidableEq a]\n\n/-- The POVM obtained by forgetting all distinctions inside a fiber of `f`. -/\ndef merged (E : POVM X a) (f : X → Y) : POVM Y a :=\n  E.coarsegrain f\n\ntheorem merged_effects (E : POVM X a) (f : X → Y) (y : Y) :\n    (merged E f).mats y =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x := by\n  rfl\n\n/-- The real Born probability of a merged label is the sum over its fiber. -/\ntheorem merged_probability (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y) :\n    ((merged E f).measure ρ y : ℝ) =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), (E.measure ρ x : ℝ) := by\n  rw [merged, POVM.measure_coarsegrain, ProbDistribution.pushforward_apply]\n\n/-- Deterministic relabeling contracts the real `ℓ¹` distance. -/\ntheorem pushforward_sum_abs_le (p q : ProbDistribution X) (f : X → Y) :\n    (∑ y, |(p.pushforward f y : ℝ) - (q.pushforward f y : ℝ)|) ≤\n      ∑ x, |(p x : ℝ) - (q x : ℝ)| := by\n  simp_rw [ProbDistribution.pushforward_apply]\n  calc\n    (∑ y, |(∑ x ∈ Finset.univ.filter (fun x => f x = y), (p x : ℝ)) -\n        ∑ x ∈ Finset.univ.filter (fun x => f x = y), (q x : ℝ)|) =\n        ∑ y, |∑ x ∈ Finset.univ.filter (fun x => f x = y),\n          ((p x : ℝ) - (q x : ℝ))| := by\n      simp only [Finset.sum_sub_distrib]\n    _ ≤ ∑ y, ∑ x ∈ Finset.univ.filter (fun x => f x = y),\n        |(p x : ℝ) - (q x : ℝ)| := by\n      apply Finset.sum_le_sum\n      intro y _\n      exact Finset.abs_sum_le_sum_abs _ _\n    _ = ∑ x, |(p x : ℝ) - (q x : ℝ)| := by\n      simpa using Finset.sum_fiberwise_eq_sum_filter\n        Finset.univ Finset.univ f (fun x => |(p x : ℝ) - (q x : ℝ)|)\n\n/-- Forgetting classical labels does not increase distinguishability. -/\ntheorem measurement_sum_abs_le (E : POVM X a) (f : X → Y) (ρ σ : MState a) :\n    (∑ y, |((merged E f).measure ρ y : ℝ) -\n      ((merged E f).measure σ y : ℝ)|) ≤\n      ∑ x, |(E.measure ρ x : ℝ) - (E.measure σ x : ℝ)| := by\n  simp only [merged, POVM.measure_coarsegrain]\n  exact pushforward_sum_abs_le (E.measure ρ) (E.measure σ) f\n\nend E3New\n",
+      "compiler_output": ""
+    },
+    {
+      "case": "E3New",
+      "mode": "audit",
+      "started_utc": "2026-11-06T09:57:46.115512+00:00",
+      "elapsed_seconds": 5.564,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E3New/Attempt002.lean",
+        "-o",
+        "results/usability/E3New/Attempt002.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "audit_rejected",
+      "source": "Usability/Submissions/E3New.lean",
+      "source_sha256": "26f2797e5ad86423b63c1c9736d516e00f943bba0684f3b61903d9afaded7aa6",
+      "source_snapshot": "results/usability/E3New/Attempt002.source.lean.txt",
+      "log": "results/usability/E3New/Attempt002.log",
+      "log_sha256": "30fe07802b82fb4ad6bf576b803f614965f57d03f6d5db6284d16d407f8f0c67",
+      "declarations": [
+        "E3New.merged",
+        "E3New.merged_effects",
+        "E3New.merged_probability",
+        "E3New.pushforward_sum_abs_le",
+        "E3New.measurement_sum_abs_le"
+      ],
+      "axioms": {
+        "E3New.merged": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E3New.merged_effects": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E3New.merged_probability": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E3New.pushforward_sum_abs_le": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E3New.measurement_sum_abs_le": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nopen Classical BigOperators\n\nnoncomputable section\n\nnamespace E3New\n\nvariable {X Y a : Type*} [Fintype X] [Fintype Y]\n  [Fintype a] [DecidableEq a]\n\n/-- The POVM obtained by forgetting all distinctions inside a fiber of `f`. -/\ndef merged (E : POVM X a) (f : X → Y) : POVM Y a :=\n  E.coarsegrain f\n\ntheorem merged_effects (E : POVM X a) (f : X → Y) (y : Y) :\n    (merged E f).mats y =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x := by\n  rfl\n\n/-- The real Born probability of a merged label is the sum over its fiber. -/\ntheorem merged_probability (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y) :\n    ((merged E f).measure ρ y : ℝ) =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), (E.measure ρ x : ℝ) := by\n  rw [merged, POVM.measure_coarsegrain, ProbDistribution.pushforward_apply]\n\n/-- Deterministic relabeling contracts the real `ℓ¹` distance. -/\ntheorem pushforward_sum_abs_le (p q : ProbDistribution X) (f : X → Y) :\n    (∑ y, |(p.pushforward f y : ℝ) - (q.pushforward f y : ℝ)|) ≤\n      ∑ x, |(p x : ℝ) - (q x : ℝ)| := by\n  simp_rw [ProbDistribution.pushforward_apply]\n  calc\n    (∑ y, |(∑ x ∈ Finset.univ.filter (fun x => f x = y), (p x : ℝ)) -\n        ∑ x ∈ Finset.univ.filter (fun x => f x = y), (q x : ℝ)|) =\n        ∑ y, |∑ x ∈ Finset.univ.filter (fun x => f x = y),\n          ((p x : ℝ) - (q x : ℝ))| := by\n      simp only [Finset.sum_sub_distrib]\n    _ ≤ ∑ y, ∑ x ∈ Finset.univ.filter (fun x => f x = y),\n        |(p x : ℝ) - (q x : ℝ)| := by\n      apply Finset.sum_le_sum\n      intro y _\n      exact Finset.abs_sum_le_sum_abs _ _\n    _ = ∑ x, |(p x : ℝ) - (q x : ℝ)| := by\n      simpa using Finset.sum_fiberwise_eq_sum_filter\n        Finset.univ Finset.univ f (fun x => |(p x : ℝ) - (q x : ℝ)|)\n\n/-- Forgetting classical labels does not increase distinguishability. -/\ntheorem measurement_sum_abs_le (E : POVM X a) (f : X → Y) (ρ σ : MState a) :\n    (∑ y, |((merged E f).measure ρ y : ℝ) -\n      ((merged E f).measure σ y : ℝ)|) ≤\n      ∑ x, |(E.measure ρ x : ℝ) - (E.measure σ x : ℝ)| := by\n  simp only [merged, POVM.measure_coarsegrain]\n  exact pushforward_sum_abs_le (E.measure ρ) (E.measure σ) f\n\nend E3New\n",
+      "compiler_output": "@E3New.merged : {X : Type u_1} →\n  {Y : Type u_2} →\n    {a : Type u_3} →\n      [inst : Fintype X] →\n        [inst_1 : Fintype Y] → [inst_2 : Fintype a] → [inst_3 : DecidableEq a] → POVM X a → (X → Y) → POVM Y a\n@E3New.merged_effects : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (E : POVM X a) (f : X → Y) (y : Y),\n  (E3New.merged E f).mats y = ∑ x with f x = y, E.mats x\n@E3New.merged_probability : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y),\n  ↑(((E3New.merged E f).measure ρ) y) = ∑ x with f x = y, ↑((E.measure ρ) x)\n@E3New.pushforward_sum_abs_le : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]\n  (p q : ProbDistribution X) (f : X → Y),\n  ∑ y, |↑((p.pushforward f) y) - ↑((q.pushforward f) y)| ≤ ∑ x, |↑(p x) - ↑(q x)|\n@E3New.measurement_sum_abs_le : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (E : POVM X a) (f : X → Y) (ρ σ : MState a),\n  ∑ y, |↑(((E3New.merged E f).measure ρ) y) - ↑(((E3New.merged E f).measure σ) y)| ≤\n    ∑ x, |↑((E.measure ρ) x) - ↑((E.measure σ) x)|\n'E3New.merged' depends on axioms: [propext, choice, Quot.sound]\n'E3New.merged_effects' depends on axioms: [propext, choice, Quot.sound]\n'E3New.merged_probability' depends on axioms: [propext, choice, Quot.sound]\n'E3New.pushforward_sum_abs_le' depends on axioms: [propext, choice, Quot.sound]\n'E3New.measurement_sum_abs_le' depends on axioms: [propext, choice, Quot.sound]\n"
+    },
+    {
+      "case": "E3New",
+      "mode": "audit",
+      "started_utc": "2026-11-06T09:58:32.639238+00:00",
+      "elapsed_seconds": 7.118,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E3New/Attempt003.lean",
+        "-o",
+        "results/usability/E3New/Attempt003.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "verified",
+      "source": "Usability/Submissions/E3New.lean",
+      "source_sha256": "2f3a22d07b984dff6cdea1505177899adb8d208c59ccd920f80044bd214c00af",
+      "source_snapshot": "results/usability/E3New/Attempt003.source.lean.txt",
+      "log": "results/usability/E3New/Attempt003.log",
+      "log_sha256": "c8a67a2ccbe5d30c19d60aceff242e234b5638830856bbbeb019da7fc9f4bc63",
+      "declarations": [
+        "E3New.merged",
+        "E3New.merged_effects",
+        "E3New.merged_probability",
+        "E3New.pushforward_sum_abs_le",
+        "E3New.measurement_sum_abs_le"
+      ],
+      "axioms": {
+        "E3New.merged": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3New.merged_effects": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3New.merged_probability": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3New.pushforward_sum_abs_le": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3New.measurement_sum_abs_le": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nnoncomputable section\n\nnamespace E3New\n\nopen Classical BigOperators\n\nvariable {X Y a : Type*} [Fintype X] [Fintype Y]\n  [Fintype a] [DecidableEq a]\n\n/-- The POVM obtained by forgetting all distinctions inside a fiber of `f`. -/\ndef merged (E : POVM X a) (f : X → Y) : POVM Y a :=\n  E.coarsegrain f\n\ntheorem merged_effects (E : POVM X a) (f : X → Y) (y : Y) :\n    (merged E f).mats y =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x := by\n  rfl\n\n/-- The real Born probability of a merged label is the sum over its fiber. -/\ntheorem merged_probability (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y) :\n    ((merged E f).measure ρ y : ℝ) =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), (E.measure ρ x : ℝ) := by\n  rw [merged, POVM.measure_coarsegrain, ProbDistribution.pushforward_apply]\n\n/-- Deterministic relabeling contracts the real `ℓ¹` distance. -/\ntheorem pushforward_sum_abs_le (p q : ProbDistribution X) (f : X → Y) :\n    (∑ y, |(p.pushforward f y : ℝ) - (q.pushforward f y : ℝ)|) ≤\n      ∑ x, |(p x : ℝ) - (q x : ℝ)| := by\n  simp_rw [ProbDistribution.pushforward_apply]\n  calc\n    (∑ y, |(∑ x ∈ Finset.univ.filter (fun x => f x = y), (p x : ℝ)) -\n        ∑ x ∈ Finset.univ.filter (fun x => f x = y), (q x : ℝ)|) =\n        ∑ y, |∑ x ∈ Finset.univ.filter (fun x => f x = y),\n          ((p x : ℝ) - (q x : ℝ))| := by\n      simp only [Finset.sum_sub_distrib]\n    _ ≤ ∑ y, ∑ x ∈ Finset.univ.filter (fun x => f x = y),\n        |(p x : ℝ) - (q x : ℝ)| := by\n      apply Finset.sum_le_sum\n      intro y _\n      exact Finset.abs_sum_le_sum_abs _ _\n    _ = ∑ x, |(p x : ℝ) - (q x : ℝ)| := by\n      simpa using Finset.sum_fiberwise_eq_sum_filter\n        Finset.univ Finset.univ f (fun x => |(p x : ℝ) - (q x : ℝ)|)\n\n/-- Forgetting classical labels does not increase distinguishability. -/\ntheorem measurement_sum_abs_le (E : POVM X a) (f : X → Y) (ρ σ : MState a) :\n    (∑ y, |((merged E f).measure ρ y : ℝ) -\n      ((merged E f).measure σ y : ℝ)|) ≤\n      ∑ x, |(E.measure ρ x : ℝ) - (E.measure σ x : ℝ)| := by\n  simp only [merged, POVM.measure_coarsegrain]\n  exact pushforward_sum_abs_le (E.measure ρ) (E.measure σ) f\n\nend E3New\n",
+      "compiler_output": "@E3New.merged : {X : Type u_1} →\n  {Y : Type u_2} →\n    {a : Type u_3} →\n      [inst : Fintype X] →\n        [inst_1 : Fintype Y] → [inst_2 : Fintype a] → [inst_3 : DecidableEq a] → POVM X a → (X → Y) → POVM Y a\n@E3New.merged_effects : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (E : POVM X a) (f : X → Y) (y : Y),\n  (E3New.merged E f).mats y = ∑ x with f x = y, E.mats x\n@E3New.merged_probability : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y),\n  ↑(((E3New.merged E f).measure ρ) y) = ∑ x with f x = y, ↑((E.measure ρ) x)\n@E3New.pushforward_sum_abs_le : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]\n  (p q : ProbDistribution X) (f : X → Y),\n  ∑ y, |↑((p.pushforward f) y) - ↑((q.pushforward f) y)| ≤ ∑ x, |↑(p x) - ↑(q x)|\n@E3New.measurement_sum_abs_le : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (E : POVM X a) (f : X → Y) (ρ σ : MState a),\n  ∑ y, |↑(((E3New.merged E f).measure ρ) y) - ↑(((E3New.merged E f).measure σ) y)| ≤\n    ∑ x, |↑((E.measure ρ) x) - ↑((E.measure σ) x)|\n'E3New.merged' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3New.merged_effects' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3New.merged_probability' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3New.pushforward_sum_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3New.measurement_sum_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}

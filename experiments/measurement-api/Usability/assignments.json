@@ -1,0 +1,62 @@
+{
+  "round": "independent_round1",
+  "dispatches": [
+    {
+      "case": "E1New",
+      "task_name": "/root/learner_e1_new",
+      "fork_turns": "none",
+      "model": "inherited; provider model ID not exposed in spawn result",
+      "reasoning_effort": "max",
+      "prompt": "你是一个上下文独立的 Lean 练习求解者。请在 /workspace/lean-lab-measurement/experiments/measurement-api 工作。先只阅读 Usability/LEARNER.md 和自己的题目 Usability/problems/E1.md，然后自主形式化并证明整题。你的编号为 E1New，获准使用扩展库 MeasurementAPI、原 Physlib/mathlib 和既有 PMF 桥；可以查阅这些库的正常源码/注释。解答只写 Usability/Submissions/E1New.lean，事实记录只写 Usability/Submissions/E1New.md。不要读取设计讨论、Git 历史、Contracts、Comparison、evidence、其他实验、其他求解者的解答/记录或个人/房间历史；不请求其他代理，不联网，不改库或配置，不提交推送。每次 Lean 调用必须使用 python3 Usability/attempt.py --case E1New；最终用该记录器 --audit --decl qualified.name（可多次 --decl）检查主要结果。你自行决定 Lean 陈述和命名；不接受 sorry、自定义公理或额外数学假设。收到任务起最多工作 25 分钟；若部分未完成，保留已完成证明、最后失败和具体缺口。最终报告完成范围、定义/定理名、尝试记录位置、遇到的具体接口/数学问题、是否获得帮助。不要索取或输出私有思考链，只记录实际公开操作及结果。",
+      "mathematical_help_sent": []
+    },
+    {
+      "case": "E2New",
+      "task_name": "/root/learner_e2_new",
+      "fork_turns": "none",
+      "model": "inherited; provider model ID not exposed in spawn result",
+      "reasoning_effort": "max",
+      "prompt": "你是一个上下文独立的 Lean 练习求解者。请在 /workspace/lean-lab-measurement/experiments/measurement-api 工作。先只阅读 Usability/LEARNER.md 和自己的题目 Usability/problems/E2.md，然后自主形式化并证明整题。你的编号为 E2New，获准使用扩展库 MeasurementAPI、原 Physlib/mathlib 和既有 PMF 桥；可以查阅这些库的正常源码/注释。解答只写 Usability/Submissions/E2New.lean，事实记录只写 Usability/Submissions/E2New.md。不要读取设计讨论、Git 历史、Contracts、Comparison、evidence、其他实验、其他求解者的解答/记录或个人/房间历史；不请求其他代理，不联网，不改库或配置，不提交推送。每次 Lean 调用必须使用 python3 Usability/attempt.py --case E2New；最终用该记录器 --audit --decl qualified.name（可多次 --decl）检查主要结果。你自行决定 Lean 陈述和命名；不接受 sorry、自定义公理或额外数学假设。收到任务起最多工作 25 分钟；若部分未完成，保留已完成证明、最后失败和具体缺口。最终报告完成范围、定义/定理名、尝试记录位置、遇到的具体接口/数学问题、是否获得帮助。不要索取或输出私有思考链，只记录实际公开操作及结果。",
+      "mathematical_help_sent": []
+    },
+    {
+      "case": "E2Base",
+      "task_name": "/root/learner_e2_base",
+      "fork_turns": "none",
+      "model": "inherited; provider model ID not exposed in spawn result",
+      "reasoning_effort": "max",
+      "prompt": "你是一个上下文独立的 Lean 练习求解者。请在 /workspace/lean-lab-measurement/experiments/measurement-api 工作。先只阅读 Usability/LEARNER.md 和自己的题目 Usability/problems/E2.md，然后自主形式化并证明整题。你的编号为 E2Base，获准使用原 Physlib/mathlib 和既有 PMF 桥；不要导入或查阅扩展目录 MeasurementAPI、根 MeasurementAPI.lean 或扩展库的其他资料。可以查阅获准库的正常源码/注释。解答只写 Usability/Submissions/E2Base.lean，事实记录只写 Usability/Submissions/E2Base.md。不要读取设计讨论、Git 历史、Contracts、Comparison、evidence、其他实验、其他求解者的解答/记录或个人/房间历史；不请求其他代理，不联网，不改库或配置，不提交推送。每次 Lean 调用必须使用 python3 Usability/attempt.py --case E2Base；最终用该记录器 --audit --decl qualified.name（可多次 --decl）检查主要结果。你自行决定 Lean 陈述和命名；不接受 sorry、自定义公理或额外数学假设。收到任务起最多工作 25 分钟；若部分未完成，保留已完成证明、最后失败和具体缺口。最终报告完成范围、定义/定理名、尝试记录位置、遇到的具体接口/数学问题、是否获得帮助。不要索取或输出私有思考链，只记录实际公开操作及结果。",
+      "mathematical_help_sent": []
+    },
+    {
+      "case": "E3New",
+      "task_name": "/root/learner_e3_new",
+      "fork_turns": "none",
+      "model": "inherited; provider model ID not exposed in spawn result",
+      "reasoning_effort": "max",
+      "prompt": "你是一个上下文独立的 Lean 练习求解者。请在 /workspace/lean-lab-measurement/experiments/measurement-api 工作。先只阅读 Usability/LEARNER.md 和自己的题目 Usability/problems/E3.md，然后自主形式化并证明整题。你的编号为 E3New，获准使用扩展库 MeasurementAPI、原 Physlib/mathlib 和既有 PMF 桥；可以查阅这些库的正常源码/注释。解答只写 Usability/Submissions/E3New.lean，事实记录只写 Usability/Submissions/E3New.md。不要读取设计讨论、Git 历史、Contracts、Comparison、evidence、其他实验、其他求解者的解答/记录或个人/房间历史；不请求其他代理，不联网，不改库或配置，不提交推送。每次 Lean 调用必须使用 python3 Usability/attempt.py --case E3New；最终用该记录器 --audit --decl qualified.name（可多次 --decl）检查主要结果。你自行决定 Lean 陈述和命名；不接受 sorry、自定义公理或额外数学假设。收到任务起最多工作 25 分钟；若部分未完成，保留已完成证明、最后失败和具体缺口。最终报告完成范围、定义/定理名、尝试记录位置、遇到的具体接口/数学问题、是否获得帮助。不要索取或输出私有思考链，只记录实际公开操作及结果。",
+      "mathematical_help_sent": []
+    },
+    {
+      "case": "E3Base",
+      "task_name": "/root/learner_e3_base",
+      "fork_turns": "none",
+      "model": "inherited; provider model ID not exposed in spawn result",
+      "reasoning_effort": "max",
+      "prompt": "你是一个上下文独立的 Lean 练习求解者。请在 /workspace/lean-lab-measurement/experiments/measurement-api 工作。先只阅读 Usability/LEARNER.md 和自己的题目 Usability/problems/E3.md，然后自主形式化并证明整题。你的编号为 E3Base，获准使用原 Physlib/mathlib 和既有 PMF 桥；不要导入或查阅扩展目录 MeasurementAPI、根 MeasurementAPI.lean 或扩展库的其他资料。可以查阅获准库的正常源码/注释。解答只写 Usability/Submissions/E3Base.lean，事实记录只写 Usability/Submissions/E3Base.md。不要读取设计讨论、Git 历史、Contracts、Comparison、evidence、其他实验、其他求解者的解答/记录或个人/房间历史；不请求其他代理，不联网，不改库或配置，不提交推送。每次 Lean 调用必须使用 python3 Usability/attempt.py --case E3Base；最终用该记录器 --audit --decl qualified.name（可多次 --decl）检查主要结果。你自行决定 Lean 陈述和命名；不接受 sorry、自定义公理或额外数学假设。收到任务起最多工作 25 分钟；若部分未完成，保留已完成证明、最后失败和具体缺口。最终报告完成范围、定义/定理名、尝试记录位置、遇到的具体接口/数学问题、是否获得帮助。不要索取或输出私有思考链，只记录实际公开操作及结果。",
+      "mathematical_help_sent": []
+    },
+    {
+      "case": "E4New",
+      "task_name": "/root/learner_e4_new",
+      "fork_turns": "none",
+      "model": "inherited; provider model ID not exposed in spawn result",
+      "reasoning_effort": "max",
+      "prompt": "你是一个上下文独立的 Lean 练习求解者。请在 /workspace/lean-lab-measurement/experiments/measurement-api 工作。先只阅读 Usability/LEARNER.md 和自己的题目 Usability/problems/E4.md，然后自主形式化并证明整题。你的编号为 E4New，获准使用扩展库 MeasurementAPI、原 Physlib/mathlib 和既有 PMF 桥；可以查阅这些库的正常源码/注释。解答只写 Usability/Submissions/E4New.lean，事实记录只写 Usability/Submissions/E4New.md。不要读取设计讨论、Git 历史、Contracts、Comparison、evidence、其他实验、其他求解者的解答/记录或个人/房间历史；不请求其他代理，不联网，不改库或配置，不提交推送。每次 Lean 调用必须使用 python3 Usability/attempt.py --case E4New；最终用该记录器 --audit --decl qualified.name（可多次 --decl）检查主要结果。你自行决定 Lean 陈述和命名；不接受 sorry、自定义公理或额外数学假设。收到任务起最多工作 25 分钟；若部分未完成，保留已完成证明、最后失败和具体缺口。最终报告完成范围、定义/定理名、尝试记录位置、遇到的具体接口/数学问题、是否获得帮助。不要索取或输出私有思考链，只记录实际公开操作及结果。",
+      "mathematical_help_sent": []
+    }
+  ],
+  "dispatch_clock": "Exact dispatch wall timestamps were not instrumented; compiler timestamps are retained; no total task-time claim.",
+  "isolation": "fresh model contexts plus instructed resource boundaries; shared filesystem, no OS-level isolation",
+  "completion_recorded_utc": "2026-11-06T10:09:11.536357+00:00"
+}

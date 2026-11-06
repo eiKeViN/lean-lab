@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+"""Recheck learner first-success and final proofs; retain the frozen round identity."""
+from pathlib import Path
+import argparse
+import datetime
+import hashlib
+import json
+import os
+import re
+import subprocess
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+STANDARD = {'propext', 'Classical.choice', 'Quot.sound'}
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--allow-library-drift', action='store_true',
+                        help='explicit regression on a later library, never a fresh first-round result')
+    args = parser.parse_args()
+    freeze = json.loads((ROOT / 'Usability/freeze.json').read_text())
+    changed = [p for p, d in freeze['library_sources_sha256'].items()
+               if sha((ROOT / p).read_bytes()) != d]
+    if changed and not args.allow_library_drift:
+        raise RuntimeError('Frozen library differs: ' + ', '.join(changed))
+    env = os.environ.copy()
+    env['PATH'] = str(ROOT / 'toolchain/lean-4.35.0-linux/bin') + os.pathsep + env['PATH']
+    env['XDG_CACHE_HOME'] = str(ROOT / '.cache')
+    env['LAKE_CACHE_DIR'] = str(ROOT / '.cache/lake')
+    env['MATHLIB_CACHE_DIR'] = str(ROOT / '.cache/mathlib')
+    env['LEAN_NUM_THREADS'] = '1'
+    output_dir = ROOT / 'results/usability-parent'
+    output_dir.mkdir(exist_ok=True)
+    report = dict(kind='later_library_regression' if changed else 'frozen_round1_parent_review',
+                  started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                  library_commit=freeze['library_commit'], changed_library_files=changed, cases={})
+    for case_id, case in freeze['cases'].items():
+        source = ROOT / case['source']
+        final = source.read_text()
+        names = re.findall(r'^(?:@\[[^\]]+\]\s+)?(?:def|theorem|abbrev)\s+(\w+)', final, re.MULTILINE)
+        names = [case_id + '.' + name for name in names]
+        metadata = [json.loads(p.read_text()) for p in
+                    sorted((ROOT / 'results/usability' / case_id).glob('Attempt*.json'))]
+        first = next(m for m in metadata if m['mode'] == 'compile' and m['lean_exit_code'] == 0)
+        first_text = (ROOT / first['source_snapshot']).read_text()
+        variants = {'first_compiling_source': first_text, 'final_source': final}
+        results = {}
+        for variant, body in variants.items():
+            path = output_dir / (case_id + '_' + variant + '.lean')
+            appended = '\nset_option pp.fullNames true\n'
+            appended += '\n'.join('#check @' + n for n in names) + '\n'
+            appended += '\n'.join('#print axioms ' + n for n in names) + '\n'
+            path.write_text(body + appended)
+            started = time.monotonic()
+            proc = subprocess.run(['lake', 'env', 'lean', str(path.relative_to(ROOT))],
+                                  cwd=ROOT, env=env, stdout=subprocess.PIPE,
+                                  stderr=subprocess.STDOUT, text=True, timeout=120)
+            log = output_dir / (path.stem + '.log')
+            log.write_text(proc.stdout)
+            axioms = {n: [x.strip() for x in b.split(',') if x.strip()]
+                      for n, b in re.findall(r"'([^']+)' depends on axioms:\s*\[(.*?)\]",
+                                            proc.stdout, re.DOTALL)}
+            for n in re.findall(r"'([^']+)' does not depend on any axioms", proc.stdout):
+                axioms[n] = []
+            passed = proc.returncode == 0 and set(names) <= set(axioms)
+            passed = passed and all(set(axioms[n]) <= STANDARD for n in names)
+            results[variant] = dict(source_sha256=sha(body.encode()), lean_exit_code=proc.returncode,
+                                    passed=passed, axioms=axioms,
+                                    seconds=round(time.monotonic() - started, 3),
+                                    log=str(log.relative_to(ROOT)), log_sha256=sha(proc.stdout.encode()))
+            print(case_id, variant, 'passed' if passed else 'FAILED', flush=True)
+            if not passed:
+                print(proc.stdout[-10000:])
+                raise RuntimeError(case_id + ' failed parent review')
+        report['cases'][case_id] = dict(declarations=names, variants=results,
+                                       first_compiling_attempt=first['source_snapshot'])
+    filename = 'regression-review.json' if changed else 'parent-review.json'
+    (ROOT / 'Usability' / filename).write_text(json.dumps(report, indent=2) + '\n')
+    print('All learner source variants checked with fully qualified printed names.')
+
+
+if __name__ == '__main__':
+    main()

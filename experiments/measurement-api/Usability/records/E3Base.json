@@ -1,0 +1,163 @@
+{
+  "case": "E3Base",
+  "problem": "E3",
+  "resources": "original",
+  "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "protocol_commit": "321c723",
+  "final_source": "Usability/Submissions/E3Base.lean",
+  "final_source_sha256": "5c2333cad5c6a16bfa780ceeef69c86f2906545b26d55d1ed4b33b46149a0473",
+  "fact_journal": "Usability/Submissions/E3Base.md",
+  "mathematical_help_sent": [],
+  "attempts": [
+    {
+      "case": "E3Base",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:57:55.121222+00:00",
+      "elapsed_seconds": 5.778,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E3Base/Attempt001.lean",
+        "-o",
+        "results/usability/E3Base/Attempt001.olean"
+      ],
+      "lean_exit_code": 1,
+      "status": "failed",
+      "source": "Usability/Submissions/E3Base.lean",
+      "source_sha256": "8f9d40b903de5c9879913184612b105a590768f4acc352b6f52ae1f66e2e712a",
+      "source_snapshot": "results/usability/E3Base/Attempt001.source.lean.txt",
+      "log": "results/usability/E3Base/Attempt001.log",
+      "log_sha256": "7b9ddf54efeb6dbfb8ae17b2812781851c3ad79dde48d064e72d778b426cd970",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "QuantumInfo.Measurements.POVM"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+      "source_text": "module\n\nimport QuantumInfo.Measurements.POVM\n\n@[expose] public section\n\nnoncomputable section\n\nopen BigOperators\nopen scoped RealInnerProductSpace\n\nnamespace E3Base\n\nvariable {X Y a : Type*} [Fintype X] [Fintype Y] [Fintype a]\n  [DecidableEq X] [DecidableEq Y] [DecidableEq a]\n\n/-- Forget the classical labels according to the map `f`. -/\ndef coarse (E : POVM X a) (f : X → Y) : POVM Y a where\n  mats y := ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x\n  nonneg y := Finset.sum_nonneg fun x _ => E.nonneg x\n  normalized := by\n    rw [Finset.sum_fiberwise]\n    exact E.normalized\n\ntheorem coarse_mats (E : POVM X a) (f : X → Y) (y : Y) :\n    (coarse E f).mats y = ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x :=\n  rfl\n\n/-- The real-valued probability supplied by the original measurement API. -/\ndef born (E : POVM X a) (ρ : MState a) (x : X) : ℝ :=\n  (E.measure ρ x : ℝ)\n\ntheorem born_eq_inner (E : POVM X a) (ρ : MState a) (x : X) :\n    born E ρ x = ⟪E.mats x, ρ.M⟫ :=\n  rfl\n\ntheorem born_eq_re_trace (E : POVM X a) (ρ : MState a) (x : X) :\n    born E ρ x = ((E.mats x).mat * ρ.M.mat).trace.re := by\n  rw [born_eq_inner, HermitianMat.inner_eq_re_trace]\n  rfl\n\ntheorem coarse_born (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y) :\n    born (coarse E f) ρ y =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), born E ρ x := by\n  simp only [born_eq_inner, coarse_mats, sum_inner]\n\n/-- Grouping arbitrary real numbers by a finite map contracts their absolute sum. -/\ntheorem abs_sum_fibers_le (f : X → Y) (u : X → ℝ) :\n    (∑ y : Y, |∑ x ∈ Finset.univ.filter (fun x => f x = y), u x|) ≤\n      ∑ x : X, |u x| := by\n  calc\n    _ ≤ ∑ y : Y, ∑ x ∈ Finset.univ.filter (fun x => f x = y), |u x| := by\n      apply Finset.sum_le_sum\n      intro y _\n      exact Finset.abs_sum_le_sum_abs _ _\n    _ = _ := Finset.sum_fiberwise Finset.univ f (fun x => |u x|)\n\n/-- Forgetting labels cannot increase the real-valued L1 distance of outcome laws. -/\ntheorem coarse_measure_l1_le (E : POVM X a) (f : X → Y) (ρ σ : MState a) :\n    (∑ y : Y, |born (coarse E f) ρ y - born (coarse E f) σ y|) ≤\n      ∑ x : X, |born E ρ x - born E σ x| := by\n  simp_rw [coarse_born, ← Finset.sum_sub_distrib]\n  exact abs_sum_fibers_le f (fun x => born E ρ x - born E σ x)\n\nend E3Base\n",
+      "compiler_output": "results/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E3Base/Attempt001.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\n"
+    },
+    {
+      "case": "E3Base",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:58:07.764969+00:00",
+      "elapsed_seconds": 3.827,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E3Base/Attempt002.lean",
+        "-o",
+        "results/usability/E3Base/Attempt002.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "compiled",
+      "source": "Usability/Submissions/E3Base.lean",
+      "source_sha256": "5c2333cad5c6a16bfa780ceeef69c86f2906545b26d55d1ed4b33b46149a0473",
+      "source_snapshot": "results/usability/E3Base/Attempt002.source.lean.txt",
+      "log": "results/usability/E3Base/Attempt002.log",
+      "log_sha256": "4112567a52eb5db5b2b9c9fda1cdeaaff16f184a18c40a4d4f2db7b51e5cd628",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "QuantumInfo.Measurements.POVM"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+      "source_text": "module\n\npublic import QuantumInfo.Measurements.POVM\n\n@[expose] public section\n\nnoncomputable section\n\nopen BigOperators\nopen scoped RealInnerProductSpace\n\nnamespace E3Base\n\nvariable {X Y a : Type*} [Fintype X] [Fintype Y] [Fintype a]\n  [DecidableEq X] [DecidableEq Y] [DecidableEq a]\n\n/-- Forget the classical labels according to the map `f`. -/\ndef coarse (E : POVM X a) (f : X → Y) : POVM Y a where\n  mats y := ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x\n  nonneg y := Finset.sum_nonneg fun x _ => E.nonneg x\n  normalized := by\n    rw [Finset.sum_fiberwise]\n    exact E.normalized\n\ntheorem coarse_mats (E : POVM X a) (f : X → Y) (y : Y) :\n    (coarse E f).mats y = ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x :=\n  rfl\n\n/-- The real-valued probability supplied by the original measurement API. -/\ndef born (E : POVM X a) (ρ : MState a) (x : X) : ℝ :=\n  (E.measure ρ x : ℝ)\n\ntheorem born_eq_inner (E : POVM X a) (ρ : MState a) (x : X) :\n    born E ρ x = ⟪E.mats x, ρ.M⟫ :=\n  rfl\n\ntheorem born_eq_re_trace (E : POVM X a) (ρ : MState a) (x : X) :\n    born E ρ x = ((E.mats x).mat * ρ.M.mat).trace.re := by\n  rw [born_eq_inner, HermitianMat.inner_eq_re_trace]\n  rfl\n\ntheorem coarse_born (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y) :\n    born (coarse E f) ρ y =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), born E ρ x := by\n  simp only [born_eq_inner, coarse_mats, sum_inner]\n\n/-- Grouping arbitrary real numbers by a finite map contracts their absolute sum. -/\ntheorem abs_sum_fibers_le (f : X → Y) (u : X → ℝ) :\n    (∑ y : Y, |∑ x ∈ Finset.univ.filter (fun x => f x = y), u x|) ≤\n      ∑ x : X, |u x| := by\n  calc\n    _ ≤ ∑ y : Y, ∑ x ∈ Finset.univ.filter (fun x => f x = y), |u x| := by\n      apply Finset.sum_le_sum\n      intro y _\n      exact Finset.abs_sum_le_sum_abs _ _\n    _ = _ := Finset.sum_fiberwise Finset.univ f (fun x => |u x|)\n\n/-- Forgetting labels cannot increase the real-valued L1 distance of outcome laws. -/\ntheorem coarse_measure_l1_le (E : POVM X a) (f : X → Y) (ρ σ : MState a) :\n    (∑ y : Y, |born (coarse E f) ρ y - born (coarse E f) σ y|) ≤\n      ∑ x : X, |born E ρ x - born E σ x| := by\n  simp_rw [coarse_born, ← Finset.sum_sub_distrib]\n  exact abs_sum_fibers_le f (fun x => born E ρ x - born E σ x)\n\nend E3Base\n",
+      "compiler_output": "results/usability/E3Base/Attempt002.lean:25:0: warning: automatically included section variable(s) unused in theorem `E3Base.coarse_mats`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E3Base/Attempt002.lean:33:0: warning: automatically included section variable(s) unused in theorem `E3Base.born_eq_inner`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E3Base/Attempt002.lean:42:0: warning: automatically included section variable(s) unused in theorem `E3Base.coarse_born`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E3Base/Attempt002.lean:48:0: warning: automatically included section variable(s) unused in theorem `E3Base.abs_sum_fibers_le`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "case": "E3Base",
+      "mode": "audit",
+      "started_utc": "2026-11-06T09:58:20.246448+00:00",
+      "elapsed_seconds": 6.409,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E3Base/Attempt003.lean",
+        "-o",
+        "results/usability/E3Base/Attempt003.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "verified",
+      "source": "Usability/Submissions/E3Base.lean",
+      "source_sha256": "5c2333cad5c6a16bfa780ceeef69c86f2906545b26d55d1ed4b33b46149a0473",
+      "source_snapshot": "results/usability/E3Base/Attempt003.source.lean.txt",
+      "log": "results/usability/E3Base/Attempt003.log",
+      "log_sha256": "6f12b55ac1c901110655332f7080fe76f408d340e6a3199b1f78697e1941d269",
+      "declarations": [
+        "E3Base.coarse",
+        "E3Base.coarse_mats",
+        "E3Base.born",
+        "E3Base.born_eq_re_trace",
+        "E3Base.coarse_born",
+        "E3Base.abs_sum_fibers_le",
+        "E3Base.coarse_measure_l1_le"
+      ],
+      "axioms": {
+        "E3Base.coarse": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3Base.coarse_mats": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3Base.born": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3Base.born_eq_re_trace": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3Base.coarse_born": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3Base.abs_sum_fibers_le": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E3Base.coarse_measure_l1_le": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "QuantumInfo.Measurements.POVM"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "cf4d97a860fee50839aa031ce28faace7c86f04eff033ce9951e2043aede94c6",
+      "source_text": "module\n\npublic import QuantumInfo.Measurements.POVM\n\n@[expose] public section\n\nnoncomputable section\n\nopen BigOperators\nopen scoped RealInnerProductSpace\n\nnamespace E3Base\n\nvariable {X Y a : Type*} [Fintype X] [Fintype Y] [Fintype a]\n  [DecidableEq X] [DecidableEq Y] [DecidableEq a]\n\n/-- Forget the classical labels according to the map `f`. -/\ndef coarse (E : POVM X a) (f : X → Y) : POVM Y a where\n  mats y := ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x\n  nonneg y := Finset.sum_nonneg fun x _ => E.nonneg x\n  normalized := by\n    rw [Finset.sum_fiberwise]\n    exact E.normalized\n\ntheorem coarse_mats (E : POVM X a) (f : X → Y) (y : Y) :\n    (coarse E f).mats y = ∑ x ∈ Finset.univ.filter (fun x => f x = y), E.mats x :=\n  rfl\n\n/-- The real-valued probability supplied by the original measurement API. -/\ndef born (E : POVM X a) (ρ : MState a) (x : X) : ℝ :=\n  (E.measure ρ x : ℝ)\n\ntheorem born_eq_inner (E : POVM X a) (ρ : MState a) (x : X) :\n    born E ρ x = ⟪E.mats x, ρ.M⟫ :=\n  rfl\n\ntheorem born_eq_re_trace (E : POVM X a) (ρ : MState a) (x : X) :\n    born E ρ x = ((E.mats x).mat * ρ.M.mat).trace.re := by\n  rw [born_eq_inner, HermitianMat.inner_eq_re_trace]\n  rfl\n\ntheorem coarse_born (E : POVM X a) (f : X → Y) (ρ : MState a) (y : Y) :\n    born (coarse E f) ρ y =\n      ∑ x ∈ Finset.univ.filter (fun x => f x = y), born E ρ x := by\n  simp only [born_eq_inner, coarse_mats, sum_inner]\n\n/-- Grouping arbitrary real numbers by a finite map contracts their absolute sum. -/\ntheorem abs_sum_fibers_le (f : X → Y) (u : X → ℝ) :\n    (∑ y : Y, |∑ x ∈ Finset.univ.filter (fun x => f x = y), u x|) ≤\n      ∑ x : X, |u x| := by\n  calc\n    _ ≤ ∑ y : Y, ∑ x ∈ Finset.univ.filter (fun x => f x = y), |u x| := by\n      apply Finset.sum_le_sum\n      intro y _\n      exact Finset.abs_sum_le_sum_abs _ _\n    _ = _ := Finset.sum_fiberwise Finset.univ f (fun x => |u x|)\n\n/-- Forgetting labels cannot increase the real-valued L1 distance of outcome laws. -/\ntheorem coarse_measure_l1_le (E : POVM X a) (f : X → Y) (ρ σ : MState a) :\n    (∑ y : Y, |born (coarse E f) ρ y - born (coarse E f) σ y|) ≤\n      ∑ x : X, |born E ρ x - born E σ x| := by\n  simp_rw [coarse_born, ← Finset.sum_sub_distrib]\n  exact abs_sum_fibers_le f (fun x => born E ρ x - born E σ x)\n\nend E3Base\n",
+      "compiler_output": "results/usability/E3Base/Attempt003.lean:25:0: warning: automatically included section variable(s) unused in theorem `E3Base.coarse_mats`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E3Base/Attempt003.lean:33:0: warning: automatically included section variable(s) unused in theorem `E3Base.born_eq_inner`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E3Base/Attempt003.lean:42:0: warning: automatically included section variable(s) unused in theorem `E3Base.coarse_born`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E3Base/Attempt003.lean:48:0: warning: automatically included section variable(s) unused in theorem `E3Base.abs_sum_fibers_le`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n@E3Base.coarse : {X : Type u_1} →\n  {Y : Type u_2} →\n    {a : Type u_3} →\n      [inst : Fintype X] →\n        [inst_1 : Fintype Y] →\n          [inst_2 : Fintype a] → [DecidableEq Y] → [inst_4 : DecidableEq a] → POVM X a → (X → Y) → POVM Y a\n@E3Base.coarse_mats : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [DecidableEq X] [inst_4 : DecidableEq Y] [inst_5 : DecidableEq a] (E : POVM X a) (f : X → Y)\n  (y : Y), (E3Base.coarse E f).mats y = ∑ x with f x = y, E.mats x\n@E3Base.born : {X : Type u_1} →\n  {a : Type u_2} → [inst : Fintype X] → [inst_1 : Fintype a] → [inst_2 : DecidableEq a] → POVM X a → MState a → X → ℝ\n@E3Base.born_eq_re_trace : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [DecidableEq X]\n  [inst_3 : DecidableEq a] (E : POVM X a) (ρ : MState a) (x : X), E3Base.born E ρ x = (↑(E.mats x) * ↑↑ρ).trace.re\n@E3Base.coarse_born : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [DecidableEq X] [inst_4 : DecidableEq Y] [inst_5 : DecidableEq a] (E : POVM X a) (f : X → Y)\n  (ρ : MState a) (y : Y), E3Base.born (E3Base.coarse E f) ρ y = ∑ x with f x = y, E3Base.born E ρ x\n@E3Base.abs_sum_fibers_le : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y] [DecidableEq X]\n  [inst_3 : DecidableEq Y] (f : X → Y) (u : X → ℝ), ∑ y, |∑ x with f x = y, u x| ≤ ∑ x, |u x|\n@E3Base.coarse_measure_l1_le : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]\n  [inst_2 : Fintype a] [DecidableEq X] [inst_4 : DecidableEq Y] [inst_5 : DecidableEq a] (E : POVM X a) (f : X → Y)\n  (ρ σ : MState a),\n  ∑ y, |E3Base.born (E3Base.coarse E f) ρ y - E3Base.born (E3Base.coarse E f) σ y| ≤\n    ∑ x, |E3Base.born E ρ x - E3Base.born E σ x|\n'E3Base.coarse' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3Base.coarse_mats' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3Base.born' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3Base.born_eq_re_trace' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3Base.coarse_born' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3Base.abs_sum_fibers_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E3Base.coarse_measure_l1_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}

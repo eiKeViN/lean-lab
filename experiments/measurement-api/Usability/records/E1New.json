@@ -1,0 +1,110 @@
+{
+  "case": "E1New",
+  "problem": "E1",
+  "resources": "extended",
+  "problem_sha256": "928b1d8c68f38c36bc047608ff7b6319ad316459568a7ff74a1ffea56252c9d1",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "protocol_commit": "321c723",
+  "final_source": "Usability/Submissions/E1New.lean",
+  "final_source_sha256": "0a1872c71dbc99356d7ee0dbb70b43d5bcecaed4fc95f016e6eeafab22fc0f9b",
+  "fact_journal": "Usability/Submissions/E1New.md",
+  "mathematical_help_sent": [],
+  "attempts": [
+    {
+      "case": "E1New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:57:00.021292+00:00",
+      "elapsed_seconds": 2.563,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E1New/Attempt001.lean",
+        "-o",
+        "results/usability/E1New/Attempt001.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "compiled",
+      "source": "Usability/Submissions/E1New.lean",
+      "source_sha256": "0a1872c71dbc99356d7ee0dbb70b43d5bcecaed4fc95f016e6eeafab22fc0f9b",
+      "source_snapshot": "results/usability/E1New/Attempt001.source.lean.txt",
+      "log": "results/usability/E1New/Attempt001.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "928b1d8c68f38c36bc047608ff7b6319ad316459568a7ff74a1ffea56252c9d1",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nopen BigOperators\n\nnoncomputable section\n\nnamespace E1New\n\nvariable {a X Y : Type*} [Fintype a] [DecidableEq a] [Fintype X] [Fintype Y]\n\n/-- Relabel the outcomes using a bijection, without changing the effects. -/\ndef rename (E : POVM X a) (e : X ≃ Y) : POVM Y a where\n  mats y := E.mats (e.symm y)\n  nonneg y := E.nonneg (e.symm y)\n  normalized := by\n    rw [e.symm.sum_comp E.mats, E.normalized]\n\n/-- The renamed effect at `y` is the original effect at its inverse image. -/\n@[simp] theorem rename_mats (E : POVM X a) (e : X ≃ Y) (y : Y) :\n    (rename E e).mats y = E.mats (e.symm y) := rfl\n\n/-- Renaming preserves the probability of each corresponding outcome. -/\ntheorem rename_probability (E : POVM X a) (e : X ≃ Y) (ρ : MState a) (x : X) :\n    (rename E e).measure ρ (e x) = E.measure ρ x := by\n  apply Subtype.ext\n  simp [POVM.measure_apply]\n\n/-- Renaming by the inverse equivalence recovers the original POVM. -/\n@[simp] theorem rename_inverse (E : POVM X a) (e : X ≃ Y) :\n    rename (rename E e) e.symm = E := by\n  apply POVM.ext\n  intro x\n  simp\n\nend E1New\n",
+      "compiler_output": ""
+    },
+    {
+      "case": "E1New",
+      "mode": "audit",
+      "started_utc": "2026-11-06T09:57:08.457589+00:00",
+      "elapsed_seconds": 2.656,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E1New/Attempt002.lean",
+        "-o",
+        "results/usability/E1New/Attempt002.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "verified",
+      "source": "Usability/Submissions/E1New.lean",
+      "source_sha256": "0a1872c71dbc99356d7ee0dbb70b43d5bcecaed4fc95f016e6eeafab22fc0f9b",
+      "source_snapshot": "results/usability/E1New/Attempt002.source.lean.txt",
+      "log": "results/usability/E1New/Attempt002.log",
+      "log_sha256": "b6e45e9b0ce2c2cd8efd74b37e325ea9f0499c0b1438f051bc2b8acdd20f4c04",
+      "declarations": [
+        "E1New.rename",
+        "E1New.rename_mats",
+        "E1New.rename_probability",
+        "E1New.rename_inverse"
+      ],
+      "axioms": {
+        "E1New.rename": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E1New.rename_mats": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E1New.rename_probability": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E1New.rename_inverse": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "928b1d8c68f38c36bc047608ff7b6319ad316459568a7ff74a1ffea56252c9d1",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nopen BigOperators\n\nnoncomputable section\n\nnamespace E1New\n\nvariable {a X Y : Type*} [Fintype a] [DecidableEq a] [Fintype X] [Fintype Y]\n\n/-- Relabel the outcomes using a bijection, without changing the effects. -/\ndef rename (E : POVM X a) (e : X ≃ Y) : POVM Y a where\n  mats y := E.mats (e.symm y)\n  nonneg y := E.nonneg (e.symm y)\n  normalized := by\n    rw [e.symm.sum_comp E.mats, E.normalized]\n\n/-- The renamed effect at `y` is the original effect at its inverse image. -/\n@[simp] theorem rename_mats (E : POVM X a) (e : X ≃ Y) (y : Y) :\n    (rename E e).mats y = E.mats (e.symm y) := rfl\n\n/-- Renaming preserves the probability of each corresponding outcome. -/\ntheorem rename_probability (E : POVM X a) (e : X ≃ Y) (ρ : MState a) (x : X) :\n    (rename E e).measure ρ (e x) = E.measure ρ x := by\n  apply Subtype.ext\n  simp [POVM.measure_apply]\n\n/-- Renaming by the inverse equivalence recovers the original POVM. -/\n@[simp] theorem rename_inverse (E : POVM X a) (e : X ≃ Y) :\n    rename (rename E e) e.symm = E := by\n  apply POVM.ext\n  intro x\n  simp\n\nend E1New\n",
+      "compiler_output": "@E1New.rename : {a : Type u_1} →\n  {X : Type u_2} →\n    {Y : Type u_3} →\n      [inst : Fintype a] →\n        [inst_1 : DecidableEq a] → [inst_2 : Fintype X] → [inst_3 : Fintype Y] → POVM X a → X ≃ Y → POVM Y a\n@E1New.rename_mats : ∀ {a : Type u_1} {X : Type u_2} {Y : Type u_3} [inst : Fintype a] [inst_1 : DecidableEq a]\n  [inst_2 : Fintype X] [inst_3 : Fintype Y] (E : POVM X a) (e : X ≃ Y) (y : Y),\n  (E1New.rename E e).mats y = E.mats (e.symm y)\n@E1New.rename_probability : ∀ {a : Type u_1} {X : Type u_2} {Y : Type u_3} [inst : Fintype a] [inst_1 : DecidableEq a]\n  [inst_2 : Fintype X] [inst_3 : Fintype Y] (E : POVM X a) (e : X ≃ Y) (ρ : MState a) (x : X),\n  ((E1New.rename E e).measure ρ) (e x) = (E.measure ρ) x\n@E1New.rename_inverse : ∀ {a : Type u_1} {X : Type u_2} {Y : Type u_3} [inst : Fintype a] [inst_1 : DecidableEq a]\n  [inst_2 : Fintype X] [inst_3 : Fintype Y] (E : POVM X a) (e : X ≃ Y), E1New.rename (E1New.rename E e) e.symm = E\n'E1New.rename' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E1New.rename_mats' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E1New.rename_probability' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E1New.rename_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}
