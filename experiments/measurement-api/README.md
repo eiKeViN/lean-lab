@@ -15,6 +15,7 @@
 | [Observations.lean](MeasurementAPI/Observations.lean) | 量子预处理、测量、经典重标记的完整观察等式 | 上述两层的组合律 |
 | [BinaryChannel.lean](MeasurementAPI/BinaryChannel.lean) | 为两个输入态返回同一个二元 CPTP 信道和所需输出等式 | `POVM.measureDiscard`、硬币分布与期望值界 |
 | [Kraus.lean](MeasurementAPI/Kraus.lean) | 从选定的归一化 Kraus 族提取 POVM，并证明分支迹等于结果概率 | 现有 PSD、HermitianMat 和矩阵迹循环规则 |
+| [EffectBounds.lean](MeasurementAPI/EffectBounds.lean) | 一般效果和有限事件效果的单位算子上界 | mathlib 有序有限和与 POVM 归一化 |
 
 例如，正幺映射 `F : PUMap b a ℂ` 已具有线性和保单位实例。`mapEffects` 的归一化证明直接写成：
 
@@ -78,7 +79,7 @@ bash scripts/check.sh
 
 实际验收结果：
 
-- 26 个 API 声明与 20 个命名使用契约完成类型/公理输出检查；另有匿名最小假设示例随文件编译。
+- 28 个 API 声明与 20 个命名使用契约完成类型/公理输出检查；另有匿名最小假设示例随文件编译。最初版本的 API 数为 26，独立练习前的基础检查增加了两条一般效果上界定理。
 - 两个完整假设检验版本完成编译，目标定理签名和公理集合一致。
 - 被检查声明仅依赖 `propext`、`Classical.choice`、`Quot.sound`；没有 `sorryAx` 或新增的其他公理项。
 - 核对了 82 份固定 Physlib 源文件；本轮实际编译 55 个 Physlib 依赖模块，另编译原假设检验文件的两个独立版本。身份覆盖与编译覆盖分别记录。

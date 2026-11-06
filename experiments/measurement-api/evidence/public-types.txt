@@ -72,6 +72,10 @@
 @POVM.measure_ofKraus : ∀ {X : Type u_1} {a : Type u_2} {b : Type u_3} [inst : Fintype X] [inst_1 : Fintype a]
   [inst_2 : DecidableEq a] [inst_3 : Fintype b] (K : X → Matrix b a ℂ) (hK : ∑ x, (K x).conjTranspose * K x = 1)
   (ρ : MState a) (x : X), ↑(((POVM.ofKraus K hK).measure ρ) x) = (K x * ρ.m * (K x).conjTranspose).trace.re
+@POVM.effect_le_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]
+  (P : POVM X a) (x : X), P.mats x ≤ 1
+@POVM.sum_mats_le_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]
+  (P : POVM X a) (S : Finset X), ∑ x ∈ S, P.mats x ≤ 1
 @ProbDistribution.pushforward : {X : Type u_1} →
   {Y : Type u_2} → [inst : Fintype X] → [inst_1 : Fintype Y] → ProbDistribution X → (X → Y) → ProbDistribution Y
 @ProbDistribution.toPMF_pushforward : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]
