@@ -4,6 +4,8 @@
 
 实验使用固定 Lean **4.35.0**、mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679`、Physlib `c5a908ba7a1ee474063626bdf0470af006f9812e`，并复用 lean-lab 既有有限 PMF 桥。所有环境和产物由本目录独立管理。
 
+现已完成一轮 [自然语言练习的独立求解实验](Usability/RESULTS.md)：[四道题全文](Usability/EXERCISES.md)，六名新上下文求解者，含 E2/E3 两题的原库路线对照；首轮 44 个命名声明全部复核通过。反馈后补充一般边缘效果公式，并保存原 E4 求解者的同题迭代；它不计作新的独立样本。每次失败源及编译输出均可查阅，见 [复现说明](Usability/REPRODUCE.md)。
+
 ## 已实现的接口
 
 主入口：`import MeasurementAPI`。

@@ -6,6 +6,8 @@
 
 固定 Lean 4.35.0、mathlib 56a0058、Physlib c5a908b。`scripts/setup.sh` 已实际运行成功；它用自己的 Lake 配置和官方目标缓存。旧 PMF 桥仅通过本目录的模块可见性适配接入，未修改原桥。`scripts/check.sh --record` 保存实际验收；普通 check 不改写冻结证据。
 
-验收检查 26 个 API 声明、20 个命名契约、两个完整消费者、源码身份前后核对和实际打印公理。仅标准的 propext/Classical.choice/Quot.sound。82 个 Physlib 文件的身份覆盖与 55 个实际依赖模块的编译覆盖分开报告。完整日志、下载、依赖和编译产物均忽略；必要诊断及哈希在 evidence/。
+当前验收检查 30 个 API 声明、20 个命名契约、两个完整消费者、源码身份前后核对和实际打印公理。仅标准的 propext/Classical.choice/Quot.sound。82 个 Physlib 文件的身份覆盖与 55 个实际依赖模块的编译覆盖分开报告。完整日志、下载、依赖和编译产物均忽略；必要诊断及哈希在 evidence/。
+
+已完成四道自然语言练习、六名 fork_turns=none 的 max 推理求解者，E2/E3 各有原库对照；首轮全部完成，库 f642cf3 全程冻结，22 次 Lean 调用的完整源/输出、最终证明、事实记录与 44 个声明的父复核在 Usability/。afd4ef8 保存未适配首轮。之后 c2d87eb 才加通用乘积边缘公式、复用原库求解者发现的 mathlib 纤维和机制，并修正审计器因 choice 短名误拒绝的问题；原始错误未抹去。全部已有证明在新版回归通过。原 E4 求解者保留经历的同题迭代 E4Revisit 也完成、12 声明通过复核；不计独立样本或速度证据。先读 Usability/RESULTS.md、EXERCISES.md 和 REPRODUCE.md；可直接从公开档案重放，不依赖忽略日志。现有证据支持具体复用点，原库路线同样能完成题目。
 
 保持已核实的远端目标 eiKeViN/lean-lab；只发布此实验分支，不合并、联系上游或部署 CI/bot/服务。QIT instrument 草案不是本轮已验证成果。继续扩展前先结合实际客户选择范围，不把静态草案或旧验收记录当作本轮编译证据。
