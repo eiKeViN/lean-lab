@@ -1,0 +1,43 @@
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:102:9: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 3 were provided
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:105:27: error: Application type mismatch: The argument
+  (hker (α • x)).mpr (Exists.intro x rfl)
+has type
+  ∃ n, f n = α • x ∧ g n = 0
+but is expected to have type
+  (α • x, { val := 0 }) ∈ lattice f g τ α hdiv hinc
+in the application
+  ⟨(α • x, { val := 0 }), ⋯⟩
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:122:58: error: Application type mismatch: The argument
+  hker
+has type
+  ∀ (x : X), (∃ n, f n = x ∧ g n = 0) ↔ ∃ z, x = α • z
+of sort `Prop` but is expected to have type
+  X
+of sort `Type w` in the application
+  (rightKernelMap f g τ α hdiv hinc) hker
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:132:57: error: Application type mismatch: The argument
+  hker
+has type
+  ∀ (x : X), (∃ n, f n = x ∧ g n = 0) ↔ ∃ z, x = α • z
+of sort `Prop` but is expected to have type
+  X
+of sort `Type w` in the application
+  (rightKernelMap f g τ α hdiv hinc) hker
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:138:60: error: Application type mismatch: The argument
+  hker
+has type
+  ∀ (x : X), (∃ n, f n = x ∧ g n = 0) ↔ ∃ z, x = α • z
+of sort `Prop` but is expected to have type
+  X
+of sort `Type w` in the application
+  (rightKernelMap f g τ α hdiv hinc) hker
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:139:5: error(lean.unknownIdentifier): Unknown identifier `rightKernelMap_injective`
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:140:6: error(lean.unknownIdentifier): Unknown identifier `rightKernelMap_surjective`
+ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean:148:61: error: Application type mismatch: The argument
+  hker
+has type
+  ∀ (x : X), (∃ n, f n = x ∧ g n = 0) ↔ ∃ z, x = α • z
+but is expected to have type
+  Function.Injective fun x => α • x
+in the application
+  rightKernelEquiv f g τ α hdiv hinc hker

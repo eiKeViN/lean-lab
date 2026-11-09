@@ -1,0 +1,6 @@
+{
+  "base_commit": "78cdaf405dbf1dcf07eed5490469b7a8704c93f0",
+  "original_source_sha256": "44fa425cd9055cfef79a41e5728de62749f0813e976bf23dafe2bfb300349b8f",
+  "same_implementation_and_api_source_sha256": "51993530d29729cc9520ba7281ccc25efbc86b0c6187e8aed5a61040ad98b48a",
+  "bijectivity_client_sha256": "bb0a071e57985be570693873b445abed8997da21db0bb3e68f75b5d76a87dadf"
+}

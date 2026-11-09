@@ -1,0 +1,10 @@
+{
+  "all_frozen_new_clients_passed": true,
+  "producer_client_tail_unchanged": true,
+  "old_module_clients_failed": true,
+  "old_external_exit_codes": {
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.lean": 0,
+    "OAI/KL/BottSamelson/AdjointSheaf.lean": 0
+  },
+  "axiom_closures_checked": 19
+}

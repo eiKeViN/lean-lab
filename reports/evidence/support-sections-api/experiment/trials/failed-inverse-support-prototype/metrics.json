@@ -1,0 +1,28 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.5185980159985775,
+    "source_sha256": "478f827fe2f853da1d1ac5ff6d50e275b54d0497ae4e8dac06b38ea3d866ab07"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/inverse-support/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.olean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.809406634998595,
+    "source_sha256": "4be83b0c2e2714e07d489e712c004ae30183c10bad10a65418227ca88fd099d0"
+  }
+]

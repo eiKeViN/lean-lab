@@ -8,6 +8,9 @@ Return to the [multi-project workspace index](../README.md).
   [project guide](../experiments/kl-for-mathlib/README.md), and
   [module index](../experiments/kl-for-mathlib/MODULES.md). The latest recorded
   acceptance covers 261/261 modern modules, with its explicit interface exceptions.
+  The later six-round API work culminates in [API saturation](api-saturation.md),
+  with [API discovery](../experiments/kl-for-mathlib/API-GUIDE.md) in the project.
+  Those reports retain their original branch-stage status and verification scope.
 - **Quantum / Lean 4.35.0:** [experiment index](../projects/quantum-experiments/README.md),
   [PMF bridge verification](../projects/quantum-experiments/pmf-environment/Verified/VALIDATION.md),
   [finite-sum comparison](../projects/quantum-experiments/pmf-environment/Comparison/README.md),

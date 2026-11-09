@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "api_families_trial.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 110.58375528900069,
+  "user_seconds": 120.932138,
+  "system_seconds": 15.508312,
+  "max_rss_kib": 3175720
+}

@@ -1,0 +1,1373 @@
+{
+  "base_commit": "178ccf2a9fa1f0bff04d6b029db1361f881fef33",
+  "evidence": {
+    "experiment/SemanticApiStructureCompat.lean": {
+      "source": "results/semantic-api/SemanticApiStructureCompat.lean",
+      "raw_sha256": "eb4635fd0bb50cd8571eb299cae386fcc79a0ee72e2fc104f22f7b58400704b1",
+      "stored_sha256": "eb4635fd0bb50cd8571eb299cae386fcc79a0ee72e2fc104f22f7b58400704b1",
+      "raw_bytes": 11726,
+      "stored_bytes": 11726
+    },
+    "experiment/accepted-build.json": {
+      "source": "results/semantic-api/accepted-build.json",
+      "raw_sha256": "129f1e81331183ed36f69a9f0caf88ed472517ccac0324b88fe42fba3fbf12a8",
+      "stored_sha256": "129f1e81331183ed36f69a9f0caf88ed472517ccac0324b88fe42fba3fbf12a8",
+      "raw_bytes": 327,
+      "stored_bytes": 327
+    },
+    "experiment/accepted-build.log": {
+      "source": "results/semantic-api/accepted-build.log",
+      "raw_sha256": "898fc8c246b341d812d110812592a83b786d72e18b1d371b003d7e0c66fccdc8",
+      "stored_sha256": "898fc8c246b341d812d110812592a83b786d72e18b1d371b003d7e0c66fccdc8",
+      "raw_bytes": 9693,
+      "stored_bytes": 9693
+    },
+    "experiment/before-contract-decision/current-types.tsv.gz": {
+      "source": "results/semantic-api/before-contract-decision/current-types.tsv",
+      "raw_sha256": "e5fdba1de10329e50bb436ba100add71d5858c742b7a193c2193e02812567945",
+      "stored_sha256": "a63f0f571e1e628b6b785dca452f04f6d6812416d2add72bc5aee9c8dfc62578",
+      "raw_bytes": 17134146,
+      "stored_bytes": 2961745
+    },
+    "experiment/before-contract-decision/focused-collection.log": {
+      "source": "results/semantic-api/before-contract-decision/focused-collection.log",
+      "raw_sha256": "27d04a24175e919552843ca5eb3fb446fb7720a3c4a094d7d5e71e83fe08495d",
+      "stored_sha256": "27d04a24175e919552843ca5eb3fb446fb7720a3c4a094d7d5e71e83fe08495d",
+      "raw_bytes": 1509,
+      "stored_bytes": 1509
+    },
+    "experiment/before-contract-decision/focused-stages.json": {
+      "source": "results/semantic-api/before-contract-decision/focused-stages.json",
+      "raw_sha256": "0c18b2bab660b466dd7d84363936903be24656c7712a6f25f79d0395587a194e",
+      "stored_sha256": "0c18b2bab660b466dd7d84363936903be24656c7712a6f25f79d0395587a194e",
+      "raw_bytes": 1390,
+      "stored_bytes": 1390
+    },
+    "experiment/before-contract-decision/main-interface-comparison.log": {
+      "source": "results/semantic-api/before-contract-decision/main-interface-comparison.log",
+      "raw_sha256": "550c8452460a0e73412fafe068ee195f75e19a45ba063fd2f0c1e681ddd0494e",
+      "stored_sha256": "550c8452460a0e73412fafe068ee195f75e19a45ba063fd2f0c1e681ddd0494e",
+      "raw_bytes": 1011,
+      "stored_bytes": 1011
+    },
+    "experiment/bounded-regressions.log": {
+      "source": "results/semantic-api/bounded-regressions.log",
+      "raw_sha256": "be00dda77487c03c3af30e10a109ed9838a32a8e60f139736f385340508b5aca",
+      "stored_sha256": "be00dda77487c03c3af30e10a109ed9838a32a8e60f139736f385340508b5aca",
+      "raw_bytes": 100,
+      "stored_bytes": 100
+    },
+    "experiment/bounded-source-regression.json": {
+      "source": "results/semantic-api/bounded-source-regression.json",
+      "raw_sha256": "dceb7043109132fda3c510e62177bda7f37f240c9b135288450ecfbd67a13995",
+      "stored_sha256": "dceb7043109132fda3c510e62177bda7f37f240c9b135288450ecfbd67a13995",
+      "raw_bytes": 297,
+      "stored_bytes": 297
+    },
+    "experiment/bounded-source-regression.log": {
+      "source": "results/semantic-api/bounded-source-regression.log",
+      "raw_sha256": "cdd45671c523b4f61c957572a903998481884f5ff505ba373d977f4cddd5db22",
+      "stored_sha256": "cdd45671c523b4f61c957572a903998481884f5ff505ba373d977f4cddd5db22",
+      "raw_bytes": 98,
+      "stored_bytes": 98
+    },
+    "experiment/bounded-structure-audit.json": {
+      "source": "results/semantic-api/bounded-structure-audit.json",
+      "raw_sha256": "a8054582b7986b18db280419f882203343d801515c1221c00944796476247ada",
+      "stored_sha256": "a8054582b7986b18db280419f882203343d801515c1221c00944796476247ada",
+      "raw_bytes": 396,
+      "stored_bytes": 396
+    },
+    "experiment/bounded-structure-audit.log": {
+      "source": "results/semantic-api/bounded-structure-audit.log",
+      "raw_sha256": "97998b01595d313dfe559d4c92c199ad6340a59f34c576910a0f79ee330a3e46",
+      "stored_sha256": "97998b01595d313dfe559d4c92c199ad6340a59f34c576910a0f79ee330a3e46",
+      "raw_bytes": 3166,
+      "stored_bytes": 3166
+    },
+    "experiment/clients-focused.json": {
+      "source": "results/semantic-api/clients-focused.json",
+      "raw_sha256": "9e0043d30f789e95308bf14a701779db8a9b75ec274c1a53fb14f6139a053e7b",
+      "stored_sha256": "9e0043d30f789e95308bf14a701779db8a9b75ec274c1a53fb14f6139a053e7b",
+      "raw_bytes": 537,
+      "stored_bytes": 537
+    },
+    "experiment/clients-focused.log": {
+      "source": "results/semantic-api/clients-focused.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/coefficient-focused.json": {
+      "source": "results/semantic-api/coefficient-focused.json",
+      "raw_sha256": "269c9e8176da07556009d904869a6ee350083fb5be6833d26b0869dadc206df2",
+      "stored_sha256": "269c9e8176da07556009d904869a6ee350083fb5be6833d26b0869dadc206df2",
+      "raw_bytes": 369,
+      "stored_bytes": 369
+    },
+    "experiment/coefficient-focused.log": {
+      "source": "results/semantic-api/coefficient-focused.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/complete-export.log": {
+      "source": "results/semantic-api/complete-export.log",
+      "raw_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "stored_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "raw_bytes": 235,
+      "stored_bytes": 235
+    },
+    "experiment/contract-preserving-build.json": {
+      "source": "results/semantic-api/contract-preserving-build.json",
+      "raw_sha256": "d4660ac92b7e8121c08ec621a2832d87acb2893905c0560e02afc5aa570426e5",
+      "stored_sha256": "d4660ac92b7e8121c08ec621a2832d87acb2893905c0560e02afc5aa570426e5",
+      "raw_bytes": 329,
+      "stored_bytes": 329
+    },
+    "experiment/contract-preserving-build.log": {
+      "source": "results/semantic-api/contract-preserving-build.log",
+      "raw_sha256": "e7c0c5baae3582bf07876b4caef6af0566d32705c1a7fdb31a4353f73001f8bf",
+      "stored_sha256": "e7c0c5baae3582bf07876b4caef6af0566d32705c1a7fdb31a4353f73001f8bf",
+      "raw_bytes": 8707,
+      "stored_bytes": 8707
+    },
+    "experiment/current-types.tsv.gz": {
+      "source": "results/semantic-api/current-types.tsv",
+      "raw_sha256": "5d0c2c95a38d5e8f0975cd2923db221fea1333c840135ea46d2f0a60c46cef49",
+      "stored_sha256": "2897245e6b61d266df44bcc3cc625561e06e09da6e206e9fde7dd0db770c7ad6",
+      "raw_bytes": 17151514,
+      "stored_bytes": 2964722,
+      "stored_at": "accepted/migrated-types.tsv.gz"
+    },
+    "experiment/final-build.json": {
+      "source": "results/semantic-api/final-build.json",
+      "raw_sha256": "375a74099dad49fff48b8d3c7f1e9fece0bed4e205e7e2be8acfd083fd272d6e",
+      "stored_sha256": "375a74099dad49fff48b8d3c7f1e9fece0bed4e205e7e2be8acfd083fd272d6e",
+      "raw_bytes": 330,
+      "stored_bytes": 330
+    },
+    "experiment/final-build.log.gz": {
+      "source": "results/semantic-api/final-build.log",
+      "raw_sha256": "24d0aefb0c35b0dbde4e01033f65acdb7736f6b6489f90cc14c5610550a54802",
+      "stored_sha256": "c5d8c999dfc9e4ef846b8667bb4a92a520010402cc72a510cbbb37644ee10329",
+      "raw_bytes": 20829,
+      "stored_bytes": 3431
+    },
+    "experiment/first-full-warm/ModernStructureCompat.log": {
+      "source": "results/semantic-api/first-full-warm/ModernStructureCompat.log",
+      "raw_sha256": "99cb1f3d1fcfc069a8ce3533ca3ec85b62fcf930a65fa72da96d1ac36cf051a5",
+      "stored_sha256": "99cb1f3d1fcfc069a8ce3533ca3ec85b62fcf930a65fa72da96d1ac36cf051a5",
+      "raw_bytes": 4376,
+      "stored_bytes": 4376
+    },
+    "experiment/first-full-warm/full-warm.json": {
+      "source": "results/semantic-api/first-full-warm/full-warm.json",
+      "raw_sha256": "d6e83693d8a3a6919ce6eab435d694fcbaed29944c78d649433bc2818b06f685",
+      "stored_sha256": "d6e83693d8a3a6919ce6eab435d694fcbaed29944c78d649433bc2818b06f685",
+      "raw_bytes": 212,
+      "stored_bytes": 212
+    },
+    "experiment/first-full-warm/full-warm.log": {
+      "source": "results/semantic-api/first-full-warm/full-warm.log",
+      "raw_sha256": "13eae52fa96db7c52a4950225b8eaa540034418f123d218be86c921c499d438d",
+      "stored_sha256": "13eae52fa96db7c52a4950225b8eaa540034418f123d218be86c921c499d438d",
+      "raw_bytes": 15800,
+      "stored_bytes": 15800
+    },
+    "experiment/first-full-warm/stages.json": {
+      "source": "results/semantic-api/first-full-warm/stages.json",
+      "raw_sha256": "c2e03a23093bf6151db60707201bd52731344828a0cbabd3ce705aa65601bb04",
+      "stored_sha256": "c2e03a23093bf6151db60707201bd52731344828a0cbabd3ce705aa65601bb04",
+      "raw_bytes": 13134,
+      "stored_bytes": 13134
+    },
+    "experiment/focused-collection.log": {
+      "source": "results/semantic-api/focused-collection.log",
+      "raw_sha256": "3ba3644784161486fc2dd7cc1675f24b6685af9303028abb9af251be2c37a794",
+      "stored_sha256": "3ba3644784161486fc2dd7cc1675f24b6685af9303028abb9af251be2c37a794",
+      "raw_bytes": 1962,
+      "stored_bytes": 1962
+    },
+    "experiment/focused-stages.json": {
+      "source": "results/semantic-api/focused-stages.json",
+      "raw_sha256": "96ba40272e94e07021b08798ebd4b98d79d810d9ae5ad435144bc8cebaf5472e",
+      "stored_sha256": "96ba40272e94e07021b08798ebd4b98d79d810d9ae5ad435144bc8cebaf5472e",
+      "raw_bytes": 1980,
+      "stored_bytes": 1980
+    },
+    "experiment/full-warm-v2.json": {
+      "source": "results/semantic-api/full-warm-v2.json",
+      "raw_sha256": "f170dd0c6c54628d7b65115ec9a901d8cf973d281050389752c981655ab65f61",
+      "stored_sha256": "f170dd0c6c54628d7b65115ec9a901d8cf973d281050389752c981655ab65f61",
+      "raw_bytes": 212,
+      "stored_bytes": 212
+    },
+    "experiment/full-warm-v2.log.gz": {
+      "source": "results/semantic-api/full-warm-v2.log",
+      "raw_sha256": "73f154d1019d8e93cc7a40e35439f53b71999b70b7a5cabd162c2d49d2e8417e",
+      "stored_sha256": "d5095450aedbe4962fbf4349cf5f53f5af8b5ef4a8bc8f80e18f12a3fec7966c",
+      "raw_bytes": 23128,
+      "stored_bytes": 3475
+    },
+    "experiment/full-warm.json": {
+      "source": "results/semantic-api/full-warm.json",
+      "raw_sha256": "d6e83693d8a3a6919ce6eab435d694fcbaed29944c78d649433bc2818b06f685",
+      "stored_sha256": "d6e83693d8a3a6919ce6eab435d694fcbaed29944c78d649433bc2818b06f685",
+      "raw_bytes": 212,
+      "stored_bytes": 212
+    },
+    "experiment/full-warm.log": {
+      "source": "results/semantic-api/full-warm.log",
+      "raw_sha256": "13eae52fa96db7c52a4950225b8eaa540034418f123d218be86c921c499d438d",
+      "stored_sha256": "13eae52fa96db7c52a4950225b8eaa540034418f123d218be86c921c499d438d",
+      "raw_bytes": 15800,
+      "stored_bytes": 15800
+    },
+    "experiment/implementation-imports.log": {
+      "source": "results/semantic-api/implementation-imports.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/inherited-python.log": {
+      "source": "results/semantic-api/inherited-python.log",
+      "raw_sha256": "5cc1f60763fcc35cca3bbc1817a4c8ec2d9e1546f31d63565d15fecdb79529a3",
+      "stored_sha256": "5cc1f60763fcc35cca3bbc1817a4c8ec2d9e1546f31d63565d15fecdb79529a3",
+      "raw_bytes": 105,
+      "stored_bytes": 105
+    },
+    "experiment/inherited-regressions-fixed.json": {
+      "source": "results/semantic-api/inherited-regressions-fixed.json",
+      "raw_sha256": "d155e7aafb98b8e71d24310bdfb0bbb3be0cac1930b708985e142f5cf66edffa",
+      "stored_sha256": "d155e7aafb98b8e71d24310bdfb0bbb3be0cac1930b708985e142f5cf66edffa",
+      "raw_bytes": 362,
+      "stored_bytes": 362
+    },
+    "experiment/inherited-regressions-fixed.log": {
+      "source": "results/semantic-api/inherited-regressions-fixed.log",
+      "raw_sha256": "83d56c7070da29868711f2e5e0c400384942395f6f3b390618190a890f8f2529",
+      "stored_sha256": "83d56c7070da29868711f2e5e0c400384942395f6f3b390618190a890f8f2529",
+      "raw_bytes": 155,
+      "stored_bytes": 155
+    },
+    "experiment/inherited-regressions.json": {
+      "source": "results/semantic-api/inherited-regressions.json",
+      "raw_sha256": "cae5f9c08accdd7fb053ffea5ecdbaf6aa63f1cbea74cab76f6b5088bd7eb7cc",
+      "stored_sha256": "cae5f9c08accdd7fb053ffea5ecdbaf6aa63f1cbea74cab76f6b5088bd7eb7cc",
+      "raw_bytes": 362,
+      "stored_bytes": 362
+    },
+    "experiment/inherited-regressions.log": {
+      "source": "results/semantic-api/inherited-regressions.log",
+      "raw_sha256": "10b304eca8b15da3dbf8ae19069ddf944ffe5e3e8724508ea8868c0c4273a45f",
+      "stored_sha256": "10b304eca8b15da3dbf8ae19069ddf944ffe5e3e8724508ea8868c0c4273a45f",
+      "raw_bytes": 913,
+      "stored_bytes": 913
+    },
+    "experiment/initial-build.json": {
+      "source": "results/semantic-api/initial-build.json",
+      "raw_sha256": "bfc7e6b35e6100a214f58d80704dbac32b7e9e451482a9bac2e13c6991d6a6c2",
+      "stored_sha256": "bfc7e6b35e6100a214f58d80704dbac32b7e9e451482a9bac2e13c6991d6a6c2",
+      "raw_bytes": 325,
+      "stored_bytes": 325
+    },
+    "experiment/initial-build.log.gz": {
+      "source": "results/semantic-api/initial-build.log",
+      "raw_sha256": "5155b8bb5033c5f02d899728c9c450364d22586616fb1d011a5bd289223c75c9",
+      "stored_sha256": "fad4b3c3f70e655630c1451f2a3955078f485d78f84fa6deb624ed790d0da06f",
+      "raw_bytes": 29185,
+      "stored_bytes": 4855
+    },
+    "experiment/main-interface-comparison.log": {
+      "source": "results/semantic-api/main-interface-comparison.log",
+      "raw_sha256": "452833a4c4446998a2c100fa0b20710d15ccc1c0234e49130d6cfc8c413dbc2f",
+      "stored_sha256": "452833a4c4446998a2c100fa0b20710d15ccc1c0234e49130d6cfc8c413dbc2f",
+      "raw_bytes": 2683,
+      "stored_bytes": 2683
+    },
+    "experiment/map-id-producer.json": {
+      "source": "results/semantic-api/map-id-producer.json",
+      "raw_sha256": "6b13f75d4039445c878574594c0dc7f2c6e996a2ee3be8d5c7cd0de99ff5736f",
+      "stored_sha256": "6b13f75d4039445c878574594c0dc7f2c6e996a2ee3be8d5c7cd0de99ff5736f",
+      "raw_bytes": 358,
+      "stored_bytes": 358
+    },
+    "experiment/map-id-producer.log": {
+      "source": "results/semantic-api/map-id-producer.log",
+      "raw_sha256": "6b47fe78daee3f26a8db0328c05fef0c7ea1cf0279faed19df462ec43eae4cf8",
+      "stored_sha256": "6b47fe78daee3f26a8db0328c05fef0c7ea1cf0279faed19df462ec43eae4cf8",
+      "raw_bytes": 120,
+      "stored_bytes": 120
+    },
+    "experiment/map-trial/dual.log": {
+      "source": "results/semantic-api/map-trial/dual.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/map-trial/dual.setup.json.gz": {
+      "source": "results/semantic-api/map-trial/dual.setup.json",
+      "raw_sha256": "61fe62c45b4368f07238130aa8a879981f50f32cb753637788868c9b1df270b7",
+      "stored_sha256": "8ebf8d275a6b12c8e589959f8fcf2fc75b3837a6fe8b6a663439145ef4ea984d",
+      "raw_bytes": 5586056,
+      "stored_bytes": 210454
+    },
+    "experiment/map-trial/graded-hom.log": {
+      "source": "results/semantic-api/map-trial/graded-hom.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/map-trial/graded-hom.setup.json.gz": {
+      "source": "results/semantic-api/map-trial/graded-hom.setup.json",
+      "raw_sha256": "7bdb4f1d49b815de2b44e5e18c159a2188219cd6464bcfab5a639a4c5055f2c4",
+      "stored_sha256": "ecd36349a17f97330d1c55a550a79e499d29cd74b06843d3d10036ae477fda29",
+      "raw_bytes": 5586075,
+      "stored_bytes": 210461
+    },
+    "experiment/map-trial/hidden-map-producer.log": {
+      "source": "results/semantic-api/map-trial/hidden-map-producer.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/map-trial/hidden-map-producer.setup.json.gz": {
+      "source": "results/semantic-api/map-trial/hidden-map-producer.setup.json",
+      "raw_sha256": "9a3737da0ec29dbbca1c1d344481d95e931c137044ae6e2bdad1821c5b724628",
+      "stored_sha256": "043d4780f7835c6397d4d25cd2820e32ad2a257bc5e43314d5ff91aa49ce06c2",
+      "raw_bytes": 5586085,
+      "stored_bytes": 210411
+    },
+    "experiment/map-trial/metrics.json": {
+      "source": "results/semantic-api/map-trial/metrics.json",
+      "raw_sha256": "03d0d3b415b9ed424bfe811c7beb5d6776ac62cd046bb0f64640e7ba6c8714d8",
+      "stored_sha256": "03d0d3b415b9ed424bfe811c7beb5d6776ac62cd046bb0f64640e7ba6c8714d8",
+      "raw_bytes": 1986,
+      "stored_bytes": 1986
+    },
+    "experiment/map-trial/remaining-real-sheaf-gap.log": {
+      "source": "results/semantic-api/map-trial/remaining-real-sheaf-gap.log",
+      "raw_sha256": "6ada3a06d0f47db669194b0ce96518a43cdb1dfab5165e40b49bf5279626e00b",
+      "stored_sha256": "6ada3a06d0f47db669194b0ce96518a43cdb1dfab5165e40b49bf5279626e00b",
+      "raw_bytes": 6846,
+      "stored_bytes": 6846
+    },
+    "experiment/map-trial/remaining-real-sheaf-gap.setup.json.gz": {
+      "source": "results/semantic-api/map-trial/remaining-real-sheaf-gap.setup.json",
+      "raw_sha256": "25fa78e87bd02408d92bb1db69c06f8e5f10981eef59072a45a9591b50aa8a33",
+      "stored_sha256": "cdc2850b5788cfda7522fd0f9140c266297cbe0ae2e3098eba192352d82a5016",
+      "raw_bytes": 5586064,
+      "stored_bytes": 210460
+    },
+    "experiment/map-trial/restoration.json": {
+      "source": "results/semantic-api/map-trial/restoration.json",
+      "raw_sha256": "73618c49cb6302df27b97c612ec2aabc47aa5de351d47011bcf22b438edd9c5f",
+      "stored_sha256": "73618c49cb6302df27b97c612ec2aabc47aa5de351d47011bcf22b438edd9c5f",
+      "raw_bytes": 155,
+      "stored_bytes": 155
+    },
+    "experiment/map-trial/top-split.log": {
+      "source": "results/semantic-api/map-trial/top-split.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/map-trial/top-split.setup.json.gz": {
+      "source": "results/semantic-api/map-trial/top-split.setup.json",
+      "raw_sha256": "4c1196bd346d49b0c6f127ba86e500a146a2d6d6062b2d14ed7677c0539db70c",
+      "stored_sha256": "d39363f9e1cf659eeef962c1f893e412bb455f4c1563be838ce92f982bc7655b",
+      "raw_bytes": 5586069,
+      "stored_bytes": 210458
+    },
+    "experiment/map-trial-final.json": {
+      "source": "results/semantic-api/map-trial-final.json",
+      "raw_sha256": "2f87b946693c1b6915b57ab150dd59da9f77c0833bb5126f1c2b68e2c6e897fd",
+      "stored_sha256": "2f87b946693c1b6915b57ab150dd59da9f77c0833bb5126f1c2b68e2c6e897fd",
+      "raw_bytes": 226,
+      "stored_bytes": 226
+    },
+    "experiment/map-trial-final.log": {
+      "source": "results/semantic-api/map-trial-final.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/ordinary-consumer-final.log": {
+      "source": "results/semantic-api/ordinary-consumer-final.log",
+      "raw_sha256": "1da04cfc55da6924ae736076ee9767d5afea96fbfad0ad50353ed3d016c8438b",
+      "stored_sha256": "1da04cfc55da6924ae736076ee9767d5afea96fbfad0ad50353ed3d016c8438b",
+      "raw_bytes": 1675,
+      "stored_bytes": 1675
+    },
+    "experiment/ordinary-consumer.json": {
+      "source": "results/semantic-api/ordinary-consumer.json",
+      "raw_sha256": "d71e5cff37d20c6b563bfa755b407bb1b630deb5e1434c63ea150fe4af9ed390",
+      "stored_sha256": "d71e5cff37d20c6b563bfa755b407bb1b630deb5e1434c63ea150fe4af9ed390",
+      "raw_bytes": 337,
+      "stored_bytes": 337
+    },
+    "experiment/ordinary-consumer.log": {
+      "source": "results/semantic-api/ordinary-consumer.log",
+      "raw_sha256": "04662c80a25883cf242223119f934f45e6c5433372c90ac26c0e2dfa52b81ffe",
+      "stored_sha256": "04662c80a25883cf242223119f934f45e6c5433372c90ac26c0e2dfa52b81ffe",
+      "raw_bytes": 640,
+      "stored_bytes": 640
+    },
+    "experiment/ordinary-core-final.json": {
+      "source": "results/semantic-api/ordinary-core-final.json",
+      "raw_sha256": "9fda763e00ddab096df406d2d8acc53cd3d2a243624e5988f4e5398bf0c72ba6",
+      "stored_sha256": "9fda763e00ddab096df406d2d8acc53cd3d2a243624e5988f4e5398bf0c72ba6",
+      "raw_bytes": 348,
+      "stored_bytes": 348
+    },
+    "experiment/ordinary-core-final.log": {
+      "source": "results/semantic-api/ordinary-core-final.log",
+      "raw_sha256": "566aa3c5746a85ce4e0a5851e8d41668776205a2e1578ed9f23326163f934945",
+      "stored_sha256": "566aa3c5746a85ce4e0a5851e8d41668776205a2e1578ed9f23326163f934945",
+      "raw_bytes": 1554,
+      "stored_bytes": 1554
+    },
+    "experiment/quotient-trial/HiddenQuotientConsumer.lean": {
+      "source": "results/semantic-api/quotient-trial/HiddenQuotientConsumer.lean",
+      "raw_sha256": "ee39545965e55f39eb748a0b9d30ecd6a6c6adea2aa4913d838b1558dfd9704b",
+      "stored_sha256": "ee39545965e55f39eb748a0b9d30ecd6a6c6adea2aa4913d838b1558dfd9704b",
+      "raw_bytes": 5319,
+      "stored_bytes": 5319
+    },
+    "experiment/quotient-trial/hidden-quotient-producer.log": {
+      "source": "results/semantic-api/quotient-trial/hidden-quotient-producer.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/quotient-trial/hidden-quotient-producer.setup.json.gz": {
+      "source": "results/semantic-api/quotient-trial/hidden-quotient-producer.setup.json",
+      "raw_sha256": "35ce07797fa70eb7fe686b0ee53e4fe91e1e98c1a21d47e5b89e5c2cac0fca09",
+      "stored_sha256": "697f3b708433cc78c66139de98b62ed99172b660744edc78425360518531e598",
+      "raw_bytes": 5586088,
+      "stored_bytes": 210412
+    },
+    "experiment/quotient-trial/metrics.json": {
+      "source": "results/semantic-api/quotient-trial/metrics.json",
+      "raw_sha256": "588582242e4525e9ae8693ea9cc398c7ae772fca182c73d21aeae389d5a50249",
+      "stored_sha256": "588582242e4525e9ae8693ea9cc398c7ae772fca182c73d21aeae389d5a50249",
+      "raw_bytes": 958,
+      "stored_bytes": 958
+    },
+    "experiment/quotient-trial/ordinary-hidden-consumer.log": {
+      "source": "results/semantic-api/quotient-trial/ordinary-hidden-consumer.log",
+      "raw_sha256": "6edce72f14f2edc05c7eb4dba56ef29dc28bd3be2e865ac517b92238917a4ef4",
+      "stored_sha256": "6edce72f14f2edc05c7eb4dba56ef29dc28bd3be2e865ac517b92238917a4ef4",
+      "raw_bytes": 1745,
+      "stored_bytes": 1745
+    },
+    "experiment/quotient-trial/ordinary-hidden-consumer.setup.json.gz": {
+      "source": "results/semantic-api/quotient-trial/ordinary-hidden-consumer.setup.json",
+      "raw_sha256": "c1f6abc72801176a3b6d3149e69830fd1fd338abaaaba3977189845957c4a497",
+      "stored_sha256": "e8c42c47816caca11db9576473fc85721ba2f573f14314d7459addac08852ed9",
+      "raw_bytes": 5586050,
+      "stored_bytes": 210435
+    },
+    "experiment/quotient-trial/restoration.json": {
+      "source": "results/semantic-api/quotient-trial/restoration.json",
+      "raw_sha256": "2c826e9fca3c26cf83d867aa1992fd34010f30ce6aed67de1621df7c9867e1d8",
+      "stored_sha256": "2c826e9fca3c26cf83d867aa1992fd34010f30ce6aed67de1621df7c9867e1d8",
+      "raw_bytes": 155,
+      "stored_bytes": 155
+    },
+    "experiment/quotient-trial-final.json": {
+      "source": "results/semantic-api/quotient-trial-final.json",
+      "raw_sha256": "567838fdb100775a05588824ba0bcb4fda543f9895d1a5cbe044f834f8d52555",
+      "stored_sha256": "567838fdb100775a05588824ba0bcb4fda543f9895d1a5cbe044f834f8d52555",
+      "raw_bytes": 228,
+      "stored_bytes": 228
+    },
+    "experiment/quotient-trial-final.log": {
+      "source": "results/semantic-api/quotient-trial-final.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/revised-build.json": {
+      "source": "results/semantic-api/revised-build.json",
+      "raw_sha256": "011388739b6dae94ec12c8820d8682c10e95b834c33cdcf40b28cd4f14c8df89",
+      "stored_sha256": "011388739b6dae94ec12c8820d8682c10e95b834c33cdcf40b28cd4f14c8df89",
+      "raw_bytes": 328,
+      "stored_bytes": 328
+    },
+    "experiment/revised-build.log.gz": {
+      "source": "results/semantic-api/revised-build.log",
+      "raw_sha256": "b82085e694cc9e1ef86b90b9eb5de6e7c650a0c276f8f29b62f532cf402f30b2",
+      "stored_sha256": "0cfa3ca7f48ac83626565c1bf8b9e8ca5fd3eba339f24e56394d6de3260b541a",
+      "raw_bytes": 23536,
+      "stored_bytes": 3505
+    },
+    "experiment/split-hidden-trial.log": {
+      "source": "results/semantic-api/split-hidden-trial.log",
+      "raw_sha256": "a5b51f68f4cd48ae6df56d4518dd3d009fa748d032fcff16eabc763aee986c66",
+      "stored_sha256": "a5b51f68f4cd48ae6df56d4518dd3d009fa748d032fcff16eabc763aee986c66",
+      "raw_bytes": 677,
+      "stored_bytes": 677
+    },
+    "experiment/split-trial/HiddenSplitConsumer.lean": {
+      "source": "results/semantic-api/split-trial/HiddenSplitConsumer.lean",
+      "raw_sha256": "d78aee601bfbe13d1d7e82077bb4937403d3cce23a2f48baf91656bf8048662f",
+      "stored_sha256": "d78aee601bfbe13d1d7e82077bb4937403d3cce23a2f48baf91656bf8048662f",
+      "raw_bytes": 5189,
+      "stored_bytes": 5189
+    },
+    "experiment/split-trial/hidden-producer.log": {
+      "source": "results/semantic-api/split-trial/hidden-producer.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/split-trial/hidden-producer.setup.json.gz": {
+      "source": "results/semantic-api/split-trial/hidden-producer.setup.json",
+      "raw_sha256": "df1710f3ad7a96d85a5922617722d1e67739788b16deaa8b70799233fdeb4d72",
+      "stored_sha256": "cb3f07046fe28ac2a34fa4df5d8c5c6e8ef664733eb240b0ebf8c42b21f2bc88",
+      "raw_bytes": 5586073,
+      "stored_bytes": 210404
+    },
+    "experiment/split-trial/metrics.json": {
+      "source": "results/semantic-api/split-trial/metrics.json",
+      "raw_sha256": "9007dfc6a81e6bdd5edc82a2383a6ae13d1c2ca908f7ba459e143eef5c481567",
+      "stored_sha256": "9007dfc6a81e6bdd5edc82a2383a6ae13d1c2ca908f7ba459e143eef5c481567",
+      "raw_bytes": 2372,
+      "stored_bytes": 2372
+    },
+    "experiment/split-trial/new-real-client.log": {
+      "source": "results/semantic-api/split-trial/new-real-client.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/split-trial/new-real-client.setup.json.gz": {
+      "source": "results/semantic-api/split-trial/new-real-client.setup.json",
+      "raw_sha256": "619345987dc237bf09f9818a469313c2c62a53d3ae6188106fda68e194aafaec",
+      "stored_sha256": "ea3220ac2c9f963c0b8bbb5d494eb812e3faf4cf3c97447df179d54296c79783",
+      "raw_bytes": 5586072,
+      "stored_bytes": 210449
+    },
+    "experiment/split-trial/old-real-client.log": {
+      "source": "results/semantic-api/split-trial/old-real-client.log",
+      "raw_sha256": "2e4f093a5195b37d0651a7cd82ec5d257291562310c228e75123b5f8686a83ae",
+      "stored_sha256": "2e4f093a5195b37d0651a7cd82ec5d257291562310c228e75123b5f8686a83ae",
+      "raw_bytes": 1000,
+      "stored_bytes": 1000
+    },
+    "experiment/split-trial/old-real-client.setup.json.gz": {
+      "source": "results/semantic-api/split-trial/old-real-client.setup.json",
+      "raw_sha256": "619345987dc237bf09f9818a469313c2c62a53d3ae6188106fda68e194aafaec",
+      "stored_sha256": "ea3220ac2c9f963c0b8bbb5d494eb812e3faf4cf3c97447df179d54296c79783",
+      "raw_bytes": 5586072,
+      "stored_bytes": 210449
+    },
+    "experiment/split-trial/ordinary-hidden-consumer.log": {
+      "source": "results/semantic-api/split-trial/ordinary-hidden-consumer.log",
+      "raw_sha256": "6b7397a2fb23e0dcb669ec87cd7477dad278d4fa0709fd27acb88e569636f99a",
+      "stored_sha256": "6b7397a2fb23e0dcb669ec87cd7477dad278d4fa0709fd27acb88e569636f99a",
+      "raw_bytes": 1665,
+      "stored_bytes": 1665
+    },
+    "experiment/split-trial/ordinary-hidden-consumer.setup.json.gz": {
+      "source": "results/semantic-api/split-trial/ordinary-hidden-consumer.setup.json",
+      "raw_sha256": "31eb2b49e87c59dfc7c8bf0a7aec6fda4667b7a03d8e1e2375d5f3bddcc10ef7",
+      "stored_sha256": "478324d65e86b22f6ec3991b0c059492492cc0b42dcdd49b930a2df019511280",
+      "raw_bytes": 5586015,
+      "stored_bytes": 210442
+    },
+    "experiment/split-trial/restoration.json": {
+      "source": "results/semantic-api/split-trial/restoration.json",
+      "raw_sha256": "47ae985aac6ae3c623c207701498e5822db5381d439a66781de5a8a0935e12cb",
+      "stored_sha256": "47ae985aac6ae3c623c207701498e5822db5381d439a66781de5a8a0935e12cb",
+      "raw_bytes": 2535,
+      "stored_bytes": 2535
+    },
+    "experiment/split-trial-final.json": {
+      "source": "results/semantic-api/split-trial-final.json",
+      "raw_sha256": "23ffd261a3443bf2262aed16773c23829a748a51ed2058c63fde3b0974222170",
+      "stored_sha256": "23ffd261a3443bf2262aed16773c23829a748a51ed2058c63fde3b0974222170",
+      "raw_bytes": 213,
+      "stored_bytes": 213
+    },
+    "experiment/split-trial-final.log": {
+      "source": "results/semantic-api/split-trial-final.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/split-trial-path-failure/hidden-producer.log": {
+      "source": "results/semantic-api/split-trial-path-failure/hidden-producer.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/split-trial-path-failure/metrics.json": {
+      "source": "results/semantic-api/split-trial-path-failure/metrics.json",
+      "raw_sha256": "4e8991f231acd7c61e8bbe98a272612af615e13fbf11b8ba90a52a40e27837f2",
+      "stored_sha256": "4e8991f231acd7c61e8bbe98a272612af615e13fbf11b8ba90a52a40e27837f2",
+      "raw_bytes": 1533,
+      "stored_bytes": 1533
+    },
+    "experiment/split-trial-path-failure/new-real-client.log": {
+      "source": "results/semantic-api/split-trial-path-failure/new-real-client.log",
+      "raw_sha256": "8dc1921bb21f656ee436296ff4a40d65493081f134470f4998f849050a70ca33",
+      "stored_sha256": "8dc1921bb21f656ee436296ff4a40d65493081f134470f4998f849050a70ca33",
+      "raw_bytes": 288,
+      "stored_bytes": 288
+    },
+    "experiment/split-trial-path-failure/old-real-client.log": {
+      "source": "results/semantic-api/split-trial-path-failure/old-real-client.log",
+      "raw_sha256": "8dc1921bb21f656ee436296ff4a40d65493081f134470f4998f849050a70ca33",
+      "stored_sha256": "8dc1921bb21f656ee436296ff4a40d65493081f134470f4998f849050a70ca33",
+      "raw_bytes": 288,
+      "stored_bytes": 288
+    },
+    "experiment/split-trial-path-failure/restoration.json": {
+      "source": "results/semantic-api/split-trial-path-failure/restoration.json",
+      "raw_sha256": "47ae985aac6ae3c623c207701498e5822db5381d439a66781de5a8a0935e12cb",
+      "stored_sha256": "47ae985aac6ae3c623c207701498e5822db5381d439a66781de5a8a0935e12cb",
+      "raw_bytes": 2535,
+      "stored_bytes": 2535
+    },
+    "experiment/static-final.json": {
+      "source": "results/semantic-api/static-final.json",
+      "raw_sha256": "e0c7872af5f5cd072e0ed466a7e761e7c8c35663db5b49b5e7196b1a90c8ab49",
+      "stored_sha256": "e0c7872af5f5cd072e0ed466a7e761e7c8c35663db5b49b5e7196b1a90c8ab49",
+      "raw_bytes": 220,
+      "stored_bytes": 220
+    },
+    "experiment/static-final.log": {
+      "source": "results/semantic-api/static-final.log",
+      "raw_sha256": "79021f48baa4484e87a03992a44d4f34228d60805b3ba7d30572409992b2285f",
+      "stored_sha256": "79021f48baa4484e87a03992a44d4f34228d60805b3ba7d30572409992b2285f",
+      "raw_bytes": 2476,
+      "stored_bytes": 2476
+    },
+    "experiment/static.json": {
+      "source": "results/semantic-api/static.json",
+      "raw_sha256": "32abfbe5a46012f990c810dd2632dd3e84871cf20c0efdc13c5ba25e8d779734",
+      "stored_sha256": "32abfbe5a46012f990c810dd2632dd3e84871cf20c0efdc13c5ba25e8d779734",
+      "raw_bytes": 220,
+      "stored_bytes": 220
+    },
+    "experiment/static.log": {
+      "source": "results/semantic-api/static.log",
+      "raw_sha256": "87dff53ae8af109869a2e2789d7ec6bb6c8a2b9d0976be1528d179fe901a71a1",
+      "stored_sha256": "87dff53ae8af109869a2e2789d7ec6bb6c8a2b9d0976be1528d179fe901a71a1",
+      "raw_bytes": 2497,
+      "stored_bytes": 2497
+    },
+    "experiment/structure-focused-v2.json": {
+      "source": "results/semantic-api/structure-focused-v2.json",
+      "raw_sha256": "118ebb40547aa9d30af5bc6f7027da58d993a0b498b41783f190c4ae4ac43998",
+      "stored_sha256": "118ebb40547aa9d30af5bc6f7027da58d993a0b498b41783f190c4ae4ac43998",
+      "raw_bytes": 373,
+      "stored_bytes": 373
+    },
+    "experiment/structure-focused-v2.log": {
+      "source": "results/semantic-api/structure-focused-v2.log",
+      "raw_sha256": "95ed6cc9aa91d9839286de81d344131dd78e22ab468ab3c1144f6ca409958955",
+      "stored_sha256": "95ed6cc9aa91d9839286de81d344131dd78e22ab468ab3c1144f6ca409958955",
+      "raw_bytes": 3149,
+      "stored_bytes": 3149
+    },
+    "experiment/structure-focused-v3.json": {
+      "source": "results/semantic-api/structure-focused-v3.json",
+      "raw_sha256": "2e39359fa1ab44e8665b6aa29c956de611fb219af8f3f273bad7822e64186aae",
+      "stored_sha256": "2e39359fa1ab44e8665b6aa29c956de611fb219af8f3f273bad7822e64186aae",
+      "raw_bytes": 373,
+      "stored_bytes": 373
+    },
+    "experiment/structure-focused-v3.log": {
+      "source": "results/semantic-api/structure-focused-v3.log",
+      "raw_sha256": "80888a14dc865d25d8bc2147f9de6c788f338da6ce401e72fc3495241bfe6733",
+      "stored_sha256": "80888a14dc865d25d8bc2147f9de6c788f338da6ce401e72fc3495241bfe6733",
+      "raw_bytes": 5673,
+      "stored_bytes": 5673
+    },
+    "experiment/structure-focused-v4.json": {
+      "source": "results/semantic-api/structure-focused-v4.json",
+      "raw_sha256": "454a70cc13292c03c239fb199fa9effd84e48bd60d44a9652be01b07a5f0679b",
+      "stored_sha256": "454a70cc13292c03c239fb199fa9effd84e48bd60d44a9652be01b07a5f0679b",
+      "raw_bytes": 372,
+      "stored_bytes": 372
+    },
+    "experiment/structure-focused-v4.log": {
+      "source": "results/semantic-api/structure-focused-v4.log",
+      "raw_sha256": "61ddaf8235e6e2349c035524d6bb7665ece9033a1a84a13436102909f8039b9a",
+      "stored_sha256": "61ddaf8235e6e2349c035524d6bb7665ece9033a1a84a13436102909f8039b9a",
+      "raw_bytes": 2409,
+      "stored_bytes": 2409
+    },
+    "experiment/structure-focused-v5.json": {
+      "source": "results/semantic-api/structure-focused-v5.json",
+      "raw_sha256": "d71f84ef8268bd541f3a0a09194c38fe6162dddcc6c857decdab712187dd0f01",
+      "stored_sha256": "d71f84ef8268bd541f3a0a09194c38fe6162dddcc6c857decdab712187dd0f01",
+      "raw_bytes": 371,
+      "stored_bytes": 371
+    },
+    "experiment/structure-focused-v5.log": {
+      "source": "results/semantic-api/structure-focused-v5.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/structure-focused.json": {
+      "source": "results/semantic-api/structure-focused.json",
+      "raw_sha256": "61810d210522a18674b6088caafad28757432df5110b4dfe4f40b0bb2143125d",
+      "stored_sha256": "61810d210522a18674b6088caafad28757432df5110b4dfe4f40b0bb2143125d",
+      "raw_bytes": 382,
+      "stored_bytes": 382
+    },
+    "experiment/structure-focused.log": {
+      "source": "results/semantic-api/structure-focused.log",
+      "raw_sha256": "9c047d63a1157f81d5ffa7cd5e0878c5c84f187fe68c22d0a5f154c6ad73bb6f",
+      "stored_sha256": "9c047d63a1157f81d5ffa7cd5e0878c5c84f187fe68c22d0a5f154c6ad73bb6f",
+      "raw_bytes": 2737,
+      "stored_bytes": 2737
+    },
+    "experiment/top-client-focused-v2.json": {
+      "source": "results/semantic-api/top-client-focused-v2.json",
+      "raw_sha256": "6b5cd16a18cb59dd8ec73396a0cda1a319f95f476564b091bdb17d6d38706935",
+      "stored_sha256": "6b5cd16a18cb59dd8ec73396a0cda1a319f95f476564b091bdb17d6d38706935",
+      "raw_bytes": 382,
+      "stored_bytes": 382
+    },
+    "experiment/top-client-focused-v2.log": {
+      "source": "results/semantic-api/top-client-focused-v2.log",
+      "raw_sha256": "b97ad2811f733c2e99eb57ce20b4edabd3b98a563318e474a036bf7419efac7c",
+      "stored_sha256": "b97ad2811f733c2e99eb57ce20b4edabd3b98a563318e474a036bf7419efac7c",
+      "raw_bytes": 2939,
+      "stored_bytes": 2939
+    },
+    "experiment/top-client-focused-v3.json": {
+      "source": "results/semantic-api/top-client-focused-v3.json",
+      "raw_sha256": "dadc50a95ee4d81c3abfe4978d2b79f19b068d155a1f4c6b0a6a13a7196c1885",
+      "stored_sha256": "dadc50a95ee4d81c3abfe4978d2b79f19b068d155a1f4c6b0a6a13a7196c1885",
+      "raw_bytes": 381,
+      "stored_bytes": 381
+    },
+    "experiment/top-client-focused-v3.log": {
+      "source": "results/semantic-api/top-client-focused-v3.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "experiment/top-client-focused.json": {
+      "source": "results/semantic-api/top-client-focused.json",
+      "raw_sha256": "1d4a8bd7d6cf3fe3864b24577a92fee02e175a76219e5d499123c79ef118544d",
+      "stored_sha256": "1d4a8bd7d6cf3fe3864b24577a92fee02e175a76219e5d499123c79ef118544d",
+      "raw_bytes": 381,
+      "stored_bytes": 381
+    },
+    "experiment/top-client-focused.log": {
+      "source": "results/semantic-api/top-client-focused.log",
+      "raw_sha256": "4011cc7812e17a0de9f6db3089cd7f6cd1bb671f140813d105d6f9895586fad5",
+      "stored_sha256": "4011cc7812e17a0de9f6db3089cd7f6cd1bb671f140813d105d6f9895586fad5",
+      "raw_bytes": 1440,
+      "stored_bytes": 1440
+    },
+    "accepted/Audit.log": {
+      "source": "results/for-mathlib/Audit.log",
+      "raw_sha256": "7974ad421cca9129ff0cac16375cdd97e8f47a17b5ed4d70d1bf765f1ec2edc9",
+      "stored_sha256": "7974ad421cca9129ff0cac16375cdd97e8f47a17b5ed4d70d1bf765f1ec2edc9",
+      "raw_bytes": 1588,
+      "stored_bytes": 1588
+    },
+    "accepted/BoundaryChecks.log": {
+      "source": "results/for-mathlib/BoundaryChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/CompatChecks.log": {
+      "source": "results/for-mathlib/CompatChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/CoreSheafImportChecks.log": {
+      "source": "results/for-mathlib/CoreSheafImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/DomainImportChecks.log": {
+      "source": "results/for-mathlib/DomainImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ForMathlibChecks.log": {
+      "source": "results/for-mathlib/ForMathlibChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/GradedSupportImportChecks.log": {
+      "source": "results/for-mathlib/GradedSupportImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ImportChecks.log": {
+      "source": "results/for-mathlib/ImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/KernelChecks.log": {
+      "source": "results/for-mathlib/KernelChecks.log",
+      "raw_sha256": "fda30e29892695fca4a0e393102479d6de7b1e4d0c66a91bfcaca25635c77fe4",
+      "stored_sha256": "fda30e29892695fca4a0e393102479d6de7b1e4d0c66a91bfcaca25635c77fe4",
+      "raw_bytes": 363,
+      "stored_bytes": 363
+    },
+    "accepted/LegacyKernelEntryChecks.log": {
+      "source": "results/for-mathlib/LegacyKernelEntryChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ModernAllCompat.log": {
+      "source": "results/for-mathlib/ModernAllCompat.log",
+      "raw_sha256": "6ce3aedd286227e1bd030138a7f3ed6e5122928bb84bf13c2c3fc0f4d3916349",
+      "stored_sha256": "6ce3aedd286227e1bd030138a7f3ed6e5122928bb84bf13c2c3fc0f4d3916349",
+      "raw_bytes": 545,
+      "stored_bytes": 545
+    },
+    "accepted/ModernAllConsumer.log": {
+      "source": "results/for-mathlib/ModernAllConsumer.log",
+      "raw_sha256": "6038629484ce78cddcd1e1aec7d98cff9a3174be39dde1cd20866a3d4b750fd0",
+      "stored_sha256": "6038629484ce78cddcd1e1aec7d98cff9a3174be39dde1cd20866a3d4b750fd0",
+      "raw_bytes": 368,
+      "stored_bytes": 368
+    },
+    "accepted/ModernAttachConsumer.log": {
+      "source": "results/for-mathlib/ModernAttachConsumer.log",
+      "raw_sha256": "160b61c18fca61106d31010e64a0550193061e637703ee9151fd6f4871271bd9",
+      "stored_sha256": "160b61c18fca61106d31010e64a0550193061e637703ee9151fd6f4871271bd9",
+      "raw_bytes": 1597,
+      "stored_bytes": 1597
+    },
+    "accepted/ModernCompatChecks.log": {
+      "source": "results/for-mathlib/ModernCompatChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ModernCoordinateChecks.log": {
+      "source": "results/for-mathlib/ModernCoordinateChecks.log",
+      "raw_sha256": "9cc5016756c91b703d44c923538c764981ae1725a750196ac49727e2a912d08a",
+      "stored_sha256": "9cc5016756c91b703d44c923538c764981ae1725a750196ac49727e2a912d08a",
+      "raw_bytes": 79,
+      "stored_bytes": 79
+    },
+    "accepted/ModernCoordinateMathlibChecks.log": {
+      "source": "results/for-mathlib/ModernCoordinateMathlibChecks.log",
+      "raw_sha256": "4092e6128bf07e0d154235ec6eae18171ebcb355d6ee6ef7de31263a16acd44c",
+      "stored_sha256": "4092e6128bf07e0d154235ec6eae18171ebcb355d6ee6ef7de31263a16acd44c",
+      "raw_bytes": 602,
+      "stored_bytes": 602
+    },
+    "accepted/ModernFinalCompat.log": {
+      "source": "results/for-mathlib/ModernFinalCompat.log",
+      "raw_sha256": "8a7d7e919a065cef038c66f0af063f64cf15b2a40c61f58c68633491f690fd25",
+      "stored_sha256": "8a7d7e919a065cef038c66f0af063f64cf15b2a40c61f58c68633491f690fd25",
+      "raw_bytes": 4655,
+      "stored_bytes": 4655
+    },
+    "accepted/ModernNextConsumer.log": {
+      "source": "results/for-mathlib/ModernNextConsumer.log",
+      "raw_sha256": "3a5a7019a89397d581682423f0940e7771a81ee0985e33bec27589c90fe4a39c",
+      "stored_sha256": "3a5a7019a89397d581682423f0940e7771a81ee0985e33bec27589c90fe4a39c",
+      "raw_bytes": 2165,
+      "stored_bytes": 2165
+    },
+    "accepted/ModernStructureCompat.log": {
+      "source": "results/for-mathlib/ModernStructureCompat.log",
+      "raw_sha256": "00ccdd28f415ab0f5e2b3d59462cf048d79f1cba18dad1cc7ed81e23f3f67733",
+      "stored_sha256": "00ccdd28f415ab0f5e2b3d59462cf048d79f1cba18dad1cc7ed81e23f3f67733",
+      "raw_bytes": 3180,
+      "stored_bytes": 3180
+    },
+    "accepted/PilotAudit.log": {
+      "source": "results/for-mathlib/PilotAudit.log",
+      "raw_sha256": "68a2798ce4d9603ffa27db3c15811193f94820a8d6a4c2995e3e433b8bbdf9f7",
+      "stored_sha256": "68a2798ce4d9603ffa27db3c15811193f94820a8d6a4c2995e3e433b8bbdf9f7",
+      "raw_bytes": 9434,
+      "stored_bytes": 9434
+    },
+    "accepted/PilotChecks.log": {
+      "source": "results/for-mathlib/PilotChecks.log",
+      "raw_sha256": "4ddbdec805f2f806fd4306b315826298654526403697be961d1a54fb0e8ba26d",
+      "stored_sha256": "4ddbdec805f2f806fd4306b315826298654526403697be961d1a54fb0e8ba26d",
+      "raw_bytes": 363,
+      "stored_bytes": 363
+    },
+    "accepted/ProjectEntryChecks.log": {
+      "source": "results/for-mathlib/ProjectEntryChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/ResponsibilityCompatChecks.log": {
+      "source": "results/for-mathlib/ResponsibilityCompatChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/SafeImportChecks.log": {
+      "source": "results/for-mathlib/SafeImportChecks.log",
+      "raw_sha256": "6eac3bdc5871e6065d14a41462f00e049d456d5ca9697f5aa1fc034f20c6d9bd",
+      "stored_sha256": "6eac3bdc5871e6065d14a41462f00e049d456d5ca9697f5aa1fc034f20c6d9bd",
+      "raw_bytes": 102,
+      "stored_bytes": 102
+    },
+    "accepted/ScaledEvaluationImportChecks.log": {
+      "source": "results/for-mathlib/ScaledEvaluationImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/SemanticApiChecks.log": {
+      "source": "results/for-mathlib/SemanticApiChecks.log",
+      "raw_sha256": "1da04cfc55da6924ae736076ee9767d5afea96fbfad0ad50353ed3d016c8438b",
+      "stored_sha256": "1da04cfc55da6924ae736076ee9767d5afea96fbfad0ad50353ed3d016c8438b",
+      "raw_bytes": 1675,
+      "stored_bytes": 1675
+    },
+    "accepted/StalkCharacterImportChecks.log": {
+      "source": "results/for-mathlib/StalkCharacterImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/WeightedSumImportChecks.log": {
+      "source": "results/for-mathlib/WeightedSumImportChecks.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/all-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/all-modern-types.tsv",
+      "raw_sha256": "aecb27a928ef0d91c0fd690cb9ddffd888c8e164d50ad173fdc56f801dd290f9",
+      "stored_sha256": "e6a99caa1fb8a34039efcf81a94cca716d78324c83e5f5c674038f86d90ab134",
+      "raw_bytes": 17067567,
+      "stored_bytes": 2946251
+    },
+    "accepted/attach-modern-comparison.log": {
+      "source": "results/for-mathlib/attach-modern-comparison.log",
+      "raw_sha256": "5e66e8570b11ac7e8bd9594ba446584dbbd98c28aaa46cfed56f4fd2368458f6",
+      "stored_sha256": "5e66e8570b11ac7e8bd9594ba446584dbbd98c28aaa46cfed56f4fd2368458f6",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/attach-modern-types.log": {
+      "source": "results/for-mathlib/attach-modern-types.log",
+      "raw_sha256": "a0bb9df070870e1db57bf8e35b471242bea5afeb7cb2c4bd07d99880b4c0b3e6",
+      "stored_sha256": "a0bb9df070870e1db57bf8e35b471242bea5afeb7cb2c4bd07d99880b4c0b3e6",
+      "raw_bytes": 11163,
+      "stored_bytes": 11163
+    },
+    "accepted/attach-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/attach-modern-types.tsv",
+      "raw_sha256": "f5fe714f1f0cfad74e2aaed35758db3831c5b86bd659cc7ce2eb374083e7d087",
+      "stored_sha256": "e3018971e8d2291788fda76e17c7d513be5b43fe3620fd8790a450620bfcb738",
+      "raw_bytes": 257431,
+      "stored_bytes": 43968
+    },
+    "accepted/attach-regressions.log": {
+      "source": "results/for-mathlib/attach-regressions.log",
+      "raw_sha256": "bd0b3a0129c340bbbda7ba9481f5a5ee2c63fbce13388e075a7285e381743b02",
+      "stored_sha256": "bd0b3a0129c340bbbda7ba9481f5a5ee2c63fbce13388e075a7285e381743b02",
+      "raw_bytes": 102,
+      "stored_bytes": 102
+    },
+    "accepted/baseline-export.log": {
+      "source": "results/for-mathlib/baseline-export.log",
+      "raw_sha256": "adcd3422378624a9cec1ae01916aad52289079aede0ecded0dfb9b65345ddc57",
+      "stored_sha256": "adcd3422378624a9cec1ae01916aad52289079aede0ecded0dfb9b65345ddc57",
+      "raw_bytes": 86,
+      "stored_bytes": 86
+    },
+    "accepted/baseline-identity.log": {
+      "source": "results/for-mathlib/baseline-identity.log",
+      "raw_sha256": "a384e20bdad4d705df3fce6d4ebc81ef1081c3369563320b69f2524777407296",
+      "stored_sha256": "a384e20bdad4d705df3fce6d4ebc81ef1081c3369563320b69f2524777407296",
+      "raw_bytes": 112,
+      "stored_bytes": 112
+    },
+    "accepted/baseline-snapshot-check.log": {
+      "source": "results/for-mathlib/baseline-snapshot-check.log",
+      "raw_sha256": "7d211d5dd1a09755660105ddfee276ef47e24a920278ce33da0ce795f3285e99",
+      "stored_sha256": "7d211d5dd1a09755660105ddfee276ef47e24a920278ce33da0ce795f3285e99",
+      "raw_bytes": 130,
+      "stored_bytes": 130
+    },
+    "accepted/baseline-types.tsv.gz": {
+      "source": "results/for-mathlib/baseline-types.tsv",
+      "raw_sha256": "d2100a577282635d884896a2af10ab989ebe6a51b3e7a0b0b06eb67f9458a82f",
+      "stored_sha256": "fcc07ac044eee72ab8f991aa9cedcf7b97d0dbada93a5cd0ede3021ede896fb0",
+      "raw_bytes": 16922969,
+      "stored_bytes": 2998718,
+      "stored_at": "../module-completion/accepted/baseline-types.tsv.gz"
+    },
+    "accepted/classification-and-boundaries.log": {
+      "source": "results/for-mathlib/classification-and-boundaries.log",
+      "raw_sha256": "cdcf7f8141580630bd428ceac4a3c6fbb9454b9e1190b0c78d82c39b923b1c0f",
+      "stored_sha256": "cdcf7f8141580630bd428ceac4a3c6fbb9454b9e1190b0c78d82c39b923b1c0f",
+      "raw_bytes": 459,
+      "stored_bytes": 459
+    },
+    "accepted/comparator-tests.log": {
+      "source": "results/for-mathlib/comparator-tests.log",
+      "raw_sha256": "d3235cb7ff54ba50a1894584fe1e6b38d07f0a8c0cb41731f2777fdcbc2f2d9b",
+      "stored_sha256": "d3235cb7ff54ba50a1894584fe1e6b38d07f0a8c0cb41731f2777fdcbc2f2d9b",
+      "raw_bytes": 130,
+      "stored_bytes": 130
+    },
+    "accepted/final-full-records.log.gz": {
+      "source": "results/for-mathlib/final-full-records.log",
+      "raw_sha256": "9ea5c45144806d5b5328d3bd92e050cb6f1c72b5c439e645f69201ce491b0ce7",
+      "stored_sha256": "923586cbcffbbcb46729cb684d68813f8044cc1b36f5964915016f99bf2b0b68",
+      "raw_bytes": 41883,
+      "stored_bytes": 6035
+    },
+    "accepted/final-modern-comparison.log": {
+      "source": "results/for-mathlib/final-modern-comparison.log",
+      "raw_sha256": "345c248e42d87aab100d422687e4070c168be783097cc682800aa078abc83685",
+      "stored_sha256": "345c248e42d87aab100d422687e4070c168be783097cc682800aa078abc83685",
+      "raw_bytes": 14192,
+      "stored_bytes": 14192
+    },
+    "accepted/final-modern-types.log.gz": {
+      "source": "results/for-mathlib/final-modern-types.log",
+      "raw_sha256": "22a830de6ec2f9ea62ed2a5ea251b4b1d2f9c951f5757e758cddc931b8b12a50",
+      "stored_sha256": "9c82c9b8caccae2ad9f9f085372d5beb29a72c28180f010b284ec40f6067c74b",
+      "raw_bytes": 89919,
+      "stored_bytes": 5049
+    },
+    "accepted/final-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/final-modern-types.tsv",
+      "raw_sha256": "5992c19325f8887d212188137f8e608200b26b6ce83712cbe8291b71ec352afd",
+      "stored_sha256": "ae08217af5ae00e234f77f928dde7201ed94c591e7e3896b4a7473e01ea57b26",
+      "raw_bytes": 1687577,
+      "stored_bytes": 292993
+    },
+    "accepted/final-regressions.log": {
+      "source": "results/for-mathlib/final-regressions.log",
+      "raw_sha256": "0abec1e7b9def91dc4c45fc439cd1a985219bb60f4f4f0755f6c734ee2ceba58",
+      "stored_sha256": "0abec1e7b9def91dc4c45fc439cd1a985219bb60f4f4f0755f6c734ee2ceba58",
+      "raw_bytes": 102,
+      "stored_bytes": 102
+    },
+    "accepted/final105-full-records.log.gz": {
+      "source": "results/for-mathlib/final105-full-records.log",
+      "raw_sha256": "de5c74f32db827e93e54a8c461a9ab62d738ebe20f2cf6c34b898d096fd2fbc2",
+      "stored_sha256": "ca47617ac74d4e536e47f7b1bec56855dadf37759f0fb6ef112cafa30dd14179",
+      "raw_bytes": 32275,
+      "stored_bytes": 3907
+    },
+    "accepted/final105-modern-comparison.log.gz": {
+      "source": "results/for-mathlib/final105-modern-comparison.log",
+      "raw_sha256": "e9c5af49d62d38b0834273f88eb93ad5227d793b2040f827c677e5fc0ef0567e",
+      "stored_sha256": "4a77ed3d97404520d151b4ed6096ea445747a4ca772ff3d360876a61e37a7c5d",
+      "raw_bytes": 39312,
+      "stored_bytes": 4704
+    },
+    "accepted/final105-modern-types.log.gz": {
+      "source": "results/for-mathlib/final105-modern-types.log",
+      "raw_sha256": "a08e7e47e0a2a67892080ec69b1b0b64fc48a4448559f4b5add2edb02785579f",
+      "stored_sha256": "4c3c9b6ebf27ab8d8b5628667c652bffae659c2ae85f72bff79d5a0c12c7c6ef",
+      "raw_bytes": 532634,
+      "stored_bytes": 27340
+    },
+    "accepted/final105-regressions.log": {
+      "source": "results/for-mathlib/final105-regressions.log",
+      "raw_sha256": "9f5605669db99d32c91b23465d46fadf98167ab1caf26c0ffc405cac93ad94dd",
+      "stored_sha256": "9f5605669db99d32c91b23465d46fadf98167ab1caf26c0ffc405cac93ad94dd",
+      "raw_bytes": 105,
+      "stored_bytes": 105
+    },
+    "accepted/full-record-compatibility.log.gz": {
+      "source": "results/for-mathlib/full-record-compatibility.log",
+      "raw_sha256": "de1f7ec11448896f45ec49a621e6325d9372c6358d0cadfdcf90c9036a46468d",
+      "stored_sha256": "53d6e890d9e27efe212406f6218839aec63f9d17132d96640f7f4c57a01e8393",
+      "raw_bytes": 43604,
+      "stored_bytes": 6462
+    },
+    "accepted/implementation-imports.log": {
+      "source": "results/for-mathlib/implementation-imports.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "stored_bytes": 0
+    },
+    "accepted/lean-version.log": {
+      "source": "results/for-mathlib/lean-version.log",
+      "raw_sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "stored_sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "raw_bytes": 106,
+      "stored_bytes": 106
+    },
+    "accepted/mathlib-ready.log": {
+      "source": "results/for-mathlib/mathlib-ready.log",
+      "raw_sha256": "c158dbc0e7feea9b3707e2151351d155b11e6e8fc7974b60b100ba4957b3bcfd",
+      "stored_sha256": "c158dbc0e7feea9b3707e2151351d155b11e6e8fc7974b60b100ba4957b3bcfd",
+      "raw_bytes": 36,
+      "stored_bytes": 36
+    },
+    "accepted/migrated-types.log": {
+      "source": "results/for-mathlib/migrated-types.log",
+      "raw_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "stored_sha256": "7287f98bb57208e82980a189021c42ffa411402b299bf0076a2d6fb4f11775a7",
+      "raw_bytes": 235,
+      "stored_bytes": 235
+    },
+    "accepted/migrated-types.tsv.gz": {
+      "source": "results/for-mathlib/migrated-types.tsv",
+      "raw_sha256": "5d0c2c95a38d5e8f0975cd2923db221fea1333c840135ea46d2f0a60c46cef49",
+      "stored_sha256": "2897245e6b61d266df44bcc3cc625561e06e09da6e206e9fde7dd0db770c7ad6",
+      "raw_bytes": 17151514,
+      "stored_bytes": 2964722
+    },
+    "accepted/modern-public-comparison.log": {
+      "source": "results/for-mathlib/modern-public-comparison.log",
+      "raw_sha256": "1a95bb7591aa6abf0eac135526c1a119b35ec90a61f9b7aed8c685b00cb7162f",
+      "stored_sha256": "1a95bb7591aa6abf0eac135526c1a119b35ec90a61f9b7aed8c685b00cb7162f",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/modern-public-types.log": {
+      "source": "results/for-mathlib/modern-public-types.log",
+      "raw_sha256": "da215c3e68903544e30acaca20156f6b884963067f4fbd397f37a0cf9238ec0a",
+      "stored_sha256": "da215c3e68903544e30acaca20156f6b884963067f4fbd397f37a0cf9238ec0a",
+      "raw_bytes": 1463,
+      "stored_bytes": 1463
+    },
+    "accepted/modern-public-types.tsv.gz": {
+      "source": "results/for-mathlib/modern-public-types.tsv",
+      "raw_sha256": "9652b00809501f7eaad105984c4c42e572b471608fe91768a0cfcbf624059305",
+      "stored_sha256": "ef94b1545b06fb34ea5b23138d6df22ffdcdc01ae96b3e8d9a990dd5056724f2",
+      "raw_bytes": 83744,
+      "stored_bytes": 15890
+    },
+    "accepted/module-integration-tests.log": {
+      "source": "results/for-mathlib/module-integration-tests.log",
+      "raw_sha256": "9d01812e75438c0a2a303505b79dc0ff66f248d2963d7c6ad29d99d29a1de61d",
+      "stored_sha256": "9d01812e75438c0a2a303505b79dc0ff66f248d2963d7c6ad29d99d29a1de61d",
+      "raw_bytes": 105,
+      "stored_bytes": 105
+    },
+    "accepted/next-full-records.log.gz": {
+      "source": "results/for-mathlib/next-full-records.log",
+      "raw_sha256": "9ea5c45144806d5b5328d3bd92e050cb6f1c72b5c439e645f69201ce491b0ce7",
+      "stored_sha256": "923586cbcffbbcb46729cb684d68813f8044cc1b36f5964915016f99bf2b0b68",
+      "raw_bytes": 41883,
+      "stored_bytes": 6035
+    },
+    "accepted/next-modern-comparison.log": {
+      "source": "results/for-mathlib/next-modern-comparison.log",
+      "raw_sha256": "2ccab14d1fceb4efe9c8d0073d4d2c5053997a2abce7a46f725ffe1265057381",
+      "stored_sha256": "2ccab14d1fceb4efe9c8d0073d4d2c5053997a2abce7a46f725ffe1265057381",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/next-modern-types.log": {
+      "source": "results/for-mathlib/next-modern-types.log",
+      "raw_sha256": "6357c7a04316103393f7ed333da58fd13f4a065a84fc51868063593676a4fe3c",
+      "stored_sha256": "6357c7a04316103393f7ed333da58fd13f4a065a84fc51868063593676a4fe3c",
+      "raw_bytes": 8057,
+      "stored_bytes": 8057
+    },
+    "accepted/next-modern-types.tsv.gz": {
+      "source": "results/for-mathlib/next-modern-types.tsv",
+      "raw_sha256": "3f32b8857ce546b830eaf286112fdfbaaf3b2ae7f7c04e79a3a17fa2da0324a5",
+      "stored_sha256": "7e162a929c552f257d8cf79706480c8d5a89e23e86b729dfb34426ad1ff65f79",
+      "raw_bytes": 243207,
+      "stored_bytes": 43753
+    },
+    "accepted/next-regressions.log": {
+      "source": "results/for-mathlib/next-regressions.log",
+      "raw_sha256": "b64db9b0c10c2c0a9c56ac5b1d70090fc35e117c2f7a55a50772be27d7f9b7a9",
+      "stored_sha256": "b64db9b0c10c2c0a9c56ac5b1d70090fc35e117c2f7a55a50772be27d7f9b7a9",
+      "raw_bytes": 101,
+      "stored_bytes": 101
+    },
+    "accepted/oai-ready.log": {
+      "source": "results/for-mathlib/oai-ready.log",
+      "raw_sha256": "08f2999392f14ed5f40469c50a0a2ff077587b728f1de13bb33b8abcd91055d2",
+      "stored_sha256": "08f2999392f14ed5f40469c50a0a2ff077587b728f1de13bb33b8abcd91055d2",
+      "raw_bytes": 6104,
+      "stored_bytes": 6104
+    },
+    "accepted/proof-evolution-source.log": {
+      "source": "results/for-mathlib/proof-evolution-source.log",
+      "raw_sha256": "ef937619bb078a7d6574b35128218d070f7276ff2bae7fb0f361d3b25049930c",
+      "stored_sha256": "ef937619bb078a7d6574b35128218d070f7276ff2bae7fb0f361d3b25049930c",
+      "raw_bytes": 126,
+      "stored_bytes": 126
+    },
+    "accepted/proof-evolution-tests.log": {
+      "source": "results/for-mathlib/proof-evolution-tests.log",
+      "raw_sha256": "6c87ddac7569cac5bbcb02141d97d00c6d959740a01aa410bdd62d3949fd680c",
+      "stored_sha256": "6c87ddac7569cac5bbcb02141d97d00c6d959740a01aa410bdd62d3949fd680c",
+      "raw_bytes": 129,
+      "stored_bytes": 129
+    },
+    "accepted/rollout-public-comparison.log": {
+      "source": "results/for-mathlib/rollout-public-comparison.log",
+      "raw_sha256": "ca7636b606968e63cedbe5f690b478c8fd3c9e9f5fc148daaac14a76b5609785",
+      "stored_sha256": "ca7636b606968e63cedbe5f690b478c8fd3c9e9f5fc148daaac14a76b5609785",
+      "raw_bytes": 130,
+      "stored_bytes": 130
+    },
+    "accepted/rollout-public-types.log.gz": {
+      "source": "results/for-mathlib/rollout-public-types.log",
+      "raw_sha256": "026a47466b208190c264cd02e2d4a597debb4881b8b1c091d92c8acddba2a2ed",
+      "stored_sha256": "3fdbb514a7183cb86f3bcfdeb3bd27804328a3ec5ddac72b1aa9b53804bc7e60",
+      "raw_bytes": 156985,
+      "stored_bytes": 9076
+    },
+    "accepted/rollout-public-types.tsv.gz": {
+      "source": "results/for-mathlib/rollout-public-types.tsv",
+      "raw_sha256": "e4654186dfb098321631f5bad43d35f944fa569ab8148cbaf43200df8eb2eaa3",
+      "stored_sha256": "45a2b8861cef788e68efbbc2343607ca35fe2a2966744fe15eda8db76add7592",
+      "raw_bytes": 4616078,
+      "stored_bytes": 815047
+    },
+    "accepted/rollout-tests.log": {
+      "source": "results/for-mathlib/rollout-tests.log",
+      "raw_sha256": "95f521698022aa06539a76fd72964a6dc18cf7dce2d82a03a7ee9d9b25075325",
+      "stored_sha256": "95f521698022aa06539a76fd72964a6dc18cf7dce2d82a03a7ee9d9b25075325",
+      "raw_bytes": 105,
+      "stored_bytes": 105
+    },
+    "accepted/semantic-api-main-comparison.log": {
+      "source": "results/for-mathlib/semantic-api-main-comparison.log",
+      "raw_sha256": "452833a4c4446998a2c100fa0b20710d15ccc1c0234e49130d6cfc8c413dbc2f",
+      "stored_sha256": "452833a4c4446998a2c100fa0b20710d15ccc1c0234e49130d6cfc8c413dbc2f",
+      "raw_bytes": 2683,
+      "stored_bytes": 2683
+    },
+    "accepted/semantic-api-modern-types.lean.gz": {
+      "source": "results/for-mathlib/semantic-api-modern-types.lean",
+      "raw_sha256": "c5968b479e6cfd6d81c9a89590e976def9e3e8dd97f704d9f7d02c1a66f8bdbd",
+      "stored_sha256": "8133b98f390991722e59061f42150854464830baf25189389e39de473ad3157e",
+      "raw_bytes": 49843,
+      "stored_bytes": 7275
+    },
+    "accepted/semantic-api-regressions.log": {
+      "source": "results/for-mathlib/semantic-api-regressions.log",
+      "raw_sha256": "f74de9c45f7d8d2fa03a87b751cb99b5540feef11cc53ce5e3fe46a0ea85c448",
+      "stored_sha256": "f74de9c45f7d8d2fa03a87b751cb99b5540feef11cc53ce5e3fe46a0ea85c448",
+      "raw_bytes": 100,
+      "stored_bytes": 100
+    },
+    "accepted/semantic-api-structure-compat.lean": {
+      "source": "results/for-mathlib/semantic-api-structure-compat.lean",
+      "raw_sha256": "eb4635fd0bb50cd8571eb299cae386fcc79a0ee72e2fc104f22f7b58400704b1",
+      "stored_sha256": "eb4635fd0bb50cd8571eb299cae386fcc79a0ee72e2fc104f22f7b58400704b1",
+      "raw_bytes": 11726,
+      "stored_bytes": 11726
+    },
+    "accepted/source-coverage.log": {
+      "source": "results/for-mathlib/source-coverage.log",
+      "raw_sha256": "495aad1c97ab29d586dd858c803871ec6f68404afd9739b8bddb5d98c3cfaa4b",
+      "stored_sha256": "495aad1c97ab29d586dd858c803871ec6f68404afd9739b8bddb5d98c3cfaa4b",
+      "raw_bytes": 132,
+      "stored_bytes": 132
+    },
+    "accepted/source-partition-tests.log": {
+      "source": "results/for-mathlib/source-partition-tests.log",
+      "raw_sha256": "ac6e9da8bd627c0143d4f0935a2191f667799eff6766b01790f29565bc679b61",
+      "stored_sha256": "ac6e9da8bd627c0143d4f0935a2191f667799eff6766b01790f29565bc679b61",
+      "raw_bytes": 113,
+      "stored_bytes": 113
+    },
+    "accepted/source-transport.log": {
+      "source": "results/for-mathlib/source-transport.log",
+      "raw_sha256": "95d9ab4205de66d553f58ab458a9d1399979d3ecb2b57b5f77d1311649e10e73",
+      "stored_sha256": "95d9ab4205de66d553f58ab458a9d1399979d3ecb2b57b5f77d1311649e10e73",
+      "raw_bytes": 84,
+      "stored_bytes": 84
+    },
+    "accepted/stages.json.gz": {
+      "source": "results/for-mathlib/stages.json",
+      "raw_sha256": "cb770b8c5a65a61416a614f3b70ab2dfd027f9a6d4e6e8cf6286ce02419ce2fb",
+      "stored_sha256": "98f15878aef59aa09828dcd8c984135279e37528240531047ba7bb78a0dbd6cd",
+      "raw_bytes": 27661,
+      "stored_bytes": 3503
+    },
+    "accepted/type-comparison.log.gz": {
+      "source": "results/for-mathlib/type-comparison.log",
+      "raw_sha256": "9fc3281553efaee1a752e5d59213444c5bc0ae54d8e8033ab63c5944154c2313",
+      "stored_sha256": "91256ff7108c91a92945a21d9ca4ff3864cebd882760b88eb40141c19f0bc032",
+      "raw_bytes": 43826,
+      "stored_bytes": 6570
+    },
+    "accepted/warm-build.log": {
+      "source": "results/for-mathlib/warm-build.log",
+      "raw_sha256": "a38ee98114fc9b1ec3b001bbb50647a8a56c51a8d41e0ac1a43ae6811787070e",
+      "stored_sha256": "a38ee98114fc9b1ec3b001bbb50647a8a56c51a8d41e0ac1a43ae6811787070e",
+      "raw_bytes": 6110,
+      "stored_bytes": 6110
+    },
+    "setup.log.gz": {
+      "source": "/tmp/lean-api-setup.log",
+      "raw_sha256": "6914280054568794d9aac8e9fa90a04c3f24d1b734f0a8de490def6ad55a8894",
+      "stored_sha256": "6c1df820792892a00bf348ab5e80ca7336ebe2f7d75a7e63faa76d1cc66bc48f",
+      "raw_bytes": 43013,
+      "stored_bytes": 7624
+    },
+    "accepted-inputs.json": {
+      "raw_sha256": "5670b03c85529a7d08cd31180bb584e3bb65285794a41e43ef9cabc0d850adb5",
+      "stored_sha256": "5670b03c85529a7d08cd31180bb584e3bb65285794a41e43ef9cabc0d850adb5"
+    },
+    "hidden-map-source.json": {
+      "raw_sha256": "f7f3720d429b666c74df63f597cd3f83c652446f5c10dae3f9264c84a5c94074",
+      "stored_sha256": "f7f3720d429b666c74df63f597cd3f83c652446f5c10dae3f9264c84a5c94074"
+    },
+    "hidden-map-initial-source.json": {
+      "source": "earlier exploratory hidden-map source record",
+      "raw_sha256": "8198f522182404d54b294f864336ba00e57f5abb2e5e6a34d6798dcb83b5b71d",
+      "stored_sha256": "8198f522182404d54b294f864336ba00e57f5abb2e5e6a34d6798dcb83b5b71d",
+      "raw_bytes": 12359,
+      "stored_bytes": 12359
+    }
+  }
+}

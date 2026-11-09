@@ -1,0 +1,1091 @@
+{
+  "base_commit": "a797fbc1300142c56c18ebfaa0ae84b357bc4b3d",
+  "files": {
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean": {
+      "before_sha256": "06c7253b3cf539042a8d2ee5a1ff67470ba8c8153efb217f320f2f6a2333a60f",
+      "after_sha256": "9f2d064cd573a69882edc36e81ab56088ba41a4ec4c8b0a8e8caf0a86ac29980",
+      "edits": [
+        {
+          "start": 1198,
+          "old": "",
+          "new": "\n\n/-- The range factorization of an endomorphism retains its value. -/\n@[simp] theorem rangeProjection_val (e : Hom M M) (v : M) :\n    ((rangeProjection e).map v).val = e.map v := by rfl\n\n/-- A commuting square induces a commuting square on the range projections. -/\ntheorem rangeMap_projection (e : Hom M M) (f : Hom N N) (g : Hom M N)\n    (h : \u2200 m, f.map (g.map m)=g.map (e.map m)) (m : M) :\n    (rangeMap e f g h).map ((rangeProjection e).map m) =\n      (rangeProjection f).map (g.map m) := by\n  apply Subtype.ext\n  exact (h m).symm\n\n/-- The map induced on ranges agrees with the original commuting map. -/\n@[simp] theorem rangeMap_val (e : Hom M M) (f : Hom N N) (g : Hom M N)\n    (h : \u2200 m, f.map (g.map m)=g.map (e.map m)) (v : range e) :\n    ((rangeMap e f g h).map v).val = g.map v.val := by\n  obtain \u27e8m,hm\u27e9 := v.property\n  have hv : v = (rangeProjection e).map m := Subtype.ext hm.symm\n  rw [hv]\n  exact (congrArg (fun w : range f => w.val) (rangeMap_projection e f g h m)).trans\n    ((rangeProjection_val f (g.map m)).trans\n      ((h m).trans (congrArg g.map (rangeProjection_val e m)).symm))\n\n/-- Inclusion of a range is its underlying vector. -/\n@[simp] theorem rangeInclusion_apply (e : Hom M M) (v : range e) :\n    (rangeInclusion e).map v = v.val := by rfl\n\n/-- An idempotent acts as the identity on its range. -/\ntheorem range_fixed (e : Hom M M) (he : \u2200 v, e.map (e.map v)=e.map v)\n    (v : range e) : e.map v.val = v.val := by\n  obtain \u27e8m,hm\u27e9 := v.property\n  rw [\u2190 hm,he]"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean": {
+      "before_sha256": "1913dbd64ea7959d91f57b7dbd04be53a4a981a36307c9b216bed3d4a0e47fb0",
+      "after_sha256": "98b64d682da08721f163352987f5fe700612bbaf507a33112b8fd704da0baf65",
+      "edits": [
+        {
+          "start": 668,
+          "old": "",
+          "new": "/--"
+        },
+        {
+          "start": 669,
+          "old": "",
+          "new": "Tensor multiplication is natural for arbitrary A-linear maps, not only endomorphisms. -/\n"
+        },
+        {
+          "start": 689,
+          "old": "m",
+          "new": "n"
+        },
+        {
+          "start": 691,
+          "old": "p",
+          "new": "tural"
+        },
+        {
+          "start": 693,
+          "old": "(e",
+          "new": "{P"
+        },
+        {
+          "start": 698,
+          "old": "",
+          "new": "Type*} [AddCommGroup P] ["
+        },
+        {
+          "start": 704,
+          "old": ".End",
+          "new": ""
+        },
+        {
+          "start": 711,
+          "old": "",
+          "new": "P]\n    [Module C P] [IsScalarTower C A P] (f : "
+        },
+        {
+          "start": 712,
+          "old": "",
+          "new": " \u2192\u2097[A] P"
+        },
+        {
+          "start": 809,
+          "old": "e",
+          "new": "f"
+        },
+        {
+          "start": 832,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 840,
+          "old": "e",
+          "new": "f"
+        },
+        {
+          "start": 1113,
+          "old": "",
+          "new": "/-- The reflected tensor projection is natural with the induced map on twists. -/\ntheorem tensorSecond_natural {P : Type*} [AddCommGroup P] [Module A P]\n    [Module C P] [IsScalarTower C A P] (f : N \u2192\u2097[A] P) (m : A \u2297[C] N) :\n    tensorSecond \u03c4 hfix (AlgebraTensorModule.map (LinearMap.id : A \u2192\u2097[A] A) (f.restrictScalars C) m) =\n      twistMap \u03c4 f (tensorSecond \u03c4 hfix m) := by\n  induction m using TensorProduct.inductionOn with\n  | add m n hm hn => simp only [map_add,hm,hn]\n  | tmul a n =>\n    apply Twist.ext\n    simp only [AlgebraTensorModule.map_tmul,LinearMap.id_apply,\n      LinearMap.restrictScalars_apply,tensorSecond_tmul,twistMap_val]\n    exact (map_smul f (\u03c4 a) n).symm\n\n theorem tensorFirst_map (e : Module.End A N) (m : A \u2297[C] N) :\n    tensorFirst (C := C) (AlgebraTensorModule.map (LinearMap.id : A \u2192\u2097[A] A) (e.restrictScalars C) m)=\n      e (tensorFirst (C := C) m) := by\n  exact tensorFirst_natural e m\n\n"
+        },
+        {
+          "start": 1330,
+          "old": "indu",
+          "new": "exa"
+        },
+        {
+          "start": 1336,
+          "old": "ion",
+          "new": ""
+        },
+        {
+          "start": 1340,
+          "old": "m using TensorProduct.inductionOn with\n  | add m n hm hn => simp only [map_add,hm,hn]\n  | tmul a n =>\n    simp only [AlgebraTensorModule.map_tmul,LinearMap.id_apply,\n      LinearMap.restrictScalars_apply,",
+          "new": ""
+        },
+        {
+          "start": 1557,
+          "old": "",
+          "new": "na"
+        },
+        {
+          "start": 1558,
+          "old": "m",
+          "new": ""
+        },
+        {
+          "start": 1560,
+          "old": "",
+          "new": "ra"
+        },
+        {
+          "start": 1561,
+          "old": "]\n",
+          "new": ""
+        },
+        {
+          "start": 1564,
+          "old": "",
+          "new": "\u03c4"
+        },
+        {
+          "start": 1565,
+          "old": "  apply Tw",
+          "new": "hf"
+        },
+        {
+          "start": 1576,
+          "old": "st.e",
+          "new": ""
+        },
+        {
+          "start": 1581,
+          "old": "t\n    exact (map_smul",
+          "new": ""
+        },
+        {
+          "start": 1605,
+          "old": "(\u03c4 a) n).sym",
+          "new": ""
+        },
+        {
+          "start": 2341,
+          "old": "]\n    change (tensorF",
+          "new": ",Tw"
+        },
+        {
+          "start": 2363,
+          "old": "r",
+          "new": ""
+        },
+        {
+          "start": 2366,
+          "old": " (C := C) m+tensorFirst (C := C) n)-\n      ((tensorSecond \u03c4 hfix m)",
+          "new": ""
+        },
+        {
+          "start": 2437,
+          "old": "+(tensorSecon",
+          "new": "_a"
+        },
+        {
+          "start": 2451,
+          "old": " \u03c4 hfix n).val)=\u03b1 \u2022 (p+q)",
+          "new": "d]"
+        },
+        {
+          "start": 2588,
+          "old": "",
+          "new": "rw [tensorFirst_tmul,tensorSe"
+        },
+        {
+          "start": 2589,
+          "old": "ha",
+          "new": "o"
+        },
+        {
+          "start": 2592,
+          "old": "ge a \u2022 n-\u03c4 a \u2022 n=\u03b1 \u2022 (b \u2022 n)",
+          "new": "d_tmul]"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean": {
+      "before_sha256": "cafc587bc98bd25e1e16e7161f0df53c19d37c636330135694982e5e32ccd114",
+      "after_sha256": "50a6994bf97a61d7cef1958b6921ed6e27a9f4a8a98f80a7a824f8e3b9df0e69",
+      "edits": [
+        {
+          "start": 2654,
+          "old": "",
+          "new": "/-- A map between twists induces the original map on underlying vectors. -/\n@[simp] theorem twistMap_val {P : Type*} [AddCommGroup P] [Module A P]\n    (f : N \u2192\u2097[A] P) (m : Twist \u03c4 N) :\n    (twistMap \u03c4 f m).val = f m.val := by rfl\n\n"
+        },
+        {
+          "start": 3293,
+          "old": "",
+          "new": "/-- The upper projection retains the twisted second lattice coordinate. -/\n@[simp] theorem right_apply (p : lattice f g \u03c4 \u03b1 hdiv hinc) :\n    right f g \u03c4 \u03b1 hdiv hinc p = p.val.2 := by rfl\n\n"
+        },
+        {
+          "start": 3446,
+          "old": "",
+          "new": "r"
+        },
+        {
+          "start": 3447,
+          "old": "xact",
+          "new": "fine"
+        },
+        {
+          "start": 3462,
+          "old": "",
+          "new": "(mem_lattice_iff f g \u03c4 \u03b1 hdiv hinc _).mpr \u27e8"
+        },
+        {
+          "start": 3471,
+          "old": "",
+          "new": "\u27e9"
+        },
+        {
+          "start": 3472,
+          "old": "",
+          "new": "?_\u27e9\n  exact "
+        },
+        {
+          "start": 3473,
+          "old": "",
+          "new": "ight_apply "
+        },
+        {
+          "start": 3474,
+          "old": "l\u27e9",
+          "new": " g \u03c4 \u03b1 hdiv hinc _"
+        },
+        {
+          "start": 3592,
+          "old": "",
+          "new": "mem_lattice_iff f g \u03c4 \u03b1 hdiv hinc _).mpr\n    (("
+        },
+        {
+          "start": 3617,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "start": 3620,
+          "old": "",
+          "new": "ight_apply "
+        },
+        {
+          "start": 3621,
+          "old": "l",
+          "new": " g \u03c4 \u03b1 hdiv hinc _"
+        },
+        {
+          "start": 3960,
+          "old": "",
+          "new": "/-- The lower coordinate of the right-kernel injection is multiplication by \u03b1. -/\n@[simp] theorem rightKernelMap_fst (x : X) :\n    (rightKernelMap f g \u03c4 \u03b1 hdiv hinc hker x).val.val.1 = \u03b1 \u2022 x := by rfl\n\n"
+        },
+        {
+          "start": 4084,
+          "old": "",
+          "new": "hp\u27e9,hy\u27e9\n  obtain \u27e8"
+        },
+        {
+          "start": 4093,
+          "old": ",",
+          "new": " := (mem_lattice_iff f g \u03c4 \u03b1 "
+        },
+        {
+          "start": 4095,
+          "old": "y\u27e9",
+          "new": "div hinc _).mp hp"
+        },
+        {
+          "start": 4140,
+          "old": "",
+          "new": "\n    ((right_apply f g \u03c4 \u03b1 hdiv hinc \u27e8(x,y),hp\u27e9).symm.trans"
+        },
+        {
+          "start": 4143,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "start": 4469,
+          "old": "",
+          "new": "apply hinj\n  "
+        },
+        {
+          "start": 4475,
+          "old": "",
+          "new": "(rightKernelMap_fst f g \u03c4 \u03b1 hdiv "
+        },
+        {
+          "start": 4478,
+          "old": "j",
+          "new": "c"
+        },
+        {
+          "start": 4480,
+          "old": "",
+          "new": "hker x).symm.trans\n    ("
+        },
+        {
+          "start": 4514,
+          "old": "",
+          "new": ").trans\n      (rightKernelMap_fst f g \u03c4 \u03b1 hdiv hinc hker y)"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/ReflectionPair/Twist.lean": {
+      "before_sha256": "6f697db83a82ad875d17961f3de9d22fd95ff962a6cd0f2b4ea4bd107e04f0b7",
+      "after_sha256": "f04064ee5cb36a6de9365f7b07d8a6a6fe9c82fb3671242fa4df25a950702284",
+      "edits": [
+        {
+          "start": 1528,
+          "old": "",
+          "new": "omit [Module R Y] in\n/-- Addition in a scalar twist preserves underlying vectors. -/\n@[simp] theorem val_add (y z : Twist \u03c4 Y) : (y+z).val = y.val+z.val := by rfl\n\n/-- Twisting restricts the scalar action along \u03c4, not its inverse. -/\n@[simp] theorem val_smul (r : R) (y : Twist \u03c4 Y) :\n    (r \u2022 y).val = \u03c4 r \u2022 y.val := by rfl\n\n"
+        },
+        {
+          "start": 3033,
+          "old": "",
+          "new": "Membership in the twisted lattice means that the two coordinates have a common lift. -/\ntheorem mem_lattice_iff (p : X \u00d7 Twist \u03c4 Y) :\n    p \u2208 lattice f g \u03c4 \u03b1 hdiv hinc \u2194 \u2203 n : N, f n=p.1 \u2227 g n=p.2.val := by rfl\n\n/-- "
+        },
+        {
+          "start": 3459,
+          "old": "r",
+          "new": ""
+        },
+        {
+          "start": 3465,
+          "old": "",
+          "new": " hp\n    obtain"
+        },
+        {
+          "start": 3476,
+          "old": "",
+          "new": " := (mem_lattice_iff f g \u03c4 \u03b1 hdiv hinc (\u03b2 \u2022 p)).mp hp\n    apply (mem_lattice_iff f g \u03c4 \u03b1 hdiv hinc p).mpr"
+        },
+        {
+          "start": 3593,
+          "old": "",
+          "new": ".trans (Twist.val_smul \u03c4 Y \u03b2 p.2)"
+        },
+        {
+          "start": 4157,
+          "old": "",
+          "new": "/-- The lower projection is the first lattice coordinate. -/\n@[simp] theorem left_apply (p : lattice f g \u03c4 \u03b1 hdiv hinc) :\n    left f g \u03c4 \u03b1 hdiv hinc p = p.val.1 := by rfl\n\n"
+        },
+        {
+          "start": 4305,
+          "old": "",
+          "new": "r"
+        },
+        {
+          "start": 4306,
+          "old": "xact",
+          "new": "fine"
+        },
+        {
+          "start": 4325,
+          "old": "",
+          "new": "(mem_lattice_iff f g \u03c4 \u03b1 hdiv hinc _).mpr \u27e8"
+        },
+        {
+          "start": 4335,
+          "old": "",
+          "new": "\u27e9"
+        },
+        {
+          "start": 4336,
+          "old": "r",
+          "new": "?_\u27e9\n  exact le"
+        },
+        {
+          "start": 4338,
+          "old": "",
+          "new": "t_app"
+        },
+        {
+          "start": 4339,
+          "old": "\u27e9",
+          "new": "y f g \u03c4 \u03b1 hdiv hinc _"
+        },
+        {
+          "start": 4528,
+          "old": "",
+          "new": "\n    (mem_lattice_iff f g \u03c4 \u03b1 hdiv hinc _).mpr ("
+        },
+        {
+          "start": 4538,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "start": 4540,
+          "old": "r",
+          "new": "\n    le"
+        },
+        {
+          "start": 4542,
+          "old": "",
+          "new": "t_app"
+        },
+        {
+          "start": 4543,
+          "old": "",
+          "new": "y f g \u03c4 \u03b1 hdiv hinc _"
+        },
+        {
+          "start": 4946,
+          "old": "",
+          "new": "/-- The upper coordinate of the kernel injection is multiplication by \u03b1. -/\n@[simp] theorem kernelMap_snd_val (y : Twist \u03c4 Y) :\n    (kernelMap f g \u03c4 \u03b1 hdiv hinc y).val.val.2.val = \u03b1 \u2022 y.val := by rfl\n\n"
+        },
+        {
+          "start": 5141,
+          "old": "",
+          "new": "hp\u27e9,hx\u27e9\n  obtain \u27e8"
+        },
+        {
+          "start": 5150,
+          "old": ",",
+          "new": " := (mem_lattice_iff f g \u03c4 \u03b1 "
+        },
+        {
+          "start": 5152,
+          "old": "x\u27e9",
+          "new": "div hinc _).mp hp"
+        },
+        {
+          "start": 5157,
+          "old": "c",
+          "new": ""
+        },
+        {
+          "start": 5160,
+          "old": "ng",
+          "new": "v"
+        },
+        {
+          "start": 5163,
+          "old": "",
+          "new": " hx' :"
+        },
+        {
+          "start": 5168,
+          "old": "",
+          "new": ":= (left_"
+        },
+        {
+          "start": 5169,
+          "old": "",
+          "new": "pply f g \u03c4 \u03b1 hdiv hinc \u27e8(x,y),hp\u27e9).symm."
+        },
+        {
+          "start": 5170,
+          "old": "",
+          "new": "rans"
+        },
+        {
+          "start": 5511,
+          "old": "",
+          "new": "apply hinj\n  "
+        },
+        {
+          "start": 5517,
+          "old": "",
+          "new": "(kernelMap_snd_val f g \u03c4 \u03b1 hdiv "
+        },
+        {
+          "start": 5520,
+          "old": "j",
+          "new": "c"
+        },
+        {
+          "start": 5522,
+          "old": "",
+          "new": "y).symm.trans\n    ("
+        },
+        {
+          "start": 5560,
+          "old": "",
+          "new": ").trans\n      (kernelMap_snd_val f g \u03c4 \u03b1 hdiv hinc z)"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean": {
+      "before_sha256": "9a968f525ebb1e24916ab6e9eb2bca24ffaf3d77a1c162e9d2946c9ad2d52ac6",
+      "after_sha256": "fbf00a7a1032c4c424977f4d1fa88353aa35d776435eed89b96db17f389939c7",
+      "edits": [
+        {
+          "start": 1234,
+          "old": "",
+          "new": " rfl\n\n/-- Composition of graded sheaf maps is pointwise composition at vertices. -/\n@[simp] theorem Hom.comp_vertex_apply {D : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G}\n    (g : Hom C D) (f : Hom B C) (x : V) (v : B.vertex x) :\n    ((g.comp f).vertex x).map v = (g.vertex x).map ((f.vertex x).map v) := by rfl\n\n/-- Composition on edges has the same evaluation convention. -/\n@[simp] theorem Hom.comp_edge_apply {D : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G}\n    (g : Hom C D) (f : Hom B C) (e : E) (v : B.edge e) :\n    ((g.comp f).edge e).map v = (g.edge e).map ((f.edge e).map v) := by"
+        },
+        {
+          "start": 4737,
+          "old": "",
+          "new": "/-- Taking sections preserves composition of sheaf maps. -/\ntheorem Hom.sectionMap_comp {D : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G}\n    (g : Hom C D) (f : Hom B C) (\u03a9 : Set V) :\n    (g.comp f).sectionMap \u03a9 = (g.sectionMap \u03a9).comp (f.sectionMap \u03a9) := by\n  apply LinearMap.ext\n  intro m\n  apply Subtype.ext\n  funext x\n  simp only [LinearMap.comp_apply, Hom.sectionMap_apply]\n  exact Hom.comp_vertex_apply g f x (m.val x)\n\n/-- Taking sections preserves the identity map. -/\n@[simp] theorem Hom.sectionMap_id (B : GradedSheaf (\ud835\udcd0 := \ud835\udcd0) G) (\u03a9 : Set V) :\n    (Hom.id B).sectionMap \u03a9 = LinearMap.id := by\n  apply LinearMap.ext\n  intro m\n  apply Subtype.ext\n  rfl\n\n/-- The two maps of a splitting compose to the identity sheaf map. -/\ntheorem SplitIn.projection_comp_inclusion (s : SplitIn B C) :\n    s.projection.comp s.inclusion = Hom.id B := by\n  apply Hom.eq_of_maps\n  \u00b7 intro x v\n    exact (Hom.comp_vertex_apply _ _ x v).trans (s.vertex_split x v)\n  \u00b7 intro e v\n    exact (Hom.comp_edge_apply _ _ e v).trans (s.edge_split e v)\n\n"
+        },
+        {
+          "start": 5242,
+          "old": "",
+          "new": "change ((s.projection.sectionM"
+        },
+        {
+          "start": 5244,
+          "old": "",
+          "new": " \u03a9).com"
+        },
+        {
+          "start": 5245,
+          "old": "",
+          "new": " (s.inc"
+        },
+        {
+          "start": 5246,
+          "old": "y",
+          "new": "usion.sectionMap"
+        },
+        {
+          "start": 5248,
+          "old": "Subtype.ext",
+          "new": "\u03a9)) f = f"
+        },
+        {
+          "start": 5262,
+          "old": "f",
+          "new": "rw [\u2190 Hom.sectionMap_comp, s.projection_comp_incl"
+        },
+        {
+          "start": 5264,
+          "old": "",
+          "new": "sio"
+        },
+        {
+          "start": 5265,
+          "old": "",
+          "new": ", Hom.s"
+        },
+        {
+          "start": 5266,
+          "old": "x",
+          "new": "c"
+        },
+        {
+          "start": 5268,
+          "old": " x",
+          "new": "ionMap_id]"
+        },
+        {
+          "start": 5273,
+          "old": "exact s.ve",
+          "new": ""
+        },
+        {
+          "start": 5284,
+          "old": "tex_sp",
+          "new": "f"
+        },
+        {
+          "start": 5291,
+          "old": "it x (f.val x)",
+          "new": ""
+        },
+        {
+          "start": 6219,
+          "old": "_",
+          "new": "e"
+        },
+        {
+          "start": 6221,
+          "old": "_",
+          "new": "v"
+        },
+        {
+          "start": 6226,
+          "old": "",
+          "new": "(ModuleData."
+        },
+        {
+          "start": 6227,
+          "old": "f",
+          "new": "angeInc"
+        },
+        {
+          "start": 6229,
+          "old": "",
+          "new": "usion_apply (h.edge e) _).trans\n    ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.lower e) (h.lower e) v).trans\n      (congrArg (B.lower e).map (ModuleData.rangeInclusion_apply (h.vertex _) v)).symm)"
+        },
+        {
+          "start": 6238,
+          "old": "_",
+          "new": "e"
+        },
+        {
+          "start": 6240,
+          "old": "_",
+          "new": "v"
+        },
+        {
+          "start": 6245,
+          "old": "",
+          "new": "(ModuleData."
+        },
+        {
+          "start": 6246,
+          "old": "f",
+          "new": "angeInc"
+        },
+        {
+          "start": 6248,
+          "old": "",
+          "new": "usion_apply (h.edge e) _).trans\n    ((ModuleData.rangeMap_val (h.vertex _) (h.edge e) (B.upper e) (h.upper e) v).trans\n      (congrArg (B.upper e).map (ModuleData.rangeInclusion_apply (h.vertex _) v)).symm)"
+        },
+        {
+          "start": 6440,
+          "old": "S",
+          "new": "(Mod"
+        },
+        {
+          "start": 6442,
+          "old": "b",
+          "new": "leDa"
+        },
+        {
+          "start": 6444,
+          "old": "y",
+          "new": "a.rangeMa"
+        },
+        {
+          "start": 6446,
+          "old": "",
+          "new": "_proj"
+        },
+        {
+          "start": 6447,
+          "old": "",
+          "new": "ction (h.vertex _) (h"
+        },
+        {
+          "start": 6449,
+          "old": "xt",
+          "new": "dge e) (B.lower e)"
+        },
+        {
+          "start": 6462,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "start": 6465,
+          "old": "",
+          "new": ".symm"
+        },
+        {
+          "start": 6481,
+          "old": "S",
+          "new": "(Mod"
+        },
+        {
+          "start": 6483,
+          "old": "b",
+          "new": "leDa"
+        },
+        {
+          "start": 6485,
+          "old": "y",
+          "new": "a.rangeMap_projection (h.vertex _) (h.edge e) (B.up"
+        },
+        {
+          "start": 6488,
+          "old": ".",
+          "new": "r "
+        },
+        {
+          "start": 6490,
+          "old": "xt",
+          "new": ")"
+        },
+        {
+          "start": 6503,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "start": 6506,
+          "old": "",
+          "new": ".symm"
+        },
+        {
+          "start": 6817,
+          "old": "o",
+          "new": "apply Su"
+        },
+        {
+          "start": 6820,
+          "old": "",
+          "new": "ype.ext\n    ex"
+        },
+        {
+          "start": 6821,
+          "old": "",
+          "new": "ct (ModuleData.rangeProject"
+        },
+        {
+          "start": 6822,
+          "old": "",
+          "new": "o"
+        },
+        {
+          "start": 6823,
+          "old": "",
+          "new": "_val"
+        },
+        {
+          "start": 6824,
+          "old": "\u27e8",
+          "new": "(h.vertex x) _).trans\n      ((congrArg (h.vertex x)."
+        },
+        {
+          "start": 6826,
+          "old": ",",
+          "new": "ap (ModuleData.rangeInclusion_apply ("
+        },
+        {
+          "start": 6828,
+          "old": "m\u27e9",
+          "new": ".vertex x) v)).trans\n        (ModuleData.range_fixed (h.vertex x) (hv x) v))\n  edge_split e v"
+        },
+        {
+          "start": 6834,
+          "old": "v.propert",
+          "new": "b"
+        },
+        {
+          "start": 6871,
+          "old": "",
+          "new": "exa"
+        },
+        {
+          "start": 6872,
+          "old": "h",
+          "new": "t (ModuleData.r"
+        },
+        {
+          "start": 6877,
+          "old": "",
+          "new": "Projection_val"
+        },
+        {
+          "start": 6881,
+          "old": "v",
+          "new": ""
+        },
+        {
+          "start": 6883,
+          "old": "rt",
+          "new": "dg"
+        },
+        {
+          "start": 6886,
+          "old": "x",
+          "new": ""
+        },
+        {
+          "start": 6888,
+          "old": "x",
+          "new": "e) _"
+        },
+        {
+          "start": 6891,
+          "old": "m",
+          "new": "tr"
+        },
+        {
+          "start": 6893,
+          "old": "p v.val=v.val",
+          "new": "ns"
+        },
+        {
+          "start": 6911,
+          "old": "rw [\u2190 hm,hv]\n",
+          "new": ""
+        },
+        {
+          "start": 6926,
+          "old": "edge_split e v := by\n    ",
+          "new": "((c"
+        },
+        {
+          "start": 6952,
+          "old": "btain \u27e8m,hm\u27e9 := v.property\n    apply Subtype.ext\n    cha",
+          "new": ""
+        },
+        {
+          "start": 7010,
+          "old": "e",
+          "new": "rArg"
+        },
+        {
+          "start": 7027,
+          "old": "",
+          "new": "(ModuleData.rangeInclusion_apply (h.edge e) "
+        },
+        {
+          "start": 7028,
+          "old": "",
+          "new": "))"
+        },
+        {
+          "start": 7029,
+          "old": "v",
+          "new": "tr"
+        },
+        {
+          "start": 7031,
+          "old": "l=v.val",
+          "new": "ns"
+        },
+        {
+          "start": 7043,
+          "old": "",
+          "new": "    (ModuleData."
+        },
+        {
+          "start": 7044,
+          "old": "w",
+          "new": "ange_fixed"
+        },
+        {
+          "start": 7046,
+          "old": "[\u2190",
+          "new": "(h.edge"
+        },
+        {
+          "start": 7049,
+          "old": "hm,",
+          "new": "e) ("
+        },
+        {
+          "start": 7054,
+          "old": "]",
+          "new": " e) v))"
+        },
+        {
+          "start": 7745,
+          "old": "",
+          "new": "rw [H"
+        },
+        {
+          "start": 7746,
+          "old": "b",
+          "new": "m.sec"
+        },
+        {
+          "start": 7748,
+          "old": "",
+          "new": "ionM"
+        },
+        {
+          "start": 7749,
+          "old": "",
+          "new": "p_apply, Hom.sect"
+        },
+        {
+          "start": 7750,
+          "old": "",
+          "new": "o"
+        },
+        {
+          "start": 7751,
+          "old": " \u27e8v,hv'\u27e9 := (f.v",
+          "new": "M"
+        },
+        {
+          "start": 7768,
+          "old": "",
+          "new": "p_app"
+        },
+        {
+          "start": 7769,
+          "old": " x).propert",
+          "new": ""
+        },
+        {
+          "start": 7781,
+          "old": "",
+          "new": "]"
+        },
+        {
+          "start": 7784,
+          "old": "",
+          "new": "exa"
+        },
+        {
+          "start": 7785,
+          "old": "ha",
+          "new": "t (co"
+        },
+        {
+          "start": 7789,
+          "old": "e",
+          "new": "rArg"
+        },
+        {
+          "start": 7809,
+          "old": "f",
+          "new": "ModuleData.rangeInclusion_apply (h"
+        },
+        {
+          "start": 7812,
+          "old": "al",
+          "new": "ertex"
+        },
+        {
+          "start": 7817,
+          "old": ".val=",
+          "new": " "
+        },
+        {
+          "start": 7831,
+          "old": "",
+          "new": ")).trans\n    ((ModuleData.range_fixed (h.vertex x) (hv x) (f"
+        },
+        {
+          "start": 7835,
+          "old": "",
+          "new": " x)).trans"
+        },
+        {
+          "start": 7838,
+          "old": "",
+          "new": "    (ModuleData."
+        },
+        {
+          "start": 7839,
+          "old": "w",
+          "new": "angeInclusion_apply"
+        },
+        {
+          "start": 7841,
+          "old": "[\u2190",
+          "new": "(h.vertex"
+        },
+        {
+          "start": 7844,
+          "old": "h",
+          "new": "x) (f."
+        },
+        {
+          "start": 7846,
+          "old": "',hv]",
+          "new": "al x)).symm)"
+        },
+        {
+          "start": 9486,
+          "old": "",
+          "new": "/-- The projector of a splitting is inclusion after projection at each vertex. -/\n@[simp] theorem SplitIn.projector_apply_vertex (x : V) (v : C.vertex x) :\n    (s.projector.vertex x).map v = (s.inclusion.vertex x).map ((s.projection.vertex x).map v) := by\n  exact Hom.comp_vertex_apply _ _ x v\n\nomit [IsNoetherianRing A] in\n/-- The same projector convention holds at every edge. -/\n@[simp] theorem SplitIn.projector_apply_edge (e : E) (v : C.edge e) :\n    (s.projector.edge e).map v = (s.inclusion.edge e).map ((s.projection.edge e).map v) := by\n  exact Hom.comp_edge_apply _ _ e v\n\nomit [IsNoetherianRing A] in\n"
+        },
+        {
+          "start": 9646,
+          "old": "change (s.inclu",
+          "new": ""
+        },
+        {
+          "start": 9663,
+          "old": "",
+          "new": "mp "
+        },
+        {
+          "start": 9665,
+          "old": ".vertex",
+          "new": "ly"
+        },
+        {
+          "start": 9673,
+          "old": "x).map ((",
+          "new": "["
+        },
+        {
+          "start": 9691,
+          "old": "i",
+          "new": ""
+        },
+        {
+          "start": 9693,
+          "old": "n.",
+          "new": "r_apply_"
+        },
+        {
+          "start": 9701,
+          "old": "",
+          "new": ","
+        },
+        {
+          "start": 9702,
+          "old": "x).map\n    ((s.inclusion.vertex x).map ((s.projection.vertex x).map v)))=_\n  rw [",
+          "new": ""
+        },
+        {
+          "start": 9798,
+          "old": "\n  rfl",
+          "new": ""
+        },
+        {
+          "start": 9985,
+          "old": "change (s.inclu",
+          "new": ""
+        },
+        {
+          "start": 10002,
+          "old": "",
+          "new": "mp "
+        },
+        {
+          "start": 10004,
+          "old": ".edge",
+          "new": "ly"
+        },
+        {
+          "start": 10010,
+          "old": "e).map ((",
+          "new": "["
+        },
+        {
+          "start": 10028,
+          "old": "i",
+          "new": ""
+        },
+        {
+          "start": 10030,
+          "old": "n.",
+          "new": "r_apply_"
+        },
+        {
+          "start": 10036,
+          "old": "",
+          "new": ","
+        },
+        {
+          "start": 10037,
+          "old": "e).map\n    ((s.inclusion.edge e).map ((s.projection.edge e).map v)))=_\n  rw [",
+          "new": ""
+        },
+        {
+          "start": 10127,
+          "old": "\n  rfl",
+          "new": ""
+        }
+      ]
+    },
+    "ForMathlib/LinearAlgebra/KernelCoordinates.lean": {
+      "before_sha256": "0be150b1137177b69eb400a6e327a810e65bbfe656dfdae65bd1f50eba22cbbc",
+      "after_sha256": "39af3789b514e6a918d6047dc0b5dbafe019470f33dee2781e7dcac572bed49a",
+      "edits": [
+        {
+          "start": 3034,
+          "old": "ex",
+          "new": ""
+        },
+        {
+          "start": 3037,
+          "old": "ct",
+          "new": "pply"
+        },
+        {
+          "start": 3049,
+          "old": "",
+          "new": "\n  apply hf\n  exact"
+        },
+        {
+          "start": 3051,
+          "old": "h",
+          "new": "twistMap_val \u03c4 "
+        },
+        {
+          "start": 3054,
+          "old": "",
+          "new": "m).symm.trans\n    ("
+        },
+        {
+          "start": 3075,
+          "old": "",
+          "new": ").trans (twistMap_val \u03c4 f n"
+        }
+      ]
+    }
+  }
+}

@@ -58,8 +58,15 @@ noncomputable section
  @[expose] def changeHom {M N : ModuleData.{uk,ua,um} 𝓐} (f : Hom M N) :
     Hom (change e he M) (change e he N) where
   map := CoefficientChange.map e f.map
-  graded n m hm := (mem_changePiece e N n _).mpr
-    (f.graded n m.val ((mem_changePiece e M n m).mp hm))
+  graded n m hm := by
+    apply (mem_changePiece e N n _).mpr
+    exact (CoefficientChange.val_map e f.map m).symm ▸
+      f.graded n m.val ((mem_changePiece e M n m).mp hm)
+
+ /-- Graded coefficient transport evaluates through the original homomorphism. -/
+ @[simp] theorem val_changeHom {M N : ModuleData.{uk,ua,um} 𝓐} (f : Hom M N)
+     (m : change e he M) : (changeHom e he f |>.map m).val = f.map m.val := by
+   exact CoefficientChange.val_map e f.map m
 
  theorem change_free (M : ModuleData.{uk,ua,um} 𝓐) [Module.Free A M] :
     Module.Free B (change e he M) := inferInstanceAs (Module.Free B (CoefficientChange e M))

@@ -1,0 +1,13 @@
+F......
+======================================================================
+FAIL: test_exact_complete_region_roundtrips (__main__.RolloutTests.test_exact_complete_region_roundtrips)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_module_rollout.py", line 12, in test_exact_complete_region_roundtrips
+    self.assertEqual((m.HERE/path).read_bytes(),after)
+AssertionError: b'mod[1334 chars]m\n\n/-- The range factorization of an endomor[4585 chars]AI\n' != b'mod[1334 chars]m\n\nend\nend KLInvariance.Graded.ModuleData\n[2976 chars]AI\n'
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.826s
+
+FAILED (failures=1)

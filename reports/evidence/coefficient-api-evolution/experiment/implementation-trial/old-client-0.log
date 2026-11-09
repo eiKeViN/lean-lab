@@ -1,0 +1,25 @@
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:255:16: error: Type mismatch
+  (ModuleData.mem_changePiece e (S.vertex x) j (↑n x)).mp (hn x)
+has type
+  (↑n x).val ∈ (S.vertex x).piece j
+but is expected to have type
+  ↑?m.275 x ∈ (S.vertex x).piece j
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:257:4: error: 'change' tactic failed, pattern
+  DFunLike.coe.{ua + 1, ua + 1, ua + 1} e ((p.pairing ?m.343) ?m.345) = 0
+is not definitionally equal to target
+  DFunLike.coe.{max (ua + 1) (um + 1), max (ua + 1) (um + 1), ua + 1}
+      (((coefficientChangeSections e he S Set.univ).symm ≪≫ₗ
+          (CoefficientChange.pairingEquiv e p.pairing ≪≫ₗ (coefficientChangeSections e he S Set.univ).symm.dualMap))
+        m)
+      n =
+    0
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:264:4: error: 'change' tactic failed, pattern
+  DFunLike.coe.{ua + 1, ua + 1, ua + 1} e ((p.pairing ?m.364) ?m.366) = 0
+is not definitionally equal to target
+  DFunLike.coe.{max (ua + 1) (um + 1), max (ua + 1) (um + 1), ua + 1}
+      (((coefficientChangeSections e he S Set.univ).symm ≪≫ₗ
+          (CoefficientChange.pairingEquiv e p.pairing ≪≫ₗ (coefficientChangeSections e he S Set.univ).symm.dualMap))
+        m)
+      n =
+    0
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:246:15: error: (kernel) declaration has metavariables 'OAI.KLInvariance.MomentGraph.GradedSheaf.PerfectPairing.coefficientChange'

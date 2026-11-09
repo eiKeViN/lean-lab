@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/semantic_api.py", line 105, in <module>
+    print(json.dumps(compare_main(sys.argv[1]),indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/semantic_api.py", line 99, in compare_main
+    raise RuntimeError('Unapproved change from accepted main: '+json.dumps(raw))
+RuntimeError: Unapproved change from accepted main: {"old_count": 3940, "new_count": 3946, "missing": ["OAI.KLInvariance.MomentGraph.Sheaf.baseChangeQuotient.eq_1"], "added": ["OAI.KLInvariance.CoefficientChange.map_id_apply", "OAI.KLInvariance.CoefficientChange.val_map", "OAI.KLInvariance.LocalCover.splitEquiv.congr_simp", "OAI.KLInvariance.LocalCover.splitEquiv_apply_fst", "OAI.KLInvariance.LocalCover.splitEquiv_apply_snd_coe", "OAI.KLInvariance.LocalCover.splitEquiv_symm_apply", "OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback_apply"], "changed": [], "relocated": 0, "passed": false}

@@ -33,6 +33,39 @@ noncomputable section
   map := e.map.rangeRestrict
   graded n m hm := e.graded n m hm
 
+/-- The range factorization of an endomorphism retains its value. -/
+@[simp] theorem rangeProjection_val (e : Hom M M) (v : M) :
+    ((rangeProjection e).map v).val = e.map v := by rfl
+
+/-- A commuting square induces a commuting square on the range projections. -/
+theorem rangeMap_projection (e : Hom M M) (f : Hom N N) (g : Hom M N)
+    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (m : M) :
+    (rangeMap e f g h).map ((rangeProjection e).map m) =
+      (rangeProjection f).map (g.map m) := by
+  apply Subtype.ext
+  exact (h m).symm
+
+/-- The map induced on ranges agrees with the original commuting map. -/
+@[simp] theorem rangeMap_val (e : Hom M M) (f : Hom N N) (g : Hom M N)
+    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (v : range e) :
+    ((rangeMap e f g h).map v).val = g.map v.val := by
+  obtain ⟨m,hm⟩ := v.property
+  have hv : v = (rangeProjection e).map m := Subtype.ext hm.symm
+  rw [hv]
+  exact (congrArg (fun w : range f => w.val) (rangeMap_projection e f g h m)).trans
+    ((rangeProjection_val f (g.map m)).trans
+      ((h m).trans (congrArg g.map (rangeProjection_val e m)).symm))
+
+/-- Inclusion of a range is its underlying vector. -/
+@[simp] theorem rangeInclusion_apply (e : Hom M M) (v : range e) :
+    (rangeInclusion e).map v = v.val := by rfl
+
+/-- An idempotent acts as the identity on its range. -/
+theorem range_fixed (e : Hom M M) (he : ∀ v, e.map (e.map v)=e.map v)
+    (v : range e) : e.map v.val = v.val := by
+  obtain ⟨m,hm⟩ := v.property
+  rw [← hm,he]
+
 end
 end KLInvariance.Graded.ModuleData
 end
@@ -48,6 +81,55 @@ variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
   cases g
   cases h
   rfl
+end KLInvariance.Graded.ModuleData
+end
+
+
+section
+namespace KLInvariance.Graded.ModuleData
+universe uk ua um
+variable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]
+  {𝓐 : ℤ → Submodule k A} [IsNoetherianRing A]
+  {M N P : ModuleData.{uk,ua,um} 𝓐}
+noncomputable section
+
+/-- Induction on ranges preserves the identity commuting square. -/
+@[simp] theorem rangeMap_id (e : Hom M M) :
+    rangeMap e e (Hom.id M) (fun _ => rfl) = Hom.id (range e) := by
+  apply Hom.eq_of_map_eq
+  apply LinearMap.ext
+  intro v
+  apply Subtype.ext
+  exact rangeMap_val _ _ _ _ v
+
+/-- Composing commuting squares composes their induced maps on ranges. -/
+theorem rangeMap_comp (e : Hom M M) (f : Hom N N) (q : Hom P P)
+    (g : Hom M N) (h : Hom N P)
+    (hg : ∀ m, f.map (g.map m)=g.map (e.map m))
+    (hh : ∀ n, q.map (h.map n)=h.map (f.map n)) :
+    rangeMap e q (h.comp g) (fun m => (hh (g.map m)).trans (congrArg h.map (hg m))) =
+      (rangeMap f q h hh).comp (rangeMap e f g hg) := by
+  apply Hom.eq_of_map_eq
+  apply LinearMap.ext
+  intro v
+  apply Subtype.ext
+  change ((rangeMap e q (h.comp g) _).map v).val =
+    ((rangeMap f q h hh).map ((rangeMap e f g hg).map v)).val
+  exact (rangeMap_val _ _ _ _ v).trans
+    ((congrArg h.map (rangeMap_val e f g hg v)).symm.trans
+      (rangeMap_val f q h hh ((rangeMap e f g hg).map v)).symm)
+
+/-- The inclusion of a range intertwines its induced map with the original map. -/
+theorem rangeInclusion_comp_rangeMap (e : Hom M M) (f : Hom N N) (g : Hom M N)
+    (hg : ∀ m, f.map (g.map m)=g.map (e.map m)) :
+    (rangeInclusion f).comp (rangeMap e f g hg) = g.comp (rangeInclusion e) := by
+  apply Hom.eq_of_map_eq
+  apply LinearMap.ext
+  intro v
+  exact (rangeInclusion_apply _ _).trans ((rangeMap_val _ _ _ _ v).trans
+    (congrArg g.map (rangeInclusion_apply _ v)).symm)
+
+end
 end KLInvariance.Graded.ModuleData
 end
 

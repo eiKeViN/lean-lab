@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,semantic_api; path=semantic_api.structure_audit(semantic_api.ROOT/\"results/semantic-api/SemanticApiStructureCompat.lean\"); subprocess.run([\"lake\",\"env\",\"lean\",path],check=True)"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 6.809632894999595,
+  "user_seconds": 6.467405,
+  "system_seconds": 1.146845,
+  "max_rss_kib": 5453408
+}

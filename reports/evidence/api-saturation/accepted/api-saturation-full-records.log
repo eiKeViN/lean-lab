@@ -1,0 +1,109 @@
+{
+  "raw": {
+    "old_count": 4001,
+    "new_count": 4014,
+    "missing": [],
+    "added": [
+      "OAI.KLInvariance.Graded.ModuleData.rangeInclusion_comp_rangeMap",
+      "OAI.KLInvariance.Graded.ModuleData.rangeMap_comp",
+      "OAI.KLInvariance.Graded.ModuleData.rangeMap_id",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_assoc",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_id",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_inverse",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.id_comp",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageInclusion_comp_imageProjection",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionMap_val",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSplit_projector",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.inverse_comp",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.downEnd_comp",
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_downEnd"
+    ],
+    "changed": [],
+    "relocated": 0,
+    "passed": false
+  },
+  "registry": {
+    "mathematical": {
+      "OAI.KLInvariance.Graded.ModuleData.rangeMap_id": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "7088508aeb9e1543212a79f68f4f05848b1c49b0cdb12fb777a64b6e4ca0176b",
+        "kind": "theorem",
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+      },
+      "OAI.KLInvariance.Graded.ModuleData.rangeMap_comp": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "371031d294239458050727b203ec5f91ed95e98869feb77e2ad6814e8c9c5a7f",
+        "kind": "theorem",
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+      },
+      "OAI.KLInvariance.Graded.ModuleData.rangeInclusion_comp_rangeMap": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "bf4f91436a81db222af0a0d3e0ebc87bfb40a9d2103263eebaacc0c4ee7aac08",
+        "kind": "theorem",
+        "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_assoc": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "3f9ea947fb4954da815e2d5f4bda4e461436b229ca1f81db2fbe239d71a29a6a",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.id_comp": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "7b58d4586477f59f0c4140f96d7f671a0a8f5ff48383dd1d57e5a57e07927b00",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_id": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "017da9675f14feaf84e8ded59d2bacb37835e17bed432f536614ea58adc6e50f",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.inverse_comp": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "cd4ac23c2463c5acd79d58a0470033e4b7a3fbbf29eb7f0deda8376801eb99e6",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_inverse": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "fcb347b686a592caadaf3a13cfd2c73ee8ec863e914972e60dc62bb7fc602321",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageInclusion_comp_imageProjection": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "742c5bad4913cae15f333c1ba026339ad036d66417dcdbc0040412229d548933",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionMap_val": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "91f8f4f01eb9ce5119d5788a64432fe6e92559407d1b4e8a37afb05e7442f9a6",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSplit_projector": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "c5b83cf0767c2dd70ceaaa7218284ee136b23241552344200485c05bdec2ca51",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.downEnd_comp": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "d8e26ade78a2ced455014a75945fead631309d3dc414e848f550b18b970d174b",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      },
+      "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_downEnd": {
+        "levels": "\"[`uk, `ua, `um]\"",
+        "type": "eafea2e74d08156f0b018a3314afba41fe40aecc64af77d5ba6ff1cb1b64778e",
+        "kind": "theorem",
+        "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+      }
+    },
+    "generated": {}
+  },
+  "passed": true
+}

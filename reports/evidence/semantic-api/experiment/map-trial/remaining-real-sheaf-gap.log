@@ -1,0 +1,138 @@
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:138:37: error: Application type mismatch: The argument
+  g.lower f m.val
+has type
+  (g.edge f).map ((S.lower f).map m.val) = (T.lower f).map ((g.vertex (G.source f)).map m.val)
+but is expected to have type
+  ((ModuleData.changeHom e he (g.edge f)).map (((GradedSheaf.coefficientChange e he S).lower f).map m)).val =
+    (((GradedSheaf.coefficientChange e he T).lower f).map
+        ((ModuleData.changeHom e he (g.vertex (G.source f))).map m)).val
+in the application
+  CoefficientChange.ext (g.lower f m.val)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  CoefficientChange.map ↦ 9
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:139:37: error: Application type mismatch: The argument
+  g.upper f m.val
+has type
+  (g.edge f).map ((S.upper f).map m.val) = (T.upper f).map ((g.vertex (G.target f)).map m.val)
+but is expected to have type
+  ((ModuleData.changeHom e he (g.edge f)).map (((GradedSheaf.coefficientChange e he S).upper f).map m)).val =
+    (((GradedSheaf.coefficientChange e he T).upper f).map
+        ((ModuleData.changeHom e he (g.vertex (G.target f))).map m)).val
+in the application
+  CoefficientChange.ext (g.upper f m.val)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  CoefficientChange.map ↦ 9
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:156:74: error: Application type mismatch: The argument
+  hm
+has type
+  ((coefficientChange e he S).upper f).map m = 0
+but is expected to have type
+  { val := (S.upper f).map m.val } = { val := 0 }
+in the application
+  congrArg CoefficientChange.val hm
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  CoefficientChange.map ↦ 17
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:163:6: error: 'change' tactic failed, pattern
+  (S.upper f).map (e.symm (e (α f)) • n.val) = 0
+is not definitionally equal to target
+  (((coefficientChange e he S).upper f).map ((fun f => e (α f)) f • n)).val = CoefficientChange.val 0
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:171:35: error: Application type mismatch: The argument
+  hf q hs ht
+has type
+  ((coefficientChange e he S).forget.lower q) (f (G.source q)) =
+    ((coefficientChange e he S).forget.upper q) (f (G.target q))
+but is expected to have type
+  { val := (S.forget.lower q) ((fun x => (f x).val) (G.source q)) } =
+    { val := (S.forget.upper q) ((fun x => (f x).val) (G.target q)) }
+in the application
+  congrArg CoefficientChange.val (hf q hs ht)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  CoefficientChange.map ↦ 17
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:168:48: error: unsolved goals
+k : Type uk
+inst✝⁵ : Field k
+A B : Type ua
+inst✝⁴ : CommRing A
+inst✝³ : CommRing B
+inst✝² : Algebra k A
+inst✝¹ : Algebra k B
+𝓐 : ℤ → Submodule k A
+𝓑 : ℤ → Submodule k B
+e : A ≃ₐ[k] B
+he : ∀ (n : ℤ) (a : A), a ∈ 𝓐 n ↔ e a ∈ 𝓑 n
+V E : Type um
+inst✝ : PartialOrder V
+G : OrderedGraph V E
+S : GradedSheaf G
+hS : S.forget.Flabby
+U : Set V
+hU : IsUpperSet U
+f : (coefficientChange e he S).forget.Assignment
+hf : (coefficientChange e he S).forget.CompatibleOn U f
+⊢ ∃ g, (coefficientChange e he S).forget.IsGlobal g ∧ ∀ x ∈ U, g x = f x
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:185:30: error: Application type mismatch: The argument
+  hg q hs ht
+has type
+  (S.forget.lower q) (g (G.source q)) = (S.forget.upper q) (g (G.target q))
+but is expected to have type
+  (((coefficientChange e he S).forget.lower q) ((fun x => { val := g x }) (G.source q))).val =
+    (((coefficientChange e he S).forget.upper q) ((fun x => { val := g x }) (G.target q))).val
+in the application
+  CoefficientChange.ext (hg q hs ht)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  CoefficientChange.map ↦ 9
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:190:26: error: Application type mismatch: The argument
+  m.val.property q hs ht
+has type
+  (S.forget.lower q) (↑m.val (G.source q)) = (S.forget.upper q) (↑m.val (G.target q))
+but is expected to have type
+  (((coefficientChange e he S).forget.lower q) ((fun x => { val := ↑m.val x }) (G.source q))).val =
+    (((coefficientChange e he S).forget.upper q) ((fun x => { val := ↑m.val x }) (G.target q))).val
+in the application
+  CoefficientChange.ext (m.val.property q hs ht)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  CoefficientChange.map ↦ 9
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:192:35: error: Application type mismatch: The argument
+  m.property q hs ht
+has type
+  ((coefficientChange e he S).forget.lower q) (↑m (G.source q)) =
+    ((coefficientChange e he S).forget.upper q) (↑m (G.target q))
+but is expected to have type
+  { val := (S.forget.lower q) ((fun x => (↑m x).val) (G.source q)) } =
+    { val := (S.forget.upper q) ((fun x => (↑m x).val) (G.target q)) }
+in the application
+  congrArg CoefficientChange.val (m.property q hs ht)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  CoefficientChange.map ↦ 17
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:255:16: error: Type mismatch
+  (ModuleData.mem_changePiece e (S.vertex x) j (↑n x)).mp (hn x)
+has type
+  (↑n x).val ∈ (S.vertex x).piece j
+but is expected to have type
+  ↑?m.275 x ∈ (S.vertex x).piece j
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:257:4: error: 'change' tactic failed, pattern
+  DFunLike.coe.{ua + 1, ua + 1, ua + 1} e ((p.pairing ?m.343) ?m.345) = 0
+is not definitionally equal to target
+  DFunLike.coe.{max (ua + 1) (um + 1), max (ua + 1) (um + 1), ua + 1}
+      (((coefficientChangeSections e he S Set.univ).symm ≪≫ₗ
+          (CoefficientChange.pairingEquiv e p.pairing ≪≫ₗ (coefficientChangeSections e he S Set.univ).symm.dualMap))
+        m)
+      n =
+    0
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:264:4: error: 'change' tactic failed, pattern
+  DFunLike.coe.{ua + 1, ua + 1, ua + 1} e ((p.pairing ?m.364) ?m.366) = 0
+is not definitionally equal to target
+  DFunLike.coe.{max (ua + 1) (um + 1), max (ua + 1) (um + 1), ua + 1}
+      (((coefficientChangeSections e he S Set.univ).symm ≪≫ₗ
+          (CoefficientChange.pairingEquiv e p.pairing ≪≫ₗ (coefficientChangeSections e he S Set.univ).symm.dualMap))
+        m)
+      n =
+    0
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean:246:15: error: (kernel) declaration has metavariables 'OAI.KLInvariance.MomentGraph.GradedSheaf.PerfectPairing.coefficientChange'

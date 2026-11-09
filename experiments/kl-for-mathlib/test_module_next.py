@@ -9,7 +9,7 @@ class NextChecks(unittest.TestCase):
         import re
         for p in m.PATHS:
             old=m.baseline(p);new=m.convert(p,old)
-            self.assertEqual((m.HERE/p).read_bytes(),new)
+            self.assertEqual(__import__('api_support').prior_source(p,(m.HERE/p).read_bytes()),new)
             self.assertEqual(m.legacy_source(p,new),old)
             strip=lambda b:re.sub(rb'(?m)^public import ',b'import ',b).replace(b'module\n',b'',1).replace(b'public section\n\n',b'',1).replace(b'@[expose] ',b'')
             self.assertEqual(strip(new),old)

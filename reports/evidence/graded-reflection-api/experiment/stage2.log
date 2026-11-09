@@ -1,0 +1,6 @@
+✔ [8926/8930] Built ForMathlib.Algebra.Module.ReflectionPair.Twist (5.4s)
+✔ [8927/8930] Built ForMathlib.Algebra.Module.ReflectionPair.TensorKernel (5.4s)
+✔ [8928/8930] Built ForMathlib.Algebra.Module.Projective.Transport (8.3s)
+✔ [8929/8930] Built ForMathlib.Algebra.Module.ReflectionPair.TensorDescent (6.5s)
+✔ [8930/8930] Built ForMathlib.LinearAlgebra.KernelCoordinates (6.9s)
+Build completed successfully (8930 jobs).

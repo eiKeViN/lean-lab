@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; subprocess.run([\"lake\",\"env\",\"lean\",\"SemanticApiChecks.lean\"],env=validate.serial_environment(),check=True)"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 138.27357529100004,
+  "user_seconds": 0.72843,
+  "system_seconds": 1.025958,
+  "max_rss_kib": 4033384
+}

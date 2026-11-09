@@ -1,0 +1,22 @@
+{
+  "old_count": 3989,
+  "new_count": 4001,
+  "missing": [],
+  "added": [
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionEquiv_val",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.compress_liftEnd",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_edge_apply",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_id",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_vertex_apply",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.singleSupportEquivDual_symm_homogeneous",
+    "OAI.KLInvariance.MomentGraph.Sheaf.kernelEquivSingleStalk_val",
+    "OAI.KLInvariance.MomentGraph.Sheaf.singleStalkEquivSupport_apply_self",
+    "OAI.KLInvariance.MomentGraph.Sheaf.singleStalkEquivSupport_symm_val",
+    "OAI.KLInvariance.MomentGraph.Sheaf.singleStalkEquivSupport_val",
+    "OAI.KLInvariance.MomentGraph.Sheaf.singleSupportEquivDual_pairing",
+    "OAI.KLInvariance.MomentGraph.Sheaf.singleSupportEquivDual_symm_pairing"
+  ],
+  "changed": [],
+  "relocated": 0,
+  "passed": false
+}

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "api_evolution_trial.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 32.862921509000444,
+  "user_seconds": 33.933377,
+  "system_seconds": 3.99893,
+  "max_rss_kib": 3178724
+}

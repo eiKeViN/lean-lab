@@ -1,0 +1,29 @@
+{
+  "old_count": 4001,
+  "new_count": 4020,
+  "missing": [],
+  "added": [
+    "OAI.KLInvariance.Graded.ModuleData.rangeInclusion_comp_rangeMap",
+    "OAI.KLInvariance.Graded.ModuleData.rangeMap.congr_simp",
+    "OAI.KLInvariance.Graded.ModuleData.rangeMap_comp",
+    "OAI.KLInvariance.Graded.ModuleData.rangeMap_id",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_assoc",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_id",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_inverse",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.id_comp",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageInclusion_comp_imageProjection",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionMap_val",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSplit_projector",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.inverse_comp",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.downEnd.eq_1",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.downEnd_comp",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.imageTo.eq_1",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd.eq_1",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_downEnd",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projector.eq_1",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.toImage.eq_1"
+  ],
+  "changed": [],
+  "relocated": 0,
+  "passed": false
+}

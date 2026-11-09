@@ -24,6 +24,14 @@ variable {R : Type u} [CommRing R] {V : Type v} [PartialOrder V]
   lower e := LinearMap.pi (fun i => ((B i).lower e).comp (LinearMap.proj i))
   upper e := LinearMap.pi (fun i => ((B i).upper e).comp (LinearMap.proj i))
 
+/-- Stalk constraints of a dependent product are coordinatewise constraints. -/
+@[simp] theorem pi_stalkMap_apply (B : ι → Sheaf.{u,v,w,z} (R := R) G)
+    (x : V) (f : (pi B).vertex x) (e : Outgoing (G := G) x) (i : ι) :
+    (pi B).stalkMap x f e i = (B i).stalkMap x (f i) e := by
+  rcases e with ⟨e,he⟩
+  subst x
+  rfl
+
 lemma pi_compatible (B : ι → Sheaf.{u,v,w,z} (R := R) G) (Ω : Set V)
     (f : (pi B).Assignment) :
     (pi B).CompatibleOn Ω f ↔ ∀ i, (B i).CompatibleOn Ω (fun x => f x i) := by
@@ -51,19 +59,13 @@ lemma pi_flabby (B : ι → Sheaf.{u,v,w,z} (R := R) G)
 lemma pi_kernel_iff (B : ι → Sheaf.{u,v,w,z} (R := R) G) (x : V)
     (f : (pi B).vertex x) :
     f ∈ LinearMap.ker ((pi B).stalkMap x) ↔ ∀ i, f i ∈ LinearMap.ker ((B i).stalkMap x) := by
+  simp only [← upwardKernel_univ, mem_upwardKernel_iff]
   constructor
-  · intro h i
-    apply LinearMap.mem_ker.mpr
-    funext e
-    rcases e with ⟨e,he⟩
-    subst x
-    exact congrFun (congrFun (LinearMap.mem_ker.mp h) ⟨e,rfl⟩) i
-  · intro h
-    apply LinearMap.mem_ker.mpr
-    funext e i
-    rcases e with ⟨e,he⟩
-    subst x
-    exact congrFun (LinearMap.mem_ker.mp (h i)) ⟨e,rfl⟩
+  · intro h i e he
+    exact (pi_stalkMap_apply B x f e i).symm.trans (congrFun (h e he) i)
+  · intro h e he
+    funext i
+    exact (pi_stalkMap_apply B x f e i).trans (h i e he)
 
 end KLInvariance.MomentGraph.Sheaf
 end

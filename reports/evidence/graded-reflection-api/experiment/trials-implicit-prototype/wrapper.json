@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "graded_reflection_trial.py"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 8.047321538000688,
+  "user_seconds": 8.185676,
+  "system_seconds": 1.148536,
+  "max_rss_kib": 3100384
+}

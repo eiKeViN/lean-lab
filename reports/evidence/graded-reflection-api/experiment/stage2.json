@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; subprocess.run([\"lake\",\"build\",\"ForMathlib.Algebra.Module.ReflectionPair.TensorDescent\",\"ForMathlib.LinearAlgebra.KernelCoordinates\"],env=validate.serial_environment(),check=True)"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 24.19992758799708,
+  "user_seconds": 25.132578,
+  "system_seconds": 4.685601,
+  "max_rss_kib": 3142300
+}

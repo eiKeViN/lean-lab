@@ -1,0 +1,196 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.930487116000222,
+    "source_sha256": "c6549822f37ab791009f05de4b70ea59e2b6f127e6e8e9026f28a9c0fcb19685"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.362144464999801,
+    "source_sha256": "0f468bce669a2055e0ac7a695929b7f4303e8bbd339a8c655a1ab0e5f8a77492"
+  },
+  {
+    "label": "frozen-new-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/frozen-new-0.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.0423640070002875,
+    "source_sha256": "c40286e742e0a90b267847be3b7a584d757c25da07bb0ad32709fa1e5540912e"
+  },
+  {
+    "label": "frozen-new-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/frozen-new-1.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.508757023000726,
+    "source_sha256": "8b4d38099794b38f1bc5f7db9018c0e02d696d8987238d2f3c52413e88982e94"
+  },
+  {
+    "label": "frozen-new-2",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/frozen-new-2.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.476400321998881,
+    "source_sha256": "fe217387d3389f179b4c6a3a0fbd8723447ba0a7fb525cc5e567eb9a3ffbc1b5"
+  },
+  {
+    "label": "frozen-new-3",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/frozen-new-3.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.2830371300005936,
+    "source_sha256": "b7ffffa4ddd382c69dbb9e9a3acf627b686b81cb58e2443ffb6f853fc89cf2e5"
+  },
+  {
+    "label": "frozen-new-4",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/frozen-new-4.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.356307752999783,
+    "source_sha256": "e85e2b777063b8586d1a676ea78125e89c19084d32f74e86d38183a7b374469c"
+  },
+  {
+    "label": "frozen-new-5",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/frozen-new-5.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/artifacts/ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.977399002000311,
+    "source_sha256": "d3873ccb406fcc43868440df03405b27a4b182334d0a8d4e384a2504d0ada773"
+  },
+  {
+    "label": "ordinary-api-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ApiFamiliesChecks.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/ordinary-api-client.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.886944358000619,
+    "source_sha256": "ec1f15ba1192cb87b9552b4711bcf1f1b4ca7a197918b16e682dbb85afa50040"
+  },
+  {
+    "label": "old-client-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/old-client-0.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.0744931930003077,
+    "source_sha256": "32cae9464fa1dde9b3bdbd1aa77c6d59e428e095f0f05b12ddfca36ec59cc55d"
+  },
+  {
+    "label": "old-client-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/old-client-1.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.295843693998904,
+    "source_sha256": "b7ccfdb475b95afa8f6ae5ac4b86a6273e2a381fe5c523f5097b232aaca89d5e"
+  },
+  {
+    "label": "old-client-2",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/old-client-2.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.3973694929991325,
+    "source_sha256": "e07b05aec14c14e7a4fc7552502069a38fb5b380b86ceac76753ad8c7fbe4a63"
+  },
+  {
+    "label": "old-client-3",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/old-client-3.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.2898328129995207,
+    "source_sha256": "82d6db43e736d2cccad254d3cf54f7ddfc358be2ede8e5d020a65f9c7b368450"
+  },
+  {
+    "label": "old-client-4",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/old-client-4.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 4.125459929000499,
+    "source_sha256": "c520c93bc7a0e0a535b760b5aed3301e71310bed32656ffe183284ca8183ba68"
+  },
+  {
+    "label": "old-client-5",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-families/trials/inverse-bijection/old-client-5.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.8689480329994694,
+    "source_sha256": "79a76902ce82bce71757d083ffee197eecd01f1a3a5aa8efbe298fdb14c1081a"
+  }
+]

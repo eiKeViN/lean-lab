@@ -1,0 +1,74 @@
+All nine computation interfaces retain exposed bodies.
+'OAI.KLInvariance.Graded.ModuleData.rangeMap_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Graded.ModuleData.rangeProjection_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Graded.ModuleData.rangeInclusion_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.Graded.ModuleData.range_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_vertex_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_edge_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.sectionMap_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.sectionMap_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projection_comp_inclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projector_apply_vertex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projector_apply_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.Twist.val_add' depends on axioms: [Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.Twist.val_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.mem_lattice_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.left_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.kernelMap_snd_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.twistMap_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.right_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.rightKernelMap_fst' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.tensorFirst_natural' depends on axioms: [propext, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.tensorSecond_natural' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.sections_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageInclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageProjection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSection_fixed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projector_vertex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projector_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.lattice_saturated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.kernelMap_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.rightKernelMap_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.tensorFirst_map' depends on axioms: [propext, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.tensorSecond_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.tensor_difference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.KLInvariance.ReflectionPairTranslation.twistMap_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

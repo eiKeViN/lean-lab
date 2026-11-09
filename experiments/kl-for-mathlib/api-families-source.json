@@ -1,0 +1,922 @@
+{
+  "base_commit": "bdbca7ff639bc32f94a85647c88cb16d9e80b294",
+  "files": {
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean": {
+      "before_sha256": "e9813ba6e4f1aee532468b1f6ad9577a71df86379c888f2f9d25925d1486a95b",
+      "after_sha256": "59017fa38fb312f627a997ca054e636a4d01fa123f6b1dd777c0bd8b4dfe6499",
+      "edits": [
+        {
+          "start": 1560,
+          "old": "",
+          "new": "/-- Transport of an assignment is pointwise transport at the vertices. -/\n@[simp] theorem assignments_apply (f : B.Assignment) (x : V) :\n    j.assignments f x = j.vertex x (f x) := by rfl\n\n@[simp] theorem assignments_symm_apply (f : C.Assignment) (x : V) :\n    j.assignments.symm f x = (j.vertex x).symm (f x) := by rfl\n\n"
+        },
+        {
+          "start": 1776,
+          "old": "",
+          "new": "simpa only [assignm"
+        },
+        {
+          "start": 1777,
+          "old": "x",
+          "new": "nts_"
+        },
+        {
+          "start": 1779,
+          "old": "ct",
+          "new": "pply] using"
+        },
+        {
+          "start": 1796,
+          "old": "ch",
+          "new": "simp only ["
+        },
+        {
+          "start": 1799,
+          "old": "",
+          "new": "ssig"
+        },
+        {
+          "start": 1800,
+          "old": "g",
+          "new": "m"
+        },
+        {
+          "start": 1802,
+          "old": " C.lower e (j.ver",
+          "new": "n"
+        },
+        {
+          "start": 1820,
+          "old": "ex ",
+          "new": "s"
+        },
+        {
+          "start": 1824,
+          "old": " (f _)) = C.u",
+          "new": "a"
+        },
+        {
+          "start": 1839,
+          "old": "er e (j.vertex _ (f _))",
+          "new": "ly]"
+        },
+        {
+          "start": 2408,
+          "old": "",
+          "new": "simp] theorem sections_val_apply (\u03a9 : Set V) (f : B.sections \u03a9) (x : V) :\n    (j.sections \u03a9 f).val x = j.vertex x (f.val x) := by\n  exact j.assignments_apply f.val x\n\n@["
+        },
+        {
+          "start": 2538,
+          "old": "",
+          "new": "\n\n@[simp] theorem boundary_apply (x : V) (f : B.Boundary x) (e : Outgoing (G := G) x) :\n    j.boundary x f e = j.edge e.val (f e) := by rfl"
+        },
+        {
+          "start": 2697,
+          "old": "",
+          "new": "\n  rw [boundary_apply]"
+        },
+        {
+          "start": 2866,
+          "old": "",
+          "new": "\n  rw [boundary_apply]\n  change j.edge e.val _ = C.upper e.val ((j.sections _ f).val (G.target e.val))\n  rw [sections_val_apply]"
+        },
+        {
+          "start": 3727,
+          "old": "",
+          "new": "/-- Local kernel constraints, independent of the submodule construction. -/\ntheorem mem_upwardKernel_iff (x : V) (F : Set (Outgoing (G := G) x)) (v : B.vertex x) :\n    v \u2208 B.upwardKernel x F \u2194 \u2200 e \u2208 F, B.stalkMap x v e = 0 := by rfl\n\n/-- Imposing every outgoing constraint is the kernel of the full stalk map. -/\ntheorem upwardKernel_univ (x : V) :\n    B.upwardKernel x Set.univ = LinearMap.ker (B.stalkMap x) := by\n  ext v\n  rw [mem_upwardKernel_iff, LinearMap.mem_ker]\n  simp only [Set.mem_univ, true_implies]\n  exact \u27e8fun h => funext h, fun h e => congrFun h e\u27e9\n\n"
+        },
+        {
+          "start": 3989,
+          "old": "",
+          "new": "simp only [mem_upwardKernel_iff]\n  "
+        },
+        {
+          "start": 4173,
+          "old": "ch",
+          "new": "rw [bound"
+        },
+        {
+          "start": 4176,
+          "old": "nge j.edge e.val (B.stalkM",
+          "new": "ry_"
+        },
+        {
+          "start": 4204,
+          "old": " x v e) = _",
+          "new": "ply]"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": {
+      "before_sha256": "c520c93bc7a0e0a535b760b5aed3301e71310bed32656ffe183284ca8183ba68",
+      "after_sha256": "e85e2b777063b8586d1a676ea78125e89c19084d32f74e86d38183a7b374469c",
+      "edits": [
+        {
+          "start": 4677,
+          "old": "symm.",
+          "new": ""
+        },
+        {
+          "start": 4693,
+          "old": "",
+          "new": ".symm"
+        },
+        {
+          "start": 4699,
+          "old": "",
+          "new": " by"
+        },
+        {
+          "start": 4704,
+          "old": "",
+          "new": "apply "
+        },
+        {
+          "start": 4706,
+          "old": ".symm",
+          "new": ""
+        },
+        {
+          "start": 4729,
+          "old": "f",
+          "new": "_"
+        },
+        {
+          "start": 4734,
+          "old": "",
+          "new": "\n    simpa only [Linea"
+        },
+        {
+          "start": 4735,
+          "old": "",
+          "new": "Equiv.apply_symm_apply] using"
+        },
+        {
+          "start": 4773,
+          "old": "symm.",
+          "new": ""
+        },
+        {
+          "start": 4789,
+          "old": "",
+          "new": ".symm"
+        },
+        {
+          "start": 4879,
+          "old": "change j.vertex x (g x) = f x\n  ",
+          "new": ""
+        },
+        {
+          "start": 4915,
+          "old": "",
+          "new": "j.assignments_apply,"
+        },
+        {
+          "start": 4923,
+          "old": "",
+          "new": ",j.assignments_symm_apply"
+        },
+        {
+          "start": 5155,
+          "old": "change j.vertex x (f x) = v\n  ",
+          "new": ""
+        },
+        {
+          "start": 5189,
+          "old": "",
+          "new": "j.assignments_apply,"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean": {
+      "before_sha256": "32cae9464fa1dde9b3bdbd1aa77c6d59e428e095f0f05b12ddfca36ec59cc55d",
+      "after_sha256": "c40286e742e0a90b267847be3b7a584d757c25da07bb0ad32709fa1e5540912e",
+      "edits": [
+        {
+          "start": 1048,
+          "old": "",
+          "new": "\n\n/-- Stalk constraints of a dependent product are coordinatewise constraints. -/\n@[simp] theorem pi_stalkMap_apply (B : \u03b9 \u2192 Sheaf.{u,v,w,z} (R := R) G)\n    (x : V) (f : (pi B).vertex x) (e : Outgoing (G := G) x) (i : \u03b9) :\n    (pi B).stalkMap x f e i = (B i).stalkMap x (f i) e := by\n  rcases e with \u27e8e,he\u27e9\n  subst x\n  rfl"
+        },
+        {
+          "start": 2127,
+          "old": "",
+          "new": "simp only [\u2190 upwardKernel_univ, mem_upwardKernel_iff]\n  "
+        },
+        {
+          "start": 2152,
+          "old": "",
+          "new": " e he"
+        },
+        {
+          "start": 2157,
+          "old": "",
+          "new": "exact (pi_stalkMap_"
+        },
+        {
+          "start": 2163,
+          "old": "L",
+          "new": "B x f e i).symm.trans (congrFun (h e he) i)\n  \u00b7 "
+        },
+        {
+          "start": 2166,
+          "old": "",
+          "new": "tro h "
+        },
+        {
+          "start": 2167,
+          "old": "arMap.m",
+          "new": " h"
+        },
+        {
+          "start": 2175,
+          "old": "m_ker.mpr",
+          "new": ""
+        },
+        {
+          "start": 2196,
+          "old": "e\n    rcases e w",
+          "new": ""
+        },
+        {
+          "start": 2213,
+          "old": "th \u27e8e,he\u27e9\n    subst x",
+          "new": ""
+        },
+        {
+          "start": 2245,
+          "old": "congrFun ",
+          "new": ""
+        },
+        {
+          "start": 2255,
+          "old": "congrFun (L",
+          "new": "p"
+        },
+        {
+          "start": 2267,
+          "old": "ne",
+          "new": "_st"
+        },
+        {
+          "start": 2270,
+          "old": "r",
+          "new": "lk"
+        },
+        {
+          "start": 2274,
+          "old": ".mem",
+          "new": ""
+        },
+        {
+          "start": 2279,
+          "old": "ker.mp h) \u27e8e,rfl\u27e9) i\n  \u00b7 intro h\n    ",
+          "new": ""
+        },
+        {
+          "start": 2322,
+          "old": "LinearMap.mem_ker.mpr\n",
+          "new": "B"
+        },
+        {
+          "start": 2345,
+          "old": "  ",
+          "new": "x"
+        },
+        {
+          "start": 2349,
+          "old": "unext",
+          "new": ""
+        },
+        {
+          "start": 2358,
+          "old": "\n    ",
+          "new": ").t"
+        },
+        {
+          "start": 2364,
+          "old": "c",
+          "new": ""
+        },
+        {
+          "start": 2366,
+          "old": "",
+          "new": "n"
+        },
+        {
+          "start": 2367,
+          "old": "es e with \u27e8e,he\u27e9\n    subst x\n    exact congrFun (LinearMap.mem_ker.mp",
+          "new": ""
+        },
+        {
+          "start": 2441,
+          "old": "",
+          "new": " e he"
+        },
+        {
+          "start": 2442,
+          "old": ") \u27e8e,rfl\u27e9",
+          "new": ""
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean": {
+      "before_sha256": "b7ccfdb475b95afa8f6ae5ac4b86a6273e2a381fe5c523f5097b232aaca89d5e",
+      "after_sha256": "8b4d38099794b38f1bc5f7db9018c0e02d696d8987238d2f3c52413e88982e94",
+      "edits": [
+        {
+          "start": 1041,
+          "old": "",
+          "new": "@[simp] theorem prod_stalkMap_apply (B C : Sheaf.{u,v,w,z} (R := R) G)\n    (x : V) (v : (prod B C).vertex x) (e : Outgoing (G := G) x) :\n    (prod B C).stalkMap x v e = (B.stalkMap x v.1 e, C.stalkMap x v.2 e) := by\n  rcases e with \u27e8e,he\u27e9\n  subst x\n  rfl\n\n/-- A product assignment is compatible exactly when both projections are. -/\ntheorem prod_compatible_iff (B C : Sheaf.{u,v,w,z} (R := R) G)\n    (U : Set V) (f : (prod B C).Assignment) :\n    (prod B C).CompatibleOn U f \u2194\n      B.CompatibleOn U (fun x => (f x).1) \u2227 C.CompatibleOn U (fun x => (f x).2) := by\n  constructor\n  \u00b7 intro h\n    exact \u27e8fun e hs ht => congrArg Prod.fst (h e hs ht),\n      fun e hs ht => congrArg Prod.snd (h e hs ht)\u27e9\n  \u00b7 rintro \u27e8hB,hC\u27e9 e hs ht\n    exact Prod.ext (hB e hs ht) (hC e hs ht)\n\n"
+        },
+        {
+          "start": 1272,
+          "old": "fun e hs ht => P",
+          "new": "(p"
+        },
+        {
+          "start": 1291,
+          "old": "",
+          "new": "_compatible_iff B C Set"
+        },
+        {
+          "start": 1292,
+          "old": "ext",
+          "new": "univ"
+        },
+        {
+          "start": 1296,
+          "old": "(",
+          "new": "_).mpr \u27e8"
+        },
+        {
+          "start": 1299,
+          "old": " e hs ht) (",
+          "new": ","
+        },
+        {
+          "start": 1312,
+          "old": " e hs ht)",
+          "new": "\u27e9"
+        },
+        {
+          "start": 1484,
+          "old": "",
+          "new": "hfB,hfC\u27e9 := (prod_compatible_iff B C U f).mp hf\n  obtain \u27e8"
+        },
+        {
+          "start": 1524,
+          "old": "(fun e hs ht => congrArg Prod.fst (",
+          "new": ""
+        },
+        {
+          "start": 1561,
+          "old": " e hs ht))",
+          "new": "B"
+        },
+        {
+          "start": 1622,
+          "old": "(fun e hs htt => congrArg Prod.snd (",
+          "new": ""
+        },
+        {
+          "start": 1660,
+          "old": " e hs htt))",
+          "new": "C"
+        },
+        {
+          "start": 1700,
+          "old": "fun e hs htt => P",
+          "new": "(p"
+        },
+        {
+          "start": 1720,
+          "old": "",
+          "new": "_compatible_iff B C Set"
+        },
+        {
+          "start": 1721,
+          "old": "ext",
+          "new": "univ"
+        },
+        {
+          "start": 1725,
+          "old": "(",
+          "new": "_).mpr \u27e8"
+        },
+        {
+          "start": 1728,
+          "old": " e hs ",
+          "new": ","
+        },
+        {
+          "start": 1736,
+          "old": "t) (ht e hs htt)",
+          "new": "\u27e9"
+        },
+        {
+          "start": 3133,
+          "old": "",
+          "new": "simp only [\u2190 upwardKernel_univ, mem_upwardKernel_iff]\n  "
+        },
+        {
+          "start": 3161,
+          "old": "constructor <;> apply LinearMap.mem_ker.mpr <;> funext e\n    \u00b7 rcases e with \u27e8e,he\u27e9\n      subst x\n      ",
+          "new": ""
+        },
+        {
+          "start": 3270,
+          "old": "",
+          "new": " \u27e8fun e he =>"
+        },
+        {
+          "start": 3290,
+          "old": "c",
+          "new": "(pr"
+        },
+        {
+          "start": 3292,
+          "old": "ngrFun (Line",
+          "new": "d_st"
+        },
+        {
+          "start": 3305,
+          "old": "r",
+          "new": "lk"
+        },
+        {
+          "start": 3309,
+          "old": "",
+          "new": "_apply B C x v e)"
+        },
+        {
+          "start": 3310,
+          "old": "",
+          "new": "sy"
+        },
+        {
+          "start": 3311,
+          "old": "e",
+          "new": ""
+        },
+        {
+          "start": 3313,
+          "old": "_ke",
+          "new": ".t"
+        },
+        {
+          "start": 3317,
+          "old": ".mp",
+          "new": "ans"
+        },
+        {
+          "start": 3321,
+          "old": "",
+          "new": "("
+        },
+        {
+          "start": 3322,
+          "old": ") \u27e8e,rfl\u27e9)\n    \u00b7 rcases",
+          "new": ""
+        },
+        {
+          "start": 3348,
+          "old": "with \u27e8e,",
+          "new": ""
+        },
+        {
+          "start": 3358,
+          "old": "\u27e9",
+          "new": ")),"
+        },
+        {
+          "start": 3366,
+          "old": "s",
+          "new": "f"
+        },
+        {
+          "start": 3368,
+          "old": "bst x\n     ",
+          "new": "n"
+        },
+        {
+          "start": 3381,
+          "old": "xact",
+          "new": " he =>"
+        },
+        {
+          "start": 3405,
+          "old": "c",
+          "new": "(pr"
+        },
+        {
+          "start": 3407,
+          "old": "ngrFun (Line",
+          "new": "d_st"
+        },
+        {
+          "start": 3420,
+          "old": "r",
+          "new": "lk"
+        },
+        {
+          "start": 3424,
+          "old": "",
+          "new": "_apply B C x v e)"
+        },
+        {
+          "start": 3425,
+          "old": "",
+          "new": "sy"
+        },
+        {
+          "start": 3426,
+          "old": "",
+          "new": "m.trans (h "
+        },
+        {
+          "start": 3427,
+          "old": "m_ker.mp",
+          "new": ""
+        },
+        {
+          "start": 3437,
+          "old": "",
+          "new": "e"
+        },
+        {
+          "start": 3438,
+          "old": " \u27e8e,rfl",
+          "new": ")"
+        },
+        {
+          "start": 3446,
+          "old": ")",
+          "new": ""
+        },
+        {
+          "start": 3466,
+          "old": "\n    apply LinearMap.mem_ker.mpr\n    funext e\n    rcases",
+          "new": ""
+        },
+        {
+          "start": 3525,
+          "old": "with \u27e8e,",
+          "new": ""
+        },
+        {
+          "start": 3535,
+          "old": "\u27e9\n    subst x",
+          "new": ""
+        },
+        {
+          "start": 3559,
+          "old": "",
+          "new": "(prod_stalkMap_apply B C x v e).trans ("
+        },
+        {
+          "start": 3569,
+          "old": "congrFun",
+          "new": "hB e he)"
+        },
+        {
+          "start": 3579,
+          "old": "Lin",
+          "new": "hC "
+        },
+        {
+          "start": 3583,
+          "old": "arMap.mem_ker.mp",
+          "new": ""
+        },
+        {
+          "start": 3601,
+          "old": "B",
+          "new": "e"
+        },
+        {
+          "start": 3603,
+          "old": " \u27e8e,rfl\u27e9)\n      (congrFun (LinearMap.mem_ker.mp hC) \u27e8e,rfl\u27e9",
+          "new": ""
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean": {
+      "before_sha256": "e07b05aec14c14e7a4fc7552502069a38fb5b380b86ceac76753ad8c7fbe4a63",
+      "after_sha256": "fe217387d3389f179b4c6a3a0fbd8723447ba0a7fb525cc5e567eb9a3ffbc1b5",
+      "edits": [
+        {
+          "start": 5971,
+          "old": "",
+          "new": "simp only [mem_upwardKernel_iff]\n  "
+        },
+        {
+          "start": 5999,
+          "old": "constructor\n    \u00b7 rintro \u27e8e,heq\u27e9 he\n      subst x\n      ",
+          "new": ""
+        },
+        {
+          "start": 6060,
+          "old": "",
+          "new": " \u27e8fun e he =>"
+        },
+        {
+          "start": 6080,
+          "old": "",
+          "new": "(prod_stalkMap_apply B C x v e).symm.trans ("
+        },
+        {
+          "start": 6082,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6084,
+          "old": ",rfl\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6093,
+          "old": "\n    \u00b7 rintro \u27e8e",
+          "new": ")"
+        },
+        {
+          "start": 6110,
+          "old": "heq\u27e9 he",
+          "new": ""
+        },
+        {
+          "start": 6124,
+          "old": "s",
+          "new": "f"
+        },
+        {
+          "start": 6126,
+          "old": "bst x\n     ",
+          "new": "n"
+        },
+        {
+          "start": 6139,
+          "old": "xact",
+          "new": " he =>"
+        },
+        {
+          "start": 6163,
+          "old": "",
+          "new": "(prod_stalkMap_apply B C x v e).symm.trans ("
+        },
+        {
+          "start": 6165,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6167,
+          "old": ",rfl\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6176,
+          "old": "",
+          "new": ")\u27e9"
+        },
+        {
+          "start": 6196,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6198,
+          "old": ",heq\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6206,
+          "old": "\n    subst x",
+          "new": ""
+        },
+        {
+          "start": 6229,
+          "old": "",
+          "new": "(prod_stalkMap_apply B C x v e).trans ("
+        },
+        {
+          "start": 6242,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6244,
+          "old": ",rfl\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6258,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6260,
+          "old": ",rfl\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6268,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "start": 6496,
+          "old": "",
+          "new": "simp only [mem_upwardKernel_iff]\n  "
+        },
+        {
+          "start": 6512,
+          "old": "r",
+          "new": ""
+        },
+        {
+          "start": 6523,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6525,
+          "old": ",heq\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6533,
+          "old": "\n    subst x",
+          "new": ""
+        },
+        {
+          "start": 6556,
+          "old": "",
+          "new": "(pi_stalkMap_apply B x v e i).symm.trans ("
+        },
+        {
+          "start": 6568,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6570,
+          "old": ",rfl\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6581,
+          "old": "",
+          "new": ")"
+        },
+        {
+          "start": 6586,
+          "old": "r",
+          "new": ""
+        },
+        {
+          "start": 6595,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6597,
+          "old": ",heq\u27e9",
+          "new": ""
+        },
+        {
+          "start": 6610,
+          "old": "s",
+          "new": "f"
+        },
+        {
+          "start": 6612,
+          "old": "bs",
+          "new": "nex"
+        },
+        {
+          "start": 6616,
+          "old": "x",
+          "new": "i"
+        },
+        {
+          "start": 6628,
+          "old": "fu",
+          "new": "(pi_stalkMap_apply B x v e i).tra"
+        },
+        {
+          "start": 6631,
+          "old": "ext",
+          "new": "s"
+        },
+        {
+          "start": 6636,
+          "old": "fun i => ",
+          "new": ""
+        },
+        {
+          "start": 6649,
+          "old": "\u27e8",
+          "new": ""
+        },
+        {
+          "start": 6651,
+          "old": ",rfl\u27e9",
+          "new": ""
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean": {
+      "before_sha256": "82d6db43e736d2cccad254d3cf54f7ddfc358be2ede8e5d020a65f9c7b368450",
+      "after_sha256": "b7ffffa4ddd382c69dbb9e9a3acf627b686b81cb58e2443ffb6f853fc89cf2e5",
+      "edits": [
+        {
+          "start": 7357,
+          "old": "",
+          "new": "have hv := (B.mem_upwardKernel_iff (f.vertex x) {e | e.val \u2208 T} v).mp hv\n  apply ((B.pullback f).mem_upwardKernel_iff x {e | f.edge e.val \u2208 T} v).mpr\n  "
+        },
+        {
+          "start": 8389,
+          "old": "",
+          "new": "\n  have hv := ((B.pullback f).mem_upwardKernel_iff x {e | f.edge e.val \u2208 T} v).mp hv\n  apply (B.mem_upwardKernel_iff (f.vertex x) {e | e.val \u2208 T} v).mpr"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean": {
+      "before_sha256": "79a76902ce82bce71757d083ffee197eecd01f1a3a5aa8efbe298fdb14c1081a",
+      "after_sha256": "d3873ccb406fcc43868440df03405b27a4b182334d0a8d4e384a2504d0ada773",
+      "edits": [
+        {
+          "start": 1676,
+          "old": "",
+          "new": "/-- Restriction is a retraction of extension by zero. -/\n@[simp] theorem restrict_extendAssignment (f : (B.restrict K).Assignment) :\n    B.restrictAssignment K (B.extendAssignment K f) = f := by\n  funext x\n  exact B.extendAssignment_mem K f x\n\n/-- Compatibility on a subgraph set is exactly compatibility on its ambient image. -/\ntheorem restrict_compatible_iff (\u03a9 : Set K) (f : B.Assignment) :\n    (B.restrict K).CompatibleOn \u03a9 (B.restrictAssignment K f) \u2194\n      B.CompatibleOn (Subtype.val '' \u03a9) f := by\n  constructor\n  \u00b7 intro hf e hs ht\n    obtain \u27e8x,hx,hxe\u27e9 := hs\n    obtain \u27e8y,hy,hye\u27e9 := ht\n    have hsk : G.source e \u2208 K := hxe \u25b8 x.property\n    have htk : G.target e \u2208 K := hye \u25b8 y.property\n    let ee : {e : E // G.source e \u2208 K \u2227 G.target e \u2208 K} := \u27e8e,hsk,htk\u27e9\n    have hsx : (inducedGraph G K).source ee = x := Subtype.ext hxe.symm\n    have hty : (inducedGraph G K).target ee = y := Subtype.ext hye.symm\n    exact hf ee (hsx \u25b8 hx) (hty \u25b8 hy)\n  \u00b7 intro hf e hs ht\n    exact hf e.val \u27e8_,hs,rfl\u27e9 \u27e8_,ht,rfl\u27e9\n\n"
+        },
+        {
+          "start": 2460,
+          "old": "in",
+          "new": "apply (B.res"
+        },
+        {
+          "start": 2464,
+          "old": "",
+          "new": "ict_c"
+        },
+        {
+          "start": 2465,
+          "old": " ",
+          "new": "mpatibl"
+        },
+        {
+          "start": 2467,
+          "old": " hs ht\n  obta",
+          "new": "_"
+        },
+        {
+          "start": 2481,
+          "old": "n \u27e8x,hx,hxe\u27e9 := hs\n  obtain \u27e8y,hy,hye\u27e9 := ht\n  have hsk : G.source e \u2208",
+          "new": "ff"
+        },
+        {
+          "start": 2554,
+          "old": ":= hxe \u25b8 x.property\n  have htk : G.target e \u2208 K := hye \u25b8 y.property\n  let ee : {e : E // G.source e \u2208 K \u2227 G.target e \u2208 K} := \u27e8e,hsk,htk\u27e9\n  have hsx :",
+          "new": "\u03a9"
+        },
+        {
+          "start": 2705,
+          "old": "inducedGraph G K).source ee = x := Subtype.ext hxe.symm\n  have hty : (inducedGraph G K).target ee = y := Subtype.ext hye.symm\n  have hh := hf ee (hsx \u25b8 hx) (hty \u25b8 hy)\n  change B.lower e (f \u27e8G.source e,hsk\u27e9) = B.upper e (f \u27e8G.target e,htk\u27e9) at hh\n  simpa only [\u2190 ",
+          "new": ""
+        },
+        {
+          "start": 2985,
+          "old": "",
+          "new": " K f)).mp\n  rw [B.restrict"
+        },
+        {
+          "start": 2986,
+          "old": "",
+          "new": "extendAssign"
+        },
+        {
+          "start": 2988,
+          "old": "m",
+          "new": "nt"
+        },
+        {
+          "start": 2994,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "start": 2995,
+          "old": "using",
+          "new": " exact"
+        },
+        {
+          "start": 3002,
+          "old": "h",
+          "new": "f"
+        }
+      ]
+    }
+  }
+}

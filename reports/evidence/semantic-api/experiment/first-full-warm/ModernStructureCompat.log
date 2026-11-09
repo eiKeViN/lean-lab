@@ -1,0 +1,69 @@
+ModernStructureCompat.lean:82:0: error: Application type mismatch: The argument
+  StructureOld.OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso._proof_5 S G α c
+has type
+  ∀ (e : E)
+    (v :
+      ↑((OAI.KLInvariance.MomentGraph.Sheaf.baseChange S
+              (OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G α c)).vertex
+          (G.source e))),
+    (OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c))
+        (((TensorProduct.AlgebraTensorModule.lTensor S S)
+            (OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback (α e) (G.source e ≤ c) (G.target e ≤ c) ⋯))
+          v) =
+      (OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback ((algebraMap R S) (α e)) (G.source e ≤ c) (G.target e ≤ c) ⋯)
+        ((OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiScalar S (G.source e ≤ c)) v)
+but is expected to have type
+  ∀ (e : E)
+    (v :
+      ↑((OAI.KLInvariance.MomentGraph.Sheaf.baseChange S
+              (OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G α c)).vertex
+          (G.source e))),
+    (OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c))
+        (((OAI.KLInvariance.MomentGraph.Sheaf.baseChange S
+                (OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G α c)).lower
+            e)
+          v) =
+      ((OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G (fun e => (algebraMap R S) (α e)) c).lower e)
+        ((OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiScalar S (G.source e ≤ c)) v)
+in the application
+  OAI.KLInvariance.MomentGraph.Sheaf.Iso.mk (fun x => OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiScalar S (x ≤ c))
+    (fun e => OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c)) ⋯
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback ↦ 147
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
+  {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) : Sheaf G
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.eq_1.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureSheaf G α c =
+    { vertex := fun x => ↧(PLift (x ≤ c) → R), edge := fun e => ↧(PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e}),
+      lower := fun e =>
+        LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ },
+      upper := fun e =>
+        LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h }
+OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso.eq_1.{ur, us, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (S : Type us) [CommRing S] [Algebra R S] (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureBaseChangeIso S G α c =
+    { vertex := fun x => Sheaf.baseChangePiScalar S (x ≤ c),
+      edge := fun e => Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c), lower := ⋯, upper := ⋯ }
+ModernStructureCompat.lean:182:37: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:182:37: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:184:44: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:184:44: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:189:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:189:45: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:191:48: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

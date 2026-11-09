@@ -123,21 +123,20 @@ include j
 
  theorem flabby (hb : B.Flabby) : C.Flabby := by
   intro Ω hΩ f hf
-  have hsf : B.CompatibleOn Ω (j.symm.assignments f) :=
-    (j.symm.compatible_iff Ω f).mpr hf
-  obtain ⟨g,hg,hgf⟩ := hb Ω hΩ (j.symm.assignments f) hsf
+  have hsf : B.CompatibleOn Ω (j.assignments.symm f) := by
+    apply (j.compatible_iff Ω _).mp
+    simpa only [LinearEquiv.apply_symm_apply] using hf
+  obtain ⟨g,hg,hgf⟩ := hb Ω hΩ (j.assignments.symm f) hsf
   refine ⟨j.assignments g,(j.compatible_iff Set.univ g).mpr hg,?_⟩
   intro x hx
-  change j.vertex x (g x) = f x
-  rw [hgf x hx]
+  rw [j.assignments_apply,hgf x hx,j.assignments_symm_apply]
   exact (j.vertex x).apply_symm_apply _
 
  theorem generated (hb : B.Generated) : C.Generated := by
   intro x v
   obtain ⟨f,hf,hfv⟩ := hb x ((j.vertex x).symm v)
   refine ⟨j.assignments f,(j.compatible_iff Set.univ f).mpr hf,?_⟩
-  change j.vertex x (f x) = v
-  rw [hfv,LinearEquiv.apply_symm_apply]
+  rw [j.assignments_apply,hfv,LinearEquiv.apply_symm_apply]
 
 end Iso
 
@@ -195,6 +194,11 @@ variable (S : Type us) [CommRing S] [Algebra R S]
   LinearMap.pi fun t => (Ideal.Quotient.mkₐ R (Ideal.span {a})).toLinearMap.comp
     (LinearMap.proj ⟨h t.down⟩)
 
+ /-- Pull back a scalar function and reduce each value modulo the label. -/
+ @[simp] theorem quotientPullback_apply (a : R) (p q : Prop) (h : q → p)
+    (v : PLift p → R) (t : PLift q) :
+    quotientPullback a p q h v t = Ideal.Quotient.mk _ (v ⟨h t.down⟩) := by rfl
+
  theorem baseChangePi_natural (a : R) (p q : Prop) (h : q → p)
     (v : S ⊗[R] (PLift p → R)) :
     baseChangePiQuotient S a q
@@ -205,9 +209,8 @@ variable (S : Type us) [CommRing S] [Algebra R S]
     funext hh
     change baseChangePiQuotient S a q (s ⊗ₜ quotientPullback a p q h v) hh = _
     rw [baseChangePiQuotient_tmul]
-    change baseChangeQuotient S a (s ⊗ₜ Ideal.Quotient.mk _ (v ⟨h hh.down⟩)) = _
-    rw [baseChangeQuotient_tmul]
-    exact congrArg (Ideal.Quotient.mk _) (baseChangePiScalar_tmul S p s v _).symm
+    rw [quotientPullback_apply, baseChangeQuotient_tmul, quotientPullback_apply,
+      baseChangePiScalar_tmul]
   | add v w hv hw => simp only [map_add,hv,hw]
 
  @[expose] def structureBaseChangeIso (G : OrderedGraph V E) (α : E → R) (c : V) :

@@ -1,0 +1,137 @@
+{
+  "mathematical": {
+    "OAI.KLInvariance.Graded.ModuleData.rangeInclusion_apply": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "823c083b90ea829423d0ac7f229ba97fbe6981437c938c65530a742b16297ed5",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+    },
+    "OAI.KLInvariance.Graded.ModuleData.rangeMap_projection": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "ae8706f031b5994d8302ed2fe0abf4243829bb4233589781f1664e38e014f095",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+    },
+    "OAI.KLInvariance.Graded.ModuleData.rangeMap_val": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "da8f4a9e2634ef166160c84b99a4eda582f4c4ed2b146858897264cec7779c73",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+    },
+    "OAI.KLInvariance.Graded.ModuleData.rangeProjection_val": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "2c36bc70f2f54ebba39d7e927eb732f7c9b1494bb40d6cccfbfcf028319ac262",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+    },
+    "OAI.KLInvariance.Graded.ModuleData.range_fixed": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "d06a0b5e187fe528e6195a2139fc41a02dc3cf6a6cebd14e0bd0a0c3a6565933",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.Graded.ModuleData.Range"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_edge_apply": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "19eb031cd7fea0bccb306ed3b9609637492908a20f527dbd9d80f04be56bc920",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_vertex_apply": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "d2b20dd305fda4ff15c9f9c77a606f0dca5bccae37ad026d1ebb7bde39112ee6",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.sectionMap_comp": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "fc23c1e1e9af48ad28992763611265d8c1b37c406a907b9f1933cecd2c1ceb4d",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.sectionMap_id": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "8ee7dfb030134f175cfb5229900292bb40b9eb4a66da28b4721db90c70b58375",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projection_comp_inclusion": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "77e2a8b9022ad418f60bdd5d8311583dfccbe5f4998adc4d21c61b1ce9493a4f",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projector_apply_edge": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "92c9999a2f08cb4bf4cbd6b1cccb0d6ed286835cfa2c7c036fdc7107e3aa897e",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+    },
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.projector_apply_vertex": {
+      "levels": "\"[`uk, `ua, `um]\"",
+      "type": "3e1ccef9991663447b1c3c4c11867fcea02671292738e74d4d62e2242de50359",
+      "kind": "theorem",
+      "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.Twist.val_add": {
+      "levels": "\"[`u, `z]\"",
+      "type": "a0ea8b096268ca77be7a610bcae75ed900fb789b519e74511cf44ad503659c54",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.Twist.val_smul": {
+      "levels": "\"[`u, `z]\"",
+      "type": "6ddbbdb1c2e5f4377b0d7ffad85266c345c130a2d4ca48e04b03ae679f9d18e5",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.kernelMap_snd_val": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "828c5f76035d7485e771f2963723f1b1f6c4f3d2be97aea88f04013b50496964",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.left_apply": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "8f600d60e41d1e39b2c614db7693d0587645aa755fae42d50081157986142060",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.mem_lattice_iff": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "b7e1d1105dd0dd39c3753b2f38f6dea45e8e95aa92aafb53121e0405d09c43ae",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.Twist"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.rightKernelMap_fst": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "14d9c654c8ea985b71e7c1bbf21ca4d34daba9ac938ad08b1f9e055251dfca04",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.right_apply": {
+      "levels": "\"[`u, `v, `w, `z]\"",
+      "type": "5d54c7f253c29f39490d855562dfffb340d42aa78a9b05327751a8cd844fe7dc",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.tensorFirst_natural": {
+      "levels": "\"[`uc, `ua, `un, `u_1]\"",
+      "type": "08068b8fcc7f8ba07014563cab80791db99af435476e8a7b0b7e45fde57ae171",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.tensorSecond_natural": {
+      "levels": "\"[`uc, `ua, `un, `u_1]\"",
+      "type": "8f7f967f7e1d39376b80711f2975cd44c8cbea5d96c553415b6d36ffbd936965",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorDescent"
+    },
+    "OAI.KLInvariance.ReflectionPairTranslation.twistMap_val": {
+      "levels": "\"[`ua, `un, `u_1]\"",
+      "type": "670641e8af782339dacfcbb2d692c348d735eea50998455a3e8f0f8e5a5cd774",
+      "kind": "theorem",
+      "module": "ForMathlib.Algebra.Module.ReflectionPair.TensorKernel"
+    }
+  },
+  "generated": {}
+}

@@ -42,6 +42,15 @@ variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module
  local instance _root_.OAI.KLInvariance.CoefficientChange.instRingHomInvPairToRingHomToRingEquivSymm : RingHomInvPair e.symm.toRingHom e.toRingHom := RingHomInvPair.of_ringEquiv_symm e.toRingEquiv
  local instance _root_.OAI.KLInvariance.CoefficientChange.instRingHomInvPairToRingHomToRingEquivSymm_1 : RingHomInvPair e.toRingHom e.symm.toRingHom := RingHomInvPair.of_ringEquiv e.toRingEquiv
 
+ omit [Module A M] [Module k M] [IsScalarTower k A M] in
+ /-- The zero vector is unchanged by restriction of scalars. -/
+ @[simp] theorem val_zero : (0 : CoefficientChange e M).val = 0 := by rfl
+
+ omit [Module k M] [IsScalarTower k A M] in
+ /-- The new scalar acts through the inverse coefficient equivalence. -/
+ @[simp] theorem val_smul (b : B) (m : CoefficientChange e M) :
+     (b • m).val = e.symm b • m.val := by rfl
+
  @[expose] def equiv : M ≃ₛₗ[e.toRingHom] CoefficientChange e M where
    toFun := mk
    invFun := val
@@ -72,8 +81,20 @@ variable (e : A ≃ₐ[k] B) (M : Type um) [AddCommGroup M] [Module A M] [Module
    map_smul' b m := CoefficientChange.ext (map_smul f (e.symm b) m.val)
 
  omit [Module k M] [IsScalarTower k A M] [Module k N] [IsScalarTower k A N] in
+ /-- Changing coefficients applies the original map to the underlying vector. -/
+ @[simp] theorem val_map (f : M →ₗ[A] N) (m : CoefficientChange e M) :
+     (map e f m).val = f m.val := by rfl
+
+ omit [Module k M] [IsScalarTower k A M] in
+ /-- Changing coefficients preserves the identity on vectors. -/
+ @[simp] theorem map_id_apply (m : CoefficientChange e M) :
+     map e (LinearMap.id : M →ₗ[A] M) m = m := by
+   apply CoefficientChange.ext
+   exact val_map e LinearMap.id m
+
+ omit [Module k M] [IsScalarTower k A M] [Module k N] [IsScalarTower k A N] in
  theorem map_injective (f : M →ₗ[A] N) (hf : Function.Injective f) :
-     Function.Injective (map e f) := fun _m _n h => CoefficientChange.ext (hf (congrArg val h))
+     Function.Injective (map e f) := fun _m _n h => CoefficientChange.ext (hf (by simpa only [val_map] using congrArg val h))
  omit [Module k M] [IsScalarTower k A M] [Module k N] [IsScalarTower k A N] in
  theorem map_surjective (f : M →ₗ[A] N) (hf : Function.Surjective f) :
      Function.Surjective (map e f) := by

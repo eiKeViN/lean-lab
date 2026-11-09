@@ -1,0 +1,11 @@
+ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Uniqueness.lean:127:32: error: Application type mismatch: The argument
+  p.symmetric ?m.127 ?m.128
+has type
+  (p.pairing ?m.127) ?m.128 = (p.pairing ?m.128) ?m.127
+but is expected to have type
+  (↑(CoefficientChange.mapEquiv e p.pairing) (↑(coefficientChangeSections e he S Set.univ).symm _m)).val
+      (↑(coefficientChangeSections e he S Set.univ).symm _n).val =
+    (↑(CoefficientChange.mapEquiv e p.pairing) (↑(coefficientChangeSections e he S Set.univ).symm _n)).val
+      (↑(coefficientChangeSections e he S Set.univ).symm _m).val
+in the application
+  congrArg (⇑e) (p.symmetric ?m.127 ?m.128)

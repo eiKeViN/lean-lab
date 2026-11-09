@@ -1,0 +1,21 @@
+{
+  "old_count": 3956,
+  "new_count": 3967,
+  "missing": [],
+  "added": [
+    "OAI.KLInvariance.MomentGraph.Sheaf.Iso.assignments_apply",
+    "OAI.KLInvariance.MomentGraph.Sheaf.Iso.assignments_symm_apply",
+    "OAI.KLInvariance.MomentGraph.Sheaf.Iso.boundary_apply",
+    "OAI.KLInvariance.MomentGraph.Sheaf.Iso.sections_val_apply",
+    "OAI.KLInvariance.MomentGraph.Sheaf.mem_upwardKernel_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.pi_stalkMap_apply",
+    "OAI.KLInvariance.MomentGraph.Sheaf.prod_compatible_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.prod_stalkMap_apply",
+    "OAI.KLInvariance.MomentGraph.Sheaf.restrict_compatible_iff",
+    "OAI.KLInvariance.MomentGraph.Sheaf.restrict_extendAssignment",
+    "OAI.KLInvariance.MomentGraph.Sheaf.upwardKernel_univ"
+  ],
+  "changed": [],
+  "relocated": 0,
+  "passed": false
+}

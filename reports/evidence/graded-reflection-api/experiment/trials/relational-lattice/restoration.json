@@ -1,0 +1,31 @@
+{
+  "source_restored": true,
+  "frozen_downstream_unchanged": true,
+  "lake_artifacts_unchanged": true,
+  "artifacts": {
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean": "dcb263e86cfb325d47f64ebe1244df3133c301152476f9289a4af8d8b9612e0c",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean.private": "088ae3f25050c62d663b3d1d3c4f7eaa67f4449fd8a74e2b08f9730a0fadc6b2",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean.server.hash": "b5209d792d597b6942d97bb617b5bdedd90156fb46ab2a8f044adfe76d5ce1ed",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean.private.hash": "dba684ec557e17133388edc3bfd4e57375bf21cab82a47f0d1cfeb2ec7661b1c",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean.server": "ff0be883e19c673c1859c404d4728608b8622da037f66347fc73972c4833dadc",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/Twist.olean.hash": "716a6e50c4d82ea73dff9dcfb2b12f9748168107c4a13ade1613d3e5427f1a37",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.olean.private.hash": "ab1b4618871d5322a2253567e4a9c5cd21c36df94f6594648bad185d1475725d",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.olean.private": "8037d08f85e4783385ad51131de299627e187e865519bcac1f04ac3c537caa37",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.olean.server": "cc0e5229791564dae0d2ecd0037871dec3ad302aa4a94dbcf64dd75584cde754",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.olean.server.hash": "bc36d72867e9d5e7accc1d1c475582244b0c7200a039434d055e7fdb74c3361f",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.olean.hash": "8ae84bec936756bd0b819e7d84c5aef121e6e1533a29b222715a16dad51d03de",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.olean": "01c97f1888594f0df157bb42de3ca38f55d93ba1b433de9c2ed173d51ffe09ae",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.olean.server.hash": "a347cfb46adeb5a4d227718b6c21f51f5260fccdb5721328320775efd8e64a85",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.olean.private": "96232155b4acb3663f77dbd884a63103c7ebefa3648a462526f53728ccd25bd5",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.olean": "8ce37dcd1f19f37db805ce5177971aced4914dc59c161ff884b173ff5b823390",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.olean.hash": "14ca6603e4950e1072bc145744a6fba157cc9ad6a1e4ca2d486f6fbc615c6ba1",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.olean.server": "2322f5cb54808022d653ebb5f0e300db23406991f58330f6526c663a47d410bd",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.olean.private.hash": "2a8333257aa8678946e863951779fb5520178d5ea82afca73b4dbeeb94ccd8cb",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/KernelCoordinates.olean": "2ca6b5273a6a9cd6d41d61aee0bad6c214edb61a9811b0a9947c9cd16feb32ff",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/KernelCoordinates.olean.server": "2de23076c0294c41d77e6584c033ab9a34e24b4eec9e350c88de25b4b08a6451",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/KernelCoordinates.olean.private": "2b2d39153edcd5bbfc7165f961b28cabd7222fea38a078ec4f32ef97a3085531",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/KernelCoordinates.olean.hash": "e376f8150f647cef29a0d594196f0bfaf23c0177aae548e4506d7e3ce4e255ed",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/KernelCoordinates.olean.server.hash": "206c020854825811a44315f509dd9e9c3be402bdaf375795c3230d4ec43aca34",
+    "/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/LinearAlgebra/KernelCoordinates.olean.private.hash": "ca7b9888978c9e05a9fdc9e3a59e2871c6f5992ef83b09482e0ccd4a7f6fa19f"
+  }
+}

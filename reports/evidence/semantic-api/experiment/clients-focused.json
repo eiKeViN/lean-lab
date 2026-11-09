@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; env=validate.serial_environment(); [subprocess.run([\"lake\",\"env\",\"lean\",f],env=env,check=True) for f in [\"ForMathlib/Algebra/Module/CoefficientChange/Dual.lean\",\"ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange/Basic.lean\",\"ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean\"]]"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 13.832709074000036,
+  "user_seconds": 12.217403,
+  "system_seconds": 3.051264,
+  "max_rss_kib": 5290924
+}

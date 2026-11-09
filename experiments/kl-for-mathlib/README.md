@@ -4,8 +4,11 @@ The maintained KL Lean project. Continue updating this directory in place.
 The repository also contains separately pinned [quantum experiments](../../projects/quantum-experiments/README.md); see the [workspace index](../../README.md).
 This KL project remains on Lean 4.34.1; the quantum 4.35.0 pin does not apply here.
 
-Latest recorded status: [261/261 modern modules accepted](../../reports/module-completion.md).
-That report includes the eight explicit generated-name contract retirements.
+Latest recorded module status: [261/261 modern modules accepted](../../reports/module-completion.md).
+The subsequent six API rounds culminate in [API saturation](../../reports/api-saturation.md);
+[API-GUIDE.md](API-GUIDE.md) is the current API discovery entrypoint. Their reports
+preserve the checks and branch-only publication status at the time of each round.
+The module-completion report includes the eight explicit generated-name contract retirements.
 The architectural inventory and earlier refinement stages below retain their
 own scope; the navigation update does not rerun KL validation.
 Earlier stages through `85b3d1a4fa9c4f08beb718d8925d2d0ec9c50060` remain
@@ -250,3 +253,47 @@ The [next graph/sheaf module batch](../../reports/module-next-region.md) adds Br
 Sheaf.Duality and GradedSheaf.Reindex (131 modern products). Its complete
 3947-record comparison against accepted main has no new differences;
 VertexDeletion remains legacy with its two rejected equation deltas retained.
+
+
+The first-round (historical, `31f05da`) [semantic API experiment](../../reports/semantic-api-experiment.md) adds six
+mathematical theorems in seven exact producer/client source exceptions, plus one
+separately registered generated congruence declaration. It hides only
+`Sheaf.quotientPullback`; `LocalCover.splitEquiv`, `CoefficientChange.map` and
+`Sheaf.baseChangeQuotient` retain their computation/compatibility interfaces.
+`semantic-api-source.json`, `semantic-api-types.json` and
+`semantic-api-generated.json` bind this finite round without refreshing the old
+source/type baselines. `SemanticApiChecks.lean` uses ordinary modern imports.
+The isolated actual producer/client trials are `semantic_api_split_trial.py`
+(with `--map` or `--quotient` for the two additional controls); run them only
+without another active build. See the report for acceptance status and costs.
+
+
+Round 2, [coefficient API evolution](../../reports/coefficient-api-evolution.md),
+retains the six earlier APIs and restores quotientPullback exposure. Its former
+opaque-definition exporter allowance and private historical audit copies are
+removed. Nine evaluation/transport theorems support real graded/sheaf/pairing
+clients. The bounded layer is `api_evolution.py`; the equivalent-implementation
+trial is `api_evolution_trial.py`. Old round-1 hiding trials belong to the original
+31f05da checkout. No bulk exposure or formatting migration is performed here.
+
+### 第三轮：四组数学操作 API
+
+`experiment/mathematical-api-families-20261024` 在第二轮 bdbca7f 上扩展同构输运、
+局部核、product/pi 和 restriction/延拓四组操作。定义仍expose；
+真实客户端、两种实现扰动和精确门禁见
+[第三轮报告](../../reports/mathematical-api-families.md)。隔离脚本为 `api_families_trial.py`，
+不得与构建并行运行。前两轮的冻结报告/证据保留。
+
+### Fourth experiment: graded and reflection APIs
+
+[API discovery guide](API-GUIDE.md) maps the range, splitting, twisted-lattice
+and tensor laws to real consumers. See the [experiment report](../../reports/graded-reflection-api.md).
+The isolated script `graded_reflection_trial.py` must run without any concurrent
+build. The experiment keeps all computational definitions exposed.
+
+Round 5 supported-sections/costalk and split-operation API experiment:
+[report](../../reports/support-sections-api.md), [discovery index](API-GUIDE.md).
+
+Round 6 completes the existing graded morphism, range, image and corner API families:
+[report and bounded acceptance evidence](../../reports/api-saturation.md),
+[discovery index](API-GUIDE.md). Earlier round reports remain historical evidence.

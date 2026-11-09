@@ -1,0 +1,28 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.6354832889992394,
+    "source_sha256": "44e60684250b2515aaf9bf105151cd8aeecb3ec9402e82b781acbd78521693c5"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean",
+      "--setup",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/graded-reflection/trials/quotient-range/artifacts/ForMathlib/Algebra/Module/Graded/ModuleData/Range.olean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.4586610900005326,
+    "source_sha256": "49a71ec1daea7cd161038fd29baa1467c7ab972654691c4322d5de67cbb3f847"
+  }
+]

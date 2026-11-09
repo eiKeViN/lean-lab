@@ -1,0 +1,14 @@
+OAI.KLInvariance.MomentGraph.GradedSheaf.lift_global.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua} [CommRing A]
+  [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E D : Type um} [PartialOrder V] {G : OrderedGraph V E} (B : GradedSheaf G)
+  [Fintype V] [Fintype D] [IsNoetherianRing A] (τ : D → V) (α : D → A) (hα : ∀ (d : D), α d ∈ 𝓐 1)
+  (C : (B.attachImage τ α hα).MinimalCover) (f : B.forget.Assignment) (hf : B.forget.IsGlobal f) :
+  ∃ z, (B.extendBottom τ α hα C).forget.IsGlobal (B.attachAssignment τ α hα C z f)
+OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_generated.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua}
+  [CommRing A] [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E D : Type um} [PartialOrder V] {G : OrderedGraph V E}
+  (B : GradedSheaf G) [Fintype V] [Fintype D] [IsNoetherianRing A] (τ : D → V) (α : D → A) (hα : ∀ (d : D), α d ∈ 𝓐 1)
+  (C : (B.attachImage τ α hα).MinimalCover) (hg : B.forget.Generated) : (B.extendBottom τ α hα C).forget.Generated
+OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_edgeFlabby.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua}
+  [CommRing A] [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E D : Type um} [PartialOrder V] {G : OrderedGraph V E}
+  (B : GradedSheaf G) [Fintype V] [Fintype D] [IsNoetherianRing A] (τ : D → V) (α : D → A) (hα : ∀ (d : D), α d ∈ 𝓐 1)
+  (C : (B.attachImage τ α hα).MinimalCover) (hf : B.EdgeFlabby) : (B.extendBottom τ α hα C).EdgeFlabby
+Ordinary modern consumer: exposed bodies, stalk-map/extension/assignment rfl pass.
