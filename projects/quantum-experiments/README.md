@@ -19,6 +19,10 @@
 
 首次使用请先在 `pmf-environment` 执行 `bash setup.sh`。之后运行 `bash check.sh` 会复用已有固定工具链，整体构建三个活动库及客户端、检查新模块、审计47新增及63历史声明，不追加性能计时。原始六文件的专门验证入口仍为 `pmf-environment/verify-proofs.py`。
 
+复现命令、官方缓存要求与公开源码身份检查见 [工作区复现指南](pmf-environment/README.md)。环境准备完成后，也可从仓库根目录运行 `bash projects/quantum-experiments/check.sh`。
+
+[发布与历史证据](pmf-environment/history/README.md) 保留源码哈希、修复差异、必要失败记录和最终验收。历史 `NOT_RUN`、未完成草稿和代理阻断记录只描述当时尝试，不取代后续验收。具体固定输入定理不推出一般随机输入独立性；有限消费者扩展也不构成长期维护或跨版本收益证据。
+
 固定 Lean 4.35.0，mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679`，Physlib `c5a908ba7a1ee474063626bdf0470af006f9812e`。不修改仓库原有 KL 实验或其他研究项目。
 
 发布目标：`eiKeViN/lean-lab` 的 `main`，路径保持为 `projects/quantum-experiments`。原实验分支与旧本地验收提交继续保留；公开复现使用随仓库发布的源码 SHA 基线，不依赖未发布提交对象或私人保全包。未迁入或修改 Alioth。

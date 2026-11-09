@@ -15,6 +15,12 @@ Return to the [multi-project workspace index](../README.md).
   [finite-friendly interfaces and clients](../projects/quantum-experiments/pmf-environment/Frontend/README.md), and
   [publication acceptance](../projects/quantum-experiments/pmf-environment/history/publication/README.md).
   These are separate projects and dependency pins; the quantum scripts do not check KL.
+- **Stabilizer / Lean 4.30.0-rc2:** [project guide](../experiments/stabilizer-api/README.md),
+  [review and compatibility scope](../experiments/stabilizer-api/REVIEW.md), and
+  [targeted acceptance](../experiments/stabilizer-api/evidence/acceptance.json).
+- **Measurement / Lean 4.35.0:** [project guide](../experiments/measurement-api/README.md),
+  [compilation, public types and axiom evidence](../experiments/measurement-api/evidence/acceptance.json),
+  and [independent exercises and same-task follow-up](../experiments/measurement-api/Usability/RESULTS.md).
 
 ## Earlier KL rounds and retained evidence
 
