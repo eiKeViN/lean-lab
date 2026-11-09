@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean /workspace/lean-lab/research/module-boundary/AttachBottomExplicit.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 1.9217769779999117,
+  "user_seconds": 0.710746,
+  "system_seconds": 1.203336,
+  "max_rss_kib": 4033716
+}

@@ -1,0 +1,1 @@
+quotientLinear (n : Nat) : Nat

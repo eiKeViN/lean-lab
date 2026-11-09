@@ -1,0 +1,334 @@
+⚠ [8925/8930] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8926/8930] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+✖ [8928/8930] Building ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic (6.3s)
+trace: .> LEAN_PATH=/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Cli/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/batteries/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/Qq/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/aesop/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/plausible/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean /workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean /workspace/lean-lab/experiments/kl-for-mathlib/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean -o /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.olean -i /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/lib/lean/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.ilean -c /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.c --setup /workspace/lean-lab/experiments/kl-for-mathlib/.lake/build/ir/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.setup.json --json
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:188:33: stuck at solving universe constraint
+  ?u.81 + 1 =?= max (z + 1) ?u.89
+while trying to unify
+  (e : ?m.131 b c) → ↑(B.edge ?m.119) : Sort (max (z + 1) ?u.89)
+with
+  (e : ?m.131 b c) → ↑(B.edge ?m.119) : Sort (max (z + 1) ?u.89)
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:188:33: stuck at solving universe constraint
+  ?u.82 + 1 =?= max (z + 1) ?u.83
+while trying to unify
+  (e : ?m.129 b c) → ↑(B.edge ?m.106) : Sort (max (z + 1) ?u.83)
+with
+  (e : ?m.129 b c) → ↑(B.edge ?m.106) : Sort (max (z + 1) ?u.83)
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:183:27: Invalid field notation: Type of
+  e
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `ArchimedeanOrder.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `GroupLike.val`
+  • `HomogeneousLocalization.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `MulArchimedeanOrder.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `PreTilt.val`
+  • `Semiquot.val`
+  • `SheafOfModules.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Algebra.Generators.val`
+  • `Array.Mem.val`
+  • `CategoryTheory.Sheaf.val`
+  • `Group.Generators.val`
+  • `Heyting.Regular.val`
+  • `Lean.ExprStructEq.val`
+  • `Metric.Snowflaking.val`
+  • `NumberField.RingOfIntegers.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `SheafOfModules.Hom.val`
+  • `Valuation.IsUniformizer.val`
+  • `Valuation.Uniformizer.val`
+  • `Vector.Mem.val`
+  • `Algebra.Extension.Cotangent.val`
+  • `Algebra.Generators.Hom.val`
+  • `CategoryTheory.ActionCategory.homOfPair.val`
+  • `CategoryTheory.Functor.Elements.val`
+  • `CategoryTheory.OverPresheafAux.OverArrows.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `CategoryTheory.Functor.WellOrderInductionData.Extension.val`
+  • `CategoryTheory.Limits.MulticospanIndex.sections.val`
+  • `CategoryTheory.PreGaloisCategory.PointedGaloisObject.Hom.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Mathlib.Tactic.Determinant.Cert.val`
+  • `Std.Sat.AIG.Fanin.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Std.Tactic.BVDecide.BVExpr.WithCache.val`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:183:34: Invalid field notation: Type of
+  e
+is not known; cannot resolve field `property`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Pregroupoid.property`
+  • `Subtype.property`
+  • `CategoryTheory.PreZeroHypercoverFamily.property`
+  • `List.Cursor.property`
+  • `Manifold.IsImmersionAt.property`
+  • `Manifold.IsImmersionAtOfComplement.property`
+  • `Manifold.IsSubmersionAt.property`
+  • `Manifold.IsSubmersionAtOfComplement.property`
+  • `Manifold.LiftSourceTargetPropertyAt.property`
+  • `Manifold.LocalPresentationAt.property`
+  • `ProbabilityTheory.IsArgminEstimator.property`
+  • `SFinKer.Hom.property`
+  • `CategoryTheory.InducedWideCategory.Hom.property`
+  • `CategoryTheory.MorphismProperty.relative.property`
+  • `CategoryTheory.ObjectProperty.FullSubcategory.property`
+  • `Lean.Lsp.CompletionItemKind.property`
+  • `Lean.Lsp.SemanticTokenType.property`
+  • `Lean.Lsp.SymbolKind.property`
+  • `CategoryTheory.Limits.MulticospanIndex.sections.property`
+  • `Std.DTreeMap.Internal.Cell.property`
+  • `Std.Sat.AIG.RelabelNat.State.Inv1.property`
+  • `Std.Sat.AIG.RelabelNat.State.Inv2.property`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:183:34: stuck at solving universe constraint
+  ?u.81 + 1 =?= max (z + 1) ?u.89
+while trying to unify
+  (e : ?m.131 b c) → ↑(B.edge ?m.119) : Sort (max (z + 1) ?u.89)
+with
+  (e : ?m.131 b c) → ↑(B.edge ?m.119) : Sort (max (z + 1) ?u.89)
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:184:28: Invalid field notation: Type of
+  e
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `ArchimedeanOrder.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `GroupLike.val`
+  • `HomogeneousLocalization.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `MulArchimedeanOrder.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `PreTilt.val`
+  • `Semiquot.val`
+  • `SheafOfModules.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Algebra.Generators.val`
+  • `Array.Mem.val`
+  • `CategoryTheory.Sheaf.val`
+  • `Group.Generators.val`
+  • `Heyting.Regular.val`
+  • `Lean.ExprStructEq.val`
+  • `Metric.Snowflaking.val`
+  • `NumberField.RingOfIntegers.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `SheafOfModules.Hom.val`
+  • `Valuation.IsUniformizer.val`
+  • `Valuation.Uniformizer.val`
+  • `Vector.Mem.val`
+  • `Algebra.Extension.Cotangent.val`
+  • `Algebra.Generators.Hom.val`
+  • `CategoryTheory.ActionCategory.homOfPair.val`
+  • `CategoryTheory.Functor.Elements.val`
+  • `CategoryTheory.OverPresheafAux.OverArrows.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `CategoryTheory.Functor.WellOrderInductionData.Extension.val`
+  • `CategoryTheory.Limits.MulticospanIndex.sections.val`
+  • `CategoryTheory.PreGaloisCategory.PointedGaloisObject.Hom.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Mathlib.Tactic.Determinant.Cert.val`
+  • `Std.Sat.AIG.Fanin.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Std.Tactic.BVDecide.BVExpr.WithCache.val`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:184:35: Invalid field notation: Type of
+  e
+is not known; cannot resolve field `property`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Pregroupoid.property`
+  • `Subtype.property`
+  • `CategoryTheory.PreZeroHypercoverFamily.property`
+  • `List.Cursor.property`
+  • `Manifold.IsImmersionAt.property`
+  • `Manifold.IsImmersionAtOfComplement.property`
+  • `Manifold.IsSubmersionAt.property`
+  • `Manifold.IsSubmersionAtOfComplement.property`
+  • `Manifold.LiftSourceTargetPropertyAt.property`
+  • `Manifold.LocalPresentationAt.property`
+  • `ProbabilityTheory.IsArgminEstimator.property`
+  • `SFinKer.Hom.property`
+  • `CategoryTheory.InducedWideCategory.Hom.property`
+  • `CategoryTheory.MorphismProperty.relative.property`
+  • `CategoryTheory.ObjectProperty.FullSubcategory.property`
+  • `Lean.Lsp.CompletionItemKind.property`
+  • `Lean.Lsp.SemanticTokenType.property`
+  • `Lean.Lsp.SymbolKind.property`
+  • `CategoryTheory.Limits.MulticospanIndex.sections.property`
+  • `Std.DTreeMap.Internal.Cell.property`
+  • `Std.Sat.AIG.RelabelNat.State.Inv1.property`
+  • `Std.Sat.AIG.RelabelNat.State.Inv2.property`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:189:46: Invalid field notation: Type of
+  e
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `ArchimedeanOrder.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `GroupLike.val`
+  • `HomogeneousLocalization.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `MulArchimedeanOrder.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `PreTilt.val`
+  • `Semiquot.val`
+  • `SheafOfModules.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Algebra.Generators.val`
+  • `Array.Mem.val`
+  • `CategoryTheory.Sheaf.val`
+  • `Group.Generators.val`
+  • `Heyting.Regular.val`
+  • `Lean.ExprStructEq.val`
+  • `Metric.Snowflaking.val`
+  • `NumberField.RingOfIntegers.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `SheafOfModules.Hom.val`
+  • `Valuation.IsUniformizer.val`
+  • `Valuation.Uniformizer.val`
+  • `Vector.Mem.val`
+  • `Algebra.Extension.Cotangent.val`
+  • `Algebra.Generators.Hom.val`
+  • `CategoryTheory.ActionCategory.homOfPair.val`
+  • `CategoryTheory.Functor.Elements.val`
+  • `CategoryTheory.OverPresheafAux.OverArrows.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `CategoryTheory.Functor.WellOrderInductionData.Extension.val`
+  • `CategoryTheory.Limits.MulticospanIndex.sections.val`
+  • `CategoryTheory.PreGaloisCategory.PointedGaloisObject.Hom.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Mathlib.Tactic.Determinant.Cert.val`
+  • `Std.Sat.AIG.Fanin.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Std.Tactic.BVDecide.BVExpr.WithCache.val`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:189:53: Invalid field notation: Type of
+  e
+is not known; cannot resolve field `property`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Pregroupoid.property`
+  • `Subtype.property`
+  • `CategoryTheory.PreZeroHypercoverFamily.property`
+  • `List.Cursor.property`
+  • `Manifold.IsImmersionAt.property`
+  • `Manifold.IsImmersionAtOfComplement.property`
+  • `Manifold.IsSubmersionAt.property`
+  • `Manifold.IsSubmersionAtOfComplement.property`
+  • `Manifold.LiftSourceTargetPropertyAt.property`
+  • `Manifold.LocalPresentationAt.property`
+  • `ProbabilityTheory.IsArgminEstimator.property`
+  • `SFinKer.Hom.property`
+  • `CategoryTheory.InducedWideCategory.Hom.property`
+  • `CategoryTheory.MorphismProperty.relative.property`
+  • `CategoryTheory.ObjectProperty.FullSubcategory.property`
+  • `Lean.Lsp.CompletionItemKind.property`
+  • `Lean.Lsp.SemanticTokenType.property`
+  • `Lean.Lsp.SymbolKind.property`
+  • `CategoryTheory.Limits.MulticospanIndex.sections.property`
+  • `Std.DTreeMap.Internal.Cell.property`
+  • `Std.Sat.AIG.RelabelNat.State.Inv1.property`
+  • `Std.Sat.AIG.RelabelNat.State.Inv2.property`
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:210:4: 'change' tactic failed, pattern
+  (B.upper ↑e) (f (G.target ↑e)) = (B.lower ↑e) (⋯ ▸ b)
+is not definitionally equal to target
+  (B.boundaryMap x) ⟨f, ⋯⟩ e = (B.stalkMap x) b e
+error: ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean:221:4: 'change' tactic failed, pattern
+  (B.lower ↑e) (⋯ ▸ g x) = (B.upper ↑e) (↑f (G.target ↑e))
+is not definitionally equal to target
+  (B.stalkMap x) (g x) e = (B.boundaryMap x) f e
+Some required targets logged failures:
+- ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic
+error: build failed

@@ -1,0 +1,9 @@
+Boundary.legacy: before=false; equations=some ([Boundary.legacy.eq_1])
+Boundary.legacy.eq_1: owner=none
+Boundary.modern: before=false; equations=some ([Boundary.modern.eq_1])
+Boundary.modern.eq_1: owner=none
+legacy body: { toFun := fun n => n, map_add := Boundary.legacy._proof_1 }
+modern body: { toFun := fun n => n, map_add := ⋯ }
+bodies definitionally equal
+law shapes: legacy const=true; modern lambda=true
+equation types: stored expressions differ; definitional equality passes

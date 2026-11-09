@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "/workspace/lean-lab/research/module-boundary/AttachComparison.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.9848295510000753,
+  "user_seconds": 3.063529,
+  "system_seconds": 1.010249,
+  "max_rss_kib": 5260384
+}

@@ -1,0 +1,1 @@
+/workspace/lean-lab/research/module-boundary/AttachBottomExplicit.lean:1:0: error: cannot import non-`module` ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs from `module`

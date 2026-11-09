@@ -1,0 +1,2 @@
+Boundary.ext (x : Option Nat) : x = x
+/workspace/lean-lab/results/boundary/core-run-v3/matcher/Consumer.lean:4:7: error(lean.unknownIdentifier): Unknown constant `Boundary.ext.match_1_1`
