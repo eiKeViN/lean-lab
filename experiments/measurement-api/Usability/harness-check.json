@@ -1,0 +1,79 @@
+{
+  "purpose": "Recorder self-test only; excluded from every exercise result",
+  "valid_audit": {
+    "case": "_harness",
+    "mode": "audit",
+    "started_utc": "2026-11-06T09:54:06.123195+00:00",
+    "elapsed_seconds": 2.431,
+    "timeout_seconds": 120,
+    "lean_threads": 1,
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "results/usability/_harness/Attempt001.lean",
+      "-o",
+      "results/usability/_harness/Attempt001.olean"
+    ],
+    "lean_exit_code": 0,
+    "status": "verified",
+    "source": "results/usability-harness/Input.lean",
+    "source_sha256": "ee099f624f14d769b3394e6d0c9bff06330b7d27a0139f60e1bee7d15d7183fa",
+    "source_snapshot": "results/usability/_harness/Attempt001.source.lean.txt",
+    "log": "results/usability/_harness/Attempt001.log",
+    "log_sha256": "7e21eeb52670a13bc24a019b46b3f5137b6b36281528ef470d18686239b2aa6c",
+    "declarations": [
+      "RecorderHarness.ok"
+    ],
+    "axioms": {
+      "RecorderHarness.ok": []
+    },
+    "imports": [
+      "MeasurementAPI"
+    ],
+    "options": [],
+    "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+    "observed_git_head": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+    "is_exercise": false,
+    "problem_sha256": "HARNESS_ONLY"
+  },
+  "nonstandard_axiom_rejected": {
+    "case": "_harness",
+    "mode": "audit",
+    "started_utc": "2026-11-06T09:54:08.606371+00:00",
+    "elapsed_seconds": 2.454,
+    "timeout_seconds": 120,
+    "lean_threads": 1,
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "results/usability/_harness/Attempt002.lean",
+      "-o",
+      "results/usability/_harness/Attempt002.olean"
+    ],
+    "lean_exit_code": 0,
+    "status": "audit_rejected",
+    "source": "results/usability-harness/Input.lean",
+    "source_sha256": "cd14316489e15e3ffa53af4ee652fe4b783540e3c89acb5260295f0e781ca372",
+    "source_snapshot": "results/usability/_harness/Attempt002.source.lean.txt",
+    "log": "results/usability/_harness/Attempt002.log",
+    "log_sha256": "caa2a8d8613f31bf1bc1fb623b58adb535ba18e1dab058cd0a065628e3e7cec3",
+    "declarations": [
+      "RecorderHarness.rejected"
+    ],
+    "axioms": {
+      "RecorderHarness.rejected": [
+        "RecorderHarness.bad"
+      ]
+    },
+    "imports": [
+      "MeasurementAPI"
+    ],
+    "options": [],
+    "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+    "observed_git_head": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+    "is_exercise": false,
+    "problem_sha256": "HARNESS_ONLY"
+  }
+}

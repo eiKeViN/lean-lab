@@ -1,0 +1,477 @@
+{
+  "case": "E4New",
+  "problem": "E4",
+  "resources": "extended",
+  "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "protocol_commit": "321c723",
+  "final_source": "Usability/Submissions/E4New.lean",
+  "final_source_sha256": "8c32817771a2e8095e28f364144744b7fd775e6fec899e6b3a0d3291c05b2446",
+  "fact_journal": "Usability/Submissions/E4New.md",
+  "mathematical_help_sent": [],
+  "attempts": [
+    {
+      "case": "E4New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:58:06.965873+00:00",
+      "elapsed_seconds": 4.088,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt001.lean",
+        "-o",
+        "results/usability/E4New/Attempt001.olean"
+      ],
+      "lean_exit_code": 1,
+      "status": "failed",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "cdaa70ec786b9c67a3bb82bf1b7d106d057edccd0abc1eb966add646dbd82555",
+      "source_snapshot": "results/usability/E4New/Attempt001.source.lean.txt",
+      "log": "results/usability/E4New/Attempt001.log",
+      "log_sha256": "ba8f247c7c6b0d74aaa4ffc6899b3a91779d3ff3f475ffa19961c04c2fc561bf",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\nimport MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  simp only [HermitianMat.mat_ite, HermitianMat.mat_zero, finePOVM_effect,\n    originalPOVM_effect]\n  simpa using sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  simpa [CPTPMap.of_kraus_CPTPMap, MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\nresults/usability/E4New/Attempt001.lean:12:28: error(lean.unknownIdentifier): Unknown identifier `Fintype`\n\nNote: A public declaration `Fintype` exists but is imported privately; consider adding `public import Mathlib.Data.Fintype.Defs`.\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:58:15.787030+00:00",
+      "elapsed_seconds": 11.058,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt002.lean",
+        "-o",
+        "results/usability/E4New/Attempt002.olean"
+      ],
+      "lean_exit_code": 1,
+      "status": "failed",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "f3e1cdf59704e8989e29f3e0b410a5d105581e5adb2b76ef5324c92444350066",
+      "source_snapshot": "results/usability/E4New/Attempt002.source.lean.txt",
+      "log": "results/usability/E4New/Attempt002.log",
+      "log_sha256": "95de37f1c9111c6dda5b5875736155e63c2857e945dc07e4a6bbdd54899d776c",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  simp only [HermitianMat.mat_ite, HermitianMat.mat_zero, finePOVM_effect,\n    originalPOVM_effect]\n  simpa using sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  simpa [CPTPMap.of_kraus_CPTPMap, MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt002.lean:21:62: error: unsolved goals\na : Type u_1\nb : Type u_2\nI : Type u_3\nJ : Type u_4\ninst✝⁷ : Fintype a\ninst✝⁶ : Fintype b\ninst✝⁵ : Fintype I\ninst✝⁴ : Fintype J\ninst✝³ : DecidableEq a\ninst✝² : DecidableEq b\ninst✝¹ : DecidableEq I\ninst✝ : DecidableEq J\nK : I → Matrix b a ℂ\nc : I → J → ℂ\ni : I\nj : J\n⊢ (c i j * (starRingEnd ℂ) (c i j)) • ((K i).conjTranspose * K i) =\n    ((starRingEnd ℂ) (c i j) * c i j) • ((K i).conjTranspose * K i)\nresults/usability/E4New/Attempt002.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt002.lean:72:13: error(lean.unknownIdentifier): Unknown constant `HermitianMat.mat_ite`\nresults/usability/E4New/Attempt002.lean:74:2: error: Type mismatch: After simplification, term\n  sum_fine_effect K c hc i\n has type\n  (Finset.sum.{u_4, u_1} Finset.univ fun j => (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n    (K i).conjTranspose * K i\nbut is expected to have type\n  (Finset.sum.{u_3, u_1} Finset.univ fun x => ∑ i_1, ↑(if x = i then (finePOVM K c hK hc).mats (x, i_1) else 0)) =\n    (K i).conjTranspose * K i\nresults/usability/E4New/Attempt002.lean:72:35: warning: This simp argument is unused:\n  HermitianMat.mat_zero\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [HermitianMat.mat_ite, finePOVM_effect, originalPOVM_effect]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nresults/usability/E4New/Attempt002.lean:72:58: warning: This simp argument is unused:\n  finePOVM_effect\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [HermitianMat.mat_ite, HermitianMat.mat_zero, originalPOVM_effect]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nresults/usability/E4New/Attempt002.lean:76:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt002.lean:103:2: error: Type mismatch: After simplification, term\n  nonselective_eq K c hc A\n has type\n  ∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose = ∑ i, K i * A * (K i).conjTranspose\nbut is expected to have type\n  {\n          toLinearMap :=\n            ∑ k,\n              { toFun := fun X => fineKraus K c k * X * (fineKraus K c k).conjTranspose, map_add' := ⋯,\n                map_smul' := ⋯ },\n          HP := ⋯ }.map\n      A =\n    { toLinearMap := ∑ k, { toFun := fun X => K k * X * (K k).conjTranspose, map_add' := ⋯, map_smul' := ⋯ },\n          HP := ⋯ }.map\n      A\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:58:51.359835+00:00",
+      "elapsed_seconds": 5.012,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt003.lean",
+        "-o",
+        "results/usability/E4New/Attempt003.olean"
+      ],
+      "lean_exit_code": 1,
+      "status": "failed",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "48f601e8fbb9e1776f5ad18f71e0764e4e721ad57a20338cdc5a4b2d18f4d3bb",
+      "source_snapshot": "results/usability/E4New/Attempt003.source.lean.txt",
+      "log": "results/usability/E4New/Attempt003.log",
+      "log_sha256": "ce8e74e0dcb3f1add98a8aace5306d2f9c564cd52b492307c06573af4a141e2e",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  rw [Finset.sum_comm]\n  simpa [apply_ite] using sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt003.lean:19:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_effect`:\n  [Fintype a]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  a] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt003.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt003.lean:73:2: error: Type mismatch: After simplification, term\n  sum_fine_effect K c hc i\n has type\n  ∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) = (K i).conjTranspose * K i\nbut is expected to have type\n  (∑ x, ∑ x_1, if x_1 = i then (fineKraus K c (x_1, x)).conjTranspose * fineKraus K c (x_1, x) else 0) =\n    (K i).conjTranspose * K i\nresults/usability/E4New/Attempt003.lean:75:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:59:10.555838+00:00",
+      "elapsed_seconds": 3.092,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt004.lean",
+        "-o",
+        "results/usability/E4New/Attempt004.olean"
+      ],
+      "lean_exit_code": 1,
+      "status": "failed",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "71fb60c9748643bf94564e2623e3aad6507fda84649004393237377db7e86ff6",
+      "source_snapshot": "results/usability/E4New/Attempt004.source.lean.txt",
+      "log": "results/usability/E4New/Attempt004.log",
+      "log_sha256": "f062e70521eeb00090ece8ace70d87da1dacc91ac414cc619b7679711fc7d49a",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  rw [Finset.sum_comm]\n  simpa [apply_ite, Finset.sum_ite_eq'] using sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt004.lean:19:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_effect`:\n  [Fintype a]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  a] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt004.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt004.lean:73:2: error: Type mismatch: After simplification, term\n  sum_fine_effect K c hc i\n has type\n  ∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) = (K i).conjTranspose * K i\nbut is expected to have type\n  (∑ x, ∑ x_1, if x_1 = i then (fineKraus K c (x_1, x)).conjTranspose * fineKraus K c (x_1, x) else 0) =\n    (K i).conjTranspose * K i\nresults/usability/E4New/Attempt004.lean:75:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:59:31.846878+00:00",
+      "elapsed_seconds": 3.27,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt005.lean",
+        "-o",
+        "results/usability/E4New/Attempt005.olean"
+      ],
+      "lean_exit_code": 1,
+      "status": "failed",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "c9ace0f5acba110b4b7619025df35d62159918c168cf8bcd6da7a2969a3c66cd",
+      "source_snapshot": "results/usability/E4New/Attempt005.source.lean.txt",
+      "log": "results/usability/E4New/Attempt005.log",
+      "log_sha256": "b129c63f58d45228e977958202a763307a12611375225579e87e0817940c36ee",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  rw [Finset.sum_comm]\n  simp only [apply_ite, HermitianMat.mat_zero, finePOVM_effect, originalPOVM_effect]\n  simp only [Finset.sum_ite_eq', Finset.mem_univ, if_true]\n  exact sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt005.lean:19:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_effect`:\n  [Fintype a]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  a] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt005.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt005.lean:74:50: warning: `if_true` has been deprecated: Use `ite_true` instead\n\nHint: Replace the deprecated name:\n  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲\nresults/usability/E4New/Attempt005.lean:74:2: error: `simp` made no progress\nresults/usability/E4New/Attempt005.lean:77:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:59:44.515959+00:00",
+      "elapsed_seconds": 3.262,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt006.lean",
+        "-o",
+        "results/usability/E4New/Attempt006.olean"
+      ],
+      "lean_exit_code": 1,
+      "status": "failed",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "206b88c1741af079f1b458ae5bbf04672b5f949e2dac68beaeb35d64105bc9a2",
+      "source_snapshot": "results/usability/E4New/Attempt006.source.lean.txt",
+      "log": "results/usability/E4New/Attempt006.log",
+      "log_sha256": "92d3a29118f25c450acdcb25533c6e764bd7f032806b266d929a22d856ac45b6",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  rw [Finset.sum_comm]\n  simp only [apply_ite, HermitianMat.mat_zero, finePOVM_effect, originalPOVM_effect]\n  trace_state\n  simp only [Fintype.sum_ite_eq']\n  exact sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt006.lean:19:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_effect`:\n  [Fintype a]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  a] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt006.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt006.lean:75:2: error: `simp` made no progress\na : Type u_1\nb : Type u_2\nI : Type u_3\nJ : Type u_4\ninst✝⁷ : Fintype a\ninst✝⁶ : Fintype b\ninst✝⁵ : Fintype I\ninst✝⁴ : Fintype J\ninst✝³ : DecidableEq a\ninst✝² : DecidableEq b\ninst✝¹ : DecidableEq I\ninst✝ : DecidableEq J\nK : I → Matrix b a ℂ\nc : I → J → ℂ\nhK : ∑ i, (K i).conjTranspose * K i = 1\nhc : ∀ (i : I), ∑ j, star (c i j) * c i j = 1\ni : I\n⊢ (∑ x, ∑ x_1, if x_1 = i then (fineKraus K c (x_1, x)).conjTranspose * fineKraus K c (x_1, x) else 0) =\n    (K i).conjTranspose * K i\nresults/usability/E4New/Attempt006.lean:78:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T10:00:05.577180+00:00",
+      "elapsed_seconds": 3.102,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt007.lean",
+        "-o",
+        "results/usability/E4New/Attempt007.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "compiled",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "d1b8abceaf011375bb86f019944da27fae08ef2ef8794a7166d99f1e7fc935c5",
+      "source_snapshot": "results/usability/E4New/Attempt007.source.lean.txt",
+      "log": "results/usability/E4New/Attempt007.log",
+      "log_sha256": "3799afd589f98f24a6bf4b4f34e70f876b7e26d2f9e9cf1f11586a16fd3c7092",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  rw [Finset.sum_comm]\n  simp only [apply_ite, HermitianMat.mat_zero, finePOVM_effect, originalPOVM_effect]\n  calc\n    _ = ∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) := by\n      apply Finset.sum_congr rfl\n      intro j _\n      rw [Finset.sum_eq_single i]\n      · simp\n      · intro i' _ hne\n        simp [hne]\n      · simp\n    _ = _ := sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt007.lean:19:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_effect`:\n  [Fintype a]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  a] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt007.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt007.lean:85:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "audit",
+      "started_utc": "2026-11-06T10:00:19.578418+00:00",
+      "elapsed_seconds": 3.223,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt008.lean",
+        "-o",
+        "results/usability/E4New/Attempt008.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "audit_rejected",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "d1b8abceaf011375bb86f019944da27fae08ef2ef8794a7166d99f1e7fc935c5",
+      "source_snapshot": "results/usability/E4New/Attempt008.source.lean.txt",
+      "log": "results/usability/E4New/Attempt008.log",
+      "log_sha256": "e77baa78457a89e7862eb5820e9f5e8cd57b27117fb8cec2c3998c48e99f6163",
+      "declarations": [
+        "E4New.fineKraus",
+        "E4New.fine_effect",
+        "E4New.sum_fine_effect",
+        "E4New.fine_normalized",
+        "E4New.originalPOVM",
+        "E4New.finePOVM",
+        "E4New.originalPOVM_effect",
+        "E4New.finePOVM_effect",
+        "E4New.coarsegrain_finePOVM",
+        "E4New.fine_branch",
+        "E4New.nonselective_eq",
+        "E4New.channel_eq"
+      ],
+      "axioms": {
+        "E4New.fineKraus": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.fine_effect": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.sum_fine_effect": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.fine_normalized": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.originalPOVM": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.finePOVM": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.originalPOVM_effect": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.finePOVM_effect": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.coarsegrain_finePOVM": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.fine_branch": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.nonselective_eq": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E4New.channel_eq": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen Classical BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  rw [Finset.sum_comm]\n  simp only [apply_ite, HermitianMat.mat_zero, finePOVM_effect, originalPOVM_effect]\n  calc\n    _ = ∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) := by\n      apply Finset.sum_congr rfl\n      intro j _\n      rw [Finset.sum_eq_single i]\n      · simp\n      · intro i' _ hne\n        simp [hne]\n      · simp\n    _ = _ := sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt008.lean:19:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_effect`:\n  [Fintype a]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  a] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt008.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt008.lean:85:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n@E4New.fineKraus : {a : Type u_1} →\n  {b : Type u_2} → {I : Type u_3} → {J : Type u_4} → (I → Matrix b a ℂ) → (I → J → ℂ) → I × J → Matrix b a ℂ\n@E4New.fine_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [Fintype a] [inst : Fintype b]\n  [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] (K : I → Matrix b a ℂ)\n  (c : I → J → ℂ) (i : I) (j : J),\n  (E4New.fineKraus K c (i, j)).conjTranspose * E4New.fineKraus K c (i, j) =\n    (star (c i j) * c i j) • ((K i).conjTranspose * K i)\n@E4New.sum_fine_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [Fintype a] [inst : Fintype b]\n  [Fintype I] [inst_2 : Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  (∀ (i : I), ∑ j, star (c i j) * c i j = 1) →\n    ∀ (i : I), ∑ j, (E4New.fineKraus K c (i, j)).conjTranspose * E4New.fineKraus K c (i, j) = (K i).conjTranspose * K i\n@E4New.fine_normalized : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [Fintype a] [inst : Fintype b]\n  [inst_1 : Fintype I] [inst_2 : Fintype J] [inst_3 : DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  ∑ i, (K i).conjTranspose * K i = 1 →\n    (∀ (i : I), ∑ j, star (c i j) * c i j = 1) →\n      ∑ ij, (E4New.fineKraus K c ij).conjTranspose * E4New.fineKraus K c ij = 1\n@E4New.originalPOVM : {a : Type u_1} →\n  {b : Type u_2} →\n    {I : Type u_3} →\n      [inst : Fintype a] →\n        [inst_1 : Fintype b] →\n          [inst_2 : Fintype I] →\n            [inst_3 : DecidableEq a] → (K : I → Matrix b a ℂ) → ∑ i, (K i).conjTranspose * K i = 1 → POVM I a\n@E4New.finePOVM : {a : Type u_1} →\n  {b : Type u_2} →\n    {I : Type u_3} →\n      {J : Type u_4} →\n        [inst : Fintype a] →\n          [inst_1 : Fintype b] →\n            [inst_2 : Fintype I] →\n              [inst_3 : Fintype J] →\n                [inst_4 : DecidableEq a] →\n                  [DecidableEq b] →\n                    [DecidableEq I] →\n                      [DecidableEq J] →\n                        (K : I → Matrix b a ℂ) →\n                          (c : I → J → ℂ) →\n                            ∑ i, (K i).conjTranspose * K i = 1 →\n                              (∀ (i : I), ∑ j, star (c i j) * c i j = 1) → POVM (I × J) a\n@E4New.originalPOVM_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} [inst : Fintype a] [inst_1 : Fintype b]\n  [inst_2 : Fintype I] [inst_3 : DecidableEq a] [DecidableEq b] [DecidableEq I] (K : I → Matrix b a ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I), ↑((E4New.originalPOVM K hK).mats i) = (K i).conjTranspose * K i\n@E4New.finePOVM_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] [inst_5 : DecidableEq b]\n  [inst_6 : DecidableEq I] [inst_7 : DecidableEq J] (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, star (c i j) * c i j = 1) (ij : I × J),\n  ↑((E4New.finePOVM K c hK hc).mats ij) = (E4New.fineKraus K c ij).conjTranspose * E4New.fineKraus K c ij\n@E4New.coarsegrain_finePOVM : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] [inst_5 : DecidableEq b]\n  [inst_6 : DecidableEq I] [inst_7 : DecidableEq J] (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, star (c i j) * c i j = 1),\n  (E4New.finePOVM K c hK hc).coarsegrain Prod.fst = E4New.originalPOVM K hK\n@E4New.fine_branch : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a] [Fintype b]\n  [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] (K : I → Matrix b a ℂ)\n  (c : I → J → ℂ) (A : Matrix a a ℂ) (i : I) (j : J),\n  E4New.fineKraus K c (i, j) * A * (E4New.fineKraus K c (i, j)).conjTranspose =\n    (star (c i j) * c i j) • (K i * A * (K i).conjTranspose)\n@E4New.nonselective_eq : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a] [Fintype b]\n  [inst_2 : Fintype I] [inst_3 : Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  (∀ (i : I), ∑ j, star (c i j) * c i j = 1) →\n    ∀ (A : Matrix a a ℂ),\n      ∑ ij, E4New.fineKraus K c ij * A * (E4New.fineKraus K c ij).conjTranspose = ∑ i, K i * A * (K i).conjTranspose\n@E4New.channel_eq : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] [inst_5 : DecidableEq b]\n  [inst_6 : DecidableEq I] [inst_7 : DecidableEq J] (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, star (c i j) * c i j = 1),\n  CPTPMap.of_kraus_CPTPMap (E4New.fineKraus K c) ⋯ = CPTPMap.of_kraus_CPTPMap K hK\n'E4New.fineKraus' depends on axioms: [propext, choice, Quot.sound]\n'E4New.fine_effect' depends on axioms: [propext, choice, Quot.sound]\n'E4New.sum_fine_effect' depends on axioms: [propext, choice, Quot.sound]\n'E4New.fine_normalized' depends on axioms: [propext, choice, Quot.sound]\n'E4New.originalPOVM' depends on axioms: [propext, choice, Quot.sound]\n'E4New.finePOVM' depends on axioms: [propext, choice, Quot.sound]\n'E4New.originalPOVM_effect' depends on axioms: [propext, choice, Quot.sound]\n'E4New.finePOVM_effect' depends on axioms: [propext, choice, Quot.sound]\n'E4New.coarsegrain_finePOVM' depends on axioms: [propext, choice, Quot.sound]\n'E4New.fine_branch' depends on axioms: [propext, choice, Quot.sound]\n'E4New.nonselective_eq' depends on axioms: [propext, choice, Quot.sound]\n'E4New.channel_eq' depends on axioms: [propext, choice, Quot.sound]\n"
+    },
+    {
+      "case": "E4New",
+      "mode": "audit",
+      "started_utc": "2026-11-06T10:00:45.479366+00:00",
+      "elapsed_seconds": 3.151,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E4New/Attempt009.lean",
+        "-o",
+        "results/usability/E4New/Attempt009.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "verified",
+      "source": "Usability/Submissions/E4New.lean",
+      "source_sha256": "8c32817771a2e8095e28f364144744b7fd775e6fec899e6b3a0d3291c05b2446",
+      "source_snapshot": "results/usability/E4New/Attempt009.source.lean.txt",
+      "log": "results/usability/E4New/Attempt009.log",
+      "log_sha256": "070a7cfcc2f85da9caa5311461e6a25e06fe7652fa9813ce9b77be6d79819e83",
+      "declarations": [
+        "E4New.fineKraus",
+        "E4New.fine_effect",
+        "E4New.sum_fine_effect",
+        "E4New.fine_normalized",
+        "E4New.originalPOVM",
+        "E4New.finePOVM",
+        "E4New.originalPOVM_effect",
+        "E4New.finePOVM_effect",
+        "E4New.coarsegrain_finePOVM",
+        "E4New.fine_branch",
+        "E4New.nonselective_eq",
+        "E4New.channel_eq"
+      ],
+      "axioms": {
+        "E4New.fineKraus": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.fine_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.sum_fine_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.fine_normalized": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.originalPOVM": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.finePOVM": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.originalPOVM_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.finePOVM_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.coarsegrain_finePOVM": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.fine_branch": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.nonselective_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4New.channel_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen BigOperators\n\nnamespace E4New\n\nvariable {a b I J : Type*} [Fintype a] [Fintype b] [Fintype I] [Fintype J]\nvariable [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The fine Kraus family is normalized, including for empty finite types. -/\ntheorem fine_normalized (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the random label recovers the original effects. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  apply HermitianMat.ext\n  simp only [POVM.coarsegrain_mats, HermitianMat.mat_finset_sum,\n    Finset.sum_filter, Fintype.sum_prod_type]\n  rw [Finset.sum_comm]\n  simp only [apply_ite, HermitianMat.mat_zero, finePOVM_effect, originalPOVM_effect]\n  calc\n    _ = ∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) := by\n      apply Finset.sum_congr rfl\n      intro j _\n      rw [Finset.sum_eq_single i]\n      · simp\n      · intro i' _ hne\n        simp [hne]\n      · simp\n    _ = _ := sum_fine_effect K c hc i\n\ntheorem fine_branch (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4New\n",
+      "compiler_output": "results/usability/E4New/Attempt009.lean:19:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_effect`:\n  [Fintype a]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  a] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt009.lean:52:8: warning: automatically included section variable(s) unused in theorem `E4New.originalPOVM_effect`:\n  [DecidableEq b]\n  [DecidableEq I]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq b] [DecidableEq I] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nresults/usability/E4New/Attempt009.lean:85:0: warning: automatically included section variable(s) unused in theorem `E4New.fine_branch`:\n  [Fintype b]\n  [Fintype I]\n  [Fintype J]\n  [DecidableEq a]\n  [DecidableEq b]\n  [DecidableEq I]\n  [DecidableEq J]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  b] [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n@E4New.fineKraus : {a : Type u_1} →\n  {b : Type u_2} → {I : Type u_3} → {J : Type u_4} → (I → Matrix b a ℂ) → (I → J → ℂ) → I × J → Matrix b a ℂ\n@E4New.fine_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [Fintype a] [inst : Fintype b]\n  [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] (K : I → Matrix b a ℂ)\n  (c : I → J → ℂ) (i : I) (j : J),\n  (E4New.fineKraus K c (i, j)).conjTranspose * E4New.fineKraus K c (i, j) =\n    (star (c i j) * c i j) • ((K i).conjTranspose * K i)\n@E4New.sum_fine_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [Fintype a] [inst : Fintype b]\n  [Fintype I] [inst_2 : Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  (∀ (i : I), ∑ j, star (c i j) * c i j = 1) →\n    ∀ (i : I), ∑ j, (E4New.fineKraus K c (i, j)).conjTranspose * E4New.fineKraus K c (i, j) = (K i).conjTranspose * K i\n@E4New.fine_normalized : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [Fintype a] [inst : Fintype b]\n  [inst_1 : Fintype I] [inst_2 : Fintype J] [inst_3 : DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  ∑ i, (K i).conjTranspose * K i = 1 →\n    (∀ (i : I), ∑ j, star (c i j) * c i j = 1) →\n      ∑ ij, (E4New.fineKraus K c ij).conjTranspose * E4New.fineKraus K c ij = 1\n@E4New.originalPOVM : {a : Type u_1} →\n  {b : Type u_2} →\n    {I : Type u_3} →\n      [inst : Fintype a] →\n        [inst_1 : Fintype b] →\n          [inst_2 : Fintype I] →\n            [inst_3 : DecidableEq a] → (K : I → Matrix b a ℂ) → ∑ i, (K i).conjTranspose * K i = 1 → POVM I a\n@E4New.finePOVM : {a : Type u_1} →\n  {b : Type u_2} →\n    {I : Type u_3} →\n      {J : Type u_4} →\n        [inst : Fintype a] →\n          [inst_1 : Fintype b] →\n            [inst_2 : Fintype I] →\n              [inst_3 : Fintype J] →\n                [inst_4 : DecidableEq a] →\n                  [DecidableEq b] →\n                    [DecidableEq I] →\n                      [DecidableEq J] →\n                        (K : I → Matrix b a ℂ) →\n                          (c : I → J → ℂ) →\n                            ∑ i, (K i).conjTranspose * K i = 1 →\n                              (∀ (i : I), ∑ j, star (c i j) * c i j = 1) → POVM (I × J) a\n@E4New.originalPOVM_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} [inst : Fintype a] [inst_1 : Fintype b]\n  [inst_2 : Fintype I] [inst_3 : DecidableEq a] [DecidableEq b] [DecidableEq I] (K : I → Matrix b a ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I), ↑((E4New.originalPOVM K hK).mats i) = (K i).conjTranspose * K i\n@E4New.finePOVM_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] [inst_5 : DecidableEq b]\n  [inst_6 : DecidableEq I] [inst_7 : DecidableEq J] (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, star (c i j) * c i j = 1) (ij : I × J),\n  ↑((E4New.finePOVM K c hK hc).mats ij) = (E4New.fineKraus K c ij).conjTranspose * E4New.fineKraus K c ij\n@E4New.coarsegrain_finePOVM : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] [inst_5 : DecidableEq b]\n  [inst_6 : DecidableEq I] [inst_7 : DecidableEq J] (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, star (c i j) * c i j = 1),\n  (E4New.finePOVM K c hK hc).coarsegrain Prod.fst = E4New.originalPOVM K hK\n@E4New.fine_branch : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a] [Fintype b]\n  [Fintype I] [Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J] (K : I → Matrix b a ℂ)\n  (c : I → J → ℂ) (A : Matrix a a ℂ) (i : I) (j : J),\n  E4New.fineKraus K c (i, j) * A * (E4New.fineKraus K c (i, j)).conjTranspose =\n    (star (c i j) * c i j) • (K i * A * (K i).conjTranspose)\n@E4New.nonselective_eq : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a] [Fintype b]\n  [inst_2 : Fintype I] [inst_3 : Fintype J] [DecidableEq a] [DecidableEq b] [DecidableEq I] [DecidableEq J]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  (∀ (i : I), ∑ j, star (c i j) * c i j = 1) →\n    ∀ (A : Matrix a a ℂ),\n      ∑ ij, E4New.fineKraus K c ij * A * (E4New.fineKraus K c ij).conjTranspose = ∑ i, K i * A * (K i).conjTranspose\n@E4New.channel_eq : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] [inst_5 : DecidableEq b]\n  [inst_6 : DecidableEq I] [inst_7 : DecidableEq J] (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n  (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, star (c i j) * c i j = 1),\n  CPTPMap.of_kraus_CPTPMap (E4New.fineKraus K c) ⋯ = CPTPMap.of_kraus_CPTPMap K hK\n'E4New.fineKraus' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.fine_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.sum_fine_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.fine_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.originalPOVM' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.finePOVM' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.originalPOVM_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.finePOVM_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.coarsegrain_finePOVM' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.fine_branch' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.nonselective_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4New.channel_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "Maintainer work after all independent first-round submissions; excluded from learner counts",
+  "failures": [
+    {
+      "action": "Simplify coarsegrain normalization using rw [Finset.sum_fiberwise]",
+      "diagnostic": "error: MeasurementAPI/POVM.lean:62:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ∑ j, ∑ i ∈ ?s with ?g i = j, ?f i\nin the target expression\n  ∑ x, ∑ x with f x = x, P.mats x = 1\n\nX : Type u_1\nY : Type u_2\ninst✝⁵ : Fintype X\ninst✝⁴ : Fintype Y\na : Type u_3\nb : Type u_4\ninst✝³ : Fintype a\ninst✝² : DecidableEq a\ninst✝¹ : Fintype b\ninst✝ : DecidableEq b\nP : POVM X a\nf : X → Y\n⊢ ∑ x, ∑ x with f x = x, P.mats x = 1\nerror: MeasurementAPI/POVM.lean:58:4: (kernel) declaration has metavariables 'POVM.coarsegrain'\nerror: MeasurementAPI/POVM.lean:65:16: (kernel) declaration type mismatch, 'POVM.coarsegrain_mats' has type",
+      "resolution": "Pass the finite set, function and effect family explicitly and compose equalities directly; no proof-budget change",
+      "log": "results/usability-v2-normalization-failure.log",
+      "log_sha256": "fbc33221ce747c634e2bfe0d9949770cf09da53fbe1cde4be0a25bfd6554ddad"
+    }
+  ]
+}

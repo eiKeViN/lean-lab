@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-11-06T10:35:17.688541+00:00",
+  "reviewer_sha256": "2bf4b92e3d0f474e8462d5c99831bb08878f2e4d8d3a54d7363f7542aaea6167",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "Usability/recheck.py",
+        "--verify-archives-only"
+      ],
+      "lean_invoked": false,
+      "exit_code": 1,
+      "passed": true,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/lean-lab-measurement/experiments/measurement-api/Usability/recheck.py\", line 141, in <module>\n    main()\n  File \"/workspace/lean-lab-measurement/experiments/measurement-api/Usability/recheck.py\", line 64, in main\n    raise RuntimeError('Frozen library differs: ' + ', '.join(changed))\nRuntimeError: Frozen library differs: MeasurementAPI.lean, MeasurementAPI/POVM.lean, added:MeasurementAPI/Marginals.lean\n",
+      "expected": "reject later library as frozen round1"
+    },
+    {
+      "command": [
+        "python3",
+        "Usability/recheck.py",
+        "--allow-library-drift",
+        "--verify-archives-only"
+      ],
+      "lean_invoked": false,
+      "exit_code": 0,
+      "passed": true,
+      "output": "round1: 6 archives, 22 source/output pairs verified; no Lean run.\n",
+      "expected": "verify tracked archives"
+    },
+    {
+      "command": [
+        "python3",
+        "Usability/recheck.py",
+        "--round",
+        "round2",
+        "--verify-archives-only"
+      ],
+      "lean_invoked": false,
+      "exit_code": 0,
+      "passed": true,
+      "output": "round2: 1 archives, 2 source/output pairs verified; no Lean run.\n",
+      "expected": "verify tracked archives"
+    }
+  ]
+}

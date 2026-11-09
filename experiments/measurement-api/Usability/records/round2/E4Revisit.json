@@ -1,0 +1,164 @@
+{
+  "case": "E4Revisit",
+  "round": "same_task_iteration_round2",
+  "problem": "E4",
+  "resources": "extended",
+  "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+  "library_commit": "c2d87ebfa012f98ef11d57f99b51d683d9e828c0",
+  "protocol_commit": "3516944",
+  "final_source": "Usability/Submissions/E4Revisit.lean",
+  "final_source_sha256": "5817fbbccd6f2bec4f7350069e9b250f699bb4230a91009d6fafd1748c84b7f2",
+  "fact_journal": "Usability/Submissions/E4Revisit.md",
+  "mathematical_help_sent": [],
+  "context": "Same E4 learner; retains own round1 experience and may reuse own first proof. Not independent.",
+  "attempts": [
+    {
+      "case": "E4Revisit",
+      "round": "round2",
+      "recorder_sha256": "a9272cd35dee0d68b55f9eccf6cbc1087e11f79fd5cde6a356ed447e6ac29e0b",
+      "mode": "compile",
+      "started_utc": "2026-11-06T10:25:15.727852+00:00",
+      "elapsed_seconds": 2.974,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/round2/E4Revisit/Attempt001.lean",
+        "-o",
+        "results/usability/round2/E4Revisit/Attempt001.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "compiled",
+      "source": "Usability/Submissions/E4Revisit.lean",
+      "source_sha256": "5817fbbccd6f2bec4f7350069e9b250f699bb4230a91009d6fafd1748c84b7f2",
+      "source_snapshot": "results/usability/round2/E4Revisit/Attempt001.source.lean.txt",
+      "log": "results/usability/round2/E4Revisit/Attempt001.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "c2d87ebfa012f98ef11d57f99b51d683d9e828c0",
+      "observed_git_head": "3516944ac1350237a416801bbab334d49b843395",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen BigOperators\n\nnamespace E4Revisit\n\nvariable {a b I J : Type*}\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect [Fintype b]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect [Fintype b] [Fintype J]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- Normalization of the fine family, without a nonemptiness assumption. -/\ntheorem fine_normalized [Fintype b] [Fintype I] [Fintype J] [DecidableEq a]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\nsection Statistics\n\nvariable [Fintype a] [Fintype b] [Fintype I] [Fintype J] [DecidableEq a]\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the fine label gives exactly the original statistics POVM. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  rw [POVM.coarsegrain_fst_mats]\n  apply HermitianMat.ext\n  simpa only [HermitianMat.mat_finset_sum, finePOVM_effect, originalPOVM_effect]\n    using sum_fine_effect K c hc i\n\nend Statistics\n\ntheorem fine_branch [Fintype a]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq [Fintype a] [Fintype I] [Fintype J]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq [Fintype a] [Fintype b] [Fintype I] [Fintype J] [DecidableEq a]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4Revisit\n",
+      "compiler_output": ""
+    },
+    {
+      "case": "E4Revisit",
+      "round": "round2",
+      "recorder_sha256": "a9272cd35dee0d68b55f9eccf6cbc1087e11f79fd5cde6a356ed447e6ac29e0b",
+      "mode": "audit",
+      "started_utc": "2026-11-06T10:25:28.148778+00:00",
+      "elapsed_seconds": 3.048,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/round2/E4Revisit/Attempt002.lean",
+        "-o",
+        "results/usability/round2/E4Revisit/Attempt002.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "verified",
+      "source": "Usability/Submissions/E4Revisit.lean",
+      "source_sha256": "5817fbbccd6f2bec4f7350069e9b250f699bb4230a91009d6fafd1748c84b7f2",
+      "source_snapshot": "results/usability/round2/E4Revisit/Attempt002.source.lean.txt",
+      "log": "results/usability/round2/E4Revisit/Attempt002.log",
+      "log_sha256": "8766d52733d9e9a5aef5c979962f1bc12c41e852e01bb43a989c78cc91169613",
+      "declarations": [
+        "E4Revisit.fineKraus",
+        "E4Revisit.fine_effect",
+        "E4Revisit.sum_fine_effect",
+        "E4Revisit.fine_normalized",
+        "E4Revisit.originalPOVM",
+        "E4Revisit.finePOVM",
+        "E4Revisit.originalPOVM_effect",
+        "E4Revisit.finePOVM_effect",
+        "E4Revisit.coarsegrain_finePOVM",
+        "E4Revisit.fine_branch",
+        "E4Revisit.nonselective_eq",
+        "E4Revisit.channel_eq"
+      ],
+      "axioms": {
+        "E4Revisit.fineKraus": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.fine_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.sum_fine_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.fine_normalized": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.originalPOVM": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.finePOVM": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.originalPOVM_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.finePOVM_effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.coarsegrain_finePOVM": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.fine_branch": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.nonselective_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E4Revisit.channel_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "c2d87ebfa012f98ef11d57f99b51d683d9e828c0",
+      "observed_git_head": "3516944ac1350237a416801bbab334d49b843395",
+      "is_exercise": true,
+      "problem_sha256": "765d15b18604a91f936ed9abdd8e6efc8cfcdc25b0a04e179a93916f5387b993",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\nnoncomputable section\n\nopen BigOperators\n\nnamespace E4Revisit\n\nvariable {a b I J : Type*}\n\n/-- Attach the fine label by multiplying a Kraus operator by its amplitude. -/\ndef fineKraus (K : I → Matrix b a ℂ) (c : I → J → ℂ) :\n    I × J → Matrix b a ℂ := fun ij => c ij.1 ij.2 • K ij.1\n\ntheorem fine_effect [Fintype b]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J) :\n    (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j) =\n      (star (c i j) * c i j) • ((K i).conjTranspose * K i) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\ntheorem sum_fine_effect [Fintype b] [Fintype J]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (i : I) :\n    (∑ j, (fineKraus K c (i, j)).conjTranspose * fineKraus K c (i, j)) =\n      (K i).conjTranspose * K i := by\n  simp_rw [fine_effect]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- Normalization of the fine family, without a nonemptiness assumption. -/\ntheorem fine_normalized [Fintype b] [Fintype I] [Fintype J] [DecidableEq a]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    (∑ ij, (fineKraus K c ij).conjTranspose * fineKraus K c ij) = 1 := by\n  rw [Fintype.sum_prod_type]\n  simp_rw [sum_fine_effect K c hc]\n  exact hK\n\nsection Statistics\n\nvariable [Fintype a] [Fintype b] [Fintype I] [Fintype J] [DecidableEq a]\n\n/-- The statistics POVM of the original implementation. -/\ndef originalPOVM (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) : POVM I a :=\n  POVM.ofKraus K hK\n\n/-- The statistics POVM with the fine labels retained. -/\ndef finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) : POVM (I × J) a :=\n  POVM.ofKraus (fineKraus K c) (fine_normalized K c hK hc)\n\n@[simp] theorem originalPOVM_effect (K : I → Matrix b a ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1) (i : I) :\n    ((originalPOVM K hK).mats i).mat = (K i).conjTranspose * K i := rfl\n\n@[simp] theorem finePOVM_effect (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (ij : I × J) :\n    ((finePOVM K c hK hc).mats ij).mat =\n      (fineKraus K c ij).conjTranspose * fineKraus K c ij := rfl\n\n/-- Forgetting the fine label gives exactly the original statistics POVM. -/\ntheorem coarsegrain_finePOVM (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    POVM.coarsegrain (finePOVM K c hK hc) Prod.fst = originalPOVM K hK := by\n  apply POVM.ext\n  intro i\n  rw [POVM.coarsegrain_fst_mats]\n  apply HermitianMat.ext\n  simpa only [HermitianMat.mat_finset_sum, finePOVM_effect, originalPOVM_effect]\n    using sum_fine_effect K c hc i\n\nend Statistics\n\ntheorem fine_branch [Fintype a]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (A : Matrix a a ℂ) (i : I) (j : J) :\n    fineKraus K c (i, j) * A * (fineKraus K c (i, j)).conjTranspose =\n      (star (c i j) * c i j) • (K i * A * (K i).conjTranspose) := by\n  simp [fineKraus, Matrix.conjTranspose_smul, Matrix.smul_mul, Matrix.mul_smul,\n    smul_smul, mul_comm]\n\n/-- The fine label does not alter the nonselective output, for any complex input. -/\ntheorem nonselective_eq [Fintype a] [Fintype I] [Fintype J]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) (A : Matrix a a ℂ) :\n    (∑ ij, fineKraus K c ij * A * (fineKraus K c ij).conjTranspose) =\n      ∑ i, K i * A * (K i).conjTranspose := by\n  rw [Fintype.sum_prod_type]\n  apply Finset.sum_congr rfl\n  intro i _\n  simp_rw [fine_branch]\n  rw [← Finset.sum_smul, hc, one_smul]\n\n/-- The two normalized Kraus implementations define the same CPTP channel. -/\ntheorem channel_eq [Fintype a] [Fintype b] [Fintype I] [Fintype J] [DecidableEq a]\n    (K : I → Matrix b a ℂ) (c : I → J → ℂ)\n    (hK : ∑ i, (K i).conjTranspose * K i = 1)\n    (hc : ∀ i, ∑ j, star (c i j) * c i j = 1) :\n    CPTPMap.of_kraus_CPTPMap (fineKraus K c) (fine_normalized K c hK hc) =\n      CPTPMap.of_kraus_CPTPMap K hK := by\n  apply CPTPMap.ext\n  apply LinearMap.ext\n  intro A\n  change (MatrixMap.of_kraus (fineKraus K c) (fineKraus K c)) A =\n    (MatrixMap.of_kraus K K) A\n  simpa [MatrixMap.of_kraus] using nonselective_eq K c hc A\n\nend E4Revisit\n",
+      "compiler_output": "@E4Revisit.fineKraus : {a : Type u_1} →\n  {b : Type u_2} → {I : Type u_3} → {J : Type u_4} → (I → Matrix b a ℂ) → (I → J → ℂ) → I × J → Matrix b a ℂ\n@E4Revisit.fine_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype b]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ) (i : I) (j : J),\n  (E4Revisit.fineKraus K c (i, j)).conjTranspose * E4Revisit.fineKraus K c (i, j) =\n    (Star.star (c i j) * c i j) • ((K i).conjTranspose * K i)\n@E4Revisit.sum_fine_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype b]\n  [inst_1 : Fintype J] (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  (∀ (i : I), ∑ j, Star.star (c i j) * c i j = 1) →\n    ∀ (i : I),\n      ∑ j, (E4Revisit.fineKraus K c (i, j)).conjTranspose * E4Revisit.fineKraus K c (i, j) = (K i).conjTranspose * K i\n@E4Revisit.fine_normalized : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype b]\n  [inst_1 : Fintype I] [inst_2 : Fintype J] [inst_3 : DecidableEq a] (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  ∑ i, (K i).conjTranspose * K i = 1 →\n    (∀ (i : I), ∑ j, Star.star (c i j) * c i j = 1) →\n      ∑ ij, (E4Revisit.fineKraus K c ij).conjTranspose * E4Revisit.fineKraus K c ij = 1\n@E4Revisit.originalPOVM : {a : Type u_1} →\n  {b : Type u_2} →\n    {I : Type u_3} →\n      [inst : Fintype a] →\n        [inst_1 : Fintype b] →\n          [inst_2 : Fintype I] →\n            [inst_3 : DecidableEq a] → (K : I → Matrix b a ℂ) → ∑ i, (K i).conjTranspose * K i = 1 → POVM I a\n@E4Revisit.finePOVM : {a : Type u_1} →\n  {b : Type u_2} →\n    {I : Type u_3} →\n      {J : Type u_4} →\n        [inst : Fintype a] →\n          [inst_1 : Fintype b] →\n            [inst_2 : Fintype I] →\n              [inst_3 : Fintype J] →\n                [inst_4 : DecidableEq a] →\n                  (K : I → Matrix b a ℂ) →\n                    (c : I → J → ℂ) →\n                      ∑ i, (K i).conjTranspose * K i = 1 →\n                        (∀ (i : I), ∑ j, Star.star (c i j) * c i j = 1) → POVM (I × J) a\n@E4Revisit.originalPOVM_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} [inst : Fintype a] [inst_1 : Fintype b]\n  [inst_2 : Fintype I] [inst_3 : DecidableEq a] (K : I → Matrix b a ℂ) (hK : ∑ i, (K i).conjTranspose * K i = 1)\n  (i : I), ↑((E4Revisit.originalPOVM K hK).mats i) = (K i).conjTranspose * K i\n@E4Revisit.finePOVM_effect : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] (K : I → Matrix b a ℂ)\n  (c : I → J → ℂ) (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, Star.star (c i j) * c i j = 1)\n  (ij : I × J),\n  ↑((E4Revisit.finePOVM K c hK hc).mats ij) = (E4Revisit.fineKraus K c ij).conjTranspose * E4Revisit.fineKraus K c ij\n@E4Revisit.coarsegrain_finePOVM : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] (K : I → Matrix b a ℂ)\n  (c : I → J → ℂ) (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, Star.star (c i j) * c i j = 1),\n  (E4Revisit.finePOVM K c hK hc).coarsegrain Prod.fst = E4Revisit.originalPOVM K hK\n@E4Revisit.fine_branch : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  (K : I → Matrix b a ℂ) (c : I → J → ℂ) (A : Matrix a a ℂ) (i : I) (j : J),\n  E4Revisit.fineKraus K c (i, j) * A * (E4Revisit.fineKraus K c (i, j)).conjTranspose =\n    (Star.star (c i j) * c i j) • (K i * A * (K i).conjTranspose)\n@E4Revisit.nonselective_eq : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype I] [inst_2 : Fintype J] (K : I → Matrix b a ℂ) (c : I → J → ℂ),\n  (∀ (i : I), ∑ j, Star.star (c i j) * c i j = 1) →\n    ∀ (A : Matrix a a ℂ),\n      ∑ ij, E4Revisit.fineKraus K c ij * A * (E4Revisit.fineKraus K c ij).conjTranspose =\n        ∑ i, K i * A * (K i).conjTranspose\n@E4Revisit.channel_eq : ∀ {a : Type u_1} {b : Type u_2} {I : Type u_3} {J : Type u_4} [inst : Fintype a]\n  [inst_1 : Fintype b] [inst_2 : Fintype I] [inst_3 : Fintype J] [inst_4 : DecidableEq a] (K : I → Matrix b a ℂ)\n  (c : I → J → ℂ) (hK : ∑ i, (K i).conjTranspose * K i = 1) (hc : ∀ (i : I), ∑ j, Star.star (c i j) * c i j = 1),\n  CPTPMap.of_kraus_CPTPMap (E4Revisit.fineKraus K c) ⋯ = CPTPMap.of_kraus_CPTPMap K hK\n'E4Revisit.fineKraus' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.fine_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.sum_fine_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.fine_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.originalPOVM' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.finePOVM' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.originalPOVM_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.finePOVM_effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.coarsegrain_finePOVM' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.fine_branch' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.nonselective_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E4Revisit.channel_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}

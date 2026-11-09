@@ -1,0 +1,128 @@
+{
+  "case": "E2Base",
+  "problem": "E2",
+  "resources": "original",
+  "problem_sha256": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "protocol_commit": "321c723",
+  "final_source": "Usability/Submissions/E2Base.lean",
+  "final_source_sha256": "5a2027aef2113a8ec057a14a504c1c758dccee41b284458a3eb4706cc8f2d618",
+  "fact_journal": "Usability/Submissions/E2Base.md",
+  "mathematical_help_sent": [],
+  "attempts": [
+    {
+      "case": "E2Base",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:57:17.596229+00:00",
+      "elapsed_seconds": 8.035,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E2Base/Attempt001.lean",
+        "-o",
+        "results/usability/E2Base/Attempt001.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "compiled",
+      "source": "Usability/Submissions/E2Base.lean",
+      "source_sha256": "5a2027aef2113a8ec057a14a504c1c758dccee41b284458a3eb4706cc8f2d618",
+      "source_snapshot": "results/usability/E2Base/Attempt001.source.lean.txt",
+      "log": "results/usability/E2Base/Attempt001.log",
+      "log_sha256": "456572a834b6d2550ab7e522fdce85ef85a1a9fba2dbb85257809ac85ba454f9",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "QuantumInfo.Measurements.POVM"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+      "source_text": "module\n\npublic import QuantumInfo.Measurements.POVM\n\n@[expose] public section\nnoncomputable section\nopen scoped BigOperators RealInnerProductSpace\n\nnamespace E2Base\n\nvariable {a X : Type*} [Fintype a] [DecidableEq a] [Fintype X] [DecidableEq X]\n\n/-- The effect of accepting an outcome with its specified soft weight. -/\ndef testEffect (E : POVM X a) (w : X → ℝ) : HermitianMat a ℂ :=\n  ∑ x, w x • E.mats x\n\n/-- Every weight in `[0,1]` gives an effect in the operator interval `[0,I]`. -/\ntheorem testEffect_bounds (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) :\n    0 ≤ testEffect E w ∧ testEffect E w ≤ 1 := by\n  constructor\n  · exact Finset.sum_nonneg (fun x _ => smul_nonneg (hw0 x) (E.nonneg x))\n  · calc\n      testEffect E w ≤ ∑ x, E.mats x := by\n        apply Finset.sum_le_sum\n        intro x _\n        simpa using smul_le_smul_of_nonneg_right (hw1 x) (E.nonneg x)\n      _ = 1 := E.normalized\n\n/-- The binary measurement with acceptance outcome `0` and rejection outcome `1`. -/\ndef binary (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) : POVM (Fin 2) a where\n  mats b := if b = 0 then testEffect E w else 1 - testEffect E w\n  nonneg b := by\n    split_ifs\n    · exact (testEffect_bounds E w hw0 hw1).1\n    · exact sub_nonneg.mpr (testEffect_bounds E w hw0 hw1).2\n  normalized := by\n    simp [Fin.sum_univ_two]\n\n@[simp] theorem binary_zero (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) :\n    (binary E w hw0 hw1).mats 0 = testEffect E w := by\n  simp [binary]\n\n@[simp] theorem binary_one (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) :\n    (binary E w hw0 hw1).mats 1 = 1 - testEffect E w := by\n  simp [binary]\n\n/-- Acceptance has the weighted Born probability. -/\ntheorem accept_probability (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) (ρ : MState a) :\n    ((binary E w hw0 hw1).measure ρ 0 : ℝ) =\n      ∑ x, w x * (E.measure ρ x : ℝ) := by\n  change ⟪(binary E w hw0 hw1).mats 0, ρ.M⟫ = _\n  rw [binary_zero, testEffect, sum_inner]\n  apply Finset.sum_congr rfl\n  intro x _\n  change ⟪w x • E.mats x, ρ.M⟫ = w x * ⟪E.mats x, ρ.M⟫\n  exact HermitianMat.inner_smul_left _ _ _\n\n/-- Rejection is the complement of the weighted Born probability. -/\ntheorem reject_probability (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) (ρ : MState a) :\n    ((binary E w hw0 hw1).measure ρ 1 : ℝ) =\n      1 - ∑ x, w x * (E.measure ρ x : ℝ) := by\n  have h := ((binary E w hw0 hw1).measure ρ).normalized\n  rw [Fin.sum_univ_two, accept_probability E w hw0 hw1 ρ] at h\n  linarith\n\nend E2Base\n",
+      "compiler_output": "results/usability/E2Base/Attempt001.lean:18:0: warning: automatically included section variable(s) unused in theorem `E2Base.testEffect_bounds`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "case": "E2Base",
+      "mode": "audit",
+      "started_utc": "2026-11-06T09:57:34.800965+00:00",
+      "elapsed_seconds": 4.784,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E2Base/Attempt002.lean",
+        "-o",
+        "results/usability/E2Base/Attempt002.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "verified",
+      "source": "Usability/Submissions/E2Base.lean",
+      "source_sha256": "5a2027aef2113a8ec057a14a504c1c758dccee41b284458a3eb4706cc8f2d618",
+      "source_snapshot": "results/usability/E2Base/Attempt002.source.lean.txt",
+      "log": "results/usability/E2Base/Attempt002.log",
+      "log_sha256": "e9f20fdd1f334c4d20c48945c5daaabfacc389dcedfdaf984a0679caf0567812",
+      "declarations": [
+        "E2Base.testEffect",
+        "E2Base.testEffect_bounds",
+        "E2Base.binary",
+        "E2Base.binary_zero",
+        "E2Base.binary_one",
+        "E2Base.accept_probability",
+        "E2Base.reject_probability"
+      ],
+      "axioms": {
+        "E2Base.testEffect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2Base.testEffect_bounds": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2Base.binary": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2Base.binary_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2Base.binary_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2Base.accept_probability": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2Base.reject_probability": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "QuantumInfo.Measurements.POVM"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+      "source_text": "module\n\npublic import QuantumInfo.Measurements.POVM\n\n@[expose] public section\nnoncomputable section\nopen scoped BigOperators RealInnerProductSpace\n\nnamespace E2Base\n\nvariable {a X : Type*} [Fintype a] [DecidableEq a] [Fintype X] [DecidableEq X]\n\n/-- The effect of accepting an outcome with its specified soft weight. -/\ndef testEffect (E : POVM X a) (w : X → ℝ) : HermitianMat a ℂ :=\n  ∑ x, w x • E.mats x\n\n/-- Every weight in `[0,1]` gives an effect in the operator interval `[0,I]`. -/\ntheorem testEffect_bounds (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) :\n    0 ≤ testEffect E w ∧ testEffect E w ≤ 1 := by\n  constructor\n  · exact Finset.sum_nonneg (fun x _ => smul_nonneg (hw0 x) (E.nonneg x))\n  · calc\n      testEffect E w ≤ ∑ x, E.mats x := by\n        apply Finset.sum_le_sum\n        intro x _\n        simpa using smul_le_smul_of_nonneg_right (hw1 x) (E.nonneg x)\n      _ = 1 := E.normalized\n\n/-- The binary measurement with acceptance outcome `0` and rejection outcome `1`. -/\ndef binary (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) : POVM (Fin 2) a where\n  mats b := if b = 0 then testEffect E w else 1 - testEffect E w\n  nonneg b := by\n    split_ifs\n    · exact (testEffect_bounds E w hw0 hw1).1\n    · exact sub_nonneg.mpr (testEffect_bounds E w hw0 hw1).2\n  normalized := by\n    simp [Fin.sum_univ_two]\n\n@[simp] theorem binary_zero (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) :\n    (binary E w hw0 hw1).mats 0 = testEffect E w := by\n  simp [binary]\n\n@[simp] theorem binary_one (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) :\n    (binary E w hw0 hw1).mats 1 = 1 - testEffect E w := by\n  simp [binary]\n\n/-- Acceptance has the weighted Born probability. -/\ntheorem accept_probability (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) (ρ : MState a) :\n    ((binary E w hw0 hw1).measure ρ 0 : ℝ) =\n      ∑ x, w x * (E.measure ρ x : ℝ) := by\n  change ⟪(binary E w hw0 hw1).mats 0, ρ.M⟫ = _\n  rw [binary_zero, testEffect, sum_inner]\n  apply Finset.sum_congr rfl\n  intro x _\n  change ⟪w x • E.mats x, ρ.M⟫ = w x * ⟪E.mats x, ρ.M⟫\n  exact HermitianMat.inner_smul_left _ _ _\n\n/-- Rejection is the complement of the weighted Born probability. -/\ntheorem reject_probability (E : POVM X a) (w : X → ℝ)\n    (hw0 : ∀ x, 0 ≤ w x) (hw1 : ∀ x, w x ≤ 1) (ρ : MState a) :\n    ((binary E w hw0 hw1).measure ρ 1 : ℝ) =\n      1 - ∑ x, w x * (E.measure ρ x : ℝ) := by\n  have h := ((binary E w hw0 hw1).measure ρ).normalized\n  rw [Fin.sum_univ_two, accept_probability E w hw0 hw1 ρ] at h\n  linarith\n\nend E2Base\n",
+      "compiler_output": "results/usability/E2Base/Attempt002.lean:18:0: warning: automatically included section variable(s) unused in theorem `E2Base.testEffect_bounds`:\n  [DecidableEq X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n@E2Base.testEffect : {a : Type u_1} →\n  {X : Type u_2} →\n    [inst : Fintype a] → [inst_1 : DecidableEq a] → [inst_2 : Fintype X] → POVM X a → (X → ℝ) → HermitianMat a ℂ\n@E2Base.testEffect_bounds : ∀ {a : Type u_1} {X : Type u_2} [inst : Fintype a] [inst_1 : DecidableEq a]\n  [inst_2 : Fintype X] [DecidableEq X] (E : POVM X a) (w : X → ℝ),\n  (∀ (x : X), 0 ≤ w x) → (∀ (x : X), w x ≤ 1) → 0 ≤ E2Base.testEffect E w ∧ E2Base.testEffect E w ≤ 1\n@E2Base.binary : {a : Type u_1} →\n  {X : Type u_2} →\n    [inst : Fintype a] →\n      [inst_1 : DecidableEq a] →\n        [inst_2 : Fintype X] →\n          [DecidableEq X] → POVM X a → (w : X → ℝ) → (∀ (x : X), 0 ≤ w x) → (∀ (x : X), w x ≤ 1) → POVM (Fin 2) a\n@E2Base.binary_zero : ∀ {a : Type u_1} {X : Type u_2} [inst : Fintype a] [inst_1 : DecidableEq a] [inst_2 : Fintype X]\n  [inst_3 : DecidableEq X] (E : POVM X a) (w : X → ℝ) (hw0 : ∀ (x : X), 0 ≤ w x) (hw1 : ∀ (x : X), w x ≤ 1),\n  (E2Base.binary E w hw0 hw1).mats 0 = E2Base.testEffect E w\n@E2Base.binary_one : ∀ {a : Type u_1} {X : Type u_2} [inst : Fintype a] [inst_1 : DecidableEq a] [inst_2 : Fintype X]\n  [inst_3 : DecidableEq X] (E : POVM X a) (w : X → ℝ) (hw0 : ∀ (x : X), 0 ≤ w x) (hw1 : ∀ (x : X), w x ≤ 1),\n  (E2Base.binary E w hw0 hw1).mats 1 = 1 - E2Base.testEffect E w\n@E2Base.accept_probability : ∀ {a : Type u_1} {X : Type u_2} [inst : Fintype a] [inst_1 : DecidableEq a]\n  [inst_2 : Fintype X] [inst_3 : DecidableEq X] (E : POVM X a) (w : X → ℝ) (hw0 : ∀ (x : X), 0 ≤ w x)\n  (hw1 : ∀ (x : X), w x ≤ 1) (ρ : MState a),\n  ↑(((E2Base.binary E w hw0 hw1).measure ρ) 0) = ∑ x, w x * ↑((E.measure ρ) x)\n@E2Base.reject_probability : ∀ {a : Type u_1} {X : Type u_2} [inst : Fintype a] [inst_1 : DecidableEq a]\n  [inst_2 : Fintype X] [inst_3 : DecidableEq X] (E : POVM X a) (w : X → ℝ) (hw0 : ∀ (x : X), 0 ≤ w x)\n  (hw1 : ∀ (x : X), w x ≤ 1) (ρ : MState a),\n  ↑(((E2Base.binary E w hw0 hw1).measure ρ) 1) = 1 - ∑ x, w x * ↑((E.measure ρ) x)\n'E2Base.testEffect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2Base.testEffect_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2Base.binary' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2Base.binary_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2Base.binary_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2Base.accept_probability' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2Base.reject_probability' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}

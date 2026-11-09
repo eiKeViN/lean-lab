@@ -1,0 +1,266 @@
+{
+  "round": "independent_round1",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "protocol_commit": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+  "fork_turns": "none",
+  "reasoning_effort_requested": "max",
+  "model": "inherited; exact provider model not exposed by spawn result",
+  "library_modified_during_round": false,
+  "parent_mathematical_help": [],
+  "isolation": "fresh model contexts plus instructed resource boundaries; shared filesystem, no OS-level isolation",
+  "cases": {
+    "E1New": {
+      "problem": "E1",
+      "resources": "extended",
+      "complete": true,
+      "compile_attempts": 1,
+      "failed_compiles": 0,
+      "first_successful_compile": 1,
+      "learner_audit_attempts": 1,
+      "learner_audit_rejections": 0,
+      "timeouts": 0,
+      "parent_first_source_verified": true,
+      "parent_final_source_verified": true,
+      "audited_declarations": [
+        "E1New.rename",
+        "E1New.rename_mats",
+        "E1New.rename_probability",
+        "E1New.rename_inverse"
+      ],
+      "accepted_assumptions": "Only the problem hypotheses and permitted Fintype/DecidableEq instances; no extra nonempty, normalization, rank or commutativity assumptions.",
+      "final_source": "Usability/Submissions/E1New.lean",
+      "fact_journal": "Usability/Submissions/E1New.md",
+      "trace": "Usability/records/E1New.json",
+      "source_lines": 39,
+      "coverage": [
+        "POVM construction",
+        "corresponding probabilities",
+        "inverse object equality"
+      ],
+      "observed_use": [
+        "POVM.ext",
+        "POVM.measure_apply",
+        "Equiv.sum_comp"
+      ],
+      "notes": "Direct inverse-image effects were a natural route; the learner did not force the general coarsegrain constructor."
+    },
+    "E2New": {
+      "problem": "E2",
+      "resources": "extended",
+      "complete": true,
+      "compile_attempts": 1,
+      "failed_compiles": 0,
+      "first_successful_compile": 1,
+      "learner_audit_attempts": 2,
+      "learner_audit_rejections": 1,
+      "timeouts": 0,
+      "parent_first_source_verified": true,
+      "parent_final_source_verified": true,
+      "audited_declarations": [
+        "E2New.effect",
+        "E2New.effect_bounds",
+        "E2New.decision",
+        "E2New.decision_zero",
+        "E2New.decision_one",
+        "E2New.effect_expectation",
+        "E2New.decision_prob_zero",
+        "E2New.decision_prob_one"
+      ],
+      "accepted_assumptions": "Only the problem hypotheses and permitted Fintype/DecidableEq instances; no extra nonempty, normalization, rank or commutativity assumptions.",
+      "final_source": "Usability/Submissions/E2New.lean",
+      "fact_journal": "Usability/Submissions/E2New.md",
+      "trace": "Usability/records/E2New.json",
+      "source_lines": 68,
+      "coverage": [
+        "effect bounds",
+        "both binary effects",
+        "both probabilities"
+      ],
+      "observed_use": [
+        "POVM.binary",
+        "POVM.binary_zero",
+        "POVM.measure_apply",
+        "ordered real scalar action",
+        "inner_sum"
+      ],
+      "notes": "Weighted-effect mathematics is still supplied by the learner. The extended library handles binary packaging and observation."
+    },
+    "E2Base": {
+      "problem": "E2",
+      "resources": "original",
+      "complete": true,
+      "compile_attempts": 1,
+      "failed_compiles": 0,
+      "first_successful_compile": 1,
+      "learner_audit_attempts": 1,
+      "learner_audit_rejections": 0,
+      "timeouts": 0,
+      "parent_first_source_verified": true,
+      "parent_final_source_verified": true,
+      "audited_declarations": [
+        "E2Base.testEffect",
+        "E2Base.testEffect_bounds",
+        "E2Base.binary",
+        "E2Base.binary_zero",
+        "E2Base.binary_one",
+        "E2Base.accept_probability",
+        "E2Base.reject_probability"
+      ],
+      "accepted_assumptions": "Only the problem hypotheses and permitted Fintype/DecidableEq instances; no extra nonempty, normalization, rank or commutativity assumptions.",
+      "final_source": "Usability/Submissions/E2Base.lean",
+      "fact_journal": "Usability/Submissions/E2Base.md",
+      "trace": "Usability/records/E2Base.json",
+      "source_lines": 72,
+      "coverage": [
+        "effect bounds",
+        "both binary effects",
+        "both probabilities"
+      ],
+      "observed_use": [
+        "POVM fields",
+        "HermitianMat.inner_smul_left",
+        "distribution normalization"
+      ],
+      "notes": "Also solved on its first compile. Existing Physlib/mathlib already cover the key order and inner-product mathematics."
+    },
+    "E3New": {
+      "problem": "E3",
+      "resources": "extended",
+      "complete": true,
+      "compile_attempts": 1,
+      "failed_compiles": 0,
+      "first_successful_compile": 1,
+      "learner_audit_attempts": 2,
+      "learner_audit_rejections": 1,
+      "timeouts": 0,
+      "parent_first_source_verified": true,
+      "parent_final_source_verified": true,
+      "audited_declarations": [
+        "E3New.merged",
+        "E3New.merged_effects",
+        "E3New.merged_probability",
+        "E3New.pushforward_sum_abs_le",
+        "E3New.measurement_sum_abs_le"
+      ],
+      "accepted_assumptions": "Only the problem hypotheses and permitted Fintype/DecidableEq instances; no extra nonempty, normalization, rank or commutativity assumptions.",
+      "final_source": "Usability/Submissions/E3New.lean",
+      "fact_journal": "Usability/Submissions/E3New.md",
+      "trace": "Usability/records/E3New.json",
+      "source_lines": 59,
+      "coverage": [
+        "coarse POVM",
+        "fiber probabilities",
+        "full L1 inequality"
+      ],
+      "observed_use": [
+        "POVM.coarsegrain",
+        "POVM.measure_coarsegrain",
+        "ProbDistribution.pushforward_apply",
+        "finite triangle inequality"
+      ],
+      "notes": "Builds a reusable statement on arbitrary ProbDistribution pairs; no matrix implementation is unfolded in the distance proof."
+    },
+    "E3Base": {
+      "problem": "E3",
+      "resources": "original",
+      "complete": true,
+      "compile_attempts": 2,
+      "failed_compiles": 1,
+      "first_successful_compile": 2,
+      "learner_audit_attempts": 1,
+      "learner_audit_rejections": 0,
+      "timeouts": 0,
+      "parent_first_source_verified": true,
+      "parent_final_source_verified": true,
+      "audited_declarations": [
+        "E3Base.coarse",
+        "E3Base.coarse_mats",
+        "E3Base.born",
+        "E3Base.born_eq_inner",
+        "E3Base.born_eq_re_trace",
+        "E3Base.coarse_born",
+        "E3Base.abs_sum_fibers_le",
+        "E3Base.coarse_measure_l1_le"
+      ],
+      "accepted_assumptions": "Only the problem hypotheses and permitted Fintype/DecidableEq instances; no extra nonempty, normalization, rank or commutativity assumptions.",
+      "final_source": "Usability/Submissions/E3Base.lean",
+      "fact_journal": "Usability/Submissions/E3Base.md",
+      "trace": "Usability/records/E3Base.json",
+      "source_lines": 65,
+      "coverage": [
+        "coarse POVM",
+        "Born trace semantics",
+        "full L1 inequality"
+      ],
+      "observed_use": [
+        "POVM fields",
+        "sum_inner",
+        "Finset.sum_fiberwise",
+        "finite triangle inequality"
+      ],
+      "notes": "Builds a more general real-function fiber inequality. Initial private/public import failure is a module workflow issue, not evidence of an API mathematical advantage."
+    },
+    "E4New": {
+      "problem": "E4",
+      "resources": "extended",
+      "complete": true,
+      "compile_attempts": 7,
+      "failed_compiles": 6,
+      "first_successful_compile": 7,
+      "learner_audit_attempts": 2,
+      "learner_audit_rejections": 1,
+      "timeouts": 0,
+      "parent_first_source_verified": true,
+      "parent_final_source_verified": true,
+      "audited_declarations": [
+        "E4New.fineKraus",
+        "E4New.fine_effect",
+        "E4New.sum_fine_effect",
+        "E4New.fine_normalized",
+        "E4New.originalPOVM",
+        "E4New.finePOVM",
+        "E4New.originalPOVM_effect",
+        "E4New.finePOVM_effect",
+        "E4New.coarsegrain_finePOVM",
+        "E4New.fine_branch",
+        "E4New.nonselective_eq",
+        "E4New.channel_eq"
+      ],
+      "accepted_assumptions": "Only the problem hypotheses and permitted Fintype/DecidableEq instances; no extra nonempty, normalization, rank or commutativity assumptions.",
+      "final_source": "Usability/Submissions/E4New.lean",
+      "fact_journal": "Usability/Submissions/E4New.md",
+      "trace": "Usability/records/E4New.json",
+      "source_lines": 116,
+      "coverage": [
+        "fine normalization",
+        "both statistical POVMs",
+        "marginal POVM equality",
+        "arbitrary-matrix output equality",
+        "CPTP equality"
+      ],
+      "observed_use": [
+        "POVM.ofKraus",
+        "POVM.coarsegrain",
+        "POVM.ext",
+        "CPTPMap.of_kraus_CPTPMap",
+        "matrix scalar and finite-sum algebra"
+      ],
+      "notes": "Six failed compile attempts: module visibility, scalar ordering, projection/filter normalization and representation changes. No result inferred process equality merely from probability equality."
+    }
+  },
+  "total_named_declarations": 44,
+  "all_complete": true,
+  "instrumentation_findings": [
+    {
+      "issue": "Axiom pretty-printer shortened Classical.choice to choice under open Classical; recorder exact-name whitelist rejected those audits despite Lean exit 0.",
+      "cases": [
+        "E2New",
+        "E3New",
+        "E4New"
+      ],
+      "learner_resolution": "Each independently removed or narrowed the open scope, without mathematical proof changes.",
+      "parent_validation": "Replayed original first compiling and final sources with pp.fullNames=true; all passed standard-axiom checks.",
+      "classification": "measurement-tool false negative; not a library or mathematical failure"
+    }
+  ]
+}

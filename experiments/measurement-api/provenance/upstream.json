@@ -1,0 +1,10 @@
+{
+  "lean": "v4.35.0",
+  "lean_archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e",
+  "base_lean_lab": "e4c76a79f39cd04793e6b75b86615ecf2a87db69",
+  "qec_reference": "ef6543f41b5c6b22811431dbded1dc3f7138ab7b",
+  "bridge_source": "../../projects/quantum-experiments/pmf-environment/Verified/PMFBridgeDraft/Bridge.lean",
+  "bridge_sha256": "bcb84f2ac48176aedfef46b7d26142b5c336d7041230798c23339d8582226732"
+}

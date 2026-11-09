@@ -120,11 +120,18 @@ From the repository root:
 
 ```bash
 bash scripts/setup.sh
-bash experiments/kl-for-mathlib/check.sh
+bash scripts/check.sh          # KL source, build, import, type and axiom checks
 ```
 
-For static checks: add `--static`. With warm OAI and candidate artifacts:
-`--checks-only`. `--verify-baseline` verifies Git baselines and retained export
+The root `scripts/` commands target KL only. Shorter checks are
+`bash scripts/check.sh warm`, `static`, and `smoke`; the module entrypoints are
+listed in [MODULES.md](MODULES.md). [KL provenance](../../provenance/README.md)
+records exact upstream snapshots, licenses, and frozen type/source baselines;
+its Lean 4.34.1 pin applies to this project.
+
+The direct project checker, `bash experiments/kl-for-mathlib/check.sh`, accepts
+`--static` for static checks and `--checks-only` with warm OAI and candidate
+artifacts. `--verify-baseline` verifies Git baselines and retained export
 evidence without running Lean. The old `--refresh-reference` option is retired;
 there is no second project to recompile.
 The unchanged hash-bound reference still covers 3902 old declarations. The active

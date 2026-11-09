@@ -1,0 +1,153 @@
+@POVM.ext : ∀ {X : Type u_1} [inst : Fintype X] {a : Type u_2} [inst_1 : Fintype a] [inst_2 : DecidableEq a]
+  {P Q : POVM X a}, (∀ (x : X), P.mats x = Q.mats x) → P = Q
+@POVM.mapEffects : {X : Type u_1} →
+  [inst : Fintype X] →
+    {a : Type u_2} →
+      {b : Type u_3} →
+        [inst_1 : Fintype a] →
+          [inst_2 : DecidableEq a] → [inst_3 : Fintype b] → [inst_4 : DecidableEq b] → POVM X b → PUMap b a ℂ → POVM X a
+@POVM.mapEffects_mats : ∀ {X : Type u_1} [inst : Fintype X] {a : Type u_2} {b : Type u_3} [inst_1 : Fintype a]
+  [inst_2 : DecidableEq a] [inst_3 : Fintype b] [inst_4 : DecidableEq b] (P : POVM X b) (F : PUMap b a ℂ) (x : X),
+  (P.mapEffects F).mats x = F (P.mats x)
+@POVM.pullback : {X : Type u_1} →
+  [inst : Fintype X] →
+    {a : Type u_2} →
+      {b : Type u_3} →
+        [inst_1 : Fintype a] →
+          [inst_2 : DecidableEq a] →
+            [inst_3 : Fintype b] → [inst_4 : DecidableEq b] → POVM X b → PTPMap a b ℂ → POVM X a
+@POVM.measure_apply : ∀ {X : Type u_1} [inst : Fintype X] {a : Type u_2} [inst_1 : Fintype a] [inst_2 : DecidableEq a]
+  (P : POVM X a) (ρ : MState a) (x : X), ↑((P.measure ρ) x) = ρ.exp_val (P.mats x)
+@POVM.measure_pullback : ∀ {X : Type u_1} [inst : Fintype X] {a : Type u_2} {b : Type u_3} [inst_1 : Fintype a]
+  [inst_2 : DecidableEq a] [inst_3 : Fintype b] [inst_4 : DecidableEq b] (P : POVM X b) (N : PTPMap a b ℂ)
+  (ρ : MState a), (P.pullback N).measure ρ = P.measure (N ρ)
+@POVM.coarsegrain : {X : Type u_1} →
+  {Y : Type u_2} →
+    [inst : Fintype X] →
+      [inst_1 : Fintype Y] →
+        {a : Type u_3} → [inst_2 : Fintype a] → [inst_3 : DecidableEq a] → POVM X a → (X → Y) → POVM Y a
+@POVM.coarsegrain_mats : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y] {a : Type u_3}
+  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (P : POVM X a) (f : X → Y) (y : Y),
+  (P.coarsegrain f).mats y = ∑ x with f x = y, P.mats x
+@POVM.coarsegrain_id : ∀ {X : Type u_1} [inst : Fintype X] {a : Type u_2} [inst_1 : Fintype a] [inst_2 : DecidableEq a]
+  (P : POVM X a), P.coarsegrain id = P
+@POVM.coarsegrain_comp : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y] {a : Type u_3}
+  [inst_2 : Fintype a] [inst_3 : DecidableEq a] {Z : Type u_4} [inst_4 : Fintype Z] (P : POVM X a) (f : X → Y)
+  (g : Y → Z), (P.coarsegrain f).coarsegrain g = P.coarsegrain (g ∘ f)
+@POVM.mapEffects_coarsegrain : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y] {a : Type u_3}
+  {b : Type u_4} [inst_2 : Fintype a] [inst_3 : DecidableEq a] [inst_4 : Fintype b] [inst_5 : DecidableEq b]
+  (P : POVM X b) (F : PUMap b a ℂ) (f : X → Y), (P.coarsegrain f).mapEffects F = (P.mapEffects F).coarsegrain f
+@POVM.binary : {a : Type u_1} →
+  [inst : Fintype a] → [inst_1 : DecidableEq a] → (T : HermitianMat a ℂ) → 0 ≤ T ∧ T ≤ 1 → POVM (Fin 2) a
+@POVM.binary_zero : ∀ {a : Type u_1} [inst : Fintype a] [inst_1 : DecidableEq a] (T : HermitianMat a ℂ)
+  (hT : 0 ≤ T ∧ T ≤ 1), (POVM.binary T hT).mats 0 = T
+@POVM.measure_binary : ∀ {a : Type u_1} [inst : Fintype a] [inst_1 : DecidableEq a] (T : HermitianMat a ℂ)
+  (hT : 0 ≤ T ∧ T ≤ 1) (ρ : MState a), (POVM.binary T hT).measure ρ = ProbDistribution.coin ⟨ρ.exp_val T, ⋯⟩
+@POVM.measureDiscard_binary : ∀ {a : Type u_1} [inst : Fintype a] [inst_1 : DecidableEq a] (T : HermitianMat a ℂ)
+  (hT : 0 ≤ T ∧ T ≤ 1) (ρ : MState a),
+  (POVM.binary T hT).measureDiscard ρ = MState.ofClassical (ProbDistribution.coin ⟨ρ.exp_val T, ⋯⟩)
+@POVM.measure_coarsegrain : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y] {a : Type u_3}
+  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (P : POVM X a) (f : X → Y) (ρ : MState a),
+  (P.coarsegrain f).measure ρ = (P.measure ρ).pushforward f
+@POVM.observe_pipeline : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y] {a : Type u_3}
+  {b : Type u_4} [inst_2 : Fintype a] [inst_3 : DecidableEq a] [inst_4 : Fintype b] [inst_5 : DecidableEq b]
+  (P : POVM X b) (N : PTPMap a b ℂ) (f : X → Y) (ρ : MState a),
+  ((P.pullback N).coarsegrain f).measure ρ = (P.measure (N ρ)).pushforward f
+@POVM.binary_channel_for_pair : ∀ {a : Type u_1} [inst : Fintype a] [inst_1 : DecidableEq a] (T : HermitianMat a ℂ),
+  0 ≤ T ∧ T ≤ 1 →
+    ∀ (ρ σ : MState a) (p q : Prob),
+      ρ.exp_val T = ↑p →
+        σ.exp_val T = ↑q →
+          ∃ N, N ρ = MState.ofClassical (ProbDistribution.coin p) ∧ N σ = MState.ofClassical (ProbDistribution.coin q)
+@POVM.ofKraus : {X : Type u_1} →
+  {a : Type u_2} →
+    {b : Type u_3} →
+      [inst : Fintype X] →
+        [inst_1 : Fintype a] →
+          [inst_2 : DecidableEq a] →
+            [inst_3 : Fintype b] → (K : X → Matrix b a ℂ) → ∑ x, (K x).conjTranspose * K x = 1 → POVM X a
+@POVM.ofKraus_mats_mat : ∀ {X : Type u_1} {a : Type u_2} {b : Type u_3} [inst : Fintype X] [inst_1 : Fintype a]
+  [inst_2 : DecidableEq a] [inst_3 : Fintype b] (K : X → Matrix b a ℂ) (hK : ∑ x, (K x).conjTranspose * K x = 1)
+  (x : X), ↑((POVM.ofKraus K hK).mats x) = (K x).conjTranspose * K x
+@POVM.measure_ofKraus : ∀ {X : Type u_1} {a : Type u_2} {b : Type u_3} [inst : Fintype X] [inst_1 : Fintype a]
+  [inst_2 : DecidableEq a] [inst_3 : Fintype b] (K : X → Matrix b a ℂ) (hK : ∑ x, (K x).conjTranspose * K x = 1)
+  (ρ : MState a) (x : X), ↑(((POVM.ofKraus K hK).measure ρ) x) = (K x * ρ.m * (K x).conjTranspose).trace.re
+@POVM.effect_le_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]
+  (P : POVM X a) (x : X), P.mats x ≤ 1
+@POVM.sum_mats_le_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]
+  (P : POVM X a) (S : Finset X), ∑ x ∈ S, P.mats x ≤ 1
+@POVM.coarsegrain_fst_mats : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]
+  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (P : POVM (X × Y) a) (x : X),
+  (P.coarsegrain Prod.fst).mats x = ∑ y, P.mats (x, y)
+@POVM.coarsegrain_snd_mats : ∀ {X : Type u_1} {Y : Type u_2} {a : Type u_3} [inst : Fintype X] [inst_1 : Fintype Y]
+  [inst_2 : Fintype a] [inst_3 : DecidableEq a] (P : POVM (X × Y) a) (y : Y),
+  (P.coarsegrain Prod.snd).mats y = ∑ x, P.mats (x, y)
+@ProbDistribution.pushforward : {X : Type u_1} →
+  {Y : Type u_2} → [inst : Fintype X] → [inst_1 : Fintype Y] → ProbDistribution X → (X → Y) → ProbDistribution Y
+@ProbDistribution.toPMF_pushforward : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]
+  (p : ProbDistribution X) (f : X → Y),
+  QuantumExperiments.PMFBridgeDraft.Bridge.toPMF (p.pushforward f) =
+    PMF.map f (QuantumExperiments.PMFBridgeDraft.Bridge.toPMF p)
+@ProbDistribution.pushforward_id : ∀ {X : Type u_1} [inst : Fintype X] (p : ProbDistribution X), p.pushforward id = p
+@ProbDistribution.pushforward_comp : ∀ {X : Type u_1} {Y : Type u_2} {Z : Type u_3} [inst : Fintype X]
+  [inst_1 : Fintype Y] [inst_2 : Fintype Z] (p : ProbDistribution X) (f : X → Y) (g : Y → Z),
+  (p.pushforward f).pushforward g = p.pushforward (g ∘ f)
+@ProbDistribution.pushforward_apply : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]
+  (p : ProbDistribution X) (f : X → Y) (y : Y), ↑((p.pushforward f) y) = ∑ x with f x = y, ↑(p x)
+@MeasurementAPI.Contracts.pullback_coarsegrain : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]
+  {a : Type u_3} {b : Type u_4} [inst_2 : Fintype a] [inst_3 : DecidableEq a] [inst_4 : Fintype b]
+  [inst_5 : DecidableEq b] (P : POVM X b) (N : PTPMap a b ℂ) (f : X → Y),
+  (P.coarsegrain f).pullback N = (P.pullback N).coarsegrain f
+@MeasurementAPI.Contracts.two_relabelings : ∀ {X : Type u_1} {Y : Type u_2} {Z : Type u_3} [inst : Fintype X]
+  [inst_1 : Fintype Y] [inst_2 : Fintype Z] {a : Type u_4} {b : Type u_5} [inst_3 : Fintype a] [inst_4 : DecidableEq a]
+  [inst_5 : Fintype b] [inst_6 : DecidableEq b] (P : POVM X b) (N : PTPMap a b ℂ) (f : X → Y) (g : Y → Z)
+  (ρ : MState a),
+  (((P.pullback N).coarsegrain f).coarsegrain g).measure ρ = ((P.measure (N ρ)).pushforward f).pushforward g
+@MeasurementAPI.Contracts.channel_composition : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]
+  {a : Type u_3} {b : Type u_4} {c : Type u_5} [inst_2 : Fintype a] [inst_3 : DecidableEq a] [inst_4 : Fintype b]
+  [inst_5 : DecidableEq b] [inst_6 : Fintype c] [inst_7 : DecidableEq c] (P : POVM X c) (N : CPTPMap a b ℂ)
+  (L : CPTPMap b c ℂ) (f : X → Y) (ρ : MState a),
+  ((P.pullback ((L∘ₘN).toPTPMap ℂ)).coarsegrain f).measure ρ = ((P.pullback (L.toPTPMap ℂ)).coarsegrain f).measure (N ρ)
+@MeasurementAPI.Contracts.pmf_consumer : ∀ {X : Type u_1} {Y : Type u_2} [inst : Fintype X] [inst_1 : Fintype Y]
+  {a : Type u_3} {b : Type u_4} [inst_2 : Fintype a] [inst_3 : DecidableEq a] [inst_4 : Fintype b]
+  [inst_5 : DecidableEq b] (P : POVM X b) (N : PTPMap a b ℂ) (f : X → Y) (ρ : MState a),
+  QuantumExperiments.PMFBridgeDraft.Bridge.toPMF (((P.pullback N).coarsegrain f).measure ρ) =
+    PMF.map f (QuantumExperiments.PMFBridgeDraft.Bridge.toPMF (P.measure (N ρ)))
+@MeasurementAPI.Contracts.unused_label : ∀ {a : Type u_1} [inst : Fintype a] [inst_1 : DecidableEq a]
+  (P : POVM (Fin 2) a), (P.coarsegrain fun i => if i = 0 then 0 else 1).mats 2 = 0
+@MeasurementAPI.Contracts.unused_label_probability : ∀ {a : Type u_1} [inst : Fintype a] [inst_1 : DecidableEq a]
+  (P : POVM (Fin 2) a) (ρ : MState a), ↑(((P.coarsegrain fun i => if i = 0 then 0 else 1).measure ρ) 2) = 0
+MeasurementAPI.Contracts.zeroDimPOVM : POVM Empty Empty
+MeasurementAPI.ProcessSeparation.Qubit : Type
+MeasurementAPI.ProcessSeparation.preserve : MeasurementAPI.ProcessSeparation.Qubit →
+  Matrix MeasurementAPI.ProcessSeparation.Qubit MeasurementAPI.ProcessSeparation.Qubit ℂ
+MeasurementAPI.ProcessSeparation.reset : MeasurementAPI.ProcessSeparation.Qubit →
+  Matrix MeasurementAPI.ProcessSeparation.Qubit MeasurementAPI.ProcessSeparation.Qubit ℂ
+MeasurementAPI.ProcessSeparation.preserve_normalized : ∑ i,
+    (MeasurementAPI.ProcessSeparation.preserve i).conjTranspose * MeasurementAPI.ProcessSeparation.preserve i =
+  1
+MeasurementAPI.ProcessSeparation.reset_normalized : ∑ i,
+    (MeasurementAPI.ProcessSeparation.reset i).conjTranspose * MeasurementAPI.ProcessSeparation.reset i =
+  1
+MeasurementAPI.ProcessSeparation.preserveProcess : CPTPMap MeasurementAPI.ProcessSeparation.Qubit
+  MeasurementAPI.ProcessSeparation.Qubit ℂ
+MeasurementAPI.ProcessSeparation.resetProcess : CPTPMap MeasurementAPI.ProcessSeparation.Qubit
+  MeasurementAPI.ProcessSeparation.Qubit ℂ
+MeasurementAPI.ProcessSeparation.same_POVM : POVM.ofKraus MeasurementAPI.ProcessSeparation.preserve
+    MeasurementAPI.ProcessSeparation.preserve_normalized =
+  POVM.ofKraus MeasurementAPI.ProcessSeparation.reset MeasurementAPI.ProcessSeparation.reset_normalized
+MeasurementAPI.ProcessSeparation.same_probabilities : ∀ (ρ : MState MeasurementAPI.ProcessSeparation.Qubit),
+  (POVM.ofKraus MeasurementAPI.ProcessSeparation.preserve MeasurementAPI.ProcessSeparation.preserve_normalized).measure
+      ρ =
+    (POVM.ofKraus MeasurementAPI.ProcessSeparation.reset MeasurementAPI.ProcessSeparation.reset_normalized).measure ρ
+MeasurementAPI.ProcessSeparation.same_branch_trace : ∀ (i : MeasurementAPI.ProcessSeparation.Qubit)
+  (A : Matrix MeasurementAPI.ProcessSeparation.Qubit MeasurementAPI.ProcessSeparation.Qubit ℂ),
+  (MeasurementAPI.ProcessSeparation.preserve i * A *
+        (MeasurementAPI.ProcessSeparation.preserve i).conjTranspose).trace =
+    (MeasurementAPI.ProcessSeparation.reset i * A * (MeasurementAPI.ProcessSeparation.reset i).conjTranspose).trace
+MeasurementAPI.ProcessSeparation.processes_ne : MeasurementAPI.ProcessSeparation.preserveProcess ≠
+  MeasurementAPI.ProcessSeparation.resetProcess
+MeasurementAPI.ProcessSeparation.inputOne : MState MeasurementAPI.ProcessSeparation.Qubit
+MeasurementAPI.ProcessSeparation.output_states_ne : MeasurementAPI.ProcessSeparation.preserveProcess
+    MeasurementAPI.ProcessSeparation.inputOne ≠
+  MeasurementAPI.ProcessSeparation.resetProcess MeasurementAPI.ProcessSeparation.inputOne

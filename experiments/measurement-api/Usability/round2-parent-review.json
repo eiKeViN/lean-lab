@@ -1,0 +1,181 @@
+{
+  "kind": "same_task_iteration_round2_parent_review",
+  "round": "round2",
+  "started_utc": "2026-11-06T10:35:04.493046+00:00",
+  "library_commit": "c2d87ebfa012f98ef11d57f99b51d683d9e828c0",
+  "changed_library_files": [],
+  "reviewer_sha256": "2bf4b92e3d0f474e8462d5c99831bb08878f2e4d8d3a54d7363f7542aaea6167",
+  "observed_library_sha256": {
+    "MeasurementAPI.lean": "f560eb66282792c48adbd65717211bd5f3f52e762a8e7b759468301a87513594",
+    "MeasurementAPI/BinaryChannel.lean": "195f66adc46c667f666621570f84998303f38bf2f7c354d2e81651d65e97aa8e",
+    "MeasurementAPI/EffectBounds.lean": "90980ae349176dbc37d3f96d667d326304d8043509e7efd537b51cb41c9d8bbd",
+    "MeasurementAPI/Kraus.lean": "e1a046a1fa3d3c14a25d59b911aaf736cbff15814e848766d51f3f046155536c",
+    "MeasurementAPI/Marginals.lean": "53e55512fc1e8bcbcc9173a41abd27878b68d2170b830805b5f9f110ecff768e",
+    "MeasurementAPI/Observations.lean": "0ec664ae135df31bd5f1f84491d37fa43b10a28ce3306c5c5164de819355c6c3",
+    "MeasurementAPI/POVM.lean": "09cb067cb6cb463809845f939cc8fafe4fecb229c35a5532f1e60dd009079f65",
+    "MeasurementAPI/Probability.lean": "ef2e42bfc362c67ff5846d00e8deb5c3882265a32eb0f985f5f4523912ccc394"
+  },
+  "cases": {
+    "E4Revisit": {
+      "declarations": [
+        "E4Revisit.fineKraus",
+        "E4Revisit.fine_effect",
+        "E4Revisit.sum_fine_effect",
+        "E4Revisit.fine_normalized",
+        "E4Revisit.originalPOVM",
+        "E4Revisit.finePOVM",
+        "E4Revisit.originalPOVM_effect",
+        "E4Revisit.finePOVM_effect",
+        "E4Revisit.coarsegrain_finePOVM",
+        "E4Revisit.fine_branch",
+        "E4Revisit.nonselective_eq",
+        "E4Revisit.channel_eq"
+      ],
+      "variants": {
+        "first_compiling_source": {
+          "source_sha256": "5817fbbccd6f2bec4f7350069e9b250f699bb4230a91009d6fafd1748c84b7f2",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E4Revisit.fineKraus": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.sum_fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.fine_normalized": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.originalPOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.originalPOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.finePOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.coarsegrain_finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.fine_branch": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.nonselective_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.channel_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 4.526,
+          "log": "results/usability-parent/round2/E4Revisit_first_compiling_source.log",
+          "log_sha256": "8766d52733d9e9a5aef5c979962f1bc12c41e852e01bb43a989c78cc91169613"
+        },
+        "final_source": {
+          "source_sha256": "5817fbbccd6f2bec4f7350069e9b250f699bb4230a91009d6fafd1748c84b7f2",
+          "lean_exit_code": 0,
+          "passed": true,
+          "axioms": {
+            "E4Revisit.fineKraus": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.sum_fine_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.fine_normalized": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.originalPOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.originalPOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.finePOVM_effect": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.coarsegrain_finePOVM": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.fine_branch": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.nonselective_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "E4Revisit.channel_eq": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          "seconds": 3.617,
+          "log": "results/usability-parent/round2/E4Revisit_final_source.log",
+          "log_sha256": "8766d52733d9e9a5aef5c979962f1bc12c41e852e01bb43a989c78cc91169613"
+        }
+      },
+      "archive": "Usability/records/round2/E4Revisit.json",
+      "archive_sha256": "ff0a0800b0af23753f43ee5203e3bf8332a5ac66c1023750a0680e760b4e8b2c",
+      "first_compiling_attempt": "results/usability/round2/E4Revisit/Attempt001.source.lean.txt"
+    }
+  }
+}

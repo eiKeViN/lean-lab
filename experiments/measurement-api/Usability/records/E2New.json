@@ -1,0 +1,219 @@
+{
+  "case": "E2New",
+  "problem": "E2",
+  "resources": "extended",
+  "problem_sha256": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+  "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+  "protocol_commit": "321c723",
+  "final_source": "Usability/Submissions/E2New.lean",
+  "final_source_sha256": "5fc421ffce16f0551615ff0e81d091bf6f7e34ce83b9fdb5b8a0081b100f7445",
+  "fact_journal": "Usability/Submissions/E2New.md",
+  "mathematical_help_sent": [],
+  "attempts": [
+    {
+      "case": "E2New",
+      "mode": "compile",
+      "started_utc": "2026-11-06T09:57:29.387798+00:00",
+      "elapsed_seconds": 6.054,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E2New/Attempt001.lean",
+        "-o",
+        "results/usability/E2New/Attempt001.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "compiled",
+      "source": "Usability/Submissions/E2New.lean",
+      "source_sha256": "e53ac398f1147e966551e41d3c9d9218bfe93b446a0627879912496c070a489d",
+      "source_snapshot": "results/usability/E2New/Attempt001.source.lean.txt",
+      "log": "results/usability/E2New/Attempt001.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": [],
+      "axioms": {},
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nopen Classical BigOperators\nopen scoped RealInnerProductSpace\nnoncomputable section\n\nnamespace E2New\n\nvariable {X a : Type*} [Fintype X] [Fintype a] [DecidableEq a]\n\n/-- Accept the original reading `x` with probability `w x`. -/\ndef effect (E : POVM X a) (w : X → ℝ) : HermitianMat a ℂ :=\n  ∑ x, w x • E.mats x\n\n/-- Arbitrary weights in `[0,1]` give a legal effect, without any sum condition. -/\ntheorem effect_bounds (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    0 ≤ effect E w ∧ effect E w ≤ 1 := by\n  constructor\n  · exact Finset.sum_nonneg (fun x _ => smul_nonneg (hw x).1 (E.nonneg x))\n  · calc\n      effect E w ≤ ∑ x, E.mats x := by\n        apply Finset.sum_le_sum\n        intro x _\n        simpa only [one_smul] using\n          smul_le_smul_of_nonneg_right (hw x).2 (E.nonneg x)\n      _ = 1 := E.normalized\n\n/-- The soft binary decision, with acceptance labeled by `0 : Fin 2`. -/\ndef decision (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) : POVM (Fin 2) a :=\n  POVM.binary (effect E w) (effect_bounds E w hw)\n\n@[simp] theorem decision_zero (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    (decision E w hw).mats 0 = effect E w := by\n  exact POVM.binary_zero _ _\n\n@[simp] theorem decision_one (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    (decision E w hw).mats 1 = 1 - effect E w := by\n  simp [decision, POVM.binary]\n\n/-- The Born expectation of the weighted effect is the weighted reading probability. -/\ntheorem effect_expectation (E : POVM X a) (w : X → ℝ) (ρ : MState a) :\n    ρ.exp_val (effect E w) = ∑ x, w x * (E.measure ρ x : ℝ) := by\n  simp [effect, MState.exp_val, inner_sum, POVM.measure_apply]\n\n/-- The acceptance probability of the constructed binary POVM. -/\ntheorem decision_prob_zero (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a) :\n    ((decision E w hw).measure ρ (0 : Fin 2) : ℝ) =\n      ∑ x, w x * (E.measure ρ x : ℝ) := by\n  rw [POVM.measure_apply, decision_zero, effect_expectation]\n\n/-- The rejection probability of the constructed binary POVM. -/\ntheorem decision_prob_one (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a) :\n    ((decision E w hw).measure ρ (1 : Fin 2) : ℝ) =\n      1 - ∑ x, w x * (E.measure ρ x : ℝ) := by\n  rw [POVM.measure_apply, decision_one, MState.exp_val_sub,\n    MState.exp_val_one, effect_expectation]\n\nend E2New\n",
+      "compiler_output": ""
+    },
+    {
+      "case": "E2New",
+      "mode": "audit",
+      "started_utc": "2026-11-06T09:57:42.152089+00:00",
+      "elapsed_seconds": 4.026,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E2New/Attempt002.lean",
+        "-o",
+        "results/usability/E2New/Attempt002.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "audit_rejected",
+      "source": "Usability/Submissions/E2New.lean",
+      "source_sha256": "e53ac398f1147e966551e41d3c9d9218bfe93b446a0627879912496c070a489d",
+      "source_snapshot": "results/usability/E2New/Attempt002.source.lean.txt",
+      "log": "results/usability/E2New/Attempt002.log",
+      "log_sha256": "a0e49509d62d13b140237d283d2338aa9437b2d4f03acc6b082392c39b190bf1",
+      "declarations": [
+        "E2New.effect",
+        "E2New.effect_bounds",
+        "E2New.decision",
+        "E2New.decision_zero",
+        "E2New.decision_one",
+        "E2New.effect_expectation",
+        "E2New.decision_prob_zero",
+        "E2New.decision_prob_one"
+      ],
+      "axioms": {
+        "E2New.effect": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E2New.effect_bounds": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E2New.decision": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_zero": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_one": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E2New.effect_expectation": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_prob_zero": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_prob_one": [
+          "propext",
+          "choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nopen Classical BigOperators\nopen scoped RealInnerProductSpace\nnoncomputable section\n\nnamespace E2New\n\nvariable {X a : Type*} [Fintype X] [Fintype a] [DecidableEq a]\n\n/-- Accept the original reading `x` with probability `w x`. -/\ndef effect (E : POVM X a) (w : X → ℝ) : HermitianMat a ℂ :=\n  ∑ x, w x • E.mats x\n\n/-- Arbitrary weights in `[0,1]` give a legal effect, without any sum condition. -/\ntheorem effect_bounds (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    0 ≤ effect E w ∧ effect E w ≤ 1 := by\n  constructor\n  · exact Finset.sum_nonneg (fun x _ => smul_nonneg (hw x).1 (E.nonneg x))\n  · calc\n      effect E w ≤ ∑ x, E.mats x := by\n        apply Finset.sum_le_sum\n        intro x _\n        simpa only [one_smul] using\n          smul_le_smul_of_nonneg_right (hw x).2 (E.nonneg x)\n      _ = 1 := E.normalized\n\n/-- The soft binary decision, with acceptance labeled by `0 : Fin 2`. -/\ndef decision (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) : POVM (Fin 2) a :=\n  POVM.binary (effect E w) (effect_bounds E w hw)\n\n@[simp] theorem decision_zero (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    (decision E w hw).mats 0 = effect E w := by\n  exact POVM.binary_zero _ _\n\n@[simp] theorem decision_one (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    (decision E w hw).mats 1 = 1 - effect E w := by\n  simp [decision, POVM.binary]\n\n/-- The Born expectation of the weighted effect is the weighted reading probability. -/\ntheorem effect_expectation (E : POVM X a) (w : X → ℝ) (ρ : MState a) :\n    ρ.exp_val (effect E w) = ∑ x, w x * (E.measure ρ x : ℝ) := by\n  simp [effect, MState.exp_val, inner_sum, POVM.measure_apply]\n\n/-- The acceptance probability of the constructed binary POVM. -/\ntheorem decision_prob_zero (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a) :\n    ((decision E w hw).measure ρ (0 : Fin 2) : ℝ) =\n      ∑ x, w x * (E.measure ρ x : ℝ) := by\n  rw [POVM.measure_apply, decision_zero, effect_expectation]\n\n/-- The rejection probability of the constructed binary POVM. -/\ntheorem decision_prob_one (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a) :\n    ((decision E w hw).measure ρ (1 : Fin 2) : ℝ) =\n      1 - ∑ x, w x * (E.measure ρ x : ℝ) := by\n  rw [POVM.measure_apply, decision_one, MState.exp_val_sub,\n    MState.exp_val_one, effect_expectation]\n\nend E2New\n",
+      "compiler_output": "@E2New.effect : {X : Type u_1} →\n  {a : Type u_2} →\n    [inst : Fintype X] → [inst_1 : Fintype a] → [inst_2 : DecidableEq a] → POVM X a → (X → ℝ) → HermitianMat a ℂ\n@E2New.effect_bounds : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]\n  (E : POVM X a) (w : X → ℝ), (∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) → 0 ≤ E2New.effect E w ∧ E2New.effect E w ≤ 1\n@E2New.decision : {X : Type u_1} →\n  {a : Type u_2} →\n    [inst : Fintype X] →\n      [inst_1 : Fintype a] →\n        [inst_2 : DecidableEq a] → POVM X a → (w : X → ℝ) → (∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) → POVM (Fin 2) a\n@E2New.decision_zero : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]\n  (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1), (E2New.decision E w hw).mats 0 = E2New.effect E w\n@E2New.decision_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]\n  (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1), (E2New.decision E w hw).mats 1 = 1 - E2New.effect E w\n@E2New.effect_expectation : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a]\n  [inst_2 : DecidableEq a] (E : POVM X a) (w : X → ℝ) (ρ : MState a),\n  ρ.exp_val (E2New.effect E w) = ∑ x, w x * ↑((E.measure ρ) x)\n@E2New.decision_prob_zero : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a]\n  [inst_2 : DecidableEq a] (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a),\n  ↑(((E2New.decision E w hw).measure ρ) 0) = ∑ x, w x * ↑((E.measure ρ) x)\n@E2New.decision_prob_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a]\n  [inst_2 : DecidableEq a] (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a),\n  ↑(((E2New.decision E w hw).measure ρ) 1) = 1 - ∑ x, w x * ↑((E.measure ρ) x)\n'E2New.effect' depends on axioms: [propext, choice, Quot.sound]\n'E2New.effect_bounds' depends on axioms: [propext, choice, Quot.sound]\n'E2New.decision' depends on axioms: [propext, choice, Quot.sound]\n'E2New.decision_zero' depends on axioms: [propext, choice, Quot.sound]\n'E2New.decision_one' depends on axioms: [propext, choice, Quot.sound]\n'E2New.effect_expectation' depends on axioms: [propext, choice, Quot.sound]\n'E2New.decision_prob_zero' depends on axioms: [propext, choice, Quot.sound]\n'E2New.decision_prob_one' depends on axioms: [propext, choice, Quot.sound]\n"
+    },
+    {
+      "case": "E2New",
+      "mode": "audit",
+      "started_utc": "2026-11-06T09:58:33.071522+00:00",
+      "elapsed_seconds": 6.865,
+      "timeout_seconds": 120,
+      "lean_threads": 1,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "results/usability/E2New/Attempt003.lean",
+        "-o",
+        "results/usability/E2New/Attempt003.olean"
+      ],
+      "lean_exit_code": 0,
+      "status": "verified",
+      "source": "Usability/Submissions/E2New.lean",
+      "source_sha256": "5fc421ffce16f0551615ff0e81d091bf6f7e34ce83b9fdb5b8a0081b100f7445",
+      "source_snapshot": "results/usability/E2New/Attempt003.source.lean.txt",
+      "log": "results/usability/E2New/Attempt003.log",
+      "log_sha256": "890b8eee81f146709cc9fd45eb6b9000d98d0a13126191c37f90a38745aaf3fa",
+      "declarations": [
+        "E2New.effect",
+        "E2New.effect_bounds",
+        "E2New.decision",
+        "E2New.decision_zero",
+        "E2New.decision_one",
+        "E2New.effect_expectation",
+        "E2New.decision_prob_zero",
+        "E2New.decision_prob_one"
+      ],
+      "axioms": {
+        "E2New.effect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2New.effect_bounds": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2New.decision": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2New.effect_expectation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_prob_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "E2New.decision_prob_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "imports": [
+        "MeasurementAPI"
+      ],
+      "options": [],
+      "library_commit": "f642cf35c4136eb7fabe794501b62a79a2d36f63",
+      "observed_git_head": "321c723ac089f3f0a7dad852f748ff4dc2a06435",
+      "is_exercise": true,
+      "problem_sha256": "7f3e60cde0ceca60eef49153de160d5af7147c1335dd55e98fe3b40ea9bbfb5a",
+      "source_text": "module\n\npublic import MeasurementAPI\n\n@[expose] public section\n\nopen BigOperators\nopen scoped RealInnerProductSpace\nnoncomputable section\n\nnamespace E2New\n\nvariable {X a : Type*} [Fintype X] [Fintype a] [DecidableEq a]\n\n/-- Accept the original reading `x` with probability `w x`. -/\ndef effect (E : POVM X a) (w : X → ℝ) : HermitianMat a ℂ :=\n  ∑ x, w x • E.mats x\n\n/-- Arbitrary weights in `[0,1]` give a legal effect, without any sum condition. -/\ntheorem effect_bounds (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    0 ≤ effect E w ∧ effect E w ≤ 1 := by\n  constructor\n  · exact Finset.sum_nonneg (fun x _ => smul_nonneg (hw x).1 (E.nonneg x))\n  · calc\n      effect E w ≤ ∑ x, E.mats x := by\n        apply Finset.sum_le_sum\n        intro x _\n        simpa only [one_smul] using\n          smul_le_smul_of_nonneg_right (hw x).2 (E.nonneg x)\n      _ = 1 := E.normalized\n\n/-- The soft binary decision, with acceptance labeled by `0 : Fin 2`. -/\ndef decision (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) : POVM (Fin 2) a :=\n  POVM.binary (effect E w) (effect_bounds E w hw)\n\n@[simp] theorem decision_zero (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    (decision E w hw).mats 0 = effect E w := by\n  exact POVM.binary_zero _ _\n\n@[simp] theorem decision_one (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) :\n    (decision E w hw).mats 1 = 1 - effect E w := by\n  simp [decision, POVM.binary]\n\n/-- The Born expectation of the weighted effect is the weighted reading probability. -/\ntheorem effect_expectation (E : POVM X a) (w : X → ℝ) (ρ : MState a) :\n    ρ.exp_val (effect E w) = ∑ x, w x * (E.measure ρ x : ℝ) := by\n  simp [effect, MState.exp_val, inner_sum, POVM.measure_apply]\n\n/-- The acceptance probability of the constructed binary POVM. -/\ntheorem decision_prob_zero (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a) :\n    ((decision E w hw).measure ρ (0 : Fin 2) : ℝ) =\n      ∑ x, w x * (E.measure ρ x : ℝ) := by\n  rw [POVM.measure_apply, decision_zero, effect_expectation]\n\n/-- The rejection probability of the constructed binary POVM. -/\ntheorem decision_prob_one (E : POVM X a) (w : X → ℝ)\n    (hw : ∀ x, 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a) :\n    ((decision E w hw).measure ρ (1 : Fin 2) : ℝ) =\n      1 - ∑ x, w x * (E.measure ρ x : ℝ) := by\n  rw [POVM.measure_apply, decision_one, MState.exp_val_sub,\n    MState.exp_val_one, effect_expectation]\n\nend E2New\n",
+      "compiler_output": "@E2New.effect : {X : Type u_1} →\n  {a : Type u_2} →\n    [inst : Fintype X] → [inst_1 : Fintype a] → [inst_2 : DecidableEq a] → POVM X a → (X → ℝ) → HermitianMat a ℂ\n@E2New.effect_bounds : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]\n  (E : POVM X a) (w : X → ℝ), (∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) → 0 ≤ E2New.effect E w ∧ E2New.effect E w ≤ 1\n@E2New.decision : {X : Type u_1} →\n  {a : Type u_2} →\n    [inst : Fintype X] →\n      [inst_1 : Fintype a] →\n        [inst_2 : DecidableEq a] → POVM X a → (w : X → ℝ) → (∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) → POVM (Fin 2) a\n@E2New.decision_zero : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]\n  (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1), (E2New.decision E w hw).mats 0 = E2New.effect E w\n@E2New.decision_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a] [inst_2 : DecidableEq a]\n  (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1), (E2New.decision E w hw).mats 1 = 1 - E2New.effect E w\n@E2New.effect_expectation : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a]\n  [inst_2 : DecidableEq a] (E : POVM X a) (w : X → ℝ) (ρ : MState a),\n  ρ.exp_val (E2New.effect E w) = ∑ x, w x * ↑((E.measure ρ) x)\n@E2New.decision_prob_zero : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a]\n  [inst_2 : DecidableEq a] (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a),\n  ↑(((E2New.decision E w hw).measure ρ) 0) = ∑ x, w x * ↑((E.measure ρ) x)\n@E2New.decision_prob_one : ∀ {X : Type u_1} {a : Type u_2} [inst : Fintype X] [inst_1 : Fintype a]\n  [inst_2 : DecidableEq a] (E : POVM X a) (w : X → ℝ) (hw : ∀ (x : X), 0 ≤ w x ∧ w x ≤ 1) (ρ : MState a),\n  ↑(((E2New.decision E w hw).measure ρ) 1) = 1 - ∑ x, w x * ↑((E.measure ρ) x)\n'E2New.effect' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2New.effect_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2New.decision' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2New.decision_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2New.decision_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2New.effect_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2New.decision_prob_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'E2New.decision_prob_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}

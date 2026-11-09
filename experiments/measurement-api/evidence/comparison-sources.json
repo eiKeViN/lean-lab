@@ -1,0 +1,10 @@
+{
+  "bridge_source": "../../projects/quantum-experiments/pmf-environment/Verified/PMFBridgeDraft/Bridge.lean",
+  "bridge_original_sha256": "bcb84f2ac48176aedfef46b7d26142b5c336d7041230798c23339d8582226732",
+  "bridge_adapter_sha256": "d1d2dbe0441c7aa059f7842819bb1b05d377526a241317fc136e0e2f9f928e54",
+  "bridge_adapter_scope": "module/public import/expose only; proof bodies unchanged",
+  "hypothesis_original_sha256": "10bb338f9ee49ac9e2f62cf8b9174109e591ec96ea4b2735d6882530a4875249",
+  "hypothesis_after_sha256": "7868ba22d93806265549d38a1172b3041bfd6544c91b05a8197a38ad0a1c44f4",
+  "changed_proof": "OptimalHypothesisRate.Ref81Lem5 binary-channel construction",
+  "hypothesis_declaration_signatures": "unchanged"
+}

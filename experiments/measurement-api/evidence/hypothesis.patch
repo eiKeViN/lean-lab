@@ -1,0 +1,34 @@
+--- Physlib/HypothesisTesting.lean
++++ Experiment/HypothesisTesting.lean
+@@ -6,0 +7,2 @@
++
++public import MeasurementAPI.BinaryChannel
+@@ -423,23 +425,5 @@
+-      --Turn it into a POVM (probably want to have lemmas around this ideally)
+-      let Λ : POVM (Fin 2) d := {
+-        mats i := if i = 0 then T else 1 - T
+-        nonneg i := by
+-          split
+-          · exact T.prop.2.1
+-          · exact HermitianMat.zero_le_iff.mpr T.prop.2.2
+-        normalized := by simp
+-      }
+-      use Λ.measureDiscard
+-      simp only [POVM.measureDiscard_apply, p2, q2]
+-      constructor
+-      · congr
+-        rw [ProbDistribution.coin_eq_iff]
+-        ext
+-        dsimp [MState.exp_val] at hT₂
+-        simp [POVM.measure, Λ, p, ProbDistribution.mk', coe_one_minus, ← hT₂, HermitianMat.inner_comm]
+-      · congr
+-        rw [ProbDistribution.coin_eq_iff]
+-        ext
+-        dsimp [POVM.measure, Λ, q]
+-        rw [← hT₁]
+-        exact HermitianMat.inner_comm _ _
++      obtain ⟨Φ, hρ, hσ⟩ := POVM.binary_channel_for_pair
++        T T.prop.right ρ σ p q
++        (by simpa [p] using hT₂)
++        (by dsimp only [q]; rw [← hT₁])
++      exact ⟨Φ, hρ.symm, hσ.symm⟩
