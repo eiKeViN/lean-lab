@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/lean-lab/research/module-boundary/prepare_shadow.py",
+    "/workspace/lean-lab/results/boundary/project-replay/shadow"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.04227602800006025,
+  "user_seconds": 0.042006999999999996,
+  "system_seconds": 0.0,
+  "max_rss_kib": 10616
+}

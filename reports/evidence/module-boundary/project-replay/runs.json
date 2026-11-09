@@ -1,0 +1,200 @@
+[
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lake",
+      "--no-build",
+      "build",
+      "Mathlib"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.5506707939998705,
+    "user_seconds": 5.230049,
+    "system_seconds": 2.919038,
+    "max_rss_kib": 996652,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lake",
+      "build",
+      "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.329589738000095,
+    "user_seconds": 6.523452,
+    "system_seconds": 2.605144,
+    "max_rss_kib": 992544,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/AttachGeneric.lean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.6766025679999075,
+    "user_seconds": 2.643016,
+    "system_seconds": 1.064111,
+    "max_rss_kib": 5255780,
+    "expected_exit": 1,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/AttachGenericExplicit.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.885941100000082,
+    "user_seconds": 2.815357,
+    "system_seconds": 1.098449,
+    "max_rss_kib": 5256268,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/AttachGenericUnexposed.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.536040148999973,
+    "user_seconds": 4.012672,
+    "system_seconds": 1.55865,
+    "max_rss_kib": 5256436,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/AttachComparison.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.9848295510000753,
+    "user_seconds": 3.063529,
+    "system_seconds": 1.010249,
+    "max_rss_kib": 5260384,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/lean-lab/research/module-boundary/prepare_shadow.py",
+      "/workspace/lean-lab/results/boundary/project-replay/shadow"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.04227602800006025,
+    "user_seconds": 0.042006999999999996,
+    "system_seconds": 0.0,
+    "max_rss_kib": 10616,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/research/module-boundary",
+      "-o",
+      "/workspace/lean-lab/results/boundary/project-replay/codec/StalkCodec.olean",
+      "/workspace/lean-lab/research/module-boundary/StalkCodec.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.4158994939998593,
+    "user_seconds": 1.251442,
+    "system_seconds": 0.341957,
+    "max_rss_kib": 1646596,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/project-replay/shadow",
+      "-o",
+      "/workspace/lean-lab/results/boundary/project-replay/shadow/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.olean",
+      "/workspace/lean-lab/results/boundary/project-replay/shadow/ForMathlib/Combinatorics/MomentGraph/Sheaf/Basic.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 6.086106773999973,
+    "user_seconds": 5.739668,
+    "system_seconds": 1.337782,
+    "max_rss_kib": 5312368,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "-R",
+      "/workspace/lean-lab/results/boundary/project-replay/shadow",
+      "-o",
+      "/workspace/lean-lab/results/boundary/project-replay/shadow/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.olean",
+      "/workspace/lean-lab/results/boundary/project-replay/shadow/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 13.741927310999927,
+    "user_seconds": 10.964994,
+    "system_seconds": 3.241822,
+    "max_rss_kib": 5290620,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/AttachBottomExplicit.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.838519753000128,
+    "user_seconds": 4.968914,
+    "system_seconds": 1.385265,
+    "max_rss_kib": 5278036,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/CaptureStalkJson.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.056126394999865,
+    "user_seconds": 3.429944,
+    "system_seconds": 1.637873,
+    "max_rss_kib": 7623320,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/CaptureStalkJson.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.554840382000066,
+    "user_seconds": 3.071499,
+    "system_seconds": 1.4998719999999999,
+    "max_rss_kib": 7624356,
+    "expected_exit": 0,
+    "pass": true
+  },
+  {
+    "command": [
+      "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+      "/workspace/lean-lab/research/module-boundary/CheckStalkJson.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.787918783000123,
+    "user_seconds": 3.149579,
+    "system_seconds": 1.656777,
+    "max_rss_kib": 7624248,
+    "expected_exit": 0,
+    "pass": true
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && STALK_EXPR_OUT=/workspace/lean-lab/results/boundary/OldStalkWithAux.lean STALK_EXPR_LABEL=oldStalkType lake env lean /workspace/lean-lab/research/module-boundary/CaptureStalk.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 11.176661580000086,
+  "user_seconds": 7.563921,
+  "system_seconds": 3.621023,
+  "max_rss_kib": 7737168
+}

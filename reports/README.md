@@ -27,6 +27,9 @@ Return to the [multi-project workspace index](../README.md).
 
 ## Earlier KL rounds and retained evidence
 
+The [module-boundary archive](boundary-archive.md) preserves pinned diagnostic
+reproducers and rejected AttachBottom trials, with their historical status.
+
 The [three-file production integration](module-integration.md) connects the module
 pilot to exact source transforms, split audits and real downstream validation.
 

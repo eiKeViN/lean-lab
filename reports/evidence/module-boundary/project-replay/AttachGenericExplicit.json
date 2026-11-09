@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/workspace/lean-lab/.cache/lean-4.34.1-linux/bin/lean",
+    "/workspace/lean-lab/research/module-boundary/AttachGenericExplicit.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.885941100000082,
+  "user_seconds": 2.815357,
+  "system_seconds": 1.098449,
+  "max_rss_kib": 5256268
+}

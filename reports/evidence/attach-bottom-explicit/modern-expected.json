@@ -1,0 +1,560 @@
+{
+  "OAI.KLInvariance.MomentGraph.OrderedGraph": {
+    "levels": "\"[`v, `w]\"",
+    "type": "0ebb4dcd7d91bbaaf945e6ff6681055c9fad0da49bfa4a67b935c8ddc52e4c41",
+    "kind": "inductive",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.boundaryImage": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "0dbce402d71a026ff83e9819c6bb6c8b58f13a546cd0dd077da69bc5a8b8e485",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.casesOn": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "2d617b7654109aafe8a66c8b269eafdf29a82d8eae3284c36eb53c690bb0f079",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Boundary": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "7ceb2e8d4572fe2ab59d3ca0fb071607efc0c32a1a1ad7287af10894dfaa1282",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.noConfusion": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "63907b5272aebd95d9d2f27713fa4f23697a492f9e528aadbacda4d1f0939a13",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.mk.sizeOf_spec": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "a76024685dfcfc5827b1bf6e9453e6395f09aa67c7e289d9e81edaa550b7246a",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.mk.injEq": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "ad9cd1572223b69f8e06cfb56218a64ed7fa870b27f99e40216ae756d7a69bab",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.upper": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "2ac5b9e486626b744758d7c697b7800c8c3a33999252db13777a84cfcb0bf5d8",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.target": {
+    "levels": "\"[`v, `w]\"",
+    "type": "b640f2e394ba9da4692a8484d969100365cfc8528b344cec94b4c196fdf499a2",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.range_stalkMap_eq_boundaryImage": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "d8354f12e6c779a5c8a5f20e980258018818109facd962eae87b1d6127db1673",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.sections": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "b0120dfcceb5db28e1d4fece01c97ce334f061e8f8825c586e03dfea16ff8d0f",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.rec": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "5869754f754b3ab7d80a200c97f458db2fa5cb7156d871c784f9f64174a76eb8",
+    "kind": "recursor",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.vertex": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "2942789a92533650e670cffd585ec2cd2e4e0e842ea6917eda537ca3d094f11f",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.mk.sizeOf_spec": {
+    "levels": "\"[`v, `w]\"",
+    "type": "37b8c545fc01c87ad23d9adf2b4a8d51b638befa13dff5418111e2c80f2427cd",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.rec": {
+    "levels": "\"[`u_1, `u, `v, `w, `z]\"",
+    "type": "58b97dfdd05a4ec423bd9ae0b2d798ee6500d1e6aea338a1d5686a04aad1d861",
+    "kind": "recursor",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Assignment": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "c6e1648a44f7c15249c2cf82139dc0bd72c6259d27bc9587459af2224e1901c9",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.lower": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "4fbe1d5fa28e519e1d97a0057ce9f5aaacccfa28485160c44210c7aa495d99ed",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.noConfusion": {
+    "levels": "\"[`u_1, `u, `v, `w, `z]\"",
+    "type": "7753301456d5a781a04c0017073ec3d2120b46af2d4598050d97c2bb2f6ae3ec",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.mk.noConfusion": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "9fd1925872b1c8d86e378c73e4e3ea1ea62874b6b60b14e74e4d2ee98b97673a",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.casesOn": {
+    "levels": "\"[`u_1, `u, `v, `w, `z]\"",
+    "type": "bf612619733ac57fe1b17fcbdd3ba7d3a1c9d7df830eee49b79094535e4b5e08",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.IsGlobal": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "ab9c36d4eac9445111de6f44ec8efb9bcc85e9b69191e062c36e51e48bffaec5",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.source": {
+    "levels": "\"[`v, `w]\"",
+    "type": "b640f2e394ba9da4692a8484d969100365cfc8528b344cec94b4c196fdf499a2",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Outgoing": {
+    "levels": "\"[`v, `w]\"",
+    "type": "dbdb321856fa719712b7af8c42d91cb561dd361f0fffc97ffa8c94bb59293ff4",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.recOn": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "2d617b7654109aafe8a66c8b269eafdf29a82d8eae3284c36eb53c690bb0f079",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.mk.injEq": {
+    "levels": "\"[`v, `w]\"",
+    "type": "b0367fd87a0b5083c58cbde8fba1923341cbf44c8c633ec56492efc998bcd1de",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.stalkCover": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "f07ac57890711ac585c6a0473be08b70906b274ae9f41752fb29682ebce50127",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.ctorIdx": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "3ce2abb16f212e6900296df720a5775a5b663e8dbbdaa828d39cb7c261f46c81",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.CompatibleOn": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "9a920feba6e954235e18013d7418b49ba72ecff0a3590fdc1dacccb97f4d3a26",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Flabby": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "6c26da41176814fae932f528590306280fcdbdfe7deb01d22a8805d92b92439f",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.edge": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "d9fd284b5236a5ea1d647f17c05cde64f96cd0954a4eb9cbc49feb4e46dad3bb",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.stalkCover_surjective": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "17d35d8539f66cd2a25824e9e7a7760fe6a49e0c5a7f7db08cbbd2a2445378ff",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.noConfusionType": {
+    "levels": "\"[`u_1, `u, `v, `w, `z]\"",
+    "type": "4ca69f343d86d62e52af979ed36ee76693b123a2f77d6534003eac8306fa03bf",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.boundaryMap": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "96f3706ac52ab19e7a93f4136bf30a6dbbacc6c42cdf6e6df06cbc90c6b5f561",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.stalkMap": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "055e35635e779e1385aa7c5ff056b67e10e5b45d374aa572e12233d6dc15ace8",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.mk.inj": {
+    "levels": "\"[`v, `w]\"",
+    "type": "5bd9aded2d339605d60dcf038ee0f82e3948aa5d9f81ef350408368a1acbe2c0",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.extend_closedUnder": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "e11b3ddced500d738b12eeba0d403bfd08e58abbb1aefbe09170a3b06e3a9634",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.mk": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "9d197f6f94fc0b8c4e46b165be18de2ca56e1af192efde0b85e8f11fc4bc748f",
+    "kind": "constructor",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.ClosedUnder": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "bc4f8c7fe0de105fea4473d6bb4b3b4741c47fa5307ecc53f09258a5aa12abb4",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.IsGlobal.eq_1": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "9bc52b2decc138c61eb1d1d82ea09ac40bbf99507950dcf100a1c34d664d2f92",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.extend_one": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "454100f3869c7a001e8b903c2c1dc7c21b6ec1ee2aa344468a66b66ab84b00b6",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.mk": {
+    "levels": "\"[`v, `w]\"",
+    "type": "fbc3b8143e91d7788195466992abc22333341fcb8f72392e2f22d540473f5462",
+    "kind": "constructor",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.increasing": {
+    "levels": "\"[`v, `w]\"",
+    "type": "8988564d8b1991415a9fef31e87282db538c7828e7b2bd540e475e83b7c42ca7",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.closedUnder_insert": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "d28635160d582a52b1636877fb0f890dc59013621fb8b265e241a5bcaf3c1120",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.compatible_mono": {
+    "levels": "\"[`u, `v, `w, `u_1]\"",
+    "type": "e72ea00901ed97a1af3e4fec567ca72495af726c1b7df5c7b36f3a03b17bde96",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.Generated": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "17d4aced4e68212bb45df9ed3779c485ac97b5bde21ec0e79a2e760069b3ff80",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.noConfusionType": {
+    "levels": "\"[`u, `v, `w]\"",
+    "type": "028d326a6e7c9dcd03959a8913995e0f9842a534908882f03058497879370cd9",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.OrderedGraph.ctorIdx": {
+    "levels": "\"[`v, `w]\"",
+    "type": "5b9b1a4e123100ed97648b125452ee4460533a758ec0b73a5b7a530be31330cd",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.mk.noConfusion": {
+    "levels": "\"[`u_1, `u, `v, `w, `z]\"",
+    "type": "3eeac4121644c6210725b11ec814ba386a9fda2bcb9425338808c97b8a69edec",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.mk.inj": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "4015e1b62416b1be2c0304d236e4aae5dd3c2d81d803b1fa3a2fe11208395c37",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf": {
+    "levels": "\"[`u, `v, `w, `z]\"",
+    "type": "05e735247d98e66d2758bcfbf40ac560e9d95e16389160fbaa6b37e19c171bab",
+    "kind": "inductive",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.Sheaf.recOn": {
+    "levels": "\"[`u_1, `u, `v, `w, `z]\"",
+    "type": "bf612619733ac57fe1b17fcbdd3ba7d3a1c9d7df830eee49b79094535e4b5e08",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.Sheaf.Basic"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.boundary": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "f578fbf42c0be7e13dd1755175b8e9a4f1a2b89cbef2191d967e25020646ad9a",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "4e610495667ea2c603e4d038443789cf1b8cb7a3ac13b5ae5ed2bbcaf91759ce",
+    "kind": "inductive",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.lower": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "379abf045371b5134cdbb6814f7a6dcf1db3cb9d4ef6f047e0110d893e6d691e",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.upper": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "6e64c871d91ecfe44dd2b8dd927ec7028576a490901ee0cb38a62bc4e0ef1388",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.boundaryHom": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "820544a941d6bb184b627e3607d0878eaf0e52132ae3c48f3eab9acdf695c693",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.sections": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "f2cf8c85cebdbf0ba28a25c2b4bedfc64b9e656eaa22c4b9737b4cbf14ab9994",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.forget": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "034a0fc8643e3b9b214c402545dfc1324cd04c64a24e9c159a59029ae5100f49",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.mk.inj": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "f9e77c35c727b19068abda44f73a15bf6e07975ad7ed2c7b119cfe301a2b88e7",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.EdgeFlabby": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "d83706da6c2b8aa5b34393c30a45470c9fc3226e5b5e7037c3f2a902327f21d1",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.recOn": {
+    "levels": "\"[`u, `uk, `ua, `um]\"",
+    "type": "6ba37d7dfb2fc89bdd07d405cb8381057d14efb12848ff493041ee3337abe4b2",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.assignments": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "aba23e9b5457ffe2680372d349f6f9ff0dcc44c2518f0803ca324e18384ce182",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.boundaryImage": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "6afc401bec73a7bb1a5f62daf3324b4770ec480332eb2137e1005b26fedc8b3b",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.noConfusion": {
+    "levels": "\"[`u, `uk, `ua, `um]\"",
+    "type": "f86d860eab4698043747d880afd9c6ac02ca52e95670509dd899486bf46aa236",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.mk.injEq": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "a820176c098337828596d3f0d2c9ae644a5d882b38dba0094687caa638c74645",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.mk.noConfusion": {
+    "levels": "\"[`u, `uk, `ua, `um]\"",
+    "type": "c1b0b1d847291393abe7696835f13356297e624af643d1185d2529ba5bc66002",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.vertex": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "8b36521aa1a8345dd3989889ea27bed956ef683e85bee4d6e2d51db7e66294e6",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.ctorIdx": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "c5deb27e1239d3f6114e635aedf9ecc8ba52049fc5283346ef8adfe16beffa88",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.lowerGlobal": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "0617395db2bf0cbaf644545bfead9eb15de6c82a6556cece3b6725a3ca37bff7",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.casesOn": {
+    "levels": "\"[`u, `uk, `ua, `um]\"",
+    "type": "6ba37d7dfb2fc89bdd07d405cb8381057d14efb12848ff493041ee3337abe4b2",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.mk.sizeOf_spec": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "a5cdf52c22d0c876481503d5880d8abeb1862e8eabae22b86a28f27bd61d3816",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.upperGlobal": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "0617395db2bf0cbaf644545bfead9eb15de6c82a6556cece3b6725a3ca37bff7",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.mk": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "b57e862dc24d5eff622cc9e7333cdacd08280ebb2a109048ac4d17d7725939fc",
+    "kind": "constructor",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.sections_homogeneous": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "cd418dfa110030d3983eb5fb645462d2abda5107ce7ecafbbdba365f96640b95",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.exists_boundaryCover": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "596c79e9ae491baefb10683ac21fffcf184b4ddac7508d65ed41c0dc2e3999aa",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.rec": {
+    "levels": "\"[`u, `uk, `ua, `um]\"",
+    "type": "d82edb646cb59dc78fa4efef0f2c149a4aab97e7e2bd79fab12382ae8379ff40",
+    "kind": "recursor",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.noConfusionType": {
+    "levels": "\"[`u, `uk, `ua, `um]\"",
+    "type": "1fc83fa9648ce180897eed82dd0917d07b5f1af5a302e424f0c39ead03ce7a64",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.edge": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "f4598672fca7f36fc8c53c51c872fb0481fb439b2fae89fd4158df643e2b1749",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.EdgeFlabby.flabby": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "620e23160b463353b4775dc1c32dea6c0bb76b640645136e8c26b33698ca384f",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.sections.congr_simp": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "7cdb5cf29df56da47f49d0179084df35e6c14dc56623ada3e834b9c37c285c3c",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachBoundary": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "d3ef0acd6fb77198878ba0e03c61ef58f06564ed0f2f4916c27cf7acdca10f9a",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_edgeFlabby": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "ee6336c3c2b6d47a56d211120010b9e4dd185df9a2d873e66f09e5a10785aeba",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachStalkMap": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "476db9a18132a9a7884d77f88293367ed8af9b7a1720ab9b601b215ff96855c0",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachAssignment": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "c4065caccda586fb2c1a67b279ab75442e09c64fa2db458f0f812909dc780569",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.lift_global": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "06383282f0fdc0b52b255eddb75145c858c1c0d0df02656860b46f3224c5881b",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom_generated": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "f02c466fab26e1d2c03e8037c17bf4f12f1c716e09ec4adc6bea63bf711f0643",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachEdges": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "feaec1ee4512478f98775d337599821b54c496c6ad57245232881e9fff983093",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachQuotient": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "96ee93a271b04056a52b774504ce6fe1e29090a54ace07cc8c5b324c36af4f6d",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachImage": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "58fc8411ebe53acf7f56c03d3648052913b2d7acca97be299d15f19b55b36e2f",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachAssignment_global": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "3488f2cd156c72e9f0354af23dad058a9de0a30aabeab8af333428aca42eedfe",
+    "kind": "theorem",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.attachBoundaryMap": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "e9b08d85b4ea74c40b41114b2008b73fb68928cdb9511401adeaf8fa1cdc3056",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.GradedSheaf.extendBottom": {
+    "levels": "\"[`uk, `ua, `um]\"",
+    "type": "76aba0fe8ae538c03c4782c9d4941cc6a4e71a88c705b9e41be437fe45f9efa2",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  },
+  "OAI.KLInvariance.MomentGraph.bottomGraph": {
+    "levels": "\"[`um]\"",
+    "type": "9b094a5d83e95aef83ae628e05aa42e2e0902aa79673eeba6d649588ecd5c27b",
+    "kind": "def",
+    "module": "ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom"
+  }
+}

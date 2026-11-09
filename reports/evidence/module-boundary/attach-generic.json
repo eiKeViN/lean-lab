@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake env lean /workspace/lean-lab/research/module-boundary/AttachGeneric.lean"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 6.76331972600002,
+  "user_seconds": 4.748169,
+  "system_seconds": 2.037463,
+  "max_rss_kib": 5257744
+}

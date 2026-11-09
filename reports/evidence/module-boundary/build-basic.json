@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "cd experiments/kl-for-mathlib && lake build ForMathlib.Algebra.Module.Graded.ModuleData.Basic"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 36.634236294000004,
+  "user_seconds": 52.339164,
+  "system_seconds": 5.999319,
+  "max_rss_kib": 3176052
+}

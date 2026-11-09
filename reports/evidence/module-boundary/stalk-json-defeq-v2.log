@@ -1,0 +1,11 @@
+/workspace/lean-lab/research/module-boundary/CheckStalkJson.lean:12:52: error(lean.invalidField): Invalid field notation: Type of
+  j
+is not known; cannot resolve field `getArr?`
+
+Hint: Consider replacing the field projection `.getArr?` with a call to the function `Json.getArr?`.
+/workspace/lean-lab/research/module-boundary/CheckStalkJson.lean:12:43: error: Ambiguous term
+  ofExcept
+Possible interpretations:
+  Lean.ofExcept ?m.88 : TermElabM ?m.81
+  
+  MonadExcept.ofExcept ?m.87 : TermElabM ?m.81
