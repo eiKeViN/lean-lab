@@ -152,29 +152,24 @@ theorem prod_upwardKernel_iff (B C : Sheaf.{ur,uv,ue,uz} (R := R) G)
     (x : V) (F : Set (Outgoing (G := G) x)) (v : (prod B C).vertex x) :
     v ∈ (prod B C).upwardKernel x F ↔
       v.1 ∈ B.upwardKernel x F ∧ v.2 ∈ C.upwardKernel x F := by
+  simp only [mem_upwardKernel_iff]
   constructor
   · intro h
-    constructor
-    · rintro ⟨e,heq⟩ he
-      subst x
-      exact congrArg Prod.fst (h ⟨e,rfl⟩ he)
-    · rintro ⟨e,heq⟩ he
-      subst x
-      exact congrArg Prod.snd (h ⟨e,rfl⟩ he)
-  · rintro ⟨hB,hC⟩ ⟨e,heq⟩ he
-    subst x
-    exact Prod.ext (hB ⟨e,rfl⟩ he) (hC ⟨e,rfl⟩ he)
+    exact ⟨fun e he => congrArg Prod.fst ((prod_stalkMap_apply B C x v e).symm.trans (h e he)),
+      fun e he => congrArg Prod.snd ((prod_stalkMap_apply B C x v e).symm.trans (h e he))⟩
+  · rintro ⟨hB,hC⟩ e he
+    exact (prod_stalkMap_apply B C x v e).trans (Prod.ext (hB e he) (hC e he))
 
 theorem pi_upwardKernel_iff {ι : Type*} (B : ι → Sheaf.{ur,uv,ue,uz} (R := R) G)
     (x : V) (F : Set (Outgoing (G := G) x)) (v : (pi B).vertex x) :
     v ∈ (pi B).upwardKernel x F ↔ ∀ i, v i ∈ (B i).upwardKernel x F := by
+  simp only [mem_upwardKernel_iff]
   constructor
-  · rintro h i ⟨e,heq⟩ he
-    subst x
-    exact congrFun (h ⟨e,rfl⟩ he) i
-  · rintro h ⟨e,heq⟩ he
-    subst x
-    exact funext (fun i => h i ⟨e,rfl⟩ he)
+  · intro h i e he
+    exact (pi_stalkMap_apply B x v e i).symm.trans (congrFun (h e he) i)
+  · intro h e he
+    funext i
+    exact (pi_stalkMap_apply B x v e i).trans (h i e he)
 
 /-- The lower image of a product sheaf is detected in its two coordinates.
 The statement includes the kernel witnesses, so scaled-image arguments can use

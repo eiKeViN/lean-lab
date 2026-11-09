@@ -1,0 +1,115 @@
+{"label": "baseline-identity", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/verify.py"], "cwd": ".", "exit_code": 0, "wall_seconds": 0.2793697450001673, "user_seconds": 0.22729, "system_seconds": 0.056538, "children_max_rss_kib_so_far": 14492}
+{"label": "baseline-export", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/baseline.py", "--export-out", "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"], "cwd": ".", "exit_code": 0, "wall_seconds": 0.11695148099988728, "user_seconds": 0.089719, "system_seconds": 0.026794999999999992, "children_max_rss_kib_so_far": 50560}
+{"label": "baseline-snapshot-check", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "compare_types.py", "reference-public-types.json", "/workspace/lean-lab/results/for-mathlib/baseline-types.tsv"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 2.5565379399999983, "user_seconds": 2.4681279999999997, "system_seconds": 0.08790900000000001, "children_max_rss_kib_so_far": 309568}
+{"label": "source-transport", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "migrate.py", "--check"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 1.7378381710000212, "user_seconds": 1.5250440000000003, "system_seconds": 0.21984199999999998, "children_max_rss_kib_so_far": 309568}
+{"label": "source-coverage", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "source_check.py"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 0.48792602100002114, "user_seconds": 0.4560379999999995, "system_seconds": 0.033335000000000004, "children_max_rss_kib_so_far": 309568}
+{"label": "classification-and-boundaries", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "analyze.py"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 1.2888502399996469, "user_seconds": 1.125337, "system_seconds": 0.17153799999999997, "children_max_rss_kib_so_far": 309568}
+{"label": "proof-evolution-source", "command": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "proof_evolution.py", "--check"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 1.3938883650002936, "user_seconds": 1.2826750000000002, "system_seconds": 0.12013700000000005, "children_max_rss_kib_so_far": 309568}
+{"label": "lean-version", "command": ["lake", "env", "lean", "--version"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 0.6547828190000473, "user_seconds": 0.4083300000000003, "system_seconds": 0.24540000000000006, "children_max_rss_kib_so_far": 848572}
+{"label": "mathlib-ready", "command": ["lake", "--no-build", "build", "Mathlib"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 3.967692478999652, "user_seconds": 4.428804, "system_seconds": 2.079694, "children_max_rss_kib_so_far": 999496}
+{"label": "oai-ready", "command": ["lake", "--no-build", "build", "ForMathlib", "OAI"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 3.638128189999861, "user_seconds": 4.312481, "system_seconds": 2.1888149999999995, "children_max_rss_kib_so_far": 1007904}
+{"label": "SemanticApiChecks", "command": ["lake", "env", "lean", "SemanticApiChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.254500539000219, "user_seconds": 3.285810999999999, "system_seconds": 1.0983740000000006, "children_max_rss_kib_so_far": 5357048}
+{"label": "PilotChecks", "command": ["lake", "env", "lean", "PilotChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 6.977526369000316, "user_seconds": 5.759242, "system_seconds": 1.6588060000000002, "children_max_rss_kib_so_far": 7775072}
+{"label": "PilotAudit", "command": ["lake", "env", "lean", "PilotAudit.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.596007563000057, "user_seconds": 3.1549060000000004, "system_seconds": 1.5435559999999988, "children_max_rss_kib_so_far": 7775072}
+{"label": "StalkCharacterImportChecks", "command": ["lake", "env", "lean", "StalkCharacterImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.538425705999998, "user_seconds": 3.1456680000000006, "system_seconds": 1.3899040000000014, "children_max_rss_kib_so_far": 7775072}
+{"label": "CoreSheafImportChecks", "command": ["lake", "env", "lean", "CoreSheafImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.547293429000092, "user_seconds": 2.971337999999996, "system_seconds": 1.5708149999999996, "children_max_rss_kib_so_far": 7775072}
+{"label": "GradedSupportImportChecks", "command": ["lake", "env", "lean", "GradedSupportImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.781921999000133, "user_seconds": 3.2529070000000004, "system_seconds": 1.5231849999999998, "children_max_rss_kib_so_far": 7775072}
+{"label": "ProjectEntryChecks", "command": ["lake", "env", "lean", "ProjectEntryChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 5.582735947999936, "user_seconds": 3.7649960000000036, "system_seconds": 1.819189999999999, "children_max_rss_kib_so_far": 7775072}
+{"label": "WeightedSumImportChecks", "command": ["lake", "env", "lean", "WeightedSumImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 2.5452024530000017, "user_seconds": 1.7109790000000018, "system_seconds": 0.8354619999999997, "children_max_rss_kib_so_far": 7775072}
+{"label": "ScaledEvaluationImportChecks", "command": ["lake", "env", "lean", "ScaledEvaluationImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.733977104999667, "user_seconds": 3.1239629999999963, "system_seconds": 1.6122730000000018, "children_max_rss_kib_so_far": 7775072}
+{"label": "ResponsibilityCompatChecks", "command": ["lake", "env", "lean", "ResponsibilityCompatChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.340279399999872, "user_seconds": 2.998764999999999, "system_seconds": 1.3395340000000004, "children_max_rss_kib_so_far": 7775072}
+{"label": "ForMathlibChecks", "command": ["lake", "env", "lean", "ForMathlibChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.841089834000286, "user_seconds": 3.2024310000000042, "system_seconds": 1.635432999999999, "children_max_rss_kib_so_far": 7775072}
+{"label": "ImportChecks", "command": ["lake", "env", "lean", "ImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.526439130000199, "user_seconds": 3.0236349999999987, "system_seconds": 1.4964070000000014, "children_max_rss_kib_so_far": 7775072}
+{"label": "DomainImportChecks", "command": ["lake", "env", "lean", "DomainImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.456615643000077, "user_seconds": 2.944600000000001, "system_seconds": 1.5060579999999995, "children_max_rss_kib_so_far": 7775072}
+{"label": "KernelChecks", "command": ["lake", "env", "lean", "KernelChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.977987585000392, "user_seconds": 3.8488860000000003, "system_seconds": 1.2628549999999983, "children_max_rss_kib_so_far": 7775072}
+{"label": "CompatChecks", "command": ["lake", "env", "lean", "CompatChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 5.032534224999836, "user_seconds": 3.787294999999993, "system_seconds": 1.3531890000000004, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernCompatChecks", "command": ["lake", "env", "lean", "ModernCompatChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 3.9902668939998875, "user_seconds": 3.109043, "system_seconds": 0.9842590000000015, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernCoordinateChecks", "command": ["lake", "env", "lean", "ModernCoordinateChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 1.6116413519998787, "user_seconds": 1.1331630000000104, "system_seconds": 0.4953479999999999, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernCoordinateMathlibChecks", "command": ["lake", "env", "lean", "ModernCoordinateMathlibChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 1.8280209810000088, "user_seconds": 1.246810999999994, "system_seconds": 0.585998, "children_max_rss_kib_so_far": 7775072}
+{"label": "SafeImportChecks", "command": ["lake", "env", "lean", "SafeImportChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 1.8943021479999516, "user_seconds": 1.2599890000000045, "system_seconds": 0.638812999999999, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernAttachConsumer", "command": ["lake", "env", "lean", "ModernAttachConsumer.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 3.636668727000142, "user_seconds": 2.6597539999999924, "system_seconds": 1.0587499999999999, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernNextConsumer", "command": ["lake", "env", "lean", "ModernNextConsumer.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 3.623415140999896, "user_seconds": 2.664106000000004, "system_seconds": 1.080565, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernFinalCompat", "command": ["lake", "env", "lean", "ModernFinalCompat.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 5.37094230699995, "user_seconds": 4.735181999999995, "system_seconds": 1.1244649999999972, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernAllCompat", "command": ["lake", "env", "lean", "ModernAllCompat.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.693796237999777, "user_seconds": 3.9469520000000102, "system_seconds": 1.0140829999999994, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernAllConsumer", "command": ["lake", "env", "lean", "ModernAllConsumer.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 4.3500917710002796, "user_seconds": 3.3894109999999955, "system_seconds": 1.1397540000000035, "children_max_rss_kib_so_far": 7775072}
+{"label": "ModernStructureCompat", "command": ["lake", "env", "lean", "ModernStructureCompat.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 1, "wall_seconds": 5.765143912999974, "user_seconds": 5.3821120000000064, "system_seconds": 1.0987310000000008, "children_max_rss_kib_so_far": 7775072}
+ModernStructureCompat.lean:82:0: error: Application type mismatch: The argument
+  StructureOld.OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso._proof_5 S G α c
+has type
+  ∀ (e : E)
+    (v :
+      ↑((OAI.KLInvariance.MomentGraph.Sheaf.baseChange S
+              (OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G α c)).vertex
+          (G.source e))),
+    (OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c))
+        (((TensorProduct.AlgebraTensorModule.lTensor S S)
+            (OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback (α e) (G.source e ≤ c) (G.target e ≤ c) ⋯))
+          v) =
+      (OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback ((algebraMap R S) (α e)) (G.source e ≤ c) (G.target e ≤ c) ⋯)
+        ((OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiScalar S (G.source e ≤ c)) v)
+but is expected to have type
+  ∀ (e : E)
+    (v :
+      ↑((OAI.KLInvariance.MomentGraph.Sheaf.baseChange S
+              (OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G α c)).vertex
+          (G.source e))),
+    (OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c))
+        (((OAI.KLInvariance.MomentGraph.Sheaf.baseChange S
+                (OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G α c)).lower
+            e)
+          v) =
+      ((OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf G (fun e => (algebraMap R S) (α e)) c).lower e)
+        ((OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiScalar S (G.source e ≤ c)) v)
+in the application
+  OAI.KLInvariance.MomentGraph.Sheaf.Iso.mk (fun x => OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiScalar S (x ≤ c))
+    (fun e => OAI.KLInvariance.MomentGraph.Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c)) ⋯
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OAI.KLInvariance.MomentGraph.Sheaf.quotientPullback ↦ 147
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
+  {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) : Sheaf G
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.eq_1.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureSheaf G α c =
+    { vertex := fun x => ↧(PLift (x ≤ c) → R), edge := fun e => ↧(PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e}),
+      lower := fun e =>
+        LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ },
+      upper := fun e =>
+        LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h }
+OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso.eq_1.{ur, us, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (S : Type us) [CommRing S] [Algebra R S] (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureBaseChangeIso S G α c =
+    { vertex := fun x => Sheaf.baseChangePiScalar S (x ≤ c),
+      edge := fun e => Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c), lower := ⋯, upper := ⋯ }
+ModernStructureCompat.lean:182:37: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:182:37: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:184:44: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:184:44: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:189:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:189:45: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:191:48: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 210, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 171, in main
+    run(file,['lake','env','lean',file+'.lean'],env=env)
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/validate.py", line 22, in run
+    print((OUT/(label+'.log')).read_text()[-6000:]);raise RuntimeError('Failed stage: '+label)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Failed stage: ModernStructureCompat

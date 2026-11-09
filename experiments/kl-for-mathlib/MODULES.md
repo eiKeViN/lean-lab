@@ -60,7 +60,7 @@ Public-type validation preserves all 3902 baseline declarations and checks every
 | [`ForMathlib.Algebra.Module.Projective.Transport`](ForMathlib/Algebra/Module/Projective/Transport.lean) | `projective_of_same_range`, `projective` |
 | [`ForMathlib.Algebra.Module.Quotient.KernelReduction`](ForMathlib/Algebra/Module/Quotient/KernelReduction.lean) | `kernel_saturated`, `reduced_kernel_injective`, `reducedInclusion` |
 | [`ForMathlib.Algebra.Module.Quotient.ScalarImage`](ForMathlib/Algebra/Module/Quotient/ScalarImage.lean) | `coordinateReduction`, `coordinateReduction_surjective`, `coordinateReduction_kernel` |
-| [`ForMathlib.Algebra.Module.ReflectionPair.TensorDescent`](ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean) | `tensorFirst_map`, `tensorSecond_map`, `tensor_difference` |
+| [`ForMathlib.Algebra.Module.ReflectionPair.TensorDescent`](ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean) | `tensorFirst_natural`, `tensorSecond_natural`, `tensorFirst_map` |
 | [`ForMathlib.Algebra.Module.ReflectionPair.TensorKernel`](ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean) | `scalarModule`, `scalarTower`, `scalarEquiv` |
 | [`ForMathlib.Algebra.Module.ReflectionPair.Twist`](ForMathlib/Algebra/Module/ReflectionPair/Twist.lean) | `equivVal`, `_root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instAddCommGroup`, `_root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule` |
 | [`ForMathlib.Algebra.Module.Submodule.PiIdeal`](ForMathlib/Algebra/Module/Submodule/PiIdeal.lean) | `pi_mem_ideal_smul` |
@@ -96,7 +96,7 @@ Public-type validation preserves all 3902 baseline declarations and checks every
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.AttachBottom`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/AttachBottom.lean) | `bottomGraph`, `attachEdges`, `attachQuotient` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Character`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Character.lean) | `freeStalkChar`, `ModelSum.character`, `exists_stalkCharacter_decomposition` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Defs`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Defs.lean) | `GradedSheaf`, `forget`, `EdgeFlabby` |
-| [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean) | `dualToSupport_homogeneous`, `UpperQuotient.annihilates`, `upwardSubmodule_saturated` |
+| [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Duality`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Duality.lean) | `dualToSupport_homogeneous`, `singleSupportEquivDual_symm_homogeneous`, `UpperQuotient.annihilates` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Extension`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Extension.lean) | `lowerAt`, `lowerAt_map`, `upwardSubmodule` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hilbert`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Hilbert.lean) | `kernelHilbert`, `lowerImage`, `upperImage` |
 | [`ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Hom`](ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Hom.lean) | `Endomorphism`, `complement`, `complement_idempotent` |
@@ -115,7 +115,7 @@ Public-type validation preserves all 3902 baseline declarations and checks every
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Localization`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Localization.lean) | `edge_subsingleton_of_unit`, `supportedOutgoing`, `kernelProduct` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Models`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean) | `zeroVertex_subsingleton`, `zeroEdge_subsingleton`, `LocalModels` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Pi`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Pi.lean) | `pi`, `pi_compatible`, `pi_generated` |
-| [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Products`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean) | `zero`, `prod`, `prod_generated` |
+| [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Products`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Products.lean) | `zero`, `prod`, `prod_compatible_iff` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Pullback`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean) | `GraphMap`, `moduleEq`, `moduleEq_apply` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction`](ForMathlib/Combinatorics/MomentGraph/Sheaf/Restriction.lean) | `inducedGraph`, `restrict`, `restrictAssignment` |
 | [`ForMathlib.Combinatorics.MomentGraph.Sheaf.ScaledImages`](ForMathlib/Combinatorics/MomentGraph/Sheaf/ScaledImages.lean) | `outgoingLabelProduct`, `outgoingLabelProduct_dvd`, `outgoingLabelProduct_smul_mem` |

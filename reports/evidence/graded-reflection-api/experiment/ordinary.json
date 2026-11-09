@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "GradedReflectionChecks.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.162309762999939,
+  "user_seconds": 3.0433,
+  "system_seconds": 1.231306,
+  "max_rss_kib": 5355052
+}

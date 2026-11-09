@@ -1,0 +1,46 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:223:4: error: Type mismatch: After simplification, term
+  baseChangePi_natural S (α e) (G.source e ≤ c) (G.target e ≤ c) (fun x => LE.le.trans (LT.lt.le (G.increasing e)) x) v
+ has type
+  @Eq (PLift (G.target e ≤ c) → S ⧸ Ideal.span {(algebraMap R S) (α e)})
+    ((baseChangePiQuotient S (α e) (G.target e ≤ c))
+      (((AlgebraTensorModule.lTensor S S)
+          (LinearMap.pi fun t => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ }))
+        v))
+    ((LinearMap.pi fun t =>
+        (Ideal.Quotient.mkₐ S (Ideal.span {(algebraMap R S) (α e)})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ })
+      ((baseChangePiScalar S (G.source e ≤ c)) v))
+but is expected to have type
+  @Eq (PLift (G.target e ≤ c) → S ⧸ Ideal.span {(algebraMap R S) (α e)})
+    ((baseChangePiQuotient S (α e) (G.target e ≤ c))
+      (((AlgebraTensorModule.lTensor S S)
+          (LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ }))
+        v))
+    ((LinearMap.pi fun h =>
+        (Ideal.Quotient.mkₐ S (Ideal.span {(algebraMap R S) (α e)})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ })
+      ((baseChangePiScalar S (G.source e ≤ c)) v))
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:227:4: error: Type mismatch: After simplification, term
+  baseChangePi_natural S (α e) (G.target e ≤ c) (G.target e ≤ c) id v
+ has type
+  @Eq (PLift (G.target e ≤ c) → S ⧸ Ideal.span {(algebraMap R S) (α e)})
+    ((baseChangePiQuotient S (α e) (G.target e ≤ c))
+      (((AlgebraTensorModule.lTensor S S)
+          (LinearMap.pi fun t => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ }))
+        v))
+    ((LinearMap.pi fun t =>
+        (Ideal.Quotient.mkₐ S (Ideal.span {(algebraMap R S) (α e)})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ })
+      ((baseChangePiScalar S (G.target e ≤ c)) v))
+but is expected to have type
+  @Eq (PLift (G.target e ≤ c) → S ⧸ Ideal.span {(algebraMap R S) (α e)})
+    ((baseChangePiQuotient S (α e) (G.target e ≤ c))
+      (((AlgebraTensorModule.lTensor S S)
+          (LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h))
+        v))
+    ((LinearMap.pi fun h =>
+        (Ideal.Quotient.mkₐ S (Ideal.span {(algebraMap R S) (α e)})).toLinearMap ∘ₗ LinearMap.proj h)
+      ((baseChangePiScalar S (G.target e ≤ c)) v))
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:217:15: error: (kernel) declaration has metavariables 'OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'env', 'lean', 'ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean']' returned non-zero exit status 1.

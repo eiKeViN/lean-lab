@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; subprocess.run([\"lake\",\"build\",\"ForMathlib.Combinatorics.MomentGraph.Sheaf.Restriction\",\"ForMathlib.Combinatorics.MomentGraph.Sheaf.Models\"],env=validate.serial_environment(),check=True)"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 20.61291128599987,
+  "user_seconds": 24.221928,
+  "system_seconds": 4.215818,
+  "max_rss_kib": 3138896
+}

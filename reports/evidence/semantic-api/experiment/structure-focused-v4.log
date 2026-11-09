@@ -1,0 +1,35 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:229:6: error: Type mismatch
+  Eq.symm (quotientPullback_apply ?m.133 (G.source e ≤ c) (G.target e ≤ c) ?m.136 x t)
+has type
+  (Ideal.Quotient.mk (Ideal.span {?m.133})) (x { down := ⋯ }) =
+    (quotientPullback ?m.133 (G.source e ≤ c) (G.target e ≤ c) ?m.136) x t
+but is expected to have type
+  ((structureSheaf G α c).lower e) x t = (quotientPullback (α e) (G.source e ≤ c) (G.target e ≤ c) ⋯) x t
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:236:6: error: Type mismatch
+  Eq.symm (quotientPullback_apply ?m.214 (G.source e ≤ c) (G.target e ≤ c) ?m.217 x t)
+has type
+  (Ideal.Quotient.mk (Ideal.span {?m.214})) (x { down := ⋯ }) =
+    (quotientPullback ?m.214 (G.source e ≤ c) (G.target e ≤ c) ?m.217) x t
+but is expected to have type
+  ((structureSheaf G (fun e => (algebraMap R S) (α e)) c).lower e) x t =
+    (quotientPullback ((algebraMap R S) (α e)) (G.source e ≤ c) (G.target e ≤ c) ⋯) x t
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:248:6: error: Type mismatch
+  Eq.symm (quotientPullback_apply ?m.345 (G.target e ≤ c) (G.target e ≤ c) ?m.348 x t)
+has type
+  (Ideal.Quotient.mk (Ideal.span {?m.345})) (x { down := ⋯ }) =
+    (quotientPullback ?m.345 (G.target e ≤ c) (G.target e ≤ c) ?m.348) x t
+but is expected to have type
+  ((structureSheaf G α c).upper e) x t = (quotientPullback (α e) (G.target e ≤ c) (G.target e ≤ c) ⋯) x t
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean:254:6: error: Type mismatch
+  Eq.symm (quotientPullback_apply ?m.414 (G.target e ≤ c) (G.target e ≤ c) ?m.417 x t)
+has type
+  (Ideal.Quotient.mk (Ideal.span {?m.414})) (x { down := ⋯ }) =
+    (quotientPullback ?m.414 (G.target e ≤ c) (G.target e ≤ c) ?m.417) x t
+but is expected to have type
+  ((structureSheaf G (fun e => (algebraMap R S) (α e)) c).upper e) x t =
+    (quotientPullback ((algebraMap R S) (α e)) (G.target e ≤ c) (G.target e ≤ c) ⋯) x t
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'env', 'lean', 'ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean']' returned non-zero exit status 1.

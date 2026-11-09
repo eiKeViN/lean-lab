@@ -1,0 +1,16 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Iso.lean:123:65: error: Tactic `rfl` failed: The left-hand side
+  v ∈ B.upwardKernel x F
+is not definitionally equal to the right-hand side
+  ∀ e ∈ F, (B.stalkMap x) v e = 0
+
+R : Type u
+inst✝¹ : CommRing R
+V : Type v
+inst✝ : PartialOrder V
+E : Type w
+G : OrderedGraph V E
+B : Sheaf G
+x : V
+F : Set (Outgoing x)
+v : ↑(B.vertex x)
+⊢ v ∈ B.upwardKernel x F ↔ ∀ e ∈ F, (B.stalkMap x) v e = 0

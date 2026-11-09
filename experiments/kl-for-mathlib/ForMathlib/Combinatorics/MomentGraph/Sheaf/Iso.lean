@@ -41,13 +41,20 @@ variable {B : Sheaf.{u,v,w,z} (R := R) G} {C : Sheaf.{u,v,w,z'} (R := R) G}
 @[expose] noncomputable def assignments : B.Assignment ≃ₗ[R] C.Assignment :=
   LinearEquiv.piCongrRight j.vertex
 
+/-- Transport of an assignment is pointwise transport at the vertices. -/
+@[simp] theorem assignments_apply (f : B.Assignment) (x : V) :
+    j.assignments f x = j.vertex x (f x) := by rfl
+
+@[simp] theorem assignments_symm_apply (f : C.Assignment) (x : V) :
+    j.assignments.symm f x = (j.vertex x).symm (f x) := by rfl
+
 theorem compatible_iff (Ω : Set V) (f : B.Assignment) :
     C.CompatibleOn Ω (j.assignments f) ↔ B.CompatibleOn Ω f := by
   constructor <;> intro h e hs ht
   · apply (j.edge e).injective
     rw [j.lower,j.upper]
-    exact h e hs ht
-  · change C.lower e (j.vertex _ (f _)) = C.upper e (j.vertex _ (f _))
+    simpa only [assignments_apply] using h e hs ht
+  · simp only [assignments_apply]
     rw [← j.lower,← j.upper,h e hs ht]
 
 theorem map_sections (Ω : Set V) :
@@ -65,19 +72,30 @@ theorem map_sections (Ω : Set V) :
 @[expose] noncomputable def sections (Ω : Set V) : B.sections Ω ≃ₗ[R] C.sections Ω :=
   j.assignments.ofSubmodules _ _ (j.map_sections Ω)
 
+@[simp] theorem sections_val_apply (Ω : Set V) (f : B.sections Ω) (x : V) :
+    (j.sections Ω f).val x = j.vertex x (f.val x) := by
+  exact j.assignments_apply f.val x
+
 @[expose] noncomputable def boundary (x : V) : B.Boundary x ≃ₗ[R] C.Boundary x :=
   LinearEquiv.piCongrRight (fun e => j.edge e.val)
+
+@[simp] theorem boundary_apply (x : V) (f : B.Boundary x) (e : Outgoing (G := G) x) :
+    j.boundary x f e = j.edge e.val (f e) := by rfl
 
 theorem stalkMap (x : V) (v : B.vertex x) :
     j.boundary x (B.stalkMap x v) = C.stalkMap x (j.vertex x v) := by
   funext e
   rcases e with ⟨e,he⟩
   subst x
+  rw [boundary_apply]
   exact j.lower e v
 
 theorem boundaryMap (x : V) (f : B.sections (Set.Ioi x)) :
     j.boundary x (B.boundaryMap x f) = C.boundaryMap x (j.sections _ f) := by
   funext e
+  rw [boundary_apply]
+  change j.edge e.val _ = C.upper e.val ((j.sections _ f).val (G.target e.val))
+  rw [sections_val_apply]
   exact j.upper e.val (f.val (G.target e.val))
 
 theorem map_boundaryRange (x : V) :
@@ -102,18 +120,31 @@ variable (B : Sheaf.{u,v,w,z} (R := R) G)
   add_mem' := by intro v w hv hw e he; simp [hv e he,hw e he]
   smul_mem' := by intro r v hv e he; simp [hv e he]
 
+/-- Local kernel constraints, independent of the submodule construction. -/
+theorem mem_upwardKernel_iff (x : V) (F : Set (Outgoing (G := G) x)) (v : B.vertex x) :
+    v ∈ B.upwardKernel x F ↔ ∀ e ∈ F, B.stalkMap x v e = 0 := by rfl
+
+/-- Imposing every outgoing constraint is the kernel of the full stalk map. -/
+theorem upwardKernel_univ (x : V) :
+    B.upwardKernel x Set.univ = LinearMap.ker (B.stalkMap x) := by
+  ext v
+  rw [mem_upwardKernel_iff, LinearMap.mem_ker]
+  simp only [Set.mem_univ, true_implies]
+  exact ⟨fun h => funext h, fun h e => congrFun h e⟩
+
 namespace Iso
 variable {B : Sheaf.{u,v,w,z} (R := R) G} {C : Sheaf.{u,v,w,z'} (R := R) G}
   (j : Iso B C)
 
 theorem upwardKernel_iff (x : V) (F : Set (Outgoing (G := G) x)) (v : B.vertex x) :
     j.vertex x v ∈ C.upwardKernel x F ↔ v ∈ B.upwardKernel x F := by
+  simp only [mem_upwardKernel_iff]
   constructor <;> intro h e he
   · apply (j.edge e.val).injective
     rw [map_zero]
     exact (congrFun (j.stalkMap x v) e).trans (h e he)
   · have hh := congrFun (j.stalkMap x v) e
-    change j.edge e.val (B.stalkMap x v e) = _ at hh
+    rw [boundary_apply] at hh
     rw [h e he,map_zero] at hh
     exact hh.symm
 

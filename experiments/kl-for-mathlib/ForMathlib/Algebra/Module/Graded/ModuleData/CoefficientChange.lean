@@ -117,8 +117,12 @@ noncomputable section
     (changeTopProjection e he hM hN).map ((changeTopInclusion e he hM hN).map n)=n := by
   subst M
   subst N
-  change (changeUnitHom e he hA hB).map ((changeUnitInvHom e he hA hB).map n)=n
-  exact changeUnitHom_inv e he hA hB n
+  change (changeUnitHom e he hA hB).map
+    (CoefficientChange.map e (LinearMap.id : unit hA →ₗ[A] unit hA)
+      (CoefficientChange.map e LinearMap.id ((changeUnitInvHom e he hA hB).map n))) = n
+  exact (congrArg (changeUnitHom e he hA hB).map
+    ((CoefficientChange.map_id_apply e _).trans
+      (CoefficientChange.map_id_apply e _))).trans (changeUnitHom_inv e he hA hB n)
 
 end
 end KLInvariance.Graded.ModuleData

@@ -1,0 +1,22 @@
+⚠ [8928/8959] Replayed ForMathlib.LinearAlgebra.Dual.IntegralSupport
+warning: ForMathlib/LinearAlgebra/Dual/IntegralSupport.lean:65:0: automatically included section variable(s) unused in theorem `OAI.KLInvariance.IntegralSupport.annihilates_of_supported`:
+  [∀ (x : V), Module.IsTorsionFree R (A x)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (x : V), Module.IsTorsionFree R (A x)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8930/8959] Replayed ForMathlib.Algebra.Module.Graded.Generators
+warning: ForMathlib/Algebra/Module/Graded/Generators.lean:638:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8931/8959] Replayed ForMathlib.Algebra.Module.Graded.ModuleData.Basic
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:32:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:38:2: `@[expose]` has no effect; this declaration would be exposed by default
+warning: ForMathlib/Algebra/Module/Graded/ModuleData/Basic.lean:39:2: `@[expose]` has no effect; this declaration would be exposed by default
+⚠ [8959/8959] Built ForMathlib.Combinatorics.MomentGraph.Sheaf.Duality (5.4s)
+warning: ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean:231:8: automatically included section variable(s) unused in theorem `OAI.KLInvariance.MomentGraph.Sheaf.singleStalkEquivSupport_apply_self`:
+  [Fintype E]
+  [IsDomain R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype E] [IsDomain R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully (8959 jobs).

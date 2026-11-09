@@ -1,0 +1,25 @@
+ForMathlib/Algebra/Module/CoefficientChange/Dual.lean:32:42: error: Tactic `rfl` failed: The left-hand side
+  ((mapEquiv e f) m).val
+is not definitionally equal to the right-hand side
+  f m.val
+
+k : Type uk
+inst✝¹⁰ : Field k
+A : Type ua
+inst✝⁹ : CommRing A
+inst✝⁸ : Algebra k A
+B : Type ub
+inst✝⁷ : CommRing B
+inst✝⁶ : Algebra k B
+e : A ≃ₐ[k] B
+M : Type um
+inst✝⁵ : AddCommGroup M
+inst✝⁴ : Module A M
+N : Type un
+inst✝³ : AddCommGroup N
+inst✝² : Module A N
+inst✝¹ : Module k N
+inst✝ : IsScalarTower k A N
+f : M ≃ₗ[A] N
+m : CoefficientChange e M
+⊢ ((mapEquiv e f) m).val = f m.val

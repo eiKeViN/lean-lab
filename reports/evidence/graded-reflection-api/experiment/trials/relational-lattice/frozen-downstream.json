@@ -1,0 +1,5 @@
+{
+  "ForMathlib/Algebra/Module/ReflectionPair/TensorKernel.lean": "50a6994bf97a61d7cef1958b6921ed6e27a9f4a8a98f80a7a824f8e3b9df0e69",
+  "ForMathlib/Algebra/Module/ReflectionPair/TensorDescent.lean": "98b64d682da08721f163352987f5fe700612bbaf507a33112b8fd704da0baf65",
+  "ForMathlib/LinearAlgebra/KernelCoordinates.lean": "39af3789b514e6a918d6047dc0b5dbafe019470f33dee2781e7dcac572bed49a"
+}

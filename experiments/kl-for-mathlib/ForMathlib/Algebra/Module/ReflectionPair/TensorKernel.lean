@@ -75,6 +75,11 @@ noncomputable section
   toFun m := ⟨f m.val⟩
   map_add' m n := Twist.ext (map_add f m.val n.val)
   map_smul' a m := Twist.ext (map_smul f (τ a) m.val)
+/-- A map between twists induces the original map on underlying vectors. -/
+@[simp] theorem twistMap_val {P : Type*} [AddCommGroup P] [Module A P]
+    (f : N →ₗ[A] P) (m : Twist τ N) :
+    (twistMap τ f m).val = f m.val := by rfl
+
 end
 end KLInvariance.ReflectionPairTranslation
 end
@@ -95,14 +100,20 @@ variable {R : Type u} [CommRing R]
  @[expose] def right : lattice f g τ α hdiv hinc →ₗ[R] Twist τ Y :=
   (LinearMap.snd R X (Twist τ Y)).comp (lattice f g τ α hdiv hinc).subtype
 
+/-- The upper projection retains the twisted second lattice coordinate. -/
+@[simp] theorem right_apply (p : lattice f g τ α hdiv hinc) :
+    right f g τ α hdiv hinc p = p.val.2 := by rfl
+
  theorem right_surjective (hg : Function.Surjective g) :
     Function.Surjective (right f g τ α hdiv hinc) := by
   intro y
   obtain ⟨n,hn⟩ := hg y.val
-  exact ⟨⟨(f n,y),n,rfl,hn⟩,rfl⟩
+  refine ⟨⟨(f n,y),(mem_lattice_iff f g τ α hdiv hinc _).mpr ⟨n,rfl,hn⟩⟩,?_⟩
+  exact right_apply f g τ α hdiv hinc _
 
  @[expose] def rightKernelMap : X →ₗ[R] LinearMap.ker (right f g τ α hdiv hinc) where
-  toFun x := ⟨⟨(α • x,⟨0⟩),(hker (α • x)).mpr ⟨x,rfl⟩⟩,rfl⟩
+  toFun x := ⟨⟨(α • x,⟨0⟩),(mem_lattice_iff f g τ α hdiv hinc _).mpr
+    ((hker (α • x)).mpr ⟨x,rfl⟩)⟩,right_apply f g τ α hdiv hinc _⟩
   map_add' x y := by
     apply Subtype.ext
     apply Subtype.ext
@@ -118,10 +129,16 @@ variable {R : Type u} [CommRing R]
     · apply Twist.ext
       exact (smul_zero _).symm
 
+/-- The lower coordinate of the right-kernel injection is multiplication by α. -/
+@[simp] theorem rightKernelMap_fst (x : X) :
+    (rightKernelMap f g τ α hdiv hinc hker x).val.val.1 = α • x := by rfl
+
  theorem rightKernelMap_surjective :
     Function.Surjective (rightKernelMap f g τ α hdiv hinc hker) := by
-  rintro ⟨⟨⟨x,y⟩,n,hn,hn'⟩,hy⟩
-  have hy' : y.val=0 := congrArg Twist.val hy
+  rintro ⟨⟨⟨x,y⟩,hp⟩,hy⟩
+  obtain ⟨n,hn,hn'⟩ := (mem_lattice_iff f g τ α hdiv hinc _).mp hp
+  have hy' : y.val=0 := congrArg Twist.val
+    ((right_apply f g τ α hdiv hinc ⟨(x,y),hp⟩).symm.trans hy)
   obtain ⟨z,hz⟩ := (hker x).mp ⟨n,hn,hn'.trans hy'⟩
   refine ⟨z,?_⟩
   apply Subtype.ext
@@ -131,7 +148,10 @@ variable {R : Type u} [CommRing R]
  theorem rightKernelMap_injective (hinj : Function.Injective (fun x : X => α • x)) :
     Function.Injective (rightKernelMap f g τ α hdiv hinc hker) := by
   intro x y h
-  exact hinj (congrArg (fun p => p.val.val.1) h)
+  apply hinj
+  exact (rightKernelMap_fst f g τ α hdiv hinc hker x).symm.trans
+    ((congrArg (fun p => p.val.val.1) h).trans
+      (rightKernelMap_fst f g τ α hdiv hinc hker y))
 
  @[expose] noncomputable def rightKernelEquiv (hinj : Function.Injective (fun x : X => α • x)) :
     X ≃ₗ[R] LinearMap.ker (right f g τ α hdiv hinc) :=

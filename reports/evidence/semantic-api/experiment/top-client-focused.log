@@ -1,0 +1,28 @@
+ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean:121:7: error(lean.unknownIdentifier): Unknown constant `OAI.KLInvariance.CoefficientChange.map_id_apply`
+ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean:117:86: error: unsolved goals
+k : Type uk
+inst✝⁸ : Field k
+A B : Type ua
+inst✝⁷ : CommRing A
+inst✝⁶ : CommRing B
+inst✝⁵ : Algebra k A
+inst✝⁴ : Algebra k B
+𝓐 : ℤ → Submodule k A
+𝓑 : ℤ → Submodule k B
+inst✝³ : DirectSum.Decomposition 𝓐
+inst✝² : SetLike.GradedMonoid 𝓐
+inst✝¹ : DirectSum.Decomposition 𝓑
+inst✝ : SetLike.GradedMonoid 𝓑
+e : A ≃ₐ[k] B
+he : ∀ (n : ℤ) (a : A), a ∈ 𝓐 n ↔ e a ∈ 𝓑 n
+hA : ∀ n < 0, 𝓐 n = ⊥
+hB : ∀ n < 0, 𝓑 n = ⊥
+n : ↑(unit hB).obj
+⊢ (↑(equivOfEq ⋯) ∘ₗ (changeUnitHom e he hA hB).map ∘ₗ CoefficientChange.map e ↑(equivOfEq ⋯))
+      ((CoefficientChange.map e ↑(equivOfEq ⋯) ∘ₗ (changeUnitInvHom e he hA hB).map ∘ₗ ↑(equivOfEq ⋯)) n) =
+    n
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'env', 'lean', 'ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean']' returned non-zero exit status 1.

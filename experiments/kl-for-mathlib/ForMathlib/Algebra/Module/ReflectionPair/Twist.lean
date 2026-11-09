@@ -35,6 +35,14 @@ instance _root_.OAI.KLInvariance.ReflectionPairTranslation.Twist.instModule : Mo
   letI : Module R Y := Module.compHom Y τ.toRingHom
   exact ({ equivVal τ Y with map_add' := fun _ _ => rfl } : Twist τ Y ≃+ Y).module R
 
+omit [Module R Y] in
+/-- Addition in a scalar twist preserves underlying vectors. -/
+@[simp] theorem val_add (y z : Twist τ Y) : (y+z).val = y.val+z.val := by rfl
+
+/-- Twisting restricts the scalar action along τ, not its inverse. -/
+@[simp] theorem val_smul (r : R) (y : Twist τ Y) :
+    (r • y).val = τ r • y.val := by rfl
+
 @[expose] def equiv : Y ≃ₛₗ[τ.symm.toRingHom] Twist τ Y where
   toFun := mk
   invFun := val
@@ -76,6 +84,10 @@ Alpha-annihilation of the old edge is what makes this an R-submodule. -/
       rw [map_add,map_smul,hn',hm'',sub_smul]
       abel
 
+/-- Membership in the twisted lattice means that the two coordinates have a common lift. -/
+theorem mem_lattice_iff (p : X × Twist τ Y) :
+    p ∈ lattice f g τ α hdiv hinc ↔ ∃ n : N, f n=p.1 ∧ g n=p.2.val := by rfl
+
 /-- Saturation away from the simple wall. Regularity on the old edge module,
 not an unjustified reflexivity assertion, removes a non-wall factor. -/
 theorem lattice_saturated (β : R)
@@ -84,10 +96,12 @@ theorem lattice_saturated (β : R)
     (p : X × Twist τ Y) :
     β • p ∈ lattice f g τ α hdiv hinc ↔ p ∈ lattice f g τ α hdiv hinc := by
   constructor
-  · rintro ⟨n,hn,hn'⟩
+  · intro hp
+    obtain ⟨n,hn,hn'⟩ := (mem_lattice_iff f g τ α hdiv hinc (β • p)).mp hp
+    apply (mem_lattice_iff f g τ α hdiv hinc p).mpr
     apply (PairProjection.compatible_iff f g p.1 p.2.val).mp
     apply hreg
-    have hn'' : g n=τ β • p.2.val := hn'
+    have hn'' : g n=τ β • p.2.val := hn'.trans (Twist.val_smul τ Y β p.2)
     have h := PairProjection.compatible f g n
     have hn1 : f n=β • p.1 := hn
     rw [hn1,hn'',map_smul,map_smul] at h
@@ -102,15 +116,22 @@ theorem lattice_saturated (β : R)
 @[expose] def left : lattice f g τ α hdiv hinc →ₗ[R] X :=
   (LinearMap.fst R X (Twist τ Y)).comp (lattice f g τ α hdiv hinc).subtype
 
+/-- The lower projection is the first lattice coordinate. -/
+@[simp] theorem left_apply (p : lattice f g τ α hdiv hinc) :
+    left f g τ α hdiv hinc p = p.val.1 := by rfl
+
  theorem left_surjective (hf : Function.Surjective f) :
     Function.Surjective (left f g τ α hdiv hinc) := by
   intro x
   obtain ⟨n,rfl⟩ := hf x
-  exact ⟨⟨(f n,⟨g n⟩),n,rfl,rfl⟩,rfl⟩
+  refine ⟨⟨(f n,⟨g n⟩),(mem_lattice_iff f g τ α hdiv hinc _).mpr ⟨n,rfl,rfl⟩⟩,?_⟩
+  exact left_apply f g τ α hdiv hinc _
 
 /-- Its kernel is the alpha-multiple of the twisted upper stalk. -/
 @[expose] def kernelMap : Twist τ Y →ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) where
-  toFun y := ⟨⟨(0,⟨α • y.val⟩),hinc y.val⟩,rfl⟩
+  toFun y := ⟨⟨(0,⟨α • y.val⟩),
+    (mem_lattice_iff f g τ α hdiv hinc _).mpr (hinc y.val)⟩,
+    left_apply f g τ α hdiv hinc _⟩
   map_add' y z := by
     apply Subtype.ext
     apply Subtype.ext
@@ -124,12 +145,17 @@ theorem lattice_saturated (β : R)
     change (0,Twist.mk (α • (τ r • y.val)))=(r • (0 : X),Twist.mk (τ r • (α • y.val)))
     rw [smul_zero,smul_comm α (τ r)]
 
+/-- The upper coordinate of the kernel injection is multiplication by α. -/
+@[simp] theorem kernelMap_snd_val (y : Twist τ Y) :
+    (kernelMap f g τ α hdiv hinc y).val.val.2.val = α • y.val := by rfl
+
  variable (hker : ∀ y : Y, (∃ n : N, f n=0 ∧ g n=y) ↔ ∃ z : Y, y=α • z)
 
  include hker in
  theorem kernelMap_surjective : Function.Surjective (kernelMap f g τ α hdiv hinc) := by
-  rintro ⟨⟨⟨x,y⟩,n,hn,hn'⟩,hx⟩
-  change x=0 at hx
+  rintro ⟨⟨⟨x,y⟩,hp⟩,hx⟩
+  obtain ⟨n,hn,hn'⟩ := (mem_lattice_iff f g τ α hdiv hinc _).mp hp
+  have hx' : x=0 := (left_apply f g τ α hdiv hinc ⟨(x,y),hp⟩).symm.trans hx
   subst x
   obtain ⟨z,hz⟩ := (hker y.val).mp ⟨n,hn,hn'⟩
   refine ⟨⟨z⟩,?_⟩
@@ -141,7 +167,10 @@ theorem lattice_saturated (β : R)
     Function.Injective (kernelMap f g τ α hdiv hinc) := by
   intro y z h
   apply Twist.ext
-  exact hinj (congrArg (fun p => p.val.val.2.val) h)
+  apply hinj
+  exact (kernelMap_snd_val f g τ α hdiv hinc y).symm.trans
+    ((congrArg (fun p => p.val.val.2.val) h).trans
+      (kernelMap_snd_val f g τ α hdiv hinc z))
 
 @[expose] noncomputable def kernelEquiv (hinj : Function.Injective (fun y : Y => α • y)) :
     Twist τ Y ≃ₗ[R] LinearMap.ker (left f g τ α hdiv hinc) :=

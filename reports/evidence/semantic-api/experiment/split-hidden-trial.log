@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/semantic_api_split_trial.py", line 145, in <module>
+    else:main()
+         ^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/semantic_api_split_trial.py", line 46, in main
+    run('new-real-client',[CLIENT,'-o',str(dest)])
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/semantic_api_split_trial.py", line 29, in run
+    if (p.returncode==0)!=success:raise RuntimeError('Unexpected split trial result: '+label)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unexpected split trial result: new-real-client

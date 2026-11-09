@@ -1,0 +1,11 @@
+--- before/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean
++++ after/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean
+@@ -413,7 +413,7 @@
+ noncomputable section
+ 
+  @[expose] def SplitIn.liftEnd (s : SplitIn B C) (f : Hom B B) : Hom C C :=
+-  s.inclusion.comp (f.comp s.projection)
++  (s.inclusion.comp f).comp s.projection
+ 
+ /-- Extending an endomorphism to a split ambient sheaf acts by projection, then inclusion. -/
+ @[simp] theorem SplitIn.liftEnd_vertex_apply (s : SplitIn B C) (f : Hom B B)

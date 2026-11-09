@@ -1,0 +1,80 @@
+E.......F....F...F......F.....
+======================================================================
+ERROR: test_accept_current_explicit_evolution (__main__.EvolutionChecks.test_accept_current_explicit_evolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 40, in test_accept_current_explicit_evolution
+    ev.overlay(dict(PRISTINE));self.assertTrue(self.compare_mock({**OLD,**ADDED})['passed'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/proof_evolution.py", line 183, in overlay
+    before = files[path]; after = legacy_source(path, (HERE/path).read_bytes()); item = record['files'][path]
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_integration.py", line 50, in legacy_source
+    data=all_legacy(path,data)
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/module_all.py", line 35, in legacy_source
+    data=__import__('api_evolution').prior_source(path,data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/api_evolution.py", line 36, in prior_source
+    b=__import__('api_families').prior_source(path,b)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/api_families.py", line 35, in prior_source
+    raise RuntimeError('Unreviewed families source: '+path)
+RuntimeError: Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
+
+======================================================================
+FAIL: test_reject_library_old_header (__main__.EvolutionChecks.test_reject_library_old_header)
+----------------------------------------------------------------------
+RuntimeError: Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 190, in test_reject_library_old_header
+    with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Changed old theorem statement" does not match "Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean"
+
+======================================================================
+FAIL: test_reject_rebound_expansion_statement (__main__.EvolutionChecks.test_reject_rebound_expansion_statement)
+----------------------------------------------------------------------
+RuntimeError: Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 98, in test_reject_rebound_expansion_statement
+    with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Changed old theorem statement" does not match "Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean"
+
+======================================================================
+FAIL: test_reject_rebound_old_statement (__main__.EvolutionChecks.test_reject_rebound_old_statement)
+----------------------------------------------------------------------
+RuntimeError: Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 74, in test_reject_rebound_old_statement
+    with self.assertRaisesRegex(RuntimeError,'Changed old theorem statement'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Changed old theorem statement" does not match "Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean"
+
+======================================================================
+FAIL: test_reject_truncated_diff (__main__.EvolutionChecks.test_reject_truncated_diff)
+----------------------------------------------------------------------
+RuntimeError: Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/test_proof_evolution.py", line 68, in test_reject_truncated_diff
+    with self.assertRaisesRegex(RuntimeError,'diff'):ev.overlay(dict(PRISTINE))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "diff" does not match "Unreviewed families source: ForMathlib/Combinatorics/MomentGraph/Sheaf/Pullback.lean"
+
+----------------------------------------------------------------------
+Ran 30 tests in 5.323s
+
+FAILED (failures=4, errors=1)

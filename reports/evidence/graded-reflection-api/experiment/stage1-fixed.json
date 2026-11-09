@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; subprocess.run([\"lake\",\"build\",\"ForMathlib.Combinatorics.MomentGraph.GradedSheaf.Summand\"],env=validate.serial_environment(),check=True)"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 8.565090914999018,
+  "user_seconds": 11.170929,
+  "system_seconds": 2.6895350000000002,
+  "max_rss_kib": 3140348
+}

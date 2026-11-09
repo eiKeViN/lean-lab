@@ -1,0 +1,36 @@
+--- before/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
++++ after/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
+@@ -18,12 +18,29 @@
+   {M N : ModuleData.{uk,ua,um} 𝓐}
+ noncomputable section
+ 
++private noncomputable def rangeViaQuotient (e : Hom M M) (f : Hom N N) (g : Hom M N)
++    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) : range e →ₗ[A] range f :=
++  ((LinearMap.ker e.map).liftQ (f.map.rangeRestrict.comp g.map) (by
++    intro m hm
++    apply Subtype.ext
++    exact (h m).trans ((congrArg g.map (LinearMap.mem_ker.mp hm)).trans (map_zero g.map)))).comp
++      e.map.quotKerEquivRange.symm.toLinearMap
++
++private theorem rangeViaQuotient_val (e : Hom M M) (f : Hom N N) (g : Hom M N)
++    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (v : range e) :
++    (rangeViaQuotient e f g h v).val = g.map v.val := by
++  rcases v with ⟨_,m,rfl⟩
++  simp only [rangeViaQuotient, LinearMap.comp_apply,
++    LinearMap.quotKerEquivRange_symm_apply_image, Submodule.liftQ_apply]
++  exact h m
++
+  @[expose] def rangeMap (e : Hom M M) (f : Hom N N) (g : Hom M N)
+     (h : ∀ m, f.map (g.map m)=g.map (e.map m)) : Hom (range e) (range f) where
+-  map := (g.map.domRestrict e.map.range).codRestrict f.map.range (by
+-    rintro ⟨_,m,rfl⟩
+-    exact ⟨g.map m,h m⟩)
+-  graded n m hm := g.graded n m.val hm
++  map := rangeViaQuotient e f g h
++  graded n v hv := by
++    change (rangeViaQuotient e f g h v).val ∈ N.piece n
++    rw [rangeViaQuotient_val]
++    exact g.graded n v.val hv
+ 
+  @[expose] def rangeInclusion (e : Hom M M) : Hom (range e) M where
+   map := e.map.range.subtype

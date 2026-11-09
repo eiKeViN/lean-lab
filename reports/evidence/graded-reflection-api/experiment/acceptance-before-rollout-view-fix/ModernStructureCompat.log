@@ -1,0 +1,37 @@
+Historical names/types/levels/attributes/kernel/defeq/axioms: 135; unavailable=[OAI.KLInvariance.LocalCover.splitEquiv.match_3]; actual old helpers=20
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv} [PartialOrder V]
+  {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) : Sheaf G
+OAI.KLInvariance.MomentGraph.Sheaf.structureSheaf.eq_1.{ur, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureSheaf G α c =
+    { vertex := fun x => ↧(PLift (x ≤ c) → R), edge := fun e => ↧(PLift (G.target e ≤ c) → R ⧸ Ideal.span {α e}),
+      lower := fun e =>
+        LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj { down := ⋯ },
+      upper := fun e =>
+        LinearMap.pi fun h => (Ideal.Quotient.mkₐ R (Ideal.span {α e})).toLinearMap ∘ₗ LinearMap.proj h }
+OAI.KLInvariance.MomentGraph.Sheaf.structureBaseChangeIso.eq_1.{ur, us, uv, ue} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} (S : Type us) [CommRing S] [Algebra R S] (G : OrderedGraph V E) (α : E → R) (c : V) :
+  Sheaf.structureBaseChangeIso S G α c =
+    { vertex := fun x => Sheaf.baseChangePiScalar S (x ≤ c),
+      edge := fun e => Sheaf.baseChangePiQuotient S (α e) (G.target e ≤ c), lower := ⋯, upper := ⋯ }
+ModernStructureCompat.lean:182:37: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:182:37: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:184:44: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:184:44: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:189:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ModernStructureCompat.lean:189:45: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ModernStructureCompat.lean:191:48: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess,validate; env=validate.serial_environment(); subprocess.run([\"lake\",\"build\",\"ForMathlib.Algebra.Module.CoefficientChange.Dual\",\"ForMathlib.Algebra.Module.Graded.ModuleData.CoefficientChange.Basic\"],env=env,check=True)"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 16.225658493000083,
+  "user_seconds": 15.57319,
+  "system_seconds": 4.227397,
+  "max_rss_kib": 3113240
+}

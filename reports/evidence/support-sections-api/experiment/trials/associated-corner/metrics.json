@@ -1,0 +1,92 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.73009373899913,
+    "source_sha256": "8b8d88fc75a66546dab9a47bea4f4a0f12c835b311923bc8424f7edc2d7595ec"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.594121834001271,
+    "source_sha256": "8b8d88fc75a66546dab9a47bea4f4a0f12c835b311923bc8424f7edc2d7595ec"
+  },
+  {
+    "label": "frozen-new-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/frozen-new-0.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 7.1051858860009816,
+    "source_sha256": "6d72cc29fa29d02f88cc1fa926e828198e985c21ed6049b4e626277f24ec6101"
+  },
+  {
+    "label": "frozen-new-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/BottSamelson/AdjointSheaf.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/frozen-new-1.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/artifacts/OAI/KL/BottSamelson/AdjointSheaf.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 41.45666959099981,
+    "source_sha256": "180c559006a27b0cff80834ede03db87af20461b50b93e817f05100238c90c7a"
+  },
+  {
+    "label": "ordinary-api-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "SupportSectionsChecks.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/ordinary-api-client.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.8729805380025937,
+    "source_sha256": "6021eeb87ae4b26a64d5eb3efd4a888bb4a373cb052ae1f6a1042873cd2f0062"
+  },
+  {
+    "label": "old-client-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/old-client-0.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 6.548304582000128,
+    "source_sha256": "6d72cc29fa29d02f88cc1fa926e828198e985c21ed6049b4e626277f24ec6101"
+  },
+  {
+    "label": "old-client-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/BottSamelson/AdjointSheaf.lean",
+      "--setup",
+      "/workspace/lean-lab/results/support-sections/trials/associated-corner/old-client-1.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 15.475333664999198,
+    "source_sha256": "e7a67daff9c94a44a245411444922085ed63843723d1ee252b73896754839ed6"
+  }
+]

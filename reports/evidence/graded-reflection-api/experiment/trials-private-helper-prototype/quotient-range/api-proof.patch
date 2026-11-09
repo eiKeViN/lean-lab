@@ -1,0 +1,12 @@
+--- before/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
++++ after/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
+@@ -53,7 +53,8 @@
+ /-- The map induced on ranges agrees with the original commuting map. -/
+ @[simp] theorem rangeMap_val (e : Hom M M) (f : Hom N N) (g : Hom M N)
+     (h : ∀ m, f.map (g.map m)=g.map (e.map m)) (v : range e) :
+-    ((rangeMap e f g h).map v).val = g.map v.val := by rfl
++    ((rangeMap e f g h).map v).val = g.map v.val := by
++  exact rangeViaQuotient_val e f g h v
+ 
+ /-- The range factorization of an endomorphism retains its value. -/
+ @[simp] theorem rangeProjection_val (e : Hom M M) (v : M) :

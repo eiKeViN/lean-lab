@@ -1,0 +1,35 @@
+--- before/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
++++ after/ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean
+@@ -19,11 +19,27 @@
+ noncomputable section
+ 
+  @[expose] def rangeMap (e : Hom M M) (f : Hom N N) (g : Hom M N)
+-    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) : Hom (range e) (range f) where
+-  map := (g.map.domRestrict e.map.range).codRestrict f.map.range (by
+-    rintro ⟨_,m,rfl⟩
+-    exact ⟨g.map m,h m⟩)
+-  graded n m hm := g.graded n m.val hm
++    (h : ∀ m, f.map (g.map m)=g.map (e.map m)) : Hom (range e) (range f) := by
++  let F : M →ₗ[A] range f := f.map.rangeRestrict.comp g.map
++  have hk : LinearMap.ker e.map ≤ LinearMap.ker F := by
++    intro m hm
++    apply Subtype.ext
++    exact (h m).trans ((congrArg g.map (LinearMap.mem_ker.mp hm)).trans (map_zero g.map))
++  let L := ((LinearMap.ker e.map).liftQ F hk).comp e.map.quotKerEquivRange.symm.toLinearMap
++  have hv (v : range e) : (L v).val = g.map v.val := by
++    rcases v with ⟨_,m,rfl⟩
++    change ((LinearMap.ker e.map).liftQ F hk
++      (e.map.quotKerEquivRange.symm ⟨e.map m,⟨m,rfl⟩⟩)).val = g.map (e.map m)
++    rw [LinearMap.quotKerEquivRange_symm_apply_image]
++    exact h m
++  exact {
++    map := L
++    graded := by
++      intro n v hn
++      change (L v).val ∈ N.piece n
++      rw [hv]
++      exact g.graded n v.val hn
++  }
+ 
+  @[expose] def rangeInclusion (e : Hom M M) : Hom (range e) M where
+   map := e.map.range.subtype

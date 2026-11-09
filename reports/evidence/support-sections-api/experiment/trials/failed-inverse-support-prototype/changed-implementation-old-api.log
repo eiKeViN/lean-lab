@@ -1,0 +1,16 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Duality.lean:229:70: error: Tactic `rfl` failed: The left-hand side
+  ↑↑((B.singleStalkEquivSupport x) v)
+is not definitionally equal to the right-hand side
+  Pi.single x ↑v
+
+R : Type ur
+inst✝² : CommRing R
+V : Type uv
+inst✝¹ : PartialOrder V
+E : Type ue
+G : OrderedGraph V E
+B : Sheaf G
+inst✝ : DecidableEq V
+x : V
+v : ↥(B.singleStalk x)
+⊢ ↑↑((B.singleStalkEquivSupport x) v) = Pi.single x ↑v

@@ -9,7 +9,9 @@ class RolloutTests(unittest.TestCase):
         d=m.policy();self.assertEqual(len(d['selected']),125);self.assertEqual(len(d['held']),136)
         for path in d['files']:
             before=m.baseline(path);after=m.convert(path,before)
-            self.assertEqual((m.HERE/path).read_bytes(),after)
+            # Compare the exact old syntax boundary after undoing only round 4's
+            # hash-bound semantic edits; current-product equality is checked separately.
+            self.assertEqual(__import__('api_reflection').prior_source(path,(m.HERE/path).read_bytes()),after)
             self.assertEqual(m.legacy_source(path,after),before)
     def test_hashbound_plan_rejects_scope_or_body_changes(self):
         with tempfile.TemporaryDirectory() as td:

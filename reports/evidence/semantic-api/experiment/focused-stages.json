@@ -1,0 +1,83 @@
+[
+  {
+    "label": "ordinary-consumer-final",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "SemanticApiChecks.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.320907977999923,
+    "user_seconds": 3.285209,
+    "system_seconds": 1.192226,
+    "children_max_rss_kib_so_far": 5358820
+  },
+  {
+    "label": "implementation-imports",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-o",
+      ".lake/build/lib/lean/ImplementationImports.olean",
+      "ImplementationImports.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.262111649999952,
+    "user_seconds": 2.9615539999999996,
+    "system_seconds": 1.28507,
+    "children_max_rss_kib_so_far": 7429116
+  },
+  {
+    "label": "complete-export",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "ImplementationPublicTypes.lean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 10.034241456000018,
+    "user_seconds": 8.645021,
+    "system_seconds": 1.521531,
+    "children_max_rss_kib_so_far": 7782232
+  },
+  {
+    "label": "main-interface-comparison",
+    "command": [
+      "python3",
+      "semantic_api.py",
+      "/workspace/lean-lab/results/semantic-api/current-types.tsv"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.224089302999801,
+    "user_seconds": 5.056150000000001,
+    "system_seconds": 0.16863600000000023,
+    "children_max_rss_kib_so_far": 7782232
+  },
+  {
+    "label": "bounded-regressions",
+    "command": [
+      "python3",
+      "test_semantic_api.py"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.16478633599990644,
+    "user_seconds": 0.14523900000000012,
+    "system_seconds": 0.020201000000000136,
+    "children_max_rss_kib_so_far": 7782232
+  },
+  {
+    "label": "split-hidden-trial",
+    "command": [
+      "python3",
+      "semantic_api_split_trial.py"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 7.769339855999988,
+    "user_seconds": 4.949686,
+    "system_seconds": 3.0775539999999992,
+    "children_max_rss_kib_so_far": 7782232
+  }
+]

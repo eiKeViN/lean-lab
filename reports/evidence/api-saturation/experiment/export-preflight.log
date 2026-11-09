@@ -1,0 +1,26 @@
+{"label": "round6-ordinary-import", "command": ["lake", "env", "lean", "ApiSaturationChecks.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 6.2554384620002565, "user_seconds": 4.3560609999999995, "system_seconds": 2.012075, "children_max_rss_kib_so_far": 5351204}
+{"label": "round6-preflight-imports", "command": ["lake", "env", "lean", "-o", ".lake/build/lib/lean/ImplementationImports.olean", "ImplementationImports.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 5.255980950000321, "user_seconds": 3.354318, "system_seconds": 1.8979110000000001, "children_max_rss_kib_so_far": 7429940}
+{"label": "round6-preflight-export", "command": ["lake", "env", "lean", "ImplementationPublicTypes.lean"], "cwd": "experiments/kl-for-mathlib", "exit_code": 0, "wall_seconds": 15.215383039000244, "user_seconds": 12.811135999999998, "system_seconds": 2.5943680000000002, "children_max_rss_kib_so_far": 7781092}
+{
+  "old_count": 4001,
+  "new_count": 4014,
+  "missing": [],
+  "added": [
+    "OAI.KLInvariance.Graded.ModuleData.rangeInclusion_comp_rangeMap",
+    "OAI.KLInvariance.Graded.ModuleData.rangeMap_comp",
+    "OAI.KLInvariance.Graded.ModuleData.rangeMap_id",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_assoc",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_id",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.comp_inverse",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.id_comp",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageInclusion_comp_imageProjection",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSectionMap_val",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.imageSplit_projector",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.Hom.inverse_comp",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.downEnd_comp",
+    "OAI.KLInvariance.MomentGraph.GradedSheaf.SplitIn.liftEnd_downEnd"
+  ],
+  "changed": [],
+  "relocated": 0,
+  "passed": false
+}

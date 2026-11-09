@@ -1,0 +1,12 @@
+{
+  "command": [
+    "bash",
+    "scripts/check.sh",
+    "static"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 9.345741440000438,
+  "user_seconds": 8.114808,
+  "system_seconds": 1.2802989999999999,
+  "max_rss_kib": 309580
+}

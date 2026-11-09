@@ -1,0 +1,482 @@
+{
+  "base_commit": "78cdaf405dbf1dcf07eed5490469b7a8704c93f0",
+  "files": {
+    "ForMathlib/Algebra/Module/Graded/ModuleData/Range.lean": {
+      "before_sha256": "9f2d064cd573a69882edc36e81ab56088ba41a4ec4c8b0a8e8caf0a86ac29980",
+      "after_sha256": "8b9d17632cd63805bfcb482a61885919df53793b6d530c7f0514b8220cfd5adc",
+      "edits": [
+        {
+          "start": 3130,
+          "old": "",
+          "new": "universe uk ua um\nvariable {k : Type uk} [Field k] {A : Type ua} [CommRing A] [Algebra k A]\n  {𝓐 : ℤ → Submodule k A} [IsNoetherianRing A]\n  {M N P : ModuleData.{uk,ua,um} 𝓐}\nnoncomputable section\n\n/-- Induction on ranges preserves the identity commuting square. -/\n@[simp] theorem rangeMap_id (e : Hom M M) :\n    rangeMap e e (Hom.id M) (fun _ => rfl) = Hom.id (range e) := by\n  apply Hom.eq_of_map_eq\n  apply LinearMap.ext\n  intro v\n  apply Subtype.ext\n  exact rangeMap_val _ _ _ _ v\n\n/-- Composing commuting squares composes their induced maps on ranges. -/\ntheorem rangeMap_comp (e : Hom M M) (f : Hom N N) (q : Hom P P)\n    (g : Hom M N) (h : Hom N P)\n    (hg : ∀ m, f.map (g.map m)=g.map (e.map m))\n    (hh : ∀ n, q.map (h.map n)=h.map (f.map n)) :\n    rangeMap e q (h.comp g) (fun m => (hh (g.map m)).trans (congrArg h.map (hg m))) =\n      (rangeMap f q h hh).comp (rangeMap e f g hg) := by\n  apply Hom.eq_of_map_eq\n  apply LinearMap.ext\n  intro v\n  apply Subtype.ext\n  change ((rangeMap e q (h.comp g) _).map v).val =\n    ((rangeMap f q h hh).map ((rangeMap e f g hg).map v)).val\n  exact (rangeMap_val _ _ _ _ v).trans\n    ((congrArg h.map (rangeMap_val e f g hg v)).symm.trans\n      (rangeMap_val f q h hh ((rangeMap e f g hg).map v)).symm)\n\n/-- The inclusion of a range intertwines its induced map with the original map. -/\ntheorem rangeInclusion_comp_rangeMap (e : Hom M M) (f : Hom N N) (g : Hom M N)\n    (hg : ∀ m, f.map (g.map m)=g.map (e.map m)) :\n    (rangeInclusion f).comp (rangeMap e f g hg) = g.comp (rangeInclusion e) := by\n  apply Hom.eq_of_map_eq\n  apply LinearMap.ext\n  intro v\n  exact (rangeInclusion_apply _ _).trans ((rangeMap_val _ _ _ _ v).trans\n    (congrArg g.map (rangeInclusion_apply _ v)).symm)\n\nend\nend KLInvariance.Graded.ModuleData\nend\n\n\nsection\nnamespace KLInvariance.Graded.ModuleData\n"
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean": {
+      "before_sha256": "44fa425cd9055cfef79a41e5728de62749f0813e976bf23dafe2bfb300349b8f",
+      "after_sha256": "221f1c3cb9489681f0678eea82b16c661c1d12dd8f50c95627ae5d15e818c423",
+      "edits": [
+        {
+          "start": 2791,
+          "old": "",
+          "new": "\n\n/-- Composition of graded sheaf morphisms is associative. -/\ntheorem Hom.comp_assoc {D F : GradedSheaf (𝓐 := 𝓐) G}\n    (f : Hom B C) (g : Hom C D) (h : Hom D F) :\n    (h.comp g).comp f = h.comp (g.comp f) := by\n  apply Hom.eq_of_maps <;> intros <;> rfl\n\n/-- The identity acts on the left of a graded sheaf morphism. -/\n@[simp] theorem Hom.id_comp (f : Hom B C) : (Hom.id C).comp f = f := by\n  apply Hom.eq_of_maps <;> intros <;> rfl\n\n/-- The identity acts on the right of a graded sheaf morphism. -/\n@[simp] theorem Hom.comp_id (f : Hom B C) : f.comp (Hom.id B) = f := by\n  apply Hom.eq_of_maps <;> intros <;> rfl\n\n/-- A pointwise bijective sheaf morphism has a left inverse as a sheaf morphism. -/\n@[simp] theorem Hom.inverse_comp (f : Hom B C)\n    (hv : ∀ x, Function.Bijective (f.vertex x).map)\n    (he : ∀ e, Function.Bijective (f.edge e).map) :\n    (f.inverse hv he).comp f = Hom.id B := by\n  apply Hom.eq_of_maps\n  · intro x v\n    exact (f.vertex x).inverse_map (hv x) v\n  · intro e v\n    exact (f.edge e).inverse_map (he e) v\n\n/-- The same inverse is also a right inverse. -/\n@[simp] theorem Hom.comp_inverse (f : Hom B C)\n    (hv : ∀ x, Function.Bijective (f.vertex x).map)\n    (he : ∀ e, Function.Bijective (f.edge e).map) :\n    f.comp (f.inverse hv he) = Hom.id C := by\n  apply Hom.eq_of_maps\n  · intro x v\n    exact (f.vertex x).map_inverse (hv x) v\n  · intro e v\n    exact (f.edge e).map_inverse (he e) v"
+        },
+        {
+          "start": 8734,
+          "old": "",
+          "new": "/-- Inclusion after projection is the canonical factorization of an endomorphism. -/\ntheorem Hom.imageInclusion_comp_imageProjection (h : Hom B B) :\n    h.imageInclusion.comp h.imageProjection = h := by\n  apply Hom.eq_of_maps\n  · intro x v\n    exact (ModuleData.rangeInclusion_apply _ _).trans (ModuleData.rangeProjection_val _ _)\n  · intro e v\n    exact (ModuleData.rangeInclusion_apply _ _).trans (ModuleData.rangeProjection_val _ _)\n\n"
+        },
+        {
+          "start": 10826,
+          "old": "",
+          "new": "/-- The canonical map from image sections to the section-map range is image inclusion. -/\n@[simp] theorem Hom.imageSectionMap_val (h : Hom B B)\n    (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)\n    (Ω : Set V) (m : h.image.forget.sections Ω) :\n    (h.imageSectionMap hv Ω m).val = h.imageInclusion.sectionMap Ω m := by rfl\n\n"
+        },
+        {
+          "start": 11115,
+          "old": "",
+          "new": "have he := congrArg Subtype.val hfg\n    rw [h.imageSectionMap_val, h.imageSectionMap_val] at he\n    "
+        },
+        {
+          "start": 11152,
+          "old": "(congrArg Subtyp",
+          "new": "h"
+        },
+        {
+          "start": 11169,
+          "old": ".val hfg)",
+          "new": ""
+        },
+        {
+          "start": 11278,
+          "old": "",
+          "new": "rw [h.imageSectionM"
+        },
+        {
+          "start": 11280,
+          "old": "",
+          "new": "_val]\n    change ((h.imageInclusion.sectionMa"
+        },
+        {
+          "start": 11281,
+          "old": "ly",
+          "new": ""
+        },
+        {
+          "start": 11284,
+          "old": "Sub",
+          "new": "Ω).comp (h.imageProjec"
+        },
+        {
+          "start": 11288,
+          "old": "y",
+          "new": "ion.sectionMa"
+        },
+        {
+          "start": 11290,
+          "old": "e.ext",
+          "new": " Ω)) m = _"
+        },
+        {
+          "start": 11301,
+          "old": "f",
+          "new": "w [← Hom.sectionMap_comp, h.imageInc"
+        },
+        {
+          "start": 11303,
+          "old": "",
+          "new": "usion_comp_imageProjection]"
+        },
+        {
+          "start": 11943,
+          "old": "",
+          "new": "\n"
+        },
+        {
+          "start": 11944,
+          "old": "by",
+          "new": ""
+        },
+        {
+          "start": 11947,
+          "old": "rf",
+          "new": "h.imageSectionMap_va"
+        },
+        {
+          "start": 11950,
+          "old": "",
+          "new": " hv Ω m"
+        },
+        {
+          "start": 12431,
+          "old": "",
+          "new": "rojection\n\n/-- The splitting of an idempotent image recovers the original projector. -/\n@[simp] theorem Hom.imageSplit_projector (h : Hom B B)\n    (hv : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)\n    (he : ∀ e v, (h.edge e).map ((h.edge e).map v)=(h.edge e).map v) :\n    (h.imageSplit hv he).projector = h := by\n  exact h.imageInclusion_comp_imageP"
+        },
+        {
+          "start": 13906,
+          "old": " ((s.inclusion.vertex x).map",
+          "new": ""
+        },
+        {
+          "start": 13950,
+          "old": "",
+          "new": "or.imageInclus"
+        },
+        {
+          "start": 13953,
+          "old": "",
+          "new": ".comp s.projector.imageProjection)"
+        },
+        {
+          "start": 13962,
+          "old": ")",
+          "new": " |>"
+        },
+        {
+          "start": 13967,
+          "old": "",
+          "new": "\n     "
+        },
+        {
+          "start": 13999,
+          "old": ")",
+          "new": " "
+        },
+        {
+          "start": 14001,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 14009,
+          "old": "",
+          "new": "Hom.imageInclusion_comp_imageProjection, s.projector_apply_vertex,\n    "
+        },
+        {
+          "start": 14024,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 14212,
+          "old": "obtain ⟨m,hm⟩ := v.property\n  ",
+          "new": ""
+        },
+        {
+          "start": 14319,
+          "old": "rw",
+          "new": "exact"
+        },
+        {
+          "start": 14322,
+          "old": "[",
+          "new": "("
+        },
+        {
+          "start": 14341,
+          "old": ",←",
+          "new": ""
+        },
+        {
+          "start": 14344,
+          "old": "hm,",
+          "new": "x v.val).trans\n    (ModuleData.range_fixed (s.projector.vertex x) ("
+        },
+        {
+          "start": 14365,
+          "old": "]",
+          "new": " x) v)"
+        },
+        {
+          "start": 14527,
+          "old": " ((s.inclusion.edge e).map",
+          "new": ""
+        },
+        {
+          "start": 14569,
+          "old": "",
+          "new": "or.imageInclus"
+        },
+        {
+          "start": 14572,
+          "old": "",
+          "new": ".comp s.projector.imageProjection)"
+        },
+        {
+          "start": 14579,
+          "old": ")",
+          "new": " |>"
+        },
+        {
+          "start": 14584,
+          "old": "",
+          "new": "\n     "
+        },
+        {
+          "start": 14614,
+          "old": ")",
+          "new": " "
+        },
+        {
+          "start": 14616,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 14624,
+          "old": "",
+          "new": "Hom.imageInclusion_comp_imageProjection, s.projector_apply_edge,\n    "
+        },
+        {
+          "start": 14637,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 14815,
+          "old": "obtain ⟨m,hm⟩ := v.property\n  ",
+          "new": ""
+        },
+        {
+          "start": 14918,
+          "old": "rw",
+          "new": "exact"
+        },
+        {
+          "start": 14921,
+          "old": "[",
+          "new": "("
+        },
+        {
+          "start": 14938,
+          "old": ",←",
+          "new": ""
+        },
+        {
+          "start": 14941,
+          "old": "hm,",
+          "new": "e v.val).trans\n    (ModuleData.range_fixed (s.projector.edge e) ("
+        },
+        {
+          "start": 14960,
+          "old": "]",
+          "new": " e) v)"
+        },
+        {
+          "start": 20489,
+          "old": "by\n    a",
+          "new": "s."
+        },
+        {
+          "start": 20498,
+          "old": "ply H",
+          "new": "rojector.c"
+        },
+        {
+          "start": 20505,
+          "old": ".eq",
+          "new": "p"
+        },
+        {
+          "start": 20509,
+          "old": "of_maps <;> ",
+          "new": ""
+        },
+        {
+          "start": 20522,
+          "old": "ntros <;> rfl",
+          "new": "d"
+        },
+        {
+          "start": 20591,
+          "old": "by\n    a",
+          "new": "s."
+        },
+        {
+          "start": 20600,
+          "old": "ply H",
+          "new": "rojector.id_c"
+        },
+        {
+          "start": 20607,
+          "old": ".eq_of_ma",
+          "new": ""
+        },
+        {
+          "start": 20617,
+          "old": "s <;> intros <;> rfl",
+          "new": ""
+        },
+        {
+          "start": 22572,
+          "old": "by\n    ",
+          "new": "p.im"
+        },
+        {
+          "start": 22580,
+          "old": "p",
+          "new": "geS"
+        },
+        {
+          "start": 22583,
+          "old": "y Hom.eq",
+          "new": "it"
+        },
+        {
+          "start": 22592,
+          "old": "of_ma",
+          "new": ""
+        },
+        {
+          "start": 22598,
+          "old": "s <;> int",
+          "new": ""
+        },
+        {
+          "start": 22609,
+          "old": "s",
+          "new": "jector"
+        },
+        {
+          "start": 22611,
+          "old": "<;>",
+          "new": "hv"
+        },
+        {
+          "start": 22615,
+          "old": "rfl",
+          "new": "he"
+        },
+        {
+          "start": 23167,
+          "old": "",
+          "new": "/-- Multiplying compressions inserts the ambient projector between the two maps. -/\ntheorem SplitIn.downEnd_comp (s : SplitIn B C) (f g : Hom C C) :\n    (s.downEnd f).comp (s.downEnd g) = s.downEnd (f.comp (s.projector.comp g)) := by\n  change (s.projection.comp (f.comp s.inclusion)).comp\n    (s.projection.comp (g.comp s.inclusion)) =\n    s.projection.comp ((f.comp ((s.inclusion.comp s.projection).comp g)).comp s.inclusion)\n  simp only [Hom.comp_assoc]\n\n/-- Extending a compression cuts an ambient endomorphism by the projector on both sides. -/\ntheorem SplitIn.liftEnd_downEnd (s : SplitIn B C) (f : Hom C C) :\n    s.liftEnd (s.downEnd f) = s.projector.comp (f.comp s.projector) := by\n  change s.inclusion.comp ((s.projection.comp (f.comp s.inclusion)).comp s.projection) =\n    (s.inclusion.comp s.projection).comp (f.comp (s.inclusion.comp s.projection))\n  simp only [Hom.comp_assoc]\n\n"
+        },
+        {
+          "start": 23327,
+          "old": "have",
+          "new": "rw"
+        },
+        {
+          "start": 23332,
+          "old": "heq : ",
+          "new": "["
+        },
+        {
+          "start": 23347,
+          "old": " (s.",
+          "new": "_"
+        },
+        {
+          "start": 23358,
+          "old": "",
+          "new": ","
+        },
+        {
+          "start": 23359,
+          "old": "f)=s.projector.comp (f.comp s.projector) := by\n    apply Hom.eq_of_maps <;> intros <;> rfl\n  rw [heq,",
+          "new": ""
+        },
+        {
+          "start": 23463,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 23647,
+          "old": "have",
+          "new": "rw"
+        },
+        {
+          "start": 23652,
+          "old": "heq : (",
+          "new": "["
+        },
+        {
+          "start": 23668,
+          "old": " f).",
+          "new": "_"
+        },
+        {
+          "start": 23676,
+          "old": "",
+          "new": ","
+        },
+        {
+          "start": 23677,
+          "old": "(s.downEnd f)=s.downEnd (f.comp (s.projector.comp f)) := by\n    apply Hom.eq_of_maps <;> intros <;> rfl\n  rw [heq,",
+          "new": ""
+        },
+        {
+          "start": 23795,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 24166,
+          "old": "by\n",
+          "new": "(s.downEnd"
+        },
+        {
+          "start": 24170,
+          "old": "     apply H",
+          "new": "f).c"
+        },
+        {
+          "start": 24184,
+          "old": ".eq",
+          "new": "p"
+        },
+        {
+          "start": 24188,
+          "old": "of_maps <;> ",
+          "new": ""
+        },
+        {
+          "start": 24201,
+          "old": "ntros <;> rfl",
+          "new": "d"
+        },
+        {
+          "start": 24274,
+          "old": "by\n",
+          "new": "(s.downEnd"
+        },
+        {
+          "start": 24278,
+          "old": "     apply H",
+          "new": "f).id_c"
+        },
+        {
+          "start": 24292,
+          "old": ".eq_of_ma",
+          "new": ""
+        },
+        {
+          "start": 24302,
+          "old": "s <;> intros <;> rfl",
+          "new": ""
+        },
+        {
+          "start": 24543,
+          "old": "by\n        app",
+          "new": "s."
+        },
+        {
+          "start": 24558,
+          "old": "y Hom.eq",
+          "new": "iftEnd"
+        },
+        {
+          "start": 24567,
+          "old": "of_maps <;> ",
+          "new": ""
+        },
+        {
+          "start": 24580,
+          "old": "ntros <;> rfl",
+          "new": "d"
+        }
+      ]
+    }
+  }
+}

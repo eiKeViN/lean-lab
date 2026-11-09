@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/api_evolution_trial.py", line 82, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/api_evolution_trial.py", line 69, in main
+    run('ordinary-api-consumer','ApiEvolutionChecks.lean',True)
+  File "/workspace/lean-lab/experiments/kl-for-mathlib/api_evolution_trial.py", line 54, in run
+    if (p.returncode==0)!=expected:raise RuntimeError('Unexpected implementation trial outcome: '+label)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unexpected implementation trial outcome: ordinary-api-consumer

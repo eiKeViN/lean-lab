@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "test_api_families",
+    "test_proof_evolution"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 7.068987672999356,
+  "user_seconds": 6.462015,
+  "system_seconds": 0.655862,
+  "max_rss_kib": 89372
+}

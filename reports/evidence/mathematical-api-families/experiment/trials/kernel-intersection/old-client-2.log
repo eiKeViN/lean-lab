@@ -1,0 +1,5 @@
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean:158:13: error: Tactic `rcases` failed: `t✝ : ↑(B.vertex x) → Prop` is not an inductive datatype
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean:161:13: error: Tactic `rcases` failed: `t✝ : ↑(C.vertex x) → Prop` is not an inductive datatype
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean:164:19: error: Tactic `rcases` failed: `t✝ : ↑((B.prod C).vertex x) → Prop` is not an inductive datatype
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean:172:15: error: Tactic `rcases` failed: `t✝ : ↑((B i).vertex x) → Prop` is not an inductive datatype
+ForMathlib/Combinatorics/MomentGraph/Sheaf/Models.lean:175:13: error: Tactic `rcases` failed: `t✝ : ↑((pi B).vertex x) → Prop` is not an inductive datatype

@@ -1,0 +1,112 @@
+[
+  {
+    "label": "changed-implementation-old-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/changed-implementation-old-api.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 26.459454087000267,
+    "max_rss_kib_so_far": 3153564,
+    "source_sha256": "f5a709bffc099bc23dbae4ff844b8c4bbe28d11d85eb04053c8663e4eee50698"
+  },
+  {
+    "label": "changed-implementation-repaired-api",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/changed-implementation-repaired-api.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-saturation/trial/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 8.93633965500021,
+    "max_rss_kib_so_far": 3188148,
+    "source_sha256": "9bef3dda48de26fb6745c9d2d44a37a1af8633bfdbdf439c611462c4cc6e44d0"
+  },
+  {
+    "label": "frozen-new-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/frozen-new-0.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-saturation/trial/artifacts/ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 8.431465879999905,
+    "max_rss_kib_so_far": 3188148,
+    "source_sha256": "6d72cc29fa29d02f88cc1fa926e828198e985c21ed6049b4e626277f24ec6101"
+  },
+  {
+    "label": "frozen-new-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/BottSamelson/AdjointSheaf.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/frozen-new-1.setup.json",
+      "-o",
+      "/workspace/lean-lab/results/api-saturation/trial/artifacts/OAI/KL/BottSamelson/AdjointSheaf.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 54.97476872700008,
+    "max_rss_kib_so_far": 3316716,
+    "source_sha256": "180c559006a27b0cff80834ede03db87af20461b50b93e817f05100238c90c7a"
+  },
+  {
+    "label": "ordinary-api-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ApiSaturationChecks.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/ordinary-api-client.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.574355364999974,
+    "max_rss_kib_so_far": 3316716,
+    "source_sha256": "bff40ffa947a8748c18dabb28a7c81c36d44c18b987d8e598b6cc45bf458d836"
+  },
+  {
+    "label": "old-module-clients",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Summand.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/old-module-clients.setup.json"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 7.475734506999743,
+    "max_rss_kib_so_far": 3316716,
+    "source_sha256": "51993530d29729cc9520ba7281ccc25efbc86b0c6187e8aed5a61040ad98b48a"
+  },
+  {
+    "label": "old-external-0",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Combinatorics/MomentGraph/GradedSheaf/Models.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/old-external-0.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 9.003077962000134,
+    "max_rss_kib_so_far": 3316716,
+    "source_sha256": "6d72cc29fa29d02f88cc1fa926e828198e985c21ed6049b4e626277f24ec6101"
+  },
+  {
+    "label": "old-external-1",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "OAI/KL/BottSamelson/AdjointSheaf.lean",
+      "--setup",
+      "/workspace/lean-lab/results/api-saturation/trial/old-external-1.setup.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 26.163217824000185,
+    "max_rss_kib_so_far": 3316716,
+    "source_sha256": "180c559006a27b0cff80834ede03db87af20461b50b93e817f05100238c90c7a"
+  }
+]

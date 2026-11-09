@@ -1,0 +1,16 @@
+{
+  "cwd": "/workspace/lean-lab",
+  "base_commit": "78cdaf405dbf1dcf07eed5490469b7a8704c93f0",
+  "branch": "experiment/api-saturation-20261024",
+  "initial_worktree_clean": true,
+  "setup_command": [
+    "bash",
+    "scripts/setup.sh"
+  ],
+  "setup_exit_code": 0,
+  "setup_log_sha256": "98bb0ba4449e7dfcb18c43bb1489a1cfd82571636cb22c8376c4a9199f91d4fc",
+  "setup_wall_seconds": null,
+  "cache_recovery_files": 8908,
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+}

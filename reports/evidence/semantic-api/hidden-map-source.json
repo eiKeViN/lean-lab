@@ -1,0 +1,342 @@
+{
+  "base_commit": "178ccf2a9fa1f0bff04d6b029db1361f881fef33",
+  "files": {
+    "ForMathlib/Algebra/Module/CoefficientChange/Basic.lean": {
+      "before_sha256": "8e40aec0b1078fd285eef20be7905d91cd4dd9b0f642a6380f06311267d68efc",
+      "after_sha256": "87caa2337df19d878a9658fce2c91125eff64461ef5f484871238073fd6649ed",
+      "edits": [
+        {
+          "start": 2907,
+          "old": "@[expose] ",
+          "new": ""
+        },
+        {
+          "start": 3244,
+          "old": "",
+          "new": "/-- Changing coefficients applies the original map to the underlying vector. -/\n @[simp] theorem val_map (f : M \u2192\u2097[A] N) (m : CoefficientChange e M) :\n     (map e f m).val = f m.val := by rfl\n\n omit [Module k M] [IsScalarTower k A M] in\n /-- Changing coefficients preserves the identity on vectors. -/\n @[simp] theorem map_id_apply (m : CoefficientChange e M) :\n     map e (LinearMap.id : M \u2192\u2097[A] M) m = m := by\n   apply CoefficientChange.ext\n   exact val_map e LinearMap.id m\n\n omit [Module k M] [IsScalarTower k A M] [Module k N] [IsScalarTower k A N] in\n "
+        },
+        {
+          "start": 3391,
+          "old": "",
+          "new": "by simpa only [val_map] using "
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/CoefficientChange/Dual.lean": {
+      "before_sha256": "8653d8f66c3804fc3c4d7295febba1d5f849f3c722fde724ad71a5762f9982f2",
+      "after_sha256": "20b80e2ddf973084e9e8c319955765e34a4b49a8f86a009a4ba9c72f189a6605",
+      "edits": [
+        {
+          "start": 872,
+          "old": "",
+          "new": "by\n    apply "
+        },
+        {
+          "start": 893,
+          "old": "",
+          "new": "\n    exact (congrArg f.symm (val_map e f.toLinearMap m)).trans"
+        },
+        {
+          "start": 938,
+          "old": "",
+          "new": "by\n    apply "
+        },
+        {
+          "start": 959,
+          "old": "",
+          "new": "\n    exact (val_map e f.toLinearMap (mk (f.symm n.val))).trans"
+        },
+        {
+          "start": 2856,
+          "old": "",
+          "new": "by\n   change e ((map e d.toLinearMap m).val n.val) = _\n   rw [val_map]\n   "
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Cover/Local.lean": {
+      "before_sha256": "20566e7b4d15d0fe5c345c4ca79b88743ef2737ba7fc7d402c30d6ec7a846682",
+      "after_sha256": "b81bd8ad4d524388261f83eb4d98cab1bd60c04c03e76d75938c5f2775b02c4f",
+      "edits": [
+        {
+          "start": 2159,
+          "old": "",
+          "new": "omit [IsLocalRing R] in\n/-- The quotient coordinate of the splitting is the given surjection. -/\n@[simp] theorem splitEquiv_apply_fst (g : B \u2192\u2097[R] P) (s : P \u2192\u2097[R] B)\n    (hs : g.comp s = LinearMap.id) (b : B) : (splitEquiv g s hs b).1 = g b := by rfl\n\nomit [IsLocalRing R] in\n/-- The kernel coordinate subtracts the chosen section. -/\n@[simp] theorem splitEquiv_apply_snd_coe (g : B \u2192\u2097[R] P) (s : P \u2192\u2097[R] B)\n    (hs : g.comp s = LinearMap.id) (b : B) :\n    ((splitEquiv g s hs b).2 : B) = b - s (g b) := by rfl\n\nomit [IsLocalRing R] in\n/-- Reassemble quotient and kernel coordinates using the chosen section. -/\n@[simp] theorem splitEquiv_symm_apply (g : B \u2192\u2097[R] P) (s : P \u2192\u2097[R] B)\n    (hs : g.comp s = LinearMap.id) (p : P \u00d7 LinearMap.ker g) :\n    (splitEquiv g s hs).symm p = s p.1 + p.2 := by rfl\n\n"
+        },
+        {
+          "start": 3347,
+          "old": "",
+          "new": "apply LinearMap."
+        },
+        {
+          "start": 3350,
+          "old": "",
+          "new": "\n    intro"
+        },
+        {
+          "start": 3352,
+          "old": "",
+          "new": "\n    apply Subtype.ext"
+        },
+        {
+          "start": 3366,
+          "old": "",
+          "new": "splitEquiv g s hs "
+        },
+        {
+          "start": 3367,
+          "old": "",
+          "new": ").2"
+        },
+        {
+          "start": 3371,
+          "old": ") - s (g b)",
+          "new": ""
+        },
+        {
+          "start": 3397,
+          "old": "",
+          "new": "only "
+        },
+        {
+          "start": 3398,
+          "old": "",
+          "new": "splitEquiv_apply_snd_coe,\n      LinearMap.mem_ker.mp b.property, map_zero, sub_zero"
+        },
+        {
+          "start": 3748,
+          "old": "",
+          "new": "splitEquiv_apply_fst g s hs b, by\n    "
+        },
+        {
+          "start": 3749,
+          "old": "",
+          "new": "w [splitEquiv_apply_"
+        },
+        {
+          "start": 3750,
+          "old": "l,",
+          "new": "st]; exact"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange.lean": {
+      "before_sha256": "957dc2072f1ad5a5cca88603985a2514965e91335ba83f61a39ddf9739569281",
+      "after_sha256": "01f69dac11a123e53e1de72d72a5a7b1d73b18b5d62d2690cfc9d5c725a640b9",
+      "edits": [
+        {
+          "start": 4469,
+          "old": "",
+          "new": "\n    (CoefficientChange.map e (LinearMap.id : unit hA \u2192\u2097[A] unit hA)\n      (CoefficientChange.map e LinearMap.id"
+        },
+        {
+          "start": 4507,
+          "old": "",
+          "new": ")) "
+        },
+        {
+          "start": 4508,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 4518,
+          "old": "",
+          "new": "(congrArg (changeUnitHom e he hA hB).map\n    ((CoefficientChange.map_id_apply e _).trans\n      (CoefficientChange.map_id_apply e _))).trans ("
+        },
+        {
+          "start": 4548,
+          "old": "",
+          "new": ")"
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/CoefficientChange/Basic.lean": {
+      "before_sha256": "afbdb29188ccf21d7d7a0b66c1ac0dffdfc71e592f29474842f468d52d84e2e5",
+      "after_sha256": "cfb15700e8de53b75cd41be1f1e5f8af34a835109e7ae1ce0ad87faa792b3e16",
+      "edits": [
+        {
+          "start": 2351,
+          "old": "",
+          "new": "by\n    apply "
+        },
+        {
+          "start": 2385,
+          "old": "",
+          "new": "exact "
+        },
+        {
+          "start": 2386,
+          "old": "",
+          "new": "CoefficientChange.val_map e f.map m).symm \u25b8\n      "
+        },
+        {
+          "start": 2435,
+          "old": ")",
+          "new": ""
+        }
+      ]
+    },
+    "ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean": {
+      "before_sha256": "73ed0da7965b9da59294767335aacc49ee9f037d071c42b0fa126eb32c0817c0",
+      "after_sha256": "fb1bee37885c93a1a968bbb7aab4482e293ec6ef51e2e5ce368794cfff06e64a",
+      "edits": [
+        {
+          "start": 5890,
+          "old": "",
+          "new": "change (LocalCover.splitEquiv g.map h.map hgh v).1 \u2208 C.piece n\n    "
+        },
+        {
+          "start": 5895,
+          "old": "",
+          "new": " (LocalCover.splitEquiv_apply_fst g.map h.map hgh v).symm \u25b8"
+        },
+        {
+          "start": 5915,
+          "old": "",
+          "new": " change ((LocalCover.splitEquiv g.map h.map hgh v).2 : F) \u2208 F.piece n\n    rw [LocalCover.splitEquiv_apply_snd_coe]\n   "
+        },
+        {
+          "start": 6433,
+          "old": "",
+          "new": "LocalCover.splitEqui"
+        },
+        {
+          "start": 6435,
+          "old": ": F) -",
+          "new": "g.map"
+        },
+        {
+          "start": 6448,
+          "old": "(",
+          "new": "h"
+        },
+        {
+          "start": 6450,
+          "old": ".map",
+          "new": "h"
+        },
+        {
+          "start": 6457,
+          "old": "",
+          "new": ".2 : F"
+        },
+        {
+          "start": 6458,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 6459,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 6465,
+          "old": "rw",
+          "new": "simp only"
+        },
+        {
+          "start": 6469,
+          "old": "",
+          "new": "LocalCover.splitEquiv_apply_snd_coe,\n      "
+        },
+        {
+          "start": 6501,
+          "old": "",
+          "new": " "
+        },
+        {
+          "start": 6510,
+          "old": "",
+          "new": " "
+        }
+      ]
+    },
+    "ForMathlib/Combinatorics/MomentGraph/Sheaf/Structure.lean": {
+      "before_sha256": "36d56b754ec60fe84072d1b3048c9c09c450e159ddc7db938e843f174e2f5c84",
+      "after_sha256": "1208c7265a8f2c50f18d28bee6e1b17093e6d14236102f3612ce29b8aa24c15c",
+      "edits": [
+        {
+          "start": 7400,
+          "old": "@[expose] ",
+          "new": ""
+        },
+        {
+          "start": 7636,
+          "old": "",
+          "new": "\n\n /-- Pull back a scalar function and reduce each value modulo the label. -/\n @[simp] theorem quotientPullback_apply (a : R) (p q : Prop) (h : q \u2192 p)\n    (v : PLift p \u2192 R) (t : PLift q) :\n    quotientPullback a p q h v t = Ideal.Quotient.mk _ (v \u27e8h t.down\u27e9) := by rfl"
+        },
+        {
+          "start": 8116,
+          "old": "change",
+          "new": "rw"
+        },
+        {
+          "start": 8123,
+          "old": "baseChangeQ",
+          "new": "[q"
+        },
+        {
+          "start": 8141,
+          "old": "",
+          "new": "Pullback_apply,"
+        },
+        {
+          "start": 8142,
+          "old": "S a (s \u2297\u209c Ideal.Quotient.mk _ (v \u27e8h hh.down\u27e9)) = _\n    rw [",
+          "new": ""
+        },
+        {
+          "start": 8224,
+          "old": "]\n",
+          "new": ","
+        },
+        {
+          "start": 8227,
+          "old": "   exact congrArg (Ideal.Q",
+          "new": "q"
+        },
+        {
+          "start": 8260,
+          "old": ".m",
+          "new": "Pullbac"
+        },
+        {
+          "start": 8263,
+          "old": "",
+          "new": "_apply,\n"
+        },
+        {
+          "start": 8264,
+          "old": "_)",
+          "new": ""
+        },
+        {
+          "start": 8267,
+          "old": "(",
+          "new": "    "
+        },
+        {
+          "start": 8291,
+          "old": " S p s v _).symm",
+          "new": "]"
+        },
+        {
+          "start": 8667,
+          "old": "",
+          "new": "y\n    have hR : (structureSheaf G \u03b1 c).lower e =\n        quotientPullback (\u03b1 e) (G.source e \u2264 c) (G.target e \u2264 c)\n          ((G.increasing e).le.trans \u00b7) := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (\u03b1 e) (G.source e \u2264 c) (G.target e \u2264 c)\n        ((G.increasing e).le.trans \u00b7) x t).symm\n    have hS : (structureSheaf G (fun e => algebraMap R S (\u03b1 e)) c).lower e =\n        quotientPullback (algebraMap R S (\u03b1 e)) (G.source e \u2264 c) (G.target e \u2264 c)\n          ((G.increasing e).le.trans \u00b7) := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (algebraMap R S (\u03b1 e)) (G.source e \u2264 c)\n        (G.target e \u2264 c) ((G.increasing e).le.trans \u00b7) x t).symm\n    change baseChangePiQuotient S (\u03b1 e) (G.target e \u2264 c)\n      (AlgebraTensorModule.lTensor S S ((structureSheaf G \u03b1 c).lower e) v) = _\n    erw [hR, hS]\n    exact b"
+        },
+        {
+          "start": 8733,
+          "old": "",
+          "new": "  "
+        },
+        {
+          "start": 8779,
+          "old": "",
+          "new": " by\n    have hR : (structureSheaf G \u03b1 c).upper e =\n        quotientPullback (\u03b1 e) (G.target e \u2264 c) (G.target e \u2264 c) id := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (\u03b1 e) (G.target e \u2264 c) (G.target e \u2264 c) id x t).symm\n    have hS : (structureSheaf G (fun e => algebraMap R S (\u03b1 e)) c).upper e =\n        quotientPullback (algebraMap R S (\u03b1 e)) (G.target e \u2264 c) (G.target e \u2264 c) id := by\n      apply LinearMap.ext\n      intro x\n      funext t\n      exact (quotientPullback_apply (algebraMap R S (\u03b1 e)) (G.target e \u2264 c)\n        (G.target e \u2264 c) id x t).symm\n    change baseChangePiQuotient S (\u03b1 e) (G.target e \u2264 c)\n      (AlgebraTensorModule.lTensor S S ((structureSheaf G \u03b1 c).upper e) v) = _\n    erw [hR, hS]\n    exact"
+        }
+      ]
+    }
+  }
+}

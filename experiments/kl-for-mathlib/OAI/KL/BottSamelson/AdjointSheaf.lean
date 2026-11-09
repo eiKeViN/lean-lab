@@ -746,9 +746,11 @@ noncomputable section
     bottStalkProjection cs l x.val ((bottImageSectionWordEquiv cs basis l hl h hh m).val)=
       (m.val x).val := by
   let := symmetricCoefficientNoetherian basis
-  exact congrArg (fun s : (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ =>
+  exact (congrArg (fun s : (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ =>
     s.val x) ((bottSectionEquiv cs l hl).apply_symm_apply
-      (h.imageInclusion.sectionMap Set.univ m))
+      (h.imageSectionEquiv hh Set.univ m).val)).trans
+        (congrArg (fun s : (bottProjectionSheaf cs l 1 (cs.wordProd l)).sections Set.univ =>
+          s.val x) (h.imageSectionEquiv_val hh Set.univ m))
 
  theorem bottImageSectionWordEquiv_homogeneous
     (hh : ∀ x v, (h.vertex x).map ((h.vertex x).map v)=(h.vertex x).map v)

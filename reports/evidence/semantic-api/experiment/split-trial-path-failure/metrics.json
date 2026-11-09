@@ -1,0 +1,44 @@
+[
+  {
+    "label": "hidden-producer",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Cover/Local.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/split-trial/artifacts/ForMathlib/Algebra/Module/Cover/Local.olean"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.470328558000347,
+    "user_seconds": 3.8938539999999997,
+    "system_seconds": 0.844084,
+    "max_rss_kib_so_far": 5289996
+  },
+  {
+    "label": "old-real-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/split-trial/artifacts/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 1.0865982149998672,
+    "user_seconds": 0.331874,
+    "system_seconds": 0.7500539999999998,
+    "max_rss_kib_so_far": 5289996
+  },
+  {
+    "label": "new-real-client",
+    "command": [
+      "/workspace/lean-lab/.cache/architecture-serial-toolchain/bin/lean",
+      "ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.lean",
+      "-o",
+      "/workspace/lean-lab/results/semantic-api/split-trial/artifacts/ForMathlib/Algebra/Module/Graded/ModuleData/MinimalCover.olean"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 1.5425401799998326,
+    "user_seconds": 0.3108399999999998,
+    "system_seconds": 1.227179,
+    "max_rss_kib_so_far": 5289996
+  }
+]

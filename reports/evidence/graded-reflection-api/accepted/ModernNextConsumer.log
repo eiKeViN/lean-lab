@@ -1,0 +1,23 @@
+OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_lower.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua} [CommRing A]
+  [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E W F : Type um} [PartialOrder V] [PartialOrder W] {G : OrderedGraph V E}
+  {H : OrderedGraph W F} (B : GradedSheaf H) (e : GraphEquiv G H) (a : E) (f : B.forget.Assignment) :
+  ((B.reindex e).forget.lower a) (B.reindexAssignment e f (G.source a)) =
+    (B.forget.lower (e.edge a)) (f (H.source (e.edge a)))
+OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_upper.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua} [CommRing A]
+  [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E W F : Type um} [PartialOrder V] [PartialOrder W] {G : OrderedGraph V E}
+  {H : OrderedGraph W F} (B : GradedSheaf H) (e : GraphEquiv G H) (a : E) (f : B.forget.Assignment) :
+  ((B.reindex e).forget.upper a) (B.reindexAssignment e f (G.target a)) =
+    (B.forget.upper (e.edge a)) (f (H.target (e.edge a)))
+OAI.KLInvariance.MomentGraph.GradedSheaf.reindex_edgeFlabby.{uk, ua, um} {k : Type uk} [Field k] {A : Type ua}
+  [CommRing A] [Algebra k A] {𝓐 : ℤ → Submodule k A} {V E W F : Type um} [PartialOrder V] [PartialOrder W]
+  {G : OrderedGraph V E} {H : OrderedGraph W F} (B : GradedSheaf H) (e : GraphEquiv G H) (hb : B.EdgeFlabby) :
+  (B.reindex e).EdgeFlabby
+OAI.KLInvariance.MomentGraph.Sheaf.kernelEquivSingleStalk.{ur, uv, ue, um, ui} {R : Type ur} [CommRing R] {V : Type uv}
+  [PartialOrder V] {E : Type ue} {G : OrderedGraph V E} (B : Sheaf G) [Fintype E] [DecidableEq V] [IsDomain R]
+  (α : E → R) (hα : ∀ (e : E), Prime (α e))
+  (hk : ∀ (e : E) (v : ↑(B.vertex (G.target e))), (B.upper e) v = 0 ↔ ∃ w, v = α e • w) {ι : V → Type ui}
+  [(x : V) → Fintype (ι x)] (bs : (x : V) → Module.Basis (ι x) R ↑(B.vertex x)) [DecompositionMonoid R] (x : V)
+  (hrel : (↑(Sheaf.incoming x)).Pairwise (Function.onFun IsRelPrime α))
+  (hreg : ∀ (e : E), G.source e = x → Function.Injective fun v => Sheaf.incomingProduct α x • v) :
+  ↥(B.stalkMap x).ker ≃ₗ[R] ↥(B.singleStalk x)
+Ordinary modern graph/reindex/duality consumers: rfl, simp, inverse and body access pass.
