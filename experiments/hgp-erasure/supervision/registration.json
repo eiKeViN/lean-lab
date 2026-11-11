@@ -1,0 +1,73 @@
+{
+  "registered_utc_date": "2026-11-11",
+  "assignment": [
+    {
+      "id": "cedar",
+      "arm": "SHEAF",
+      "replicate": 1,
+      "cpus": [
+        0,
+        1
+      ],
+      "prompt_sha256": "df2d9e4a042fdba7501dffb61d803b201b800ec92fb8c9207f046f0a23f6131a"
+    },
+    {
+      "id": "flint",
+      "arm": "SHEAF",
+      "replicate": 2,
+      "cpus": [
+        2,
+        3
+      ],
+      "prompt_sha256": "df2d9e4a042fdba7501dffb61d803b201b800ec92fb8c9207f046f0a23f6131a"
+    },
+    {
+      "id": "maple",
+      "arm": "free",
+      "replicate": 1,
+      "cpus": [
+        4,
+        5
+      ],
+      "prompt_sha256": "f3a0e85a6c0e076281e2ffc58b91dc034054de29c052aa2012185de47c1ff104"
+    },
+    {
+      "id": "slate",
+      "arm": "free",
+      "replicate": 2,
+      "cpus": [
+        6,
+        7
+      ],
+      "prompt_sha256": "f3a0e85a6c0e076281e2ffc58b91dc034054de29c052aa2012185de47c1ff104"
+    }
+  ],
+  "participant_packet": {
+    "ENVIRONMENT.md": "4756fc533ca5c5d5e3a0fe2a621a8ee6f6a74308b900a19d2b7a22c4c9d5d08f",
+    "acceptance.md": "536a862b5d11c5826ec6d98599383be9656fadc02f660ea1bc2ae1c4d547975f",
+    "source.md": "5375914f1d4c3f049cdb3093aaee08b95e4e604316bbca3426823810777de47a",
+    "task.txt": "f3a0e85a6c0e076281e2ffc58b91dc034054de29c052aa2012185de47c1ff104"
+  },
+  "lean_template": {
+    ".gitignore": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3",
+    "HGPExperiment.lean": "a426aac09c5ce2f8fe892b1d624e380cbbd04c848819637caffa961542be3cf5",
+    "lake-manifest.json": "319dbd5458ed7a5b9075ece5c8b035409e1374bb22e8c196f0efee7e4a9d3e88",
+    "lakefile.toml": "585849ab9205cf634d6e3add89b9343c46327e6f5a73bbe4741579a556ea3557",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "sources": {
+    "SHEAF": "ee75eba0f29643aafb51bca895a85d09d45e6691",
+    "lean4-skills": "3f913c66251b8712bb58e6ce83a453fa96e3f94f",
+    "Lean": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+    "QECert": "c0ff74952c65b48e2ba5430fc4dfa4459d120440",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "caps": {
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "fallback": false,
+    "seconds_per_run": 3600,
+    "simultaneous_sessions_per_run": 4,
+    "weighted_usage_units_per_run": 12000000
+  }
+}
