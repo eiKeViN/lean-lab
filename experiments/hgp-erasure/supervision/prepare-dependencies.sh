@@ -7,7 +7,7 @@ qec="$runtime_root/qecert"
 export PATH="$runtime_root/runtime/lean-4.33.1-linux/bin:$PATH"
 [[ $(git -C "$qec" rev-parse HEAD) == c0ff74952c65b48e2ba5430fc4dfa4459d120440 ]]
 git -C "$qec" diff --quiet HEAD
-[[ $(lean --version) == 'Lean (version 4.33.1,'* ]]
+[[ $(lean --version) == 'Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)' ]]
 python3 - "$qec" <<'PY'
 import json, subprocess, sys
 from pathlib import Path

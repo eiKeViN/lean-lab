@@ -12,9 +12,11 @@ files are copied, into a newly created supervisor-owned room. Participant Lake
 configuration, manifests, caches, executables, oleans, and native artifacts are
 not used. Trusted configuration comes from supervision/lean-project. Builds
 target each selected module separately, so an unrelated broken module cannot
-hide an otherwise checkable milestone. Each declaration gets an independent
-downstream import, #check, and #print axioms. Semantic acceptance remains a
-separate supervisor review.
+hide an otherwise checkable milestone. A downstream audit batches each built
+module's declarations into one import, with individual #check/#print axioms
+verdicts. A failed batch falls back to individual audits. Checks depending on
+failed module builds are marked incomplete without redundant imports. Semantic
+acceptance remains a separate supervisor review.
 
 Target-map JSON schema: {"targets": [{"label": "A", "module": "Foo.Bar",
 "declarations": ["Namespace.result"], "incomplete": false}]}.
@@ -203,6 +205,20 @@ def parse_axioms(stdout, declaration):
     return {"axioms": axioms, "disallowed_axioms": sorted(set(axioms) - ALLOWED_AXIOMS)}
 
 
+def declaration_result(declaration, command, stdout):
+    check = {"declaration": declaration, **command}
+    if command["exit_code"] != 0:
+        check["status"] = "incomplete"
+        check["reason"] = "independent import/check failed or declaration missing"
+    else:
+        try:
+            check.update(parse_axioms(stdout, declaration))
+            check["status"] = "rejected" if check["disallowed_axioms"] else "mechanical_checks_passed"
+        except (ValueError, UnsafeInput) as exc:
+            check["status"], check["reason"] = "rejected", str(exc)
+    return check
+
+
 def load_targets(args):
     targets = []
     if args.target_map:
@@ -299,34 +315,53 @@ def evaluate(args):
     report = {"snapshot": str(snapshot), "project": args.project, "source_dirs": source_dirs,
               "resolved_source_roots": [str(root.resolve()) for root in source_roots], "preparation": preparation,
               "allowed_axioms": sorted(ALLOWED_AXIOMS), "semantic_review": "required separately",
-              "modules": {}, "targets": []}
+              "modules": {}, "audit_commands": [], "targets": []}
     counter = 0
     for module in sorted({x["module"] for x in targets}):
         counter += 1
         command, _ = run_command(execute, room, output, counter, ["lake", "--no-cache", "--no-ansi", "build", "+" + module], args.timeout)
         command["status"] = "built" if command["exit_code"] == 0 else "incomplete"
         report["modules"][module] = command
+    def audit_declarations(module, declarations, fallback=False):
+        nonlocal counter
+        counter += 1
+        audit = project / f"SupervisorFreshAudit{counter}.lean"
+        audit.write_text(f"import {module}\n\nset_option pp.universes true\n"
+                         + "".join(f"#check {name}\n#print axioms {name}\n" for name in declarations))
+        shutil.copyfile(audit, output / audit.name)
+        command, stdout = run_command(execute, room, output, counter,
+                                       ["lake", "--no-cache", "--no-ansi", "env", "lean", audit.name], args.timeout)
+        command.update({"module": module, "declarations": declarations,
+                        "audit_source_file": audit.name, "batch_size": len(declarations),
+                        "individual_fallback": fallback})
+        report["audit_commands"].append(command)
+        return command, stdout
+
+    checked = {}
+    for module, build in report["modules"].items():
+        declarations = sorted({name for target in targets if target["module"] == module
+                               for name in target["declarations"]})
+        if build["status"] != "built":
+            for declaration in declarations:
+                checked[module, declaration] = {
+                    "declaration": declaration, "status": "incomplete", "not_run": True,
+                    "reason": "dependent fresh module build failed", "blocked_by_module": module,
+                    "module_build_exit_code": build["exit_code"], "exit_code": None}
+            continue
+        if not declarations:
+            continue
+        command, stdout = audit_declarations(module, declarations)
+        if command["exit_code"] != 0 and len(declarations) > 1:
+            # One absent name must not hide valid declarations in this module.
+            for declaration in declarations:
+                individual, individual_stdout = audit_declarations(module, [declaration], fallback=True)
+                checked[module, declaration] = declaration_result(declaration, individual, individual_stdout)
+        else:
+            for declaration in declarations:
+                checked[module, declaration] = declaration_result(declaration, command, stdout)
+
     for target in targets:
-        result = {**target, "checks": []}
-        for declaration in target["declarations"]:
-            counter += 1
-            audit = project / f"SupervisorFreshAudit{counter}.lean"
-            audit.write_text(f"import {target['module']}\n\nset_option pp.universes true\n"
-                             f"#check {declaration}\n#print axioms {declaration}\n")
-            shutil.copyfile(audit, output / audit.name)
-            command, stdout = run_command(execute, room, output, counter,
-                                           ["lake", "--no-cache", "--no-ansi", "env", "lean", audit.name], args.timeout)
-            check = {"declaration": declaration, **command}
-            if command["exit_code"] != 0:
-                check["status"] = "incomplete"
-                check["reason"] = "independent import/check failed or declaration missing"
-            else:
-                try:
-                    check.update(parse_axioms(stdout, declaration))
-                    check["status"] = "rejected" if check["disallowed_axioms"] else "mechanical_checks_passed"
-                except (ValueError, UnsafeInput) as exc:
-                    check["status"], check["reason"] = "rejected", str(exc)
-            result["checks"].append(check)
+        result = {**target, "checks": [checked[target["module"], name] for name in target["declarations"]]}
         statuses = {x["status"] for x in result["checks"]}
         if "rejected" in statuses:
             result["status"] = "rejected"
@@ -351,6 +386,12 @@ def self_test():
     assert not parse_axioms("'Foo.good' depends on axioms: [propext,\n Classical.choice, Quot.sound]", "Foo.good")["disallowed_axioms"]
     assert parse_axioms("'Foo.bad' depends on axioms: [sorryAx]", "Foo.bad")["disallowed_axioms"] == ["sorryAx"]
     assert parse_axioms("'Foo.bad' depends on axioms: [Hidden.assumption]", "Foo.bad")["disallowed_axioms"] == ["Hidden.assumption"]
+    batch = ("Foo.good : True\n'Foo.good' does not depend on any axioms\n"
+             "Foo.bad : False\n'Foo.bad' depends on axioms: [Hidden.assumption]\n")
+    command = {"exit_code": 0, "batch_size": 2}
+    assert declaration_result("Foo.good", command, batch)["status"] == "mechanical_checks_passed"
+    assert declaration_result("Foo.bad", command, batch)["status"] == "rejected"
+    assert declaration_result("Foo.absent", {"exit_code": 1}, "error: unknown constant")["status"] == "incomplete"
     for text in ("", "'Other.name' does not depend on any axioms", "'Foo.x' does not depend on any axioms\n'Foo.x' does not depend on any axioms"):
         try:
             parse_axioms(text, "Foo.x")
@@ -366,7 +407,7 @@ def self_test():
         else:
             raise AssertionError("unsafe Lean name accepted")
     assert "import Bad" not in strip_comments('/- /- nested -/ import Bad -/\nimport Good')
-    return {"status": "passed", "tests": "happy/empty/standard/disallowed axioms; missing/ambiguous reports; unsafe names; nested comments"}
+    return {"status": "passed", "tests": "happy/empty/standard/disallowed axioms; per-name batch verdicts; failed checks; missing/ambiguous reports; unsafe names; nested comments"}
 
 
 def main():

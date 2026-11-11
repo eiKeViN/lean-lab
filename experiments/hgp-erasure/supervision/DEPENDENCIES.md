@@ -64,3 +64,11 @@ For each entry in `qecert/lake-manifest.json`, clone its `url` into
 that manifest; do not resolve dependency branches with `lake update`. Then run
 `supervision/prepare-dependencies.sh` from the experiment directory, or pass its
 full path and set `HGP_RUNTIME_ROOT` explicitly.
+
+## Offline readiness check
+
+From the host workspace root, run
+`python3 supervisor/experiments/hgp-erasure/supervision/verify-dependencies.py`.
+It copies a fresh participant project, runs both the import and local build in
+`room.py`'s read-only dependency/no-network sandbox, records the command and log
+under `preflight`, and atomically writes `preflight/room-ready.ok` only on success.
