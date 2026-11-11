@@ -1,0 +1,1 @@
+Formalize the mathematical results in source.md in Lean 4. Submit a self-contained buildable solution in this workspace meeting acceptance.md. The frozen Lean project, libraries and local tool documentation are available as described in ENVIRONMENT.md.

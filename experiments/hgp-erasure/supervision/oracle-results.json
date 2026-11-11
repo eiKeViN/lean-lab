@@ -1,0 +1,42 @@
+{
+  "counts": {
+    "cleaning_comparisons": 173234,
+    "erasure_subsets": 86617,
+    "matrix_pairs": 961,
+    "rank_formula_comparisons": 173234,
+    "redundant_row_pairs": 792,
+    "strip_formula_comparisons": 6262,
+    "strip_subsets": 3131,
+    "syndrome_uniqueness_comparisons": 173234,
+    "zero_dimension_pairs": 285
+  },
+  "examples": {
+    "redundant_parity": {
+      "d_X": 2,
+      "d_Z": 2,
+      "first_row_strip": {
+        "ell_X": 1,
+        "ell_Z": 0
+      },
+      "k": 2,
+      "n": 8
+    },
+    "single_parity": {
+      "d_X": 2,
+      "d_Z": 2,
+      "first_row_strip": {
+        "ell_X": 1,
+        "ell_Z": 0
+      },
+      "k": 1,
+      "n": 5
+    }
+  },
+  "field": "GF(2)",
+  "independence": "Actual words and enumerated stabilizer cosets versus Gaussian-elimination rank formulas",
+  "input_matrices": 31,
+  "max_input_columns": 2,
+  "max_input_rows": 2,
+  "max_physical_qubits": 8,
+  "status": "passed"
+}
