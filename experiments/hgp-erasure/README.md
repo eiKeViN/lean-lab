@@ -5,7 +5,8 @@ an offline Lean environment and one mathematical paper task. The experiment
 tests the value of an installed workflow on a development with genuine
 cross-module mathematics.
 
-- [中文结果、逐组成绩和运行轨迹](reports/RESULTS.zh-CN.md)
+- [3,600 万加权单位复验结果](round-2/RESULTS.zh-CN.md)
+- [首轮中文结果、逐组成绩和运行轨迹](reports/RESULTS.zh-CN.md)
 - [Exact contestant sources](submissions/README.md) and [checkpoint verification](reports/BUDGET.md)
 - [Preregistered protocol and limits](PROTOCOL.md)
 - [Input mathematics and proofs](packet/source.md) and [acceptance contract](packet/acceptance.md)

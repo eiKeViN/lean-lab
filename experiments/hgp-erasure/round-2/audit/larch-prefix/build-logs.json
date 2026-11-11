@@ -1,0 +1,4 @@
+{
+  "HGPExperiment.Examples.build.log": "[exit 0]\nHGPExperiment/Examples.lean:38:4: warning: Try `simp at heq` instead of `simpa using heq`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nHGPExperiment/Examples.lean:110:2: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nHGPExperiment/Examples.lean:115:2: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nHGPExperiment/Examples.lean:202:2: warning: Try this: \n  haveI̵\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\n",
+  "HGPExperiment.Strip.build.log": "[exit 0]\n"
+}

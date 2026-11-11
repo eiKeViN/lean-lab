@@ -1,0 +1,1016 @@
+{
+  "HGPExperiment.Parameters": {
+    "origin": "HGPExperiment/Parameters.lean",
+    "sha256": "f5846971fbf50ce204f1e27a9a78bfdbbe7464f5ab7be3a41f75adf2f6510d2a",
+    "imports": [],
+    "closure": "bf64c4b69b21018ed152568cfae78265ff8eba2008645c1789b3464c19f32313",
+    "status": "built",
+    "cached": true,
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "QEC.Coding.HypergraphProduct.boundary1Matrix.eq_2",
+        "type": "\u2200 {F : Type u_1} {rowOne : Type u_2} {colOne : Type u_3} {rowTwo : Type u_4} {colTwo : Type u_5} [inst : Field F]\n  [inst_1 : Fintype rowOne] [inst_2 : DecidableEq rowOne] [inst_3 : Fintype colOne] [inst_4 : DecidableEq colOne]\n  [inst_5 : Fintype rowTwo] [inst_6 : DecidableEq rowTwo] [inst_7 : Fintype colTwo] [inst_8 : DecidableEq colTwo]\n  (D : QEC.Coding.HypergraphProduct.Data F rowOne colOne rowTwo colTwo) (r\u2081 : rowOne) (c\u2082 : colTwo) (r\u2081' : rowOne)\n  (r\u2082 : rowTwo),\n  QEC.Coding.HypergraphProduct.boundary1Matrix D (r\u2081, c\u2082) (Sum.inr (r\u2081', r\u2082)) = if r\u2081 = r\u2081' then -D.second r\u2082 c\u2082 else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xChecks_check",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (r : R\u2081) (c : C\u2082) (i : R\u2081) (j : R\u2082),\n  HGPExperiment.xChecks H (r, c) (Sum.inr (i, j)) = if r = i then H.second j c else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zLogical_dimension",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  Module.finrank (ZMod 2) (HGPExperiment.ZLogical H) =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zClass_representative_lower",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082)\n  (v : \u21a5(QEC.Coding.HypergraphProduct.chainComplex H).middleCycleCode.carrier),\n  Submodule.Quotient.mk v \u2260 0 \u2192 QEC.Coding.HypergraphProduct.inputDistanceMinimum H \u2264 \u2191(QEC.Coding.HammingWeight \u2191v)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.hgp_length",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [DecidableEq C\u2082],\n  Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) =\n    Fintype.card C\u2081 * Fintype.card C\u2082 + Fintype.card R\u2081 * Fintype.card R\u2082"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.hgpDistance",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192 [DecidableEq C\u2082] \u2192 QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192 WithTop \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C2Index C\u2081 R\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.checks_commute",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  HGPExperiment.xChecks H * (HGPExperiment.zChecks H).transpose = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xLogical_dimension",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  Module.finrank (ZMod 2) (HGPExperiment.XLogical H) =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zChecks_check",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (c : C\u2081) (r : R\u2082) (i : R\u2081) (j : R\u2082),\n  HGPExperiment.zChecks H (c, r) (Sum.inr (i, j)) = if j = r then H.first i c else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.hgp_distance_lower",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum H \u2264 HGPExperiment.hgpDistance H"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xChecks_variable",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (r : R\u2081) (c : C\u2082) (i : C\u2081) (j : C\u2082),\n  HGPExperiment.xChecks H (r, c) (Sum.inl (i, j)) = if c = j then H.first r i else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.XLogical",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192 [DecidableEq C\u2082] \u2192 QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192 Type u"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zero_code_distance",
+        "type": "\u2200 {C\u2081 : Type u} [inst : Fintype C\u2081] [inst_1 : DecidableEq C\u2081] (C : QEC.Coding.LinearCode (ZMod 2) C\u2081),\n  QEC.Coding.HypergraphProduct.extendedMinimumDistance C = \u22a4 \u2194 C.carrier = \u22a5"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "QEC.Coding.HypergraphProduct.boundary1Matrix.eq_1",
+        "type": "\u2200 {F : Type u_1} {rowOne : Type u_2} {colOne : Type u_3} {rowTwo : Type u_4} {colTwo : Type u_5} [inst : Field F]\n  [inst_1 : Fintype rowOne] [inst_2 : DecidableEq rowOne] [inst_3 : Fintype colOne] [inst_4 : DecidableEq colOne]\n  [inst_5 : Fintype rowTwo] [inst_6 : DecidableEq rowTwo] [inst_7 : Fintype colTwo] [inst_8 : DecidableEq colTwo]\n  (D : QEC.Coding.HypergraphProduct.Data F rowOne colOne rowTwo colTwo) (r\u2081 : rowOne) (c\u2082 : colTwo) (c\u2081 : colOne)\n  (c\u2082' : colTwo),\n  QEC.Coding.HypergraphProduct.boundary1Matrix D (r\u2081, c\u2082) (Sum.inl (c\u2081, c\u2082')) = if c\u2082 = c\u2082' then D.first r\u2081 c\u2081 else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xClass_representative_lower",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082)\n  (v : \u21a5(QEC.Coding.HypergraphProduct.chainComplex H).middleCocycleCode.carrier),\n  Submodule.Quotient.mk v \u2260 0 \u2192 QEC.Coding.HypergraphProduct.inputDistanceMinimum H \u2264 \u2191(QEC.Coding.HammingWeight \u2191v)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.ZLogical",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192 [DecidableEq C\u2082] \u2192 QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192 Type u"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zChecks_variable",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (c : C\u2081) (r : R\u2082) (i : C\u2081) (j : C\u2082),\n  HGPExperiment.zChecks H (c, r) (Sum.inl (i, j)) = if i = c then H.second r j else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.logical_representative_lower",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082)\n  (v : QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082)),\n  QEC.Coding.HypergraphProduct.IsCSSLogical (QEC.Coding.HypergraphProduct.binaryCSSCode H).xCode\n      (QEC.Coding.HypergraphProduct.binaryCSSCode H).zCode v \u2192\n    QEC.Coding.HypergraphProduct.inputDistanceMinimum H \u2264 \u2191(QEC.Coding.HammingWeight v)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C0Index R\u2081 C\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      }
+    ]
+  },
+  "HGPExperiment.Erasure": {
+    "origin": "HGPExperiment/Erasure.lean",
+    "sha256": "16009b236c41461a34412e1e0842aff84e2301ebd373e6f2c663e87031e4960e",
+    "imports": [],
+    "closure": "08e418ddfdd634a3ef428de4ed4d1345856ff053e28a077c9654403a7813b93d",
+    "status": "built",
+    "cached": true,
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.logicalDim_add_ranks",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype S]\n  (P : Matrix R Q F) (D : Matrix S Q F),\n  P * D.transpose = 0 \u2192 HGPExperiment.logicalDim P D + P.rank + D.rank = Fintype.card Q"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.restrictCoords",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 [inst : Field F] \u2192 (E : Set Q) \u2192 (Q \u2192 F) \u2192\u2097[F] \u2191E \u2192 F"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.logicalDim_eq_length_sub_ranks",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype S]\n  (P : Matrix R Q F) (D : Matrix S Q F),\n  P * D.transpose = 0 \u2192 HGPExperiment.logicalDim P D = Fintype.card Q - P.rank - D.rank"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.mem_coordinateSpace",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (E : Set Q) (v : Q \u2192 F),\n  v \u2208 HGPExperiment.coordinateSpace E \u2194 \u2200 q \u2209 E, v q = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zDim",
+        "type": "{F : Type u_1} \u2192\n  {Q : Type u_2} \u2192\n    {R : Type u_3} \u2192 {S : Type u_4} \u2192 [Field F] \u2192 [Fintype Q] \u2192 [Fintype S] \u2192 Matrix R Q F \u2192 Matrix S Q F \u2192 Set Q \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.rank_restrictColumns",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} [inst : Field F] [Fintype Q] [inst_2 : Fintype R] (P : Matrix R Q F)\n  (E : Set Q) [inst_3 : Fintype \u2191E],\n  (HGPExperiment.restrictColumns P E).rank =\n    Module.finrank F \u21a5(Submodule.map (HGPExperiment.restrictCoords E) (HGPExperiment.boundaries P))"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.map_coordinateSpace_eq_range_restrictColumns",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} [inst : Field F] [inst_1 : Fintype Q] (P : Matrix R Q F) (E : Set Q)\n  [inst_2 : Fintype \u2191E],\n  Submodule.map P.mulVecLin (HGPExperiment.coordinateSpace E) = (HGPExperiment.restrictColumns P E).mulVecLin.range"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.boundaries",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 {S : Type u_4} \u2192 [inst : Field F] \u2192 [Fintype S] \u2192 Matrix S Q F \u2192 Submodule F (Q \u2192 F)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedDim.eq_1",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] (C B : Submodule F (Q \u2192 F)) (E : Set Q),\n  HGPExperiment.supportedDim C B E = Module.finrank F \u21a5(HGPExperiment.supportedLogical C B E)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedDim",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 [inst : Field F] \u2192 Submodule F (Q \u2192 F) \u2192 Submodule F (Q \u2192 F) \u2192 Set Q \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xDim",
+        "type": "{F : Type u_1} \u2192\n  {Q : Type u_2} \u2192\n    {R : Type u_3} \u2192 {S : Type u_4} \u2192 [Field F] \u2192 [Fintype Q] \u2192 [Fintype R] \u2192 Matrix R Q F \u2192 Matrix S Q F \u2192 Set Q \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.coordinateSpace_univ",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q], HGPExperiment.coordinateSpace Set.univ = \u22a4"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xDim_rank_identity",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype R]\n  [Fintype S] (P : Matrix R Q F) (D : Matrix S Q F),\n  P * D.transpose = 0 \u2192\n    \u2200 (E : Set Q) [inst_4 : Fintype \u2191E] [inst_5 : Fintype \u2191E\u1d9c],\n      HGPExperiment.xDim P D E + (HGPExperiment.restrictColumns D E).rank + P.rank =\n        Fintype.card \u2191E + (HGPExperiment.restrictColumns P E\u1d9c).rank"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.boundaries_le_cycles",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype S]\n  (P : Matrix R Q F) (D : Matrix S Q F), P * D.transpose = 0 \u2192 HGPExperiment.boundaries D \u2264 HGPExperiment.cycles P"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.checks_commute_swap",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [Fintype R]\n  [Fintype S] (P : Matrix R Q F) (D : Matrix S Q F), P * D.transpose = 0 \u2192 D * P.transpose = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedLogical.eq_1",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] (C B : Submodule F (Q \u2192 F)) (E : Set Q),\n  HGPExperiment.supportedLogical C B E = Submodule.map B.mkQ (C \u2293 HGPExperiment.coordinateSpace E)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_cycles_add_rank",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} [inst : Field F] [inst_1 : Fintype Q] (P : Matrix R Q F),\n  Module.finrank F \u21a5(HGPExperiment.cycles P) + P.rank = Fintype.card Q"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zDim_add_xDim_compl",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype R]\n  [inst_3 : Fintype S] (P : Matrix R Q F) (D : Matrix S Q F),\n  P * D.transpose = 0 \u2192\n    \u2200 (E : Set Q) [Fintype \u2191E] [Fintype \u2191E\u1d9c],\n      HGPExperiment.zDim P D E + HGPExperiment.xDim P D E\u1d9c = HGPExperiment.logicalDim P D"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.restrictColumns",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 {R : Type u_3} \u2192 Matrix R Q F \u2192 (E : Set Q) \u2192 Matrix R (\u2191E) F"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedLogical",
+        "type": "{F : Type u_1} \u2192\n  {Q : Type u_2} \u2192\n    [inst : Field F] \u2192 Submodule F (Q \u2192 F) \u2192 (B : Submodule F (Q \u2192 F)) \u2192 Set Q \u2192 Submodule F ((Q \u2192 F) \u29f8 B)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.logicalDim",
+        "type": "{F : Type u_1} \u2192\n  {Q : Type u_2} \u2192\n    {R : Type u_3} \u2192 {S : Type u_4} \u2192 [Field F] \u2192 [Fintype Q] \u2192 [Fintype S] \u2192 Matrix R Q F \u2192 Matrix S Q F \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.coordinateEquiv",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 [inst : Field F] \u2192 (E : Set Q) \u2192 \u21a5(HGPExperiment.coordinateSpace E) \u2243\u2097[F] \u2191E \u2192 F"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.cycles",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 {R : Type u_3} \u2192 [inst : Field F] \u2192 [Fintype Q] \u2192 Matrix R Q F \u2192 Submodule F (Q \u2192 F)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.coordinateSpace",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 [inst : Field F] \u2192 Set Q \u2192 Submodule F (Q \u2192 F)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.ker_restrictCoords",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (E : Set Q),\n  (HGPExperiment.restrictCoords E).ker = HGPExperiment.coordinateSpace E\u1d9c"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_boundaries",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype R]\n  (P : Matrix R Q F), Module.finrank F \u21a5(HGPExperiment.boundaries P) = P.rank"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedDim_add_finrank_boundary",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (C B : Submodule F (Q \u2192 F)),\n  B \u2264 C \u2192\n    \u2200 (E : Set Q),\n      HGPExperiment.supportedDim C B E + Module.finrank F \u21a5(B \u2293 HGPExperiment.coordinateSpace E) =\n        Module.finrank F \u21a5(C \u2293 HGPExperiment.coordinateSpace E)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.restrictCoords_apply",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (E : Set Q) (v : Q \u2192 F) (q : \u2191E),\n  (HGPExperiment.restrictCoords E) v q = v \u2191q"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_coordinateSpace",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (E : Set Q) [inst_2 : Fintype \u2191E],\n  Module.finrank F \u21a5(HGPExperiment.coordinateSpace E) = Fintype.card \u2191E"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.boundaries.eq_1",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {S : Type u_4} [inst : Field F] [inst_1 : Fintype S] (D : Matrix S Q F),\n  HGPExperiment.boundaries D = D.transpose.mulVecLin.range"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.mulVec_restrict_supported",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} [inst : Field F] [inst_1 : Fintype Q] (P : Matrix R Q F) (E : Set Q)\n  [inst_2 : Fintype \u2191E] (v : \u21a5(HGPExperiment.coordinateSpace E)),\n  (HGPExperiment.restrictColumns P E).mulVecLin ((HGPExperiment.coordinateEquiv E) v) = P.mulVecLin \u2191v"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.coordinateSpace_empty",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q], HGPExperiment.coordinateSpace \u2205 = \u22a5"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_supported_boundaries_add_rank",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype R]\n  (P : Matrix R Q F) (E : Set Q) [inst_3 : Fintype \u2191E\u1d9c],\n  Module.finrank F \u21a5(HGPExperiment.boundaries P \u2293 HGPExperiment.coordinateSpace E) +\n      (HGPExperiment.restrictColumns P E\u1d9c).rank =\n    P.rank"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_supported_cycles_add_rank",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} [inst : Field F] [inst_1 : Fintype Q] (P : Matrix R Q F) (E : Set Q)\n  [inst_2 : Fintype \u2191E],\n  Module.finrank F \u21a5(HGPExperiment.cycles P \u2293 HGPExperiment.coordinateSpace E) +\n      (HGPExperiment.restrictColumns P E).rank =\n    Fintype.card \u2191E"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zDim_rank_identity",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype S]\n  (P : Matrix R Q F) (D : Matrix S Q F),\n  P * D.transpose = 0 \u2192\n    \u2200 (E : Set Q) [inst_3 : Fintype \u2191E] [inst_4 : Fintype \u2191E\u1d9c],\n      HGPExperiment.zDim P D E + (HGPExperiment.restrictColumns P E).rank + D.rank =\n        Fintype.card \u2191E + (HGPExperiment.restrictColumns D E\u1d9c).rank"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.logicalDim_swap",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype R]\n  [inst_3 : Fintype S] (P : Matrix R Q F) (D : Matrix S Q F),\n  P * D.transpose = 0 \u2192 HGPExperiment.logicalDim D P = HGPExperiment.logicalDim P D"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_map_add_finrank_inf_ker",
+        "type": "\u2200 {F : Type u_1} [inst : Field F] {V : Type u_5} {W : Type u_6} [inst_1 : AddCommGroup V] [inst_2 : _root_.Module F V]\n  [FiniteDimensional F V] [inst_4 : AddCommGroup W] [inst_5 : _root_.Module F W] (U : Submodule F V) (f : V \u2192\u2097[F] W),\n  Module.finrank F \u21a5(Submodule.map f U) + Module.finrank F \u21a5(U \u2293 f.ker) = Module.finrank F \u21a5U"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedDim_eq_zero_iff",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (C B : Submodule F (Q \u2192 F)) (E : Set Q),\n  HGPExperiment.supportedDim C B E = 0 \u2194 C \u2293 HGPExperiment.coordinateSpace E \u2264 B"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xDim_add_zDim_compl",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} {S : Type u_4} [inst : Field F] [inst_1 : Fintype Q] [inst_2 : Fintype R]\n  [inst_3 : Fintype S] (P : Matrix R Q F) (D : Matrix S Q F),\n  P * D.transpose = 0 \u2192\n    \u2200 (E : Set Q) [Fintype \u2191E] [Fintype \u2191E\u1d9c],\n      HGPExperiment.xDim P D E + HGPExperiment.zDim P D E\u1d9c = HGPExperiment.logicalDim P D"
+      }
+    ]
+  },
+  "HGPExperiment.Examples": {
+    "origin": "HGPExperiment/Examples.lean",
+    "sha256": "e05f7ab75387d325c9df12054476f7ca89cbc0c8f396f1ac87cf8c53207a793a",
+    "imports": [
+      "HGPExperiment.Parameters",
+      "HGPExperiment.Erasure"
+    ],
+    "closure": "b316778922be09048d8ee55865a962e301be0338181c2817fd7bd62de956ad93",
+    "seconds": 6.55,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetition_input_dimensions",
+        "type": "QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode HGPExperiment.repetitionHGP) = 1 \u2227\n  QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode HGPExperiment.repetitionHGP) = 1 \u2227\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode HGPExperiment.repetitionHGP) = 0 \u2227\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode HGPExperiment.repetitionHGP) = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetition_input_distance",
+        "type": "QEC.Coding.HypergraphProduct.inputDistanceMinimum HGPExperiment.repetitionHGP = 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetition_parameters",
+        "type": "Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex (Fin 1) (Fin 2) (Fin 1) (Fin 2)) = 5 \u2227\n  Module.finrank (ZMod 2) (HGPExperiment.ZLogical HGPExperiment.repetitionHGP) = 1 \u2227\n    Module.finrank (ZMod 2) (HGPExperiment.XLogical HGPExperiment.repetitionHGP) = 1 \u2227\n      HGPExperiment.hgpDistance HGPExperiment.repetitionHGP = 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.exampleX",
+        "type": "{R : Type} \u2192 QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R (Fin 2) R (Fin 2))"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.exampleZ",
+        "type": "{R : Type} \u2192 QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R (Fin 2) R (Fin 2))"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetition_transpose_distance",
+        "type": "QEC.Coding.HypergraphProduct.extendedMinimumDistance\n    (QEC.Coding.HypergraphProduct.firstTransposeCode HGPExperiment.repetitionHGP) =\n  \u22a4"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.dependent_input_distance",
+        "type": "QEC.Coding.HypergraphProduct.inputDistanceMinimum HGPExperiment.dependentHGP = 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.dependentHGP",
+        "type": "QEC.Coding.HypergraphProduct.Data (ZMod 2) (Fin 2) (Fin 2) (Fin 2) (Fin 2)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.exampleX.eq_1",
+        "type": "\u2200 {R : Type},\n  HGPExperiment.exampleX = QEC.Coding.HypergraphProduct.firstBlockWord (Pi.single 0 1) HGPExperiment.repetitionWord"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.dependent_parameters",
+        "type": "Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex (Fin 2) (Fin 2) (Fin 2) (Fin 2)) = 8 \u2227\n  Module.finrank (ZMod 2) (HGPExperiment.ZLogical HGPExperiment.dependentHGP) = 2 \u2227\n    Module.finrank (ZMod 2) (HGPExperiment.XLogical HGPExperiment.dependentHGP) = 2 \u2227\n      HGPExperiment.hgpDistance HGPExperiment.dependentHGP = 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetition_shortened_dimension",
+        "type": "Module.finrank (ZMod 2) \u21a5(HGPExperiment.cycles (HGPExperiment.restrictColumns HGPExperiment.repetitionHGP.first {0})) =\n  0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.allOne_rank",
+        "type": "\u2200 {R C : Type} [Fintype R] [DecidableEq R] [inst : Fintype C] [DecidableEq C] [Nonempty R] [Nonempty C],\n  (Matrix.rank fun x x_1 => 1) = 1"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.dependent_input_dimensions",
+        "type": "QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode HGPExperiment.dependentHGP) = 1 \u2227\n  QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode HGPExperiment.dependentHGP) = 1 \u2227\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode HGPExperiment.dependentHGP) = 1 \u2227\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode HGPExperiment.dependentHGP) = 1"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetitionHGP",
+        "type": "QEC.Coding.HypergraphProduct.Data (ZMod 2) (Fin 1) (Fin 2) (Fin 1) (Fin 2)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.exampleZ.eq_1",
+        "type": "\u2200 {R : Type},\n  HGPExperiment.exampleZ = QEC.Coding.HypergraphProduct.firstBlockWord HGPExperiment.repetitionWord (Pi.single 0 1)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetitionWord_weight",
+        "type": "QEC.Coding.HammingWeight HGPExperiment.repetitionWord = 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.example_representatives",
+        "type": "\u2200 {R : Type} [inst : Fintype R] [inst_1 : DecidableEq R]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R (Fin 2) R (Fin 2)),\n  (H.first = fun x x_1 => 1) \u2192\n    (H.second = fun x x_1 => 1) \u2192\n      QEC.Coding.HypergraphProduct.IsCSSLogical (QEC.Coding.HypergraphProduct.binaryCSSCode H).xCode\n          (QEC.Coding.HypergraphProduct.binaryCSSCode H).zCode HGPExperiment.exampleZ \u2227\n        QEC.Coding.HypergraphProduct.IsCSSLogical (QEC.Coding.HypergraphProduct.binaryCSSCode H).xCode\n            (QEC.Coding.HypergraphProduct.binaryCSSCode H).zCode HGPExperiment.exampleX \u2227\n          QEC.Coding.HammingWeight HGPExperiment.exampleZ = 2 \u2227 QEC.Coding.HammingWeight HGPExperiment.exampleX = 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetitionWord",
+        "type": "Fin 2 \u2192 ZMod 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.allOne_kernel_distance",
+        "type": "\u2200 {R : Type} [inst : Fintype R] [DecidableEq R] [Nonempty R],\n  QEC.Coding.HypergraphProduct.extendedMinimumDistance\n      (QEC.Coding.parityCheckKernelCode (Matrix.toLin' fun x x_1 => 1)) =\n    2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.repetitionWord_ne_zero",
+        "type": "HGPExperiment.repetitionWord \u2260 0"
+      }
+    ]
+  },
+  "HGPExperiment.Strip": {
+    "origin": "HGPExperiment/Strip.lean",
+    "sha256": "62a78bcc6f4d8d64c66dd01c3cbdbab3b404c90a495cf1c017ab18f1cab33d44",
+    "imports": [
+      "HGPExperiment.Parameters",
+      "HGPExperiment.Erasure"
+    ],
+    "closure": "a215d802152a0569ee7fe8854f3d974ec1cc599bd7b65034dd3f834dd018a39b",
+    "seconds": 8.8,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripTensorEmbed.eq_1",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype C\u2082] [inst_1 : DecidableEq C\u2082] (S : Set C\u2081),\n  HGPExperiment.stripTensorEmbed S =\n    HGPExperiment.stripEmbed S \u2218\u2097 \u2191(QEC.Coding.HypergraphProduct.wordTensorEquiv (ZMod 2) (\u2191S) C\u2082)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.ker_stripOutside",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [Fintype C\u2082] [DecidableEq C\u2082] (S : Set C\u2081),\n  (HGPExperiment.stripOutside S).ker = HGPExperiment.coordinateSpace (HGPExperiment.wholeStrip S)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripTensorEmbed_tmul_check",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [inst : Fintype C\u2082] [inst_1 : DecidableEq C\u2082] (S : Set C\u2081) (v : \u2191S \u2192 ZMod 2) (w : C\u2082 \u2192 ZMod 2) (q : R\u2081 \u00d7 R\u2082),\n  (HGPExperiment.stripTensorEmbed S) (v \u2297\u209c[ZMod 2] w) (Sum.inr q) = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.strip_finrank_ker_rTensor",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {M' : Type u_3} {N : Type u_4} [inst : Field F] [inst_1 : AddCommGroup M]\n  [inst_2 : _root_.Module F M] [Module.Finite F M] [inst_4 : AddCommGroup M'] [inst_5 : _root_.Module F M']\n  [Module.Finite F M'] [inst_7 : AddCommGroup N] [inst_8 : _root_.Module F N] [Module.Finite F N] (f : M \u2192\u2097[F] M'),\n  Module.finrank F \u21a5(LinearMap.rTensor N f).ker = Module.finrank F \u21a5f.ker * Module.finrank F N"
+      },
+      {
+        "axioms": [],
+        "name": "HGPExperiment.stripEmbed.match_1",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u_1} \u2192\n  (motive : QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082 \u2192 Sort u_2) \u2192\n    (q : QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) \u2192\n      ((i : C\u2081) \u2192 (j : C\u2082) \u2192 motive (Sum.inl (i, j))) \u2192 ((val : R\u2081 \u00d7 R\u2082) \u2192 motive (Sum.inr val)) \u2192 motive q"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripOutside",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  (S : Set C\u2081) \u2192\n    (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082 \u2192 ZMod 2) \u2192\u2097[ZMod 2] (\u2191S\u1d9c \u00d7 C\u2082 \u2192 ZMod 2) \u00d7 (R\u2081 \u00d7 R\u2082 \u2192 ZMod 2)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripEmbed.eq_1",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} (S : Set C\u2081),\n  HGPExperiment.stripEmbed S =\n    {\n      toFun := fun v q =>\n        match q with\n        | Sum.inl (i, j) => if h : i \u2208 S then v (\u27e8i, h\u27e9, j) else 0\n        | Sum.inr val => 0,\n      map_add' := \u22ef, map_smul' := \u22ef }"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.strip_finrank_map_add",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {N : Type u_4} [inst : Field F] [inst_1 : AddCommGroup M] [inst_2 : _root_.Module F M]\n  [Module.Finite F M] [inst_4 : AddCommGroup N] [inst_5 : _root_.Module F N] [Module.Finite F N] (A : Submodule F M)\n  (e : M \u2192\u2097[F] N), Module.finrank F \u21a5(Submodule.map e A) + Module.finrank F \u21a5(A \u2293 e.ker) = Module.finrank F \u21a5A"
+      },
+      {
+        "axioms": [],
+        "name": "HGPExperiment.wholeStrip.eq_1",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} (S : Set C\u2081), HGPExperiment.wholeStrip S = {q | \u2203 i j, i \u2208 S \u2227 q = Sum.inl (i, j)}"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripEmbed_inl",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [Fintype C\u2082] [DecidableEq C\u2082] (S : Set C\u2081) (v : \u2191S \u00d7 C\u2082 \u2192 ZMod 2) (i : \u2191S) (j : C\u2082),\n  (HGPExperiment.stripEmbed S) v (Sum.inl (\u2191i, j)) = v (i, j)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripEmbed_injective",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [Fintype C\u2082] [DecidableEq C\u2082] (S : Set C\u2081), Function.Injective \u21d1(HGPExperiment.stripEmbed S)"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.restrictColumns.eq_1",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} {R : Type u_3} (P : Matrix R Q F) (E : Set Q),\n  HGPExperiment.restrictColumns P E = P.submatrix id Subtype.val"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripTensorEmbed_tmul",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [inst : Fintype C\u2082] [inst_1 : DecidableEq C\u2082] (S : Set C\u2081) (v : \u2191S \u2192 ZMod 2) (w : C\u2082 \u2192 ZMod 2) (i : C\u2081) (j : C\u2082),\n  (HGPExperiment.stripTensorEmbed S) (v \u2297\u209c[ZMod 2] w) (Sum.inl (i, j)) = (HGPExperiment.stripExtend S) v i * w j"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_map_of_injective",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {N : Type u_4} [inst : Field F] [inst_1 : AddCommGroup M] [inst_2 : _root_.Module F M]\n  [Module.Finite F M] [inst_4 : AddCommGroup N] [inst_5 : _root_.Module F N] [Module.Finite F N] (e : M \u2192\u2097[F] N),\n  Function.Injective \u21d1e \u2192 \u2200 (A : Submodule F M), Module.finrank F \u21a5(Submodule.map e A) = Module.finrank F \u21a5A"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_range_inf_ker",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {N : Type u_4} {U : Type u_6} [inst : Field F] [inst_1 : AddCommGroup M]\n  [inst_2 : _root_.Module F M] [Module.Finite F M] [inst_4 : AddCommGroup N] [inst_5 : _root_.Module F N]\n  [Module.Finite F N] [inst_7 : AddCommGroup U] [inst_8 : _root_.Module F U] [Module.Finite F U] (b : M \u2192\u2097[F] N)\n  (p : N \u2192\u2097[F] U), Module.finrank F \u21a5(b.range \u2293 p.ker) + Module.finrank F \u21a5b.ker = Module.finrank F \u21a5(p \u2218\u2097 b).ker"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripOutside.eq_1",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} (S : Set C\u2081),\n  HGPExperiment.stripOutside S =\n    { toFun := fun v => (fun q => v (Sum.inl (\u2191q.1, q.2)), fun q => v (Sum.inr q)), map_add' := \u22ef, map_smul' := \u22ef }"
+      },
+      {
+        "axioms": [],
+        "name": "HGPExperiment.wholeStrip",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192 Set C\u2081 \u2192 Set (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.inr_not_mem_wholeStrip",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [Fintype C\u2082] [DecidableEq C\u2082] (S : Set C\u2081) (i : R\u2081) (j : R\u2082), Sum.inr (i, j) \u2209 HGPExperiment.wholeStrip S"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripExtend_apply",
+        "type": "\u2200 {C\u2081 : Type u} [Fintype C\u2081] [DecidableEq C\u2081] (S : Set C\u2081) (v : \u2191S \u2192 ZMod 2) (i : C\u2081),\n  (HGPExperiment.stripExtend S) v i = if h : i \u2208 S then v \u27e8i, h\u27e9 else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripTensorEmbed",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype C\u2082] \u2192\n    [DecidableEq C\u2082] \u2192\n      (S : Set C\u2081) \u2192\n        TensorProduct (ZMod 2) (\u2191S \u2192 ZMod 2) (C\u2082 \u2192 ZMod 2) \u2192\u2097[ZMod 2]\n          QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082 \u2192 ZMod 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_range_tensorMap",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {M' : Type u_3} {N : Type u_4} {N' : Type u_5} [inst : Field F]\n  [inst_1 : AddCommGroup M] [inst_2 : _root_.Module F M] [Module.Finite F M] [inst_4 : AddCommGroup M']\n  [inst_5 : _root_.Module F M'] [Module.Finite F M'] [inst_7 : AddCommGroup N] [inst_8 : _root_.Module F N]\n  [Module.Finite F N] [inst_10 : AddCommGroup N'] [inst_11 : _root_.Module F N'] [Module.Finite F N'] (f : M \u2192\u2097[F] M')\n  (g : N \u2192\u2097[F] N'),\n  Module.finrank F \u21a5(TensorProduct.map f g).range = Module.finrank F \u21a5f.range * Module.finrank F \u21a5g.range"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.range_stripEmbed",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [Fintype C\u2082] [DecidableEq C\u2082] (S : Set C\u2081),\n  (HGPExperiment.stripEmbed S).range = HGPExperiment.coordinateSpace (HGPExperiment.wholeStrip S)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripEmbed",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  (S : Set C\u2081) \u2192 (\u2191S \u00d7 C\u2082 \u2192 ZMod 2) \u2192\u2097[ZMod 2] QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082 \u2192 ZMod 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.mulVec_stripExtend",
+        "type": "\u2200 {C\u2081 : Type u} [inst : Fintype C\u2081] [DecidableEq C\u2081] {R : Type u} (H : Matrix R C\u2081 (ZMod 2)) (S : Set C\u2081)\n  (v : \u2191S \u2192 ZMod 2), H.mulVecLin ((HGPExperiment.stripExtend S) v) = (HGPExperiment.restrictColumns H S).mulVecLin v"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.finrank_ker_mixed_tensor",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {M' : Type u_3} {N : Type u_4} {N' : Type u_5} {U : Type u_6} [inst : Field F]\n  [inst_1 : AddCommGroup M] [inst_2 : _root_.Module F M] [Module.Finite F M] [inst_4 : AddCommGroup M']\n  [inst_5 : _root_.Module F M'] [Module.Finite F M'] [inst_7 : AddCommGroup N] [inst_8 : _root_.Module F N]\n  [Module.Finite F N] [inst_10 : AddCommGroup N'] [inst_11 : _root_.Module F N'] [Module.Finite F N']\n  [inst_13 : AddCommGroup U] [inst_14 : _root_.Module F U] [Module.Finite F U] (f : M \u2192\u2097[F] M') (r : M \u2192\u2097[F] U)\n  (g : N \u2192\u2097[F] N'),\n  Module.finrank F \u21a5((LinearMap.rTensor N f).prod (TensorProduct.map r g)).ker =\n    Module.finrank F \u21a5f.ker * Module.finrank F \u21a5g.ker + Module.finrank F \u21a5(f.prod r).ker * Module.finrank F \u21a5g.range"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripTensorEmbed_injective",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [inst : Fintype C\u2082] [inst_1 : DecidableEq C\u2082] (S : Set C\u2081), Function.Injective \u21d1(HGPExperiment.stripTensorEmbed S)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.strip_finrank_ker_lTensor",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {M' : Type u_3} {N : Type u_4} [inst : Field F] [inst_1 : AddCommGroup M]\n  [inst_2 : _root_.Module F M] [Module.Finite F M] [inst_4 : AddCommGroup M'] [inst_5 : _root_.Module F M']\n  [Module.Finite F M'] [inst_7 : AddCommGroup N] [inst_8 : _root_.Module F N] [Module.Finite F N] (f : M \u2192\u2097[F] M'),\n  Module.finrank F \u21a5(LinearMap.lTensor N f).ker = Module.finrank F N * Module.finrank F \u21a5f.ker"
+      },
+      {
+        "axioms": [],
+        "name": "HGPExperiment.stripEmbed_injective.match_1_1",
+        "type": "\u2200 {C\u2081 C\u2082 : Type u_1} (S : Set C\u2081) (motive : \u2191S \u00d7 C\u2082 \u2192 Prop) (h : \u2191S \u00d7 C\u2082),\n  (\u2200 (i : \u2191S) (j : C\u2082), motive (i, j)) \u2192 motive h"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.stripExtend",
+        "type": "{C\u2081 : Type u} \u2192 (S : Set C\u2081) \u2192 (\u2191S \u2192 ZMod 2) \u2192\u2097[ZMod 2] C\u2081 \u2192 ZMod 2"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.inl_mem_wholeStrip",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [Fintype R\u2081] [DecidableEq R\u2081] [Fintype C\u2081] [DecidableEq C\u2081] [Fintype R\u2082] [DecidableEq R\u2082]\n  [Fintype C\u2082] [DecidableEq C\u2082] (S : Set C\u2081) (i : C\u2081) (j : C\u2082), Sum.inl (i, j) \u2208 HGPExperiment.wholeStrip S \u2194 i \u2208 S"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.map_ker_comp_eq",
+        "type": "\u2200 {F : Type u_1} {M : Type u_2} {N : Type u_4} {U : Type u_6} [inst : Field F] [inst_1 : AddCommGroup M]\n  [inst_2 : _root_.Module F M] [Module.Finite F M] [inst_4 : AddCommGroup N] [inst_5 : _root_.Module F N]\n  [Module.Finite F N] [inst_7 : AddCommGroup U] [inst_8 : _root_.Module F U] [Module.Finite F U] (e : M \u2192\u2097[F] N)\n  (h : N \u2192\u2097[F] U), Submodule.map e (h \u2218\u2097 e).ker = e.range \u2293 h.ker"
+      }
+    ]
+  }
+}

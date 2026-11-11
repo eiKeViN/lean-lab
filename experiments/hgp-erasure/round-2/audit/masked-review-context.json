@@ -1,0 +1,20 @@
+{
+  "condition_key": {
+    "candidate-1": "birch",
+    "candidate-2": "larch"
+  },
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "reason": "all_agents_completed",
+  "usage": {
+    "inputTokens": 723494,
+    "cachedInputTokens": 654976,
+    "outputTokens": 5039,
+    "reasoningOutputTokens": 611,
+    "totalTokens": 728533,
+    "cacheWriteInputTokens": 0,
+    "uncachedInputTokens": 68518,
+    "normalisedUnits": 1283744
+  },
+  "inputs": "The two anonymized source trees, Lean build and axiom results for full modules, and the packet. The reviewer saw no group or role labels, participant targets lists, Lake configurations, or prefix evaluations. Both actual submissions contained TARGETS.md and build configurations."
+}

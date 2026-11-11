@@ -1,0 +1,32 @@
+{
+  "HGPExperiment.Erasure": {
+    "origin": "HGPExperiment/Erasure.lean",
+    "sha256": "9003d078084f7bfde9ffef09a0a281d8e1fea006179a9bba19819c361336b664",
+    "imports": [],
+    "closure": "1919a3a43edb78692dc2e0f6eeb35a0ea96ea1dba60596914db46df6ce7d9373",
+    "seconds": 2.92,
+    "status": "failed"
+  },
+  "HGPExperiment.Inference": {
+    "origin": "HGPExperiment/Inference.lean",
+    "sha256": "5e1316fd55d079b900ff23ada4b2f5cfc8073bb289d099c190b220d558944618",
+    "imports": [
+      "HGPExperiment.Erasure"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Erasure"
+    ]
+  },
+  "HGPExperiment.LogicalSemantics": {
+    "origin": "HGPExperiment/LogicalSemantics.lean",
+    "sha256": "e196773809a41da375b4274073d6d9493c05147a006b1822d81462146f22b458",
+    "imports": [
+      "HGPExperiment.Erasure"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Erasure"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Paper.Support": {
+    "origin": ".sandbox/G1/Support/Paper/Support.lean",
+    "sha256": "96007006354b1d82b12037ab804e641bb484a618f2603688c662c8b8b0cb79ea",
+    "imports": [],
+    "closure": "0a183cb363155b1a98b6e8415ec9ffa5fa1723db4ff5380e79655735c0797447",
+    "seconds": 6.64,
+    "status": "failed"
+  },
+  "Targets.Parameters": {
+    "origin": ".sandbox/G1/A/Targets/Parameters.lean",
+    "sha256": "a8c92ad39462c874506f5e2af82527648d3c2a7698d1b26c5c8566474bedea09",
+    "imports": [],
+    "closure": "0ac45dd7bf4881ea7edfae274482c7007be9666c02086f6791c6018e2d40441b",
+    "seconds": 2.03,
+    "status": "failed"
+  }
+}

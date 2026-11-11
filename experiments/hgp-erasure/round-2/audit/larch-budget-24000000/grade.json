@@ -1,0 +1,263 @@
+{
+  "HGPExperiment.Erasure": {
+    "origin": "HGPExperiment/Erasure.lean",
+    "sha256": "a88f2ba03b240b1aa2bcdaac7b536b0d490b0bc1257222e221022e956dd34fce",
+    "imports": [],
+    "closure": "0574b94279de906c8a87600e620a7a1c398bfc4953447a0856b9a0b93951f5ee",
+    "seconds": 3.99,
+    "status": "failed"
+  },
+  "HGPExperiment.Inference": {
+    "origin": "HGPExperiment/Inference.lean",
+    "sha256": "5e1316fd55d079b900ff23ada4b2f5cfc8073bb289d099c190b220d558944618",
+    "imports": [
+      "HGPExperiment.Erasure"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Erasure"
+    ]
+  },
+  "HGPExperiment.Integration": {
+    "origin": "HGPExperiment/Integration.lean",
+    "sha256": "db7ce5cca7a27f9b186f0e1d6b2b14c80c476f4c345c92d4600aff9bfe403107",
+    "imports": [
+      "HGPExperiment.Parameters",
+      "HGPExperiment.Inference",
+      "HGPExperiment.LogicalSemantics"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Inference",
+      "HGPExperiment.LogicalSemantics"
+    ]
+  },
+  "HGPExperiment.LogicalSemantics": {
+    "origin": "HGPExperiment/LogicalSemantics.lean",
+    "sha256": "7778ce3e763c3fae8222d3804b3890eafeb2b7ff624cef865cd3e034ae4c5269",
+    "imports": [
+      "HGPExperiment.Erasure"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Erasure"
+    ]
+  },
+  "HGPExperiment.Parameters": {
+    "origin": "HGPExperiment/Parameters.lean",
+    "sha256": "c544636cc37c4a5287b992b29f49b3ffcc99d1f7c4799120234b70a2633fb793",
+    "imports": [],
+    "closure": "abb7e666d74e0e8d6fd988a0154fe20840e12aedc61eb944a818be7862237617",
+    "seconds": 9.24,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "QEC.Coding.HypergraphProduct.boundary1Matrix.eq_2",
+        "type": "\u2200 {F : Type u_1} {rowOne : Type u_2} {colOne : Type u_3} {rowTwo : Type u_4} {colTwo : Type u_5} [inst : Field F]\n  [inst_1 : Fintype rowOne] [inst_2 : DecidableEq rowOne] [inst_3 : Fintype colOne] [inst_4 : DecidableEq colOne]\n  [inst_5 : Fintype rowTwo] [inst_6 : DecidableEq rowTwo] [inst_7 : Fintype colTwo] [inst_8 : DecidableEq colTwo]\n  (D : QEC.Coding.HypergraphProduct.Data F rowOne colOne rowTwo colTwo) (r\u2081 : rowOne) (c\u2082 : colTwo) (r\u2081' : rowOne)\n  (r\u2082 : rowTwo),\n  QEC.Coding.HypergraphProduct.boundary1Matrix D (r\u2081, c\u2082) (Sum.inr (r\u2081', r\u2082)) = if r\u2081 = r\u2081' then -D.second r\u2082 c\u2082 else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xChecks_check",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (r : R\u2081) (c : C\u2082) (i : R\u2081) (j : R\u2082),\n  HGPExperiment.xChecks H (r, c) (Sum.inr (i, j)) = if r = i then H.second j c else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zLogical_dimension",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  Module.finrank (ZMod 2) (HGPExperiment.ZLogical H) =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.hgp_length",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [DecidableEq C\u2082],\n  Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) =\n    Fintype.card C\u2081 * Fintype.card C\u2082 + Fintype.card R\u2081 * Fintype.card R\u2082"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.hgpDistance",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192 [DecidableEq C\u2082] \u2192 QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192 WithTop \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C2Index C\u2081 R\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.checks_commute",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  HGPExperiment.xChecks H * (HGPExperiment.zChecks H).transpose = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xLogical_dimension",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  Module.finrank (ZMod 2) (HGPExperiment.XLogical H) =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zChecks_check",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (c : C\u2081) (r : R\u2082) (i : R\u2081) (j : R\u2082),\n  HGPExperiment.zChecks H (c, r) (Sum.inr (i, j)) = if j = r then H.first i c else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.hgp_distance_lower",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum H \u2264 HGPExperiment.hgpDistance H"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xChecks_variable",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (r : R\u2081) (c : C\u2082) (i : C\u2081) (j : C\u2082),\n  HGPExperiment.xChecks H (r, c) (Sum.inl (i, j)) = if c = j then H.first r i else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.XLogical",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192 [DecidableEq C\u2082] \u2192 QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192 Type u"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zero_code_distance",
+        "type": "\u2200 {C\u2081 : Type u} [inst : Fintype C\u2081] [inst_1 : DecidableEq C\u2081] (C : QEC.Coding.LinearCode (ZMod 2) C\u2081),\n  QEC.Coding.HypergraphProduct.extendedMinimumDistance C = \u22a4 \u2194 C.carrier = \u22a5"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "QEC.Coding.HypergraphProduct.boundary1Matrix.eq_1",
+        "type": "\u2200 {F : Type u_1} {rowOne : Type u_2} {colOne : Type u_3} {rowTwo : Type u_4} {colTwo : Type u_5} [inst : Field F]\n  [inst_1 : Fintype rowOne] [inst_2 : DecidableEq rowOne] [inst_3 : Fintype colOne] [inst_4 : DecidableEq colOne]\n  [inst_5 : Fintype rowTwo] [inst_6 : DecidableEq rowTwo] [inst_7 : Fintype colTwo] [inst_8 : DecidableEq colTwo]\n  (D : QEC.Coding.HypergraphProduct.Data F rowOne colOne rowTwo colTwo) (r\u2081 : rowOne) (c\u2082 : colTwo) (c\u2081 : colOne)\n  (c\u2082' : colTwo),\n  QEC.Coding.HypergraphProduct.boundary1Matrix D (r\u2081, c\u2082) (Sum.inl (c\u2081, c\u2082')) = if c\u2082 = c\u2082' then D.first r\u2081 c\u2081 else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.ZLogical",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192 [DecidableEq C\u2082] \u2192 QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192 Type u"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zChecks_variable",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082) (c : C\u2081) (r : R\u2082) (i : C\u2081) (j : C\u2082),\n  HGPExperiment.zChecks H (c, r) (Sum.inl (i, j)) = if i = c then H.second r j else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.logical_representative_lower",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082)\n  (v : QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082)),\n  QEC.Coding.HypergraphProduct.IsCSSLogical (QEC.Coding.HypergraphProduct.binaryCSSCode H).xCode\n      (QEC.Coding.HypergraphProduct.binaryCSSCode H).zCode v \u2192\n    QEC.Coding.HypergraphProduct.inputDistanceMinimum H \u2264 \u2191(QEC.Coding.HammingWeight v)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C0Index R\u2081 C\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      }
+    ]
+  },
+  "HGPExperiment.Examples": {
+    "origin": "HGPExperiment/Examples.lean",
+    "sha256": "aef6a2c56de996db68b593344dd7924283ea0d7a67f2d2a3921a4b3e137d112e",
+    "imports": [
+      "HGPExperiment.Parameters"
+    ],
+    "closure": "089134cfdc064739d299598909ba711ba6203b2f4cbe73f78f86aec852257c47",
+    "seconds": 6.9,
+    "status": "failed"
+  },
+  "HGPExperiment.Strip": {
+    "origin": "HGPExperiment/Strip.lean",
+    "sha256": "2b7a76deb4b5dbce0d2770fda15e6c4a0c988cb79738ca8a222add7e14ed20ff",
+    "imports": [
+      "HGPExperiment.Parameters",
+      "HGPExperiment.Erasure"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Erasure"
+    ]
+  },
+  "HGPExperiment.StripBoundaryX": {
+    "origin": "HGPExperiment/StripBoundaryX.lean",
+    "sha256": "f530c3c3305e889d6ea6b120dba553ee8875253d26a93b7f0ae74494291b4726",
+    "imports": [
+      "HGPExperiment.Parameters",
+      "HGPExperiment.Erasure"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Erasure"
+    ]
+  },
+  "HGPExperiment.StripDual": {
+    "origin": "HGPExperiment/StripDual.lean",
+    "sha256": "9d7c1ea072e6cc35a85bab7ba9c81c99d16d5f6f41e3edf4ab6812878a15eebf",
+    "imports": [
+      "HGPExperiment.Erasure"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "HGPExperiment.Erasure"
+    ]
+  }
+}

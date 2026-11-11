@@ -1,0 +1,272 @@
+{
+  "Paper.InferenceCore": {
+    "origin": "Paper/InferenceCore.lean",
+    "sha256": "548c863dc67ac22ed558c7d40bcc5ac9db6bda6ae08a6e8e98d9c5ecb56fcb6c",
+    "imports": [
+      "Paper.Support"
+    ],
+    "closure": "ddfc5d90063fab3dc24d1aec4d75ceb3838efb3b95a075cc651bd05c689d688e",
+    "seconds": 16.11,
+    "status": "failed"
+  },
+  "Paper.SupportedRank": {
+    "origin": "Paper/SupportedRank.lean",
+    "sha256": "f25f76daafd4d5e4012b246b4ea3e823ac37f98e56e1007a2de3db3a1e159d86",
+    "imports": [
+      "Paper.Support"
+    ],
+    "closure": "7885e46cd81ffcc0bf417c241e08f58e76dfeb47bc4ceae040c38202dd4a3929",
+    "seconds": 2.73,
+    "status": "failed"
+  },
+  "Targets.Parameters": {
+    "origin": "Targets/Parameters.lean",
+    "sha256": "e99755c64adc6335c52a109c775c6ec3ba370f5bd52461acf7e54dff6dcde025",
+    "imports": [
+      "Paper.LogicalDimension",
+      "Paper.HGPChecks"
+    ],
+    "closure": "2122d306e81ecdd538dfdc60a8e03f53e7430d8b7d4dfec7df3ac9a90d8b5b98",
+    "seconds": 6.26,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "QEC.Coding.HypergraphProduct.boundary1Matrix.eq_2",
+        "type": "\u2200 {F : Type u_1} {rowOne : Type u_2} {colOne : Type u_3} {rowTwo : Type u_4} {colTwo : Type u_5} [inst : Field F]\n  [inst_1 : Fintype rowOne] [inst_2 : DecidableEq rowOne] [inst_3 : Fintype colOne] [inst_4 : DecidableEq colOne]\n  [inst_5 : Fintype rowTwo] [inst_6 : DecidableEq rowTwo] [inst_7 : Fintype colTwo] [inst_8 : DecidableEq colTwo]\n  (D : QEC.Coding.HypergraphProduct.Data F rowOne colOne rowTwo colTwo) (r\u2081 : rowOne) (c\u2082 : colTwo) (r\u2081' : rowOne)\n  (r\u2082 : rowTwo),\n  QEC.Coding.HypergraphProduct.boundary1Matrix D (r\u2081, c\u2082) (Sum.inr (r\u2081', r\u2082)) = if r\u2081 = r\u2081' then -D.second r\u2082 c\u2082 else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.zero_code_distance",
+        "type": "\u2200 {C\u2081 : Type u} [inst : Fintype C\u2081] [inst_1 : DecidableEq C\u2081] (C : QEC.Coding.LinearCode (ZMod 2) C\u2081),\n  QEC.Coding.HypergraphProduct.extendedMinimumDistance C = \u22a4 \u2194 C.carrier = \u22a5"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.check_quotient_semantics",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  (Matrix.toLin' (Paper.HGP.xChecks H)).ker = (QEC.Coding.HypergraphProduct.chainComplex H).middleCycleCode.carrier \u2227\n    (Matrix.toLin' (Paper.HGP.zChecks H).transpose).range =\n        (QEC.Coding.HypergraphProduct.chainComplex H).middleBoundaryCode.carrier \u2227\n      (Matrix.toLin' (Paper.HGP.zChecks H)).ker =\n          (QEC.Coding.HypergraphProduct.chainComplex H).middleCocycleCode.carrier \u2227\n        (Matrix.toLin' (Paper.HGP.xChecks H).transpose).range =\n          (QEC.Coding.HypergraphProduct.chainComplex H).firstCoboundaryCheckCode.carrier"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.zChecks_blocks",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  (\u2200 (c : C\u2081) (r : R\u2082) (a : C\u2081) (b : C\u2082),\n      Paper.HGP.zChecks H (c, r) (Sum.inl (a, b)) = if a = c then H.second r b else 0) \u2227\n    \u2200 (c : C\u2081) (r : R\u2082) (a : R\u2081) (b : R\u2082),\n      Paper.HGP.zChecks H (c, r) (Sum.inr (a, b)) = if b = r then H.first a c else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.checks_commute",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  Paper.HGP.xChecks H * (Paper.HGP.zChecks H).transpose = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.parameters",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) =\n      Fintype.card C\u2081 * Fintype.card C\u2082 + Fintype.card R\u2081 * Fintype.card R\u2082 \u2227\n    Module.finrank (ZMod 2) (QEC.Coding.HypergraphProduct.chainComplex H).middleHomology =\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n            QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n          QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n            QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H) \u2227\n      Module.finrank (ZMod 2) (QEC.Coding.HypergraphProduct.chainComplex H).middleCohomology =\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n            QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n          QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n            QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.representative_weight_lower_bound",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082)\n  (v : QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082)),\n  v \u2208 (QEC.Coding.HypergraphProduct.chainComplex H).middleCycleCode.carrier \u2227\n        v \u2209 (QEC.Coding.HypergraphProduct.chainComplex H).middleBoundaryCode.carrier \u2228\n      v \u2208 (QEC.Coding.HypergraphProduct.chainComplex H).middleCocycleCode.carrier \u2227\n        v \u2209 (QEC.Coding.HypergraphProduct.chainComplex H).firstCoboundaryCheckCode.carrier \u2192\n    QEC.Coding.HypergraphProduct.inputDistanceMinimum H \u2264 \u2191(QEC.Coding.HammingWeight v)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.xChecks_blocks",
+        "type": "\u2200 {R\u2081 C\u2081 R\u2082 C\u2082 : Type u} [inst : Fintype R\u2081] [inst_1 : DecidableEq R\u2081] [inst_2 : Fintype C\u2081] [inst_3 : DecidableEq C\u2081]\n  [inst_4 : Fintype R\u2082] [inst_5 : DecidableEq R\u2082] [inst_6 : Fintype C\u2082] [inst_7 : DecidableEq C\u2082]\n  (H : QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082),\n  (\u2200 (r : R\u2081) (c : C\u2082) (a : C\u2081) (b : C\u2082),\n      Paper.HGP.xChecks H (r, c) (Sum.inl (a, b)) = if c = b then H.first r a else 0) \u2227\n    \u2200 (r : R\u2081) (c : C\u2082) (a : R\u2081) (b : R\u2082),\n      Paper.HGP.xChecks H (r, c) (Sum.inr (a, b)) = if r = a then H.second b c else 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "QEC.Coding.HypergraphProduct.boundary1Matrix.eq_1",
+        "type": "\u2200 {F : Type u_1} {rowOne : Type u_2} {colOne : Type u_3} {rowTwo : Type u_4} {colTwo : Type u_5} [inst : Field F]\n  [inst_1 : Fintype rowOne] [inst_2 : DecidableEq rowOne] [inst_3 : Fintype colOne] [inst_4 : DecidableEq colOne]\n  [inst_5 : Fintype rowTwo] [inst_6 : DecidableEq rowTwo] [inst_7 : Fintype colTwo] [inst_8 : DecidableEq colTwo]\n  (D : QEC.Coding.HypergraphProduct.Data F rowOne colOne rowTwo colTwo) (r\u2081 : rowOne) (c\u2082 : colTwo) (c\u2081 : colOne)\n  (c\u2082' : colTwo),\n  QEC.Coding.HypergraphProduct.boundary1Matrix D (r\u2081, c\u2082) (Sum.inl (c\u2081, c\u2082')) = if c\u2082 = c\u2082' then D.first r\u2081 c\u2081 else 0"
+      }
+    ]
+  },
+  "Paper.HGPChecks": {
+    "origin": "Paper/HGPChecks.lean",
+    "sha256": "9942190b0810d288879481973ce532c2cbe3a5f73ddb4dc2c5575b366c6be30a",
+    "imports": [],
+    "closure": "f7fe1289c7c516707e1b4573f94619dfeda60cfec2c684bbd8821948f1b2f6a8",
+    "status": "built",
+    "cached": true,
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.zChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C2Index C\u2081 R\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.xChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C0Index R\u2081 C\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      }
+    ]
+  },
+  "Paper.LogicalDimension": {
+    "origin": "Paper/LogicalDimension.lean",
+    "sha256": "ac77cfe2d624c713b2cea713bb066be4f21660424e0b917a67c15d0d7047290f",
+    "imports": [],
+    "closure": "c73b7862122f26ab66b00cad0fa26a1e2be3330e875330457cf465cab39cbc2b",
+    "status": "built",
+    "cached": true,
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.cohomology_finrank_eq_homology",
+        "type": "\u2200 {F : Type u} {\u03b9 : Type v} [inst : Field F] [inst_1 : Fintype F] [inst_2 : Fintype \u03b9] {\u03ba\u2080 \u03ba\u2082 : Type v}\n  [inst_3 : Fintype \u03ba\u2080] [inst_4 : Fintype \u03ba\u2082]\n  (K : QEC.Coding.ChainComplexData F (QEC.Coding.Word F \u03ba\u2080) (QEC.Coding.Word F \u03b9) (QEC.Coding.Word F \u03ba\u2082)),\n  Module.finrank F K.middleCohomology = Module.finrank F K.middleHomology"
+      }
+    ]
+  },
+  "Paper.Support": {
+    "origin": "Paper/Support.lean",
+    "sha256": "01db2cc84b7617de9b55768b2aee770a25a827c84d308e3358cd8dbdbcbcb642",
+    "imports": [],
+    "closure": "8f103b52b2c953c7635630b9ee176ce4a62b96809977fc5e76bddf8c362d432b",
+    "seconds": 3.09,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.cycleQuotientEmbedding_injective",
+        "type": "\u2200 {F : Type u} [inst : Field F] {Q : Type v} [Fintype Q] [DecidableEq Q] (C B : Submodule F (Q \u2192 F)),\n  Function.Injective \u21d1(Paper.cycleQuotientEmbedding C B)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.supportSpace",
+        "type": "{F : Type u} \u2192 [inst : Field F] \u2192 {Q : Type v} \u2192 Finset Q \u2192 Submodule F (Q \u2192 F)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.supportedLogical",
+        "type": "{F : Type u} \u2192\n  [inst : Field F] \u2192\n    {Q : Type v} \u2192 Submodule F (Q \u2192 F) \u2192 (B : Submodule F (Q \u2192 F)) \u2192 Finset Q \u2192 Submodule F ((Q \u2192 F) \u29f8 B)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.finrank_supportSpace",
+        "type": "\u2200 {F : Type u} [inst : Field F] {Q : Type v} [Fintype Q] [DecidableEq Q] (E : Finset Q),\n  Module.finrank F \u21a5(Paper.supportSpace E) = E.card"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.supportedLogical_eq_actual_image",
+        "type": "\u2200 {F : Type u} [inst : Field F] {Q : Type v} [Fintype Q] [DecidableEq Q] (C B : Submodule F (Q \u2192 F)) (E : Finset Q),\n  Submodule.map (Paper.cycleQuotientEmbedding C B)\n      (Submodule.map (Submodule.comap C.subtype B).mkQ (Submodule.comap C.subtype (Paper.supportSpace E))) =\n    Paper.supportedLogical C B E"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.mem_supportSpace",
+        "type": "\u2200 {F : Type u} [inst : Field F] {Q : Type v} [Fintype Q] [DecidableEq Q] (E : Finset Q) (v : Q \u2192 F),\n  v \u2208 Paper.supportSpace E \u2194 \u2200 q \u2209 E, v q = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.supportedDim",
+        "type": "{F : Type u} \u2192 [inst : Field F] \u2192 {Q : Type v} \u2192 Submodule F (Q \u2192 F) \u2192 Submodule F (Q \u2192 F) \u2192 Finset Q \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.supportEquiv",
+        "type": "{F : Type u} \u2192 [inst : Field F] \u2192 {Q : Type v} \u2192 [DecidableEq Q] \u2192 (E : Finset Q) \u2192 \u21a5(Paper.supportSpace E) \u2243\u2097[F] \u21a5E \u2192 F"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.supportedDim_add_boundary",
+        "type": "\u2200 {F : Type u} [inst : Field F] {Q : Type v} [Fintype Q] [DecidableEq Q] (C B : Submodule F (Q \u2192 F)) (E : Finset Q),\n  B \u2264 C \u2192\n    Paper.supportedDim C B E + Module.finrank F \u21a5(B \u2293 Paper.supportSpace E) =\n      Module.finrank F \u21a5(C \u2293 Paper.supportSpace E)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.cycleQuotientEmbedding",
+        "type": "{F : Type u} \u2192\n  [inst : Field F] \u2192 {Q : Type v} \u2192 (C B : Submodule F (Q \u2192 F)) \u2192 \u21a5C \u29f8 Submodule.comap C.subtype B \u2192\u2097[F] (Q \u2192 F) \u29f8 B"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.finrank_image_add_inf_ker",
+        "type": "\u2200 {F : Type u} [inst : Field F] {V : Type v} {W : Type w} [inst_1 : AddCommGroup V] [inst_2 : _root_.Module F V]\n  [FiniteDimensional F V] [inst_4 : AddCommGroup W] [inst_5 : _root_.Module F W] (S : Submodule F V) (f : V \u2192\u2097[F] W),\n  Module.finrank F \u21a5(Submodule.map f S) + Module.finrank F \u21a5(S \u2293 f.ker) = Module.finrank F \u21a5S"
+      }
+    ]
+  }
+}

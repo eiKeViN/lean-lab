@@ -1,0 +1,32 @@
+{
+  "birch": {
+    "room_response": "[exit 0]",
+    "conclusion": [
+      "Build completed successfully (8753 jobs)."
+    ],
+    "configuration": "Submitted Lake configuration, pinned manifest, fresh source-only copy; LEAN_NUM_THREADS=1; lake --no-cache --no-ansi build"
+  },
+  "larch": {
+    "room_response": "[exit 1]",
+    "conclusion": [
+      "error: HGPExperiment/Examples.lean:218:4: unsolved goals",
+      "error: HGPExperiment/Examples.lean:223:52: Type mismatch: After simplification, term",
+      "error: HGPExperiment/Examples.lean:260:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "error: Lean exited with code 1",
+      "error: HGPExperiment/Strip.lean:297:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "error: HGPExperiment/Strip.lean:348:6: Tactic `rewrite` failed: motive is not type correct:",
+      "error: HGPExperiment/Strip.lean:360:6: Tactic `rewrite` failed: motive is not type correct:",
+      "error: HGPExperiment/Strip.lean:382:33: Application type mismatch: The argument",
+      "error: HGPExperiment/Strip.lean:413:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "error: HGPExperiment/Strip.lean:424:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "error: HGPExperiment/Strip.lean:433:86: unsolved goals",
+      "error: HGPExperiment/Strip.lean:455:2: omega could not prove the goal:",
+      "error: Lean exited with code 1",
+      "Some required targets logged failures:",
+      "- HGPExperiment.Examples",
+      "- HGPExperiment.Strip",
+      "error: build failed"
+    ],
+    "configuration": "Submitted Lake configuration, pinned manifest, fresh source-only copy; LEAN_NUM_THREADS=1; lake --no-cache --no-ansi build"
+  }
+}

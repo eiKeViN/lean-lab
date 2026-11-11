@@ -1,0 +1,120 @@
+{
+  "HGPExperiment.Erasure": {
+    "origin": "HGPExperiment/Erasure.lean",
+    "sha256": "1df36ba8f07f838fc135b0b229faa2edf72fd85514b7c99f25ca859d1b92fc5b",
+    "imports": [],
+    "closure": "718973c1a7cabc163f7e80ec5671f58b957525ec01d3e57639a00d45f2c3c711",
+    "seconds": 3.28,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.mem_coordinateSpace",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (E : Set Q) (v : Q \u2192 F),\n  v \u2208 HGPExperiment.coordinateSpace E \u2194 \u2200 q \u2209 E, v q = 0"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.zDim",
+        "type": "{F : Type u_1} \u2192\n  {Q : Type u_2} \u2192\n    {R : Type u_3} \u2192 {S : Type u_4} \u2192 [Field F] \u2192 [Fintype Q] \u2192 [Fintype S] \u2192 Matrix R Q F \u2192 Matrix S Q F \u2192 Set Q \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.boundaries",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 {S : Type u_4} \u2192 [inst : Field F] \u2192 [Fintype S] \u2192 Matrix S Q F \u2192 Submodule F (Q \u2192 F)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedDim.eq_1",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] (C B : Submodule F (Q \u2192 F)) (E : Set Q),\n  HGPExperiment.supportedDim C B E = Module.finrank F \u21a5(HGPExperiment.supportedLogical C B E)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedDim",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 [inst : Field F] \u2192 Submodule F (Q \u2192 F) \u2192 Submodule F (Q \u2192 F) \u2192 Set Q \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.xDim",
+        "type": "{F : Type u_1} \u2192\n  {Q : Type u_2} \u2192\n    {R : Type u_3} \u2192 {S : Type u_4} \u2192 [Field F] \u2192 [Fintype Q] \u2192 [Fintype R] \u2192 Matrix R Q F \u2192 Matrix S Q F \u2192 Set Q \u2192 \u2115"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedLogical.eq_1",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] (C B : Submodule F (Q \u2192 F)) (E : Set Q),\n  HGPExperiment.supportedLogical C B E = Submodule.map B.mkQ (C \u2293 HGPExperiment.coordinateSpace E)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedLogical",
+        "type": "{F : Type u_1} \u2192\n  {Q : Type u_2} \u2192\n    [inst : Field F] \u2192 Submodule F (Q \u2192 F) \u2192 (B : Submodule F (Q \u2192 F)) \u2192 Set Q \u2192 Submodule F ((Q \u2192 F) \u29f8 B)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.cycles",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 {R : Type u_3} \u2192 [inst : Field F] \u2192 [Fintype Q] \u2192 Matrix R Q F \u2192 Submodule F (Q \u2192 F)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.coordinateSpace",
+        "type": "{F : Type u_1} \u2192 {Q : Type u_2} \u2192 [inst : Field F] \u2192 Set Q \u2192 Submodule F (Q \u2192 F)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "HGPExperiment.supportedDim_eq_zero_iff",
+        "type": "\u2200 {F : Type u_1} {Q : Type u_2} [inst : Field F] [Fintype Q] (C B : Submodule F (Q \u2192 F)) (E : Set Q),\n  HGPExperiment.supportedDim C B E = 0 \u2194 C \u2293 HGPExperiment.coordinateSpace E \u2264 B"
+      }
+    ]
+  },
+  "HGPExperiment.Inference": {
+    "origin": "HGPExperiment/Inference.lean",
+    "sha256": "87041d5b802dfb2d2d10375ccdd978b82bdc99c3c4431de23e26fe47ee2e2850",
+    "imports": [
+      "HGPExperiment.Erasure"
+    ],
+    "closure": "f083c4f3ad7ae7ff91d6ac37fc720c4cf700319212d9f664b137dbe0b6c74cc0",
+    "seconds": 7.75,
+    "status": "failed"
+  }
+}

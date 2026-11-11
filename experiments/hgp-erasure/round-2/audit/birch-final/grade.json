@@ -1,0 +1,109 @@
+{
+  "Paper.Support": {
+    "origin": ".sandbox/G1/Support/Paper/Support.lean",
+    "sha256": "1ddc1608630bcc4dd7ae368814fdf9affbfc1e5ea19bae8b98506832829c1084",
+    "imports": [],
+    "closure": "83eaa34e99bda0883d1f21cd34ecc0ac6d709a4be1b4f094b832326da26164af",
+    "seconds": 3.24,
+    "status": "failed"
+  },
+  "Targets.Parameters": {
+    "origin": ".sandbox/G1/A/Targets/Parameters.lean",
+    "sha256": "44c4bd128bbb80313bd360f6ad2c309d98fc2ab49a8082fa4e1fce5717d2191d",
+    "imports": [
+      "Paper.LogicalDimension",
+      "Paper.HGPChecks"
+    ],
+    "closure": "5506a4cc775c72f18ba01bd1073978591b267ac4494c2cadcf234c1733da08da",
+    "seconds": 13.19,
+    "status": "failed"
+  },
+  "Paper.HGPChecks": {
+    "origin": ".sandbox/G1/A/Paper/HGPChecks.lean",
+    "sha256": "9942190b0810d288879481973ce532c2cbe3a5f73ddb4dc2c5575b366c6be30a",
+    "imports": [],
+    "closure": "f7fe1289c7c516707e1b4573f94619dfeda60cfec2c684bbd8821948f1b2f6a8",
+    "seconds": 11.59,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.zChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C2Index C\u2081 R\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.HGP.xChecks",
+        "type": "{R\u2081 C\u2081 R\u2082 C\u2082 : Type u} \u2192\n  [Fintype R\u2081] \u2192\n    [DecidableEq R\u2081] \u2192\n      [Fintype C\u2081] \u2192\n        [DecidableEq C\u2081] \u2192\n          [Fintype R\u2082] \u2192\n            [DecidableEq R\u2082] \u2192\n              [Fintype C\u2082] \u2192\n                [DecidableEq C\u2082] \u2192\n                  QEC.Coding.HypergraphProduct.Data (ZMod 2) R\u2081 C\u2081 R\u2082 C\u2082 \u2192\n                    Matrix (QEC.Coding.HypergraphProduct.C0Index R\u2081 C\u2082)\n                      (QEC.Coding.HypergraphProduct.QubitIndex R\u2081 C\u2081 R\u2082 C\u2082) (ZMod 2)"
+      }
+    ]
+  },
+  "Paper.InferenceCore": {
+    "origin": ".sandbox/G1/InferenceCore/Paper/InferenceCore.lean",
+    "sha256": "548c863dc67ac22ed558c7d40bcc5ac9db6bda6ae08a6e8e98d9c5ecb56fcb6c",
+    "imports": [
+      "Paper.Support"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "Paper.Support"
+    ]
+  },
+  "Paper.LogicalDimension": {
+    "origin": "Paper/LogicalDimension.lean",
+    "sha256": "ac77cfe2d624c713b2cea713bb066be4f21660424e0b917a67c15d0d7047290f",
+    "imports": [],
+    "closure": "c73b7862122f26ab66b00cad0fa26a1e2be3330e875330457cf465cab39cbc2b",
+    "seconds": 9.06,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.cohomology_finrank_eq_homology",
+        "type": "\u2200 {F : Type u} {\u03b9 : Type v} [inst : Field F] [inst_1 : Fintype F] [inst_2 : Fintype \u03b9] {\u03ba\u2080 \u03ba\u2082 : Type v}\n  [inst_3 : Fintype \u03ba\u2080] [inst_4 : Fintype \u03ba\u2082]\n  (K : QEC.Coding.ChainComplexData F (QEC.Coding.Word F \u03ba\u2080) (QEC.Coding.Word F \u03b9) (QEC.Coding.Word F \u03ba\u2082)),\n  Module.finrank F K.middleCohomology = Module.finrank F K.middleHomology"
+      }
+    ]
+  },
+  "Paper.SupportedRank": {
+    "origin": ".sandbox/G1/SupportedRank/Paper/SupportedRank.lean",
+    "sha256": "f25f76daafd4d5e4012b246b4ea3e823ac37f98e56e1007a2de3db3a1e159d86",
+    "imports": [
+      "Paper.Support"
+    ],
+    "status": "blocked_by_local_dependency",
+    "blocked": [
+      "Paper.Support"
+    ]
+  },
+  "Paper.TensorStrip": {
+    "origin": ".sandbox/G1/D/Paper/TensorStrip.lean",
+    "sha256": "629f28617edc0261b3c3dc91025de18258f0640479cef94bc2dce4fd8cbd32d8",
+    "imports": [],
+    "closure": "6fc8e6d76056596d798b084ae97fb119362a563dc6c786046262c7a696f681dc",
+    "seconds": 6.12,
+    "status": "built",
+    "declarations": [
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "name": "Paper.mixed_tensor_kernel_dimension",
+        "type": "\u2200 {F : Type u} {M M' L N N' : Type v} [inst : Field F] [inst_1 : AddCommGroup M] [inst_2 : _root_.Module F M]\n  [Module.Finite F M] [inst_4 : AddCommGroup M'] [inst_5 : _root_.Module F M'] [Module.Finite F M']\n  [inst_7 : AddCommGroup L] [inst_8 : _root_.Module F L] [Module.Finite F L] [inst_10 : AddCommGroup N]\n  [inst_11 : _root_.Module F N] [Module.Finite F N] [inst_13 : AddCommGroup N'] [inst_14 : _root_.Module F N']\n  [Module.Finite F N'] (f : M \u2192\u2097[F] M') (r : M \u2192\u2097[F] L) (g : N \u2192\u2097[F] N'),\n  Module.finrank F \u21a5((LinearMap.rTensor N f).prod (TensorProduct.map r g)).ker =\n    Module.finrank F \u21a5f.ker * Module.finrank F \u21a5g.ker +\n      Module.finrank F \u21a5(r \u2218\u2097 f.ker.subtype).ker * Module.finrank F \u21a5g.range"
+      }
+    ]
+  }
+}
