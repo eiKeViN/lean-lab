@@ -59,8 +59,11 @@ def execute(room_path: Path, command: str, timeout: int) -> str:
     rg = Path("/usr/local/bin/rg")
     if rg.exists():
         args += ["--ro-bind", str(rg.resolve()), "/tools/rg"]
-    if (BASE / "runtime/comparator-bin").exists():
-        args += ["--ro-bind", str(BASE / "runtime/comparator-bin"), "/opt/comparator"]
+    bindir = BASE / "runtime/comparator-bin"
+    for name in ("comparator","lean4export","landrun","which"):
+        if (bindir / name).is_file():
+            args += ["--ro-bind", str(bindir / name), "/opt/comparator/" + name]
+    args += ["--ro-bind", str(Path(__file__).with_name("comparator-help.md")), "/opt/comparator/README.md"]
     args += ["--dev", "/dev", "--proc", "/proc", "--tmpfs", "/tmp",
              "--dir", "/home/agent", "--ro-bind", str(LEAN), "/opt/lean",
              "--ro-bind", str(QEC), "/opt/qecert", "--bind", str(room), "/work",

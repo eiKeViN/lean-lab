@@ -1,0 +1,62 @@
+good
+[exit 0]
+Building Challenge
+⚠ [2/3] Replayed Challenge
+warning: Challenge.lean:1:8: declaration uses `sorry`
+Build completed successfully (3 jobs).
+Exporting #[smoke, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge
+Building Solution
+Build completed successfully (3 jobs).
+Exporting #[smoke, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+
+
+bad
+[exit 1]
+Building Challenge
+⚠ [2/3] Replayed Challenge
+warning: Challenge.lean:1:8: declaration uses `sorry`
+Build completed successfully (3 jobs).
+Exporting #[smoke, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge
+Building Wrong
+⚠ [2/3] Replayed Wrong
+warning: Wrong.lean:1:8: declaration uses `sorry`
+Build completed successfully (3 jobs).
+Exporting #[smoke, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Wrong
+uncaught exception: Challenge and solution theorem statement do not match: 'smoke'
+
+
+sorry
+[exit 1]
+Building Challenge
+⚠ [2/3] Replayed Challenge
+warning: Challenge.lean:1:8: declaration uses `sorry`
+Build completed successfully (3 jobs).
+Exporting #[smoke, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge
+Building Sorry
+⚠ [2/3] Built Sorry (208ms)
+warning: Sorry.lean:1:8: declaration uses `sorry`
+Build completed successfully (3 jobs).
+Exporting #[smoke, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Sorry
+uncaught exception: Illegal axiom detected: 'sorryAx'
+
+
+landlock
+[exit 0]
+
+
+leanchecker
+[exit 0]
+replaying Solution
+
+
+strict Landlock capability probe
+[exit 1]
+[landrun] 2026/11/11 09:48:55 Sandbox config: {ReadOnlyPaths:[/ /usr/bin/true] ReadWritePaths:[] ReadOnlyExecutablePaths:[/usr/bin/true] ReadWriteExecutablePaths:[] UnixSocketPaths:[] BindTCPPorts:[] ConnectTCPPorts:[] BindUDPPorts:[] ConnectUDPPorts:[] BestEffort:false UnrestrictedFilesystem:false UnrestrictedNetwork:false UnrestrictedScoped:false IgnoreMissingPaths:false DisableLogOriginating:false EnableLogSubprocesses:false DisableLogSubdomains:false}
+[landrun:debug] 2026/11/11 09:48:55 Adding read-only executable path: /usr/bin/true
+[landrun:debug] 2026/11/11 09:48:55 Adding read-only path: /
+[landrun:debug] 2026/11/11 09:48:55 Adding read-only path: /usr/bin/true
+[landrun:debug] 2026/11/11 09:48:55 Applying Landlock restrictions: {Landlock V10; FS: all; Net: all; Scoped: all}
+[landrun:error] 2026/11/11 09:48:55 Failed to apply sandbox: failed to apply Landlock restrictions: missing kernel Landlock support. Got Landlock ABI v0, wanted {Landlock V10; FS: all; Net: all; Scoped: all}
