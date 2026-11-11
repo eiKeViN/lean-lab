@@ -1,0 +1,79 @@
+{
+  "classification": "infrastructure failure after packet exposure; keep original records and evaluate separate fresh replay",
+  "cause": "Thread startup inherited a read-only permission description even though the isolated dynamic shell mounted /work writable. All four independently declined to write. Smoke that only asked for an explicit tool write failed to catch the controller metadata mismatch.",
+  "repair": "Explicit thread workspace-write sandbox and runtimeWorkspaceRoots [/work]. Physical worker sandbox, frozen packet, models, budgets and assignments identical.",
+  "runs": [
+    {
+      "id": "cedar",
+      "elapsed_seconds": 27.945189301000028,
+      "reason": "all_agents_completed",
+      "usage": {
+        "inputTokens": 60242,
+        "cachedInputTokens": 40576,
+        "outputTokens": 913,
+        "reasoningOutputTokens": 381,
+        "totalTokens": 61155,
+        "cacheWriteInputTokens": 0,
+        "uncachedInputTokens": 19666,
+        "normalisedUnits": 212512
+      },
+      "model": "gpt-6.1-sol",
+      "answer": "I read the SHEAF launcher instructions and approved targets A\u2013E, and located the prepared Lean project.\n\nExecution is blocked: this session\u2019s sandbox permits **read-only filesystem access**, with permission escalation disabled. I cannot copy coordination files, write proofs, or produce build artifacts.\n\nNo files were changed, and no targets were proved. Restart with a writable `/work` workspace to proceed; your existing scope and settings require no further confirmation.",
+      "submitted_new_lean_sources": 0
+    },
+    {
+      "id": "flint",
+      "elapsed_seconds": 26.67275418400004,
+      "reason": "all_agents_completed",
+      "usage": {
+        "inputTokens": 63032,
+        "cachedInputTokens": 22528,
+        "outputTokens": 683,
+        "reasoningOutputTokens": 270,
+        "totalTokens": 63715,
+        "cacheWriteInputTokens": 0,
+        "uncachedInputTokens": 40504,
+        "normalisedUnits": 357488
+      },
+      "model": "gpt-6.1-sol",
+      "answer": "I read the SHEAF launcher instructions and inspected the prepared project. This session\u2019s enforced read-only permissions prevent copying coordination files, writing Lean proofs, or producing build artifacts; permission escalation is disabled.\n\nNo files were changed. Targets A\u2013E remain incomplete. Completing this task requires a new run with workspace write access.",
+      "submitted_new_lean_sources": 0
+    },
+    {
+      "id": "maple",
+      "elapsed_seconds": 27.259712860000036,
+      "reason": "all_agents_completed",
+      "usage": {
+        "inputTokens": 70920,
+        "cachedInputTokens": 51968,
+        "outputTokens": 607,
+        "reasoningOutputTokens": 208,
+        "totalTokens": 71527,
+        "cacheWriteInputTokens": 0,
+        "uncachedInputTokens": 18952,
+        "normalisedUnits": 213296
+      },
+      "model": "gpt-6.1-sol",
+      "answer": "The session\u2019s filesystem policy is **read-only**, so I cannot create Lean modules, write `TARGETS.md`, or produce build artifacts.\n\nI inspected the inputs and confirmed the supplied Tillich\u2013Z\u00e9mor theorem is available. The seeded project contains only an import and `#check`; results A\u2013E remain incomplete. No files were changed.\n\nCompleting this task requires a session with write access to `/work`.",
+      "submitted_new_lean_sources": 0
+    },
+    {
+      "id": "slate",
+      "elapsed_seconds": 24.87251310299962,
+      "reason": "all_agents_completed",
+      "usage": {
+        "inputTokens": 52063,
+        "cachedInputTokens": 35712,
+        "outputTokens": 587,
+        "reasoningOutputTokens": 276,
+        "totalTokens": 52650,
+        "cacheWriteInputTokens": 0,
+        "uncachedInputTokens": 16351,
+        "normalisedUnits": 175912
+      },
+      "model": "gpt-6.1-sol",
+      "answer": "The active sandbox is **read-only**, with permission escalation disabled, so I cannot create the Lean sources or `TARGETS.md`, or produce build artifacts.\n\nI inspected the task and seeded project. No files were changed; targets A\u2013E remain incomplete. Completing this requires a session with writable access to `/work`.",
+      "submitted_new_lean_sources": 0
+    }
+  ]
+}

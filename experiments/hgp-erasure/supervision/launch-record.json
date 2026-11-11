@@ -1,0 +1,30 @@
+{
+  "status": "started",
+  "start_utc": {
+    "cedar": "2026-11-11T10:13:01.580911+00:00",
+    "flint": "2026-11-11T10:13:01.581923+00:00",
+    "maple": "2026-11-11T10:13:01.582366+00:00",
+    "slate": "2026-11-11T10:13:01.582803+00:00"
+  },
+  "start_spread_seconds": 0.0019,
+  "preflight": {
+    "offline_import": "passed",
+    "fresh_lake_build": "passed",
+    "qec_modules_built": 41,
+    "mathlib_cache_entries": 8690,
+    "model": "gpt-6.1-sol",
+    "fallback": false,
+    "worker_shell_tests": [
+      "shared room only",
+      "offline",
+      "dependency writes refused"
+    ],
+    "concurrent_session_cap": 4,
+    "smoke_controls": {
+      "valid_proof": "accepted",
+      "wrong_statement": "rejected",
+      "sorry_proof": "rejected"
+    }
+  },
+  "progress": "Preliminary launch record; scores will follow independent verification."
+}

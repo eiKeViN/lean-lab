@@ -246,7 +246,8 @@ class Controller:
     async def start_agent(self, agent: Agent, prompt: str):
         try:
             result = await self.call('thread/start', {'model': MODEL, 'allowProviderModelFallback': False,
-                'environments': [], 'cwd': '/work', 'ephemeral': True, 'approvalPolicy': 'never', 'dynamicTools': TOOLS})
+                'environments': [], 'cwd': '/work', 'sandbox': 'workspace-write', 'runtimeWorkspaceRoots': ['/work'],
+                'ephemeral': True, 'approvalPolicy': 'never', 'dynamicTools': TOOLS})
             if result.get('model') != MODEL:
                 raise RuntimeError('Model mismatch: ' + str(result.get('model')))
             agent.thread = result['thread']['id']
