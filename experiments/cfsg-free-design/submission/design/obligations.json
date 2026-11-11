@@ -1,0 +1,698 @@
+{
+  "schema_version": 1,
+  "evidence_level": "project-design; not theorem-level dependency graph or Lean verification",
+  "target": "TauCeti.ClassificationStatement",
+  "mathlib_rev": "b63f6e8a68d220e3b3bc4f3792bb53650d375f24",
+  "tauceti_rev": "6e0c6acab5f4c6f42e5f5bab9bd5e4e84f74c380",
+  "packages": [
+    {
+      "id": "E00",
+      "stream": "工程",
+      "title": "固定版本、完整依赖与源码审计",
+      "depends_on": [],
+      "acceptance": "重建基线并记录工具链、导入闭包、定义及公理清单",
+      "status": "proposed_unverified",
+      "owner_role": "工程负责人"
+    },
+    {
+      "id": "E01",
+      "stream": "工程",
+      "title": "证明与计算证书基础设施",
+      "depends_on": [
+        "E00"
+      ],
+      "acceptance": "声明级依赖审计、重放器、资源度量与独立构建",
+      "status": "proposed_unverified",
+      "owner_role": "工程负责人"
+    },
+    {
+      "id": "F00",
+      "stream": "基础",
+      "title": "有限section与阶归纳",
+      "depends_on": [
+        "E00"
+      ],
+      "acceptance": "子群/正规商/section的同构运输、阶界与单群性质",
+      "status": "proposed_unverified",
+      "owner_role": "基础负责人"
+    },
+    {
+      "id": "F01",
+      "stream": "基础",
+      "title": "p局部子群与有限秩",
+      "depends_on": [
+        "F00"
+      ],
+      "acceptance": "O_p/O_pi、Hall、Sylow、elementary abelian秩及局部定义",
+      "status": "proposed_unverified",
+      "owner_role": "基础负责人"
+    },
+    {
+      "id": "F02",
+      "stream": "基础",
+      "title": "幂零与广义Fitting",
+      "depends_on": [
+        "F01"
+      ],
+      "acceptance": "Frattini、Fitting、layer、quasisimple、subnormal及中心积",
+      "status": "proposed_unverified",
+      "owner_role": "基础负责人"
+    },
+    {
+      "id": "F03",
+      "stream": "基础",
+      "title": "互素作用与局部模",
+      "depends_on": [
+        "F02"
+      ],
+      "acceptance": "交换子恒等式、固定点、replacement、critical subgroup",
+      "status": "proposed_unverified",
+      "owner_role": "基础负责人"
+    },
+    {
+      "id": "F04",
+      "stream": "基础",
+      "title": "转移与融合",
+      "depends_on": [
+        "F01"
+      ],
+      "acceptance": "transfer、normal complement、fusion与strong closure",
+      "status": "proposed_unverified",
+      "owner_role": "基础负责人"
+    },
+    {
+      "id": "R00",
+      "stream": "表示",
+      "title": "普通特征标",
+      "depends_on": [
+        "F00"
+      ],
+      "acceptance": "正交性、不可约分解、代数整数、诱导限制及Clifford理论",
+      "status": "proposed_unverified",
+      "owner_role": "表示负责人"
+    },
+    {
+      "id": "R01",
+      "stream": "表示",
+      "title": "模表示与块",
+      "depends_on": [
+        "R00",
+        "F03"
+      ],
+      "acceptance": "Brauer character、缺陷与块、所用分解数的独立证明",
+      "status": "proposed_unverified",
+      "owner_role": "表示负责人"
+    },
+    {
+      "id": "R02",
+      "stream": "表示",
+      "title": "扩张与乘子工具",
+      "depends_on": [
+        "R00",
+        "F02"
+      ],
+      "acceptance": "H1/H2、中心扩张、Schur multiplier的所需计算",
+      "status": "proposed_unverified",
+      "owner_role": "表示负责人"
+    },
+    {
+      "id": "A00",
+      "stream": "Lie",
+      "title": "根群与积分模型",
+      "depends_on": [
+        "E00"
+      ],
+      "acceptance": "全部所需正负根关系、生成、pinning及尚缺的群方案比较",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "A01",
+      "stream": "Lie",
+      "title": "Steinberg固定点与有限域",
+      "depends_on": [
+        "A00",
+        "F00"
+      ],
+      "acceptance": "保根保F同构、下降、固定点有限性及候选商运输",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "A02",
+      "stream": "Lie",
+      "title": "BN-pair与阶公式",
+      "depends_on": [
+        "A01",
+        "F01"
+      ],
+      "acceptance": "Bruhat分解、有限生成、中心、导群、阶公式与简单性准则",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "C00",
+      "stream": "名单",
+      "title": "循环与交错群",
+      "depends_on": [
+        "F00"
+      ],
+      "acceptance": "素数循环分类和交错群有限单性及固定载体桥",
+      "status": "proposed_unverified",
+      "owner_role": "名单负责人"
+    },
+    {
+      "id": "L01",
+      "stream": "Lie",
+      "title": "经典A/C族",
+      "depends_on": [
+        "A02"
+      ],
+      "acceptance": "A及twistedA、C的全参数有限单性与识别",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "L02",
+      "stream": "Lie",
+      "title": "B/D与spin族",
+      "depends_on": [
+        "A02",
+        "R02"
+      ],
+      "acceptance": "B、D、twistedD含坏特征、中心商及spin载体桥",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "L03",
+      "stream": "Lie",
+      "title": "普通例外族",
+      "depends_on": [
+        "A02"
+      ],
+      "acceptance": "E6/E7/E8/F4/G2的全参数结构与载体桥",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "L04",
+      "stream": "Lie",
+      "title": "图扭曲例外族",
+      "depends_on": [
+        "L03",
+        "L02"
+      ],
+      "acceptance": "twistedE6及trialityD4的保Steinberg比较及识别",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "L05",
+      "stream": "Lie",
+      "title": "Suzuki/Ree/Tits",
+      "depends_on": [
+        "A02"
+      ],
+      "acceptance": "三半Frobenius族及Tits导群的有限单性与比较",
+      "status": "proposed_unverified",
+      "owner_role": "Lie负责人"
+    },
+    {
+      "id": "S00",
+      "stream": "散在",
+      "title": "呈示与证书通用层",
+      "depends_on": [
+        "E01",
+        "F00"
+      ],
+      "acceptance": "自由群商泛性质、Tietze及BSGS/陪集证书的健全性",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "S01",
+      "stream": "散在",
+      "title": "Mathieu族",
+      "depends_on": [
+        "S00",
+        "F04"
+      ],
+      "acceptance": "M11/M12/M22/M23/M24的构造、简单性、局部识别、呈示同构",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "S02",
+      "stream": "散在",
+      "title": "Janko族",
+      "depends_on": [
+        "S00",
+        "R00",
+        "R02"
+      ],
+      "acceptance": "J1/J2/J3/J4的有限模型、结构与各呈示上下界",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "S03",
+      "stream": "散在",
+      "title": "Conway与Suz",
+      "depends_on": [
+        "S00",
+        "R00"
+      ],
+      "acceptance": "格及有限几何构造Co1/Co2/Co3/Suz与呈示识别",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "S04",
+      "stream": "散在",
+      "title": "图与局部几何六族",
+      "depends_on": [
+        "S00",
+        "R00"
+      ],
+      "acceptance": "HS/McL/He/Ru/ON/Ly的模型、局部识别与呈示识别",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "S05",
+      "stream": "散在",
+      "title": "Fischer族",
+      "depends_on": [
+        "S00",
+        "R01"
+      ],
+      "acceptance": "三换位结构Fi22/Fi23/Fi24prime及派生/中心问题",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "S06",
+      "stream": "散在",
+      "title": "HN/Th与Baby Monster",
+      "depends_on": [
+        "S00",
+        "R01",
+        "R02"
+      ],
+      "acceptance": "HN/Th/B的存在、有限单性及精确呈示同构",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "S07",
+      "stream": "散在",
+      "title": "Monster",
+      "depends_on": [
+        "S00",
+        "S03",
+        "S06",
+        "R02"
+      ],
+      "acceptance": "独立有限模型、存在/唯一性、Y443中心关系与80关系目标同构",
+      "status": "proposed_unverified",
+      "owner_role": "散在负责人"
+    },
+    {
+      "id": "N00",
+      "stream": "名单",
+      "title": "小同构正规化",
+      "depends_on": [
+        "C00",
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "acceptance": "六重复项及低秩/小域导群例外归到有效index",
+      "status": "proposed_unverified",
+      "owner_role": "名单负责人"
+    },
+    {
+      "id": "K00",
+      "stream": "已知族",
+      "title": "全部已知族的局部结构表",
+      "depends_on": [
+        "C00",
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "R01",
+        "R02"
+      ],
+      "acceptance": "所需Aut/Out、乘子、involution中心化子、局部模与子群表逐项独立证明",
+      "status": "proposed_unverified",
+      "owner_role": "已知族负责人"
+    },
+    {
+      "id": "I00",
+      "stream": "归纳",
+      "title": "K群与K-proper接口",
+      "depends_on": [
+        "F00"
+      ],
+      "acceptance": "仅从较小单section已分类推出真子群K性，明示card严格下降",
+      "status": "proposed_unverified",
+      "owner_role": "归纳负责人"
+    },
+    {
+      "id": "O00",
+      "stream": "奇数阶",
+      "title": "极小反例局部理论",
+      "depends_on": [
+        "F02",
+        "F03",
+        "F04"
+      ],
+      "acceptance": "奇数阶极小非可解群、Hall系统、极大子群及TI/Frobenius结构",
+      "status": "proposed_unverified",
+      "owner_role": "奇数阶负责人"
+    },
+    {
+      "id": "O01",
+      "stream": "奇数阶",
+      "title": "特征标与数论矛盾",
+      "depends_on": [
+        "O00",
+        "R00"
+      ],
+      "acceptance": "exceptional characters、诱导等距及所需数论引理",
+      "status": "proposed_unverified",
+      "owner_role": "奇数阶负责人"
+    },
+    {
+      "id": "O02",
+      "stream": "奇数阶",
+      "title": "Feit-Thompson收口",
+      "depends_on": [
+        "O01"
+      ],
+      "acceptance": "任意有限奇数阶群可解及非阿贝尔有限单群偶数阶",
+      "status": "proposed_unverified",
+      "owner_role": "奇数阶负责人"
+    },
+    {
+      "id": "T00",
+      "stream": "局部分类",
+      "title": "低2秩与强嵌入",
+      "depends_on": [
+        "F02",
+        "F04",
+        "R01",
+        "I00",
+        "K00"
+      ],
+      "acceptance": "低秩各Sylow形状、转移、强嵌入及相应族识别",
+      "status": "proposed_unverified",
+      "owner_role": "局部分类负责人"
+    },
+    {
+      "id": "T01",
+      "stream": "局部分类",
+      "title": "可解signalizer",
+      "depends_on": [
+        "F02",
+        "F03",
+        "F04"
+      ],
+      "acceptance": "theta函数平衡、完备性与连接性",
+      "status": "proposed_unverified",
+      "owner_role": "局部分类负责人"
+    },
+    {
+      "id": "T02",
+      "stream": "局部分类",
+      "title": "非可解signalizer",
+      "depends_on": [
+        "T01",
+        "I00",
+        "K00"
+      ],
+      "acceptance": "K群假设下signalizer与组件控制，不假设总CFSG",
+      "status": "proposed_unverified",
+      "owner_role": "局部分类负责人"
+    },
+    {
+      "id": "T03",
+      "stream": "分量",
+      "title": "平衡与标准分量约化",
+      "depends_on": [
+        "T02",
+        "R02"
+      ],
+      "acceptance": "centralizer奇核商分量的提升、balance、standard-form及显式例外",
+      "status": "proposed_unverified",
+      "owner_role": "分量负责人"
+    },
+    {
+      "id": "T04",
+      "stream": "分量",
+      "title": "经典与交错分量识别",
+      "depends_on": [
+        "T03",
+        "K00",
+        "A02"
+      ],
+      "acceptance": "覆盖交错/经典分量、弱闭性及几何重建所有参数",
+      "status": "proposed_unverified",
+      "owner_role": "分量负责人"
+    },
+    {
+      "id": "T05",
+      "stream": "分量",
+      "title": "例外Lie分量识别",
+      "depends_on": [
+        "T03",
+        "K00",
+        "A02"
+      ],
+      "acceptance": "覆盖例外与扭曲Lie分量及坏特征例外",
+      "status": "proposed_unverified",
+      "owner_role": "分量负责人"
+    },
+    {
+      "id": "T06",
+      "stream": "分量",
+      "title": "散在分量与例外识别",
+      "depends_on": [
+        "T03",
+        "K00",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "acceptance": "每个散在分量及混合/例外局部构形回到名单",
+      "status": "proposed_unverified",
+      "owner_role": "分量负责人"
+    },
+    {
+      "id": "T07",
+      "stream": "桥接",
+      "title": "非D且非C2残余约化",
+      "depends_on": [
+        "T01",
+        "T02",
+        "F04",
+        "K00"
+      ],
+      "acceptance": "证明残余矛盾或给出有限明列例外并逐个识别",
+      "status": "proposed_unverified",
+      "owner_role": "桥接负责人"
+    },
+    {
+      "id": "T08",
+      "stream": "特征2",
+      "title": "pushing-up与局部模",
+      "depends_on": [
+        "F03",
+        "R01",
+        "T01",
+        "I00",
+        "K00"
+      ],
+      "acceptance": "大2子群、parabolic系统、quadratic/FF模与amalgam约束",
+      "status": "proposed_unverified",
+      "owner_role": "特征2负责人"
+    },
+    {
+      "id": "T09",
+      "stream": "特征2",
+      "title": "quasithin完整分支",
+      "depends_on": [
+        "T08"
+      ],
+      "acceptance": "QTKE接口、两卷全部所需局部结构及简单QTKE识别，显式处理例外",
+      "status": "proposed_unverified",
+      "owner_role": "特征2负责人"
+    },
+    {
+      "id": "T10",
+      "stream": "特征2",
+      "title": "高宽度几何与识别",
+      "depends_on": [
+        "T08",
+        "A02"
+      ],
+      "acceptance": "rank1/2与高秩几何、连通/单连通、Curtis-Tits/Phan及识别",
+      "status": "proposed_unverified",
+      "owner_role": "特征2负责人"
+    },
+    {
+      "id": "T11",
+      "stream": "特征2",
+      "title": "特征2型散在与例外",
+      "depends_on": [
+        "T08",
+        "K00",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "acceptance": "几何分支以外逐个局部构形识别及quasithin外例外",
+      "status": "proposed_unverified",
+      "owner_role": "特征2负责人"
+    },
+    {
+      "id": "D00",
+      "stream": "总路由",
+      "title": "原始谓词覆盖",
+      "depends_on": [
+        "F01",
+        "F02",
+        "O02"
+      ],
+      "acceptance": "阿贝尔/奇偶/2秩/D/C2/e2的逻辑分支穷尽",
+      "status": "proposed_unverified",
+      "owner_role": "总路由负责人"
+    },
+    {
+      "id": "D01",
+      "stream": "总路由",
+      "title": "文献假设桥接",
+      "depends_on": [
+        "D00",
+        "T03",
+        "T07",
+        "T08"
+      ],
+      "acceptance": "D、C2、宽度与所用各文献假设之间的确切蕴含和例外覆盖",
+      "status": "proposed_unverified",
+      "owner_role": "总路由负责人"
+    },
+    {
+      "id": "Z00",
+      "stream": "收口",
+      "title": "K-proper单群分类",
+      "depends_on": [
+        "D01",
+        "T00",
+        "T04",
+        "T05",
+        "T06",
+        "T09",
+        "T10",
+        "T11",
+        "N00"
+      ],
+      "acceptance": "在完整显式K-proper假设下产出具体CFSGIndex与MulEquiv",
+      "status": "proposed_unverified",
+      "owner_role": "收口负责人"
+    },
+    {
+      "id": "Z01",
+      "stream": "收口",
+      "title": "无条件阶归纳",
+      "depends_on": [
+        "Z00",
+        "I00",
+        "C00"
+      ],
+      "acceptance": "对Nat.card强归纳消去所有K假设，得到Type零分类",
+      "status": "proposed_unverified",
+      "owner_role": "收口负责人"
+    },
+    {
+      "id": "Z02",
+      "stream": "收口",
+      "title": "固定目标与全名单核验",
+      "depends_on": [
+        "Z01",
+        "K00",
+        "E01"
+      ],
+      "acceptance": "全宇宙ClassificationStatement、逐项Finite/IsSimpleGroup及完整公理审计",
+      "status": "proposed_unverified",
+      "owner_role": "收口负责人"
+    }
+  ],
+  "lie_family_owner": {
+    "A": "L01",
+    "twistedA": "L01",
+    "B": "L02",
+    "C": "L01",
+    "D": "L02",
+    "twistedD": "L02",
+    "E6": "L03",
+    "E7": "L03",
+    "E8": "L03",
+    "F4": "L03",
+    "G2": "L03",
+    "twistedE6": "L04",
+    "trialityD4": "L04",
+    "suzuki": "L05",
+    "reeG2": "L05",
+    "reeF4": "L05",
+    "tits": "L05"
+  },
+  "sporadic_owner": {
+    "M11": "S01",
+    "M12": "S01",
+    "M22": "S01",
+    "M23": "S01",
+    "M24": "S01",
+    "J1": "S02",
+    "J2": "S02",
+    "J3": "S02",
+    "J4": "S02",
+    "Co1": "S03",
+    "Co2": "S03",
+    "Co3": "S03",
+    "Suz": "S03",
+    "HS": "S04",
+    "McL": "S04",
+    "He": "S04",
+    "Ru": "S04",
+    "ONan": "S04",
+    "Ly": "S04",
+    "Fi22": "S05",
+    "Fi23": "S05",
+    "Fi24Prime": "S05",
+    "HN": "S06",
+    "Th": "S06",
+    "B": "S06",
+    "M": "S07"
+  }
+}

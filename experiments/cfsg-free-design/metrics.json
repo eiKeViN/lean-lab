@@ -1,0 +1,79 @@
+{
+  "reason": "model_budget",
+  "elapsed": 569.159321808,
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "limits": {
+    "seconds": 900.0,
+    "units": 6000000,
+    "simultaneous_sessions": 4
+  },
+  "usage": {
+    "inputTokens": 3222122,
+    "cachedInputTokens": 2927104,
+    "outputTokens": 53255,
+    "reasoningOutputTokens": 5524,
+    "totalTokens": 3275377,
+    "cacheWriteInputTokens": 0,
+    "uncachedInputTokens": 295018,
+    "normalisedUnits": 6139328
+  },
+  "agents": [
+    {
+      "id": "agent-1",
+      "role": "launcher",
+      "parent": null,
+      "status": "terminated",
+      "usage": {
+        "inputTokens": 1224369,
+        "cachedInputTokens": 1153536,
+        "outputTokens": 20831,
+        "reasoningOutputTokens": 2822,
+        "totalTokens": 1245200,
+        "cacheWriteInputTokens": 0
+      }
+    },
+    {
+      "id": "agent-2",
+      "role": "数学路线审计",
+      "parent": "agent-1",
+      "status": "terminated",
+      "usage": {
+        "inputTokens": 306014,
+        "cachedInputTokens": 236672,
+        "outputTokens": 7418,
+        "reasoningOutputTokens": 1153,
+        "totalTokens": 313432,
+        "cacheWriteInputTokens": 0
+      }
+    },
+    {
+      "id": "agent-3",
+      "role": "目标载体审计",
+      "parent": "agent-1",
+      "status": "terminated",
+      "usage": {
+        "inputTokens": 1407607,
+        "cachedInputTokens": 1308672,
+        "outputTokens": 16784,
+        "reasoningOutputTokens": 653,
+        "totalTokens": 1424391,
+        "cacheWriteInputTokens": 0
+      }
+    },
+    {
+      "id": "agent-4",
+      "role": "工程与基线审计",
+      "parent": "agent-1",
+      "status": "terminated",
+      "usage": {
+        "inputTokens": 284132,
+        "cachedInputTokens": 228224,
+        "outputTokens": 8222,
+        "reasoningOutputTokens": 896,
+        "totalTokens": 292354,
+        "cacheWriteInputTokens": 0
+      }
+    }
+  ]
+}

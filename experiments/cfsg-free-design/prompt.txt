@@ -1,0 +1,1 @@
+Read TASK.md and design the requested full CFSG formalization project. Use the available tools as you judge appropriate. Deliver a concrete reviewable proposal in Chinese in PLAN.zh-CN.md.

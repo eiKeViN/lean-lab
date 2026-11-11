@@ -1,0 +1,7 @@
+# Full CFSG project design
+
+Design how you would organize and execute a new, genuinely large Lean formalization of the full Classification of Finite Simple Groups, culminating in the pinned TauCeti.ClassificationStatement and its concrete list of groups. The intended project starts from the supplied Mathlib/TauCeti baseline, with all additional mathematical obligations accounted for. Reusing a complete external proof of the final classification is not the experiment.
+
+The user wants to see what a free agent team itself designs for a project of this scale. There is no prescribed organizational framework, proof decomposition, role hierarchy, development process, or artifact format. Use your judgment and the available tools to produce a concrete and reviewable proposal in Chinese, with whatever supporting artifacts you find necessary. This turn is project design. Future implementation resources can be proposed as part of your design. The limit of four simultaneous agent sessions applies to this planning run.
+
+The source packet is in sources/. It contains the exact classification target definitions, Mathlib source inventory, selected source files and published bibliography. Its README identifies the evidence limits. Plan a real end-to-end development, including the supporting theory it would require. Save your final proposal as PLAN.zh-CN.md in /work. Do not claim code has been kernel checked in this source-only environment.
