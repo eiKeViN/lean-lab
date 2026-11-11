@@ -2,7 +2,7 @@
 
 **自由组完成 A、B、C；SHEAF 组没有完整交付 A–E 中的任何一项。两组都没有交付完整项目。** 自由组首次交付了任意 CSS 擦除区域的两条秩公式、两条互补公式，以及最小失败擦除大小等于 CSS 码距的证明。SHEAF 的 A 草稿含可独立恢复的参数与距离证明。两组均使用同一冻结的 QECert、相同题面和 GPT-6.1 Sol/high，从空白工程开始，各有四个并发模型席位。每种条件各一次。
 
-[预登记](PROTOCOL.md) · [原始题面](../packet/source.md) · [运行数据](metrics.json) · [完整源码快照与可重放事件](https://chatgpt.com/library?file_id=libfile_67dc0103f9f88191923802fa2837f8ab&account_id=personal)
+[协作过程与摩擦复盘](COLLABORATION.zh-CN.md) · [预登记](PROTOCOL.md) · [原始题面](../packet/source.md) · [运行数据](metrics.json) · [完整源码快照与可重放事件](https://chatgpt.com/library?file_id=libfile_67dc0103f9f88191923802fa2837f8ab&account_id=personal)
 
 ## 数学验收
 
