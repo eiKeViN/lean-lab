@@ -1,0 +1,331 @@
+{
+  "run": "cedar",
+  "blinded_id": "candidate-2",
+  "evidence": "Independent source and axiom reviews. Paths and names inside the review are preserved from the anonymous evaluation. An axiom-clean declaration in an otherwise failed module is not an importable module.",
+  "files": {
+    "findings.md": {
+      "sha256": "63ca7e262e5b7a58076742f596490924cae532b899077e5d58c93cca85daddf5",
+      "content": "# Candidate 2 independent review\n\n## Evidence boundary and provenance\n\nContestant evidence inspected: only `blind/candidate-2/source.md`, `acceptance.md`, `inventory.json`, and `tree/`. No grouping, run trace, or other candidate was inspected. Trusted supervisor checker and trusted QEC source were inspected to establish the meaning of imported definitions.\n\nEvery inventory module is labeled **working draft**. There are no landed deliverables and no `TARGETS.md` in the tree. The only substantive module is `Targets.A` (8556 bytes, SHA-256 `ef6b1be4b866e79df011112abeb031e01375fc96624cb10db21f8eec29027e44`). The remaining files are import/audit/syntax probes, not mathematical results.\n\n## Preliminary semantic assessment (mechanical results pending)\n\nA is intended in `Targets.A`: actual binary HGP checks and block-entry identities, orthogonality, qubit count, actual Z homology/X cohomology quotients with kernel/range identifications, both dimension product formulas, and both every-representative weight lower bounds. No rank or nonemptiness hypothesis is imposed. The supplied QEC parameter theorem may be reused under the acceptance rules. Its `inputDistanceMinimum` is the minimum of the four extended classical distances (zero code distance infinity).\n\nB, C, D, and both examples of E are absent. No arbitrary erasure-supported image, erasure rank identities, erasure inference theorem, failure/distance equivalence, universal strip dimensions, or concrete call sites are supplied.\n\nFresh offline audit selected all 14 mathematical theorems of `Targets.A`; map: `target-map.json`; output: `fresh/`. The command is the requested supervisor check, with CPUs 2,3 and timeout 500. Full mechanical outcome and any exact-prefix rescue will be recorded below.\n\n## Build execution notes\n\nThe requested fresh checker command was launched exactly as prescribed. Its Lake graph build spent several minutes replaying trusted dependencies and had not emitted candidate diagnostics. At the parent supervisor's instruction it was interrupted (session exit 130) to avoid duplicate heavy builds. Its partial trusted dependency log is preserved under `fresh/fresh-room/_supervisor_logs/command-001.stdout`; this is an interrupted check, not a failed candidate result.\n\nA focused fresh elaboration is running against the identical copied source in `focused/fresh-room/project/Targets/A.lean`, using the trusted generated Lake configuration and immutable trusted QEC artifacts: `lake --no-cache --no-ansi env lean -o .lake/build/lib/lean/Targets/A.olean Targets/A.lean`. It bypasses the graph replay, while elaborating the exact submitted source. Source identity is recorded in `focused/source-sha256.json`.\n\nThe focused full-source elaboration reached its 500-second timeout with no diagnostics and no output olean. `focused/compile.stdout` records `[command timed out]`. This establishes neither a Lean proof failure nor a successful compile; full A remains mechanically unverified.\n\nA serial exact-prefix audit is queued under the shared workspace `preflight/grade-import.lock`, with a 600-second room timeout and no CPU affinity restriction. It uses original lines 1–104 (through `z_dimension`) verbatim, appends only the closing namespace, then nonmathematical `#check`/`#print axioms` commands. Provenance is in `prefix/provenance.json`; original-prefix SHA-256 `cd19df2c5ac7abdd00e28eb803d46f4a214c08080d3d45623b18cd6f48e1251f`, closed-prefix SHA-256 `ed0ff937772d9e1149c175df2cd7c3663bc355703e757bb7969d624246cc5deb`. This is a supervisor-isolated prefix of a working draft, not a landed module.\n\n## Established exact-prefix partial\n\nThe serial prefix check completed **exit 0**. All eleven declarations from `checkP_inl` through `z_dimension` passed actual Lean elaboration, and their transitive axiom lists contain exactly the permitted `propext`, `Classical.choice`, and `Quot.sound`. No `sorryAx` or extra axiom occurs. Results: `prefix/audit.stdout`, parsed `prefix/report.json`.\n\nThis establishes genuine reusable A partials for the actual HGP construction: all four block-entry formulas, orthogonality, blocklength, both sector kernel/range identifications (and their actual quotient abbreviations), and the exact Z logical dimension formula, uniformly for finite coordinate sets including empty sets. It does **not** establish the later X dimension theorem or either representative-distance wrapper. Because the prefix is supervisor-extracted from a working draft, it is distinct from a landed deliverable.\n\nA full unedited-source elaboration with all fourteen axiom checks appended is now queued under the same shared lock, to resolve whether the earlier full-source timeout reflected contention. Source identity is recorded in `serial-full/provenance.json`.\n\n## Final full-source result\n\nThe full-source serial audit completed **exit 1**, with a genuine Lean error at original `Targets/A.lean:138:37`:\n\n> `Module.finrank (ZMod 2) K.middleCycleCode` supplies a `LinearCode` value where a type is required.\n\nNo repair was made. Lean's error-recovery declaration `Sheaf.HGP.x_dimension` has transitive `sorryAx`, so it fails acceptance. This is an elaboration defect in the attempted proof, not a hidden hypothesis in the theorem statement. The statements themselves faithfully express A.\n\nThe eleven prefix declarations again show only the three permitted axioms in the full-source run. Both later declarations `Sheaf.HGP.z_representative_weight` and `Sheaf.HGP.x_representative_weight` also elaborate locally and print only the permitted axioms, with the expected actual-cycle / not-boundary hypotheses and the four-distance lower bound. They do not depend on the erroneous `x_dimension`. Nevertheless the full module failed, so these later terms are **not** certified as a separately importable, unchanged-prefix deliverable. The strict reusable certified partial is the exact prefix described above. Full log: `serial-full/audit.stdout`; machine summary: `serial-full/report.json`.\n\n## Coverage judgment\n\n| Target | Final evidence | Judgment |\n|---|---|---|\n| A | Actual P/D, all four block-entry formulas, orthogonality, length, actual quotient semantics, and Z dimension certified in exact prefix; X dimension proof fails; both distance wrappers locally axiom-clean after the error | Incomplete; strong semantically faithful working-draft partial |\n| B | No declarations or definitions | Absent |\n| C | No declarations or definitions | Absent |\n| D | No declarations or definitions | Absent; neither universal numerical identity is proved |\n| E.1 | No concrete HGP call site, supported dimensions, or distance proof | Absent |\n| E.2 | No concrete HGP call site, supported dimensions, or nontrivial representative verification | Absent |\n\nNo full target A–E is accepted as a completed landed deliverable. The certified prefix is useful real mathematics: the requested HGP construction, both actual sectors and their quotient semantics, orthogonality/length, and the unrestricted Z dimension formula. It assumes only finite decidable coordinate types and the arbitrary input check matrices, allowing empty coordinates and dependent rows. It is not a tautological substitute for erasure semantics; those erasure results simply have not been attempted here.\n\nAll work for this review was written under `blind/review-2`. No contestant file, git state, or shared repository source was modified. All heavy post-timeout audits used the shared workspace file lock, now released.\n"
+    },
+    "prefix/report.json": {
+      "sha256": "ad211a7f49ca890f4f50f73b02a52cd7c69503d3b4e573f16c5c0d1c720fd7e1",
+      "content": {
+        "label": "supervisor-exact-prefix-of-working-draft-not-landed",
+        "compile_exit_code": 0,
+        "mathematical_edits": false,
+        "checks": [
+          {
+            "declaration": "Sheaf.HGP.checkP_inl",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.checkP_inr",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.checkD_inl",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.checkD_inr",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.checks_orthogonal",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.length_eq",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.zCycles_eq",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.zBoundaries_eq",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.xCycles_eq",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.xBoundaries_eq",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Sheaf.HGP.z_dimension",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          }
+        ],
+        "status": "mechanical_checks_passed"
+      }
+    },
+    "prefix/audit.stdout": {
+      "sha256": "604b090edbd6bafa41a411aa3743c88385f7b35a57a4c474b2339ac2e6bb5fe2",
+      "content": "[exit 0]\nSupervisorPrefixAudit.lean:64:0: warning: automatically included section variable(s) unused in theorem `Sheaf.HGP.length_eq`:\n  [DecidableEq R₁]\n  [DecidableEq C₁]\n  [DecidableEq R₂]\n  [DecidableEq C₂]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq R₁] [DecidableEq C₁] [DecidableEq R₂] [DecidableEq C₂] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nSheaf.HGP.checkP_inl.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) (r : R₁) (c₂ c₂' : C₂) (c₁ : C₁) :\n  Eq.{1} (Sheaf.HGP.checkP.{u} H (Prod.mk.{u, u} r c₂) (Sum.inl.{u, u} (Prod.mk.{u, u} c₁ c₂')))\n    (ite.{1} (Eq.{u + 1} c₂ c₂') (QEC.Coding.HypergraphProduct.Data.first.{0, u, u, u, u} H r c₁) 0)\n'Sheaf.HGP.checkP_inl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.checkP_inr.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) (r r' : R₁) (r₂ : R₂) (c₂ : C₂) :\n  Eq.{1} (Sheaf.HGP.checkP.{u} H (Prod.mk.{u, u} r c₂) (Sum.inr.{u, u} (Prod.mk.{u, u} r' r₂)))\n    (ite.{1} (Eq.{u + 1} r r') (QEC.Coding.HypergraphProduct.Data.second.{0, u, u, u, u} H r₂ c₂) 0)\n'Sheaf.HGP.checkP_inr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.checkD_inl.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) (c₁ c₁' : C₁) (r₂ : R₂) (c₂ : C₂) :\n  Eq.{1} (Sheaf.HGP.checkD.{u} H (Prod.mk.{u, u} c₁' r₂) (Sum.inl.{u, u} (Prod.mk.{u, u} c₁ c₂)))\n    (ite.{1} (Eq.{u + 1} c₁ c₁') (QEC.Coding.HypergraphProduct.Data.second.{0, u, u, u, u} H r₂ c₂) 0)\n'Sheaf.HGP.checkD_inl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.checkD_inr.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) (r₁ : R₁) (c₁ : C₁) (r₂ r₂' : R₂) :\n  Eq.{1} (Sheaf.HGP.checkD.{u} H (Prod.mk.{u, u} c₁ r₂') (Sum.inr.{u, u} (Prod.mk.{u, u} r₁ r₂)))\n    (ite.{1} (Eq.{u + 1} r₂ r₂') (QEC.Coding.HypergraphProduct.Data.first.{0, u, u, u, u} H r₁ c₁) 0)\n'Sheaf.HGP.checkD_inr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.checks_orthogonal.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) :\n  Eq.{u + 1} (HMul.hMul.{u, u, u} (Sheaf.HGP.checkP.{u} H) (Matrix.transpose.{0, u, u} (Sheaf.HGP.checkD.{u} H))) 0\n'Sheaf.HGP.checks_orthogonal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.length_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂] :\n  Eq.{1} (Fintype.card.{u} Sheaf.HGP.Qubit.{u})\n    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Fintype.card.{u} C₁) (Fintype.card.{u} C₂))\n      (HMul.hMul.{0, 0, 0} (Fintype.card.{u} R₁) (Fintype.card.{u} R₂)))\n'Sheaf.HGP.length_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.zCycles_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) :\n  Eq.{u + 1}\n    (QEC.Coding.LinearCode.carrier.{0, u}\n      (QEC.Coding.ChainComplexData.middleCycleCode.{0, u} (QEC.Coding.HypergraphProduct.chainComplex.{0, u} H)))\n    (LinearMap.ker.{0, 0, u, u} (Matrix.toLin'.{0, u, u} (Sheaf.HGP.checkP.{u} H)))\n'Sheaf.HGP.zCycles_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.zBoundaries_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) :\n  Eq.{u + 1}\n    (QEC.Coding.LinearCode.carrier.{0, u}\n      (QEC.Coding.ChainComplexData.middleBoundaryCode.{0, u} (QEC.Coding.HypergraphProduct.chainComplex.{0, u} H)))\n    (LinearMap.range.{0, 0, u, u} (Matrix.toLin'.{0, u, u} (Matrix.transpose.{0, u, u} (Sheaf.HGP.checkD.{u} H))))\n'Sheaf.HGP.zBoundaries_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.xCycles_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) :\n  Eq.{u + 1}\n    (QEC.Coding.LinearCode.carrier.{0, u}\n      (QEC.Coding.ChainComplexData.middleCocycleCode.{0, u} (QEC.Coding.HypergraphProduct.chainComplex.{0, u} H)))\n    (LinearMap.ker.{0, 0, u, u} (Matrix.toLin'.{0, u, u} (Sheaf.HGP.checkD.{u} H)))\n'Sheaf.HGP.xCycles_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.xBoundaries_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) :\n  Eq.{u + 1}\n    (QEC.Coding.LinearCode.carrier.{0, u}\n      (QEC.Coding.ChainComplexData.firstCoboundaryCheckCode.{0, u}\n        (QEC.Coding.HypergraphProduct.chainComplex.{0, u} H)))\n    (LinearMap.range.{0, 0, u, u} (Matrix.toLin'.{0, u, u} (Matrix.transpose.{0, u, u} (Sheaf.HGP.checkP.{u} H))))\n'Sheaf.HGP.xBoundaries_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nSheaf.HGP.z_dimension.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Sheaf.HGP.Input.{u}) :\n  Eq.{1} (Module.finrank.{0, u} (ZMod 2) (Sheaf.HGP.ZLogical.{u} H))\n    (HAdd.hAdd.{0, 0, 0}\n      (HMul.hMul.{0, 0, 0} (QEC.Coding.Dimension.{0, u} (QEC.Coding.HypergraphProduct.firstCode.{u, 0} H))\n        (QEC.Coding.Dimension.{0, u} (QEC.Coding.HypergraphProduct.secondCode.{u, 0} H)))\n      (HMul.hMul.{0, 0, 0} (QEC.Coding.Dimension.{0, u} (QEC.Coding.HypergraphProduct.firstTransposeCode.{u, 0} H))\n        (QEC.Coding.Dimension.{0, u} (QEC.Coding.HypergraphProduct.secondTransposeCode.{u, 0} H))))\n'Sheaf.HGP.z_dimension' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\n"
+    },
+    "prefix/provenance.json": {
+      "sha256": "a901253f9caa0cf30d26d4091af99cc2bce2a91facf40f62fac66e4eede56033",
+      "content": {
+        "original_sha256": "ef6b1be4b866e79df011112abeb031e01375fc96624cb10db21f8eec29027e44",
+        "prefix_original_lines": 104,
+        "prefix_bytes": 4588,
+        "prefix_sha256": "cd19df2c5ac7abdd00e28eb803d46f4a214c08080d3d45623b18cd6f48e1251f",
+        "closing_bytes": "\nend Sheaf.HGP\n",
+        "closed_prefix_sha256": "ed0ff937772d9e1149c175df2cd7c3663bc355703e757bb7969d624246cc5deb",
+        "audit_combination_sha256": "5b50286f0760c72012c4cf2aafe67794c6f869a6f9e821222235459da2be4738",
+        "mathematical_edits": false
+      }
+    },
+    "serial-full/report.json": {
+      "sha256": "ec854dc57de30e45dbc5a99e77a04a5181ddfb95dac0eacee7016629687dc0e7",
+      "content": {
+        "compile_exit_code": 1,
+        "status": "incomplete_module",
+        "original_source_error_line": 138,
+        "diagnostic": "Module.finrank is applied to K.middleCycleCode (a LinearCode object), rather than a type such as its carrier.",
+        "checks": [
+          {
+            "declaration": "Sheaf.HGP.checkP_inl",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.checkP_inr",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.checkD_inl",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.checkD_inr",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.checks_orthogonal",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.length_eq",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.zCycles_eq",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.zBoundaries_eq",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.xCycles_eq",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.xBoundaries_eq",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.z_dimension",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.x_dimension",
+            "local_axiom_status": "rejected",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.z_representative_weight",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          },
+          {
+            "declaration": "Sheaf.HGP.x_representative_weight",
+            "local_axiom_status": "allowed_axioms_only",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [],
+            "module_importability": "blocked_by_module_elaboration_failure"
+          }
+        ],
+        "scope": "Exact full source with only nonmathematical audit commands appended; local terms after errors are not successful imports."
+      }
+    },
+    "serial-full/audit.stdout": {
+      "sha256": "5e041f02378fd7b1ab8a73e2a184f3c27a582cceea22aa66b6e24b1e23e0a8c3",
+      "content": "[exit 1]\nSupervisorFullAudit.lean:64:0: warning: automatically included section variable(s) unused in theorem `Sheaf.HGP.length_eq`:\n  [DecidableEq R₁]\n  [DecidableEq C₁]\n  [DecidableEq R₂]\n  [DecidableEq C₂]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq R₁] [DecidableEq C₁] [DecidableEq R₂] [DecidableEq C₂] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nSupervisorFullAudit.lean:138:37: error: Application type mismatch: The argument\n  K.middleCycleCode\nhas type\n  LinearCode (ZMod 2) (QubitIndex R₁ C₁ R₂ C₂)\nof sort `Type (max 0 u)` but is expected to have type\n  Type ?u.214\nof sort `Type (?u.214 + 1)` in the application\n  @Module.finrank (ZMod 2) K.middleCycleCode\nSheaf.HGP.checkP_inl.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) (r : R₁) (c₂ c₂' : C₂) (c₁ : C₁) :\n  Sheaf.HGP.checkP H (r, c₂) (Sum.inl (c₁, c₂')) = if c₂ = c₂' then H.first r c₁ else 0\n'Sheaf.HGP.checkP_inl' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.checkP_inr.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) (r r' : R₁) (r₂ : R₂) (c₂ : C₂) :\n  Sheaf.HGP.checkP H (r, c₂) (Sum.inr (r', r₂)) = if r = r' then H.second r₂ c₂ else 0\n'Sheaf.HGP.checkP_inr' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.checkD_inl.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) (c₁ c₁' : C₁) (r₂ : R₂) (c₂ : C₂) :\n  Sheaf.HGP.checkD H (c₁', r₂) (Sum.inl (c₁, c₂)) = if c₁ = c₁' then H.second r₂ c₂ else 0\n'Sheaf.HGP.checkD_inl' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.checkD_inr.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) (r₁ : R₁) (c₁ : C₁) (r₂ r₂' : R₂) :\n  Sheaf.HGP.checkD H (c₁, r₂') (Sum.inr (r₁, r₂)) = if r₂ = r₂' then H.first r₁ c₁ else 0\n'Sheaf.HGP.checkD_inr' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.checks_orthogonal.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) :\n  Sheaf.HGP.checkP H * (Sheaf.HGP.checkD H).transpose = 0\n'Sheaf.HGP.checks_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.length_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] :\n  Fintype.card Sheaf.HGP.Qubit = Fintype.card C₁ * Fintype.card C₂ + Fintype.card R₁ * Fintype.card R₂\n'Sheaf.HGP.length_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.zCycles_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) :\n  (QEC.Coding.HypergraphProduct.chainComplex H).middleCycleCode.carrier = (Matrix.toLin' (Sheaf.HGP.checkP H)).ker\n'Sheaf.HGP.zCycles_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.zBoundaries_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) :\n  (QEC.Coding.HypergraphProduct.chainComplex H).middleBoundaryCode.carrier =\n    (Matrix.toLin' (Sheaf.HGP.checkD H).transpose).range\n'Sheaf.HGP.zBoundaries_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.xCycles_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) :\n  (QEC.Coding.HypergraphProduct.chainComplex H).middleCocycleCode.carrier = (Matrix.toLin' (Sheaf.HGP.checkD H)).ker\n'Sheaf.HGP.xCycles_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.xBoundaries_eq.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) :\n  (QEC.Coding.HypergraphProduct.chainComplex H).firstCoboundaryCheckCode.carrier =\n    (Matrix.toLin' (Sheaf.HGP.checkP H).transpose).range\n'Sheaf.HGP.xBoundaries_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.z_dimension.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) :\n  Module.finrank (ZMod 2) (Sheaf.HGP.ZLogical H) =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H)\n'Sheaf.HGP.z_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.x_dimension.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input) :\n  Module.finrank (ZMod 2) (Sheaf.HGP.XLogical H) =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode H) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode H) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode H)\n'Sheaf.HGP.x_dimension' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nSheaf.HGP.z_representative_weight.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input)\n  (v : QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R₁ C₁ R₂ C₂))\n  (hv : (Matrix.toLin' (Sheaf.HGP.checkP H)) v = 0) (hn : v ∉ (Matrix.toLin' (Sheaf.HGP.checkD H).transpose).range) :\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum H ≤ ↑(QEC.Coding.HammingWeight v)\n'Sheaf.HGP.z_representative_weight' depends on axioms: [propext, Classical.choice, Quot.sound]\nSheaf.HGP.x_representative_weight.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (H : Sheaf.HGP.Input)\n  (v : QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R₁ C₁ R₂ C₂))\n  (hv : (Matrix.toLin' (Sheaf.HGP.checkD H)) v = 0) (hn : v ∉ (Matrix.toLin' (Sheaf.HGP.checkP H).transpose).range) :\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum H ≤ ↑(QEC.Coding.HammingWeight v)\n'Sheaf.HGP.x_representative_weight' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "serial-full/provenance.json": {
+      "sha256": "edbf2dbcbb1eb7f6218f6a3a72c18ff66aee3dc5512e1fad58b8845fc81b5704",
+      "content": {
+        "original_sha256": "ef6b1be4b866e79df011112abeb031e01375fc96624cb10db21f8eec29027e44",
+        "combined_sha256": "b469f0debbf015c007712b997fa0807298a0e0ca04dd6243123299abceb6b91c",
+        "mathematical_edits": false,
+        "appended": "#check and #print axioms only"
+      }
+    }
+  }
+}

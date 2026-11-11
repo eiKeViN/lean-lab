@@ -1,0 +1,152 @@
+{
+  "run": "flint",
+  "blinded_id": "candidate-4",
+  "evidence": "Independent source and axiom reviews. Paths and names inside the review are preserved from the anonymous evaluation. An axiom-clean declaration in an otherwise failed module is not an importable module.",
+  "files": {
+    "assessment.md": {
+      "sha256": "f28c7d688405506fcfe251704e6624d6adf9ccb2058391f14bed7aa4af1deb3c",
+      "content": "# Independent blinded review: candidate 4\n\n## Scope and provenance\nOnly candidate-4/source.md, acceptance.md, inventory.json and tree/ were used as contestant material. The inventory records every module as a **working draft**. No TARGETS.md, claimed A–E target map, or submitted final target appears in tree/.\n\n## Mathematical mapping\n| Goal | Candidate content | Assessment |\n|---|---|---|\n| A: actual HGP construction | `Paper.HGP.Data`, `QubitIndex`, `xCheck`, `zCheck`, `complex`, `zLogical`, `xLogical`, and four input-code aliases | Correctly intended aliases to supplied QECert objects. The X check is boundary1Matrix; the Z check is transposed boundary2Matrix. The negative sign in the supplied first boundary is the required positive sign over F₂. Logical spaces are honest middle homology/cohomology quotients. This is construction scaffolding, not a new parameter theorem. |\n| A: commutation, length, k formula, both-sector distance | No contestant theorem | Not completed. The chain-complex alias inherits supplied boundary-squared validity; the source does not state/prove the requested conclusions using its aliases. |\n| B | No support subspace, supported logical image, supported dimensions, rank identities, or complement theorem | Not completed. |\n| C | No errors, same-syndrome equivalence, failure definition, or distance characterization | Not completed. |\n| D | No strip definition or universal Z/X formula | Not completed. |\n| E1/E2 | No concrete HGP inputs or call sites | Not completed. |\n\n## What is actually written\n`HGPExperiment.Paper.HGP.Model` contains exactly eleven abbreviations and zero named contestant theorems. Its four kernel-code aliases are `firstKernel`, `secondKernel`, `firstTransposeKernel`, and `secondTransposeKernel`. `Smoke` contains the arithmetic example `(1 : ZMod 2) + 1 = 0`; `Tiny` and `Core` contain only `1 + 1 = 2`. Those examples do not establish any target mathematics.\n\nNo novel mathematical statement is claimed by name or verified. In particular, importing the supplied library's full parameter theorem in `Smoke` is not an instantiation, application, or proof of A/E in the contestant development.\n\n## Exact reduction to the pinned supplied library\n| Contestant abbreviation | Definitional expansion |\n|---|---|\n| `Paper.HGP.Data` | `QEC.Coding.HypergraphProduct.Data (ZMod 2)` |\n| `Paper.HGP.QubitIndex` | `QEC.Coding.HypergraphProduct.QubitIndex` |\n| `Paper.HGP.xCheck H` | `QEC.Coding.HypergraphProduct.boundary1Matrix H` |\n| `Paper.HGP.zCheck H` | `(QEC.Coding.HypergraphProduct.boundary2Matrix H).transpose` |\n| `Paper.HGP.complex H` | `QEC.Coding.HypergraphProduct.chainComplex H` |\n| `Paper.HGP.zLogical H` | `(Paper.HGP.complex H).middleHomology` |\n| `Paper.HGP.xLogical H` | `(Paper.HGP.complex H).middleCohomology` |\n| `Paper.HGP.firstKernel H` | `QEC.Coding.HypergraphProduct.firstCode H` |\n| `Paper.HGP.secondKernel H` | `QEC.Coding.HypergraphProduct.secondCode H` |\n| `Paper.HGP.firstTransposeKernel H` | `QEC.Coding.HypergraphProduct.firstTransposeCode H` |\n| `Paper.HGP.secondTransposeKernel H` | `QEC.Coding.HypergraphProduct.secondTransposeCode H` |\n\nThese are aliases, with no new theorem proof. Inherited chain validity is supplied-library mathematics and must not be counted as a newly proved A.\n\n## Fresh mechanical check\nThe supervisor-selected `target-map.json` selects only the eleven construction aliases from the substantive Model module. The required fresh checker was invoked with CPU affinity 6,7 and 500-second timeout; repeated dependency-graph builds were stopped at the lead reviewer's request to reduce competing expensive imports. Their partial raw outputs remain in `fresh-check-2/` and `model-check/`. The abandoned first room was moved to `fresh-check/fresh-room-preserved/` to prevent follow-up builds; its timeout/failure evidence remains preserved.\n\nThe exact original Model source was separately elaborated with trusted `lake env lean`; this timed out after 500 seconds without Lean diagnostics (`direct-model.stdout`). This is not evidence that any particular declaration is invalid. The final low-priority unpinned combined audit under the shared host import lock **passed with exit 0**, using the whole byte-identical source as prefix followed only by supervisor `#check` and `#print axioms` commands (`SupervisorDirectModelAudit.lean`). All eleven abbreviations elaborate. `Data` and `QubitIndex` have no axioms; each remaining abbreviation has only `propext`, `Classical.choice`, and `Quot.sound` (universe annotations omitted here). See `direct-model-audit.stdout` for the full types and axiom lists, and `direct-audit-report.json` for per-name results. No proof repair or prefix salvage was needed because the substantive module contains no unfinished proof. The sole contestant-source SHA-256 is `7ed11250397e31dba44d058c959b12e590b82c15047d543ab466f387f1b3e314`.\n\n## Verdict\nNo full A–E goal and no substantial new proved mathematical partial is present. The verified partial is limited to the eleven A construction/semantic aliases if a rubric awards definition scaffolding. Verified novel mathematical statements: **none**. All code is working-draft material, not a submitted complete target bundle.\n"
+    },
+    "direct-audit-report.json": {
+      "sha256": "73b767a15914e364b396aa486312a45638eea8546641ea175f3eebd350806cdd",
+      "content": {
+        "status": "mechanical_checks_passed",
+        "method": "source-identical full Model prefix with supervisor-only appended check/axiom commands; trusted lake env lean; unpinned under shared host import lock",
+        "source_sha256": "7ed11250397e31dba44d058c959b12e590b82c15047d543ab466f387f1b3e314",
+        "source_identical_prefix": true,
+        "source_module": "HGPExperiment.Paper.HGP.Model",
+        "raw_log": "direct-model-audit.stdout",
+        "checks": [
+          {
+            "declaration": "Paper.HGP.Data",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.QubitIndex",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.xCheck",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.zCheck",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.complex",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.zLogical",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.xLogical",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.firstKernel",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.secondKernel",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.firstTransposeKernel",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "Paper.HGP.secondTransposeKernel",
+            "kind": "abbrev (upstream alias)",
+            "status": "mechanical_checks_passed",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          }
+        ],
+        "newly_proved_target_statements": [],
+        "semantic_full_goals_completed": [],
+        "verified_partial": "A construction and actual quotient/kernel aliases only; no new theorem"
+      }
+    },
+    "direct-model-audit.stdout": {
+      "sha256": "7c5a5a1c8136941e38c16bf2ff2ab710bce15602972db28ef2492d1bc186e446",
+      "content": "[exit 0]\nPaper.HGP.Data.{u} (R₁ C₁ R₂ C₂ : Type u) : Type u\n'Paper.HGP.Data' does not depend on any axioms\nPaper.HGP.QubitIndex.{u} (R₁ C₁ R₂ C₂ : Type u) : Type u\n'Paper.HGP.QubitIndex' does not depend on any axioms\nPaper.HGP.xCheck.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) :\n  Matrix.{u, u, 0} (Prod.{u, u} R₁ C₂) (Paper.HGP.QubitIndex.{u} R₁ C₁ R₂ C₂) (ZMod 2)\n'Paper.HGP.xCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.zCheck.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) :\n  Matrix.{u, u, 0} (Prod.{u, u} C₁ R₂) (Paper.HGP.QubitIndex.{u} R₁ C₁ R₂ C₂) (ZMod 2)\n'Paper.HGP.zCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.complex.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) :\n  QEC.Coding.ChainComplexData.{0, u} (ZMod 2)\n    (QEC.Coding.Word.{0, u} (ZMod 2) (QEC.Coding.HypergraphProduct.C0Index.{u, u} R₁ C₂))\n    (QEC.Coding.Word.{0, u} (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex.{u, u, u, u} R₁ C₁ R₂ C₂))\n    (QEC.Coding.Word.{0, u} (ZMod 2) (QEC.Coding.HypergraphProduct.C2Index.{u, u} C₁ R₂))\n'Paper.HGP.complex' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.zLogical.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) : Type u\n'Paper.HGP.zLogical' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.xLogical.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂] [DecidableEq.{u + 1} C₂]\n  (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) : Type u\n'Paper.HGP.xLogical' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.firstKernel.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) : QEC.Coding.LinearCode.{0, u} (ZMod 2) C₁\n'Paper.HGP.firstKernel' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.secondKernel.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂]\n  [DecidableEq.{u + 1} C₂] (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) : QEC.Coding.LinearCode.{0, u} (ZMod 2) C₂\n'Paper.HGP.secondKernel' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.firstTransposeKernel.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₁] [DecidableEq.{u + 1} R₁] [Fintype.{u} C₁]\n  [DecidableEq.{u + 1} C₁] (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) : QEC.Coding.LinearCode.{0, u} (ZMod 2) R₁\n'Paper.HGP.firstTransposeKernel' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\nPaper.HGP.secondTransposeKernel.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype.{u} R₂] [DecidableEq.{u + 1} R₂] [Fintype.{u} C₂]\n  [DecidableEq.{u + 1} C₂] (H : Paper.HGP.Data.{u} R₁ C₁ R₂ C₂) : QEC.Coding.LinearCode.{0, u} (ZMod 2) R₂\n'Paper.HGP.secondTransposeKernel' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]\n"
+    },
+    "direct-model.stdout": {
+      "sha256": "11710607c81863c775059f161ef47db4cef42117fee01f8c3614d11a10c81c45",
+      "content": "[command timed out]\n"
+    },
+    "run-notes.md": {
+      "sha256": "8c354692312d5837660830720c81ebd4a019ccfe58c9a79df077a50b9c6eaa0b",
+      "content": "# Check execution notes\n\nThe prescribed fresh checker was run with CPU affinity 6,7 and 500-second per-command timeout, first for all four inventory modules and then for the substantive Model module only. The repeated dependency-graph builds were stopped at the lead reviewer’s request to avoid competing graph jobs. Neither interruption is a contestant proof-failure verdict. Partial raw outputs remain in fresh-check-2/fresh-room/_supervisor_logs/ and model-check/fresh-room/_supervisor_logs/.\n\nPrimary verification is exact-source direct Model elaboration via trusted `lake env lean`, followed by an axiom consumer. The sole consumed contestant source hash is 7ed11250397e31dba44d058c959b12e590b82c15047d543ab466f387f1b3e314.\n\nThe abandoned first grader room was moved to `fresh-check/fresh-room-preserved` at the lead reviewer’s request to prevent subsequent graph commands from that untracked invocation. Existing evidence is preserved.\n\nThe first direct source elaboration timed out after 500 seconds without diagnostics (`direct-model.stdout`). The follow-up appends all eleven declaration and axiom commands to a source-identical full original prefix, and is serialized using the shared host `preflight/grade-import.lock` without taskset. It is not a repaired contestant submission.\n\nThe serialized unpinned combined audit completed with room exit 0. All eleven aliases checked; only the permitted standard axioms occur. Raw full types/axioms are in `direct-model-audit.stdout`; the derived per-declaration record is `direct-audit-report.json`. The original exact Model bytes are asserted to be the full prefix of the audited file. No contestant theorem was added or repaired.\n"
+    }
+  }
+}

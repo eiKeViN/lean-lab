@@ -1,0 +1,1363 @@
+{
+  "run": "maple",
+  "blinded_id": "candidate-1",
+  "evidence": "Independent source and axiom reviews. Paths and names inside the review are preserved from the anonymous evaluation. An axiom-clean declaration in an otherwise failed module is not an importable module.",
+  "files": {
+    "results.json": {
+      "sha256": "71c65d9bd197b2dfebf3faa5c101bcfe3434f59faefe77df04fc1f1d2b6b909f",
+      "content": {
+        "candidate": "candidate-1",
+        "complete_milestones": 0,
+        "total_milestones": 5,
+        "no_proof_repairs": true,
+        "original_sources_unchanged": true,
+        "axiom_policy": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "evidence_levels": {
+          "clean_prefix_verified": "Successful fresh compilation of verbatim declaration prefix, only closing namespace ends appended, with type and transitive-axiom commands; compiled proof artifacts retained.",
+          "independent_body_verified_in_failed_full_source": "Real theorem proof body elaborated and printed allowed-only transitive axioms in a command whose whole-file exit was 1. This is mathematical proof content, but no importable full-module olean was produced; not credited as complete delivered module.",
+          "rejected_sorryAx": "Lean error recovery produced a term depending on sorryAx. These are not accepted proofs or completed targets."
+        },
+        "results": {
+          "A": {
+            "complete": false,
+            "unchanged_full_file": "fails at Parameters lines 65 and 84",
+            "clean_prefix_verified": [
+              "HGPExperiment.HGP.P",
+              "HGPExperiment.HGP.D",
+              "HGPExperiment.HGP.commutation",
+              "HGPExperiment.HGP.length",
+              "HGPExperiment.HGP.input_kernel_dimensions",
+              "HGPExperiment.HGP.z_dimension"
+            ],
+            "independent_body_verified_in_failed_full_source": [
+              "HGPExperiment.HGP.distance_lower_bound"
+            ],
+            "rejected_sorryAx": [
+              "HGPExperiment.HGP.cohomology_dimension_eq_homology",
+              "HGPExperiment.HGP.x_dimension",
+              "HGPExperiment.HGP.representative_weight_bound"
+            ],
+            "evidence": [
+              "direct-check/003-ParametersPrefix.report.json",
+              "direct-check/009-ParametersFullWithAxioms.report.json"
+            ]
+          },
+          "B": {
+            "complete": false,
+            "unchanged_full_file": "fails at Erasure 147, 160-163, 182",
+            "clean_prefix_verified": [
+              "HGPExperiment.logicalDimension_eq_zero_iff",
+              "HGPExperiment.boundaries_le_cycles",
+              "HGPExperiment.finrank_map_add_finrank_inf_ker",
+              "HGPExperiment.supportEquiv",
+              "HGPExperiment.finrank_supportSpace",
+              "HGPExperiment.logicalDimension_add_finrank_boundaries_inf_support",
+              "HGPExperiment.ker_restrictMap_compl",
+              "HGPExperiment.finrank_boundaries"
+            ],
+            "rejected_sorryAx": [
+              "HGPExperiment.finrank_boundaries_inf_support_add_rank",
+              "HGPExperiment.finrank_cycles_inf_support_add_rank",
+              "HGPExperiment.logicalDimension_rank_identity"
+            ],
+            "missing": [
+              "complementarity identities"
+            ],
+            "evidence": [
+              "direct-check/002-ErasurePrefix.report.json",
+              "direct-check/010-ErasureFullWithAxioms.report.json"
+            ]
+          },
+          "C": {
+            "complete": false,
+            "unchanged_full_file": "blocked by Erasure; also own errors under clean Erasure prefix at 41, 90-91, 99, 107, 114",
+            "clean_prefix_verified": [],
+            "independent_body_verified_in_failed_full_source": [
+              "HGPExperiment.correctable_iff_cycles_trivial",
+              "HGPExperiment.erasureCorrectable_iff_dimensions_zero",
+              "HGPExperiment.logical_supported_on_own_support",
+              "HGPExperiment.weight_le_erasure_size",
+              "HGPExperiment.erasureDistance_eq_top_iff",
+              "HGPExperiment.cssDistance_le_weight"
+            ],
+            "rejected_sorryAx": [
+              "HGPExperiment.erasureFails_iff_not_correctable",
+              "HGPExperiment.erasureFails_iff_logical_supported",
+              "HGPExperiment.erasureDistance_eq_cssDistance",
+              "HGPExperiment.erasureCorrectable_of_card_lt_distance"
+            ],
+            "missing_due_type_errors": [
+              "HGPExperiment.rowCode_carrier_eq_boundaries",
+              "HGPExperiment.isLogicalWord_iff_isCSSLogical",
+              "HGPExperiment.cssDistance_eq_extendedAlgebraicCSSMinimumDistance"
+            ],
+            "evidence": [
+              "direct-check/005-InferenceWithErasurePrefix.report.json"
+            ]
+          },
+          "D": {
+            "complete": false,
+            "unchanged_full_file": "blocked by dependencies; Strip also own malformed gridSpace/tensor/exactness proofs under clean prefix dependencies",
+            "clean_prefix_verified": [
+              "HGPExperiment.coordinateRestriction",
+              "HGPExperiment.ker_coordinateRestriction"
+            ],
+            "independent_body_verified_in_failed_full_source": [
+              "HGPExperiment.exists_range_lift",
+              "HGPExperiment.inlWord_injective",
+              "HGPExperiment.boundary1_inlWord",
+              "HGPExperiment.boundary2Transpose_inlWord",
+              "HGPExperiment.boundary2_eq_inlWord_iff"
+            ],
+            "rejected_sorryAx": [
+              "HGPExperiment.gridSpace",
+              "HGPExperiment.finrank_gridSpace",
+              "HGPExperiment.colMap_rowMap",
+              "HGPExperiment.exists_rowMap_preimage_iff",
+              "HGPExperiment.strip_intersection"
+            ],
+            "missing": [
+              "both universal numerical strip dimension formulas"
+            ],
+            "evidence": [
+              "direct-check/006-StripDualityPrefix.report.json",
+              "direct-check/007-StripWithDependencyPrefixes.report.json"
+            ]
+          },
+          "E": {
+            "complete": false,
+            "unchanged_full_file": "blocked by Parameters; also ones_repetition_distance own errors at Examples 43,48,50 under clean Parameters prefix",
+            "clean_prefix_verified": [
+              "HGPExperiment.Examples.ones",
+              "HGPExperiment.Examples.repetitionData",
+              "HGPExperiment.Examples.dependentData",
+              "HGPExperiment.Examples.ones_rank",
+              "HGPExperiment.Examples.ones_kernel_dimension"
+            ],
+            "independent_body_verified_in_failed_full_source": [
+              "HGPExperiment.Examples.repetition_input_dimensions",
+              "HGPExperiment.Examples.dependent_input_dimensions",
+              "HGPExperiment.Examples.repetition_transpose_distance"
+            ],
+            "rejected_sorryAx": [
+              "HGPExperiment.Examples.ones_repetition_distance",
+              "HGPExperiment.Examples.repetition_input_minimum",
+              "HGPExperiment.Examples.dependent_input_minimum",
+              "HGPExperiment.Examples.repetition_parameters",
+              "HGPExperiment.Examples.dependent_parameters"
+            ],
+            "missing": [
+              "concrete supported logical dimensions",
+              "complementary-block dimensions",
+              "singleton erasure success",
+              "strip erasure failure"
+            ],
+            "evidence": [
+              "direct-check/004-ExamplesWithParametersPrefix.report.json",
+              "direct-check/008-ExamplesPrefix.report.json"
+            ]
+          }
+        },
+        "method": "Prescribed fresh checker invoked and original failed Erasure build preserved; graph-heavy runs interrupted at parent instruction because of host import thrashing. Sequential direct lake env lean exact-source/prefix + axiom evaluations used under global flock thereafter, unpinned, as directed. All command text, stdout, reports and evaluator source copies retained."
+      }
+    },
+    "assessment.md": {
+      "sha256": "b43ef6bb972faef678108a8aefb025b91f0ed0e33adcca6c93d2b3b20b73fd29",
+      "content": "# Candidate 1 independent blinded assessment\n\n**No complete A–E milestone is delivered by the unchanged submission (0/5).** There are several genuine mathematical partials, distinguished below from complete importable results and from error-recovered declarations. No proof repairs, scorer axioms, contestant-source edits, or material from other candidates were used.\n\n## Evidence levels\n\n1. **Clean verbatim-prefix result:** the original declaration prefix compiles after appending only a namespace closing `end`; selected types and transitive axioms are checked. Proof artifacts and sources are retained.\n2. **Independent checked body in a failed source:** Lean checks an actual theorem body and its printed transitive axioms contain only the three allowed axioms. The whole source still exits 1, and no usable full-module olean exists. This is real mathematical partial proof content, not a complete delivered module.\n3. **Rejected body/declaration:** its printed axiom closure contains `sorryAx`, or statement elaboration fails and the declaration is absent. Such a type is not a proved target. The source did not explicitly write `sorry`; these terms arise from Lean's recovery after errors.\n\nEvery selected successful axiom audit uses only `propext`, `Classical.choice`, and `Quot.sound` (or a subset).\n\n| Milestone | Exact outcome | Genuine verified partials |\n|---|---|---|\n| A | Incomplete. Full Parameters fails at 65 (`simp` made no progress) and 84 (missing DecidablePred). X dimension, homology/cohomology equality, and representative bound carry `sorryAx`. | Clean original prefix 1–42: actual HGP P/D, commutation, length, input-kernel identifications, Z homology dimension formula. Independent allowed-only body: CSS minimum-distance lower bound. |\n| B | Incomplete. Full Erasure fails at 147,160–163,182. Both the supported-boundary rank lemma and final generic erasure-rank identity carry `sorryAx`; check_domRestrict_support is absent. Complementarity identities are absent. | Clean prefix 1–132: actual support spaces, kernels, row spaces, quotient-image dimensions; zero-dimension criterion; boundaries are cycles under commutation; subspace rank-nullity; support-coordinate equivalence and support dimension; supported quotient dimension relation; complementary restriction kernel; row-space rank. |\n| C | Incomplete even under clean Erasure dependency prefix. Ambiguous `not_imp` at 41 and 90, recursion failure at 91, and universe errors at 99,107,114. Failure/logical equivalence and minimum-erasure-distance equality carry `sorryAx`; CSS-distance connection declarations fail to elaborate. | Independent allowed-only bodies: correctability iff both actual supported dimensions vanish (and its cycle formulation); own-support and weight/cardinality lemmas; infinity iff no failing erasure; logical-weight upper bound for the defined CSS distance. These are not exported by a clean full source. |\n| D | Neither universal numerical strip formula is present. Strip also fails under clean dependency prefixes: malformed gridSpace at 19, failed tensor helper proofs, unknown quotient lemma and failed grid dimension proof, failed commutation/exactness. Core array/strip-intersection results carry `sorryAx`. | Clean StripDuality prefix 1–25: actual coordinate restriction and its kernel is complementary support. Independent allowed-only bodies in Strip: range lifting, first-block embedding injectivity, both actual HGP check restrictions, and the actual boundary2 first-block characterization. |\n| E | Incomplete. Under clean Parameters prefix, ones_repetition_distance fails at 43 (`2 = 0` unresolved),48,50. Both input minima and both final [[5,1,2]]/[[8,2,2]] parameter declarations carry `sorryAx`. No concrete erasure-dimension or inference call sites are present. | Clean Examples prefix 1–37: actual two all-ones input data, rank-one theorem for positive rectangular all-ones matrices, kernel dimension n−1. Independent allowed-only bodies in the failed full source: both concrete four-kernel dimension tuples and repetition transposed-kernel infinite distance. |\n\n## Semantic connections\n\nThe code definitions are sincere and mathematically appropriate: P is the actual HGP boundary1 matrix and D is boundary2 transposed. Input dimensions are actual matrix kernels. The supported logical space is the image of supported cycles under the quotient map of the ambient word space by the row space, which represents exactly the same cycle cosets under CSS commutation. Error pairs use the actual D/P syndromes and row-space equivalence. The concrete input checks preserve dependent rows. No hidden rank/positivity target assumptions or tautological replacements were found; positive dimensions in the auxiliary all-ones rank theorem are legitimate hypotheses of that auxiliary theorem.\n\nThe valid C zero-dimension theorem is substantial mathematical progress despite unrelated preceding failures. Likewise, the valid D block-check characterizations and E kernel-dimension call sites are real checked proof bodies; they should not be counted as completed numerical strip or code-parameter targets.\n\n## Reproducibility\n\n- `results.json`: per-milestone declaration lists, accepted-prefix/body distinction, rejected and missing targets.\n- `target-map.json`: initial module-grouped downstream targets.\n- `original-source-sha256.json` and `original-sources-unchanged.json`: original hashes and final unchanged check.\n- `full-check/`: prescribed fresh checker invocation evidence, including original Erasure build failure, copied source hashes, raw compile logs and trusted configuration. Its graph-heavy run was interrupted at the parent supervisor's request; no completed checker report is claimed.\n- `prefix-check/`, `strip-prefix-check/`, and corresponding edit records: original prefix preparation/build evidence; interrupted graph evaluations are identified in `interruption-record.json`.\n- `direct-check/001*`: definitive unchanged full Parameters failure.\n- `direct-check/002*`: successful Erasure prefix proof/type/axiom checks.\n- `direct-check/003*`: successful Parameters prefix proof/type/axiom checks.\n- `direct-check/004*`: full Examples proof source under the clean Parameters prefix, including failed bodies' axiom reports.\n- `direct-check/005*`: full Inference proof source under clean Erasure prefix, including per-body axiom reports.\n- `direct-check/006*`: successful StripDuality prefix proof/type/axiom checks.\n- `direct-check/007*`: full Strip proof source under clean dependency prefixes, including per-body axiom reports.\n- `direct-check/008*`: successful Examples prefix proof/type/axiom checks.\n- `direct-check/009*`: full unchanged Parameters proof source plus per-body axiom checks.\n- `direct-check/010*`: full unchanged Erasure proof source plus per-body axiom checks.\n\nSubsequent QEC-heavy evaluations were unpinned and globally serialized with `preflight/grade-import.lock`, as directed by the parent supervisor after host import thrashing. Each evaluation compiles an evaluator copy preserving the exact original full proof source or specified verbatim prefix; it appends only closing ends and type/axiom commands. No failure is inferred from the interrupted or slow executions. No original sources were changed.\n"
+    },
+    "original-source-sha256.json": {
+      "sha256": "4d905c429a8fc016f9c46f74d1b7414efe2f0668e7d2eb4bb6ed494aca6a1dc5",
+      "content": {
+        "Check.lean": "0846a24e1197992b0e1628d376b53004ac53ac793524a3868d43fba6924bd7b8",
+        "HGPExperiment/Erasure.lean": "f72e247b5b24db20504109edaea6748ac5e7e2cfe866cca2d407b0c77fecfd30",
+        "HGPExperiment/ExampleScratch.lean": "405c84d3459a811db1f1e7d821a8b04a23e47aef84012ac5a3de367d09680b84",
+        "HGPExperiment/Examples.lean": "b4b5e802988c28cacfb64fefe1b4cf865eff94b3796cd3739cb74757f8d32738",
+        "HGPExperiment/Inference.lean": "f1f0e2cf3f4da6373e24f8c54e0002e84a49a70838c2065f1b045383ac17cb38",
+        "HGPExperiment/ParamScratch.lean": "800843681d3ed2af5b4a00fdedbedc29ba595821eaab9228c57e9dfca22d0cc4",
+        "HGPExperiment/Parameters.lean": "80843af94fafacd90a6e59e54094176202a3fff95f877060c3b932b5852afadf",
+        "HGPExperiment/Strip.lean": "23797adfec598e595769d82388ce07d931f83c3a198a36db3c49b9a0771cd209",
+        "HGPExperiment/StripDuality.lean": "4b2cdade9193f42d0643e642e559398d4b741b1a7e44d82af23ddeb60dbdd0d4",
+        "ImportTest.lean": "3bf79028b4cb0d6c5a397e4f9efb3685bfad878e83a3f3e5cd84e9232c6eab66",
+        "TestStrip.lean": "fd7fd25f00a3e4eabe67c5934408f264bcf464c5cf414e676155c399f239511d"
+      }
+    },
+    "direct-check/002-ErasurePrefix.report.json": {
+      "sha256": "37a8775df6536cfffb4b759c2c987f434e32f83202708c8818f9bfe0e8584d90",
+      "content": {
+        "module": "HGPExperiment.Erasure",
+        "kind": "verbatim-original-declaration-prefix-plus-only-closing-end-and-audit-commands",
+        "retained_original_lines": [
+          1,
+          132
+        ],
+        "prefix_sha256": "c234cedfdc984e1e7c09baad5f3b59fb2a8dc2e2add655f36d58b37bcbf97f4b",
+        "stdout": "002-ErasurePrefix.stdout",
+        "compile_success": true,
+        "checks": [
+          {
+            "declaration": "HGPExperiment.supportSpace",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.cycles",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.boundaries",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.supportedLogical",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.logicalDimension",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.restrictColumns",
+            "axioms": [
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.logicalDimension_eq_zero_iff",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.boundaries_le_cycles",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.finrank_map_add_finrank_inf_ker",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.supportEquiv",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.finrank_supportSpace",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.logicalDimension_add_finrank_boundaries_inf_support",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.restrictMap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.ker_restrictMap_compl",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.finrank_boundaries",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          }
+        ]
+      }
+    },
+    "direct-check/003-ParametersPrefix.report.json": {
+      "sha256": "51ae0fe129cfe49eb232ee7c54442acd3b79aa8af12bf125941f359273ad32c8",
+      "content": {
+        "module": "HGPExperiment.Parameters",
+        "original_sha256": "80843af94fafacd90a6e59e54094176202a3fff95f877060c3b932b5852afadf",
+        "retained_original_lines": [
+          1,
+          42
+        ],
+        "only_prefix_closing_end_added": true,
+        "prefix_sha256": "b3e844d446f8f54fd4c40c513769f12871de82b0bb7a8b09d8ab5929556a841f",
+        "kind": "verbatim proof source plus audit commands",
+        "compile_success": true,
+        "stdout": "003-ParametersPrefix.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.HGP.P",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.D",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.commutation",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.length",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.input_kernel_dimensions",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.z_dimension",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          }
+        ]
+      }
+    },
+    "direct-check/006-StripDualityPrefix.report.json": {
+      "sha256": "c40aff0f0341f619bf00f35a265579690b68cd3d07970a3313e63cc4c028f550",
+      "content": {
+        "module": "HGPExperiment.StripDuality",
+        "original_sha256": "4b2cdade9193f42d0643e642e559398d4b741b1a7e44d82af23ddeb60dbdd0d4",
+        "retained_original_lines": [
+          1,
+          25
+        ],
+        "prefix_sha256": "0d1b914da296be2e2be3e9a622e0fcbc2d410d665eb98f6361e4b5028065c95b",
+        "kind": "verbatim proof source plus audit commands, under verified prefix dependencies",
+        "compile_success": true,
+        "stdout": "006-StripDualityPrefix.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.coordinateRestriction",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.ker_coordinateRestriction",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          }
+        ]
+      }
+    },
+    "direct-check/009-ParametersFullWithAxioms.report.json": {
+      "sha256": "7cad1397e99fbe5f22bd0da8e20d4bb0e5c252d812abd09fd444681feac2d42a",
+      "content": {
+        "module": "HGPExperiment.Parameters",
+        "kind": "unchanged full proof source plus audit commands; full compile failure does not erase per-body transitive-axiom evidence",
+        "original_sha256": "80843af94fafacd90a6e59e54094176202a3fff95f877060c3b932b5852afadf",
+        "compile_success": false,
+        "stdout": "009-ParametersFullWithAxioms.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.HGP.commutation",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.length",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.input_kernel_dimensions",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.z_dimension",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.cohomology_dimension_eq_homology",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.HGP.x_dimension",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.HGP.distance_lower_bound",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.HGP.representative_weight_bound",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          }
+        ]
+      }
+    },
+    "direct-check/005-InferenceWithErasurePrefix.report.json": {
+      "sha256": "483391f57d0a28b1c77a54192d0d8ff2710d30376f42530dd53f5316114e89c6",
+      "content": {
+        "module": "HGPExperiment.Inference",
+        "original_sha256": "f1f0e2cf3f4da6373e24f8c54e0002e84a49a70838c2065f1b045383ac17cb38",
+        "retained_original_lines": "all",
+        "prefix_sha256": "f1f0e2cf3f4da6373e24f8c54e0002e84a49a70838c2065f1b045383ac17cb38",
+        "kind": "verbatim proof source plus audit commands, under verified prefix dependencies",
+        "compile_success": false,
+        "stdout": "005-InferenceWithErasurePrefix.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.SupportedError",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.syndrome",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.ErrorEquivalent",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.ErasureCorrectable",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.ErasureFails",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.erasureFails_iff_not_correctable",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.correctable_iff_cycles_trivial",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.erasureCorrectable_iff_dimensions_zero",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.IsLogicalWord",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.erasureFails_iff_logical_supported",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.cssDistance",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.rowCode_carrier_eq_boundaries",
+            "audit_error": "missing or ambiguous #print axioms output"
+          },
+          {
+            "declaration": "HGPExperiment.isLogicalWord_iff_isCSSLogical",
+            "audit_error": "missing or ambiguous #print axioms output"
+          },
+          {
+            "declaration": "HGPExperiment.cssDistance_eq_extendedAlgebraicCSSMinimumDistance",
+            "audit_error": "missing or ambiguous #print axioms output"
+          },
+          {
+            "declaration": "HGPExperiment.erasureDistance",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.logical_supported_on_own_support",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.weight_le_erasure_size",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.erasureDistance_eq_cssDistance",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.erasureDistance_eq_top_iff",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.cssDistance_le_weight",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.erasureCorrectable_of_card_lt_distance",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          }
+        ]
+      }
+    },
+    "direct-check/004-ExamplesWithParametersPrefix.report.json": {
+      "sha256": "572cd868cf00be80bd66275a68455baedbc05365a9aac768dd99e4766586f0e5",
+      "content": {
+        "module": "HGPExperiment.Examples",
+        "original_sha256": "b4b5e802988c28cacfb64fefe1b4cf865eff94b3796cd3739cb74757f8d32738",
+        "retained_original_lines": "all",
+        "only_prefix_closing_end_added": false,
+        "prefix_sha256": "b4b5e802988c28cacfb64fefe1b4cf865eff94b3796cd3739cb74757f8d32738",
+        "kind": "verbatim proof source plus audit commands",
+        "compile_success": false,
+        "stdout": "004-ExamplesWithParametersPrefix.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.Examples.ones",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.repetitionData",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.dependentData",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.ones_rank",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.ones_kernel_dimension",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.ones_repetition_distance",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.Examples.repetition_input_dimensions",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.dependent_input_dimensions",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.repetition_transpose_distance",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.repetition_input_minimum",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.Examples.dependent_input_minimum",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.Examples.repetition_parameters",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.Examples.dependent_parameters",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          }
+        ]
+      }
+    },
+    "direct-check/008-ExamplesPrefix.report.json": {
+      "sha256": "e05fe927454fb98c8603c141c7c7eeb0d7fe7292fae9df7241bdcf5326870151",
+      "content": {
+        "module": "HGPExperiment.Examples",
+        "kind": "verbatim original declaration prefix plus closing namespace end and audit commands; imported Parameters is verified original prefix 1-42",
+        "retained_original_lines": [
+          1,
+          37
+        ],
+        "original_sha256": "b4b5e802988c28cacfb64fefe1b4cf865eff94b3796cd3739cb74757f8d32738",
+        "prefix_sha256": "3a51c1365618be4dd8a50a4b8795591adedf79febdf221885f6095baa4c5c17c",
+        "compile_success": true,
+        "stdout": "008-ExamplesPrefix.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.Examples.ones",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.repetitionData",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.dependentData",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.ones_rank",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.Examples.ones_kernel_dimension",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          }
+        ]
+      }
+    },
+    "direct-check/010-ErasureFullWithAxioms.report.json": {
+      "sha256": "e130378792c82972fdc194ca2a119decbe058506650b4b734948a9a141296060",
+      "content": {
+        "module": "HGPExperiment.Erasure",
+        "kind": "unchanged full proof source plus audit commands; full compile failure retained separately from per-body axiom evidence",
+        "original_sha256": "f72e247b5b24db20504109edaea6748ac5e7e2cfe866cca2d407b0c77fecfd30",
+        "compile_success": false,
+        "stdout": "010-ErasureFullWithAxioms.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.supportSpace",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.cycles",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.boundaries",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.supportedLogical",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.logicalDimension",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.restrictColumns",
+            "axioms": [
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.logicalDimension_eq_zero_iff",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.boundaries_le_cycles",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.finrank_map_add_finrank_inf_ker",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.supportEquiv",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.finrank_supportSpace",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.logicalDimension_add_finrank_boundaries_inf_support",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.restrictMap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.ker_restrictMap_compl",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.finrank_boundaries",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.finrank_boundaries_inf_support_add_rank",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.check_domRestrict_support",
+            "audit_error": "missing or ambiguous #print axioms output"
+          },
+          {
+            "declaration": "HGPExperiment.finrank_cycles_inf_support_add_rank",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.logicalDimension_rank_identity",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          }
+        ]
+      }
+    },
+    "direct-check/007-StripWithDependencyPrefixes.report.json": {
+      "sha256": "c3f07e6877e3e0e14263e1c13102d1fb73e5ed7cc3e3827fe4ba7e8e2a4694e3",
+      "content": {
+        "module": "HGPExperiment.Strip",
+        "original_sha256": "23797adfec598e595769d82388ce07d931f83c3a198a36db3c49b9a0771cd209",
+        "retained_original_lines": "all",
+        "prefix_sha256": "23797adfec598e595769d82388ce07d931f83c3a198a36db3c49b9a0771cd209",
+        "kind": "verbatim proof source plus audit commands, under verified prefix dependencies",
+        "compile_success": false,
+        "stdout": "007-StripWithDependencyPrefixes.stdout",
+        "checks": [
+          {
+            "declaration": "HGPExperiment.gridSpace",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.finrank_gridSpace",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.rowMap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.colMap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.colMap_rowMap",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.exists_range_lift",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.exists_rowMap_preimage_iff",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.inlWord",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.inlWord_injective",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.stripSet",
+            "axioms": [],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.strip_intersection",
+            "axioms": [
+              "propext",
+              "sorryAx",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": [
+              "sorryAx"
+            ]
+          },
+          {
+            "declaration": "HGPExperiment.boundary1_inlWord",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.boundary2Transpose_inlWord",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          },
+          {
+            "declaration": "HGPExperiment.boundary2_eq_inlWord_iff",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "disallowed_axioms": []
+          }
+        ]
+      }
+    },
+    "direct-check/007-StripWithDependencyPrefixes.stdout": {
+      "sha256": "6fd4b7bf6331d66e7780554ee76a5806eb15da79590112af5ea949b0037e13ed",
+      "content": "[exit 1]\nHGPExperiment/Strip.lean:19:20: error: Invalid `⟨...⟩` notation: The expected type\n  hx ∈ {w | (∀ (b : B), (fun a => w (a, b)) ∈ U) ∧ ∀ (a : A), (fun b => w (a, b)) ∈ V} →\n    c • hx ∈ {w | (∀ (b : B), (fun a => w (a, b)) ∈ U) ∧ ∀ (a : A), (fun b => w (a, b)) ∈ V}\nis not an inductive type\n\nNote: This notation can only be used when the expected type is an inductive type with a single constructor\nHGPExperiment/Strip.lean:27:9: error: unsolved goals\ncase zero\nA B : Type u\ninst✝⁵ : Fintype A\ninst✝⁴ : DecidableEq A\ninst✝³ : Fintype B\ninst✝² : DecidableEq B\nM : Type u\ninst✝¹ : AddCommGroup M\ninst✝ : Module (ZMod 2) M\nf : (A → ZMod 2) →ₗ[ZMod 2] M\nb : B\n⊢ 0 = f fun a => 0\nHGPExperiment/Strip.lean:36:18: error: unsolved goals\ncase add\nA B : Type u\ninst✝⁵ : Fintype A\ninst✝⁴ : DecidableEq A\ninst✝³ : Fintype B\ninst✝² : DecidableEq B\nM : Type u\ninst✝¹ : AddCommGroup M\ninst✝ : Module (ZMod 2) M\nf : (A → ZMod 2) →ₗ[ZMod 2] M\nb : B\nx y : (A → ZMod 2) ⊗[ZMod 2] (B → ZMod 2)\nhx :\n  (piScalarRightHom (ZMod 2) (ZMod 2) M B) ((LinearMap.rTensor (B → ZMod 2) f) x) b =\n    f fun a => (wordTensorEquiv (ZMod 2) A B) x (a, b)\nhy :\n  (piScalarRightHom (ZMod 2) (ZMod 2) M B) ((LinearMap.rTensor (B → ZMod 2) f) y) b =\n    f fun a => (wordTensorEquiv (ZMod 2) A B) y (a, b)\n⊢ ((f fun a => (wordTensorEquiv (ZMod 2) A B) x (a, b)) + f fun a => (wordTensorEquiv (ZMod 2) A B) y (a, b)) =\n    f fun a => (wordTensorEquiv (ZMod 2) A B) x (a, b) + (wordTensorEquiv (ZMod 2) A B) y (a, b)\nHGPExperiment/Strip.lean:46:9: error: unsolved goals\ncase zero\nA B : Type u\ninst✝⁵ : Fintype A\ninst✝⁴ : DecidableEq A\ninst✝³ : Fintype B\ninst✝² : DecidableEq B\nM : Type u\ninst✝¹ : AddCommGroup M\ninst✝ : Module (ZMod 2) M\ng : (B → ZMod 2) →ₗ[ZMod 2] M\na : A\n⊢ 0 = g fun b => 0\nHGPExperiment/Strip.lean:53:18: error: unsolved goals\ncase add\nA B : Type u\ninst✝⁵ : Fintype A\ninst✝⁴ : DecidableEq A\ninst✝³ : Fintype B\ninst✝² : DecidableEq B\nM : Type u\ninst✝¹ : AddCommGroup M\ninst✝ : Module (ZMod 2) M\ng : (B → ZMod 2) →ₗ[ZMod 2] M\na : A\nx y : (A → ZMod 2) ⊗[ZMod 2] (B → ZMod 2)\nhx :\n  (piScalarRightHom (ZMod 2) (ZMod 2) M A)\n      ((TensorProduct.comm (ZMod 2) (A → ZMod 2) M) ((LinearMap.lTensor (A → ZMod 2) g) x)) a =\n    g fun b => (wordTensorEquiv (ZMod 2) A B) x (a, b)\nhy :\n  (piScalarRightHom (ZMod 2) (ZMod 2) M A)\n      ((TensorProduct.comm (ZMod 2) (A → ZMod 2) M) ((LinearMap.lTensor (A → ZMod 2) g) y)) a =\n    g fun b => (wordTensorEquiv (ZMod 2) A B) y (a, b)\n⊢ ((g fun b => (wordTensorEquiv (ZMod 2) A B) x (a, b)) + g fun b => (wordTensorEquiv (ZMod 2) A B) y (a, b)) =\n    g fun b => (wordTensorEquiv (ZMod 2) A B) x (a, b) + (wordTensorEquiv (ZMod 2) A B) y (a, b)\nHGPExperiment/Strip.lean:67:14: error(lean.unknownIdentifier): Unknown constant `Submodule.Quotient.eq_zero_iff_mem`\nHGPExperiment/Strip.lean:70:14: error(lean.unknownIdentifier): Unknown constant `Submodule.Quotient.eq_zero_iff_mem`\nHGPExperiment/Strip.lean:81:15: error(lean.unknownIdentifier): Unknown constant `Submodule.Quotient.eq_zero_iff_mem`\nHGPExperiment/Strip.lean:87:15: error(lean.unknownIdentifier): Unknown constant `Submodule.Quotient.eq_zero_iff_mem`\nHGPExperiment/Strip.lean:89:2: error: Type mismatch: After simplification, term\n  finrank_ker_jointTensorMap U.mkQ V.mkQ\n has type\n  Module.finrank (ZMod 2) ↥(jointTensorMap U.mkQ V.mkQ).ker =\n    Module.finrank (ZMod 2) ↥U.mkQ.ker * Module.finrank (ZMod 2) ↥V.mkQ.ker\nbut is expected to have type\n  Module.finrank (ZMod 2) ↥(jointTensorMap U.mkQ V.mkQ).ker = Module.finrank (ZMod 2) ↥U * Module.finrank (ZMod 2) ↥V\nHGPExperiment/Strip.lean:106:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.rowMap_apply`:\n  [Fintype A]\n  [DecidableEq A]\n  [Fintype B]\n  [DecidableEq B]\n  [Fintype C]\n  [DecidableEq C]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] [Fintype C] [DecidableEq C] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Strip.lean:110:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.colMap_apply`:\n  [Fintype A]\n  [DecidableEq A]\n  [Fintype B]\n  [DecidableEq B]\n  [Fintype C]\n  [DecidableEq C]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] [Fintype C] [DecidableEq C] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Strip.lean:131:6: error: 'change' tactic failed, pattern\n  f (g y d • x) c = g (f x c • y) d\nis not definitionally equal to target\n  f (fun a => x a * g y d) c = g (fun b => y b * f x c) d\nHGPExperiment/Strip.lean:135:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.exists_range_lift`:\n  [DecidableEq B]\n  [Fintype C]\n  [DecidableEq C]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq B] [Fintype C] [DecidableEq C] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Strip.lean:161:6: error: Type mismatch: After simplification, term\n  h\n has type\n  f (fun a => g (fun b => v (a, b)) d) c = g (fun b => 0) d\nbut is expected to have type\n  f (fun a => g (fun b => v (a, b)) d) c = 0\nHGPExperiment/Strip.lean:182:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.inlWord_injective`:\n  [Fintype A]\n  [DecidableEq A]\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Strip.lean:192:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.inlWord_inl`:\n  [Fintype A]\n  [DecidableEq A]\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Strip.lean:194:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.inlWord_inr`:\n  [Fintype A]\n  [DecidableEq A]\n  [Fintype B]\n  [DecidableEq B]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Strip.lean:199:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.strip_intersection`:\n  [Fintype A]\n  [DecidableEq A]\n  [Fintype B]\n  [DecidableEq B]\n  [Fintype C]\n  [DecidableEq C]\n  [Fintype D]\n  [DecidableEq D]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype\n  A] [DecidableEq A] [Fintype B] [DecidableEq B] [Fintype C] [DecidableEq C] [Fintype D] [DecidableEq D] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment.gridSpace.{u} {A B : Type u} (U : Submodule (ZMod 2) (A → ZMod 2)) (V : Submodule (ZMod 2) (B → ZMod 2)) :\n  Submodule (ZMod 2) (A × B → ZMod 2)\n'HGPExperiment.gridSpace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.finrank_gridSpace.{u} {A B : Type u} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B]\n  (U : Submodule (ZMod 2) (A → ZMod 2)) (V : Submodule (ZMod 2) (B → ZMod 2)) :\n  Module.finrank (ZMod 2) ↥(HGPExperiment.gridSpace U V) = Module.finrank (ZMod 2) ↥U * Module.finrank (ZMod 2) ↥V\n'HGPExperiment.finrank_gridSpace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.rowMap.{u} {A B C : Type u} (g : (B → ZMod 2) →ₗ[ZMod 2] C → ZMod 2) :\n  (A × B → ZMod 2) →ₗ[ZMod 2] A × C → ZMod 2\n'HGPExperiment.rowMap' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.colMap.{u} {A B C : Type u} (f : (A → ZMod 2) →ₗ[ZMod 2] C → ZMod 2) :\n  (A × B → ZMod 2) →ₗ[ZMod 2] C × B → ZMod 2\n'HGPExperiment.colMap' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.colMap_rowMap.{u} {A B : Type u} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] {C : Type u}\n  [Fintype C] [DecidableEq C] {D : Type u} [Fintype D] [DecidableEq D] (f : (A → ZMod 2) →ₗ[ZMod 2] C → ZMod 2)\n  (g : (B → ZMod 2) →ₗ[ZMod 2] D → ZMod 2) (w : A × B → ZMod 2) :\n  (HGPExperiment.colMap f) ((HGPExperiment.rowMap g) w) = (HGPExperiment.rowMap g) ((HGPExperiment.colMap f) w)\n'HGPExperiment.colMap_rowMap' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.exists_range_lift.{u} {B : Type u} [Fintype B] [DecidableEq B] {C : Type u} [Fintype C] [DecidableEq C]\n  (g : (B → ZMod 2) →ₗ[ZMod 2] C → ZMod 2) : ∃ l, ∀ y ∈ g.range, g (l y) = y\n'HGPExperiment.exists_range_lift' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.exists_rowMap_preimage_iff.{u} {A B : Type u} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B]\n  {C : Type u} [Fintype C] [DecidableEq C] {D : Type u} [Fintype D] [DecidableEq D]\n  (f : (A → ZMod 2) →ₗ[ZMod 2] C → ZMod 2) (g : (B → ZMod 2) →ₗ[ZMod 2] D → ZMod 2) (w : A × D → ZMod 2) :\n  (∃ v, (HGPExperiment.colMap f) v = 0 ∧ (HGPExperiment.rowMap g) v = w) ↔ w ∈ HGPExperiment.gridSpace f.ker g.range\n'HGPExperiment.exists_rowMap_preimage_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.inlWord.{u} {A B T : Type u} : (A × B → ZMod 2) →ₗ[ZMod 2] A × B ⊕ T → ZMod 2\n'HGPExperiment.inlWord' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.inlWord_injective.{u} {A B : Type u} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B]\n  {T : Type u} : Function.Injective ⇑HGPExperiment.inlWord\n'HGPExperiment.inlWord_injective' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.stripSet.{u} {A B C D : Type u} (S : Set A) : Set (A × B ⊕ C × D)\n'HGPExperiment.stripSet' does not depend on any axioms\nHGPExperiment.strip_intersection.{u} {A B : Type u} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] {C : Type u}\n  [Fintype C] [DecidableEq C] {D : Type u} [Fintype D] [DecidableEq D] (S : Set A)\n  (T : Submodule (ZMod 2) (A × B ⊕ C × D → ZMod 2)) (U : Submodule (ZMod 2) (A → ZMod 2))\n  (V : Submodule (ZMod 2) (B → ZMod 2))\n  (h : ∀ (w : A × B → ZMod 2), HGPExperiment.inlWord w ∈ T ↔ w ∈ HGPExperiment.gridSpace U V) :\n  T ⊓ HGPExperiment.supportSpace (HGPExperiment.stripSet S) =\n    Submodule.map HGPExperiment.inlWord (HGPExperiment.gridSpace (U ⊓ HGPExperiment.supportSpace S) V)\n'HGPExperiment.strip_intersection' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.boundary1_inlWord.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (G : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) (w : C₁ × C₂ → ZMod 2) :\n  (Matrix.toLin' (QEC.Coding.HypergraphProduct.boundary1Matrix G)) (HGPExperiment.inlWord w) =\n    (HGPExperiment.colMap (Matrix.toLin' G.first)) w\n'HGPExperiment.boundary1_inlWord' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.boundary2Transpose_inlWord.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁]\n  [DecidableEq C₁] [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (G : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) (w : C₁ × C₂ → ZMod 2) :\n  (Matrix.toLin' (QEC.Coding.HypergraphProduct.boundary2Matrix G).transpose) (HGPExperiment.inlWord w) =\n    (HGPExperiment.rowMap (Matrix.toLin' G.second)) w\n'HGPExperiment.boundary2Transpose_inlWord' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.boundary2_eq_inlWord_iff.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁]\n  [DecidableEq C₁] [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (G : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) (v : C₁ × R₂ → ZMod 2) (w : C₁ × C₂ → ZMod 2) :\n  (Matrix.toLin' (QEC.Coding.HypergraphProduct.boundary2Matrix G)) v = HGPExperiment.inlWord w ↔\n    (HGPExperiment.colMap (Matrix.toLin' G.first)) v = 0 ∧\n      (HGPExperiment.rowMap (Matrix.toLin' G.second.transpose)) v = w\n'HGPExperiment.boundary2_eq_inlWord_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/008-ExamplesPrefix.stdout": {
+      "sha256": "b2779d0d8b33b9412ef64a4b7647815ea4258cdd9ac5f483ca2883440725f637",
+      "content": "[exit 0]\nHGPExperiment/Examples.lean:17:2: warning: Try this: \n  haveI̵\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\nHGPExperiment.Examples.ones (m n : ℕ) : Matrix (Fin m) (Fin n) (ZMod 2)\n'HGPExperiment.Examples.ones' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.repetitionData : QEC.Coding.HypergraphProduct.Data (ZMod 2) (Fin 1) (Fin 2) (Fin 1) (Fin 2)\n'HGPExperiment.Examples.repetitionData' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.dependentData : QEC.Coding.HypergraphProduct.Data (ZMod 2) (Fin 2) (Fin 2) (Fin 2) (Fin 2)\n'HGPExperiment.Examples.dependentData' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.ones_rank (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : (HGPExperiment.Examples.ones m n).rank = 1\n'HGPExperiment.Examples.ones_rank' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.ones_kernel_dimension (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :\n  QEC.Coding.Dimension (QEC.Coding.parityCheckKernelCode (Matrix.toLin' (HGPExperiment.Examples.ones m n))) = n - 1\n'HGPExperiment.Examples.ones_kernel_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/001-Parameters.stdout": {
+      "sha256": "79b22efed9f2de377d491186335a515b75e78675ef411b7670033d090b362003",
+      "content": "[exit 1]\nHGPExperiment/Parameters.lean:65:2: error: `simp` made no progress\nHGPExperiment/Parameters.lean:84:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  DecidablePred (IsCSSLogical (binaryCSSCode h).xCode (binaryCSSCode h).zCode)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n"
+    },
+    "direct-check/006-StripDualityPrefix.stdout": {
+      "sha256": "0986b3ec218688b8ae582a32eaca638782ff7f9db79ea0cb077dda360f4366c4",
+      "content": "[exit 0]\nHGPExperiment/StripDuality.lean:25:18: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nHGPExperiment/StripDuality.lean:14:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.ker_coordinateRestriction`:\n  [Fintype C]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype C] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment.coordinateRestriction.{u_1} {C : Type u_1} (S : Set C) :\n  (C → HGPExperiment.F₂) →ₗ[HGPExperiment.F₂] ↑S → HGPExperiment.F₂\n'HGPExperiment.coordinateRestriction' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.ker_coordinateRestriction.{u_1} {C : Type u_1} [Fintype C] (S : Set C) :\n  (HGPExperiment.coordinateRestriction S).ker = HGPExperiment.supportSpace Sᶜ\n'HGPExperiment.ker_coordinateRestriction' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/010-ErasureFullWithAxioms.stdout": {
+      "sha256": "fcf49c08783d83bef69956a1bb8ecc4084d9702b31df5f8f9edab3dffa0a83ca",
+      "content": "[exit 1]\nHGPExperiment/Erasure.lean:20:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.mem_supportSpace`:\n  [Fintype Q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype Q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Erasure.lean:40:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.logicalDimension_eq_zero_iff`:\n  [Fintype RX]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype RX] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Erasure.lean:50:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.boundaries_le_cycles`:\n  [Fintype RX]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype RX] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Erasure.lean:92:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.finrank_supportSpace`:\n  [Fintype Q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype Q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Erasure.lean:117:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.restrictMap_apply`:\n  [Fintype Q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype Q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Erasure.lean:124:19: warning: This simp argument is unused:\n  Set.mem_compl_iff\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [LinearMap.mem_ker, mem_supportSpace, funext_iff, restrictMap_apply, Pi.zero_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHGPExperiment/Erasure.lean:147:4: error: No goals to be solved\nHGPExperiment/Erasure.lean:160:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  DecidableEq Q\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHGPExperiment/Erasure.lean:161:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  DecidableEq ↑E\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHGPExperiment/Erasure.lean:163:2: error: No applicable extensionality theorem found for type\n  ?m.24 P E\n\nNote: Extensionality theorems can be registered by marking them with the `[ext]` attribute\nHGPExperiment/Erasure.lean:182:39: error(lean.unknownIdentifier): Unknown identifier `check_domRestrict_support`\nHGPExperiment.supportSpace.{u_1} {Q : Type u_1} (E : Set Q) : Submodule HGPExperiment.F₂ (Q → HGPExperiment.F₂)\n'HGPExperiment.supportSpace' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.cycles.{u_1, u_2} {Q : Type u_1} {RX : Type u_2} [Fintype Q] (P : Matrix RX Q HGPExperiment.F₂) :\n  Submodule HGPExperiment.F₂ (Q → HGPExperiment.F₂)\n'HGPExperiment.cycles' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.boundaries.{u_1, u_3} {Q : Type u_1} {RZ : Type u_3} [Fintype RZ] (D : Matrix RZ Q HGPExperiment.F₂) :\n  Submodule HGPExperiment.F₂ (Q → HGPExperiment.F₂)\n'HGPExperiment.boundaries' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.supportedLogical.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [Fintype RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  Submodule HGPExperiment.F₂ ((Q → HGPExperiment.F₂) ⧸ HGPExperiment.boundaries D)\n'HGPExperiment.supportedLogical' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.logicalDimension.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [Fintype RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) : ℕ\n'HGPExperiment.logicalDimension' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.restrictColumns.{u_1, u_2} {Q : Type u_1} {RX : Type u_2} (P : Matrix RX Q HGPExperiment.F₂) (E : Set Q) :\n  Matrix RX (↑E) HGPExperiment.F₂\n'HGPExperiment.restrictColumns' depends on axioms: [Quot.sound]\nHGPExperiment.logicalDimension_eq_zero_iff.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  HGPExperiment.logicalDimension P D E = 0 ↔\n    ∀ v ∈ HGPExperiment.cycles P, v ∈ HGPExperiment.supportSpace E → v ∈ HGPExperiment.boundaries D\n'HGPExperiment.logicalDimension_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.boundaries_le_cycles.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂)\n  (hcomm : P * D.transpose = 0) : HGPExperiment.boundaries D ≤ HGPExperiment.cycles P\n'HGPExperiment.boundaries_le_cycles' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.finrank_map_add_finrank_inf_ker.{u_4, u_5} {V : Type u_4} {W : Type u_5} [AddCommGroup V]\n  [Module HGPExperiment.F₂ V] [FiniteDimensional HGPExperiment.F₂ V] [AddCommGroup W] [Module HGPExperiment.F₂ W]\n  (f : V →ₗ[HGPExperiment.F₂] W) (S : Submodule HGPExperiment.F₂ V) :\n  Module.finrank HGPExperiment.F₂ ↥(Submodule.map f S) + Module.finrank HGPExperiment.F₂ ↥(S ⊓ f.ker) =\n    Module.finrank HGPExperiment.F₂ ↥S\n'HGPExperiment.finrank_map_add_finrank_inf_ker' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.supportEquiv.{u_1} {Q : Type u_1} (E : Set Q) :\n  ↥(HGPExperiment.supportSpace E) ≃ₗ[HGPExperiment.F₂] ↑E → HGPExperiment.F₂\n'HGPExperiment.supportEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.finrank_supportSpace.{u_1} {Q : Type u_1} [Fintype Q] (E : Set Q) [Fintype ↑E] :\n  Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.supportSpace E) = Fintype.card ↑E\n'HGPExperiment.finrank_supportSpace' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.logicalDimension_add_finrank_boundaries_inf_support.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2}\n  {RZ : Type u_3} [Fintype Q] [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂)\n  (D : Matrix RZ Q HGPExperiment.F₂) (hcomm : P * D.transpose = 0) (E : Set Q) :\n  HGPExperiment.logicalDimension P D E +\n      Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.boundaries D ⊓ HGPExperiment.supportSpace E) =\n    Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.cycles P ⊓ HGPExperiment.supportSpace E)\n'HGPExperiment.logicalDimension_add_finrank_boundaries_inf_support' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\nHGPExperiment.restrictMap.{u_1} {Q : Type u_1} (E : Set Q) :\n  (Q → HGPExperiment.F₂) →ₗ[HGPExperiment.F₂] ↑E → HGPExperiment.F₂\n'HGPExperiment.restrictMap' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.ker_restrictMap_compl.{u_1} {Q : Type u_1} [Fintype Q] (E : Set Q) :\n  (HGPExperiment.restrictMap Eᶜ).ker = HGPExperiment.supportSpace E\n'HGPExperiment.ker_restrictMap_compl' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.finrank_boundaries.{u_1, u_3} {Q : Type u_1} {RZ : Type u_3} [Fintype Q] [Fintype RZ]\n  (D : Matrix RZ Q HGPExperiment.F₂) : Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.boundaries D) = D.rank\n'HGPExperiment.finrank_boundaries' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.finrank_boundaries_inf_support_add_rank.{u_1, u_3} {Q : Type u_1} {RZ : Type u_3} [Fintype Q] [Fintype RZ]\n  (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) [Fintype ↑Eᶜ] :\n  Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.boundaries D ⊓ HGPExperiment.supportSpace E) +\n      (HGPExperiment.restrictColumns D Eᶜ).rank =\n    D.rank\n'HGPExperiment.finrank_boundaries_inf_support_add_rank' depends on axioms: [propext,\n sorryAx,\n Classical.choice,\n Quot.sound]\nHGPExperiment/Erasure.lean:236:7: error(lean.unknownIdentifier): Unknown identifier `HGPExperiment.check_domRestrict_support`\nHGPExperiment/Erasure.lean:237:14: error(lean.unknownIdentifier): Unknown constant `HGPExperiment.check_domRestrict_support`\nHGPExperiment.finrank_cycles_inf_support_add_rank.{u_1, u_2} {Q : Type u_1} {RX : Type u_2} [Fintype Q] [Fintype RX]\n  (P : Matrix RX Q HGPExperiment.F₂) (E : Set Q) [Fintype ↑E] :\n  Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.cycles P ⊓ HGPExperiment.supportSpace E) +\n      (HGPExperiment.restrictColumns P E).rank =\n    Fintype.card ↑E\n'HGPExperiment.finrank_cycles_inf_support_add_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.logicalDimension_rank_identity.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂)\n  (hcomm : P * D.transpose = 0) (E : Set Q) [Fintype ↑E] [Fintype ↑Eᶜ] :\n  HGPExperiment.logicalDimension P D E + (HGPExperiment.restrictColumns P E).rank + D.rank =\n    Fintype.card ↑E + (HGPExperiment.restrictColumns D Eᶜ).rank\n'HGPExperiment.logicalDimension_rank_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/002-ErasurePrefix.stdout": {
+      "sha256": "127bc2cbeea2b355aef1882155ae45ed8b82b05512910f2cdfe70f4d56334d43",
+      "content": "[exit 0]\nSupervisorErasurePrefixWithAudit.lean:20:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.mem_supportSpace`:\n  [Fintype Q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype Q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nSupervisorErasurePrefixWithAudit.lean:40:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.logicalDimension_eq_zero_iff`:\n  [Fintype RX]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype RX] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nSupervisorErasurePrefixWithAudit.lean:50:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.boundaries_le_cycles`:\n  [Fintype RX]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype RX] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nSupervisorErasurePrefixWithAudit.lean:92:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.finrank_supportSpace`:\n  [Fintype Q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype Q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nSupervisorErasurePrefixWithAudit.lean:117:8: warning: automatically included section variable(s) unused in theorem `HGPExperiment.restrictMap_apply`:\n  [Fintype Q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype Q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nSupervisorErasurePrefixWithAudit.lean:124:19: warning: This simp argument is unused:\n  Set.mem_compl_iff\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [LinearMap.mem_ker, mem_supportSpace, funext_iff, restrictMap_apply, Pi.zero_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHGPExperiment.supportSpace.{u_1} {Q : Type u_1} (E : Set Q) : Submodule HGPExperiment.F₂ (Q → HGPExperiment.F₂)\n'HGPExperiment.supportSpace' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.cycles.{u_1, u_2} {Q : Type u_1} {RX : Type u_2} [Fintype Q] (P : Matrix RX Q HGPExperiment.F₂) :\n  Submodule HGPExperiment.F₂ (Q → HGPExperiment.F₂)\n'HGPExperiment.cycles' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.boundaries.{u_1, u_3} {Q : Type u_1} {RZ : Type u_3} [Fintype RZ] (D : Matrix RZ Q HGPExperiment.F₂) :\n  Submodule HGPExperiment.F₂ (Q → HGPExperiment.F₂)\n'HGPExperiment.boundaries' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.supportedLogical.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [Fintype RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  Submodule HGPExperiment.F₂ ((Q → HGPExperiment.F₂) ⧸ HGPExperiment.boundaries D)\n'HGPExperiment.supportedLogical' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.logicalDimension.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [Fintype RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) : ℕ\n'HGPExperiment.logicalDimension' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.restrictColumns.{u_1, u_2} {Q : Type u_1} {RX : Type u_2} (P : Matrix RX Q HGPExperiment.F₂) (E : Set Q) :\n  Matrix RX (↑E) HGPExperiment.F₂\n'HGPExperiment.restrictColumns' depends on axioms: [Quot.sound]\nHGPExperiment.logicalDimension_eq_zero_iff.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  HGPExperiment.logicalDimension P D E = 0 ↔\n    ∀ v ∈ HGPExperiment.cycles P, v ∈ HGPExperiment.supportSpace E → v ∈ HGPExperiment.boundaries D\n'HGPExperiment.logicalDimension_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.boundaries_le_cycles.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂)\n  (hcomm : P * D.transpose = 0) : HGPExperiment.boundaries D ≤ HGPExperiment.cycles P\n'HGPExperiment.boundaries_le_cycles' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.finrank_map_add_finrank_inf_ker.{u_4, u_5} {V : Type u_4} {W : Type u_5} [AddCommGroup V]\n  [Module HGPExperiment.F₂ V] [FiniteDimensional HGPExperiment.F₂ V] [AddCommGroup W] [Module HGPExperiment.F₂ W]\n  (f : V →ₗ[HGPExperiment.F₂] W) (S : Submodule HGPExperiment.F₂ V) :\n  Module.finrank HGPExperiment.F₂ ↥(Submodule.map f S) + Module.finrank HGPExperiment.F₂ ↥(S ⊓ f.ker) =\n    Module.finrank HGPExperiment.F₂ ↥S\n'HGPExperiment.finrank_map_add_finrank_inf_ker' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.supportEquiv.{u_1} {Q : Type u_1} (E : Set Q) :\n  ↥(HGPExperiment.supportSpace E) ≃ₗ[HGPExperiment.F₂] ↑E → HGPExperiment.F₂\n'HGPExperiment.supportEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.finrank_supportSpace.{u_1} {Q : Type u_1} [Fintype Q] (E : Set Q) [Fintype ↑E] :\n  Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.supportSpace E) = Fintype.card ↑E\n'HGPExperiment.finrank_supportSpace' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.logicalDimension_add_finrank_boundaries_inf_support.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2}\n  {RZ : Type u_3} [Fintype Q] [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂)\n  (D : Matrix RZ Q HGPExperiment.F₂) (hcomm : P * D.transpose = 0) (E : Set Q) :\n  HGPExperiment.logicalDimension P D E +\n      Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.boundaries D ⊓ HGPExperiment.supportSpace E) =\n    Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.cycles P ⊓ HGPExperiment.supportSpace E)\n'HGPExperiment.logicalDimension_add_finrank_boundaries_inf_support' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\nHGPExperiment.restrictMap.{u_1} {Q : Type u_1} (E : Set Q) :\n  (Q → HGPExperiment.F₂) →ₗ[HGPExperiment.F₂] ↑E → HGPExperiment.F₂\n'HGPExperiment.restrictMap' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.ker_restrictMap_compl.{u_1} {Q : Type u_1} [Fintype Q] (E : Set Q) :\n  (HGPExperiment.restrictMap Eᶜ).ker = HGPExperiment.supportSpace E\n'HGPExperiment.ker_restrictMap_compl' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.finrank_boundaries.{u_1, u_3} {Q : Type u_1} {RZ : Type u_3} [Fintype Q] [Fintype RZ]\n  (D : Matrix RZ Q HGPExperiment.F₂) : Module.finrank HGPExperiment.F₂ ↥(HGPExperiment.boundaries D) = D.rank\n'HGPExperiment.finrank_boundaries' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/003-ParametersPrefix.stdout": {
+      "sha256": "395ebe92ca166fb5d531a4769092740cdbc644eac03962c0b9bc387e24be718c",
+      "content": "[exit 0]\nHGPExperiment.HGP.P.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Matrix (QEC.Coding.HypergraphProduct.C0Index R₁ C₂) (QEC.Coding.HypergraphProduct.QubitIndex R₁ C₁ R₂ C₂) (ZMod 2)\n'HGPExperiment.HGP.P' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.D.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁] [Fintype R₂]\n  [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂] (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Matrix (QEC.Coding.HypergraphProduct.C2Index C₁ R₂) (QEC.Coding.HypergraphProduct.QubitIndex R₁ C₁ R₂ C₂) (ZMod 2)\n'HGPExperiment.HGP.D' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.commutation.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  HGPExperiment.HGP.P h * (HGPExperiment.HGP.D h).transpose = 0\n'HGPExperiment.HGP.commutation' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.length.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex R₁ C₁ R₂ C₂) =\n    Fintype.card C₁ * Fintype.card C₂ + Fintype.card R₁ * Fintype.card R₂\n'HGPExperiment.HGP.length' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.input_kernel_dimensions.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁]\n  [DecidableEq C₁] [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode h) =\n      Module.finrank (ZMod 2) ↥(Matrix.toLin' h.first).ker ∧\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode h) =\n        Module.finrank (ZMod 2) ↥(Matrix.toLin' h.second).ker ∧\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode h) =\n          Module.finrank (ZMod 2) ↥(Matrix.toLin' h.first.transpose).ker ∧\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode h) =\n          Module.finrank (ZMod 2) ↥(Matrix.toLin' h.second.transpose).ker\n'HGPExperiment.HGP.input_kernel_dimensions' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.z_dimension.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Module.finrank (ZMod 2) (QEC.Coding.HypergraphProduct.chainComplex h).middleHomology =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode h) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode h) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode h) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode h)\n'HGPExperiment.HGP.z_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/009-ParametersFullWithAxioms.stdout": {
+      "sha256": "30b92434845aac581861ea98b3647be30a77585b9189599eba89c67d98f4bd71",
+      "content": "[exit 1]\nHGPExperiment/Parameters.lean:65:2: error: `simp` made no progress\nHGPExperiment/Parameters.lean:84:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  DecidablePred (IsCSSLogical (binaryCSSCode h).xCode (binaryCSSCode h).zCode)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nHGPExperiment.HGP.commutation.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  HGPExperiment.HGP.P h * (HGPExperiment.HGP.D h).transpose = 0\n'HGPExperiment.HGP.commutation' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.length.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex R₁ C₁ R₂ C₂) =\n    Fintype.card C₁ * Fintype.card C₂ + Fintype.card R₁ * Fintype.card R₂\n'HGPExperiment.HGP.length' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.input_kernel_dimensions.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁]\n  [DecidableEq C₁] [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode h) =\n      Module.finrank (ZMod 2) ↥(Matrix.toLin' h.first).ker ∧\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode h) =\n        Module.finrank (ZMod 2) ↥(Matrix.toLin' h.second).ker ∧\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode h) =\n          Module.finrank (ZMod 2) ↥(Matrix.toLin' h.first.transpose).ker ∧\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode h) =\n          Module.finrank (ZMod 2) ↥(Matrix.toLin' h.second.transpose).ker\n'HGPExperiment.HGP.input_kernel_dimensions' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.z_dimension.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Module.finrank (ZMod 2) (QEC.Coding.HypergraphProduct.chainComplex h).middleHomology =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode h) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode h) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode h) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode h)\n'HGPExperiment.HGP.z_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.cohomology_dimension_eq_homology.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁]\n  [DecidableEq C₁] [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Module.finrank (ZMod 2) (QEC.Coding.HypergraphProduct.chainComplex h).middleCohomology =\n    Module.finrank (ZMod 2) (QEC.Coding.HypergraphProduct.chainComplex h).middleHomology\n'HGPExperiment.HGP.cohomology_dimension_eq_homology' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.HGP.x_dimension.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁] [DecidableEq C₁]\n  [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  Module.finrank (ZMod 2) (QEC.Coding.HypergraphProduct.chainComplex h).middleCohomology =\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode h) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode h) +\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode h) *\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode h)\n'HGPExperiment.HGP.x_dimension' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.HGP.distance_lower_bound.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁]\n  [DecidableEq C₁] [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂) :\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum h ≤\n    QEC.Coding.HypergraphProduct.extendedAlgebraicCSSMinimumDistance\n      (QEC.Coding.HypergraphProduct.binaryCSSCode h).xCode (QEC.Coding.HypergraphProduct.binaryCSSCode h).zCode\n'HGPExperiment.HGP.distance_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.HGP.representative_weight_bound.{u} {R₁ C₁ R₂ C₂ : Type u} [Fintype R₁] [DecidableEq R₁] [Fintype C₁]\n  [DecidableEq C₁] [Fintype R₂] [DecidableEq R₂] [Fintype C₂] [DecidableEq C₂]\n  (h : QEC.Coding.HypergraphProduct.Data (ZMod 2) R₁ C₁ R₂ C₂)\n  (v : QEC.Coding.Word (ZMod 2) (QEC.Coding.HypergraphProduct.QubitIndex R₁ C₁ R₂ C₂))\n  (hv :\n    QEC.Coding.HypergraphProduct.IsCSSLogical (QEC.Coding.HypergraphProduct.binaryCSSCode h).xCode\n      (QEC.Coding.HypergraphProduct.binaryCSSCode h).zCode v) :\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum h ≤ ↑(QEC.Coding.HammingWeight v)\n'HGPExperiment.HGP.representative_weight_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/004-ExamplesWithParametersPrefix.stdout": {
+      "sha256": "908bb4cab0b2f2f3939c9340f6d7485a4337f64f4f81ad9ec7a4a052326c21aa",
+      "content": "[exit 1]\nHGPExperiment/Examples.lean:17:2: warning: Try this: \n  haveI̵\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\nHGPExperiment/Examples.lean:43:70: error: unsolved goals\nm : ℕ\nhm : 0 < m\nr : Fin m\n⊢ 2 = 0\nHGPExperiment/Examples.lean:48:6: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined\nHGPExperiment/Examples.lean:50:4: error: failed to synthesize\n  DecidablePred fun x => x ∈ (parityCheckKernelCode (Matrix.toLin' (ones m 2))).carrier ∧ x ≠ 0\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\nHGPExperiment/Examples.lean:46:45: warning: This simp argument is unused:\n  Fin.sum_univ_two\n\nHint: Omit it from the simp argument list.\n  [apply] simp [ones, Matrix.mulVec, dotProduct]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nHGPExperiment.Examples.ones (m n : ℕ) : Matrix (Fin m) (Fin n) (ZMod 2)\n'HGPExperiment.Examples.ones' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.repetitionData : QEC.Coding.HypergraphProduct.Data (ZMod 2) (Fin 1) (Fin 2) (Fin 1) (Fin 2)\n'HGPExperiment.Examples.repetitionData' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.dependentData : QEC.Coding.HypergraphProduct.Data (ZMod 2) (Fin 2) (Fin 2) (Fin 2) (Fin 2)\n'HGPExperiment.Examples.dependentData' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.ones_rank (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : (HGPExperiment.Examples.ones m n).rank = 1\n'HGPExperiment.Examples.ones_rank' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.ones_kernel_dimension (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :\n  QEC.Coding.Dimension (QEC.Coding.parityCheckKernelCode (Matrix.toLin' (HGPExperiment.Examples.ones m n))) = n - 1\n'HGPExperiment.Examples.ones_kernel_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.ones_repetition_distance (m : ℕ) (hm : 0 < m) :\n  QEC.Coding.HypergraphProduct.extendedMinimumDistance\n      (QEC.Coding.parityCheckKernelCode (Matrix.toLin' (HGPExperiment.Examples.ones m 2))) =\n    2\n'HGPExperiment.Examples.ones_repetition_distance' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.Examples.repetition_input_dimensions :\n  QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode HGPExperiment.Examples.repetitionData) = 1 ∧\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode HGPExperiment.Examples.repetitionData) = 1 ∧\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode HGPExperiment.Examples.repetitionData) = 0 ∧\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode HGPExperiment.Examples.repetitionData) =\n          0\n'HGPExperiment.Examples.repetition_input_dimensions' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.dependent_input_dimensions :\n  QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstCode HGPExperiment.Examples.dependentData) = 1 ∧\n    QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondCode HGPExperiment.Examples.dependentData) = 1 ∧\n      QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.firstTransposeCode HGPExperiment.Examples.dependentData) = 1 ∧\n        QEC.Coding.Dimension (QEC.Coding.HypergraphProduct.secondTransposeCode HGPExperiment.Examples.dependentData) = 1\n'HGPExperiment.Examples.dependent_input_dimensions' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.repetition_transpose_distance :\n  QEC.Coding.HypergraphProduct.extendedMinimumDistance\n      (QEC.Coding.HypergraphProduct.firstTransposeCode HGPExperiment.Examples.repetitionData) =\n    ⊤\n'HGPExperiment.Examples.repetition_transpose_distance' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.Examples.repetition_input_minimum :\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum HGPExperiment.Examples.repetitionData = 2\n'HGPExperiment.Examples.repetition_input_minimum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.Examples.dependent_input_minimum :\n  QEC.Coding.HypergraphProduct.inputDistanceMinimum HGPExperiment.Examples.dependentData = 2\n'HGPExperiment.Examples.dependent_input_minimum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.Examples.repetition_parameters :\n  Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex (Fin 1) (Fin 2) (Fin 1) (Fin 2)) = 5 ∧\n    Module.finrank (ZMod 2)\n          (QEC.Coding.HypergraphProduct.chainComplex HGPExperiment.Examples.repetitionData).middleHomology =\n        1 ∧\n      QEC.Coding.HypergraphProduct.extendedAlgebraicCSSMinimumDistance\n          (QEC.Coding.HypergraphProduct.binaryCSSCode HGPExperiment.Examples.repetitionData).xCode\n          (QEC.Coding.HypergraphProduct.binaryCSSCode HGPExperiment.Examples.repetitionData).zCode =\n        2\n'HGPExperiment.Examples.repetition_parameters' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.Examples.dependent_parameters :\n  Fintype.card (QEC.Coding.HypergraphProduct.QubitIndex (Fin 2) (Fin 2) (Fin 2) (Fin 2)) = 8 ∧\n    Module.finrank (ZMod 2)\n          (QEC.Coding.HypergraphProduct.chainComplex HGPExperiment.Examples.dependentData).middleHomology =\n        2 ∧\n      QEC.Coding.HypergraphProduct.extendedAlgebraicCSSMinimumDistance\n          (QEC.Coding.HypergraphProduct.binaryCSSCode HGPExperiment.Examples.dependentData).xCode\n          (QEC.Coding.HypergraphProduct.binaryCSSCode HGPExperiment.Examples.dependentData).zCode =\n        2\n'HGPExperiment.Examples.dependent_parameters' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "direct-check/005-InferenceWithErasurePrefix.stdout": {
+      "sha256": "609cb4ad414d663ef6fceb42bf11285b28befe4e404dd7fcf7244cd0e2644f59",
+      "content": "[exit 1]\nHGPExperiment/Inference.lean:41:59: error: Ambiguous term\n  not_imp\nPossible interpretations:\n  _root_.not_imp : ¬(?m.17 → ?m.18) ↔ ?m.17 ∧ ¬?m.18\n  \n  Classical.not_imp : ¬(?m.17 → ?m.18) ↔ ?m.17 ∧ ¬?m.18\nHGPExperiment/Inference.lean:39:69: error: unsolved goals\nQ : Type u_1\nRX : Type u_2\nRZ : Type u_3\ninst✝⁵ : Fintype Q\ninst✝⁴ : DecidableEq Q\ninst✝³ : Fintype RX\ninst✝² : DecidableEq RX\ninst✝¹ : Fintype RZ\ninst✝ : DecidableEq RZ\nP : Matrix RX Q F₂\nD : Matrix RZ Q F₂\nE : Set Q\n⊢ (∃ e f, SupportedError E e ∧ SupportedError E f ∧ syndrome P D e = syndrome P D f ∧ ¬ErrorEquivalent P D e f) ↔\n    ∃ x x_1,\n      ∃ (_ : SupportedError E x) (_ : SupportedError E x_1) (_ : syndrome P D x = syndrome P D x_1),\n        ¬ErrorEquivalent P D x x_1\nHGPExperiment/Inference.lean:43:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.correctable_iff_cycles_trivial`:\n  [DecidableEq RX]\n  [DecidableEq RZ]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq RX] [DecidableEq RZ] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Inference.lean:90:37: error: Ambiguous term\n  not_imp\nPossible interpretations:\n  _root_.not_imp : ¬(?m.48 → ?m.49) ↔ ?m.48 ∧ ¬?m.49\n  \n  Classical.not_imp : ¬(?m.48 → ?m.49) ↔ ?m.48 ∧ ¬?m.49\nHGPExperiment/Inference.lean:91:2: error: Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\nHGPExperiment/Inference.lean:99:39: error: Application type mismatch: The argument\n  P\nhas type\n  Matrix.{u_2, u_1, 0} RX Q F₂\nof sort `Type (max u_2 u_1)` but is expected to have type\n  Matrix.{u_1, u_1, 0} ?m.10 Q F₂\nof sort `Type u_1` in the application\n  Matrix.toLin' P\nHGPExperiment/Inference.lean:107:43: error: Application type mismatch: The argument\n  D\nhas type\n  Matrix.{u_3, u_1, 0} RZ Q F₂\nof sort `Type (max u_3 u_1)` but is expected to have type\n  Matrix.{u_1, u_1, 0} ?m.37 Q F₂\nof sort `Type u_1` in the application\n  Matrix.toLin' D\nHGPExperiment/Inference.lean:114:80: error: Application type mismatch: The argument\n  D\nhas type\n  Matrix.{u_3, u_1, 0} RZ Q F₂\nbut is expected to have type\n  Matrix.{max u_1 u_3, max u_1 u_3, 0} ?m.39 ?m.40 ?m.37\nin the application\n  Matrix.toLin' D\nHGPExperiment/Inference.lean:127:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.logical_supported_on_own_support`:\n  [DecidableEq Q]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq Q] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Inference.lean:138:2: warning: Try `simp at hq` instead of `simpa using hq`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nHGPExperiment/Inference.lean:158:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.erasureDistance_eq_top_iff`:\n  [DecidableEq RX]\n  [DecidableEq RZ]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq RX] [DecidableEq RZ] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment/Inference.lean:168:0: warning: automatically included section variable(s) unused in theorem `HGPExperiment.cssDistance_le_weight`:\n  [DecidableEq RX]\n  [DecidableEq RZ]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq RX] [DecidableEq RZ] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nHGPExperiment.SupportedError.{u_1} {Q : Type u_1} (E : Set Q) (e : HGPExperiment.ErrorPair Q) : Prop\n'HGPExperiment.SupportedError' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.syndrome.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [DecidableEq Q]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (e : HGPExperiment.ErrorPair Q) :\n  (RZ → HGPExperiment.F₂) × (RX → HGPExperiment.F₂)\n'HGPExperiment.syndrome' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.ErrorEquivalent.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype RX] [Fintype RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (e f : HGPExperiment.ErrorPair Q) : Prop\n'HGPExperiment.ErrorEquivalent' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.ErasureCorrectable.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [DecidableEq Q] [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂)\n  (E : Set Q) : Prop\n'HGPExperiment.ErasureCorrectable' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.ErasureFails.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [DecidableEq Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) : Prop\n'HGPExperiment.ErasureFails' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.erasureFails_iff_not_correctable.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3}\n  [Fintype Q] [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  HGPExperiment.ErasureFails P D E ↔ ¬HGPExperiment.ErasureCorrectable P D E\n'HGPExperiment.erasureFails_iff_not_correctable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.correctable_iff_cycles_trivial.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ] (P : Matrix RX Q HGPExperiment.F₂)\n  (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  HGPExperiment.ErasureCorrectable P D E ↔\n    (∀ v ∈ HGPExperiment.cycles D, v ∈ HGPExperiment.supportSpace E → v ∈ HGPExperiment.boundaries P) ∧\n      ∀ v ∈ HGPExperiment.cycles P, v ∈ HGPExperiment.supportSpace E → v ∈ HGPExperiment.boundaries D\n'HGPExperiment.correctable_iff_cycles_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.erasureCorrectable_iff_dimensions_zero.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3}\n  [Fintype Q] [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  HGPExperiment.ErasureCorrectable P D E ↔\n    HGPExperiment.logicalDimension D P E = 0 ∧ HGPExperiment.logicalDimension P D E = 0\n'HGPExperiment.erasureCorrectable_iff_dimensions_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.IsLogicalWord.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [Fintype RX]\n  [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (v : Q → HGPExperiment.F₂) : Prop\n'HGPExperiment.IsLogicalWord' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.erasureFails_iff_logical_supported.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3}\n  [Fintype Q] [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Set Q) :\n  HGPExperiment.ErasureFails P D E ↔ ∃ v, HGPExperiment.IsLogicalWord P D v ∧ v ∈ HGPExperiment.supportSpace E\n'HGPExperiment.erasureFails_iff_logical_supported' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.cssDistance.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [DecidableEq Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) : WithTop ℕ\n'HGPExperiment.cssDistance' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment/Inference.lean:210:7: error(lean.unknownIdentifier): Unknown identifier `HGPExperiment.rowCode_carrier_eq_boundaries`\nHGPExperiment/Inference.lean:211:14: error(lean.unknownIdentifier): Unknown constant `HGPExperiment.rowCode_carrier_eq_boundaries`\nHGPExperiment/Inference.lean:212:7: error(lean.unknownIdentifier): Unknown identifier `HGPExperiment.isLogicalWord_iff_isCSSLogical`\nHGPExperiment/Inference.lean:213:14: error(lean.unknownIdentifier): Unknown constant `HGPExperiment.isLogicalWord_iff_isCSSLogical`\nHGPExperiment/Inference.lean:214:7: error(lean.unknownIdentifier): Unknown identifier `HGPExperiment.cssDistance_eq_extendedAlgebraicCSSMinimumDistance`\nHGPExperiment/Inference.lean:215:14: error(lean.unknownIdentifier): Unknown constant `HGPExperiment.cssDistance_eq_extendedAlgebraicCSSMinimumDistance`\nHGPExperiment.erasureDistance.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q] [DecidableEq Q]\n  [Fintype RX] [Fintype RZ] (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) : WithTop ℕ\n'HGPExperiment.erasureDistance' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.logical_supported_on_own_support.{u_1} {Q : Type u_1} [Fintype Q] [DecidableEq Q]\n  (v : Q → HGPExperiment.F₂) : v ∈ HGPExperiment.supportSpace ↑(QEC.Coding.hammingSupport v)\n'HGPExperiment.logical_supported_on_own_support' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.weight_le_erasure_size.{u_1} {Q : Type u_1} [Fintype Q] [DecidableEq Q] {E : Finset Q}\n  {v : Q → HGPExperiment.F₂} (hv : v ∈ HGPExperiment.supportSpace ↑E) : QEC.Coding.HammingWeight v ≤ E.card\n'HGPExperiment.weight_le_erasure_size' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.erasureDistance_eq_cssDistance.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ] (P : Matrix RX Q HGPExperiment.F₂)\n  (D : Matrix RZ Q HGPExperiment.F₂) : HGPExperiment.erasureDistance P D = HGPExperiment.cssDistance P D\n'HGPExperiment.erasureDistance_eq_cssDistance' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nHGPExperiment.erasureDistance_eq_top_iff.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ] (P : Matrix RX Q HGPExperiment.F₂)\n  (D : Matrix RZ Q HGPExperiment.F₂) :\n  HGPExperiment.erasureDistance P D = ⊤ ↔ ∀ (E : Set Q), ¬HGPExperiment.ErasureFails P D E\n'HGPExperiment.erasureDistance_eq_top_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.cssDistance_le_weight.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3} [Fintype Q]\n  [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ] (P : Matrix RX Q HGPExperiment.F₂)\n  (D : Matrix RZ Q HGPExperiment.F₂) {v : Q → HGPExperiment.F₂} (hv : HGPExperiment.IsLogicalWord P D v) :\n  HGPExperiment.cssDistance P D ≤ ↑(QEC.Coding.HammingWeight v)\n'HGPExperiment.cssDistance_le_weight' depends on axioms: [propext, Classical.choice, Quot.sound]\nHGPExperiment.erasureCorrectable_of_card_lt_distance.{u_1, u_2, u_3} {Q : Type u_1} {RX : Type u_2} {RZ : Type u_3}\n  [Fintype Q] [DecidableEq Q] [Fintype RX] [DecidableEq RX] [Fintype RZ] [DecidableEq RZ]\n  (P : Matrix RX Q HGPExperiment.F₂) (D : Matrix RZ Q HGPExperiment.F₂) (E : Finset Q)\n  (h : ↑E.card < HGPExperiment.cssDistance P D) : HGPExperiment.ErasureCorrectable P D ↑E\n'HGPExperiment.erasureCorrectable_of_card_lt_distance' depends on axioms: [propext,\n sorryAx,\n Classical.choice,\n Quot.sound]\n"
+    },
+    "direct-check/007-StripWithDependencyPrefixes.command.txt": {
+      "sha256": "03d2d5af4e0ed4f56fad1f7f6238b4e5aabd8ca340b0433b4fe6c55e672ba065",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Strip.lean -o .lake/build/lib/lean/HGPExperiment/Strip.olean\n"
+    },
+    "direct-check/005-InferenceWithErasurePrefix.command.txt": {
+      "sha256": "1b5e4e73f06ab21f83782f84d836589e2f5b0a24b6e8a8cf21541d6d4b9e8086",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Inference.lean -o .lake/build/lib/lean/HGPExperiment/Inference.olean\n"
+    },
+    "direct-check/009-ParametersFullWithAxioms.command.txt": {
+      "sha256": "9a8d09c36da12436b656e5f27b0f8c842ec0b1db1ebe1303205c625db740fac5",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Parameters.lean -o .lake/build/lib/lean/HGPExperiment/Parameters.olean\n"
+    },
+    "direct-check/002-ErasurePrefix.command.txt": {
+      "sha256": "83619091f089c71a10747f534e6d74004ad7fa56f964d399e64c889d3f6ede3d",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean SupervisorErasurePrefixWithAudit.lean -o .lake/build/lib/lean/SupervisorErasurePrefixWithAudit.olean\n"
+    },
+    "direct-check/003-ParametersPrefix.command.txt": {
+      "sha256": "9a8d09c36da12436b656e5f27b0f8c842ec0b1db1ebe1303205c625db740fac5",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Parameters.lean -o .lake/build/lib/lean/HGPExperiment/Parameters.olean\n"
+    },
+    "direct-check/001-Parameters.command.txt": {
+      "sha256": "9a8d09c36da12436b656e5f27b0f8c842ec0b1db1ebe1303205c625db740fac5",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Parameters.lean -o .lake/build/lib/lean/HGPExperiment/Parameters.olean\n"
+    },
+    "direct-check/004-ExamplesWithParametersPrefix.command.txt": {
+      "sha256": "b7a1407815b738081ee19309c73d19f2b40c0488bec1c3cd825a57fd75d93347",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Examples.lean -o .lake/build/lib/lean/HGPExperiment/Examples.olean\n"
+    },
+    "direct-check/010-ErasureFullWithAxioms.command.txt": {
+      "sha256": "d6bad13624d626229036c0b552437d543e55fb3a1918ca116709572b6e2a6523",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Erasure.lean -o .lake/build/lib/lean/HGPExperiment/Erasure.olean\n"
+    },
+    "direct-check/008-ExamplesPrefix.command.txt": {
+      "sha256": "b7a1407815b738081ee19309c73d19f2b40c0488bec1c3cd825a57fd75d93347",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/Examples.lean -o .lake/build/lib/lean/HGPExperiment/Examples.olean\n"
+    },
+    "direct-check/006-StripDualityPrefix.command.txt": {
+      "sha256": "417a95a28b8004a5cb38533353bf453d757532789fe6b7ac676280821fc26281",
+      "content": "cd /work/project && lake --no-cache --no-ansi env lean HGPExperiment/StripDuality.lean -o .lake/build/lib/lean/HGPExperiment/StripDuality.olean\n"
+    }
+  }
+}

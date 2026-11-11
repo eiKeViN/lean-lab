@@ -1,0 +1,508 @@
+{
+  "cedar": {
+    "arm": "official SHEAF",
+    "wall_seconds": 575.1338377820002,
+    "termination": "model_budget",
+    "usage": {
+      "inputTokens": 9271390,
+      "cachedInputTokens": 8981632,
+      "outputTokens": 47180,
+      "reasoningOutputTokens": 10473,
+      "totalTokens": 9318570,
+      "cacheWriteInputTokens": 0,
+      "uncachedInputTokens": 289758,
+      "normalisedUnits": 12054576
+    },
+    "first_child_spawn_seconds": 61.403888,
+    "calls": {
+      "requested_total": 166,
+      "requested_by_tool": {
+        "shell": 98,
+        "spawn_agent": 3,
+        "agent_status": 6,
+        "send_message": 53,
+        "wait_agent": 6
+      },
+      "dispatched_total": 166,
+      "dispatched_by_tool": {
+        "shell": 98,
+        "spawn_agent": 3,
+        "agent_status": 6,
+        "send_message": 53,
+        "wait_agent": 6
+      },
+      "coordination_dispatched": 68,
+      "pending_shell_rpc_responses": 0
+    },
+    "conservative_budget_snapshots": {
+      "3000000": {
+        "snapshot": {
+          "index": "0004-minute",
+          "seconds": 180.485901903,
+          "units": 1966728
+        },
+        "first_reported_crossing": {
+          "line": 1190,
+          "seconds": 217.255382,
+          "units": 3052776
+        }
+      },
+      "6000000": {
+        "snapshot": {
+          "index": "0006-minute",
+          "seconds": 300.927902204,
+          "units": 4581912
+        },
+        "first_reported_crossing": {
+          "line": 1949,
+          "seconds": 352.282339,
+          "units": 6028336
+        }
+      },
+      "9000000": {
+        "snapshot": {
+          "index": "0008-minute",
+          "seconds": 421.25983257000007,
+          "units": 7489768
+        },
+        "first_reported_crossing": {
+          "line": 2828,
+          "seconds": 467.199177,
+          "units": 9035200
+        }
+      },
+      "12000000": {
+        "snapshot": {
+          "index": "0010-minute",
+          "seconds": 542.0219357280002,
+          "units": 11046848
+        },
+        "first_reported_crossing": {
+          "line": 3378,
+          "seconds": 574.996225,
+          "units": 12054576
+        }
+      }
+    },
+    "first_upstream_lookup": {
+      "call_id": "exec-02d2dda2-3072-414e-a696-13b479d299ad",
+      "start_seconds": 101.406951,
+      "agent_id": "agent-3",
+      "end_seconds": 101.672887
+    },
+    "roles": [
+      {
+        "agent_id": "agent-1",
+        "role": "launcher",
+        "parent": null,
+        "elapsed": 0.191758
+      },
+      {
+        "agent_id": "agent-2",
+        "role": "sheaf-project-maint",
+        "parent": "agent-1",
+        "elapsed": 61.403888
+      },
+      {
+        "agent_id": "agent-3",
+        "role": "sheaf-project-lead-G1",
+        "parent": "agent-1",
+        "elapsed": 61.407706
+      },
+      {
+        "agent_id": "agent-4",
+        "role": "sheaf-worker-G1",
+        "parent": "agent-3",
+        "elapsed": 174.45238
+      }
+    ],
+    "requested_shell_timeout_above_120": 87,
+    "actual_external_timeouts": 3,
+    "first_substantive_compile": {
+      "call_id": "exec-0a4c1d66-3e40-4bc9-831c-664cdca282f0",
+      "start_seconds": 294.528851,
+      "end_seconds": 360.432611,
+      "agent_id": "agent-4",
+      "outcome": "internal 60-second single-file timeout"
+    },
+    "first_novel_compile_observed": false
+  },
+  "flint": {
+    "arm": "official SHEAF",
+    "wall_seconds": 635.4364915860006,
+    "termination": "model_budget",
+    "usage": {
+      "inputTokens": 8608195,
+      "cachedInputTokens": 8233088,
+      "outputTokens": 48115,
+      "reasoningOutputTokens": 9614,
+      "totalTokens": 8656310,
+      "cacheWriteInputTokens": 0,
+      "uncachedInputTokens": 375107,
+      "normalisedUnits": 12003784
+    },
+    "first_child_spawn_seconds": 79.183355,
+    "calls": {
+      "requested_total": 145,
+      "requested_by_tool": {
+        "shell": 92,
+        "spawn_agent": 3,
+        "send_message": 38,
+        "agent_status": 12
+      },
+      "dispatched_total": 145,
+      "dispatched_by_tool": {
+        "shell": 92,
+        "spawn_agent": 3,
+        "send_message": 38,
+        "agent_status": 12
+      },
+      "coordination_dispatched": 53,
+      "pending_shell_rpc_responses": 0
+    },
+    "conservative_budget_snapshots": {
+      "3000000": {
+        "snapshot": {
+          "index": "0003-minute",
+          "seconds": 120.31200539900055,
+          "units": 1391472
+        },
+        "first_reported_crossing": {
+          "line": 1214,
+          "seconds": 172.685768,
+          "units": 3083336
+        }
+      },
+      "6000000": {
+        "snapshot": {
+          "index": "0006-minute",
+          "seconds": 300.8004292650003,
+          "units": 5549136
+        },
+        "first_reported_crossing": {
+          "line": 1894,
+          "seconds": 310.109522,
+          "units": 6035832
+        }
+      },
+      "9000000": {
+        "snapshot": {
+          "index": "0009-minute",
+          "seconds": 481.3044265080007,
+          "units": 8980944
+        },
+        "first_reported_crossing": {
+          "line": 2694,
+          "seconds": 481.862277,
+          "units": 9084808
+        }
+      },
+      "12000000": {
+        "snapshot": {
+          "index": "0011-minute",
+          "seconds": 601.9042894330005,
+          "units": 11830056
+        },
+        "first_reported_crossing": {
+          "line": 3236,
+          "seconds": 635.334402,
+          "units": 12003784
+        }
+      }
+    },
+    "first_upstream_lookup": {
+      "call_id": "exec-cfa1197e-d34e-4a40-868d-7eb8f038c409",
+      "start_seconds": 110.83314,
+      "agent_id": "agent-3",
+      "end_seconds": 110.952949
+    },
+    "roles": [
+      {
+        "agent_id": "agent-1",
+        "role": "launcher",
+        "parent": null,
+        "elapsed": 0.190021
+      },
+      {
+        "agent_id": "agent-2",
+        "role": "SHEAF maintainer session sheaf-project-maint",
+        "parent": "agent-1",
+        "elapsed": 79.183355
+      },
+      {
+        "agent_id": "agent-3",
+        "role": "SHEAF lead session sheaf-project-lead-1",
+        "parent": "agent-1",
+        "elapsed": 79.188731
+      },
+      {
+        "agent_id": "agent-4",
+        "role": "SHEAF worker G1",
+        "parent": "agent-3",
+        "elapsed": 131.518164
+      }
+    ],
+    "requested_shell_timeout_above_120": 81,
+    "actual_external_timeouts": 2,
+    "first_substantive_compile": {
+      "call_id": "exec-8353e147-34e8-4f8e-adf8-05cab0efd3ef",
+      "start_seconds": 348.901328,
+      "end_seconds": 418.268033,
+      "agent_id": "agent-4",
+      "outcome": "internal 60-second single-file timeout"
+    },
+    "first_novel_compile_observed": false
+  },
+  "maple": {
+    "arm": "free role splitting",
+    "wall_seconds": 559.3400244169998,
+    "termination": "model_budget",
+    "usage": {
+      "inputTokens": 8763669,
+      "cachedInputTokens": 8419840,
+      "outputTokens": 52451,
+      "reasoningOutputTokens": 12731,
+      "totalTokens": 8816120,
+      "cacheWriteInputTokens": 0,
+      "uncachedInputTokens": 343829,
+      "normalisedUnits": 12009688
+    },
+    "first_child_spawn_seconds": 33.891842,
+    "calls": {
+      "requested_total": 174,
+      "requested_by_tool": {
+        "shell": 120,
+        "spawn_agent": 3,
+        "agent_status": 4,
+        "send_message": 47
+      },
+      "dispatched_total": 173,
+      "dispatched_by_tool": {
+        "shell": 120,
+        "spawn_agent": 3,
+        "agent_status": 4,
+        "send_message": 46
+      },
+      "coordination_dispatched": 53,
+      "pending_shell_rpc_responses": 1
+    },
+    "conservative_budget_snapshots": {
+      "3000000": {
+        "snapshot": {
+          "index": "0003-minute",
+          "seconds": 120.2127154509999,
+          "units": 2627992
+        },
+        "first_reported_crossing": {
+          "line": 1027,
+          "seconds": 155.161003,
+          "units": 3008752
+        }
+      },
+      "6000000": {
+        "snapshot": {
+          "index": "0005-minute",
+          "seconds": 240.33103234099963,
+          "units": 5012200
+        },
+        "first_reported_crossing": {
+          "line": 1703,
+          "seconds": 296.707924,
+          "units": 6009856
+        }
+      },
+      "9000000": {
+        "snapshot": {
+          "index": "0007-minute",
+          "seconds": 360.46126299499974,
+          "units": 8006808
+        },
+        "first_reported_crossing": {
+          "line": 2433,
+          "seconds": 404.516591,
+          "units": 9007448
+        }
+      },
+      "12000000": {
+        "snapshot": {
+          "index": "0010-minute",
+          "seconds": 540.6941277060005,
+          "units": 11675096
+        },
+        "first_reported_crossing": {
+          "line": 3025,
+          "seconds": 559.315326,
+          "units": 12009688
+        }
+      }
+    },
+    "first_upstream_lookup": {
+      "call_id": "exec-6765e3f6-2917-47b9-97a8-ff6e5a18f984",
+      "start_seconds": 16.072691,
+      "agent_id": "agent-1",
+      "end_seconds": 16.266679
+    },
+    "roles": [
+      {
+        "agent_id": "agent-1",
+        "role": "launcher",
+        "parent": null,
+        "elapsed": 0.17852
+      },
+      {
+        "agent_id": "agent-2",
+        "role": "B general CSS core and ranks",
+        "parent": "agent-1",
+        "elapsed": 33.891842
+      },
+      {
+        "agent_id": "agent-3",
+        "role": "D universal strip formulas",
+        "parent": "agent-1",
+        "elapsed": 33.899513
+      },
+      {
+        "agent_id": "agent-4",
+        "role": "A HGP parameters and examples",
+        "parent": "agent-1",
+        "elapsed": 33.90927
+      }
+    ],
+    "requested_shell_timeout_above_120": 98,
+    "actual_external_timeouts": 11,
+    "first_substantive_compile": {
+      "call_id": "exec-cd5b6965-2690-4e4a-b54a-df918e5ecbf9",
+      "start_seconds": 154.791914,
+      "end_seconds": 275.040601,
+      "agent_id": "agent-2",
+      "outcome": "external hard 120-second shell timeout"
+    },
+    "first_novel_compile_observed": false
+  },
+  "slate": {
+    "arm": "free role splitting",
+    "wall_seconds": 495.96309693200055,
+    "termination": "model_budget",
+    "usage": {
+      "inputTokens": 8985244,
+      "cachedInputTokens": 8644992,
+      "outputTokens": 40169,
+      "reasoningOutputTokens": 11080,
+      "totalTokens": 9025413,
+      "cacheWriteInputTokens": 0,
+      "uncachedInputTokens": 340252,
+      "normalisedUnits": 12009712
+    },
+    "first_child_spawn_seconds": 35.390234,
+    "calls": {
+      "requested_total": 189,
+      "requested_by_tool": {
+        "shell": 131,
+        "spawn_agent": 3,
+        "agent_status": 3,
+        "send_message": 52
+      },
+      "dispatched_total": 189,
+      "dispatched_by_tool": {
+        "shell": 131,
+        "spawn_agent": 3,
+        "agent_status": 3,
+        "send_message": 52
+      },
+      "coordination_dispatched": 58,
+      "pending_shell_rpc_responses": 4
+    },
+    "conservative_budget_snapshots": {
+      "3000000": {
+        "snapshot": {
+          "index": "0003-minute",
+          "seconds": 120.22920216000057,
+          "units": 2134496
+        },
+        "first_reported_crossing": {
+          "line": 996,
+          "seconds": 144.171427,
+          "units": 3014280
+        }
+      },
+      "6000000": {
+        "snapshot": {
+          "index": "0005-minute",
+          "seconds": 240.2918782400002,
+          "units": 5365440
+        },
+        "first_reported_crossing": {
+          "line": 1943,
+          "seconds": 286.336268,
+          "units": 6005488
+        }
+      },
+      "9000000": {
+        "snapshot": {
+          "index": "0007-minute",
+          "seconds": 360.39764259799995,
+          "units": 8357224
+        },
+        "first_reported_crossing": {
+          "line": 2578,
+          "seconds": 379.392556,
+          "units": 9065728
+        }
+      },
+      "12000000": {
+        "snapshot": {
+          "index": "0009-minute",
+          "seconds": 480.4697428340005,
+          "units": 11258672
+        },
+        "first_reported_crossing": {
+          "line": 3286,
+          "seconds": 495.894523,
+          "units": 12009712
+        }
+      }
+    },
+    "first_upstream_lookup": {
+      "call_id": "exec-1aa9db36-c0c4-4897-8892-c7414682c007",
+      "start_seconds": 13.995366,
+      "agent_id": "agent-1",
+      "end_seconds": 14.203308
+    },
+    "roles": [
+      {
+        "agent_id": "agent-1",
+        "role": "launcher",
+        "parent": null,
+        "elapsed": 0.191197
+      },
+      {
+        "agent_id": "agent-2",
+        "role": "B/C formalization",
+        "parent": "agent-1",
+        "elapsed": 35.390234
+      },
+      {
+        "agent_id": "agent-3",
+        "role": "D strip formalization",
+        "parent": "agent-1",
+        "elapsed": 35.395437
+      },
+      {
+        "agent_id": "agent-4",
+        "role": "E concrete examples",
+        "parent": "agent-1",
+        "elapsed": 35.39891
+      }
+    ],
+    "requested_shell_timeout_above_120": 47,
+    "actual_external_timeouts": 9,
+    "first_substantive_compile": {
+      "call_id": "exec-e75249a4-abc2-45d1-943c-793aaf8982d2",
+      "start_seconds": 107.748289,
+      "end_seconds": 227.871964,
+      "agent_id": "agent-2",
+      "outcome": "external hard 120-second shell timeout"
+    },
+    "first_novel_compile_observed": false
+  }
+}
