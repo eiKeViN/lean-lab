@@ -1,0 +1,79 @@
+{
+  "reason": "model_budget",
+  "elapsed": 1099.4227421270002,
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "limits": {
+    "seconds": 1200.0,
+    "units": 10000000,
+    "simultaneous_sessions": 4
+  },
+  "usage": {
+    "inputTokens": 6186112,
+    "cachedInputTokens": 5898368,
+    "outputTokens": 122892,
+    "reasoningOutputTokens": 10799,
+    "totalTokens": 6309004,
+    "cacheWriteInputTokens": 0,
+    "uncachedInputTokens": 287744,
+    "normalisedUnits": 10166592
+  },
+  "agents": [
+    {
+      "id": "agent-1",
+      "role": "launcher",
+      "parent": null,
+      "status": "terminated",
+      "usage": {
+        "inputTokens": 1396523,
+        "cachedInputTokens": 1321472,
+        "outputTokens": 40431,
+        "reasoningOutputTokens": 1067,
+        "totalTokens": 1436954,
+        "cacheWriteInputTokens": 0
+      }
+    },
+    {
+      "id": "agent-2",
+      "role": "mathematical-route-reviewer",
+      "parent": "agent-1",
+      "status": "completed",
+      "usage": {
+        "inputTokens": 1146384,
+        "cachedInputTokens": 1080704,
+        "outputTokens": 24822,
+        "reasoningOutputTokens": 1920,
+        "totalTokens": 1171206,
+        "cacheWriteInputTokens": 0
+      }
+    },
+    {
+      "id": "agent-3",
+      "role": "agent-systems-architect",
+      "parent": "agent-1",
+      "status": "completed",
+      "usage": {
+        "inputTokens": 1210611,
+        "cachedInputTokens": 1147648,
+        "outputTokens": 28005,
+        "reasoningOutputTokens": 4007,
+        "totalTokens": 1238616,
+        "cacheWriteInputTokens": 0
+      }
+    },
+    {
+      "id": "agent-4",
+      "role": "independent-assurance-reviewer",
+      "parent": "agent-1",
+      "status": "terminated",
+      "usage": {
+        "inputTokens": 2432594,
+        "cachedInputTokens": 2348544,
+        "outputTokens": 29634,
+        "reasoningOutputTokens": 3805,
+        "totalTokens": 2462228,
+        "cacheWriteInputTokens": 0
+      }
+    }
+  ]
+}

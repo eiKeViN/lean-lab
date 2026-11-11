@@ -1,0 +1,1 @@
+你现在接手上一轮CFSG规划的后续任务。阅读 USER_FOLLOWUP.md，并结合 previous/ 中的原方案与 sources/ 材料，按用户的新前提给出完整的智能体协作实施方案。自行组织本轮协作。先保存实质版本，再改进；最终主文件为 AGENTIC_PLAN.zh-CN.md。

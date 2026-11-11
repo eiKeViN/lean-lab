@@ -1,0 +1,37 @@
+{
+  "reason": "all_agents_completed",
+  "elapsed": 233.5626575999995,
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "limits": {
+    "seconds": 600.0,
+    "units": 3000000,
+    "simultaneous_sessions": 4
+  },
+  "usage": {
+    "inputTokens": 560759,
+    "cachedInputTokens": 501504,
+    "outputTokens": 8249,
+    "reasoningOutputTokens": 1334,
+    "totalTokens": 569008,
+    "cacheWriteInputTokens": 0,
+    "uncachedInputTokens": 59255,
+    "normalisedUnits": 1107528
+  },
+  "agents": [
+    {
+      "id": "agent-1",
+      "role": "launcher",
+      "parent": null,
+      "status": "completed",
+      "usage": {
+        "inputTokens": 560759,
+        "cachedInputTokens": 501504,
+        "outputTokens": 8249,
+        "reasoningOutputTokens": 1334,
+        "totalTokens": 569008,
+        "cacheWriteInputTokens": 0
+      }
+    }
+  ]
+}

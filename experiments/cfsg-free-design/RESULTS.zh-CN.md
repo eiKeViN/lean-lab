@@ -2,7 +2,7 @@
 
 这次实际启动了一个与 HGP 自由组同模型、同多会话工具配置的新团队。目标选择完整有限单群分类 CFSG。近期 Axiom 公开项目对应这一完整分类；最小单群分类是另一条数学定理。团队得到固定目标的源码、Mathlib 路径清单、选定基础源码和参考文献目录，自己决定角色、路线、工程组织及交付。
 
-[团队原始方案](submission/PLAN.zh-CN.md) · [50 个工作包](submission/design/obligations.json) · [监督方实际运行的结构检查](submission/design/review-report.json) · [完整事件及源码证据](https://chatgpt.com/library?file_id=libfile_35fe16ddf6a48191baae9155210e252b&account_id=personal)
+[按用户新前提的智能体协作完整方案](follow-up/READING_PLAN.zh-CN.md) · [团队原始方案](submission/PLAN.zh-CN.md) · [50 个工作包](submission/design/obligations.json) · [监督方实际运行的结构检查](submission/design/review-report.json) · [完整事件及源码证据](https://chatgpt.com/library?file_id=libfile_35fe16ddf6a48191baae9155210e252b&account_id=personal)
 
 ## 实际设计结果
 
