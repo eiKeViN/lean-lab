@@ -50,6 +50,14 @@ TOOLS = [
 ]
 
 
+LONG_JOB_TOOLS = [
+    spec('start_shell_job', 'Start a long shell command in the same isolated workspace and return its job ID immediately. Suitable for Lean compilation. Poll with shell_job_status. Up to four pending shell jobs per room.',
+         {'command': {'type': 'string'}, 'seconds': {'type': 'integer', 'minimum': 1, 'maximum': 600}}, ['command']),
+    spec('shell_job_status', 'Poll a shell job; optionally wait up to 60 seconds. Returns exit output when complete.',
+         {'job_id': {'type': 'string'}, 'wait_seconds': {'type': 'integer', 'minimum': 0, 'maximum': 60}}, ['job_id']),
+]
+
+
 @dataclasses.dataclass
 class Agent:
     id: str
@@ -68,9 +76,12 @@ class Agent:
 
 
 class Controller:
-    def __init__(self, room: Path, evidence: Path, seconds: float, units: int):
+    def __init__(self, room: Path, evidence: Path, seconds: float, units: int, extended: bool = False):
         self.room, self.evidence = room, evidence
         self.seconds, self.limit = seconds, units
+        self.extended = extended
+        self.jobs: dict[str, asyncio.Task] = {}
+        self.milestones = [level for level in (12000000, 24000000) if extended and level < units]
         self.started = time.monotonic()
         self.agents: dict[str, Agent] = {}
         self.threads: dict[str, Agent] = {}
@@ -201,6 +212,10 @@ class Controller:
                     total = params['tokenUsage']['total']
                     agent.usage = {key: max(agent.usage[key], int(total.get(key, 0))) for key in USAGE_KEYS}
                     self.log('usage', agent_id=agent.id, per_thread=agent.usage, aggregate=self.totals())
+                    while self.milestones and self.totals()['normalisedUnits'] >= self.milestones[0]:
+                        threshold = self.milestones.pop(0)
+                        self.log('budget_crossing', threshold=threshold, usage=self.totals())
+                        self.launch_task(self.snapshot(f'budget-{threshold}'))
                     if self.totals()['normalisedUnits'] >= self.limit:
                         self.request_stop('model_budget')
             elif method == 'turn/started':
@@ -247,7 +262,7 @@ class Controller:
         try:
             result = await self.call('thread/start', {'model': MODEL, 'allowProviderModelFallback': False,
                 'environments': [], 'cwd': '/work', 'sandbox': 'workspace-write', 'runtimeWorkspaceRoots': ['/work'],
-                'ephemeral': True, 'approvalPolicy': 'never', 'dynamicTools': TOOLS})
+                'ephemeral': True, 'approvalPolicy': 'never', 'dynamicTools': TOOLS + (LONG_JOB_TOOLS if self.extended else [])})
             if result.get('model') != MODEL:
                 raise RuntimeError('Model mismatch: ' + str(result.get('model')))
             agent.thread = result['thread']['id']
@@ -294,6 +309,17 @@ class Controller:
                        'contentItems': [{'type': 'inputText', 'text': result if isinstance(result, str) else json.dumps(result)}]}})
 
     async def tool(self, caller: Agent, name: str, args: dict):
+        if self.extended and name == 'start_shell_job':
+            if sum(not task.done() for task in self.jobs.values()) >= 4:
+                raise ValueError('Four shell jobs are pending. Poll an existing job.')
+            job_id = f'job-{len(self.jobs) + 1}'
+            timeout = max(1, min(600, int(args.get('seconds', 600))))
+            self.jobs[job_id] = asyncio.create_task(self.shell(str(args['command']), timeout))
+            return {'job_id': job_id}
+        if self.extended and name == 'shell_job_status':
+            job = self.jobs[args['job_id']]
+            await asyncio.wait([job], timeout=max(0, min(60, int(args.get('wait_seconds', 0)))))
+            return {'done': job.done(), 'output': job.result() if job.done() else None}
         if name == 'shell':
             timeout = max(1, min(120, int(args.get('timeout', 30)), math.ceil(self.seconds - (time.monotonic() - self.started))))
             return await self.shell(str(args['command']), timeout)
@@ -413,8 +439,9 @@ class Controller:
             watcher.cancel()
             stop_waiter.cancel()
             await asyncio.gather(worker, watcher, stop_waiter, return_exceptions=True)
-            for task in list(self.tasks):
+            for task in list(self.tasks) + list(self.jobs.values()):
                 task.cancel()
+            await asyncio.gather(*self.jobs.values(), return_exceptions=True)
             if self.server:
                 await self.kill(self.server)
             await asyncio.gather(*(self.kill(p) for p in list(self.children)), return_exceptions=True)
@@ -452,6 +479,7 @@ def main():
     parser.add_argument('--prompt', required=True, type=Path)
     parser.add_argument('--seconds', required=True, type=float)
     parser.add_argument('--units', required=True, type=int)
+    parser.add_argument('--extended', action='store_true', help='Enable the 36M follow-up transport and milestones.')
     args = parser.parse_args()
     room, evidence = args.room.resolve(strict=True), args.evidence.resolve()
     if args.seconds <= 0 or args.units <= 0:
@@ -462,7 +490,7 @@ def main():
         parser.error('evidence directory must be new or empty')
     evidence.mkdir(parents=True, exist_ok=True)
     (evidence / 'prompt.txt').write_text(args.prompt.read_text())
-    controller = Controller(room, evidence, args.seconds, args.units)
+    controller = Controller(room, evidence, args.seconds, args.units, args.extended)
     async def run():
         loop = asyncio.get_running_loop()
         for sig in (signal.SIGTERM, signal.SIGINT):

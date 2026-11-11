@@ -64,11 +64,21 @@ def execute(room_path: Path, command: str, timeout: int) -> str:
         if (bindir / name).is_file():
             args += ["--ro-bind", str(bindir / name), "/opt/comparator/" + name]
     args += ["--ro-bind", str(Path(__file__).with_name("comparator-help.md")), "/opt/comparator/README.md"]
+    if os.environ.get("HGP_EXTENDED_ROOM") == "1":
+        tools = BASE / "runtime/round2-tools"
+        args += ["--ro-bind", "/usr/bin/mawk", "/tools/awk",
+                 "--ro-bind", str(tools / "rsync"), "/tools/rsync",
+                 "--ro-bind", str(tools / "libpopt.so.0"), "/tools/libpopt.so.0",
+                 "--setenv", "LD_LIBRARY_PATH", "/tools"]
+        if os.environ.get("HGP_LEAN_LOCK"):
+            wrapper = Path(__file__).with_name("limited-lean.sh")
+            args += ["--ro-bind", os.environ["HGP_LEAN_LOCK"], "/tools/compile.lock",
+                     "--ro-bind", str(wrapper), "/tools/lean", "--ro-bind", str(wrapper), "/tools/lake"]
     args += ["--dev", "/dev", "--proc", "/proc", "--tmpfs", "/tmp",
              "--dir", "/home/agent", "--ro-bind", str(LEAN), "/opt/lean",
              "--ro-bind", str(QEC), "/opt/qecert", "--bind", str(room), "/work",
              "--setenv", "HOME", "/home/agent", "--setenv", "LANG", "C.UTF-8",
-             "--setenv", "PATH", "/opt/lean/bin:/opt/comparator:/tools:/usr/local/bin:/usr/bin:/bin",
+             "--setenv", "PATH", "/tools:/opt/lean/bin:/opt/comparator:/usr/local/bin:/usr/bin:/bin",
              "--setenv", "GIT_AUTHOR_NAME", "Participant", "--setenv", "GIT_AUTHOR_EMAIL", "participant@localhost",
              "--setenv", "GIT_COMMITTER_NAME", "Participant", "--setenv", "GIT_COMMITTER_EMAIL", "participant@localhost",
              "--setenv", "LEAN_NUM_THREADS", "2",
