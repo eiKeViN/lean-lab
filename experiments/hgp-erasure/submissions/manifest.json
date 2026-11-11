@@ -1,0 +1,130 @@
+[
+  {
+    "run": "cedar",
+    "files": [
+      {
+        "original": "project/lean/HGPExperiment.lean",
+        "archived": "HGPExperiment.lean",
+        "stage": "seeded root",
+        "sha256": "a426aac09c5ce2f8fe892b1d624e380cbbd04c848819637caffa961542be3cf5"
+      },
+      {
+        "original": "project/lean/.sandbox/G1/A/Targets/A.lean",
+        "archived": "Targets/A.lean",
+        "stage": "worker draft outside seeded library",
+        "sha256": "ef6b1be4b866e79df011112abeb031e01375fc96624cb10db21f8eec29027e44"
+      },
+      {
+        "original": "project/TARGETS.md",
+        "archived": "TARGETS.md",
+        "stage": "incomplete target map",
+        "sha256": "bab62d0f55268f11886bb82aaf793ab9571c4569c075e94ff6d1bccdd11da11f"
+      }
+    ]
+  },
+  {
+    "run": "flint",
+    "files": [
+      {
+        "original": "project/lean/HGPExperiment.lean",
+        "archived": "HGPExperiment.lean",
+        "stage": "seeded root",
+        "sha256": "a426aac09c5ce2f8fe892b1d624e380cbbd04c848819637caffa961542be3cf5"
+      },
+      {
+        "original": "project/lean/.sandbox/G1/HGP-Model/HGPExperiment/Paper/HGP/Model.lean",
+        "archived": "HGPExperiment/Paper/HGP/Model.lean",
+        "stage": "worker draft outside seeded library",
+        "sha256": "7ed11250397e31dba44d058c959b12e590b82c15047d543ab466f387f1b3e314"
+      }
+    ]
+  },
+  {
+    "run": "maple",
+    "files": [
+      {
+        "original": "project/lean/HGPExperiment.lean",
+        "archived": "HGPExperiment.lean",
+        "stage": "seeded root",
+        "sha256": "a426aac09c5ce2f8fe892b1d624e380cbbd04c848819637caffa961542be3cf5"
+      },
+      {
+        "original": "project/lean/HGPExperiment/StripDuality.lean",
+        "archived": "HGPExperiment/StripDuality.lean",
+        "stage": "room project file",
+        "sha256": "4b2cdade9193f42d0643e642e559398d4b741b1a7e44d82af23ddeb60dbdd0d4"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Strip.lean",
+        "archived": "HGPExperiment/Strip.lean",
+        "stage": "room project file",
+        "sha256": "23797adfec598e595769d82388ce07d931f83c3a198a36db3c49b9a0771cd209"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Erasure.lean",
+        "archived": "HGPExperiment/Erasure.lean",
+        "stage": "room project file",
+        "sha256": "f72e247b5b24db20504109edaea6748ac5e7e2cfe866cca2d407b0c77fecfd30"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Parameters.lean",
+        "archived": "HGPExperiment/Parameters.lean",
+        "stage": "room project file",
+        "sha256": "80843af94fafacd90a6e59e54094176202a3fff95f877060c3b932b5852afadf"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Inference.lean",
+        "archived": "HGPExperiment/Inference.lean",
+        "stage": "room project file",
+        "sha256": "f1f0e2cf3f4da6373e24f8c54e0002e84a49a70838c2065f1b045383ac17cb38"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Examples.lean",
+        "archived": "HGPExperiment/Examples.lean",
+        "stage": "room project file",
+        "sha256": "b4b5e802988c28cacfb64fefe1b4cf865eff94b3796cd3739cb74757f8d32738"
+      }
+    ]
+  },
+  {
+    "run": "slate",
+    "files": [
+      {
+        "original": "project/lean/HGPExperiment.lean",
+        "archived": "HGPExperiment.lean",
+        "stage": "seeded root",
+        "sha256": "a426aac09c5ce2f8fe892b1d624e380cbbd04c848819637caffa961542be3cf5"
+      },
+      {
+        "original": "project/lean/HGPExperiment/TensorStrip.lean",
+        "archived": "HGPExperiment/TensorStrip.lean",
+        "stage": "room project file",
+        "sha256": "5149a2f504098f8f840c6b6efe8646d77c78a980ba8e6b51ab3889b565146884"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Erasure.lean",
+        "archived": "HGPExperiment/Erasure.lean",
+        "stage": "room project file",
+        "sha256": "bf433da56aa535e5be163d33c6cb6de35d8c1a21b23971288749085ab6e72472"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Parameters.lean",
+        "archived": "HGPExperiment/Parameters.lean",
+        "stage": "room project file",
+        "sha256": "6170dd7444089e68836d2d3ce59cd4a8ed9910021f0fa1aa45b5e25549e34529"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Restriction.lean",
+        "archived": "HGPExperiment/Restriction.lean",
+        "stage": "room project file",
+        "sha256": "f552e1cb8c81b6eb6909e241ddf96623513a76a71f54bc238118733a1df98a49"
+      },
+      {
+        "original": "project/lean/HGPExperiment/Examples.lean",
+        "archived": "HGPExperiment/Examples.lean",
+        "stage": "room project file",
+        "sha256": "fa788558bba5afcdc852f9db840ace6fda72dc635fce72981f8133b942734618"
+      }
+    ]
+  }
+]

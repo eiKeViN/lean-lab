@@ -1,0 +1,3 @@
+import QEC.Results.QLDPC.HypergraphProductParameters
+
+#check QEC.Coding.HypergraphProduct.tillichZemorHypergraphProductParameters

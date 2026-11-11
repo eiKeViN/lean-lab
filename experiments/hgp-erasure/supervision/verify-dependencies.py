@@ -16,6 +16,10 @@ SUPERVISION = Path(__file__).resolve().parent
 PREFLIGHT = ROOT / "preflight"
 PREFLIGHT.mkdir(exist_ok=True)
 (PREFLIGHT / "room-ready.ok").unlink(missing_ok=True)
+lean_version = subprocess.check_output([str(ROOT / "runtime/lean-4.33.1-linux/bin/lean"), "--version"], text=True).strip()
+expected_lean = "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+if lean_version != expected_lean:
+    raise SystemExit(f"Lean toolchain identity mismatch: {lean_version}")
 expected_qec = "c0ff74952c65b48e2ba5430fc4dfa4459d120440"
 actual_qec = subprocess.check_output(["git", "-C", str(ROOT / "qecert"), "rev-parse", "HEAD"], text=True).strip()
 if actual_qec != expected_qec:
@@ -41,6 +45,7 @@ record = {
     "command": command,
     "room": str(room),
     "toolchain": "leanprover/lean4:v4.33.1",
+    "lean_version": lean_version,
     "qecert_rev": "c0ff74952c65b48e2ba5430fc4dfa4459d120440",
     "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
     "dependency_mounts": {"/opt/lean": "read-only", "/opt/qecert": "read-only"},
