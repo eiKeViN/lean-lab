@@ -1,0 +1,99 @@
+{
+  "version": "1.2.0",
+  "packagesDir": ".lake/packages",
+  "packages": [
+    {
+      "name": "QEC",
+      "configFile": "lakefile.toml",
+      "scope": "",
+      "dir": "/opt/qecert",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "mathlib",
+      "configFile": "lakefile.lean",
+      "scope": "",
+      "dir": "/opt/qecert/.lake/packages/mathlib",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "plausible",
+      "configFile": "lakefile.toml",
+      "scope": "leanprover-community",
+      "dir": "/opt/qecert/.lake/packages/plausible",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "LeanSearchClient",
+      "configFile": "lakefile.toml",
+      "scope": "leanprover-community",
+      "dir": "/opt/qecert/.lake/packages/LeanSearchClient",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "importGraph",
+      "configFile": "lakefile.toml",
+      "scope": "leanprover-community",
+      "dir": "/opt/qecert/.lake/packages/importGraph",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "proofwidgets",
+      "configFile": "lakefile.lean",
+      "scope": "leanprover-community",
+      "dir": "/opt/qecert/.lake/packages/proofwidgets",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "aesop",
+      "configFile": "lakefile.toml",
+      "scope": "leanprover-community",
+      "dir": "/opt/qecert/.lake/packages/aesop",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "Qq",
+      "configFile": "lakefile.toml",
+      "scope": "leanprover-community",
+      "dir": "/opt/qecert/.lake/packages/Qq",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "batteries",
+      "configFile": "lakefile.toml",
+      "scope": "leanprover-community",
+      "dir": "/opt/qecert/.lake/packages/batteries",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    },
+    {
+      "name": "Cli",
+      "configFile": "lakefile.toml",
+      "scope": "leanprover",
+      "dir": "/opt/qecert/.lake/packages/Cli",
+      "type": "path",
+      "manifestFile": "lake-manifest.json",
+      "inherited": false
+    }
+  ],
+  "name": "HGPExperiment",
+  "lakeDir": ".lake",
+  "fixedToolchain": false
+}

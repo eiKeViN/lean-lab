@@ -1,0 +1,55 @@
+name = "HGPExperiment"
+version = "0.1.0"
+defaultTargets = ["HGPExperiment", "Paper", "Targets"]
+
+[leanOptions]
+autoImplicit = false
+
+[[require]]
+name = "QEC"
+path = "/opt/qecert"
+
+[[require]]
+name = "mathlib"
+path = "/opt/qecert/.lake/packages/mathlib"
+
+[[require]]
+name = "plausible"
+path = "/opt/qecert/.lake/packages/plausible"
+
+[[require]]
+name = "LeanSearchClient"
+path = "/opt/qecert/.lake/packages/LeanSearchClient"
+
+[[require]]
+name = "importGraph"
+path = "/opt/qecert/.lake/packages/importGraph"
+
+[[require]]
+name = "proofwidgets"
+path = "/opt/qecert/.lake/packages/proofwidgets"
+
+[[require]]
+name = "aesop"
+path = "/opt/qecert/.lake/packages/aesop"
+
+[[require]]
+name = "Qq"
+path = "/opt/qecert/.lake/packages/Qq"
+
+[[require]]
+name = "batteries"
+path = "/opt/qecert/.lake/packages/batteries"
+
+[[require]]
+name = "Cli"
+path = "/opt/qecert/.lake/packages/Cli"
+
+[[lean_lib]]
+name = "HGPExperiment"
+
+[[lean_lib]]
+name = "Paper"
+
+[[lean_lib]]
+name = "Targets"

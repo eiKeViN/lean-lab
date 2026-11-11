@@ -1,0 +1,188 @@
+[
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/lake-manifest.json",
+    "original": "project/lean/lake-manifest.json",
+    "sha256": "319dbd5458ed7a5b9075ece5c8b035409e1374bb22e8c196f0efee7e4a9d3e88"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/Targets.lean",
+    "original": "project/lean/Targets.lean",
+    "sha256": "d4d1eebd4fa8abde42d2c310a193c5f14c2691c6be45f0841222f2c747a30732"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/Paper.lean",
+    "original": "project/lean/Paper.lean",
+    "sha256": "fbd86fb8139b18cabfb7ec3e140e70aa1b20072b0e871b42f37e0b559e29a3f6"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/HGPExperiment.lean",
+    "original": "project/lean/HGPExperiment.lean",
+    "sha256": "a426aac09c5ce2f8fe892b1d624e380cbbd04c848819637caffa961542be3cf5"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/lean-toolchain",
+    "original": "project/lean/lean-toolchain",
+    "sha256": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/lakefile.toml",
+    "original": "project/lean/lakefile.toml",
+    "sha256": "23ef67fbc9ce9efc72a444dd3ab727d0412222ef3c1f7991882cfc07f3a1fcb8"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/Paper/LogicalDimension.lean",
+    "original": "project/lean/Paper/LogicalDimension.lean",
+    "sha256": "ac77cfe2d624c713b2cea713bb066be4f21660424e0b917a67c15d0d7047290f"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/Support/Paper/Support.lean",
+    "original": "project/lean/.sandbox/G1/Support/Paper/Support.lean",
+    "sha256": "1ddc1608630bcc4dd7ae368814fdf9affbfc1e5ea19bae8b98506832829c1084"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/Support/Paper/Diagnostic.lean",
+    "original": "project/lean/.sandbox/G1/Support/Paper/Diagnostic.lean",
+    "sha256": "16763096a8ca6c667747d20dc3dd2b94fc543dfdaa2499201d03135f8380cd28"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/InferenceCore/Paper/InferenceCore.lean",
+    "original": "project/lean/.sandbox/G1/InferenceCore/Paper/InferenceCore.lean",
+    "sha256": "548c863dc67ac22ed558c7d40bcc5ac9db6bda6ae08a6e8e98d9c5ecb56fcb6c"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/SupportedRank/Paper/SupportedRank.lean",
+    "original": "project/lean/.sandbox/G1/SupportedRank/Paper/SupportedRank.lean",
+    "sha256": "f25f76daafd4d5e4012b246b4ea3e823ac37f98e56e1007a2de3db3a1e159d86"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/A/Paper/LogicalDimension.lean",
+    "original": "project/lean/.sandbox/G1/A/Paper/LogicalDimension.lean",
+    "sha256": "ac77cfe2d624c713b2cea713bb066be4f21660424e0b917a67c15d0d7047290f"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/A/Paper/HGPChecks.lean",
+    "original": "project/lean/.sandbox/G1/A/Paper/HGPChecks.lean",
+    "sha256": "9942190b0810d288879481973ce532c2cbe3a5f73ddb4dc2c5575b366c6be30a"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/A/Targets/Parameters.lean",
+    "original": "project/lean/.sandbox/G1/A/Targets/Parameters.lean",
+    "sha256": "44c4bd128bbb80313bd360f6ad2c309d98fc2ab49a8082fa4e1fce5717d2191d"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/G1/D/Paper/TensorStrip.lean",
+    "original": "project/lean/.sandbox/G1/D/Paper/TensorStrip.lean",
+    "sha256": "629f28617edc0261b3c3dc91025de18258f0640479cef94bc2dce4fd8cbd32d8"
+  },
+  {
+    "run": "birch",
+    "path": "submissions/birch/lean/_staging/M/ImportProfile.lean",
+    "original": "project/lean/.sandbox/M/ImportProfile.lean",
+    "sha256": "0383c0e61c612d2e195a3992dfc9b9d9e8df826a446e53241425bbceee0698f2"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/B_Audit.lean",
+    "original": "project/lean/B_Audit.lean",
+    "sha256": "d56affd1608c8e0e264de6383e80f73759529d14fa7deae0492e76bacbcc3106"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/lake-manifest.json",
+    "original": "project/lean/lake-manifest.json",
+    "sha256": "319dbd5458ed7a5b9075ece5c8b035409e1374bb22e8c196f0efee7e4a9d3e88"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/Audit.lean",
+    "original": "project/lean/Audit.lean",
+    "sha256": "4017cc113082befdfa1b7d9b92ce2da62b88ffda49e54026a40d423acead3be1"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment.lean",
+    "original": "project/lean/HGPExperiment.lean",
+    "sha256": "7e6b63d2f364e7142eb0dd36d0967a93bdacb9b9192ee0e7b4c41be1bfae45ae"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/lean-toolchain",
+    "original": "project/lean/lean-toolchain",
+    "sha256": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/lakefile.toml",
+    "original": "project/lean/lakefile.toml",
+    "sha256": "585849ab9205cf634d6e3add89b9343c46327e6f5a73bbe4741579a556ea3557"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/StripBoundaryX.lean",
+    "original": "project/lean/HGPExperiment/StripBoundaryX.lean",
+    "sha256": "f530c3c3305e889d6ea6b120dba553ee8875253d26a93b7f0ae74494291b4726"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/StripDual.lean",
+    "original": "project/lean/HGPExperiment/StripDual.lean",
+    "sha256": "6ec9b96e21cb2677c2aadacd912231a2217fc83ef46f3a1993db7d025889db12"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/Strip.lean",
+    "original": "project/lean/HGPExperiment/Strip.lean",
+    "sha256": "5b2d0e7e95f70397b5203b0993bba0d14ff4c1bbdff417f9b8e01d066efa6aa1"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/Erasure.lean",
+    "original": "project/lean/HGPExperiment/Erasure.lean",
+    "sha256": "16009b236c41461a34412e1e0842aff84e2301ebd373e6f2c663e87031e4960e"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/LogicalSemantics.lean",
+    "original": "project/lean/HGPExperiment/LogicalSemantics.lean",
+    "sha256": "9f8788ce099a4ad93add8e551216dba22f265d242b19db5850da92a2944f7ae5"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/Parameters.lean",
+    "original": "project/lean/HGPExperiment/Parameters.lean",
+    "sha256": "f5846971fbf50ce204f1e27a9a78bfdbbe7464f5ab7be3a41f75adf2f6510d2a"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/Inference.lean",
+    "original": "project/lean/HGPExperiment/Inference.lean",
+    "sha256": "5e1316fd55d079b900ff23ada4b2f5cfc8073bb289d099c190b220d558944618"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/Integration.lean",
+    "original": "project/lean/HGPExperiment/Integration.lean",
+    "sha256": "43be31ec0bf3e19982bbfd663346bbdfcc82c0a2109288f8e1c28708cf443717"
+  },
+  {
+    "run": "larch",
+    "path": "submissions/larch/lean/HGPExperiment/Examples.lean",
+    "original": "project/lean/HGPExperiment/Examples.lean",
+    "sha256": "91277ab4b3d20f1b1d2135d6aa7d115b05a50b1685a4d2b433573ecdfd84b054"
+  }
+]

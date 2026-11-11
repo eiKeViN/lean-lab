@@ -1,0 +1,86 @@
+{
+  "direct_four": [
+    [
+      {
+        "test": "Good",
+        "seconds": 168.61,
+        "output": "[exit 0]\n\n",
+        "ok": true
+      },
+      {
+        "test": "Bad",
+        "seconds": 128.78,
+        "output": "[exit 1]\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n",
+        "ok": true
+      }
+    ],
+    [
+      {
+        "test": "Good",
+        "seconds": 168.61,
+        "output": "[exit 0]\n\n",
+        "ok": true
+      },
+      {
+        "test": "Bad",
+        "seconds": 128.78,
+        "output": "[exit 1]\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n",
+        "ok": true
+      }
+    ],
+    [
+      {
+        "test": "Good",
+        "seconds": 168.6,
+        "output": "[exit 0]\n\n",
+        "ok": true
+      },
+      {
+        "test": "Bad",
+        "seconds": 128.81,
+        "output": "[exit 1]\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n",
+        "ok": true
+      }
+    ],
+    [
+      {
+        "test": "Good",
+        "seconds": 168.61,
+        "output": "[exit 0]\n\n",
+        "ok": true
+      },
+      {
+        "test": "Bad",
+        "seconds": 128.81,
+        "output": "[exit 1]\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n",
+        "ok": true
+      }
+    ]
+  ],
+  "four_clients_two_compile_lanes": [
+    {
+      "room": 0,
+      "seconds": 139.38,
+      "ok": true,
+      "output": "[exit 1]\n>f+++++++++ net\nGOOD-PROOF-PASS\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n"
+    },
+    {
+      "room": 1,
+      "seconds": 139.39,
+      "ok": true,
+      "output": "[exit 1]\n>f+++++++++ net\nGOOD-PROOF-PASS\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n"
+    },
+    {
+      "room": 2,
+      "seconds": 184.53,
+      "ok": true,
+      "output": "[exit 1]\n>f+++++++++ net\nGOOD-PROOF-PASS\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n"
+    },
+    {
+      "room": 3,
+      "seconds": 184.53,
+      "ok": true,
+      "output": "[exit 1]\n>f+++++++++ net\nGOOD-PROOF-PASS\nBad.lean:2:18: error(lean.unknownIdentifier): Unknown identifier `missingHgpProbe`\n\n"
+    }
+  ]
+}

@@ -1,0 +1,477 @@
+[
+  {
+    "reason": "model_budget",
+    "elapsed": 1314.6784535419993,
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "limits": {
+      "seconds": 3600.0,
+      "units": 36000000,
+      "simultaneous_sessions": 4
+    },
+    "usage": {
+      "inputTokens": 30973638,
+      "cachedInputTokens": 30500352,
+      "outputTokens": 107413,
+      "reasoningOutputTokens": 34731,
+      "totalTokens": 31081051,
+      "cacheWriteInputTokens": 0,
+      "uncachedInputTokens": 473286,
+      "normalisedUnits": 36005248
+    },
+    "id": "birch",
+    "arm": "SHEAF",
+    "agents": [
+      {
+        "id": "agent-1",
+        "role": "launcher",
+        "parent": null,
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 2620670,
+          "cachedInputTokens": 2560384,
+          "outputTokens": 8567,
+          "reasoningOutputTokens": 1799,
+          "totalTokens": 2629237,
+          "cacheWriteInputTokens": 0
+        }
+      },
+      {
+        "id": "agent-2",
+        "role": "sheaf-project-maint",
+        "parent": "agent-1",
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 7553012,
+          "cachedInputTokens": 7439232,
+          "outputTokens": 34926,
+          "reasoningOutputTokens": 14271,
+          "totalTokens": 7587938,
+          "cacheWriteInputTokens": 0
+        }
+      },
+      {
+        "id": "agent-3",
+        "role": "sheaf-project-lead-G1",
+        "parent": "agent-1",
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 10671672,
+          "cachedInputTokens": 10542848,
+          "outputTokens": 30745,
+          "reasoningOutputTokens": 8312,
+          "totalTokens": 10702417,
+          "cacheWriteInputTokens": 0
+        }
+      },
+      {
+        "id": "agent-4",
+        "role": "sheaf-G1-worker",
+        "parent": "agent-3",
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 10128284,
+          "cachedInputTokens": 9957888,
+          "outputTokens": 33175,
+          "reasoningOutputTokens": 10349,
+          "totalTokens": 10161459,
+          "cacheWriteInputTokens": 0
+        }
+      }
+    ],
+    "tool_starts": {
+      "shell": 196,
+      "spawn_agent": 3,
+      "send_message": 111,
+      "agent_status": 19,
+      "start_shell_job": 13,
+      "shell_job_status": 39
+    },
+    "synchronous_timeouts": 1,
+    "snapshots": [
+      {
+        "id": "0001-initial",
+        "seconds": 0.004901885999061051,
+        "units": 0
+      },
+      {
+        "id": "0002-minute",
+        "seconds": 60.234065786999054,
+        "units": 256592
+      },
+      {
+        "id": "0003-minute",
+        "seconds": 120.34088211699964,
+        "units": 689696
+      },
+      {
+        "id": "0004-minute",
+        "seconds": 180.49732387800032,
+        "units": 2160800
+      },
+      {
+        "id": "0005-minute",
+        "seconds": 240.6067043080002,
+        "units": 4188120
+      },
+      {
+        "id": "0006-minute",
+        "seconds": 300.7252497289992,
+        "units": 5146192
+      },
+      {
+        "id": "0007-minute",
+        "seconds": 360.87181296199924,
+        "units": 6524680
+      },
+      {
+        "id": "0008-minute",
+        "seconds": 421.07360284399874,
+        "units": 7549112
+      },
+      {
+        "id": "0009-minute",
+        "seconds": 481.2141321299987,
+        "units": 8648560
+      },
+      {
+        "id": "0010-minute",
+        "seconds": 541.4227345589989,
+        "units": 10270032
+      },
+      {
+        "id": "0011-minute",
+        "seconds": 601.5991197169988,
+        "units": 11924224
+      },
+      {
+        "id": "0012-budget-12000000",
+        "seconds": 607.6712910329989,
+        "units": 12039216
+      },
+      {
+        "id": "0013-minute",
+        "seconds": 662.0820451789987,
+        "units": 13419544
+      },
+      {
+        "id": "0014-minute",
+        "seconds": 722.3287080680002,
+        "units": 15697600
+      },
+      {
+        "id": "0015-minute",
+        "seconds": 782.5333546000002,
+        "units": 16754592
+      },
+      {
+        "id": "0016-minute",
+        "seconds": 842.7802050619994,
+        "units": 18039448
+      },
+      {
+        "id": "0017-minute",
+        "seconds": 902.9691103109999,
+        "units": 20760312
+      },
+      {
+        "id": "0018-minute",
+        "seconds": 963.161103983999,
+        "units": 22786504
+      },
+      {
+        "id": "0019-budget-24000000",
+        "seconds": 990.6912407589989,
+        "units": 24195576
+      },
+      {
+        "id": "0020-minute",
+        "seconds": 1023.3211211469988,
+        "units": 25167720
+      },
+      {
+        "id": "0021-minute",
+        "seconds": 1083.5858634919987,
+        "units": 26805448
+      },
+      {
+        "id": "0022-minute",
+        "seconds": 1143.8351074619986,
+        "units": 29193256
+      },
+      {
+        "id": "0023-minute",
+        "seconds": 1204.0869324809992,
+        "units": 31948368
+      },
+      {
+        "id": "0024-minute",
+        "seconds": 1264.2869350069996,
+        "units": 34369688
+      },
+      {
+        "id": "0025-final",
+        "seconds": 1314.677977714,
+        "units": 36005248
+      }
+    ],
+    "milestones": [
+      {
+        "threshold": 12000000,
+        "last_below": "0011-minute",
+        "first_at_or_above": "0012-budget-12000000"
+      },
+      {
+        "threshold": 24000000,
+        "last_below": "0018-minute",
+        "first_at_or_above": "0019-budget-24000000"
+      },
+      {
+        "threshold": 36000000,
+        "last_below": "0024-minute",
+        "first_at_or_above": "0025-final"
+      }
+    ],
+    "first_spawn": 112.923087
+  },
+  {
+    "reason": "model_budget",
+    "elapsed": 1351.4020723150006,
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "limits": {
+      "seconds": 3600.0,
+      "units": 36000000,
+      "simultaneous_sessions": 4
+    },
+    "usage": {
+      "inputTokens": 30687840,
+      "cachedInputTokens": 30270208,
+      "outputTokens": 154874,
+      "reasoningOutputTokens": 58805,
+      "totalTokens": 30842714,
+      "cacheWriteInputTokens": 0,
+      "uncachedInputTokens": 417632,
+      "normalisedUnits": 36089248
+    },
+    "id": "larch",
+    "arm": "free",
+    "agents": [
+      {
+        "id": "agent-1",
+        "role": "launcher",
+        "parent": null,
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 11721693,
+          "cachedInputTokens": 11598336,
+          "outputTokens": 40830,
+          "reasoningOutputTokens": 15376,
+          "totalTokens": 11762523,
+          "cacheWriteInputTokens": 0
+        }
+      },
+      {
+        "id": "agent-2",
+        "role": "formalizer B",
+        "parent": "agent-1",
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 4545673,
+          "cachedInputTokens": 4460928,
+          "outputTokens": 31453,
+          "reasoningOutputTokens": 16182,
+          "totalTokens": 4577126,
+          "cacheWriteInputTokens": 0
+        }
+      },
+      {
+        "id": "agent-3",
+        "role": "formalizer D",
+        "parent": "agent-1",
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 7434576,
+          "cachedInputTokens": 7328896,
+          "outputTokens": 41286,
+          "reasoningOutputTokens": 18033,
+          "totalTokens": 7475862,
+          "cacheWriteInputTokens": 0
+        }
+      },
+      {
+        "id": "agent-4",
+        "role": "formalizer A E",
+        "parent": "agent-1",
+        "status": "terminated",
+        "usage": {
+          "inputTokens": 6985898,
+          "cachedInputTokens": 6882048,
+          "outputTokens": 41305,
+          "reasoningOutputTokens": 9214,
+          "totalTokens": 7027203,
+          "cacheWriteInputTokens": 0
+        }
+      }
+    ],
+    "tool_starts": {
+      "shell": 245,
+      "spawn_agent": 3,
+      "agent_status": 4,
+      "send_message": 128,
+      "start_shell_job": 22,
+      "shell_job_status": 111
+    },
+    "synchronous_timeouts": 4,
+    "snapshots": [
+      {
+        "id": "0001-initial",
+        "seconds": 0.00291210300019884,
+        "units": 0
+      },
+      {
+        "id": "0002-minute",
+        "seconds": 60.169646439000644,
+        "units": 1428448
+      },
+      {
+        "id": "0003-minute",
+        "seconds": 120.20006165400082,
+        "units": 2287816
+      },
+      {
+        "id": "0004-minute",
+        "seconds": 180.2177144090001,
+        "units": 2940760
+      },
+      {
+        "id": "0005-minute",
+        "seconds": 240.23546830899977,
+        "units": 3724384
+      },
+      {
+        "id": "0006-minute",
+        "seconds": 300.2559771520009,
+        "units": 5474312
+      },
+      {
+        "id": "0007-minute",
+        "seconds": 360.29108776000066,
+        "units": 6932336
+      },
+      {
+        "id": "0008-minute",
+        "seconds": 420.36280244299996,
+        "units": 7835768
+      },
+      {
+        "id": "0009-minute",
+        "seconds": 480.39594545399996,
+        "units": 9144136
+      },
+      {
+        "id": "0010-minute",
+        "seconds": 540.4668379159993,
+        "units": 10254416
+      },
+      {
+        "id": "0011-minute",
+        "seconds": 600.7810672720007,
+        "units": 11743200
+      },
+      {
+        "id": "0012-budget-12000000",
+        "seconds": 626.6237633790006,
+        "units": 12100496
+      },
+      {
+        "id": "0013-minute",
+        "seconds": 660.8417670910003,
+        "units": 13219184
+      },
+      {
+        "id": "0014-minute",
+        "seconds": 721.0962214459996,
+        "units": 14931848
+      },
+      {
+        "id": "0015-minute",
+        "seconds": 781.3013282659995,
+        "units": 16592232
+      },
+      {
+        "id": "0016-minute",
+        "seconds": 841.3675417190007,
+        "units": 18392752
+      },
+      {
+        "id": "0017-minute",
+        "seconds": 901.4232398799995,
+        "units": 20587648
+      },
+      {
+        "id": "0018-minute",
+        "seconds": 961.4987884879993,
+        "units": 22438632
+      },
+      {
+        "id": "0019-budget-24000000",
+        "seconds": 1020.5263035540011,
+        "units": 24177504
+      },
+      {
+        "id": "0020-minute",
+        "seconds": 1021.5532237810003,
+        "units": 24177504
+      },
+      {
+        "id": "0021-minute",
+        "seconds": 1081.6238800400006,
+        "units": 26215256
+      },
+      {
+        "id": "0022-minute",
+        "seconds": 1141.7330981609994,
+        "units": 27968072
+      },
+      {
+        "id": "0023-minute",
+        "seconds": 1201.8186025539999,
+        "units": 30406432
+      },
+      {
+        "id": "0024-minute",
+        "seconds": 1261.896021253,
+        "units": 33191688
+      },
+      {
+        "id": "0025-minute",
+        "seconds": 1321.9563529120005,
+        "units": 35158648
+      },
+      {
+        "id": "0026-final",
+        "seconds": 1351.401455444,
+        "units": 36089248
+      }
+    ],
+    "milestones": [
+      {
+        "threshold": 12000000,
+        "last_below": "0011-minute",
+        "first_at_or_above": "0012-budget-12000000"
+      },
+      {
+        "threshold": 24000000,
+        "last_below": "0018-minute",
+        "first_at_or_above": "0019-budget-24000000"
+      },
+      {
+        "threshold": 36000000,
+        "last_below": "0025-minute",
+        "first_at_or_above": "0026-final"
+      }
+    ],
+    "first_spawn": 23.895451
+  }
+]

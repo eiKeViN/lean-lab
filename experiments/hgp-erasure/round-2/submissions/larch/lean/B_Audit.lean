@@ -1,0 +1,12 @@
+import HGPExperiment.Erasure
+#print axioms HGPExperiment.supportedDim_eq_zero_iff
+#print axioms HGPExperiment.finrank_map_add_finrank_inf_ker
+#print axioms HGPExperiment.supportedDim_add_finrank_boundary
+#print axioms HGPExperiment.finrank_supported_cycles_add_rank
+#print axioms HGPExperiment.finrank_supported_boundaries_add_rank
+#print axioms HGPExperiment.zDim_rank_identity
+#print axioms HGPExperiment.xDim_rank_identity
+#print axioms HGPExperiment.logicalDim_add_ranks
+#print axioms HGPExperiment.logicalDim_eq_length_sub_ranks
+#print axioms HGPExperiment.zDim_add_xDim_compl
+#print axioms HGPExperiment.xDim_add_zDim_compl
