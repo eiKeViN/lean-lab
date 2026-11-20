@@ -1,0 +1,106 @@
+[
+  {
+    "path": "Giallar.lean",
+    "sha256": "f202740aec2f26c0a2a06997b1ccf1dbd9d46845039c40ebd0b4e0f99b43e7b8"
+  },
+  {
+    "path": "Giallar/Approximation.lean",
+    "sha256": "7f3e98468792e2168bb8fb17ce3fbfdc5cac01ade18f9576831b9be533f9f548"
+  },
+  {
+    "path": "Giallar/Certificates.lean",
+    "sha256": "674d4b326393c292cbca1e8193aaffdbae269686d8a5acbd533676c4185f5b80"
+  },
+  {
+    "path": "Giallar/ControlledPhase.lean",
+    "sha256": "d05f2b974b104853338b8057e66d50c5f0321eb8937b950ae5d47348e3d4744f"
+  },
+  {
+    "path": "Giallar/Hamiltonian.lean",
+    "sha256": "de6468eef9a444e85db5f1d76fe0e9824626aaab6e56a6005e041ced2341199c"
+  },
+  {
+    "path": "Giallar/HamiltonianMatrix.lean",
+    "sha256": "135a2fea10c6fc6a8ebae86095176cece1b4a87fc118f416e75043f063254493"
+  },
+  {
+    "path": "Giallar/LocalGates.lean",
+    "sha256": "ed42b2baccb86aa5812704aaa9a71aa58d93d52267634fbb7f7b8402ec1a33a2"
+  },
+  {
+    "path": "Giallar/MeasurementBounds.lean",
+    "sha256": "1a1cd85e96be298c7f1ac9dd690539fb7d1a73a70cf6dbd36be37f0d974fb158"
+  },
+  {
+    "path": "Giallar/PhaseDistance.lean",
+    "sha256": "abbf4c1f818226b5757ec9e71846f1ce712640851332dae884f59eb75d1e6446"
+  },
+  {
+    "path": "Giallar/PhasePolynomial.lean",
+    "sha256": "b1a48c625155d7bf70d4f1a1a8fd18c676e5a6ffbc46a6e7197f5dcb610ef98e"
+  },
+  {
+    "path": "Giallar/PhaseSynthesis.lean",
+    "sha256": "1c0ebd6f75c071926c1fe5e3dcff95ba71148d00acb4574bf51fc85154762b8e"
+  },
+  {
+    "path": "Giallar/PhaseTraceDistance.lean",
+    "sha256": "0750f2a87a208e325cfdc7f8ef1d591d71a688e40b1cc8ce174b4113f1b4e471"
+  },
+  {
+    "path": "Giallar/PulseSchedule.lean",
+    "sha256": "6f1aacb9ae49f6bef97053f0396261adaa385cb364bcc4ff0df9e48163671652"
+  },
+  {
+    "path": "Giallar/RealPulsePartition.lean",
+    "sha256": "1802f9aada7931417f96adf10f31ae545f4e513d8bdd1dca3aa3fbac938d2446"
+  },
+  {
+    "path": "Giallar/RealPulseSchedule.lean",
+    "sha256": "fa1fcabe3419fcb4edf68fa354fadc00f45e4959ef949035e91af2730bf01b48"
+  },
+  {
+    "path": "Giallar/RealScheduling.lean",
+    "sha256": "90dc56aaea60aff1f66818e243724c64276007905d50101defe85cf1954e5769"
+  },
+  {
+    "path": "Giallar/ReferenceSystem.lean",
+    "sha256": "39aef1e47c495eb109999320046705acdff54500c349ff17fae049e15887f5d9"
+  },
+  {
+    "path": "Giallar/Routing.lean",
+    "sha256": "afe37d0d10378d3587f3d26c1c605b7ff279f483710141c6f586f7202f98411a"
+  },
+  {
+    "path": "Giallar/RoutingProbability.lean",
+    "sha256": "d70b700b4e0e2df9c6f29d12b6f76adbdf0c479113cc043e28ba2472739ecf38"
+  },
+  {
+    "path": "Giallar/SchedulePartition.lean",
+    "sha256": "4b114fe8ac9d19bc14f05c6d36a98eb47366ccdc73f2bc6ef9c038c9254837ab"
+  },
+  {
+    "path": "Giallar/Scheduling.lean",
+    "sha256": "777f865cb9dc7dc207f80d2a98be81b807cb8fdb473151121413039f0b1e4844"
+  },
+  {
+    "path": "Giallar/TickPulseSchedule.lean",
+    "sha256": "8eeac10ebfce8f2b046406acd9aad71677d21e9437117b831ce8a6723eb64c6d"
+  },
+  {
+    "path": "Giallar/TopologicalOrder.lean",
+    "sha256": "05488916bfc75404bd4d9ec54ead39de21a4b2810c3668032de07d7eaa6bbcda"
+  },
+  {
+    "path": "Giallar/TraceBounds.lean",
+    "sha256": "c7d16fa6f7079682c5e4d00d99c0b7cf5de02177158df9dfaa7d78a497da9616"
+  },
+  {
+    "path": "Giallar/WeightedPulseSchedule.lean",
+    "sha256": "90214a11950a47c606d38caf84a477ff9cf3ea3ae40b79a9f77377fd723e4d38"
+  },
+  {
+    "path": "Giallar/Worklist.lean",
+    "sha256": "9173bb5e85f7d35440a8848eb29b6e960f1c20b3b07f2043f5c77f6c9215191a"
+  }
+]
