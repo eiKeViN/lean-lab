@@ -1,0 +1,7 @@
+.lake/
+logs/
+.cache-inputs
+*Test.lean
+Check.lean
+*Check.lean
+downloads/

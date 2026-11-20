@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "check_started_at_utc": "2026-11-20T10:07:57Z",
+  "checked_at_utc": "2026-11-20T10:09:22.624849+00:00",
+  "lean": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "base_repository_commit": "d2badab549c429452d9741b598e53a3d2b8a720c",
+  "dependencies": {
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "Physlib": "c5a908ba7a1ee474063626bdf0470af006f9812e"
+  },
+  "checks": [
+    "lake build Giallar",
+    "tests/*.lean fresh elaboration",
+    "mathlib lint-style",
+    "mathlibStandardSet and autoImplicit=false on every module",
+    "Lean.collectAxioms on every exported declaration",
+    "source structure and hashes"
+  ],
+  "library_modules": 26,
+  "exported_declarations": 1119,
+  "safe_logical_declarations": 1103,
+  "generated_runtime_helpers": 16,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_manifest_sha256": "1401c07f5101307787c31db4b8421ec4a55ec54381bc4759357a52663d2ae770",
+  "trust_scope": "Fresh project elaboration with pinned cached dependencies; no independent full dependency rebuild"
+}
