@@ -1,0 +1,13 @@
+name = "fqc-external-checker"
+version = "0.1.0"
+defaultTargets = ["fqc_checker"]
+
+[leanOptions]
+autoImplicit = false
+
+[[lean_lib]]
+name = "FQCExternal"
+
+[[lean_exe]]
+name = "fqc_checker"
+root = "Main"
