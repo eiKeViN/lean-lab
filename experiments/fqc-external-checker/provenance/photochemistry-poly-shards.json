@@ -1,0 +1,108 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "original_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+  "original_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+  "prelude_lines": 238,
+  "prelude_sha256": "c532fa6d54c6c63b509f09587dea49f908e655953c7fd8d0f43b1c8314d7a0e9",
+  "chunks": [
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18Parts.Part00",
+      "first_line": 239,
+      "last_line": 929,
+      "sha256": "1605a263e21ca6bebad76ccd9686a1b63eb90d4de06d838b10ec28aac9dae6b1",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18Parts.Part01",
+      "first_line": 930,
+      "last_line": 985,
+      "sha256": "5b8c0afe919ceab32422da1c4a8be4d74a0c5a9ed4f3d11a2f3ea9354bdbf1f2",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18Parts.Part02",
+      "first_line": 986,
+      "last_line": 2310,
+      "sha256": "ec36bc3bdb5e57d7a0e9ec613546c1881b95c16d92603e95d439e2d69734aead",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18Parts.Part03",
+      "first_line": 2311,
+      "last_line": 4070,
+      "sha256": "7db46baddef09ef9658e31097acd51899541895f082fbefaeb3554e3295a656b",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": [
+            "open QuantumComputation.Specs\n"
+          ]
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18Parts.Part04",
+      "first_line": 4071,
+      "last_line": 5796,
+      "sha256": "1de6af1dd1d77bbc734dee79bd92c794c6e53037ea32f8e5b8cbe3fc6b2ed633",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": [
+            "open QuantumComputation.Specs\n"
+          ]
+        }
+      ],
+      "closing_scopes": 0
+    }
+  ],
+  "repeated_prelude_omissions": [
+    {
+      "first_line": 26,
+      "last_line": 29,
+      "sha256": "8bedf1d8fc10cf602e8ec6ab7951731305f353c5a2a1f419b55a55354f0f065c",
+      "reason": "Scoped instances are declared once in Part00"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "original_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+  "original_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+  "prelude_lines": 205,
+  "prelude_sha256": "961f7cf34c2ff39292fa2d723aaa10a5e52ca54bf285d50abfd59884bcecdc70",
+  "chunks": [
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298Parts.Part00",
+      "first_line": 206,
+      "last_line": 3461,
+      "sha256": "7c54ffe42c3c05df8ae311a1522fb3b31b6ec195fa144aa4449f49ea9d8321e4",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298Parts.Part01",
+      "first_line": 3462,
+      "last_line": 5407,
+      "sha256": "2b59fc6bd7e09a16ee77b68219df9276241216f836a950991041ddb2ff55ac44",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298Parts.Part02",
+      "first_line": 5408,
+      "last_line": 7423,
+      "sha256": "c021819f28c0a7582d3b2423e32a8912f980938681075114bed5a3aa062bfe5b",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 0
+    }
+  ],
+  "repeated_prelude_omissions": [
+    {
+      "first_line": 25,
+      "last_line": 27,
+      "sha256": "51d10fa284bb944da0a91162d38e7f4b1c190cb630151cfc84523b022da5ed49",
+      "reason": "Scoped instances are declared once in Part00"
+    },
+    {
+      "first_line": 48,
+      "last_line": 50,
+      "sha256": "da767de097ce9102fb2bf9d4f91d297acaff593659f46719549c535bb5d0ac8d",
+      "reason": "Scoped instances are declared once in Part00"
+    }
+  ]
+}

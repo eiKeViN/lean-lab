@@ -1,0 +1,323 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "original_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCore",
+  "original_sha256": "965240b8fa37b2722f880d3360af2cdc95296b40c02b1b8a51f26923a536a4b6",
+  "prelude_lines": 89,
+  "prelude_sha256": "257ab6615bea913fc2e4880fb3f823954e1d2744878c00858ad8b0ef8ab38044",
+  "chunks": [
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part00",
+      "first_line": 90,
+      "last_line": 721,
+      "sha256": "ec663bfe78f1d773732b7a5df748c59ed0e0f95e633c3f8eee51fb49a8a1d7a9",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part01",
+      "first_line": 722,
+      "last_line": 4035,
+      "sha256": "995a74212f68a3e9e2f714864daa88b5aa9c81f97e39d7b9cc53dcf96380a545",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part02",
+      "first_line": 4036,
+      "last_line": 4725,
+      "sha256": "8ec7389d086e0c7d6ad1619859259556ca8c83f225e6270af494c22f8b254b56",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": [
+            "set_option exponentiation.threshold 256\n"
+          ]
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part03",
+      "first_line": 4726,
+      "last_line": 5097,
+      "sha256": "bdbc40f4238cc6f28401eaa4a67ed32d47ee89bc78cfa2a1dd844a7f25ceb9d6",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part04",
+      "first_line": 5098,
+      "last_line": 9069,
+      "sha256": "b947b495442fabde430fa3ed3057be4595797b2560a42f9a278a22d4d8222522",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part05",
+      "first_line": 9070,
+      "last_line": 14273,
+      "sha256": "15af5e3823c10a4138a4144e6d29f6ca3b3f21126a1e1ef85201a4981e87beff",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": [
+            "set_option exponentiation.threshold 256\n",
+            "open scoped Circuit.Notation\n"
+          ]
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part06",
+      "first_line": 14274,
+      "last_line": 15047,
+      "sha256": "e5bf02722514d6ce4dcd867057f4891896b4c3e0d9ef33035da1bbc696a08081",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": [
+            "set_option exponentiation.threshold 256\n",
+            "open scoped Circuit.Notation\n"
+          ]
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part07",
+      "first_line": 15048,
+      "last_line": 15577,
+      "sha256": "7a84916329ffb5626b8cafc55d5caf145f2ce2546a3aca8ed8e1b464ec4d27d7",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part08",
+      "first_line": 15578,
+      "last_line": 15611,
+      "sha256": "a08d4c4de0408c0250cf86de6f4c1f23a3c4f5f5d2a908a96fa0000a7e263077",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": [
+            "set_option Elab.async true\n"
+          ]
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part09",
+      "first_line": 15612,
+      "last_line": 17027,
+      "sha256": "2757f1eb7a226c994b6ba1bac9e8b9cf485f389d7669b02f6d616afc2d74e89a",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": [
+            "set_option Elab.async true\n"
+          ]
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part10",
+      "first_line": 17028,
+      "last_line": 17170,
+      "sha256": "350b670ce03e91e866caa3da0ec02b7f091afcc3108ba15f4f4589e8a8e10503",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": [
+            "set_option Elab.async true\n"
+          ]
+        }
+      ],
+      "closing_scopes": 1
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part11",
+      "first_line": 17171,
+      "last_line": 17548,
+      "sha256": "88199bb5cef1caad31f69d523d80b12c5d1c1e3a176c4232af3aa1d978aca509",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part12",
+      "first_line": 17549,
+      "last_line": 17793,
+      "sha256": "b98a9af4bfd1b42c34a0f8a85b6ab11e9d55e10c235819c41398244ae4579b5d",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part13",
+      "first_line": 17794,
+      "last_line": 18218,
+      "sha256": "bb4d9e67fd2798888930396d339c3ff938066561ecc6e7deb8a0084f6c8114cc",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part14",
+      "first_line": 18219,
+      "last_line": 18278,
+      "sha256": "e03b655d1a192db0ca875a3299d2c23472712862378863c5bc21d3dc846d2e1a",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCoreParts.Part15",
+      "first_line": 18279,
+      "last_line": 20219,
+      "sha256": "908a1cfe2f6ff6ad85e67e47c5262f0596560ebe8deba4cfeca314b4e4f92154",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 0
+    }
+  ]
+}

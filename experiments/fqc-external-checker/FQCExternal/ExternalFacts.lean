@@ -5,8 +5,8 @@ open QuantumComputation.Specs.PhotochemistrySolution.TopHad.Synth
 /- Generated only after successful external execution and exact source/input binding.
 These axioms are external assumptions, not kernel-checked computations.
 Upstream commit: a88de8ff65d78af564b2373088ca369dc95f6547
-Checker sources SHA256: b7d720ebaa5864b1fcfbde548007329041411c23017c64ed3d798c771b8de8a1
-Admission scripts SHA256: 21c97bbc8b90ae046c060e9de71e73e2c4b99b4efe364bdfe1f36ee4fbbc9870
+Checker sources SHA256: 0a1bb507011ea6fd37eb05712a218090d67f6deeec6c7173696d1c73ac42f27d
+Admission scripts SHA256: 10632d4d0997d465b9aad2e1f20346f1ec417676dd883a5a3e8e596d94454e77
 Runtime observations and executable hashes: results/acceptance.json (not in Git).
 -/
 

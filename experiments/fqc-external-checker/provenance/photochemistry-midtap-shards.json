@@ -1,0 +1,202 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "original_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2",
+  "original_sha256": "e840103b34da3be45cf73795b3e9407aebd1b1152a36243be119bfebd02f00f0",
+  "prelude_lines": 135,
+  "prelude_sha256": "881a0b5ac27f02923bb3a61df5c941fb0ce906a756e253f0b20282a90d1eefa6",
+  "chunks": [
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part00",
+      "first_line": 136,
+      "last_line": 820,
+      "sha256": "53cf0d8d51dbf96031bc4d4b187921d39de18153ca8cb249c115c03bf89d4d27",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part01",
+      "first_line": 821,
+      "last_line": 2716,
+      "sha256": "def6277738b029b0e91aec4f2f5cbd715367a3165ee586f9fd7a0d53e6367922",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 3
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part02",
+      "first_line": 2717,
+      "last_line": 3271,
+      "sha256": "9465fe6102acd7e6e52c32959f017af24afa1ce00d4ab1378f668ee8b48f4663",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": [
+            "open Operator QProg Matrix Circuit Qubit QuantumComputation.Specs.PhotochemistrySolution Real\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.CircExt\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.WStateStage4Ulp (word512DualLegLo6)\n"
+          ]
+        }
+      ],
+      "closing_scopes": 3
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part03",
+      "first_line": 3272,
+      "last_line": 4146,
+      "sha256": "795445531507db78bb5aebd0f12ba81e7449344a75c3c0f61fdbce58908f41e0",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": [
+            "open Operator QProg Matrix Circuit Qubit QuantumComputation.Specs.PhotochemistrySolution Real\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.CircExt\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.WStateStage4Ulp (word512DualLegLo6)\n"
+          ]
+        }
+      ],
+      "closing_scopes": 2
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part04",
+      "first_line": 4147,
+      "last_line": 4689,
+      "sha256": "d996185f4efb24869bfc88fb72f73526c4197a6857e743ea89ee60d36443c923",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": []
+        }
+      ],
+      "closing_scopes": 3
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part05",
+      "first_line": 4690,
+      "last_line": 5627,
+      "sha256": "992ebe72596e193b83ed75a95f9f5f2f930c533e495ea01b8b3c851344f93308",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": [
+            "set_option Elab.async false\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.SubCoin63Certs (nat_div_def)\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.Coulomb18K2 (df8Of13 o9Of13)\n"
+          ]
+        }
+      ],
+      "closing_scopes": 3
+    },
+    {
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part06",
+      "first_line": 5628,
+      "last_line": 6224,
+      "sha256": "5c43c0ccc17e3f29f23bc243496b72383f4b85d2f1a32baf86d34067365f5703",
+      "active_scopes": [
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "@[expose] public section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "noncomputable section\n",
+          "commands": []
+        },
+        {
+          "kind": "section",
+          "name": null,
+          "opening": "section\n",
+          "commands": [
+            "set_option Elab.async false\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.SubCoin63Certs (nat_div_def)\n",
+            "open _root_.QuantumComputation.Specs.PhotochemistrySolution.Coulomb18K2 (df8Of13 o9Of13)\n"
+          ]
+        }
+      ],
+      "closing_scopes": 0
+    }
+  ],
+  "repeated_prelude_omission": {
+    "first_line": 26,
+    "last_line": 29,
+    "sha256": "8bedf1d8fc10cf602e8ec6ab7951731305f353c5a2a1f419b55a55354f0f065c",
+    "reason": "Scoped instance declarations occur once in Part00 and are imported thereafter"
+  }
+}

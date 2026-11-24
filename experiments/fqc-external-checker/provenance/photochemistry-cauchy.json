@@ -1,0 +1,25 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "source_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.HalfPlaneCauchyWalkCore",
+  "source_sha256": "965240b8fa37b2722f880d3360af2cdc95296b40c02b1b8a51f26923a536a4b6",
+  "claims": [
+    {
+      "name": "finite",
+      "axiom": "QuantumComputation.Specs.PhotochemistrySolution.CompactCauchy.External.finite",
+      "original_theorem": "QuantumComputation.Specs.PhotochemistrySolution.CompactCauchy.sum_fin_subCoin_3326847_le",
+      "term": "checkSegListAuto 33258891316 3326847 10000 (segsD847C0 ++ segsD847C1 ++ segsD847C2 ++ segsD847C3)"
+    },
+    {
+      "name": "tail",
+      "axiom": "QuantumComputation.Specs.PhotochemistrySolution.CompactCauchy.External.tail",
+      "original_theorem": "QuantumComputation.Specs.PhotochemistrySolution.CompactCauchy.sum_tail_subCoin_3326847_le",
+      "term": "checkTailAuto 33258891316 3327649 36672351 10000 283000 733450"
+    },
+    {
+      "name": "halfplane",
+      "axiom": "QuantumComputation.Specs.PhotochemistrySolution.CompactCauchy.External.halfplane",
+      "original_theorem": "QuantumComputation.Specs.PhotochemistrySolution.CompactCauchy.sum_u_subCoin_3326847_le",
+      "term": "checkHalfWalkUAuto 33258891316 3326847 802 10000 407380 304768876"
+    }
+  ]
+}

@@ -1,0 +1,556 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "sites": [
+    {
+      "name": "FQCOracle.Checked.Stage4PrefixHoldDeferMux_0",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage4PrefixHoldDeferMux",
+      "source_sha256": "ef17ad26b55f782869a3fccf4b804b579b08a73a38014e81fdf9f6776e693649",
+      "index": 0,
+      "line": 4353,
+      "offset": 245938,
+      "end": 245952
+    },
+    {
+      "name": "FQCOracle.Checked.Stage4PrefixHoldDeferMux_1",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage4PrefixHoldDeferMux",
+      "source_sha256": "ef17ad26b55f782869a3fccf4b804b579b08a73a38014e81fdf9f6776e693649",
+      "index": 1,
+      "line": 4610,
+      "offset": 257840,
+      "end": 257854
+    },
+    {
+      "name": "FQCOracle.Checked.Stage4PrefixHoldDeferMux_2",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage4PrefixHoldDeferMux",
+      "source_sha256": "ef17ad26b55f782869a3fccf4b804b579b08a73a38014e81fdf9f6776e693649",
+      "index": 2,
+      "line": 4902,
+      "offset": 274660,
+      "end": 274674
+    },
+    {
+      "name": "FQCOracle.Checked.Stage4PrefixHoldDeferMux_3",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage4PrefixHoldDeferMux",
+      "source_sha256": "ef17ad26b55f782869a3fccf4b804b579b08a73a38014e81fdf9f6776e693649",
+      "index": 3,
+      "line": 5076,
+      "offset": 281294,
+      "end": 281308
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_0",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 0,
+      "line": 1838,
+      "offset": 111798,
+      "end": 111812
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_1",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 1,
+      "line": 1844,
+      "offset": 111980,
+      "end": 111994
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_2",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 2,
+      "line": 1850,
+      "offset": 112154,
+      "end": 112168
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_3",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 3,
+      "line": 1856,
+      "offset": 112299,
+      "end": 112313
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_4",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 4,
+      "line": 4119,
+      "offset": 244418,
+      "end": 244432
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_5",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 5,
+      "line": 4219,
+      "offset": 249241,
+      "end": 249255
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_6",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 6,
+      "line": 4224,
+      "offset": 249453,
+      "end": 249467
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_7",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 7,
+      "line": 4236,
+      "offset": 250184,
+      "end": 250198
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_8",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 8,
+      "line": 4241,
+      "offset": 250396,
+      "end": 250410
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_9",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 9,
+      "line": 4254,
+      "offset": 251316,
+      "end": 251330
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_10",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 10,
+      "line": 4254,
+      "offset": 251335,
+      "end": 251349
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_11",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 11,
+      "line": 4254,
+      "offset": 251354,
+      "end": 251368
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_12",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 12,
+      "line": 4255,
+      "offset": 251383,
+      "end": 251397
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_13",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 13,
+      "line": 4255,
+      "offset": 251402,
+      "end": 251416
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_14",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 14,
+      "line": 4255,
+      "offset": 251421,
+      "end": 251435
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_15",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 15,
+      "line": 4338,
+      "offset": 256151,
+      "end": 256165
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_16",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 16,
+      "line": 4339,
+      "offset": 256235,
+      "end": 256249
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_17",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 17,
+      "line": 4340,
+      "offset": 256319,
+      "end": 256333
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_18",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 18,
+      "line": 4341,
+      "offset": 256403,
+      "end": 256417
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_19",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 19,
+      "line": 4378,
+      "offset": 258098,
+      "end": 258112
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_20",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 20,
+      "line": 4380,
+      "offset": 258235,
+      "end": 258249
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_21",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 21,
+      "line": 4623,
+      "offset": 272456,
+      "end": 272470
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_22",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 22,
+      "line": 4623,
+      "offset": 272475,
+      "end": 272489
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_23",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 23,
+      "line": 4623,
+      "offset": 272494,
+      "end": 272508
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_24",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 24,
+      "line": 4624,
+      "offset": 272516,
+      "end": 272530
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_25",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 25,
+      "line": 4624,
+      "offset": 272535,
+      "end": 272549
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_26",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 26,
+      "line": 4624,
+      "offset": 272554,
+      "end": 272568
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_27",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 27,
+      "line": 4631,
+      "offset": 272969,
+      "end": 272983
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_0",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 0,
+      "line": 5810,
+      "offset": 339845,
+      "end": 339859
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_1",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 1,
+      "line": 5810,
+      "offset": 339864,
+      "end": 339878
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_2",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 2,
+      "line": 5816,
+      "offset": 340089,
+      "end": 340103
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_3",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 3,
+      "line": 5821,
+      "offset": 340277,
+      "end": 340291
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_4",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 4,
+      "line": 5826,
+      "offset": 340508,
+      "end": 340522
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_5",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 5,
+      "line": 5826,
+      "offset": 340527,
+      "end": 340541
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_6",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 6,
+      "line": 5832,
+      "offset": 340765,
+      "end": 340779
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_7",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 7,
+      "line": 5832,
+      "offset": 340784,
+      "end": 340798
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_8",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 8,
+      "line": 5838,
+      "offset": 341020,
+      "end": 341034
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_9",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 9,
+      "line": 5838,
+      "offset": 341039,
+      "end": 341053
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_10",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 10,
+      "line": 5849,
+      "offset": 341499,
+      "end": 341513
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_11",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 11,
+      "line": 5924,
+      "offset": 345396,
+      "end": 345410
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_12",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 12,
+      "line": 5927,
+      "offset": 345543,
+      "end": 345557
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_13",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 13,
+      "line": 5944,
+      "offset": 346360,
+      "end": 346374
+    },
+    {
+      "name": "FQCOracle.Checked.CoulombMid36Stage5W298_14",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CoulombMid36Stage5W298",
+      "source_sha256": "10a283e1ff607646c1abc80f99361cbe592f1705ff30f214eac3ff60096969b7",
+      "index": 14,
+      "line": 5946,
+      "offset": 346482,
+      "end": 346496
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_0",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 0,
+      "line": 2578,
+      "offset": 164714,
+      "end": 164728
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_1",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 1,
+      "line": 3224,
+      "offset": 201097,
+      "end": 201111
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_2",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 2,
+      "line": 3362,
+      "offset": 209062,
+      "end": 209076
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_3",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 3,
+      "line": 3369,
+      "offset": 209519,
+      "end": 209533
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_4",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 4,
+      "line": 3495,
+      "offset": 217311,
+      "end": 217325
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_5",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 5,
+      "line": 3517,
+      "offset": 218713,
+      "end": 218727
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_6",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 6,
+      "line": 4247,
+      "offset": 259312,
+      "end": 259326
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25PolyCoinCoul18_7",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "source_sha256": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+      "index": 7,
+      "line": 4371,
+      "offset": 267106,
+      "end": 267120
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25W314Splice_0",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25W314Splice",
+      "source_sha256": "e249656c61da349667c0b47870da3d38c416df3d07fdb9206e8c29c0f73c2077",
+      "index": 0,
+      "line": 240,
+      "offset": 12199,
+      "end": 12213
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25W314Splice_1",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25W314Splice",
+      "source_sha256": "e249656c61da349667c0b47870da3d38c416df3d07fdb9206e8c29c0f73c2077",
+      "index": 1,
+      "line": 247,
+      "offset": 12471,
+      "end": 12485
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25W314Splice_2",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25W314Splice",
+      "source_sha256": "e249656c61da349667c0b47870da3d38c416df3d07fdb9206e8c29c0f73c2077",
+      "index": 2,
+      "line": 256,
+      "offset": 12890,
+      "end": 12904
+    },
+    {
+      "name": "FQCOracle.Checked.Stage25W314Splice_3",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25W314Splice",
+      "source_sha256": "e249656c61da349667c0b47870da3d38c416df3d07fdb9206e8c29c0f73c2077",
+      "index": 3,
+      "line": 690,
+      "offset": 32927,
+      "end": 32941
+    }
+  ],
+  "retained_finite_case_sites": [
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_28",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 28,
+      "line": 4842,
+      "offset": 284934,
+      "end": 284948
+    },
+    {
+      "name": "FQCOracle.Checked.CrossStageCarryTap29_29",
+      "module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.CrossStageCarryTap29",
+      "source_sha256": "af6d3fcddaebf546011dc091a6c934c686d053b6ead34b0acd910502b1ecacac",
+      "index": 29,
+      "line": 4844,
+      "offset": 285077,
+      "end": 285091
+    }
+  ]
+}
