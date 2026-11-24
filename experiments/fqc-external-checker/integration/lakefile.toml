@@ -1,0 +1,34 @@
+name = "fqc-photochemistry"
+version = "0.1.0"
+defaultTargets = ["QuantumComputationDiscoveries.Algorithms.Photochemistry"]
+weakLeanArgs = ["-M4800", "-j1"]
+
+[leanOptions]
+autoImplicit = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "56a005855ea17e0b0958f73ec801ae140b0a1679"
+
+[[require]]
+name = "physlib"
+git = "https://github.com/leanprover-community/physlib"
+rev = "af04d60bcd7618af849ff511e0a19d77f709937e"
+
+[[lean_lib]]
+name = "QuantumComputation"
+
+[[lean_lib]]
+name = "QuantumComputationSpecs"
+
+[[lean_lib]]
+name = "QuantumComputationDiscoveries"
+globs = ["QuantumComputationDiscoveries.+"]
+
+[[lean_lib]]
+name = "Audit"
+
+[[lean_lib]]
+name = "FQCOracle"

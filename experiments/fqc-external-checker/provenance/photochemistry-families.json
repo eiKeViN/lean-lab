@@ -1,0 +1,39 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "families": {
+    "pairs": {
+      "namespace": "QuantumComputation.Specs.PhotochemistrySolution.Coul18K2Certs",
+      "function": "checkPairFast3K2",
+      "count": 16,
+      "axiom_name": "pair_batch",
+      "definitions_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2Parts.Part04Defs",
+      "sources": [
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2"
+      ],
+      "source_sha256": {
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2": "e840103b34da3be45cf73795b3e9407aebd1b1152a36243be119bfebd02f00f0"
+      }
+    },
+    "ulp": {
+      "namespace": "QuantumComputation.Specs.PhotochemistrySolution.SubCoin62Certs",
+      "function": "checkOneABothSub62",
+      "count": 32,
+      "axiom_name": "ulp_batch",
+      "definitions_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+      "sources": [
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard0",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard1",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard2",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard3"
+      ],
+      "source_sha256": {
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.Stage25PolyCoinCoul18": "296f78b16da897691702be8c4ff086af03b626ab9762993712389709a9fb5b13",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard0": "7db1df6e04ba69d42846b80b4ee3a6b38540cbea51522234db26d3ca83191ae5",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard1": "196c1dcef44cec81f37d588fc1f87f2b41315d0fda3016f18da5ffea8186da31",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard2": "5f5e5bbd80017245ee3d4c947a2641178fa158b417d8100687196af9c19ce3e9",
+        "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.SubCoin62UlpCertShard3": "dc35f9b4113c61d69e89ea66e7b775bd78e638d5f0f1ee3c452e69c01de86639"
+      }
+    }
+  }
+}

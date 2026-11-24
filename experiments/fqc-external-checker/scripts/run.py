@@ -17,7 +17,8 @@ ROOT = source.ROOT
 RESULTS = ROOT / "results"
 STANDARD = {"propext", "Quot.sound", "Classical.choice"}
 BRIDGES = ["entryExec_eq", "acceptedEntry_sound", "spread16Exec_eq", "expandWord_eq",
-           "entryOption_eq", "braunCons_eq", "cellCheck_eq", "even25_eq", "splitWord_eq"]
+           "entryOption_eq", "braunCons_eq", "cellCheck_eq", "even25_eq", "splitWord_eq",
+           "Stage2.expandWord_eq", "Stage2.lagrange_eq"]
 
 
 def run(cmd, label, expected=0):
@@ -61,9 +62,17 @@ def cells_term(cells):
 
 
 def checker_sources_digest():
-    paths = [ROOT / "Main.lean", ROOT / "lean-toolchain", ROOT / "lakefile.toml",
-             ROOT / "FQCExternal/Entry.lean", ROOT / "FQCExternal/Exec.lean"]
-    paths += sorted((ROOT / "FQCExternal/Vendor").glob("*.lean"))
+    modules, todo = set(), ["Main"]
+    while todo:
+        name = todo.pop()
+        if name in modules:
+            continue
+        modules.add(name)
+        text = (ROOT / (name.replace(".", "/") + ".lean")).read_text()
+        todo.extend(n for n in re.findall(r"^(?:public )?import ([\w.]+)", text, re.M)
+                    if n.startswith("FQCExternal."))
+    paths = [ROOT / (n.replace(".", "/") + ".lean") for n in modules]
+    paths += [ROOT / "lean-toolchain", ROOT / "lakefile.toml"]
     payload = b"".join(str(p.relative_to(ROOT)).encode() + b"\0" + p.read_bytes() + b"\0"
                        for p in sorted(paths))
     return source.sha(payload)
@@ -81,7 +90,7 @@ def proof_closure():
         module = todo.pop()
         if module in seen:
             continue
-        if module in {"Main", "FQCExternal.Exec", "FQCExternal.Entry"}:
+        if module in {"Main", "FQCExternal.Exec", "FQCExternal.Exec2", "FQCExternal.Entry"}:
             raise ValueError("Executable code leaked into the admitted proof import closure")
         path = ROOT / (module.replace(".", "/") + ".lean")
         text = path.read_text()
@@ -255,7 +264,7 @@ def check(generate=False):
     report["steps"]["claim_build"] = claim_build
     audit = ROOT / ".cache/Audit.lean"
     audit.parent.mkdir(exist_ok=True)
-    audit.write_text("import FQCExternal.Claim\nimport FQCExternal.Exec\n"
+    audit.write_text("import FQCExternal.Claim\nimport FQCExternal.Exec2\n"
                      "open QuantumComputation.Specs.PhotochemistrySolution.TopHad.Synth\n"
                      "set_option pp.fullNames true\n"
                      f"example : {manifest['public_type']} := FQCExternal.c1_0_external\n"

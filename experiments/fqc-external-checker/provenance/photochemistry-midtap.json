@@ -1,0 +1,12 @@
+{
+  "upstream": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "source_module": "QuantumComputationDiscoveries.Algorithms.Photochemistry.Solution.MidTap29Coul18Stage4K2",
+  "source_sha256": "e840103b34da3be45cf73795b3e9407aebd1b1152a36243be119bfebd02f00f0",
+  "claim": {
+    "name": "borrow_preservation",
+    "axiom": "QuantumComputation.Specs.PhotochemistrySolution.Coulomb18K2.External.borrow_preservation",
+    "original_theorem": "QuantumComputation.Specs.PhotochemistrySolution.Coulomb18K2.midSubBorrows18_pres_cert",
+    "term": "allBelow 64 (fun hi \u21a6 allBelow 128 (fun lo \u21a6\n  let s := mid18Steps midSubBorrows18Ops (mid18OfHiLo hi lo)\n  decide (s.b6 = lo.testBit 0 \u2227 s.b7 = lo.testBit 1 \u2227 s.b8 = lo.testBit 2 \u2227\n    s.b23 = lo.testBit 3 \u2227 s.b24 = lo.testBit 4 \u2227 s.b25 = lo.testBit 5 \u2227\n    s.b57 = hi.testBit 0)))",
+    "cases": 8192
+  }
+}

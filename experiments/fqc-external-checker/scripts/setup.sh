@@ -4,4 +4,9 @@ cd "$(dirname "$0")/.."
 if [[ -n "${FQC_TOOLCHAIN_DIR:-}" ]]; then
   export PATH="$FQC_TOOLCHAIN_DIR/bin:$PATH"
 fi
-python3 scripts/run.py setup
+if [[ "${1:-}" == full ]]; then
+  shift
+  python3 scripts/full_setup.py "$@"
+else
+  python3 scripts/run.py setup "$@"
+fi

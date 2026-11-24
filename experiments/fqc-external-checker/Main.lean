@@ -1,5 +1,5 @@
 import Lean
-import FQCExternal.Exec
+import FQCExternal.Exec2
 
 open Lean QuantumComputation.Specs.PhotochemistrySolution.TopHad.Synth
 
@@ -55,32 +55,41 @@ def stream (j : Json) : Except String BitChain := do
   let ws ← a.toList.mapM hexNat
   pure (ws.foldr BitChain.more .empty)
 
-def parse (j : Json) : Except String (Nat × CellList × BTree Nat × BitChain × Json) := do
+def parse (j : Json) : Except String (Nat × Nat × CellList × BTree Nat × BitChain × Json) := do
   let schema ← (← j.getObjVal? "schema").getStr?
-  if schema != "fqc-stage1-batch-v1" then throw "unsupported certificate schema"
+  let stage ←
+    if schema == "fqc-stage1-batch-v1" then pure 1
+    else if schema == "fqc-stage2-batch-v1" then pure 2
+    else throw "unsupported certificate schema"
   let batch ← (← j.getObjVal? "batch").getNat?
   let rawCells ← j.getObjVal? "cells"
   let b ← cells rawCells
   let w ← tree 256 (← j.getObjVal? "words")
   let s ← stream (← j.getObjVal? "stream")
-  pure (batch, b, w, s, rawCells)
+  pure (stage, batch, b, w, s, rawCells)
 
 end FQCExternal.Input
 
-def main (args : List String) : IO UInt32 := do
-  match args with
-  | [path] =>
+def checkFile (path : String) : IO UInt32 := do
     try
       let text ← IO.FS.readFile path
       if text.length > 2000000 then throw (IO.userError "certificate file limit")
       match Json.parse text >>= FQCExternal.Input.parse with
       | .error err => IO.eprintln err; return 2
-      | .ok (batch, cells, words, stream, rawCells) =>
-        let accepted := FQCExternal.checkBatch cells words stream
+      | .ok (stage, batch, cells, words, stream, rawCells) =>
+        let accepted := if stage == 1 then FQCExternal.checkBatch cells words stream
+                        else FQCExternal.Stage2.checkBatch cells words stream
         IO.println (Json.mkObj [
-          ("schema", toJson "fqc-stage1-result-v1"),
+          ("schema", toJson s!"fqc-stage{stage}-result-v1"),
           ("batch", toJson batch), ("cells", rawCells),
           ("accepted", toJson accepted)]).compress
         return if accepted then 0 else 1
     catch err => IO.eprintln err.toString; return 2
-  | _ => IO.eprintln "usage: fqc_checker CERTIFICATE.json"; return 2
+
+def main (args : List String) : IO UInt32 := do
+  if args.isEmpty then
+    IO.eprintln "usage: fqc_checker CERTIFICATE.json ..."; return 2
+  let mut status := 0
+  for path in args do
+    status := max status (← checkFile path)
+  return status
