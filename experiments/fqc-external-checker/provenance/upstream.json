@@ -1,0 +1,42 @@
+{
+  "upstream": "google-deepmind/formal-quantum-computation",
+  "commit": "a88de8ff65d78af564b2373088ca369dc95f6547",
+  "lean": "4.35.0",
+  "sources": {
+    "Core": {
+      "path": "QuantumComputationDiscoveries/Algorithms/Photochemistry/Solution/TopHadStage1Tab0Core.lean",
+      "sha256": "851e6dcf38c31d0569b4b55b4e8403c940ced96ce3cefe588b16220813e1b47e",
+      "git_blob_sha1": "75450f4eeb463be3eff17b4c2c76c4cd4ea11f1b",
+      "stop_before": null,
+      "derived_sha256": "851e6dcf38c31d0569b4b55b4e8403c940ced96ce3cefe588b16220813e1b47e"
+    },
+    "Stream": {
+      "path": "QuantumComputationDiscoveries/Algorithms/Photochemistry/Solution/TopHadCbvStreamCore.lean",
+      "sha256": "b62fc2396ae3bf1b15947b59039466af7e78d5629cb29facaff33c98a309bd48",
+      "git_blob_sha1": "0b3e82740647d2cf654c1704689fadd3f8bb5694",
+      "stop_before": null,
+      "derived_sha256": "ea3e5d586cb7f6a3740fdbe87f5c0d7765300fa1dea990d34992e0e6114334f1"
+    },
+    "Shared": {
+      "path": "QuantumComputationDiscoveries/Algorithms/Photochemistry/Solution/TopHadStage1Tab2Shard0.lean",
+      "sha256": "af7d196bc435c5ec80ca4f5e13551eec61b64f27f9d7596f402928120a0dd57d",
+      "git_blob_sha1": "3f873a38107745738eb8da72b5be578de1f46417",
+      "stop_before": "theorem c2_0",
+      "derived_sha256": "69bdaa91aa7c8063a88f18fc800718ee2ec68dd48510760570cb78849916c30a"
+    },
+    "Stage1": {
+      "path": "QuantumComputationDiscoveries/Algorithms/Photochemistry/Solution/TopHadStage1Tab1Shard0.lean",
+      "sha256": "8eabcfb9a09a57c1a9154e85729bee89838dc6b4d53f8302398a448cf3af9394",
+      "git_blob_sha1": "d59c49071a4904236f9a52feb29e42b5f7f57e18",
+      "stop_before": "theorem c1_0",
+      "derived_sha256": "efde4f74a9d16737ad8cd04e44dd4be3f9e18865c4bfbb83a323b02c663a362c"
+    }
+  },
+  "fixtures": {
+    "data/c1_0/batch0.json": "049cecc361e43d6b98887286a172a0421d2ba77c9c301c2bd2d30ebe8a0a0a4d",
+    "data/c1_0/batch1.json": "8bfd0ef5536d19bd26e96412443b378acf8c67783b7ec35300843cac4f50b766",
+    "data/c1_0/batch2.json": "b16b61b5872d40955bbe5c82740c8c360a4c90892deb4efacbb6973266f96fda",
+    "data/c1_0/batch3.json": "e93bfcc6e29495fbdf25beeb48f8c5bc4faf2186c1b90cb6982521f755e68743"
+  },
+  "public_type": "((D1 1 0 0 \u2227 D1 1 0 1) \u2227 D1 1 1 0) \u2227 ((D1 1 1 1 \u2227 D1 2 0 1) \u2227 D1 1 2 0)"
+}
